@@ -15,3 +15,33 @@ body{
 .CVD19_banner a:visited{text-decoration: none; color: white;}
 .CVD19_banner a:active{text-decoration: none; color: white;}
 .CVD19_banner a:hover{text-decoration: none; color: white;}
+
+.include_image{
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-image: url('https://a0.muscache.com/im/pictures/c8dd7889-d579-49c7-9650-24ff71a82190.jpg?im_q=highq&im_w=720');
+}
+
+.section_header {
+    display: flex;
+}
+
+.section_header .logo{
+}
+
+.section_header .header_field{
+}
+
+.section_header .my_info {
+}
+
+.userSearch_box {
+    display: flex;
+}
+
+.phrase {
+    display: flex;
+}
