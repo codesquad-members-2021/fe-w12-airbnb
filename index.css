@@ -1,0 +1,150 @@
+:root {
+  /*Color*/
+  --main-color: #ff5a5f;
+
+  /*Size*/
+
+  /*font-size*/
+}
+.fa-user-circle {
+  color: gray;
+  font-size: 30px;
+}
+
+ul {
+  list-style: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+header {
+  height: 0px;
+}
+.header__logo {
+  box-sizing: border-box;
+  font-size: 30px;
+  width: 118px;
+  height: 64px;
+  color: var(--main-color);
+}
+
+.header__logo--text {
+  font-size: 25px;
+}
+
+.nav-menu {
+  text-align: center;
+
+  width: 300px;
+  height: 48px;
+  padding: 0px 24px 0px 24px;
+}
+.nav-menu__list {
+  display: inline-block;
+  padding: 10px;
+  width: 27.688px;
+  height: 20px;
+
+  font-size: 16px;
+}
+
+#oline {
+  width: 104.719px;
+  padding: 10px 16px 10px 16px;
+}
+.nav-login {
+  display: inline;
+}
+
+.top-section {
+  font-size: 54px;
+}
+.top-section__img-div {
+  background-image: url("img/main-wide.jpg");
+  background-size: 100% 100%;
+  height: 1108.39px;
+}
+.top-section__text-div {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-10%, -50%);
+  font-size: 54px;
+  font-weight: 800;
+  color: white;
+  z-index: 2;
+  text-align: left;
+}
+.top-section__text-div--btn {
+  background-color: white;
+  width: 144.969px;
+  height: 32px;
+  margin-top: 22px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.city-section {
+  display: block;
+  height: 272px;
+  padding: 64px 0px 64px 0px;
+  margin-left: 357px;
+  margin-right: 357px;
+}
+
+.city-section__div {
+  column-count: 4;
+
+  scroll-padding: 0px 24px;
+}
+.city-section__img {
+  width: 65px;
+  height: 65px;
+  border-radius: 10px;
+}
+
+.city-section__text {
+  display: inline;
+  text-align: center;
+}
+.room-section {
+  font-size: 14px;
+  display: block;
+  height: 488.5px;
+}
+.room-section__img {
+  width: 302.75px;
+  height: 302.75px;
+}
+.activity-section__img {
+  width: 409px;
+  height: 272.656px;
+  border-radius: 16px 16px 16px 16px;
+}
+
+#pasta {
+  width: 632.5px;
+  height: 616.5px;
+}
+.host-section {
+  width: 1425px;
+  height: 478.656px;
+}
+.host-section__div {
+  display: inline-block;
+  text-align: left;
+  font-size: 14px;
+  max-width: 1760px;
+  padding: 0px 80px 0px 80px;
+}
+.host-section__main-text {
+  font-size: 32px;
+}
+.host-section__img {
+  width: 409px;
+  height: 272.656px;
+  border-radius: 16px 16px 16px 16px;
+}

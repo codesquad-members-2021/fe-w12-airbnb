@@ -15,9 +15,9 @@
       </div>
       <nav class="nav-menu">
         <ul>
-          <li class="nav-menu--room">숙소</li>
-          <li class="nav-menu--activity">체험</li>
-          <li class="nav-menu--online-activity">온라인 체험</li>
+          <span class="nav-menu__list">숙소</span>
+          <span class="nav-menu__list">체험</span>
+          <span class="nav-menu__list" id="oline">온라인 체험</span>
         </ul>
       </nav>
 
@@ -35,77 +35,83 @@
     <main>
       <!--Search-->
       <div class="search">
-        <input class ="contype="text" />
+        <input class="search--input" contype="text" />
         <i class="fas fa-search"></i>
       </div>
       <!--Top-->
       <section class="top-section">
-        <div class="top-section__img-div">
-          <img class="top-section__img-div--img" src="img/main.jpg" />
+        <div class="top-section__img-div"></div>
+        <div class="top-section__text-div">
+          이제, 여행은<br />가까운 곳에서<br /><button
+            class="top-section__text-div--btn"
+          >
+            근처의 숙소 둘러보기
+          </button>
         </div>
-        <div class="top-section__text-div">이제, 여행은<br />가까운 곳에서</div>
-        <button class="top-section__text-div--btn">근처의 숙소 둘러보기</button>
       </section>
       <!--City-->
       <section class="city-section">
-        <ul>
-          <li>
-            <img class="city-section__img" src="img/sec1-01.jpg" />
-            <div class="city--text">
-              <span>서울 차로</span>
-              <span>3분거리</span>
-            </div>
-          </li>
-          <li>
-            <img
-              class="city-section__img"
-              src="img/sec1-02.jpg"
-              alt="seoul"
-            />인천 차로 30분 거리
-          </li>
-          <li>
-            <img
-              class="city-section__img"
-              src="img/sec1-03.jpg"
-              alt="uijeongbu"
-            />의정부시 차로 45분 거리
-          </li>
-          <li>
-            <img
-              class="city-section__img"
-              src="img/sec1-04.jpg"
-              alt="daejeon"
-            />대전 차로 2.5시간 거리
-          </li>
-          <li>
-            <img
-              class="city-section__img"
-              src="img/sec1-05.jpg"
-              alt="daegu"
-            />대구 차로 4시간 거리
-          </li>
-          <li>
-            <img
-              class="city-section__img"
-              src="img/sec1-06.jpg"
-              alt="goyang"
-            />고양시 차로 30분 거리
-          </li>
-          <li>
-            <img
-              class="city-section__img"
-              src="img/sec1-07.jpg"
-              alt="bucheon"
-            />부천시 차로 15분 거리
-          </li>
-          <li>
-            <img
-              class="city-section__img"
-              src="img/sec1-08.jpg"
-              alt="suwon"
-            />수원시 차로 45분 거리
-          </li>
-        </ul>
+        <div class="city-section__div">
+          <ul>
+            <li>
+              <img
+                class="city-section__img"
+                src="img/sec1-01.jpg"
+                alt="seoul"
+              />
+              서울 차로 3분거리
+            </li>
+            <li>
+              <img
+                class="city-section__img"
+                src="img/sec1-02.jpg"
+                alt="incheon"
+              />인천 차로 30분 거리
+            </li>
+            <li>
+              <img
+                class="city-section__img"
+                src="img/sec1-03.jpg"
+                alt="uijeongbu"
+              />의정부시 차로 45분 거리
+            </li>
+            <li>
+              <img
+                class="city-section__img"
+                src="img/sec1-04.jpg"
+                alt="daejeon"
+              />대전 차로 2.5시간 거리
+            </li>
+            <li>
+              <img
+                class="city-section__img"
+                src="img/sec1-05.jpg"
+                alt="daegu"
+              />대구 차로 4시간 거리
+            </li>
+            <li>
+              <img
+                class="city-section__img"
+                src="img/sec1-06.jpg"
+                alt="goyang"
+              />고양시 차로 30분 거리
+            </li>
+            <li>
+              <img
+                class="city-section__img"
+                src="img/sec1-07.jpg"
+                alt="bucheon"
+              />부천시 차로 15분 거리
+            </li>
+            <li>
+              <img
+                class="city-section__img"
+                src="img/sec1-08.jpg"
+                alt="suwon"
+              />수원시 차로 45분 거리
+            </li>
+          </ul>
+        </div>
       </section>
       <!--room-->
       <section class="room-section">
@@ -119,11 +125,11 @@
               src="img/sec2-01.jpg"
               alt="rural-house"
             />
-            <span>집 전체</span>
+            <div>집 전체</div>
           </li>
           <li>
             <img class="room-section__img" src="img/sec2-02.jpg" alt="shack" />
-            <span>통나무집 및 전원주택</span>
+            <div>통나무집 및 전원주택</div>
           </li>
           <li>
             <img
@@ -131,7 +137,7 @@
               src="img/sec2-03.jpg"
               alt="unique-space"
             />
-            <span>독특한 공간</span>
+            <div>독특한 공간</div>
           </li>
           <li>
             <img
@@ -139,7 +145,7 @@
               src="img/sec2-04.jpg"
               alt="pets-allowed"
             />
-            <span>반려동물 동반 가능</span>
+            <div>반려동물 동반 가능</div>
           </li>
         </ul>
       </section>
@@ -153,10 +159,11 @@
           <li>
             <img
               class="activity-section__img"
+              id="pasta"
               src="img/sec3-01.jpg"
               alt="make-pasta"
             />
-            <span>이탈리아 할머니와 함께 수제 파스타 만들기</span>
+            <div>이탈리아 할머니와 함께 수제 파스타 만들기</div>
           </li>
           <li>
             <img
@@ -164,7 +171,7 @@
               src="img/sec3-02.jpg"
               alt="mindful-eating"
             />
-            <span>선(禪) 사상을 통한 마음챙김 식사</span>
+            <div>선(禪) 사상을 통한 마음챙김 식사</div>
           </li>
           <li>
             <img
@@ -172,7 +179,7 @@
               src="img/sec3-03.jpg"
               alt="know-mate-tea"
             />
-            <span>아르헨티나를 대표하는 예르바 마테차 알아보기</span>
+            <div>아르헨티나를 대표하는 예르바 마테차 알아보기</div>
           </li>
           <li>
             <img
@@ -180,41 +187,44 @@
               src="img/sec3-04.jpg"
               alt="meditaion-with-piano-music"
             />
-            <span>파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</span>
+            <div>파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</div>
           </li>
         </ul>
       </section>
       <!--Host-->
+
       <section class="host-section">
-        <div class="host-section__main-text">
-          수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.
+        <div class="host-section__div">
+          <div class="host-section__main-text">
+            수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.
+          </div>
+          <ul>
+            <li>
+              <img
+                class="host-section__img"
+                src="img/sec4-01.jpg"
+                alt="be-host"
+              />
+              <div>숙소 호스트 되기</div>
+            </li>
+            <li>
+              <img
+                class="host-section__img"
+                src="img/sec4-02.jpg"
+                alt="host-onlie-activity"
+              />
+              <div>온라인 체험 호스팅하기</div>
+            </li>
+            <li>
+              <img
+                class="host-section__img"
+                src="img/sec4-03.jpg"
+                alt="host-activity"
+              />
+              <div>체험 호스팅하기</div>
+            </li>
+          </ul>
         </div>
-        <ul>
-          <li>
-            <img
-              class="host-section__img"
-              src="img/sec4-01.jpg"
-              alt="be-host"
-            />
-            <span>숙소 호스트 되기</span>
-          </li>
-          <li>
-            <img
-              class="host-section__img"
-              src="img/sec4-02.jpg"
-              alt="host-onlie-activity"
-            />
-            <span>온라인 체험 호스팅하기</span>
-          </li>
-          <li>
-            <img
-              class="host-section__img"
-              src="img/sec4-03.jpg"
-              alt="host-activity"
-            />
-            <span>체험 호스팅하기</span>
-          </li>
-        </ul>
       </section>
     </main>
     <script
