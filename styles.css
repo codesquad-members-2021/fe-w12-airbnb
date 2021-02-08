@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+}
+
+.CVD19_banner{
+    color: white;
+    background-color: black;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.CVD19_banner a:link{text-decoration: none; color: white;}
+.CVD19_banner a:visited{text-decoration: none; color: white;}
+.CVD19_banner a:active{text-decoration: none; color: white;}
+.CVD19_banner a:hover{text-decoration: none; color: white;}
