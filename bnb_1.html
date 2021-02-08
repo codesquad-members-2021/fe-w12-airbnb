@@ -5,77 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>에어비앤비</title>
-    <link rel="stylesheet" href="./bnb_1.css"></link>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
-
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type ="text/css" href="./bnb_1.css"></link>
+    <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+   
+   </head>
   <body>
      <!-- HEADER -->
-    <header class="section">
+    <header>
        
       <div class="corona">
-         <a class="mouseOn" href="">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a>
+         <a href="#">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a>
       </div>
-
-      <div class="inner">
-         <div class="menuGroup">   
-            <div class="logo">
-               <a href="#">
-                  <img src="./airbnb.svg" href="#" class="logoIMG" alt="로고이미지">
-               </a>
+      <div class="background">
+         <div class="inner">
+            <div class="menuGroup clear">   
+               <div class="logo">
+                  <a href="#">
+                     <img src="./img/airbnb.svg" href="#" class="logoIMG" alt="로고이미지">
+                  </a>
                </div>
-
-            <div class="menuCenter">
-               <a href="#" class="menuBtn">숙소</a>
-               <a href="#" class="menuBtn">체험</a>
-               <a href="#" class="menuBtn">온라인체험</a>
-               <form class="search" id="infoSearchForm">
-                  <div>
-                     <p>위치</p>
-                     <input type="text" name="where" placeholder="어디로 여행가세요?"/>
+   
+               <div class="menuCenter">
+                  <a href="#" class="menuBtn">숙소</a>
+                  <a href="#" class="menuBtn">체험</a>
+                  <a href="#" class="menuBtn">온라인체험</a>
+                  <form class="search" id="infoSearchForm">
+                     <div>
+                        <p>위치</p>
+                        <input type="text" name="where" placeholder="어디로 여행가세요?"/>
+                     </div>
+                     <div>
+                        <p>체크인</p>
+                        <input name="checkIn" placeholder="날짜 추가"/>
+                     </div>
+                     <div>
+                        <p>체크아웃</p>
+                        <input name="checkOut" placeholder="날짜 추가"/>
+                     </div>
+                     <div>
+                        <p>인원</p>
+                        <input  name="peopleNumber"  placeholder="게스트 추가"/>
+                     </div>
+                     <button type="submit" text="검색"></button>
+   
+                     <!-- <input type="button hide"/>
+                     <div>검색 시작하기</div>
+                     <img>돋보기</img> -->
+                  </form>
+               </div>   
+   
+               <div class="menuRight">
+                  <div class="menuBtn">호스트 되기</div>
+                  <div class="menuBtn">language</div>
+                  <div class="menuBtn toggle">바&img
+                     <ul>
+                        <li><a href="#">회원 가입</a></li>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">숙소 호스트 되기</a></li>
+                        <li><a href="#">체험 호스팅하기</a></li>
+                        <li><a href="#">도움말</a></li>
+                     </ul>
                   </div>
-                  <div>
-                     <p>체크인</p>
-                     <input name="checkIn" placeholder="날짜 추가"/>
-                  </div>
-                  <div>
-                     <p>체크아웃</p>
-                     <input name="checkOut" placeholder="날짜 추가"/>
-                  </div>
-                  <div>
-                     <p>인원</p>
-                     <input  name="peopleNumber"  placeholder="게스트 추가"/>
-                  </div>
-                  <button type="submit" text="검색"></button>
-
-                  <!-- <input type="button hide"/>
-                  <div>검색 시작하기</div>
-                  <img>돋보기</img> -->
-               </form>
-            </div>   
-
-            <div class="menuRight">
-               <div class="menuBtn">호스트 되기</div>
-               <div class="menuBtn">language</div>
-               <div class="menuBtn toggle">바&img
-                  <ul>
-                     <li><a href="#">회원 가입</a></li>
-                     <li><a href="#">로그인</a></li>
-                     <li><a href="#">숙소 호스트 되기</a></li>
-                     <li><a href="#">체험 호스팅하기</a></li>
-                     <li><a href="#">도움말</a></li>
-                  </ul>
                </div>
             </div>
+        
+         <div class="title">
+            <div class="ment">
+               이제, 여행은 가까운&nbsp;곳에서
+            </div>
+            <button>근처의 숙소 둘러보기</button>
          </div>
+      </div>
       </div>
    </header>
 
-
-    <section class="section main">
-      <div class="ment">이제, 여행은 가까운 곳에서</div>
-      <div class="button">근처의 숙소 둘러보기</div>
-    </section>
+   <!-- SECTION-MAIN -->
 
     <section class="list locatioin">
       <ul class="location">
