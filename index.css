@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+}
+
+a {
+  color: white;
+}
+
+/* Covid Info */
+.covid_box {
+  height: 62px;
+  background: #000;
+  position: relative;
+}
+
+.covid_info {
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 배경 화면 */
+.bg {
+  border: 1px solid black;
+  width: 100%;
+  /* display: flex; */
+}
+
+.header {
+  border: 1px solid blue;
+  height: 76px;
+  padding: 0 80px;
+}
+
+.logo {
+  width: 120px;
+  height: 62px;
+  border: 1px solid black;
+}
+
+.header_menu {
+  width: 302px;
+  height: 50px;
+  border: 1px solid red;
+  padding: 0 24px;
+}
+
+.header_menu_span {
+  border: 1px solid black;
+}
+
+.middle {
+  background: white;
+  border: 1px solid red;
+  height: 300px;
+  position: relative;
+}
+
+.city_box1 {
+  border: 1px solid violet;
+  height: 160px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.city_box2 {
+  border: 1px solid gray;
+  height: 158px;
+  padding: 0 80px;
+  margin: 0 103px;
+}
+
+.span_box {
+}
+
+.city {
+  border: 1px solid magenta;
+  height: 66px;
+}
+
+.city_img {
+  border: 1px solid red;
+  width: 62px;
+  height: 62px;
+}
+
+.city_name {
+  font-size: 14px;
+  display: block;
+}
+
+.city_distance {
+  font-size: 14px;
+  display: block;
+}
+
+.middle2 {
+  background: #eee;
+  border: 1px solid blue;
+  height: 600px;
+}
+
+.middle3 {
+  background: #333;
+  border: 1px solid yellow;
+  height: 1000px;
+}
+
+.blank {
+  background: white;
+  border: 1px solid red;
+  height: 30px;
+}
+
+.middle4 {
+  background: tomato;
+  border: 1px solid violet;
+  height: 550px;
+}
+
+.footer {
+  background: black;
+  height: 400px;
+}
+
+/* .include_image{
+  width: 100%;
+  height: 811px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-image: url('https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1920');
+} */
