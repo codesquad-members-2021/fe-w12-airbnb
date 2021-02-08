@@ -16,7 +16,54 @@
           <div id="home">
             <a href="">home</a>
           </div>
-          <div id="search"></div>
+          <div id="search">
+            <div>
+              <button>검색 시작하기</button>
+            </div>
+            <div>
+              <form action="">
+                <fieldset>
+                  <div aria-label="무엇을 찾고 계신가요?">
+                    <label for="stay">
+                      <input type="radio" id="stay" name="checkBeforeSearch" checked />
+                      <span>숙소</span>
+                    </label>
+                    <label for="experiences">
+                      <input type="radio" id="experiences" name="checkBeforeSearch" />
+                      <span>체험</span>
+                    </label>
+                    <label for="online_experiences">
+                      <input type="radio" id="online_experiences" name="checkBeforeSearch" />
+                      <span>온라인 체험 </span>
+                    </label>
+                  </div>
+                </fieldset>
+                <div>
+                  <div class="whereToGo">
+                    <div>위치</div>
+                    <input type="text" name="" id="" placeholder="어디로 여행가세요?" />
+                  </div>
+                  <div class="check">
+                    <div class="checkIn">
+                      <div>체크인</div>
+                      <div>날짜 추가</div>
+                    </div>
+                    <div class="checkOut">
+                      <div>체크아웃</div>
+                      <div>날짜 추가</div>
+                    </div>
+                  </div>
+                  <div class="addPeople">
+                    <div>
+                      <div>인원</div>
+                      <div>게스트 추가</div>
+                    </div>
+                    <div><button>검색</button></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
           <div id="account">
             <nav>
               <div>
@@ -44,9 +91,7 @@
       <div class="itemList">
         <div>
           <!-- 이제, 여행은 가까운 곳에서 근처의 숙소 둘러보기 -->
-          <div class="picture">
-              이미지 
-          </div>
+          <div class="picture">이미지</div>
           <div class="statement">
             <div>
               <span> 이제, 여행은 가까운 곳에서</span>
