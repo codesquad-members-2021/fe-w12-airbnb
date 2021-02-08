@@ -1,0 +1,18 @@
+nav{
+    display:grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+
+}
+
+.logo{
+    color:pink;
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.menu ul{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+}
