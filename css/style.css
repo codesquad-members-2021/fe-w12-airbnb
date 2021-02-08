@@ -82,107 +82,134 @@ header .searchBox .search-item:hover {
   background-color: rgb(230, 231, 236);
 }
 .container > section {
-    width: 100%;
-  }
-  .section-visual {
-    background-size: cover;
-    background-image: url(../img/banner.webp);
-    background-repeat: no-repeat;
-    background-position: left 55%;
-    height: 750px;
-    box-sizing: border-box;
-    position: relative;
-  }
-  
-  .section-visual .copy-box {
-    width: 30rem;
-    position: absolute;
-    top: 45%;
-    /* display: flex; */
-    /* flex-direction: column; */
-  }
-  .section-visual .copy-box span.copy {
-    font-size: 3.3rem;
-    font-weight: bold;
-    color: white;
-    line-height: 3.7rem;
-  }
-  .section-visual .copy-box span.btn {
-    background: white;
-    display: inline-block;
-    font-size: 0.8rem;
-    font-weight: bold;
-  
-    margin-top: 1.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.3rem;
-    cursor: pointer;
-  }
-  .section-visual .copy-box span.btn:hover {
-    background-color: rgb(230, 231, 236);
-  }
-  
-  .locations {
-    margin-top: 5rem;
-  }
-  .locations .inner ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .location {
-    width: 25%;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-  }
-  .location > div:first-child {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 0.5rem;
-    overflow: hidden;
-  }
-  
-  .location img {
-    width: 100%;
-  }
-  
-  .location > div:last-child {
-    margin-left: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .location > div:last-child > div:first-child {
-    font-size: 1.05rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  .article-box {
-    margin-top: 5rem;
-  }
-  .article-box .inner h3 {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  
-  .article-box .inner > div {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .article-item {
-    flex: 1;
-    margin-left: 1rem;
-  }
-  .article-item img {
-    border-radius: 1rem;
-    width: 100%;
-  }
-  .article-item div {
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-  
+  width: 100%;
+}
+.section-visual {
+  background-size: cover;
+  background-image: url(../img/banner.webp);
+  background-repeat: no-repeat;
+  background-position: left 55%;
+  height: 750px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.section-visual .copy-box {
+  width: 30rem;
+  position: absolute;
+  top: 45%;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+.section-visual .copy-box span.copy {
+  font-size: 3.3rem;
+  font-weight: bold;
+  color: white;
+  line-height: 3.7rem;
+}
+.section-visual .copy-box span.btn {
+  background: white;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.section-visual .copy-box span.btn:hover {
+  background-color: rgb(230, 231, 236);
+}
+
+.locations {
+  margin-top: 5rem;
+}
+.locations .inner ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.location {
+  width: 25%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+.location > div:first-child {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.location img {
+  width: 100%;
+}
+
+.location > div:last-child {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.location > div:last-child > div:first-child {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.article-box {
+  margin-top: 7rem;
+}
+.article-box .inner h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.article-box .inner > div {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-item {
+  flex: 1;
+  margin-left: 1rem;
+}
+.article-item img {
+  border-radius: 1rem;
+  width: 100%;
+}
+.article-item div {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 5rem;
+  background: rgb(230, 231, 236);
+}
+
+footer .inner > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0;
+}
+
+.footer-up ul li {
+  margin-top: 1rem;
+}
+
+.footer-down {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+
+  border-top: 1px solid rgb(167, 167, 167);
+  padding: 2rem 0;
+}
+
+.footer-down ul {
+  display: flex;
+}
