@@ -9,14 +9,59 @@ a {
 
 #logo {
   cursor: pointer;
+  margin-top:16px;
+  margin-left: 80px;
+}
+
+#logo2 {
+  visibility: hidden;
 }
 
 span.ingredient {
   display: inline-block;
 }
-.firstpage {
-		background-image: url("http://localhost:3000/images/main_top.webp");
+
+#corona {
+  background-color: black;
+  color: white;
+  text-decoration: underline;
+  height: 66px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+#outline {
+  margin-left: 80px;
+  color: white;
+}
+
+#btn1 {
+  color: black;
+  background-color: white;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+}
+
+#nav-right {
+  
+  margin-right: 80px;
+  margin-left: auto;
+  display: inline-flex;
+  /* align-items: center;  */
+}
+
+.firstpage {
+    background-image: url("http://localhost:3000/images/main_top.webp");
+    background-position: 0 -330px;
+    width:100%;
+    height: 700px;
+}
+
 .smallImg{
   width: 100px;
   height: 100px;
@@ -57,6 +102,11 @@ span.ingredient {
   height: 200px;
 }
 
+#recommandPlace{
+  display: flex;
+  margin: 20px;
+  flex-wrap: wrap;
+}
 /* <style>
         #logo {
             cursor: pointer;
