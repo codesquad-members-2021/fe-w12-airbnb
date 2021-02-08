@@ -1,0 +1,83 @@
+.banner {
+  --hc-lg-height: 563;
+  --hc-lg-width: 1128;
+  --tl-lg-color: white;
+  --tl-lg-font-size: 52px;
+  --tl-lg-letter-spacing: -0.02em;
+  --tl-lg-line-height: 58px;
+}
+
+/* 배경 부분 */
+.banner.background.wrapper {
+  width:100%;
+  height: max(
+    550px, min(85vh, calc(var(--hc-lg-height, 9) / var(--hc-lg-width, 16) * 100vw) )
+  );
+  
+  overflow: hidden;
+  z-index: -1;
+
+  position: absolute;
+}
+
+.banner.background.content {
+  width: 100%;
+  height: 100%;
+  
+  background-size: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;  
+}
+
+.banner.background.content > picture > img {
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+/* 배경 부분 끝 */
+
+/* 헤드라인 부분 */
+.banner.headline.wrapper {
+  height: max(
+    550px, min(85vh, calc(var(--hc-lg-height, 9) / var(--hc-lg-width, 16) * 100vw) )
+  );
+
+  display:flex;
+}
+
+.banner.headline.padding-wrapper {
+  width:100%;
+  padding: 146px 80px 40px;
+
+  display:inherit;
+  align-items: center;
+}
+
+.banner.headline.content { 
+  width: 312px;
+  color: var(--tl-lg-color, #222222) !important;
+  font-size: var(--tl-lg-font-size, 32px) !important;
+  font-weight: var(--tl-lg-font-weight, 800) !important;
+  letter-spacing: var(--tl-lg-letter-spacing, normalem) !important;
+  line-height: var(--tl-lg-line-height, 36px) !important;
+
+  display:inherit;
+  flex-direction: column;
+  /* flex-flow: column;
+  justify-content: center; */
+}
+
+.banner.headline.content-box > button {
+  margin-top: 22px;
+  padding: 7px 15px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+} 
