@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+div.index {
+    width: 1900px;
+    height: 1080px;
+    margin: 0 auto;
+}
+
+/* 헤더 */
+div.index-head {
+    width: 100%;
+    height: 70%;
+    background-image: url('../images/top_banner.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* 헤더 - 코로나 */
+div.index-head > div.covid {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    text-align: center;
+    line-height: 60px;
+}
+
+div.index-head > div.covid > a,
+a:link,
+a:visited {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+div.index-head > div.covid > a:hover,
+a:active {
+    color: #ddddddcc;
+}
+
+/* 헤더 - 메인 */
+div.index-head > header {
+    width: 100%;
+    height: 80px;
+}
+
+div.header-logo {
+    height: 100%;
+    width: 100%;
+}
+
+div.logo {
+    position: relative;
+    border-radius: 12px;
+    left: 30px;
+    top: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+/* content */
+div.index-main {
+    width: 100%;
+}
+
+div.index-main > ul > li {
+    margin: 40px 8%;
+}
+
+div.flexable {
+    margin: 60px auto;
+}
+
+/* content - section1  */
+ul.section1 > li {
+    display: inline-block;
+    width: 24.6%;
+}
+
+ul.section1 > li > img {
+    width: 20%;
+    border: 1px solid white;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+div.info {
+    display: inline-block;
+    position: relative;
+    top: -22px;
+}
+
+/* content - section 2  */
+ul.section2 {
+    margin-top: 20px;
+}
+ul.section2 > li {
+    display: inline-block;
+    width: 24.6%;
+    text-align: center;
+}
+ul.section2 > li > img {
+    width: 95%;
+    margin: 0 2.5%;
+    border: 1px solid white;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+ul.section2 > li > p {
+    text-align: left;
+    margin: 0 2.5%;
+}
