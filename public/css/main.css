@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+button,
+button:focus {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.corona {
+  background-color: black;
+  text-align: center;
+}
+
+.corona a {
+  margin: 10px auto;
+  color: white;
+}
+
+.corona a:hover {
+  color: white;
+}
