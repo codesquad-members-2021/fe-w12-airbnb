@@ -1,5 +1,51 @@
+body {
+  margin: 0;
+}
+
 .corona {
-  width: auto;
-  height: 80px;
+  height: 62px;
   border: 1px solid red;
+  background: #000;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+}
+
+.bg {
+  width: 100%;
+}
+
+.middle {
+  background: white;
+  border: 1px solid red;
+  height: 300px;
+}
+
+.middle2 {
+  background: #eee;
+  border: 1px solid blue;
+  height: 600px;
+}
+
+.middle3 {
+  background: #333;
+  border: 1px solid yellow;
+  height: 1000px;
+}
+
+.blank {
+  background: white;
+  border: 1px solid red;
+  height: 30px;
+}
+
+.middle4 {
+  background: tomato;
+  border: 1px solid violet;
+  height: 550px;
+}
+
+.footer {
+  background: black;
+  height: 400px;
 }
