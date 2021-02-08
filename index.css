@@ -37,7 +37,6 @@ header {
 
 .nav-menu {
   text-align: center;
-
   width: 300px;
   height: 48px;
   padding: 0px 24px 0px 24px;
@@ -97,28 +96,57 @@ header {
 
 .city-section__div {
   column-count: 4;
-
   scroll-padding: 0px 24px;
 }
-.city-section__img {
-  width: 65px;
-  height: 65px;
-  border-radius: 10px;
+.city-section__list {
+  list-style: none;
+  font-size: 16px;
 }
 
-.city-section__text {
-  display: inline;
-  text-align: center;
+.city-section__list div {
+  display: inline-block;
+  vertical-align: super;
 }
+.city-section__list img {
+  width: 65px;
+  height: 65px;
+  border-radius: 8px;
+}
+
 .room-section {
   font-size: 14px;
   display: block;
-  height: 488.5px;
+  height: 576px;
+  margin: 0px 360px 0px 360px;
+  padding: 0px 80px 0px 80px;
+}
+.room-section__main-text {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 0 0;
 }
 .room-section__img {
-  width: 302.75px;
-  height: 302.75px;
+  width: 386.5px;
+  height: 386.5px;
+  border-radius: 10px;
 }
+
+.room-section__list {
+  margin: 0 0 0 0;
+  float: left;
+  font-size: 14px;
+  border: 0px 5px 0px 5px;
+}
+.room-section__list--text {
+  padding: 8px 0 0 0 0;
+  font-size: 18px;
+}
+.activity-section {
+  height: 1036px;
+  background-color: black;
+  padding: 64px 0px 80px 0px;
+}
+
 .activity-section__img {
   width: 409px;
   height: 272.656px;
