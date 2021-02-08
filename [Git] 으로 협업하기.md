@@ -4,13 +4,13 @@
 
 1. 프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
 
-   ![Inkedfdfd_LI](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\Inkedfdfd_LI.jpg)
+   ![Inkedfdfd_LI](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/Inkedfdfd_LI.jpg?raw=true)
 
 
 
 우측 상단의 fork 버튼을 누르면 아래 그림과 같이 fork한 동료들의 깃상태를 볼 수 있다. 
 
-![airbnb](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\airbnb.PNG)
+![airbnb](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/airbnb.PNG?raw=true)
 
 2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
 
@@ -20,7 +20,7 @@
 git clone https://github.com/{본인_git아이디}/{저장소 아이디}
 ```
 
-![git1](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\git1.PNG)
+![git1](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/git1.PNG?raw=true)
 
 을 적게 되면 위와 같이 자신의 local 컴퓨터로 git file을 clone 해서 eamon 이라는 파일안에 "fe-w12-airbnb" 라는 파일이 하나 생기게 된다.
 
@@ -44,7 +44,7 @@ git checkout -t origin/본인_코쿼아이디
 
 
 
-![git2](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\git2.PNG)
+![git2](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/git2.PNG?raw=true)
 
 이 명령어를 치게 되면 이미 있던  'eamon' 이라는 romote branch의 이름을 그대로 따서 local branch 로 복사해 온다. 
 
@@ -58,7 +58,7 @@ git checkout -t origin/본인_코쿼아이디
 
 
 
-![git3](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\git3.PNG)
+![git3](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/git3.PNG?raw=true)
 
 5.기능 구현을 위한 브랜치 생성 (연속번호를 붙여나간다. 기존 step 브랜치가 있으면 삭제한다.)
 
@@ -68,7 +68,7 @@ git checkout -b 브랜치이름
 
 저 같은 경우는 'airbnb-step1' 이라는 브랜치를 생성했습니다. 
 
-![git6](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\git6.PNG)
+![git6](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/git6.PNG?raw=true)
 
 그렇게하면 git branch 라는 명령어를 내려서 local의 모든 branch를 볼 수 있는데 현재 있는 브랜치는 airbnb-step1 이고 origin 대신 eamon 이 나머지는 main 이 존재하는 것을 알수 있습니다. 
 
@@ -94,7 +94,7 @@ git checkout -b 브랜치이름
 
    
 
-![git7](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\git7.PNG)
+![git7](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/git7.PNG?raw=true)
 
 
 
@@ -102,8 +102,8 @@ push가 제대로 되었는지는 자신의 github 홈페이지에서
 
 fork 된 홈페이지로 들어간 뒤에 
 
-![11](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\11.PNG)
+![11](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/11.PNG?raw=true)
 
 아래의 사진에서 브랜치를 확인해보면 'airbnb-step1'이 들어있는 것을 확인해볼 수 있습니다. 그 안의 내용물을 보시면 push 된 code 들을 보실수 있습니다.
 
-![Inked22_LI](C:\Users\DELL\Desktop\Javascript study\eamon\fe-w12-airbnb\imgg\Inked22_LI.jpg)
+![Inked22_LI](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/Inked22_LI.jpg?raw=true)
