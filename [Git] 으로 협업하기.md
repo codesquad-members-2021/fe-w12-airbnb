@@ -2,7 +2,7 @@
 
 # [Git] 으로 협업하기
 
-1. 프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+## 1. 프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
 
    ![Inkedfdfd_LI](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/Inkedfdfd_LI.jpg?raw=true)
 
@@ -12,7 +12,7 @@
 
 ![airbnb](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/airbnb.PNG?raw=true)
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+## 2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
 
 그런 다음에 VSC cmd 창에서 
 
@@ -26,7 +26,7 @@ git clone https://github.com/{본인_git아이디}/{저장소 아이디}
 
 
 
-3. clone한 프로젝트 이동
+## 3. clone한 프로젝트 이동
 
 ```
 cd {저장소 아이디}
@@ -36,7 +36,7 @@ cd 하고 생성된 파일명을 입력하면 파일안으로 들어가게된다
 
 
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
+## 4. 본인 아이디로 브랜치를 만들기 위한 checkout
 
 ```
 git checkout -t origin/본인_코쿼아이디
@@ -60,7 +60,7 @@ git checkout -t origin/본인_코쿼아이디
 
 ![git3](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/git3.PNG?raw=true)
 
-5.기능 구현을 위한 브랜치 생성 (연속번호를 붙여나간다. 기존 step 브랜치가 있으면 삭제한다.)
+## 5. 기능 구현을 위한 브랜치 생성 
 
 ```
 git checkout -b 브랜치이름
@@ -68,23 +68,29 @@ git checkout -b 브랜치이름
 
 저 같은 경우는 'airbnb-step1' 이라는 브랜치를 생성했습니다. 
 
+
+
 ![git6](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/git6.PNG?raw=true)
 
 그렇게하면 git branch 라는 명령어를 내려서 local의 모든 branch를 볼 수 있는데 현재 있는 브랜치는 airbnb-step1 이고 origin 대신 eamon 이 나머지는 main 이 존재하는 것을 알수 있습니다. 
 
-6. ```
-   git commit -m "메세지" // 커밋
-   ```
+
+
+## 6. 커밋 
+```  
+
+git commit -m "메세지" // 커밋
+
+```
 
    저 같은 경우는 빠른 커밋을 위해 
 
    git commit -m "first commit" 을 작성했습니다.
 
-   
 
-7. 본인 원격 저장소에 올리기
 
-   
+
+## 7.본인 원격 저장소에 올리기
 
    ```
    git push --set-upstream origin 브랜치이름
@@ -107,3 +113,7 @@ fork 된 홈페이지로 들어간 뒤에
 아래의 사진에서 브랜치를 확인해보면 'airbnb-step1'이 들어있는 것을 확인해볼 수 있습니다. 그 안의 내용물을 보시면 push 된 code 들을 보실수 있습니다.
 
 ![Inked22_LI](https://github.com/eamon3481/fe-w12-airbnb/blob/airbnb-step1/imgg/Inked22_LI.jpg?raw=true)
+
+   ```
+
+   ```
