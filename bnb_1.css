@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #333333;
+}
+.inner {
+  max-width: 1350px;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+} /**maragin 0 auto쓰려면 너비설정되어야함*/
+
+header .corona {
+  background-color: black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+header .corona a:hover {
+  color: rgba(255, 255, 255, 0.404);
+}
+
+header .inner {
+  background-color: blue;
+}
+
+header .menuGroup {
+  display: flex;
+  color: rgba(255, 255, 255, 0.925);
+}
+header .logo {
+  float: left;
+}
+
+header .logoIMG {
+  /* background-image: url("airbnb.svg"); !css_로고안됨 */
+  width: 100px;
+  height: 100px;
+  text-indent: -9999px;
+}
+
+header .logo svg {
+  fill: #fff;
+}
+
+header .menuCenter a {
+  padding: 10px;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.925);
+  text-decoration: none;
+}
+
+header .menuCenter a:hover {
+  color: rgba(255, 255, 255, 0.404);
+}
+
+header .menuRight {
+  /* float: right; */
+  display: flex;
+}
+
+header .toggle a {
+  color: rgb(48, 48, 48);
+  text-decoration: none;
+}
+
+header .search {
+  display: flex;
+}
+
+/*글자색변경*/
+.corona a {
+  color: rgba(255, 255, 255, 0.925);
+}
