@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  color: #555;
+  font-weight: 400;
+  font-size: 40px;
+  font-family: "Black Han Sans", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  margin-top: 0;
+  background-image: url("./bground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.announcement {
+  background-size: cover;
+  background-color: black;
+  background-position: center;
+  height: 2rem;
+}
+
+.corona_info {
+  color: #fff;
+  margin-top: 1rem;
+  font-weight: 400;
+  font-size: 0.5rem;
+}
+
+.main {
+  background-image: url("./main.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 200%;
+}
