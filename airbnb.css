@@ -1,16 +1,63 @@
 #corona {
     height: 60px;
-    background-color: #111;
+    background-color: #000;
     position: relative;
 }
 #corona > div {
     width: 343px;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #ddd;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 0.84em;
     font-weight: 300;
-    color: #fff;
+    color: #ddd;
+    cursor: pointer;
 }
+#banner {
+    height: 652px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1440);
+    position: relative;
+}
+#banner > div {
+    width: 400px;
+    height: 190px;
+    position: absolute;
+    top: 46%;
+    left: 5.5%;
+}
+#banner > div > div {
+    width: 18rem;
+    color: #fff;
+    font-size: 3.1em;
+    font-weight: 600;
+    line-height: 1.2;
+}
+#banner > div > a {
+    display: block;
+    width: 148px;
+    height: 34px;
+    margin-top: 10px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 8px;
+
+    font-size: 0.88em;
+    line-height: 34px;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+}
+/* #logo {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 100;
+}
+#logo > img {
+    width: 100px;
+} */
