@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+@import"reset.css";
+
 body {
     margin: 0;
     padding: 0;
     height: 1000vh;
     font-family: -apple-system, 'Roboto', Helvetica,'Bebas Neue', sans-serif;
     font-size: 14px;
+    display: block;
 }
+
+
 .corona_alram{
     display: flex;
     align-items: center;
@@ -17,10 +22,67 @@ body {
     margin: 0;
     
 }
+.main{
+    background-image: url('./images/main-wide.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 588px;
+    margin: 0;
+    padding: 0;
+}
 
 .corona_alram a{
     font-weight: 700;
     font-size: 100%;
     color: aliceblue;
     font-family: inherit;
+}
+header{
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    
+    align-items: center;
+    justify-content: center;
+    color:white;
+   
+}
+
+.navbar_ul{
+    display: flex;
+    width: 33%;
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+}
+.navbar_ul li{
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 16px;
+}
+.navbar_logo{
+    width: 33%;
+    height: 43px;
+    margin-left: 80px;
+}
+.navbar_login{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 80px;
+ width: 33%;
+}
+.navbar_login_icons{
+display: flex;
+padding: 5px,5px,5px,12px;
+width: 75px;
+height: 40px;
+}
+
+.navbar_login_earthicon{
+    width: 22px+24px;
+    height: 24px+18px;
 }
