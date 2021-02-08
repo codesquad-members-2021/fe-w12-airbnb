@@ -1,0 +1,83 @@
+html,
+body {
+  height: 100%;
+  word-break: keep-all;
+}
+.inner {
+  margin: 0 10rem;
+}
+
+#notice {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.3rem 0;
+}
+#notice > a {
+  color: white;
+  font-size: 0.8rem;
+}
+header {
+  width: 100%;
+  position: fixed;
+  color: white;
+  font-size: 16px;
+  z-index: 2;
+}
+header .inner {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  padding: 2rem 0;
+}
+
+header .inner .mid {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+header .logo {
+}
+header .ul-flex {
+  display: flex;
+}
+header .ul-flex li + li {
+  margin-left: 2rem;
+}
+header fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header .searchBox {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  width: 50rem;
+  height: 5rem;
+  border-radius: 2.5rem;
+}
+header .searchBox .search-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+  font-size: 14px;
+  height: 100%;
+  border-radius: 2.5rem;
+  flex: 1;
+
+  padding: 0 2rem;
+  cursor: pointer;
+}
+header .searchBox .search-item div + div {
+  margin-top: 0.5rem;
+}
+header .searchBox .search-item:hover {
+  background-color: rgb(230, 231, 236);
+}
