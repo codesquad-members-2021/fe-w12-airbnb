@@ -10,7 +10,7 @@ body {
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
-} /**maragin 0 auto쓰려면 너비설정되어야함*/
+} /*maragin 0 auto쓰려면 너비설정되어야함*/
 
 header .corona {
   background-color: black;
