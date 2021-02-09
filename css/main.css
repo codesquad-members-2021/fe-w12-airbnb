@@ -10,7 +10,7 @@
   }
   
   .main {
-    background-image: url("./images/top_banner.webp");
+    background-image: url("../images/top_banner.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

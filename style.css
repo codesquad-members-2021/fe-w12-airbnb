@@ -1,48 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
 @import "reset.css";
+@import "css/component/component.css";
 @import "css/main.css";
 @import "css/navbar.css";
 @import "css/citys.css";
 @import "css/housetype.css";
+@import "css/activity.css";
 @import "css/host.css";
 
 
-body {
-  font-family: -apple-system, "Roboto", Helvetica, "Bebas Neue", sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 1000vh;
-  font-size: 14px;
-  display: block;
-}
-section {
-  display: block;
-}
-
-
-header {
-  box-sizing: border-box;
-  display: flex;
-  width: 100%;
-  height: 80px;
-
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-
-
-.listTitle {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-section {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0 80px;
-  margin: 0;
-}
 
