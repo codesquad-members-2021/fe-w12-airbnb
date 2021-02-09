@@ -283,4 +283,68 @@ header {
     opacity: 0;
     user-select: none;
   }
+  &.isSticky {
+    background: #fff;
+    height: auto;
+    min-height: 80px;
+    .category {
+      &__anchor {
+        display: none;
+      }
+    }
+    .input-wrap {
+      top: -40px;
+      opacity: 0;
+      transform: scale(0.5);
+      height: 0;
+      transition-delay: 0.5s visibility;
+      visibility: hidden;
+    }
+    .nav {
+      &__anchor {
+        color: #000;
+        &:hover {
+          background: rgb(247, 247, 247);
+        }
+      }
+      &__button {
+        &:hover {
+          background: rgb(247, 247, 247);
+        }
+      }
+      &__list {
+        box-shadow: 0px 1px 4px #999;;
+      }
+      &__button-toggle:hover {
+        box-shadow: 0px 2px 4px #999;
+      }
+    }
+    .input-button-sticky__toggle {
+      height: 48px;
+      line-height: 48px;
+      position: relative;
+      top: -4px;
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+      user-select: initial;
+      cursor: pointer;
+      *:nth-child(1) {
+        float: left;
+      }
+      *:nth-child(2) {
+        float: right;
+        background: #FF385C;
+        border-radius: 50%;
+        padding: 0px 15px;
+        transform: scale(0.7);
+        position: relative;
+        top: -1px;
+        right: -15px;
+      }
+      &:hover {
+        box-shadow: 0px 1px rgba(0, 0, 0, 0.17), 0px 2px rgba(0, 0, 0, 0.12), 0px 3px rgba(0, 0, 0, 0.17);
+      }
+    }
+  }
 }
