@@ -26,7 +26,7 @@ ul {
 /*CORONA 관련 맨 윗부분 CSS STYLE*/
 
 .corona {
-  padding: 15px;
+  padding: 20px;
   background-color: black;
   text-align: center;
   font-size: 15px;
@@ -42,27 +42,54 @@ ul {
 
 /* -------------------HEADER-------------------*/
 
+.firstPage {
+  height: 700px;
+  background: url("/img/main-wide.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 header {
-  width: 100%;
-  border: white 1px solid;
-  padding: 20px 30px;
-  background: transparent;
+  padding: 13px 70px;
+  background: linear-gradient(rgba(37, 37, 37, 0.7), transparent), transparent;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: absolute;
+  left: 0;
+  right: 0;
   color: white;
 }
 
-header .nav {
-  display: flex;
+header .logo {
+  font-size: 35px;
 }
+
+header nav {
+  display: flex;
+  padding-top: 3px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+header nav div {
+  padding: 10px;
+}
+
+header nav div:hover {
+  color: gray;
+}
+header nav a {
+  padding-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+header nav a:hover {
+  color: gray;
+}
+
 .nav_item {
   opacity: 0;
-}
-.nav_item > label {
-  padding: 5px 10px;
-  border: 1px solid white;
-  border-radius: 3px;
 }
 
 input[type="radio"]:checked + label {
@@ -76,21 +103,17 @@ header .member_setting .host {
   font-size: 17px;
 }
 
-main {
-  height: 550px;
+.main {
   width: 100%;
-  background: url("/img/main-wide.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-main .phraseAndbutton {
+.main .phraseAndbutton {
   position: relative;
 }
 
-main .phrase {
+.main .phrase {
   position: absolute;
-  left: 40px;
+  left: 70px;
   top: 270px;
   color: white;
   font-size: 50px;
@@ -98,10 +121,10 @@ main .phrase {
   font-weight: bold;
   line-height: 1.2em;
 }
-main .findNearRooms_btn {
+.main .findNearRooms_btn {
   color: black;
   position: absolute;
-  left: 40px;
+  left: 70px;
   top: 410px;
   background-color: white;
   padding: 6px 14px 6px 14px;
@@ -110,6 +133,41 @@ main .findNearRooms_btn {
   font-weight: bold;
 }
 
-main .findNearRooms_btn:hover {
+.main .findNearRooms_btn:hover {
   background-color: rgb(248, 248, 248);
+}
+
+/* SECTION PARTS */
+
+.section_cities {
+  padding: 60px 70px;
+}
+.section_cities ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section_cities li {
+  width: 320px;
+  display: flex;
+
+  margin: 8px;
+}
+.section_cities img {
+  width: 65px;
+  border-radius: 9px;
+}
+
+.section_cities .city_items {
+  margin-left: 17px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section_cities .city_items span:first-child {
+  font-weight: bold;
+}
+.section_cities .city_items span:last-child {
 }
