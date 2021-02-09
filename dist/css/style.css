@@ -39,8 +39,6 @@ header .inner .mid {
   transform: translate(-50%);
 }
 
-header .logo {
-}
 header .ul-flex {
   display: flex;
 }
