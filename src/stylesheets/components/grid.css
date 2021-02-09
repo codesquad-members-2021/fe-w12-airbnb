@@ -2,8 +2,8 @@
   /* 
   * 사용 되는 변수
 
-  --exp-grid-lg-margin-top: 0px; 
-  --exp-grid-lg-margin-bot: 0px;
+  --exp-grid-lg-padding-top: 0px; 
+  --exp-grid-lg-padding-bot: 0px;
   --exp-grid-img-width: 50px;
   
   * 사용 예정 변수
@@ -18,10 +18,13 @@
 
 .grid__row {
   display: flex;
-  flex-basis:100%;
+  flex-basis: 100%;
+  max-width: 100%;
 }
 
 .grid__item {
+  cursor:pointer;
+  
   display: flex;
   max-width: 25%;
   flex-basis: 20%;
@@ -29,8 +32,10 @@
 }
 
 .grid__wrapper {
-  margin-top: var(--exp-grid-lg-margin-top);
-  margin-bottom: var(--exp-grid-lg-margin-bot);
+  /* margin-top: var(--exp-grid-lg-padding-top);
+  margin-bottom: var(--exp-grid-lg-padding-bot); */
+  padding-top: var(--exp-grid-lg-padding-top);
+  padding-bottom:var(--exp-grid-lg-padding-bot);
   
   display:flex;
   flex-wrap: wrap;
@@ -38,6 +43,7 @@
 
 .image__content {
   width: var(--exp-grid-img-width);
+  border-radius: 8px;
 }
 
 .grid.text__content {}
@@ -49,8 +55,8 @@
 .grid.grid__location {
   /* --exp-grid-md-margin-top: 40px;
   --exp-grid-md-margin-bot: 40px; */
-  --exp-grid-lg-margin-top: 64px;
-  --exp-grid-lg-margin-bot: 64px;
+  --exp-grid-lg-padding-top: 64px;
+  --exp-grid-lg-padding-bot: 64px;
 
   --exp-grid-img-width: 64px;
 }
@@ -75,35 +81,78 @@
   /* --exp-grid-md-margin-top: 24px;
   --exp-grid-md-margin-bot: 24px; */
   
-  --exp-grid-lg-margin-bot: 48px;
-  --exp-grid-lg-margin-top: 48px;
+  --exp-grid-lg-padding-bot: 48px;
+  --exp-grid-lg-padding-top: 48px;
 
   --exp-grid-img-width: 100%;
 }
 
 .grid__house.grid__item {
+  max-width: 25%;
   margin-right: 14px;
   
   display:flex;
   flex-direction:column;
+  flex-basis: 20%;
+  flex-grow: 1;
 }
 
 .grid__house > .grid--text {
   margin-top: 16px;
 }
 
-.grid.grid__activity {
-  /* activity */
-  --exp-grid-lg-margin-bot: 40px;
-  --exp-grid-lg-margin-top: 40px;
-}
+/* 
+ * activity 
+*/
 
 .grid.grid__activity {
-  /* join-community */
   /* --exp-grid-sm-margin-top: 20px;
   --exp-grid-md-margin-top: 20px; */
-  --exp-grid-lg-margin-bot: 64px;
-  --exp-grid-lg-margin-top: 32px;
+  --exp-grid-lg-padding-bot: 64px;
+  --exp-grid-lg-padding-top: 32px;
+  
+  --exp-grid-img-width: 100%;
+}
+
+.grid__activity.grid__item {
+  max-width: 33.3333%;
+  margin-right: 14px;
+  
+  display:flex;
+  flex-direction:column;
+  flex-basis: 20%;
+  flex-grow: 1;
+}
+
+.grid__activity > .grid--text {
+  margin-top: 16px;
+}
+
+/* 
+ * community 
+*/
+
+.grid.grid__community {
+  /* --exp-grid-sm-margin-top: 20px;
+  --exp-grid-md-margin-top: 20px; */
+  --exp-grid-lg-padding-bot: 64px;
+  --exp-grid-lg-padding-top: 32px;
+  
+  --exp-grid-img-width: 100%;
+}
+
+.grid__community.grid__item {
+  max-width: 33.3333%;
+  margin-right: 14px;
+  
+  display:flex;
+  flex-direction:column;
+  flex-basis: 20%;
+  flex-grow: 1;
+}
+
+.grid__community > .grid--text {
+  margin-top: 16px;
 }
 
 /* .grid.grid */

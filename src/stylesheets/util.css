@@ -1,7 +1,10 @@
 /* font */
 
-.font-white {
+.font--white {
   color:white;
+}
+.font--black {
+  color:black;
 }
 
 /* ==== font ==== */
@@ -11,7 +14,27 @@
   margin-left: 80px;
   margin-right: 80px;
 }
-
-
 /* ==== global margin ==== */
 
+.cursor--pointer {
+  cursor: pointer;
+}
+.no--margin {
+  margin:0;
+}
+.margin-bot--12 {
+  margin-bottom: 12px;
+}
+
+.direction--column {
+  display: flex;
+  flex-direction:column;
+}
+
+.background--black {
+  background-color: black;
+}
+
+.background--grey {
+  background-color: #F7F7F7;
+}
