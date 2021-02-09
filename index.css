@@ -40,6 +40,10 @@ a {
   position: relative;
 }
 
+.nav__container {
+  height: 80px;
+}
+
 .float__box {
   float: left;
 }
@@ -88,6 +92,54 @@ a {
 .nav__box .nav__right__box .user__box {
   padding: 0 5px;
   float: left;
+}
+
+.leftside__radius__background {
+  border: 1px solid white;
+  width: 200px;
+  background: white;
+  padding: 15px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.rightside__radius__background {
+  border: 1px solid white;
+  width: 200px;
+  background: white;
+  padding: 15px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.reservation__container {
+  padding-left: 100px;
+  height: 66px;
+}
+
+.reservation__background {
+  float: left;
+  height: 35px;
+}
+
+.reservation__menu__text {
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 15px;
+  padding-bottom: 7px;
+}
+
+.reservation__input {
+  padding-left: 15px;
+  border: 0;
+  font-size: 14px;
+}
+
+.middle__background {
+  border: 1px solid white;
+  width: 200px;
+  background: white;
+  padding: 15px;
 }
 
 .middle {
