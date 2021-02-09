@@ -1,0 +1,276 @@
+:root {
+  /*Color*/
+  --main-color: #ff5a5f;
+
+  /*Size*/
+
+  /*font-size*/
+}
+.fa-user-circle {
+  color: gray;
+  font-size: 30px;
+}
+
+ul {
+  list-style: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.covid-19-notice {
+  box-sizing: border-box;
+  display: block;
+  height: 58px;
+  background-color: black;
+  padding: 20px 80px 20px 80px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.covid-19-notice a:link,
+a:visited {
+  color: white;
+  text-decoration: underline;
+}
+.covid-19-notice a:hover {
+  color: gray;
+  text-decoration: underline;
+}
+
+.airbnb-logo {
+  width: 118px;
+  height: 64px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.top-section {
+  background-image: url("img/main-wide.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 1000px;
+  max-height: 1200px;
+  position: relative;
+}
+
+.top-section__img {
+  display: inline-block;
+  width: 626px;
+  height: 80px;
+}
+
+.top-section__div {
+  height: 80px;
+  width: 1600px;
+
+  margin: 0px 361.5px 0px 361.5px;
+  padding: 0px 80px 0px 80px;
+}
+.top-section__nav {
+  position: absolute;
+  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  width: 300px;
+  display: inline-block;
+  color: white;
+}
+
+.top-section__nav--list {
+  float: left;
+  list-style: none;
+  padding: 0px 16px 0px 16px;
+}
+
+.right-section {
+  position: relative;
+  float: right;
+  text-align: right;
+  height: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 626px;
+}
+.right-section__btn-text {
+  position: absolute;
+  right: 120px;
+  height: 30px;
+  background-color: transparent;
+  border: transparent;
+  margin-bottom: 10px;
+  color: white;
+}
+.right-section__btn-earth {
+  position: absolute;
+  right: 90px;
+  height: 30px;
+  background-color: transparent;
+  border: transparent;
+}
+.right-section__btn-login {
+  position: absolute;
+  right: 5px;
+  border-radius: 21px;
+  border: transparent;
+}
+#icon-list {
+  padding: 5px 5px 5px 5px;
+}
+.top-section__text-div {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-10%, -50%);
+  font-size: 54px;
+  font-weight: 800;
+  color: white;
+  text-align: left;
+}
+.top-section__text-div--btn {
+  background-color: white;
+  width: 144.969px;
+  height: 32px;
+  margin-top: 22px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.search-destination {
+  color: white;
+}
+.search-date {
+  display: inline-block;
+  color: white;
+}
+
+.city-section {
+  display: block;
+  height: 272px;
+  padding: 64px 0px 64px 0px;
+  margin-left: 357px;
+  margin-right: 357px;
+}
+
+.city-section__div {
+  column-count: 4;
+  scroll-padding: 0px 24px;
+}
+.city-section__list {
+  list-style: none;
+  font-size: 16px;
+}
+
+.city-section__list div {
+  display: inline-block;
+  vertical-align: super;
+}
+.city-section__list img {
+  width: 65px;
+  height: 65px;
+  border-radius: 8px;
+}
+
+.room-section {
+  font-size: 14px;
+  display: block;
+  height: 576px;
+  margin: 0px 360px 0px 360px;
+  padding: 0px 80px 0px 80px;
+}
+.room-section__div {
+  width: 2483px;
+}
+.room-section__main-text {
+  font-size: 32px;
+  font-weight: 700;
+  width: 1500px;
+  margin: 0 0 0 0;
+}
+.room-section__img {
+  width: 386.5px;
+  height: 386.5px;
+  border-radius: 10px;
+}
+
+.room-section__list {
+  margin: 0 0 0 0;
+  float: left;
+  font-size: 14px;
+  border: 0px 5px 0px 5px;
+}
+.room-section__list--text {
+  padding: 8px 0 0 0 0;
+  font-size: 18px;
+}
+.activity-section {
+  height: 1068px;
+  background-color: black;
+  color: white;
+  padding: 64px 0px 80px 0px;
+}
+.activity-section__div {
+  height: 892px;
+}
+.activity-section span {
+  vertical-align: middle;
+}
+
+.activity-section__main-text {
+  font-size: 32px;
+}
+.activity-section span {
+  text-align: left;
+  vertical-align: middle;
+}
+.activity-section img {
+  width: 392px;
+  height: 392px;
+  border-radius: 16px 16px 16px 16px;
+  float: left;
+}
+
+#pasta {
+  width: 800px;
+  height: 784px;
+  float: left;
+}
+#piano {
+  width: 800px;
+  height: 392px;
+  float: left;
+}
+
+.host-section {
+  height: 478.656px;
+  display: block;
+}
+.host-section__div {
+  height: 449.094px;
+  width: 1600px;
+  display: inline-block;
+  text-align: left;
+  font-size: 14px;
+  padding: 0px 80px 0px 80px;
+  margin: 0px 361.5px 0px 361.5px;
+}
+.host-section__div li {
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.host-section__main-text {
+  font-size: 32px;
+  font-weight: 700;
+}
+.host-section__img {
+  width: 520.656px;
+  height: 347.094px;
+  border-radius: 16px 16px 16px 16px;
+}
+.host-section__sub-text {
+  font-size: 18px;
+}
