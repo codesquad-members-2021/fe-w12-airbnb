@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.notice {
+  background-color: black;
+  text-align: center;
+  height: 60px;
+  padding-top: 20px;
+}
+.notice__link {
+  color: white;
+  font-size: 12px;
+  text-decoration: underline;
+}
