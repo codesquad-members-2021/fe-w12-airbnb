@@ -94,8 +94,8 @@ a {
   float: left;
 }
 
+/* Reservation Menu */
 .leftside__radius__background {
-  border: 1px solid white;
   width: 200px;
   background: white;
   padding: 15px;
@@ -104,7 +104,6 @@ a {
 }
 
 .rightside__radius__background {
-  border: 1px solid white;
   width: 200px;
   background: white;
   padding: 15px;
@@ -119,6 +118,9 @@ a {
 
 .reservation__background {
   float: left;
+  width: 200px;
+  background: white;
+  padding: 15px;
   height: 35px;
 }
 
@@ -135,6 +137,7 @@ a {
   font-size: 14px;
 }
 
+/* Catchphrase */
 .catchphrase__container {
   width: 400px;
   height: 300px;
@@ -183,29 +186,38 @@ a {
   display: block;
 }
 
-.middle__background {
+/* Section */
+.section__background {
   border: 1px solid white;
   width: 200px;
   background: white;
   padding: 15px;
 }
 
-.middle {
+.section {
   background: white;
   border: 1px solid red;
   height: 300px;
+  position: relative;
 }
 
-.city_box1 {
-  border: 1px solid violet;
-  height: 160px;
+.section__container {
+  border: 4px solid blue;
+  height: 200px;
   position: absolute;
+  width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 0 80px;
 }
 
-.city_box2 {
+ul {
+  float: left;
+  margin-right: 20px;
+}
+
+.section__container__city {
   border: 1px solid gray;
   height: 158px;
   padding: 0 80px;
@@ -215,12 +227,15 @@ a {
 .city {
   border: 1px solid magenta;
   height: 66px;
+  width: 250px;
 }
 
 .city_img {
-  border: 1px solid red;
   width: 62px;
   height: 62px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
 }
 
 .city_name {
