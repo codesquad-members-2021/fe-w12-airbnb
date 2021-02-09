@@ -3,32 +3,144 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 
-body {
+.notice {
+  background-color: black;
+  color: white;
+  text-decoration: underline;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
 }
 
 .main-with-bg {
-  background-image: url('img/main.png');
+  background-image: url('http://localhost:3000/images/main.png');
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 700px;
+  height: 570px;
+  display: flex;
+  flex-flow: column;
 }
 
-.logo img {
+nav {
+  color: white;
+  position: relative;
+  padding: 20px 50px;
+}
+
+nav ul {
+  display: inline;
+}
+
+nav ul li {
+  display: inline;
+  padding: 10px;
+}
+
+.nav-left {
+  float: left;
+}
+
+.nav-left img {
   width: 100px;
   filter: brightness(3);
 }
 
-nav ul li {
-  display: inline-block;
+.nav-center {
+  float: none;
+  position: absolute;
+  left: 42%;
+  top: 35%;
 }
 
-nav ul {
-  display: inline-block;
+.nav-right {
+  float: right;
+}
+
+.nav-right img {
+  width: 20px;
+  filter: brightness(3);
+}
+
+.search {
+  background-color: white;
+  border-radius: 30px;
+  font-size: 14px;
+  width: 50%;
+  height: 70px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search > a > p {
+  margin: 5px;
+}
+
+.search-button {
+  border-radius: 25px;
+  padding: 9px;
+  width: 40px;
+  color: white;
+  background-color: rgb(255, 90, 95);
+}
+
+.destinations {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 1.5rem;
+}
+
+.destination {
+  display: inline;
+  width: 33.33%;
+}
+
+.destination span {
+  display: block;
 }
 
 .destination img {
   width: 72px;
+}
+
+.main-section {
+  padding: 50px 50px;
+}
+
+.main-text {
+  color: white;
+  font-size: 42px;
+}
+
+.search-nearby {
+  text-align: center;
+  padding: 10px;
+  margin: 30px 0;
+  font-size: 14px;
+  border: none;
+  border-radius: 12px;
+  color: black;
+  background-color: white;
+}
+
+.house-type {
+  display: flex;
+  flex-direction: row;
+}
+
+.house-type-sub {
+  margin: 10px;
+  width: 30%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }

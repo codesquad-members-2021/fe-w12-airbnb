@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
     <title>숙소, 체험, 장소를 모두 한 곳에서-에어비앤비</title>
   </head>
   <body>
@@ -15,69 +15,133 @@
 
     <main>
       <div class="main-with-bg">
-        <div>어디로 여행가세요?</div>
-        <div>이제, 여행은 가까운 곳에서</div>
-        <button>근처의 숙소 둘러보기</button>
         <nav>
-          <div class="logo"><img src="img/airbnb.svg" alt="airbnb" /></div>
+          <div class="nav-left">
+            <a href="#">
+              <img src="http://localhost:3000/images/airbnb.svg" alt="airbnb" />
+            </a>
+          </div>
 
-          <ul>
+          <ul class="nav-center">
             <li><a href="#">숙소</a></li>
             <li><a href="#">체험</a></li>
             <li><a href="#">온라인 체험</a></li>
           </ul>
-          <ul>
+          <ul class="nav-right">
             <li><a href="#">호스트 되기</a></li>
-            <li></li>
-            <li></li>
+            <li>
+              <img
+                src="http://localhost:3000/images/earth.svg"
+                alt="language"
+              />
+            </li>
+            <li>
+              <a href="#">
+                <img src="http://localhost:3000/images/list.svg" alt="list" />
+                <img
+                  src="http://localhost:3000/images/people.svg"
+                  alt="account"
+                />
+              </a>
+            </li>
           </ul>
         </nav>
+
+        <div class="search">
+          <a href="#" class="search-location">
+            <p><b>위치</b></p>
+            <p>어디로 여행가세요?</p>
+          </a>
+          <a href="#" class="search-date-checkin">
+            <p><b>체크인</b></p>
+            <p>날짜 추가</p>
+          </a>
+          <a href="#" class="search-date-checkout">
+            <p><b>체크아웃</b></p>
+            <p>날짜 추가</p>
+          </a>
+          <a href="#" class="search-guests">
+            <p><b>인원</b></p>
+            <p>게스트 추가</p>
+          </a>
+          <a href="#">
+            <img
+              src="http://localhost:3000/images/search-solid.svg"
+              alt=""
+              class="search-button"
+            />
+          </a>
+        </div>
+        <div class="main-section">
+          <div class="main-text">
+            <pre>
+이제, 여행은
+가까운 곳에서</pre
+            >
+          </div>
+          <button class="search-nearby">근처의 숙소 둘러보기</button>
+        </div>
       </div>
 
-      <section>
+      <section class="destinations">
         <div class="destination">
-          <img src="img/city-1.jpg" alt="" />
-          <span>서울</span>
-          <span>차로 30분 거리</span>
+          <a href="#">
+            <div></div>
+            <img src="http://localhost:3000/images/city-1.jpg" alt="" />
+            <span>
+              <b>서울</b>
+            </span>
+            <span>차로 30분 거리</span>
+          </a>
         </div>
         <div class="destination">
-          <img src="img/city-2.jpg" alt="" />
-          <span>인천</span>
-          <span>차로 45분 거리</span>
+          <a href="#">
+            <img src="http://localhost:3000/images/city-2.jpg" alt="" />
+            <span> <b>인천</b></span>
+            <span>차로 45분 거리</span>
+          </a>
         </div>
         <div class="destination">
-          <img src="img/city-3.jpg" alt="" />
-          <span>대구</span>
-          <span>차로 3.5시간 거리</span>
+          <a href="#">
+            <img src="http://localhost:3000/images/city-3.jpg" alt="" />
+            <span>대구</span>
+            <span>차로 3.5시간 거리</span>
+          </a>
         </div>
         <div class="destination">
-          <img src="img/city-4.jpg" alt="" />
-          <span>대전</span>
-          <span>차로 2시간 거리</span>
+          <a href="#">
+            <img src="http://localhost:3000/images/city-4.jpg" alt="" />
+            <span>대전</span>
+            <span>차로 2시간 거리</span>
+          </a>
         </div>
         <div class="destination">
-          <img src="img/city-5.jpg" alt="" />
-          <span>수원시</span>
-          <span>차로 30분 거리</span>
+          <a href="#">
+            <img src="http://localhost:3000/images/city-5.jpg" alt="" />
+            <span>수원시</span>
+            <span>차로 30분 거리</span>
+          </a>
         </div>
         <div class="destination">
-          <img src="img/city-6.jpg" alt="" />
-          <span>부천시</span>
-          <span>차로 45분 거리</span>
+          <a href="#">
+            <img src="http://localhost:3000/images/city-6.jpg" alt="" />
+            <span>부천시</span>
+            <span>차로 45분 거리</span>
+          </a>
         </div>
       </section>
     </main>
     <section>
       <div>어디에서나, 여행은 살아보는 거야!</div>
-      <div>
-        <div>
-          <img src="img/house_type_1.jpg" alt="" />
+      <div class="house-type">
+        <div class="house-type-sub">
+          <img src="http://localhost:3000/images/house_type_1.jpg" alt="" />
         </div>
-        <div>
-          <img src="img/house_type_2.jpg" alt="" />
+        <div class="house-type-sub">
+          <img src="http://localhost:3000/images/house_type_2.jpg" alt="" />
         </div>
-        <div>
-          <img src="img/house_type_3.jpg" alt="" />
+        <div class="house-type-sub">
+          <img src="http://localhost:3000/images/house_type_3.jpg" alt="" />
         </div>
       </div>
     </section>
