@@ -1,0 +1,20 @@
+@import "../stylesheets/util.css";
+@import "../stylesheets/header.css";
+@import "../stylesheets/main.css";
+
+/* global tag */
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration:none;
+}
+
+/* global tag end */
+
+
+/* @import "header.css"; */
+/* @import "../stylesheets/util.css"; */
+/* 이건 안된다. css spec에 안맞아서 */
