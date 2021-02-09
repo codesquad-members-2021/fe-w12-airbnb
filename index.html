@@ -4,8 +4,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>airbnb</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="airbnb.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- 지금까지 git을 공부하느라고 이제 html 구조를 짜보려고 합니다ㅠㅠㅠㅠ -->
-</body>
+    <!-- 코로나 배너 -->
+    <div id="corona">
+        <div>에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</div>
+    </div>
+
+    <div id="container_header">
+        <!-- 헤더 부분 -->
+        <header id="header">
+            <div id="logo">
+                <img src="https://i.postimg.cc/CLx3dSN2/580b57fcd9996e24bc43c513.png" alt="airbnb logo">
+            </div>
+            <ul id="nav_middle">
+                <li><a href="#">숙소</a></li>
+                <li><a href="#">체험</a></li>
+                <li><a href="#">온라인 체험</a></li>
+            </ul>
+            <ul id="nav_right">
+                <li><a href="#">호스트 되기</a></li>
+                <li><a href="#">
+                    <i class="fas fa-globe"></i>
+                </a></li>
+                <li><a href="#" id="user_btn">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-user-circle"></i>
+                </a></li>
+            </ul>
+        </header>
+    
+        <!-- 검색 -->
+        <ul id="search">
+            <li>
+                <span>위치</span><br>
+                <input type="text" placeholder="어디로 여행가세요?">
+            </li>
+            <li>
+                <span>체크인</span><br>
+                <div>날짜 추가</div>
+            </li>
+            <li>
+                <span>체크아웃</span><br>
+                <div>날짜 추가</div>
+            </li>
+            <li>
+                <span>인원</span><br>
+                <div>게스트 추가</div>
+                <button>✈︎</button>
+            </li>
+        </ul>
+
+        <!-- 큰 배너 이미지 -->
+        <div id="banner">
+            <div id="banner_text_box">
+                <div>이제, 여행은 가까운 곳에서</div>
+                <a href="#">근처의 숙소 둘러보기</a>
+            </div>
+        </div>
+    </div> <!-- #top_container -->
+
+
+    <div id="local">
+        <ul>
+            <li class="local_list">
+                <img src="https://i.esdrop.com/d/vjkVnrKAtK.jpg">
+                <a href="#">
+                    <span>서울</span><br>
+                    <span>차로 4.5시간 거리</span>
+                </a>
+            </li>
+            <li class="local_list">
+                <img src="https://i.esdrop.com/d/54yWr9NeVm.jpg">
+                <a href="#">
+                    <span>대전</span><br>
+                    <span>차로 2.5시간 거리</span>
+                </a>
+            </li>
+            <li class="local_list">
+                <img src="https://i.esdrop.com/d/DY716PzgND.jpg">
+                <a href="#">
+                    <span>대구</span><br>
+                    <span>차로 3시간 거리</span>
+                </a>
+            </li>
+            <li class="local_list">
+                <img src="https://i.esdrop.com/d/IeO0gUFS76.jpg">
+                <a href="#">
+                    <span>인천</span><br>
+                    <span>차로 4시간 거리</span>
+                </a>
+            </li>
+            <li class="local_list">
+                <img src="https://i.esdrop.com/d/r2RcFwsBs4.jpg">
+                <a href="#">
+                    <span>부천시</span><br>
+                    <span>차로 4시간 거리</span>
+                </a>
+            </li>
+            <li class="local_list">
+                <img src="https://i.esdrop.com/d/FVvGhZ9T7P.jpg">
+                <a href="#">
+                    <span>수원시</span><br>
+                    <span>차로 4시간 거리</span>
+                </a>
+            </li>
+            <li class="local_list">
+                <img src="https://i.esdrop.com/d/8gAbLxYnHL.jpg">
+                <a href="#">
+                    <span>안산시</span><br>
+                    <span>차로 4시간 거리</span>
+                </a>
+            </li>
+            <li class="local_list">
+                <img src="https://i.esdrop.com/d/UDntCJ235o.jpg">
+                <a href="#">
+                    <span>청주시</span><br>
+                    <span>차로 3시간 거리</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="wrap_content_box">
+        <div id="house" class="content_box">
+            <h1>어디에서나, 여행은 살아보는 거야!</h1>
+            <ul>
+                <li class="content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/duhMNLCFGH.jpg">
+                    <div>집 전체</div>
+                </a></li>
+                <li class="content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/fT1u5FIMhc.jpg">
+                    <div>독특한 공간</div>
+                </a></li>
+                <li class="content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/KrIH7VghMz.jpg">
+                    <div>자연을 만끽할 수 있는 숙소</div>
+                </a></li>
+                <li class="content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/2Iodssl6Us.jpg">
+                    <div>셀프 체크인</div>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="container_activity" class="wrap_content_box">
+        <div id="activity" class="content_box">
+            <h1>세상을 만나는 특별한 방법</h1>
+            <span>현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나 온라인으로 만나보세요.</span>
+            <ul>
+                <li class="activity_list content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/B4v4PWTHFg.png">
+                    <div>
+                        <span>온라인 체험</span><br>
+                        <span>집에서 즐기는 랜선 세계 여행</span>
+                    </div>
+                </a></li>
+                <li class="activity_list content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/TYE8yaOOgI.png">
+                    <div>
+                        <span>체험</span><br>
+                        <span>어디에서든 즐길 수 있는 체험</span>
+                    </div>
+                </a></li>
+                <li class="activity_list content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/qDhAuyz8Td.png">
+                    <div>
+                        <span>어드벤처</span><br>
+                        <span>숙박과 식사가 포함된 며칠 일정의 여행입니다.</span>
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="wrap_content_box">
+        <div id="host" class="content_box">
+            <h1>수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</h1>
+            <ul>
+                <li class="content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/hgFhjGjVe5.jpg">
+                    <div>
+                        숙소 호스트 되기
+                    </div>
+                </a></li>
+                <li class="content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/4bSQWtYtCQ.jpg">
+                    <div>
+                        온라인 체험 호스팅하기
+                    </div>
+                </a></li>
+                <li class="content_list"><a href="#">
+                    <img src="https://i.esdrop.com/d/6y7KIMFDrp.jpg">
+                    <div>
+                        체험 호스팅하기
+                    </div>
+                </a></li>
+            </ul>
+        </div> <!-- #host -->
+    </div> <!-- #container_host -->
+    </body>
 </html>
