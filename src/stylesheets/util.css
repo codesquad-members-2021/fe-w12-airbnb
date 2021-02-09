@@ -11,7 +11,16 @@
   margin-left: 80px;
   margin-right: 80px;
 }
-
-
 /* ==== global margin ==== */
 
+.no-margin {
+  margin:0;
+}
+.margin-bot-12 {
+  margin-bottom: 12px;
+}
+
+.direction--column {
+  display: flex;
+  flex-direction:column;
+}

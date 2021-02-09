@@ -18,7 +18,8 @@
 
 .grid__row {
   display: flex;
-  flex-basis:100%;
+  flex-basis: 100%;
+  max-width: 100%;
 }
 
 .grid__item {
@@ -82,28 +83,71 @@
 }
 
 .grid__house.grid__item {
+  max-width: 25%;
   margin-right: 14px;
   
   display:flex;
   flex-direction:column;
+  flex-basis: 20%;
+  flex-grow: 1;
 }
 
 .grid__house > .grid--text {
   margin-top: 16px;
 }
 
-.grid.grid__activity {
-  /* activity */
-  --exp-grid-lg-margin-bot: 40px;
-  --exp-grid-lg-margin-top: 40px;
-}
+/* 
+ * activity 
+*/
 
 .grid.grid__activity {
-  /* join-community */
   /* --exp-grid-sm-margin-top: 20px;
   --exp-grid-md-margin-top: 20px; */
   --exp-grid-lg-margin-bot: 64px;
   --exp-grid-lg-margin-top: 32px;
+  
+  --exp-grid-img-width: 100%;
+}
+
+.grid__activity.grid__item {
+  max-width: 33.3333%;
+  margin-right: 14px;
+  
+  display:flex;
+  flex-direction:column;
+  flex-basis: 20%;
+  flex-grow: 1;
+}
+
+.grid__activity > .grid--text {
+  margin-top: 16px;
+}
+
+/* 
+ * community 
+*/
+
+.grid.grid__community {
+  /* --exp-grid-sm-margin-top: 20px;
+  --exp-grid-md-margin-top: 20px; */
+  --exp-grid-lg-margin-bot: 64px;
+  --exp-grid-lg-margin-top: 32px;
+  
+  --exp-grid-img-width: 100%;
+}
+
+.grid__community.grid__item {
+  max-width: 33.3333%;
+  margin-right: 14px;
+  
+  display:flex;
+  flex-direction:column;
+  flex-basis: 20%;
+  flex-grow: 1;
+}
+
+.grid__community > .grid--text {
+  margin-top: 16px;
 }
 
 /* .grid.grid */
