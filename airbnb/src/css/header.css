@@ -1,0 +1,42 @@
+header {
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo > img {
+  width: 100px;
+  background-color: black;
+}
+.search-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.search-tab > a {
+  padding: 5px;
+  border: 1px black solid;
+}
+
+.search-query {
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+nav > div {
+  margin-left: 10px;
+}
+.nav-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80px;
+  height: 45px;
+  font-size: 18px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: white;
+  border-radius: 22px;
+}

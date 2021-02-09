@@ -10,38 +10,26 @@
       integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="src/css/styles.css" />
   </head>
   <body>
     <header class="header">
       <div class="header__column">
         <div class="header__logo">
-          <i class="fab fa-airbnb"></i>
-          <div>airbnb</div>
+          <!-- <i class="fab fa-airbnb"></i>
+          <div>airbnb</div> -->
+          <img src="./src/images/airbnb.svg" alt="" />
         </div>
       </div>
       <div class="header__column">
         <form>
-          <fieldset>
-            <label for="search-stay">
-              <input
-                type="radio"
-                name="search-tab"
-                class="search-tab"
-                id="search-stay"
-              />
-              <span class="search-tab-text">숙소</span>
-            </label>
-            <label for="search-experience">
-              <input
-                type="radio"
-                name="search-tab"
-                class="search-tab"
-                id="search-experience"
-              />
-              <span class="search-tab-text">체험</span>
-            </label>
-            <a href="#" class="search-tab-text">온라인 체험</a>
-          </fieldset>
+          <div>
+            <ul class="search-tab">
+              <a href="#"><li>숙소</li></a>
+              <a href="#"><li>체험</li></a>
+              <a href="#"><li>온라인 체험</li></a>
+            </ul>
+          </div>
           <div class="search-query">
             <div class="query__column">
               <label for="search-query-location">
@@ -80,15 +68,17 @@
         </form>
       </div>
       <div class="header__column">
-        <nav class="nav">
+        <nav>
           <div>
             <a href="#"><div>호스트되기</div></a>
+          </div>
+          <div>
             <button>
               <a href="#"><i class="fas fa-globe"></i></a>
             </button>
           </div>
           <div>
-            <button>
+            <button class="nav-user">
               <div><i class="fas fa-bars"></i></div>
               <div><i class="fas fa-user"></i></div>
             </button>

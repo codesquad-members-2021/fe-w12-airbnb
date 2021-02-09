@@ -1,0 +1,10 @@
+@import url(./reset.css);
+@import url(./header.css);
+header {
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo > img {
+  width: 100px;
+  background-color: black;
+}
