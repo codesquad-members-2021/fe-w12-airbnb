@@ -38,23 +38,40 @@
     </header>
     <div class="info-form-container">
       <form class="info-input-form">
-        <div class="location">
+        <div class="labels-input">
           <label for="location">위치</label>
-          <input type="text" class="input-destination" />
+          <input
+            id="location"
+            type="text"
+            class="info-inputs"
+            placeholder="어디로 여행가세요?"
+          />
         </div>
-        <div class="location">
-          <label for="location">체크인</label>
-          <input type="text" class="input-destination" />
+        <div class="labels-input">
+          <label for="check-in">체크인</label>
+          <input id="check-in" type="date" class="info-inputs" placeholder="" />
         </div>
-        <div class="location">
-          <label for="location">체크아웃</label>
-          <input type="text" class="input-destination" />
+        <div class="labels-input">
+          <label for="check-out">체크아웃</label>
+          <input
+            id="check-out"
+            type="date"
+            class="info-inputs"
+            placeholder=""
+          />
         </div>
-        <div class="location">
-          <label for="location">인원</label>
-          <input type="text" class="input-destination" />
+        <div class="labels-input" id="no-border">
+          <label for="reserve-number">인원</label>
+          <input
+            id="reserve-number"
+            type="number"
+            class="info-inputs"
+            placeholder="게스트 추가"
+          />
         </div>
-        <button><i class="fas fa-search"></i></button>
+        <div class="search-btn-container">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
       </form>
     </div>
     <section class="slogan-section">
