@@ -10,7 +10,7 @@
 
 html {
   background-color: #fff;
-  color: #555;
+  color: black;
   scroll-behavior: smooth;
   font-weight: 400;
   font-size: 40px;
@@ -21,11 +21,6 @@ html {
 body {
   text-align: center;
   justify-content: center;
-}
-
-section {
-  /* padding: 120px 0; */
-  /* margin-top: 2rem; */
 }
 
 li {
@@ -163,9 +158,9 @@ h1 {
 }
 
 .main_textbox_button {
-  width: 200px;
-  height: 50px;
-  font-size: 0.5rem;
+  width: 260px;
+  height: 60px;
+  font-size: 0.6rem;
   margin-top: 1rem;
   border-radius: 0.3rem;
   padding: 0.3rem;
@@ -273,3 +268,24 @@ div.sec3_container > div > p {
 /*-------------------------------*/
 /*COMMUNITY*/
 /*-------------------------------*/
+
+#community_options {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  margin-top: 3rem;
+}
+
+.sec4_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.community_pic {
+  margin-top: 1rem;
+  height: 500px;
+  width: 700px;
+  border-radius: 3%;
+}
