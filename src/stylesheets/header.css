@@ -37,21 +37,36 @@
   cursor:pointer;
 }
 
-.nav-left {
-  flex-grow: 1;
+.nav__left {
+  display: flex;
+  align-items: center;
+  flex-basis: 33.3333%;
 }
-.nav-center {
-  flex-grow: 1;
+.nav__center {
+  /* flex-grow: 1; */
   text-align: center;
+  
+  display: flex;
+  align-items: center;
+  flex-basis: 33.3333%;
 }
-.nav-right {
-  flex-grow: 1;
+.nav__right {
+  /* flex-grow: 1; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-basis: 33.3333%;
 }
+.nav__center-item {}
 
-.nav-fieldset {
+.nav--fieldset {
+  width: 100%;
   border: none;
   margin: 0;
   padding: 0;
+  
+  display: flex;
+  justify-content: space-evenly
 }
 .nav-fieldset-input {
   /* width: 1px;

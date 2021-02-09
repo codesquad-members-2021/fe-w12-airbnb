@@ -10,7 +10,8 @@ body {
 }
 
 a {
-  text-decoration:none;
+  text-decoration: none;
+  color: white;
 }
 
 /* global tag end */
