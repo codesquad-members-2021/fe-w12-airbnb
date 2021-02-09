@@ -186,7 +186,7 @@ a {
   display: block;
 }
 
-/* Section */
+/* Section City */
 .section__background {
   border: 1px solid white;
   width: 200px;
@@ -196,14 +196,13 @@ a {
 
 .section {
   background: white;
-  border: 1px solid red;
+
   height: 300px;
   position: relative;
 }
 
 .section__container {
-  border: 4px solid blue;
-  height: 200px;
+  height: 180px;
   position: absolute;
   width: 100%;
   top: 50%;
@@ -220,14 +219,18 @@ ul {
 .section__container__city {
   border: 1px solid gray;
   height: 158px;
-  padding: 0 80px;
-  margin: 0 103px;
+
+  margin: 0 80px;
 }
 
 .city {
   border: 1px solid magenta;
-  height: 66px;
-  width: 250px;
+  margin-right: 20px;
+
+  height: 64px;
+  /* 분하지만 어쩔 수 없다
+  float로 양쪽정렬을 할 수가 없다. */
+  width: 257px;
 }
 
 .city_img {
