@@ -145,36 +145,70 @@ header {
   font-weight: 600;
   text-align: center;
 }
-.city_cityimg{
-    width: 64px;
-    height: 64px;
-    border-radius: 8px;
-    margin-right: 16px;
+.city_cityimg {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  margin-right: 16px;
 }
-.citysection{
-height: 272px;
-width: 100%;
-z-index: -1;
+.citysection {
+  height: 272px;
+  width: 100%;
+  z-index: -1;
 }
-.citysection_citys{
-    margin: 64px 0;
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0 80px;
-    grid-auto-flow: row;
-    font-size: 14px;
-    box-sizing: border-box;
-    column-gap: 16px;
-    row-gap: 16px;
+.citysection_citys { 
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  padding: 64px 80px;
+  grid-auto-flow: row;
+  font-size: 14px;
+  box-sizing: border-box;
+  column-gap: 16px;
+  row-gap: 16px;
 }
-.citys_city{
-    display: flex;
-    align-items: center;
+.citys_city {
+  display: flex;
+  align-items: center;
 }
 
-.listTitle{
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 4px;
+.listTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.housetypesection {
+  height: 452.333px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 80px;
+  margin: 40px 0 48px 0;
+}
+.sectiontitle {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.housetype_title {
+  padding-bottom: 16px;
+}
+
+.housetype_picture {
+  width: 262.333px;
+  height: 262.333px;
+  border-radius: 8px;
+}
+.housetypesection > ul {
+  display: flex;
+  justify-content: center;
+  margin: 0 -5px;
+}
+.housetype_list {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0);
+  border-width: 0 5px 0 5px;
+  margin:4px 6px 8px 0;
+}
+.housetype_title{
+    padding-top: 8px;
 }
