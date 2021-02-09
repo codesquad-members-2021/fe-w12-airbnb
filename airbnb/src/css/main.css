@@ -14,17 +14,28 @@ main {
   width: 100%;
 }
 
-.city-lists {
+.city-lists,
+.stay-lists {
   display: flex;
-  flex-wrap: wrap;
   margin-top: 20px;
+}
+.city-list,
+.stay-list {
+  margin-right: 20px;
+}
+.city-list:last-child,
+.stay-list:last-child {
+  margin-right: 0;
 }
 .city-list img {
   width: 72px;
   border-radius: 10px;
 }
+.city-list,
+.stay-list {
+  width: 327px;
+}
 .city-list {
-  width: 350px;
   display: flex;
   align-items: center;
 }
@@ -34,4 +45,8 @@ main {
 .city-info .city-info__title {
   font-weight: 600;
   margin-bottom: 7px;
+}
+
+.stay-list img {
+  width: 327px;
 }
