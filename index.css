@@ -24,7 +24,6 @@ a {
 
 /* 배경 화면 */
 .bg {
-  border: 1px solid red;
   width: 100%;
 }
 
@@ -68,6 +67,19 @@ a {
 
 .user__box > button > svg {
   padding: 2px;
+}
+
+#globe_hamburger {
+  position: absolute;
+
+  top: 9px;
+  left: 10px;
+}
+
+#svg_user {
+  position: absolute;
+  top: 2px;
+  left: 35px;
 }
 
 /* Nav Menu */
