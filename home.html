@@ -7,80 +7,77 @@
     <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
   </head>
   <body>
-    <div>
-      <div class="message">
+    <div class="header">
+      <div class="header__alertMessage">
         <a href="#">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 학인하세요.</a>
       </div>
       <header>
-        <div>
-          <div id="home">
+        <div class="header__content">
+          <div class="header__home-btn">
             <a href="">home</a>
           </div>
-          <div id="search">
-            <div>
+          <div class="header__search">
+            <!-- <div class="header__search-btn">
               <button>검색 시작하기</button>
-            </div>
-            <div>
+            </div> -->
+            <div class="header__search-btn">
               <form action="">
                 <fieldset>
-                  <div aria-label="무엇을 찾고 계신가요?">
+                  <div aria-label="무엇을 찾고 계신가요?" class="header__search-tab">
                     <label for="stay">
-                      <input type="radio" id="stay" name="checkBeforeSearch" checked />
+                      <input type="radio" id="stay" name="checkBeforeSearch" class="header__search-tab__item" checked />
                       <span>숙소</span>
                     </label>
                     <label for="experiences">
-                      <input type="radio" id="experiences" name="checkBeforeSearch" />
+                      <input type="radio" id="experiences" name="checkBeforeSearch" class="header__search-tab__item" />
                       <span>체험</span>
                     </label>
-                    <label for="online_experiences">
+                    <!-- <label for="online_experiences">
                       <input type="radio" id="online_experiences" name="checkBeforeSearch" />
                       <span>온라인 체험 </span>
-                    </label>
+                    </label> -->
+                    <a href="" class="header__search-tab__item">온라인 체험</a>
                   </div>
                 </fieldset>
-                <div>
-                  <div class="whereToGo">
+                <div class="header__search">
+                  <div class="header__search-form">
                     <div>위치</div>
-                    <input type="text" name="" id="" placeholder="어디로 여행가세요?" />
+                    <input type="text" name="" id="header__search-form__place" placeholder="어디로 여행가세요?" />
                   </div>
-                  <div class="check">
-                    <div class="checkIn">
+                  <div class="header__search">
+                    <div class="header__search-form">
                       <div>체크인</div>
-                      <div>날짜 추가</div>
+                      <div class="header__search-form__date">날짜 추가</div>
                     </div>
-                    <div class="checkOut">
+                    <div class="header__search-form">
                       <div>체크아웃</div>
-                      <div>날짜 추가</div>
+                      <div class="header__search-form__date">날짜 추가</div>
                     </div>
                   </div>
-                  <div class="addPeople">
-                    <div>
+                  <div class="header__search">
+                    <div class="header__search-form">
                       <div>인원</div>
-                      <div>게스트 추가</div>
+                      <div class="header__search-form__people">게스트 추가</div>
                     </div>
-                    <div><button>검색</button></div>
+                    <div class="header__search-form">
+                      <button>검색</button>
+                    </div>
                   </div>
                 </div>
               </form>
             </div>
           </div>
-          <div id="account">
+          <div class="header__account">
             <nav>
-              <div>
-                <a href="">
-                  <div>호스트 되기</div>
-                </a>
-                <div>
-                  <button>아이콘</button>
-                </div>
+              <div class="header__account-content">
+                <a href="" class="header__account-content__item">호스트 되기 </a>
+                <button class="header__account-content__item">아이콘</button>
               </div>
-              <div>
-                <div>
-                  <button>
-                    <div>메인 탐색 메뉴</div>
-                    <div>아이콘</div>
-                  </button>
-                </div>
+              <div class="header__account-content">
+                <button class="header__account-content__item">
+                  <div>메인 탐색 메뉴</div>
+                  <div>프로필 아이콘</div>
+                </button>
               </div>
             </nav>
           </div>
@@ -88,87 +85,100 @@
       </header>
     </div>
     <main>
-      <div class="itemList">
-        <div>
+      <div class="main">
+        <section class="main__image">
           <!-- 이제, 여행은 가까운 곳에서 근처의 숙소 둘러보기 -->
-          <div class="picture">이미지</div>
-          <div class="statement">
+          <div class="main__image-picture">이미지</div>
+          <div class="main__image-statement">
             <div>
               <span> 이제, 여행은 가까운 곳에서</span>
             </div>
-            <span>근처의 숙소 둘러보기</span>
+            <button>
+              <span>근처의 숙소 둘러보기</span>
+            </button>
           </div>
-        </div>
-        <div>
-          <!-- 각 도시별 시간 거리 -->
-          <div class="destination">
-            <a href="#">
-              <span>
-                <picture></picture>
-              </span>
-              <span>대전 차로 15분 거리</span>
-            </a>
-          </div>
-          <div class="destination">
-            <a href="#">
-              <span>
-                <picture></picture>
-              </span>
-              <span>서울 차로 2.5시간 거리</span>
-            </a>
-          </div>
-          <div class="destination">
-            <a href="#">
-              <span>
-                <picture></picture>
-              </span>
-              <span>대구 차로 2시간 거리</span>
-            </a>
-          </div>
-          <div class="destination">
-            <a href="#">
-              <span>
-                <picture></picture>
-              </span>
-              <span>청주시 차로 45분 거리</span>
-            </a>
-          </div>
-          <div class="destination">
-            <a href="#">
-              <span>
-                <picture></picture>
-              </span>
-              <span>인천 차로 2.5시간 거리</span>
-            </a>
-          </div>
-          <div class="destination">
-            <a href="#">
-              <span>
-                <picture></picture>
-              </span>
-              <span>의정부시 차로 2.5시간 거리</span>
-            </a>
-          </div>
-          <div class="destination">
-            <a href="#">
-              <span>
-                <picture></picture>
-              </span>
-              <span>수원시 차로 2시간 거리</span>
-            </a>
-          </div>
-          <div class="destination">
-            <a href="#">
-              <span>
-                <picture></picture>
-              </span>
-              <span>부천시 차로 2.5시간 거리</span>
-            </a>
-          </div>
-        </div>
-        <div>
+        </section>
+        <section class="main__destinations">
+          <ul>
+            <li>
+              <a href="#">
+                <span>
+                  <!-- <picture></picture> -->
+                  <img src="" alt="" />
+                </span>
+                <span>대전 차로 15분 거리</span>
+              </a>
+            </li>
+
+            <!-- 각 도시별 시간 거리 -->
+            <li class="main__destinations-item">
+              <a href="#">
+                <span>
+                  <!-- <picture></picture> -->
+                  <img src="" alt="" />
+                </span>
+                <span>서울 차로 2.5시간 거리</span>
+              </a>
+            </li>
+            <li class="main__destinations-item">
+              <a href="#">
+                <span>
+                  <!-- <picture></picture> -->
+                  <img src="" alt="" />
+                </span>
+                <span>대구 차로 2시간 거리</span>
+              </a>
+            </li>
+            <li class="main__destinations-item">
+              <a href="#">
+                <span>
+                  <!-- <picture></picture> -->
+                  <img src="" alt="" />
+                </span>
+                <span>청주시 차로 45분 거리</span>
+              </a>
+            </li>
+            <li class="main__destinations-item">
+              <a href="#">
+                <span>
+                  <!-- <picture></picture> -->
+                  <img src="" alt="" />
+                </span>
+                <span>인천 차로 2.5시간 거리</span>
+              </a>
+            </li>
+            <li class="main__destinations-item">
+              <a href="#">
+                <span>
+                  <!-- <picture></picture> -->
+                  <img src="" alt="" />
+                </span>
+                <span>의정부시 차로 2.5시간 거리</span>
+              </a>
+            </li>
+            <li class="main__destinations-item">
+              <a href="#">
+                <span>
+                  <!-- <picture></picture> -->
+                  <img src="" alt="" />
+                </span>
+                <span>수원시 차로 2시간 거리</span>
+              </a>
+            </li>
+            <li class="main__destinations-item">
+              <a href="#">
+                <span>
+                  <!-- <picture></picture> -->
+                  <img src="" alt="" />
+                </span>
+                <span>부천시 차로 2.5시간 거리</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="main__houseType">
           <!-- 어디에서나, 여행은 살아보는 거야! -->
-          <div>
+          <div class="">
             <section>어디에서나, 여행은 살아보는 거야!</section>
           </div>
           <div>
@@ -193,7 +203,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </section>
         <div>
           <!-- 세상을 만나는 특별한 방법 -->
           <div style="background-color: black">
