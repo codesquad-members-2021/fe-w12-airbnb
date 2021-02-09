@@ -212,7 +212,8 @@ a {
 }
 
 ul {
-  float: left;
+  display: inline-block;
+  /* float: left; */
   margin-right: 20px;
 }
 
@@ -228,9 +229,7 @@ ul {
   margin-right: 20px;
 
   height: 64px;
-  /* 분하지만 어쩔 수 없다
-  float로 양쪽정렬을 할 수가 없다. */
-  width: 257px;
+  width: 253px;
 }
 
 .city_img {
