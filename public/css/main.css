@@ -105,9 +105,26 @@ input[type="radio"]:checked + label {
 
 header .member_setting {
   display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: space-between;
 }
 header .member_setting .host {
-  font-size: 17px;
+  font-size: 14px;
+  font-weight: bold;
+}
+header .member_setting .menuAndAcountIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-radius: 25px;
+  background: white;
+  color: grey;
+}
+header .member_setting .menuAndAcountIcon i:last-child {
+  margin-left: 13px;
+  font-size: 30px;
 }
 
 .main {
