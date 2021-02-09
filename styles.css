@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+}
+
+.CVD19_banner{
+    color: white;
+    background-color: black;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.CVD19_banner a:link{text-decoration: none; color: white;}
+.CVD19_banner a:visited{text-decoration: none; color: white;}
+.CVD19_banner a:active{text-decoration: none; color: white;}
+.CVD19_banner a:hover{text-decoration: none; color: white;}
+
+.include_image{
+    width: 100%;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-image: url('https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1920');
+}
+
+.section_header {
+    display: flex;
+}
+
+.section_header .logo{
+}
+
+.section_header .header_field{
+}
+
+.section_header .my_info {
+}
+
+.userSearch_box {
+    display: flex;
+}
+
+.phrase {
+    display: flex;
+}
