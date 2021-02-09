@@ -3,15 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Airbnb</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/css/styles.css" />
   </head>
   <body>
+    <header class="header">
+      <div class="header__column">
+        <div class="header__logo">
+          <!-- <i class="fab fa-airbnb"></i>
+          <div>airbnb</div> -->
+          <img src="./src/images/airbnb.svg" alt="" />
+        </div>
+      </div>
+      <div class="header__column">
+        <form>
+          <div>
+            <ul class="search-tab">
+              <a href="#"><li>숙소</li></a>
+              <a href="#"><li>체험</li></a>
+              <a href="#"><li>온라인 체험</li></a>
+            </ul>
+          </div>
+          <div class="search-query">
+            <div class="query__column">
+              <div>위치</div>
+              <input
+                type="text"
+                name="search-query-location"
+                id="search-query-location"
+                placeholder="어디로 여행가십니까"
+              />
+            </div>
+            <div class="boundary"></div>
+            <div class="query-date-wrapper">
+              <div class="query__column">
+                <div>체크인</div>
+                <div>날짜 추가</div>
+              </div>
+              <div class="boundary"></div>
+              <div class="query__column">
+                <div>체크아웃</div>
+                <div>날짜 추가</div>
+              </div>
+            </div>
+            <div class="boundary"></div>
+            <div class="query__column-submit">
+              <div class="query__column">
+                <div>인원</div>
+                <div>게스트 추가</div>
+              </div>
+              <div>
+                <button type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="header__column">
+        <nav>
+          <div>
+            <a href="#"><div>호스트되기</div></a>
+          </div>
+          <div>
+            <button>
+              <a href="#"><i class="fas fa-globe"></i></a>
+            </button>
+          </div>
+          <div>
+            <button class="nav-user">
+              <div><i class="fas fa-bars"></i></div>
+              <div><i class="fas fa-user"></i></div>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
     <main>
       <div class="main-column">
         <div class="main-background">
-          <img
-            src="https://a0.muscache.com/im/pictures/c8dd7889-d579-49c7-9650-24ff71a82190.jpg?im_w=720"
-          />
+          <img src="./src/images/main-wide.jpg" width="100%" />
         </div>
         <div class="main-title">
           <span class="main-title__span">이제, 여행은 가까운 곳에서</span>
@@ -56,6 +132,8 @@
               <div class="city-info__distance">차로 45분 거리</div>
             </div>
           </li>
+        </ul>
+        <ul class="city-lists">
           <li class="city-list">
             <img
               src="https://a0.muscache.com/im/pictures/ac2086c9-df0d-4085-94c0-94fe3fb94862.jpg?im_q=medq&im_w=240"
@@ -74,6 +152,24 @@
               <div class="city-info__distance">차로 45분 거리</div>
             </div>
           </li>
+          <li class="city-list">
+            <img
+              src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=240"
+            />
+            <div class="city-info">
+              <div class="city-info__title">부천시</div>
+              <div class="city-info__distance">차로 45분 거리</div>
+            </div>
+          </li>
+          <li class="city-list">
+            <img
+              src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=240"
+            />
+            <div class="city-info">
+              <div class="city-info__title">안산시</div>
+              <div class="city-info__distance">차로 1시간 이상 거리</div>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="main-column">
@@ -84,23 +180,30 @@
           <li class="stay-list">
             <img
               class="stay-img"
-              src="https://a0.muscache.com/im/pictures/a0316ecb-e49b-4b3a-b6b6-c2876b820e8c.jpg?im_w=240"
+              src="https://a0.muscache.com/im/pictures/a0316ecb-e49b-4b3a-b6b6-c2876b820e8c.jpg"
             />
             <div class="stay-name">집 전체</div>
           </li>
           <li class="stay-list">
             <img
               class="stay-img"
-              src="https://a0.muscache.com/im/pictures/ce6814ba-ed53-4d6e-b8f8-c0bbcf821011.jpg?im_w=240"
+              src="https://a0.muscache.com/im/pictures/ce6814ba-ed53-4d6e-b8f8-c0bbcf821011.jpg"
             />
             <div class="stay-name">독특한 공간</div>
           </li>
           <li class="stay-list">
             <img
               class="stay-img"
-              src="https://a0.muscache.com/im/pictures/ce25bfe7-b199-48c2-83aa-619d6a4344b9.jpg?im_w=240"
+              src="https://a0.muscache.com/im/pictures/ce25bfe7-b199-48c2-83aa-619d6a4344b9.jpg"
             />
             <div class="stay-name">셀프 체크인</div>
+          </li>
+          <li class="stay-list">
+            <img
+              class="stay-img"
+              src="https://a0.muscache.com/im/pictures/fbe849a4-841a-41b3-b770-419402a6316f.jpg"
+            />
+            <div class="stay-name">반려동물 동반가능</div>
           </li>
         </ul>
       </div>
