@@ -283,3 +283,35 @@ header .member_setting .host {
   left: 10px;
   bottom: 30px;
 }
+
+/* SECTION BEHOST */
+.section_beHost {
+  padding: 60px 70px;
+}
+
+.section_beHost_title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section_beHost ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section_beHost li {
+  display: flex;
+  flex-direction: column;
+}
+
+.section_beHost li img {
+  width: 450px;
+  border-radius: 9px;
+}
+
+.section_beHost li span {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
