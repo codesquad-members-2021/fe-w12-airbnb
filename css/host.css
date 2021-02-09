@@ -1,0 +1,17 @@
+.hostingsection {
+  height: 442.729px;
+  padding-top: 32px;
+  padding-bottom: 64px;
+}
+.hostingsection_title {
+  margin-bottom: 16px;
+}
+.hosing_picture {
+  width: 355.104px;
+  height: 236.729px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.hostingsection > ul {
+  display: flex;
+}

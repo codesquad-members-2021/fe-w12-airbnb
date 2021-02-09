@@ -1,26 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
-body {
-    margin: 0;
-    padding: 0;
-    height: 1000vh;
-    font-family: -apple-system, 'Roboto', Helvetica,'Bebas Neue', sans-serif;
-    font-size: 14px;
-}
-.corona_alram{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 56px;
-    width: 100%; 
-    background-color: black;
-    padding: 0;
-    margin: 0;
-    
-}
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
+@import "reset.css";
+@import "css/component/component.css";
+@import "css/main.css";
+@import "css/navbar.css";
+@import "css/citys.css";
+@import "css/housetype.css";
+@import "css/activity.css";
+@import "css/host.css";
 
-.corona_alram a{
-    font-weight: 700;
-    font-size: 100%;
-    color: aliceblue;
-    font-family: inherit;
-}
+
+

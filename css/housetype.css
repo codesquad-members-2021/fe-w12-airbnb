@@ -1,0 +1,33 @@
+.housetypesection {
+    height: 452.333px;
+    width: 100%;
+    margin: 40px 0 48px 0;
+  }
+  .sectiontitle {
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .housetype_title {
+    padding-bottom: 16px;
+  }
+  
+  .housetype_picture {
+    width: 262.333px;
+    height: 262.333px;
+    border-radius: 8px;
+  }
+  .housetypesection > ul {
+    display: flex;
+    justify-content: center;
+    margin: 0 -5px;
+  }
+  .housetype_list {
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0 5px 0 5px;
+    margin: 4px 6px 8px 0;
+  }
+  .housetype_title {
+    padding-top: 8px;
+  }
