@@ -1,23 +1,23 @@
 .w25 {
     display: inline-block;
-    width: 24.6%;
+    width: calc(25% - 10px);
 }
 
 .w50 {
     display: inline-block;
-    width: 49.5%;
+    width: calc(50% - 10px);
 }
 
 .w25h50 {
     display: inline-block;
-    width: 24.6%;
-    height: 49.5%;
+    width: calc(25% - 10px);
+    height: calc(50% - 10px);
     margin-left: 10px;
 }
 
 .w50h50 {
     display: inline-block;
-    width: 49.8%;
-    height: 49.5%;
+    width: calc(50% - 10px);
+    height: calc(50% - 10px);
     margin-left: 10px;
 }
