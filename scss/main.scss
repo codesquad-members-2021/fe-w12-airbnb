@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+*[class^=col] {
+  float: left;
+  position: relative;
+  min-height: 1px;
+}
+
+a {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  &.ul__multi {
+    &-four {
+      column-count: 4;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.col-1 {
+  width: 8.33333333%;
+}
+
+.col-2 {
+  width: 16.6666666%; 
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3333333%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-8 {
+  width: 66.6666666%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+section, header, footer {
+  padding: 0 80px;
+  float: left;
+  width: 100%;
+  section {
+    padding: 0;
+  }
+}
+
+body, main {
+  float: left;
+  width: 100%;
+  position: relative;
+}
