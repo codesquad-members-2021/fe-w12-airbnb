@@ -23,7 +23,6 @@
 }
 /* ---------● 헤더 ●--------- */
 #header {
-    /* border: 1px solid #fff; */
     position: absolute;
     padding: 0 80px;
     z-index: 10;
@@ -39,14 +38,12 @@
 }
 
 #nav_middle {
-    float: left;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 #nav_middle > li {
-    /* border: 1px solid yellow; */
     float: left;
     margin-right: 10px;
     padding: 0 15px;
@@ -71,7 +68,6 @@
     margin-top: 15px;
 }
 #nav_right > li {
-    /* border: 1px solid yellow; */
     float: left;
     margin-right: 10px;
     padding: 0 15px;
@@ -81,6 +77,78 @@
 }
 #nav_right > li > a:first-child {
     font-size: 0.9em;
+}
+
+/* ---------● 검색창 ●--------- */
+#search {
+    width: 853px;
+    background-color: #fff;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    border-radius: 45px;
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15),
+        0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+#search > li {
+    float: left;
+    height: 66px;
+    padding: 15px 25px;
+    background-color: #fff;
+    border-radius: 45px;
+}
+#search > li:hover {
+    background-color: #eee;
+}
+#search > li > span:first-child {
+    font-size: 0.78em;
+    font-weight: 600;
+    color: #222;
+}
+#search > li > div {
+    margin-top: 6px;
+    font-size: 0.87em;
+    font-weight: 300;
+    color: #555;
+}
+/* ----- 위치 ----- */
+#search > li:first-child {
+    width: 270px;
+    padding-left: 35px;
+}
+#search > li:first-child > input {
+    width: 150px;
+    border: 0;
+    padding: 0;
+    margin-top: 5px;
+    outline: none;
+}
+/* ----- 체크인 체크아웃 ----- */
+#search > li:nth-child(2),
+#search > li:nth-child(3) {
+    width: 180px;
+    cursor: pointer;
+}
+/* ----- 인원, 게스트 추가 ----- */
+#search > li:last-child {
+    width: 223px;
+    position: relative;
+    cursor: pointer;
+}
+#search > li:last-child > button {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 50%;
+    background-color: #ed495a;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
 }
 
 /* ---------● 배너 ●--------- */
