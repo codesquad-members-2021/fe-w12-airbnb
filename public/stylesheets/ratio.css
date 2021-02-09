@@ -1,0 +1,23 @@
+.w25 {
+    display: inline-block;
+    width: 24.6%;
+}
+
+.w50 {
+    display: inline-block;
+    width: 49.5%;
+}
+
+.w25h50 {
+    display: inline-block;
+    width: 24.6%;
+    height: 49.5%;
+    margin-left: 10px;
+}
+
+.w50h50 {
+    display: inline-block;
+    width: 49.8%;
+    height: 49.5%;
+    margin-left: 10px;
+}

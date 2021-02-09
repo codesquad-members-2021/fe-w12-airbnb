@@ -1,3 +1,5 @@
+@import url("./ratio.css");
+
 * {
     padding: 0;
     margin: 0;
@@ -7,24 +9,59 @@ ul {
     list-style: none;
 }
 
+.float_left {
+    float: left;
+}
+
+.float_right {
+    float: right;
+}
+
+.float_clear {
+    clear: both;
+}
+
+/* 전체 Wrapper */
 div.index {
     width: 1900px;
     height: 1080px;
     margin: 0 auto;
+    position: relative;
+    left: -2px;
 }
 
 /* 헤더 */
-div.index-head {
+div.index-header {
     width: 100%;
-    height: 70%;
+    height: 79.1%;
     background-image: url('../images/top_banner.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
-/* 헤더 - 코로나 */
-div.index-head > div.covid {
+div.index-header > header {
+    width: 100%;
+    height: 80px;
+}
+
+/* 헤더 1 ~ 2 공통 */
+div.index-header__covid > a,
+div.index-header__covid > a:link,
+div.index-header__covid > a:visited,
+div.index-header__banner__logo > a {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+div.index-header__covid > a:hover,
+div.index-header__covid > a:active {
+    color: #ddddddcc;
+}
+
+/* 헤더 1 - 코로나 알림 */
+div.index-header__covid {
     width: 100%;
     height: 60px;
     background-color: black;
@@ -32,31 +69,13 @@ div.index-head > div.covid {
     line-height: 60px;
 }
 
-div.index-head > div.covid > a,
-a:link,
-a:visited {
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-}
-
-div.index-head > div.covid > a:hover,
-a:active {
-    color: #ddddddcc;
-}
-
-/* 헤더 - 메인 */
-div.index-head > header {
-    width: 100%;
-    height: 80px;
-}
-
-div.header-logo {
+/* 헤더 2 - banner (로고, 검색바 등..) */
+div.index-header__banner {
     height: 100%;
     width: 100%;
 }
 
-div.logo {
+div.index-header__banner__logo {
     position: relative;
     border-radius: 12px;
     left: 30px;
@@ -65,60 +84,117 @@ div.logo {
     margin-right: 120px;
 }
 
-/* content */
-div.index-main {
+/* ----------------------------- */
+
+/* 콘텐츠 */
+div.index-content {
     width: 100%;
 }
 
-div.index-main > ul > li {
-    margin: 40px 8%;
+div.index-content > ul > li {
+    margin: 70px 8%;
 }
 
-div.flexable {
-    margin: 60px auto;
+div.index-content > ul > li.black {
+    margin: 0; 
+    background-color: black;
 }
 
-/* content - section1  */
-ul.section1 > li {
-    display: inline-block;
-    width: 24.6%;
+div.index-content-flexAble {
+    margin: 70px auto;
 }
 
-ul.section1 > li > img {
-    width: 20%;
+/* 콘텐츠 공통 */
+p.index-content-secDesc {
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+/* 콘텐츠 - section1  */
+ul.index-content__sec1 {
+    margin: 0 0 0 13px;
+}
+
+ul.index-content__sec1 > li > img {   
+    width: 20%; 
     border: 1px solid white;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    border-radius: 5px;    
 }
 
-div.info {
+ul.index-content__sec1 > li > div.info {
     display: inline-block;
     position: relative;
     top: -22px;
 }
 
-/* content - section 2  */
-ul.section2 {
-    margin-top: 20px;
-}
-ul.section2 > li {
-    display: inline-block;
-    width: 24.6%;
-    text-align: center;
-}
-ul.section2 > li > img {
+/* 콘텐츠 - section 2  */
+ul.index-content__sec2 > li > img {
     width: 95%;
     margin: 0 2.5%;
     border: 1px solid white;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    -webkit-border-radius: 5px;
 }
 
-ul.section2 > li > p {
+ul.index-content__sec2 > li > p {
     text-align: left;
     margin: 0 2.5%;
+}
+
+/* 콘텐츠 - section 3  */
+/* 1) 상단 글자 및 버튼 */
+div.index-content__sec3 {
+    margin: 70px 8%;
+    padding: 30px 0;
+}
+
+button.index-content__sec3__btn {
+    position: relative;
+    top: 20px;
+    right: 20px;
+
+    border-radius: 5px;
+    padding: 7px;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+
+    cursor: pointer;
+}
+
+button.index-content__sec3__btn:hover {
+    background-color: rgb(119, 119, 119);
+}
+
+/* 2) 하단 이미지들 */
+ul.index-content__sec3__ul {
+    padding: 20px 0;
+}
+
+ul.index-content__sec3__ul > li > p {
+    position: relative;
+    top: -55px;
+    left: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+ul.index-content__sec3__ul > li > img {
+    width: 100%;    
+    border-radius: 16px;
+}
+
+/* 콘텐츠 - section 4  */
+ul.index-content__sec4 {
+    padding-top: 20px;
+    padding-bottom: 80px;
+    
+}
+ul.index-content__sec4 > li {
+    display: inline-block;
+    width: 33%;
+}
+ul.index-content__sec4 > li > img {
+    width: 100%;
+    border-radius: 16px;
 }
