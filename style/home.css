@@ -1,18 +1,30 @@
-body {
-  all: unset;
-}
-
-ul {
-  all: unset;
-}
-
+body,
+ul,
+button,
+fieldset,
 a {
   all: unset;
+}
+
+a,
+button {
   cursor: pointer;
 }
 
+.header {
+  position: relative;
+  width: auto;
+  /* z-index: 1; */
+}
+
+.header,
+.header a {
+  color: white;
+  border: 1px solid red;
+}
+
 .header__alertMessage {
-  height: 70px;
+  height: 60px;
   background-color: black;
   text-align: center;
   display: flex;
@@ -27,4 +39,53 @@ a {
 
 .header__alertMessage a:hover {
   color: gray;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  border: 1px solid red;
+  margin-top: 20px;
+  height: 150px;
+  width: 100%;
+  position: absolute;
+}
+
+#airbnb__logo {
+  width: 100px;
+}
+
+.header__search {
+  display: flex;
+}
+
+.header__account {
+  display: flex;
+}
+
+.main__statement {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+}
+
+.main__statement h1 {
+  max-width: 430px;
+  border: 1px solid red;
+  font-size: 50px;
+}
+
+.main__image {
+  max-height: 610px;
+  overflow: hidden;
+  width: auto;
+  /* background-image: url("/airbnb_image/airbnb/images/main.jpg"); */
+}
+
+.main__image img {
+  max-height: initial;
+  margin-top: -8%;
+  width: 100%;
+  object-fit: cover;
 }
