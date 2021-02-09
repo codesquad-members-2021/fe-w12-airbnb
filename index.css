@@ -1,3 +1,7 @@
+/*-------------------------------*/
+/*SET-UP*/
+/*-------------------------------*/
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +11,7 @@
 html {
   background-color: #fff;
   color: #555;
+  scroll-behavior: smooth;
   font-weight: 400;
   font-size: 40px;
   font-family: "Lato", sans-serif;
@@ -15,13 +20,29 @@ html {
 
 body {
   text-align: center;
-  display: flex;
   justify-content: center;
 }
 
+section {
+  padding: 120px 0;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+/*-------------------------------*/
+/*HEADER*/
+/*-------------------------------*/
+
 header {
   margin-top: 0;
-  background-image: url("./images/bground.jpg");
+  background-image: linear-gradient(
+      rgba(77, 73, 73, 0.719),
+      rgba(184, 184, 184, 0)
+    ),
+    url("./images/bground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -29,7 +50,7 @@ header {
   width: 100%;
 }
 
-.announcement {
+#announcement {
   background-size: cover;
   background-color: black;
   background-position: center;
@@ -45,18 +66,73 @@ header {
 }
 
 .logo_and_nav {
+  width: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-top: 1rem;
+}
+
+.nav_left,
+.nav_center,
+.nav_right {
+  flex-grow: 1;
 }
 
 .airbnb_logo {
-  height: 80px;
+  height: 65px;
   width: auto;
   float: left;
   filter: brightness(0) invert(1); /*svg 흰색으로 바꾸기*/
 }
 
+.nav_center {
+  text-align: center;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.7rem;
+}
+
 .login_menu {
   float: right;
   color: #fff;
+}
+
+.login_menu li {
+  display: inline-block;
+  margin-left: 40px;
+  font-size: 0.7rem;
+}
+
+.earth_logo {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.login_set {
+  /* height: 4rem;
+  width: 50px; */
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+span.login_set > img {
+  height: 50px;
+  width: auto;
+  filter: invert(27%) sepia(0%) saturate(55%) hue-rotate(268deg)
+    brightness(109%) contrast(80%);
+}
+
+fieldset.search_box > div {
+  display: inline-block;
 }
 
 .search_logo {
@@ -91,9 +167,17 @@ h1 {
   background-color: #fff;
 }
 
-.main {
-  /* background-image: url("./main.jpg"); */
-  /* height: 100vh; */
-  /* background-size: cover; */
-  /* background-position: center; */
+/*-------------------------------*/
+/*CITIES*/
+/*-------------------------------*/
+
+#cities {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  /* display: block; */
+}
+
+.city_pic {
+  border-radius: 10%;
 }
