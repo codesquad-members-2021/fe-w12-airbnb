@@ -193,36 +193,51 @@
 
 /* ---------● 지역 안내 ●--------- */
 #local {
-    width: 100%;
     height: 270px;
-    background-color: #ddd;
     position: relative;
 }
 #local > ul {
+    width: 1436px;
     padding: 0 80px;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-#local > ul > li {
+.local_list {
     float: left;
-    background-color: #fff;
     margin-bottom: 17px;
     margin-right: 17px;
-}
-#local > ul > li:nth-child(5),
-#local > ul > li:nth-child(6),
-#local > ul > li:nth-child(7),
-#local > ul > li:nth-child(8) {
-    margin-bottom: 0;
-}
-#local > ul > li:nth-child(4),
-#local > ul > li:nth-child(8) {
-    margin-right: 0;
-}
-#local > ul > li > a {
-    display: block;
     width: 306.25px;
     height: 65px;
-    cursor: pointer;
+}
+.local_list:nth-child(5),
+.local_list:nth-child(6),
+.local_list:nth-child(7),
+.local_list:nth-child(8) {
+    margin-bottom: 0;
+}
+.local_list:nth-child(4),
+.local_list:nth-child(8) {
+    margin-right: 0;
+}
+.local_list > img {
+    float: left;
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+}
+.local_list > a {
+    display: block;
+    width: 230px; /* 링크 클릭 범위 설정 */
+    padding: 12px 20px 12px 80px;
+    line-height: 1.35;
+    color: #333;
+    text-decoration: none;
+}
+.local_list > a > span:first-child {
+    font-weight: 500;
+}
+.local_list > a > span:last-child {
+    font-size: 0.9em;
 }
