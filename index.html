@@ -9,16 +9,19 @@
   <body>
     <!--Header-->
     <header>
-      <div class="header__logo">
-        <i class="fab fa-airbnb"></i>
-        <span class="header__logo--text">airbnb</span>
+      <div class="covid-19-notice">
+        <span
+          >에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</span
+        >
       </div>
+      <div class="airbnb-logo">
+        <embed width="118px" height="64px" src="img/airbnb.svg" />
+      </div>
+
       <nav class="nav-menu">
-      
-          <span class="nav-menu__list">숙소</span>
-          <span class="nav-menu__list">체험</span>
-          <span class="nav-menu__list" id="oline">온라인 체험</span>
-        
+        <span class="nav-menu__list">숙소</span>
+        <span class="nav-menu__list">체험</span>
+        <span class="nav-menu__list" id="oline">온라인 체험</span>
       </nav>
 
       <nav class="nav-login">
@@ -30,7 +33,6 @@
         </div>
       </nav>
     </header>
-
     <!--Main-->
     <main>
       <!--Search-->
@@ -51,69 +53,66 @@
       </section>
       <!--City-->
       <section class="city-section">
-        <div class="city-section__div">
-            <li class="city-section__list">
-              <img
-                class="city-section__img"
-                src="img/sec1-01.jpg"
-                alt="seoul"
-              />
-              <div>서울 <br>차로 3분거리</div>
-            </li>
-            <li class="city-section__list">
-              <img
-                src="img/sec1-02.jpg"
-                alt="incheon"
-              />인천 차로 30분 거리
-            </li>
-            <li class="city-section__list">
-              <img
-                src="img/sec1-03.jpg"
-                alt="uijeongbu"
-              />의정부시 차로 45분 거리
-            </li>
-            <li class="city-section__list">
-              <img
-                src="img/sec1-04.jpg"
-                alt="daejeon"
-              />대전 차로 2.5시간 거리
-            </li>
-            <li class="city-section__list">
-              <img
-                src="img/sec1-05.jpg"
-                alt="daegu"
-              />대구 차로 4시간 거리
-            </li>
-            <li class="city-section__list">
-              <img
-                class="city-section__img"
-                src="img/sec1-06.jpg"
-                alt="goyang"
-              />고양시 차로 30분 거리
-            </li>
-            <li class="city-section__list">
-              <img
-                class="city-section__img"
-                src="img/sec1-07.jpg"
-                alt="bucheon"
-              />부천시 차로 15분 거리
-            </li>
-            <li class="city-section__list">
-              <img
-                class="city-section__img"
-                src="img/sec1-08.jpg"
-                alt="suwon"
-              />수원시 차로 45분 거리
-            </li>
-          </ul>
-        </div>
+        <ul class="city-section__div">
+          <li class="city-section__list">
+            <img class="city-section__img" src="img/sec1-01.jpg" alt="seoul" />
+            <div>서울 <br />차로 3분거리</div>
+          </li>
+          <li class="city-section__list">
+            <img src="img/sec1-02.jpg" alt="incheon" />
+            <div>
+              인천<br />
+              차로 30분 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img src="img/sec1-03.jpg" alt="uijeongbu" />
+            <div>
+              의정부시<br />
+              차로 45분 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img src="img/sec1-04.jpg" alt="daejeon" />
+            <div>
+              대전<br />
+              차로 2.5시간 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img src="img/sec1-05.jpg" alt="daegu" />
+            <div>대구 <br />차로 4시간 거리</div>
+          </li>
+          <li class="city-section__list">
+            <img class="city-section__img" src="img/sec1-06.jpg" alt="goyang" />
+            <div>
+              고양시<br />
+              차로 30분 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img
+              class="city-section__img"
+              src="img/sec1-07.jpg"
+              alt="bucheon"
+            />
+            <div>
+              부천시<br />
+              차로 15분 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img class="city-section__img" src="img/sec1-08.jpg" alt="suwon" />
+            <div>수원시 <br />차로 45분 거리</div>
+          </li>
+        </ul>
       </section>
       <!--room-->
       <section class="room-section">
         <div class="room-section__div">
           <div class="room-section__main-text">
             어디에서나, 여행은 살아보는 거야!
-          </di>
+          </div>
           <ul>
             <li class="room-section__list">
               <img
@@ -153,44 +152,31 @@
       <!--Activity-->
       <section class="activity-section">
         <span class="activity-section__main-text">온라인 체험</span>
-        <span class="activity-section__sub-text">
-          전문가가 진행하고 모두 함께 즐기는 참여형 액티비티
-        </span>
-        <ul>
-          <li>
-            <img
-              class="activity-section__img"
-              id="pasta"
-              src="img/sec3-01.jpg"
-              alt="make-pasta"
-            />
-            <div>이탈리아 할머니와 함께 수제 파스타 만들기</div>
-          </li>
-          <li>
-            <img
-              class="activity-section__img"
-              src="img/sec3-02.jpg"
-              alt="mindful-eating"
-            />
-            <div>선(禪) 사상을 통한 마음챙김 식사</div>
-          </li>
-          <li>
-            <img
-              class="activity-section__img"
-              src="img/sec3-03.jpg"
-              alt="know-mate-tea"
-            />
-            <div>아르헨티나를 대표하는 예르바 마테차 알아보기</div>
-          </li>
-          <li>
-            <img
-              class="activity-section__img"
-              src="img/sec3-04.jpg"
-              alt="meditaion-with-piano-music"
-            />
-            <div>파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</div>
-          </li>
-        </ul>
+        <span> 전문가가 진행하고 모두 함께 즐기는 참여형 액티비티 </span>
+        <div class="activity-section__div">
+          <ul>
+            <li>
+              <img id="pasta" src="img/sec3-01.jpg" alt="make-pasta" />
+              <div>이탈리아 할머니와 함께 수제 파스타 만들기</div>
+            </li>
+            <li>
+              <img src="img/sec3-02.jpg" alt="mindful-eating" />
+              <div>선(禪) 사상을 통한 마음챙김 식사</div>
+            </li>
+            <li>
+              <img src="img/sec3-03.jpg" alt="know-mate-tea" />
+              <div>아르헨티나를 대표하는 예르바 마테차 알아보기</div>
+            </li>
+            <li>
+              <img
+                id="piano"
+                src="img/sec3-04.jpg"
+                alt="meditaion-with-piano-music"
+              />
+              <div>파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</div>
+            </li>
+          </ul>
+        </div>
       </section>
       <!--Host-->
 
@@ -206,7 +192,7 @@
                 src="img/sec4-01.jpg"
                 alt="be-host"
               />
-              <div>숙소 호스트 되기</div>
+              <div class="host-section__sub-text">숙소 호스트 되기</div>
             </li>
             <li>
               <img
@@ -214,7 +200,7 @@
                 src="img/sec4-02.jpg"
                 alt="host-onlie-activity"
               />
-              <div>온라인 체험 호스팅하기</div>
+              <div class="host-section__sub-text">온라인 체험 호스팅하기</div>
             </li>
             <li>
               <img
@@ -222,7 +208,7 @@
                 src="img/sec4-03.jpg"
                 alt="host-activity"
               />
-              <div>체험 호스팅하기</div>
+              <div class="host-section__sub-text">체험 호스팅하기</div>
             </li>
           </ul>
         </div>
