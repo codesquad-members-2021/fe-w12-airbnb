@@ -19,47 +19,104 @@
     </div>
     <div class="container">
       <header>
-        <div class="inner">
-          <div class="logo">LOGO</div>
-          <form class="mid">
-            <fieldset>
-              <ul class="ul-flex">
-                <li>숙소</li>
-                <li>체험</li>
-                <li>온라인 체험</li>
+        <div class="contents_wrapper">
+          <div class="logo">
+            <object
+              data="./img/logo.svg"
+              type="image/svg+xml"
+              aria-label="LOGO"
+            ></object>
+          </div>
+          <div class="search">
+            <form>
+              <fieldset>
+                <div class="search-type">
+                  <label for="STAYS">
+                    <input type="radio" id="STAYS"/ name="searchType">
+                    <span>숙소</span>
+                  </label>
+                  <label for="EXPERIENCES">
+                    <input type="radio" id="EXPERIENCES" name="searchType" />
+                    <span>체험</span>
+                  </label>
+                  <a href="">온라인 체험</a>
+                </div>
+              </fieldset>
+              <div class="floatBox">
+                <div class="searchBox">
+                  <div class="searchBox-location">
+                    <label class="searchBox-section" for="search-location">
+                      <div>위치</div>
+                      <input
+                        type="text"
+                        placeholder="어디로 여행가세요?"
+                        id="search-location"
+                      />
+                    </label>
+                  </div>
+                  <div class="verticalBar"></div>
+                  <div class="searchBox-date">
+                    <div class="searchBox-section">
+                      <div>체크인</div>
+                      <div>날짜 추가</div>
+                    </div>
+                    <div class="verticalBar"></div>
+                    <div class="searchBox-section">
+                      <div>체크아웃</div>
+                      <div>날짜 추가</div>
+                    </div>
+                  </div>
+                  <div class="verticalBar"></div>
+
+                  <div class="searchBox-person">
+                    <div class="searchBox-section">
+                      <div>인원</div>
+                      <div>게스트 추가</div>
+                    </div>
+                  </div>
+                  <div class="searchBox-button">
+                    <button>
+                      <object
+                        data="./img/search.svg"
+                        type="image/svg+xml"
+                        aria-label="searchBtn"
+                      ></object>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div>
+            <nav>
+              <ul class="nav-menu">
+                <li>호스트 되기</li>
+                <li>
+                  <object
+                    data="./img/icon.svg"
+                    type="image/svg+xml"
+                    aria-label="icon"
+                  ></object>
+                </li>
+                <li>
+                  <object
+                    data="./img/menu.svg"
+                    type="image/svg+xml"
+                    aria-label="menu"
+                  ></object>
+                  <object
+                    data="./img/me.svg"
+                    type="image/svg+xml"
+                    aria-label="me"
+                  ></object>
+                </li>
               </ul>
-            </fieldset>
-            <div class="searchBox">
-              <div class="search-item">
-                <div>위치</div>
-                <div>어디로 여행가세요?</div>
-              </div>
-              <div class="search-item">
-                <div>체크인</div>
-                <div>날짜추가</div>
-              </div>
-              <div class="search-item">
-                <div>체크아웃</div>
-                <div>날짜 추가</div>
-              </div>
-              <div class="search-item">
-                <div>인원</div>
-                <div>게스트추가</div>
-              </div>
-              <div><button></button></div>
-            </div>
-          </form>
-          <div class="">
-            <ul class="ul-flex">
-              <li>호스트되기</li>
-              <li>지구</li>
-              <li>mypage</li>
-            </ul>
+            </nav>
           </div>
         </div>
       </header>
       <section class="section-visual">
-        <div class="inner">
+        <div class="contents_wrapper">
           <div class="copy-box">
             <span class="copy">이제, 여행은 가까운&nbsp;곳에서</span>
             <span class="btn">근처의 숙소 둘러보기</span>
@@ -68,7 +125,7 @@
       </section>
       <main>
         <nav class="locations">
-          <div class="inner">
+          <div class="contents_wrapper">
             <ul>
               <li class="location">
                 <div>
@@ -121,6 +178,7 @@
                 </div>
                 <div>
                   <div>수원시</div>
+
                   <div>차로 45분 거리</div>
                 </div>
               </li>
@@ -147,7 +205,7 @@
         </nav>
         <section>
           <article class="article-box">
-            <div class="inner">
+            <div class="contents_wrapper">
               <h3>어디에서나, 여행은 살아보는 거야!</h3>
               <div>
                 <div class="article-item">
@@ -170,7 +228,7 @@
             </div>
           </article>
           <article class="article-box">
-            <div class="inner">
+            <div class="contents_wrapper">
               <h3>
                 수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이
                 되어보세요.
@@ -194,7 +252,7 @@
         </section>
       </main>
       <footer>
-        <div class="inner">
+        <div class="contents_wrapper">
           <div class="footer-up">
             <ul>
               <li>소개</li>
