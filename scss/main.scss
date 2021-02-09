@@ -141,6 +141,7 @@ header {
   nav {
     display: flex;
     align-items: center;
+    place-content: flex-end;
   }
   .nav {
     &__anchor {
@@ -182,7 +183,7 @@ header {
       width: 250px;
       position: absolute;
       top: 50px;
-      right: 60px;
+      right: 0px;
       background: #fff;
       border-radius: 20px;
       overflow: hidden;
@@ -536,13 +537,16 @@ main {
     &__image {
       border-radius: 16px;
       max-width: 100%;
+      margin-bottom: -55px;
     }
     &__text {
-      position: absolute;
-      bottom: 50px;
+      bottom: 20px;
       left: 15px;
+      height: 55px;
+      display: block;
       &-main {
         display: block;
+        padding: 0 1em;
         font-weight: 600;
         font-size: 16px;
       }
