@@ -19,7 +19,7 @@
     color: #ddd;
     cursor: pointer;
 }
-#container {
+#container_header {
     position: relative;
 }
 /* ---------● 헤더 ●--------- */
@@ -191,14 +191,18 @@
     text-decoration: none;
 }
 
+/* 이미지 밑 컨텐츠들을 감싸는 컨테이너 */
+#container_content {
+    padding: 0 80px;
+}
+
 /* ---------● 지역 안내 ●--------- */
 #local {
     height: 270px;
     position: relative;
 }
 #local > ul {
-    width: 1436px;
-    padding: 0 80px;
+    width: 1276px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -240,4 +244,45 @@
 }
 .local_list > a > span:last-child {
     font-size: 0.9em;
+}
+
+/* -----● 숙소 종류 ●----- */
+#house {
+    margin: 40px 0;
+    height: 400px;
+    position: relative;
+}
+#house > ul {
+    width: 1275px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#house > h1 {
+    font-size: 2em;
+    font-weight: 600;
+    padding-bottom: 16px;
+}
+.house_list {
+    float: left;
+    margin-top: 10px;
+    margin-right: 17px;
+}
+.house_list:last-child {
+    margin-right: 0;
+}
+.house_list > a {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+.house_list > a > img {
+    width: 305px;
+    border-radius: 10px;
+}
+.house_list > a > div {
+    padding: 8px 0 0;
 }
