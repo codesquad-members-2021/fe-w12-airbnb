@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  font-style: none;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+button,
+button:focus {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/*CORONA 관련 맨 윗부분 CSS STYLE*/
+
+.corona {
+  padding: 15px;
+  background-color: black;
+  text-align: center;
+  font-size: 15px;
+}
+
+.corona a {
+  color: #dddddd;
+}
+
+.corona a:hover {
+  color: rgb(204, 203, 203);
+}
+
+/* -------------------HEADER-------------------*/
+
+header {
+  width: 100%;
+  border: white 1px solid;
+  padding: 20px 30px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  color: white;
+}
+
+header .nav {
+  display: flex;
+}
+.nav_item {
+  opacity: 0;
+}
+.nav_item > label {
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+input[type="radio"]:checked + label {
+  color: white;
+}
+
+header .member_setting {
+  display: flex;
+}
+header .member_setting .host {
+  font-size: 17px;
+}
+
+main {
+  height: 550px;
+  width: 100%;
+  background: url("/img/main-wide.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main .phraseAndbutton {
+  position: relative;
+}
+
+main .phrase {
+  position: absolute;
+  left: 40px;
+  top: 270px;
+  color: white;
+  font-size: 50px;
+  width: 330px;
+  font-weight: bold;
+  line-height: 1.2em;
+}
+main .findNearRooms_btn {
+  color: black;
+  position: absolute;
+  left: 40px;
+  top: 410px;
+  background-color: white;
+  padding: 6px 14px 6px 14px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+main .findNearRooms_btn:hover {
+  background-color: rgb(248, 248, 248);
+}
