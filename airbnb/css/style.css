@@ -15,6 +15,7 @@
 }
 .alert a{
     color:white;
+    font-weight: 400;
 }
 
 header {
@@ -26,7 +27,7 @@ header {
 
 nav{
     display:grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     justify-content: space-between;
 
 }
@@ -36,6 +37,8 @@ nav{
     color:white;
     font-size: 35px;
     font-weight: 800;
+    background-color: red;
+
 }
 
 .menu ul{
@@ -45,6 +48,7 @@ nav{
     grid-gap: 30px;
     list-style-type: none;
     margin-right:10px;
+    
 }
 
 .menu ul a{
@@ -52,23 +56,64 @@ nav{
     color:white;
     font-weight: 400;
 }
-
 .search__menu ul{
-    /* margin:35px 20px 0px 300px;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: -35px;
-    
-    list-style-type: none; */
+    display:grid;
+    /* margin:35px 20px 0 0px; */
+
     color: white;
-    font-weight: 348;
+    font-weight: 400;
     list-style-type: none;
     padding: 2rem 0;
     display:flex;
     justify-content: center;
     align-items: center;
+    background-color: red;
+
 }
+
 .search__menu ul  li + li {
     
     margin-left: 2rem;
   }
+
+.search__box{
+    width: 700px;
+    background-color: white;
+    display: inline-block;
+    padding: 3px 30px;
+    position: relative;
+    top:10px;
+    left:300px;
+    border-radius: 100px;
+    box-shadow: 0 2px 2px 0 rgb(214,214,214);
+}
+
+table {
+    width:100%
+
+}
+
+.search__sub__title{
+    padding: 10px 0px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.search__input {
+    border:none;
+    color: rgb(100,98,98);
+
+}
+.search__button {
+    display:grid;
+    justify-content: end;
+    padding-left: 20px;
+}
+.search__button button{
+    background-color: #FF385C;
+    color:white;
+    width:50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 0px;
+
+}
