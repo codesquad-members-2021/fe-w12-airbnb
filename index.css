@@ -59,61 +59,97 @@ a {
   padding: 20px 0;
 }
 
+.user__box > button {
+  width: 77px;
+  height: 42px;
+  border-radius: 25px;
+  position: relative;
+}
+
 .user__box > button > svg {
-  float: left;
-  border: 1px solid red;
+  padding: 2px;
 }
 
 /* Nav Menu */
-.nav__box .nav__menu {
+.nav__menu {
   width: 302px;
   padding: 30px 0;
 }
 
-.nav__box .nav__menu .nav__menu__span {
+.nav__menu__span {
   font-weight: 800;
   padding: 10px 16px;
   color: white;
 }
 
 /* Nav Right Box */
-.nav__box .nav__right__box {
-  padding: 30px 100px 0;
+.nav__right__box {
+  padding: 30px 130px 0;
+  position: relative;
 }
 
-.nav__box .nav__right__box .host__box {
+.host__box {
   float: left;
+  margin-right: 10px;
 }
-.nav__box .nav__right__box .host__box .host {
+.host {
   font-weight: 800;
   color: white;
   float: left;
-  padding: 0 5px;
+  font-size: 14px;
+  padding: 0 15px;
 }
-.nav__box .nav__right__box .host__box .globe {
-  padding: 0 5px;
+.globe {
+  padding: 0 10px;
   float: left;
 }
-.nav__box .nav__right__box .user__box {
+.user__box {
   padding: 0 5px;
   float: left;
+  position: absolute;
+  top: 15px;
+  left: 280px;
 }
 
 /* Reservation Menu */
 .leftside__radius__background {
-  width: 200px;
+  width: 270px;
   background: white;
   padding: 15px;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
 
+.leftside__radius__background .reservation__menu__text {
+  padding-left: 30px;
+}
+.leftside__radius__background .reservation__input {
+  padding-left: 30px;
+}
+
 .rightside__radius__background {
-  width: 200px;
+  width: 60px;
   background: white;
   padding: 15px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  position: relative;
+}
+
+.search__circle {
+  background: #ff385c;
+  width: 52px;
+  height: 52px;
+  border-radius: 50px;
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+
+.search__circle > svg {
+  position: absolute;
+  top: 18px;
+  left: 18px;
 }
 
 .reservation__container {
@@ -123,9 +159,14 @@ a {
 
 .reservation__background {
   float: left;
-  width: 200px;
+  padding: 15px 0;
+  height: 35px;
+}
+
+.middle__background {
+  width: 170px;
   background: white;
-  padding: 15px;
+  padding: 15px 0;
   height: 35px;
 }
 
@@ -142,6 +183,7 @@ a {
 
 .reservation__input {
   padding-left: 15px;
+  background: transparent;
   border: 0;
   font-size: 14px;
 }
@@ -264,7 +306,7 @@ a {
   background-position: center;
 }
 
-.middle2 {
+.section__space {
   background: #eee;
   height: 600px;
 }
