@@ -59,6 +59,11 @@ a {
   padding: 20px 0;
 }
 
+.user__box > button > svg {
+  float: left;
+  border: 1px solid red;
+}
+
 /* Nav Menu */
 .nav__box .nav__menu {
   width: 302px;
@@ -122,6 +127,10 @@ a {
   background: white;
   padding: 15px;
   height: 35px;
+}
+
+.middle__bar {
+  border-left: 1px solid #717171;
 }
 
 .reservation__menu__text {
@@ -213,26 +222,22 @@ a {
 
 ul {
   display: inline-block;
-  /* float: left; */
-  margin-right: 20px;
 }
 
 .section__container__city {
-  border: 1px solid gray;
-  height: 158px;
+  height: 153px;
 
   margin: 0 80px;
 }
 
 .city {
-  border: 1px solid magenta;
   margin-right: 20px;
-
+  margin-bottom: 20px;
   height: 64px;
   width: 253px;
 }
 
-.city_img {
+.city__img {
   width: 62px;
   height: 62px;
   border-radius: 10px;
@@ -240,12 +245,12 @@ ul {
   background-position: center;
 }
 
-.city_name {
+.city__name {
   font-size: 14px;
   display: block;
 }
 
-.city_distance {
+.city__distance {
   font-size: 14px;
   display: block;
 }
