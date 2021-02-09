@@ -135,6 +135,54 @@ a {
   font-size: 14px;
 }
 
+.catchphrase__container {
+  width: 400px;
+  height: 300px;
+
+  position: absolute;
+  top: 300px;
+  left: 80px;
+}
+
+.catchphrase__box {
+  margin-top: 60px;
+  margin-bottom: 5px;
+}
+
+.catchphrase {
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 1.1;
+  color: white;
+}
+
+.lookaround {
+  height: 60px;
+  border: 1px solid transparent;
+}
+
+.lookaround__background {
+  border-radius: 10px;
+  width: 140px;
+  height: 20px;
+  margin-top: 22px;
+  padding: 7px 15px;
+  border: 1px solid blue;
+  background: white;
+}
+
+.lookaround__text {
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
 .middle__background {
   border: 1px solid white;
   width: 200px;
