@@ -8,49 +8,68 @@
   </head>
   <body>
     <!--Header-->
-    <header>
-      <div class="covid-19-notice">
-        <span
-          >에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</span
-        >
-      </div>
-      <div class="airbnb-logo">
-        <embed width="118px" height="64px" src="img/airbnb.svg" />
-      </div>
 
-      <nav class="nav-menu">
-        <span class="nav-menu__list">숙소</span>
-        <span class="nav-menu__list">체험</span>
-        <span class="nav-menu__list" id="oline">온라인 체험</span>
-      </nav>
+    <section class="covid-19-notice">
+      <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest"
+        >에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a
+      >
+    </section>
 
-      <nav class="nav-login">
-        <span class="nav-login--text">호스트 되기</span>
-        <i class="fas fa-globe"></i>
-        <div class="nav-login--login">
-          <i class="fas fa-bars"></i>
-          <i class="fas fa-user-circle"></i>
-        </div>
-      </nav>
-    </header>
     <!--Main-->
     <main>
-      <!--Search-->
-      <div class="search">
-        <input class="search--input" contype="text" />
-        <i class="fas fa-search"></i>
-      </div>
       <!--Top-->
       <section class="top-section">
-        <div class="top-section__img-div"></div>
-        <div class="top-section__text-div">
-          이제, 여행은<br />가까운 곳에서<br /><button
-            class="top-section__text-div--btn"
-          >
-            근처의 숙소 둘러보기
-          </button>
+        <div class="top-section__div">
+          <div class="top-section__img">
+            <img class="airbnb-logo" src="img/airbnb.svg" />
+          </div>
+
+          <nav class="top-section__nav">
+            <ul>
+              <li class="top-section__nav--list"><span>숙소</span></li>
+              <li class="top-section__nav--list"><span>체험</span></li>
+              <li class="top-section__nav--list">
+                <a
+                  id="oline"
+                  href="https://www.airbnb.co.kr/s/experiences/online"
+                  >온라인 체험</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="right-section">
+            <button class="right-section__btn-text">호스트 되기</button>
+
+            <button class="right-section__btn-earth">
+              <img id="icon-earth" src="img/earth.svg" width="15px" />
+            </button>
+
+            <button class="right-section__btn-login">
+              <img id="icon-list" src="img/list.svg" width="16px" />
+              <img id="icon-person" src="img/people.svg" width="30px" />
+            </button>
+          </div>
+
+          <div class="search-destination">
+            <span>위치</span>
+            <input class="search__input" contype="text" />
+          </div>
+
+          <div class="search-date">
+            <span>날짜</span>
+            <input class="search__input" contype="text" />
+            <span><i class="fas fa-search"></i></span>
+          </div>
+
+          <div class="top-section__text-div">
+            이제, 여행은<br />가까운 곳에서<br />
+            <button class="top-section__text-div--btn">
+              근처의 숙소 둘러보기
+            </button>
+          </div>
         </div>
       </section>
+
       <!--City-->
       <section class="city-section">
         <ul class="city-section__div">

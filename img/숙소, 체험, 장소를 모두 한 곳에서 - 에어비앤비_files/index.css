@@ -26,99 +26,36 @@ body {
   height: 58px;
   background-color: black;
   padding: 20px 80px 20px 80px;
+  color: white;
   font-size: 14px;
   text-align: center;
 }
 
-.covid-19-notice a:link,
-a:visited {
-  color: white;
-  text-decoration: underline;
+.nav-section {
+  height: 80px;
 }
-.covid-19-notice a:hover {
-  color: gray;
-  text-decoration: underline;
-}
-
 .airbnb-logo {
   width: 118px;
   height: 64px;
-  display: inline-block;
-  margin-bottom: 10px;
+  background: url("img/airbnb.svg");
+  fill: red;
 }
 
-.top-section {
+.nav-section__list {
+  float: left;
+  list-style: none;
+  padding: 10px 16px 10px 16px;
+}
+. .top-section {
+  font-size: 1000px;
+}
+.top-section__img-div {
   background-image: url("img/main-wide.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 1000px;
-  max-height: 1200px;
   position: relative;
-}
-
-.top-section__img {
-  display: inline-block;
-  width: 626px;
-  height: 80px;
-}
-
-.top-section__div {
-  height: 80px;
-  width: 1600px;
-
-  margin: 0px 361.5px 0px 361.5px;
-  padding: 0px 80px 0px 80px;
-}
-.top-section__nav {
-  position: absolute;
-  height: 40px;
-  padding-top: 10px;
-  padding-bottom: 30px;
-  width: 300px;
-  display: inline-block;
-  color: white;
-}
-
-.top-section__nav--list {
-  float: left;
-  list-style: none;
-  padding: 0px 16px 0px 16px;
-}
-
-.right-section {
-  position: relative;
-  float: right;
-  text-align: right;
-  height: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 626px;
-}
-.right-section__btn-text {
-  position: absolute;
-  right: 120px;
-  height: 30px;
-  background-color: transparent;
-  border: transparent;
-  margin-bottom: 10px;
-  color: white;
-}
-.right-section__btn-earth {
-  position: absolute;
-  right: 90px;
-  height: 30px;
-  background-color: transparent;
-  border: transparent;
-}
-.right-section__btn-login {
-  position: absolute;
-  right: 5px;
-  border-radius: 21px;
-  border: transparent;
-}
-#icon-list {
-  padding: 5px 5px 5px 5px;
 }
 .top-section__text-div {
   position: absolute;
@@ -128,6 +65,7 @@ a:visited {
   font-size: 54px;
   font-weight: 800;
   color: white;
+  z-index: 2;
   text-align: left;
 }
 .top-section__text-div--btn {
@@ -137,14 +75,6 @@ a:visited {
   margin-top: 22px;
   border-radius: 8px;
   font-size: 14px;
-}
-
-.search-destination {
-  color: white;
-}
-.search-date {
-  display: inline-block;
-  color: white;
 }
 
 .city-section {
