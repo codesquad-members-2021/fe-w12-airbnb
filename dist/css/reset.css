@@ -129,6 +129,16 @@ table {
 }
 
 a {
-  color: black;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+}
+input[type="text"] {
+  /* outline: none; */
+  border: none;
+  padding: 0;
+  background: none;
+}
+input[type="text"]:focus {
   outline: none;
 }

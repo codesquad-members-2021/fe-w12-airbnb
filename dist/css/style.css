@@ -3,8 +3,9 @@ body {
   height: 100%;
   word-break: keep-all;
 }
-.inner {
-  margin: 0 10rem;
+
+.contents_wrapper {
+  margin: 0 9.5rem;
 }
 
 #notice {
@@ -20,66 +21,145 @@ body {
 }
 header {
   width: 100%;
+  height: 4rem;
   position: fixed;
   color: white;
   font-size: 16px;
   z-index: 2;
 }
-header .inner {
+header .contents_wrapper {
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+header .contents_wrapper > div {
+  width: 30%;
+  height: 2rem;
+}
+header .search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-
-  padding: 2rem 0;
+}
+header .search-type label {
+  margin-right: 1rem;
+}
+header .search-type > *:hover {
+  color: rgb(221, 219, 219);
 }
 
-header .inner .mid {
+header .search-type input[type="radio"] {
+  position: absolute;
+  width: 0;
+}
+header .floatBox {
   position: absolute;
   left: 50%;
-  transform: translate(-50%);
-}
-
-header .logo {
-}
-header .ul-flex {
-  display: flex;
-}
-header .ul-flex li + li {
-  margin-left: 2rem;
-}
-header fieldset {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  transform: translate(-50%, 50%);
 }
 header .searchBox {
+  position: relative;
   display: flex;
-  margin-top: 2rem;
-  justify-content: space-between;
   align-items: center;
   background: white;
-  width: 50rem;
-  height: 5rem;
-  border-radius: 2.5rem;
+  width: 55rem;
+  height: 4rem;
+  border-radius: 2rem;
 }
-header .searchBox .search-item {
+header .searchBox-location {
+  flex: 1.5;
+}
+header .searchBox-date {
+  flex: 2;
+  display: flex;
+  align-items: center;
+}
+header .searchBox-person {
+  flex: 1.2;
+  display: flex;
+  justify-content: flex-end;
+}
+header .verticalBar {
+  height: 2rem;
+  border-left: 1px solid rgb(216, 216, 216);
+}
+
+header .searchBox-section {
+  width: 100%;
+  color: black;
+  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: black;
-  font-size: 14px;
-  height: 100%;
-  border-radius: 2.5rem;
-  flex: 1;
+  padding-left: 2rem;
 
-  padding: 0 2rem;
-  cursor: pointer;
+  height: 4rem;
+  border-radius: 2rem;
+  box-sizing: border-box;
 }
-header .searchBox .search-item div + div {
-  margin-top: 0.5rem;
+
+header .searchBox-section:hover {
+  background: rgb(240, 240, 240);
 }
-header .searchBox .search-item:hover {
-  background-color: rgb(230, 231, 236);
+
+header .searchBox-section ::placeholder {
+  font-size: 0.8rem;
+}
+header .searchBox-section div:first-child {
+  height: 1rem;
+  font-weight: bold;
+}
+header .searchBox-section *:last-child {
+  margin-top: 0.2rem;
+  height: 1rem;
+}
+header .searchBox-button {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .searchBox-button button {
+  width: 3rem;
+  height: 3rem;
+  background: #ff385c;
+  border: none;
+  border-radius: 1.5rem;
+}
+header .searchBox-button button:hover {
+  background: rgb(219, 28, 76);
+}
+
+
+header .myMenu li:last-child {
+  display: flex;
+  background: white;
+  border-radius: 2rem;
+  padding: 0.5rem 0.5rem;
+}
+header .myMenu li:last-child object:last-child {
+  margin-left: 1rem;
+}
+
+header .nav-menu {
+  display: flex;
+  justify-content: flex-end;
+}
+header .nav-menu {
+  display: flex;
+  align-items: center;
+}
+header .nav-menu li {
+  height: 100%;
+}
+header .nav-menu li + li {
+  margin-left: 1rem;
 }
 .container > section {
   width: 100%;
@@ -125,7 +205,7 @@ header .searchBox .search-item:hover {
 .locations {
   margin-top: 5rem;
 }
-.locations .inner ul {
+.locations .contents_wrapper ul {
   display: flex;
   flex-wrap: wrap;
 }
@@ -161,12 +241,12 @@ header .searchBox .search-item:hover {
 .article-box {
   margin-top: 7rem;
 }
-.article-box .inner h3 {
+.article-box .contents_wrapper h3 {
   font-size: 2rem;
   font-weight: bold;
 }
 
-.article-box .inner > div {
+.article-box .contents_wrapper > div {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
@@ -193,7 +273,7 @@ footer {
   background: rgb(230, 231, 236);
 }
 
-footer .inner > div:first-child {
+footer .contents_wrapper > div:first-child {
   display: flex;
   justify-content: space-between;
   padding: 3rem 0;
