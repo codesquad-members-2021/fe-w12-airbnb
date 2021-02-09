@@ -26,14 +26,15 @@ ul {
 /*CORONA 관련 맨 윗부분 CSS STYLE*/
 
 .corona {
-  padding: 15px;
-  background-color: black;
+  padding: 17px;
+  background: black;
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .corona a {
-  color: #dddddd;
+  color: #ddd;
 }
 
 .corona a:hover {
@@ -42,27 +43,60 @@ ul {
 
 /* -------------------HEADER-------------------*/
 
+.firstPage {
+  height: 700px;
+  background: url("/img/top_banner.webp") no-repeat center center;
+  background-size: cover;
+}
+
 header {
-  width: 100%;
-  border: white 1px solid;
-  padding: 20px 30px;
-  background: transparent;
+  padding: 13px 70px;
+  background: linear-gradient(rgba(37, 37, 37, 0.7), transparent), transparent;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: absolute;
+  left: 0;
+  right: 0;
   color: white;
 }
 
-header .nav {
+header .logo {
   display: flex;
+  font-size: 35px;
 }
+
+header .logo span {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+header nav {
+  display: flex;
+  padding-top: 3px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+header nav div {
+  padding: 10px;
+}
+
+header nav div:hover {
+  color: gray;
+}
+header nav a {
+  padding-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+header nav a:hover {
+  color: gray;
+}
+
 .nav_item {
   opacity: 0;
-}
-.nav_item > label {
-  padding: 5px 10px;
-  border: 1px solid white;
-  border-radius: 3px;
 }
 
 input[type="radio"]:checked + label {
@@ -71,26 +105,39 @@ input[type="radio"]:checked + label {
 
 header .member_setting {
   display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: space-between;
 }
 header .member_setting .host {
-  font-size: 17px;
+  font-size: 14px;
+  font-weight: bold;
+}
+header .member_setting .menuAndAcountIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-radius: 25px;
+  background: white;
+  color: grey;
+}
+header .member_setting .menuAndAcountIcon i:last-child {
+  margin-left: 13px;
+  font-size: 30px;
 }
 
-main {
-  height: 550px;
+.main {
   width: 100%;
-  background: url("/img/main-wide.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-main .phraseAndbutton {
+.main .phraseAndbutton {
   position: relative;
 }
 
-main .phrase {
+.main .phrase {
   position: absolute;
-  left: 40px;
+  left: 70px;
   top: 270px;
   color: white;
   font-size: 50px;
@@ -98,18 +145,199 @@ main .phrase {
   font-weight: bold;
   line-height: 1.2em;
 }
-main .findNearRooms_btn {
+.main .findNearRooms_btn {
   color: black;
   position: absolute;
-  left: 40px;
+  left: 70px;
   top: 410px;
-  background-color: white;
+  background: white;
   padding: 6px 14px 6px 14px;
   border-radius: 9px;
   font-size: 14px;
   font-weight: bold;
 }
 
-main .findNearRooms_btn:hover {
-  background-color: rgb(248, 248, 248);
+.main .findNearRooms_btn:hover {
+  background: rgb(248, 248, 248);
+}
+
+/* ------------------SECTION PARTS---------------------- */
+/* SECTION CITIES*/
+
+.section_cities {
+  padding: 60px 70px;
+}
+.section_cities ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section_cities li {
+  width: 320px;
+  display: flex;
+
+  margin: 8px;
+}
+.section_cities img {
+  width: 65px;
+  border-radius: 9px;
+}
+
+.section_cities .city_items {
+  margin-left: 17px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section_cities .city_items span:first-child {
+  font-weight: bold;
+}
+.section_cities .city_items span:last-child {
+}
+
+/* SECTION SPACETYPE*/
+
+.section_spaceType {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 70px;
+}
+.section_spaceType > div {
+  font-size: 35px;
+  font-weight: bold;
+  margin: 12px 0px;
+}
+
+.section_spaceType ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section_spaceType li {
+  width: 330px;
+  display: block;
+}
+
+.section_spaceType li img {
+  width: 330px;
+  border-radius: 9px;
+}
+
+.section_spaceType li span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* SECTION ACTIVITIES */
+
+.section_activities {
+  padding: 60px 70px;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  color: white;
+}
+
+.section_activities_title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section_activities_title button {
+  color: white;
+  border: 2px solid white;
+  border-radius: 9px;
+  margin: 10px 0px;
+  padding: 0px 10px;
+}
+
+.section_activities_title_left > span:first-child {
+  display: block;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.section_activities_grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.section_activities_grid .box1 {
+  position: relative;
+  height: 700px;
+  background: url(/img/sec3-01.jpg) no-repeat center center;
+  background-size: cover;
+  grid-column: 1/3;
+  grid-row: 1/3;
+  border-radius: 9px;
+}
+
+.section_activities_grid .box2 {
+  position: relative;
+  background: url(/img/sec3-02.jpg) no-repeat;
+  background-size: cover;
+  border-radius: 9px;
+}
+
+.section_activities_grid .box3 {
+  position: relative;
+  background: url(/img/sec3-03.jpg) no-repeat;
+  background-size: cover;
+  border-radius: 9px;
+}
+
+.section_activities_grid .box4 {
+  position: relative;
+  grid-column: 3/5;
+  grid-row: 2/3;
+  background: url(/img/sec3-04.jpg) no-repeat;
+  background-size: cover;
+  border-radius: 9px;
+}
+
+.section_activities_grid span {
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  left: 10px;
+  bottom: 30px;
+}
+
+/* SECTION BEHOST */
+
+.section_beHost {
+  padding: 60px 70px;
+}
+
+.section_beHost_title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section_beHost ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section_beHost li {
+  display: flex;
+  flex-direction: column;
+}
+
+.section_beHost li img {
+  width: 450px;
+  border-radius: 9px;
+}
+
+.section_beHost li span {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }
