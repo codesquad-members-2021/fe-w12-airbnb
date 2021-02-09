@@ -1,0 +1,19 @@
+footer {
+  border-top: 1px solid #DDDDDD;
+}
+
+.footer__sitemap {
+  display: flex;
+  flex-direction: row;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  /* margin-left: -12px
+  margin-right: -12px */
+}
+
+.footer__sitemap > section {
+  display:flex;
+  flex-direction: column;
+  flex-basis:25%;
+  /* flex-grow: 1; */
+}

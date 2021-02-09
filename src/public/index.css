@@ -1,6 +1,7 @@
 @import "../stylesheets/util.css";
 @import "../stylesheets/header.css";
 @import "../stylesheets/main.css";
+@import "../stylesheets/footer.css";
 
 /* global tag */
 
@@ -9,7 +10,7 @@ body {
 }
 
 a {
-  text-decoration:none;
+  text-decoration: none;
 }
 
 /* global tag end */
