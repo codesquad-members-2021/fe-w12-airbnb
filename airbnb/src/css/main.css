@@ -1,0 +1,37 @@
+main {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.main-column {
+  width: 100%;
+}
+
+.main-background {
+  width: 100%;
+}
+
+.city-lists {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.city-list img {
+  width: 72px;
+  border-radius: 10px;
+}
+.city-list {
+  width: 350px;
+  display: flex;
+  align-items: center;
+}
+.city-list .city-info {
+  margin-left: 20px;
+}
+.city-info .city-info__title {
+  font-weight: 600;
+  margin-bottom: 7px;
+}
