@@ -321,3 +321,7 @@
 }
 
 /* ---------● container_host ●--------- */
+#host img {
+    width: 412px;
+    height: 276px;
+}
