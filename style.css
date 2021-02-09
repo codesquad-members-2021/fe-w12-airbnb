@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.notice {
+  background-color: black;
+  text-align: center;
+  height: 60px;
+  padding-top: 20px;
+}
+.notice__link {
+  color: white;
+  font-size: 12px;
+  text-decoration: underline;
+}
+.banner {
+  background: url("images/main.jpg") no-repeat center;
+  height: 85vh;
+  background-size: cover;
+  /* background-attachment: fixed; */
+}
+/* header {
+  display: inline-block;
+} */
+.logo {
+  display: inline-block;
+  padding-left: 120px;
+  margin: 20px 0;
+  font-size: 25px;
+}
+nav {
+  display: inline-block;
+}
+.service {
+  display: inline;
+  /* float: right; */
+  margin-left: 300px;
+}
+.menu {
+  margin-left: 360px;
+}
+.menu li {
+  display: inline-block;
+  /* text-align: cente; */
+  margin-left: 35px;
+}
+.service li {
+  /* vertical-align: center; */
+  display: inline-block;
+  margin-left: 20px;
+}
+.banner-content .text1 {
+  background-color: violet;
+  font-size: 50px;
+  margin-top: 230px;
+  padding-left: 100px;
+  color: white;
+}
+.banner-content a {
+  /* padding-left: 100px; */
+  display: inline-block;
+  background: white;
+  color: black;
+  font-size: 14px;
+  margin-left: 100px;
+  padding: 6px 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+.local__content {
+  display: inline-block;
+  /* vertical-align: middle; */
+  padding-top: 40px;
+  margin-left: 100px;
+  /* text-align: center; */
+}
+.local__content img {
+  /* display: inline; */
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+}
+.local__textbox {
+  display: inline-block;
+  margin-left: 10px;
+  /* padding-bottom: 20px; */
+}
+.room__title {
+  margin-left: 100px;
+  margin-top: 40px;
+  font-size: 30px;
+}
+.room__container {
+  /* display: inline-block; */
+  /* vertical-align: middle; */
+  margin-top: 20px;
+  margin-left: 80px;
+}
+.room__content {
+  display: inline-block;
+  margin-left: 20px;
+}
+.room__desc {
+  /* display: inline-block; */
+}
+.room__image {
+  /* display: inline; */
+  width: 280px;
+  height: 280px;
+  border-radius: 6px;
+}
+
+/* .home {
+  display: flex;
+  background: url("images/banner.jpg") no-repeat center;
+  height: 100vh;
+  color: #fff;
+  min-height: 500px;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Ubuntu", sans-serif;
+} */

@@ -10,219 +10,153 @@
     <title>airbnbClone</title>
 </head>
 <body>
-    <header>
-        <div class="notice">
-            <a href="#">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a>
-        </div>
-        <nav>
+    <div class="notice">
+        <a href="#" class="notice__link">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a>
+    </div>
+    <div class="banner">
+        <header>
             <div class="logo">
-                <i class="fab fa-airbnb"></i>
-                <a href="#">airbnb</a>
+                <a href="#"><i class="fab fa-airbnb"></i><span class="logo_title">airbnb<span></a>
             </div>
-            <ul class="menu">
-                <li><a href="#" class="menu-btn">숙소</a></li>
-                <li><a href="#" class="menu-btn">체험</a></li>
-                <li><a href="#" class="menu-btn">온라인 체험</a></li>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#" class="menu__btn">숙소</a></li>
+                    <li><a href="#" class="menu__btn">체험</a></li>
+                    <li><a href="#" class="menu__btn">온라인 체험</a></li>
+                </ul>
+            </nav>
+            <ul class="service">
+                <li><a href="#" class="service__btn">호스트 되기</a></li>
+                <li><a href="#" class="service__btn"><i class="fas fa-globe"></i></a></li>
+                <li><a href="#" class="service__btn">로그인그림</a></li>
             </ul>
-        </nav>
-    </header>
-    <div class="home">
-        <div class="home-content">
-            <div class="text1">이제, 여행은</div>
-            <div class="text2">가까운 곳에서</div>
+        </header>
+        <div class="banner-content">
+            <div class="text1">이제, 여행은<br>가까운 곳에서</div>
             <a href="#">근처의 숙소 둘러보기</a>
         </div>
     </div>
+
     <div class="local">
-        <div class="local-content">
+        <div class="local__content">
             <img src="images/ex.png" alt="">
-            <div class="text-content">
-                <div class="local-title">서울</div>
-                <div class="local-time">차로 30분 거리</div>
+            <div class="local__textbox">
+                <div class="local__name">서울</div>
+                <div class="local__time">차로 30분 거리</div>
             </div>
         </div>
-        <div class="local-content">
+        <div class="local__content">
             <img src="images/ex.png" alt="">
-            <div class="text-content">
-                <div class="local-title">인천</div>
-                <div class="local-time">차로 30분 거리</div>
+            <div class="local__textbox">
+                <div class="local__name">인천</div>
+                <div class="local__time">차로 30분 거리</div>
             </div>
         </div>
-        <div class="local-content">
+        <div class="local__content">
             <img src="images/ex.png" alt="">
-            <div class="text-content">
-                <div class="local-title">의정부</div>
-                <div class="local-time">차로 30분 거리</div>
+            <div class="local__textbox">
+                <div class="local__name">의정부</div>
+                <div class="local__time">차로 30분 거리</div>
             </div>
         </div>
-        <div class="local-content">
+        <div class="local__content">
             <img src="images/ex.png" alt="">
-            <div class="text-content">
-                <div class="local-title">대전</div>
-                <div class="local-time">차로 2.5시간 거리</div>
+            <div class="local__textbox">
+                <div class="local__name">대전</div>
+                <div class="local__time">차로 2.5시간 거리</div>
             </div>
         </div>
-        <div class="local-content">
+        <div class="local__content">
             <img src="images/ex.png" alt="">
-            <div class="text-content">
-                <div class="local-title">대구</div>
-                <div class="local-time">차로 4시간 거리</div>
+            <div class="local__textbox">
+                <div class="local__name">대구</div>
+                <div class="local__time">차로 4시간 거리</div>
             </div>
         </div>
-        <div class="local-content">
+        <div class="local__content">
             <img src="images/ex.png" alt="">
-            <div class="text-content">
-                <div class="local-title">고양시</div>
-                <div class="local-time">차로 15분 거리</div>
+            <div class="local__textbox">
+                <div class="local__name">고양시</div>
+                <div class="local__time">차로 15분 거리</div>
             </div>
         </div>
-        <div class="local-content">
+        <div class="local__content">
             <img src="images/ex.png" alt="">
-            <div class="text-content">
-                <div class="local-title">부천시</div>
-                <div class="local-time">차로 30분 거리</div>
+            <div class="local__textbox">
+                <div class="local__name">부천시</div>
+                <div class="local__time">차로 30분 거리</div>
             </div>
         </div>
-        <div class="local-content">
+        <div class="local__content">
             <img src="images/ex.png" alt="">
-            <div class="text-content">
-                <div class="local-title">수원시</div>
-                <div class="local-time">차로 1시간 거리</div>
+            <div class="local__textbox">
+                <div class="local__name">수원시</div>
+                <div class="local__time">차로 1시간 거리</div>
             </div>
         </div>
-    
     </div>
     <div class="room">
-        <div class="room-title">어디에서나, 여행은 살아보는 거야!</div>
-        <div class="room-contents">
-            <div class="room-content">
-                <img src="images/ex.png" class="room-image" alt="">
-                <div class="room-info">집 전체</div>
+        <div class="room__title">어디에서나, 여행은 살아보는 거야!</div>
+        <div class="room__container">
+            <div class="room__content">
+                <img src="images/ex.png" class="room__image" alt="">
+                <div class="room__desc">집 전체</div>
             </div>
-            <div class="room-content">
-                <img src="images/ex.png" class="room-image" alt="">
-                <div class="room-info">통나무집 및 전원주택</div>
+            <div class="room__content">
+                <img src="images/ex.png" class="room__image" alt="">
+                <div class="room__desc">통나무집 및 전원주택</div>
             </div>
-            <div class="room-content">
-                <img src="images/ex.png" class="room-image" alt="">
-                <div class="room-info">독특한 공간</div>
+            <div class="room__content">
+                <img src="images/ex.png" class="room__image" alt="">
+                <div class="room__desc">독특한 공간</div>
             </div>
-            <div class="room-content">
-                <img src="images/ex.png" class="room-image" alt="">
-                <div class="room-info">반려동물 동반 가능</div>
+            <div class="room__content">
+                <img src="images/ex.png" class="room__image" alt="">
+                <div class="room__desc">반려동물 동반 가능</div>
             </div>
         </div>
 
     </div>
 
     <div class="experience">
-        <div class="experience-text">
-            <div class="experience-text1">세상을 만나는 특별한 방법</div>
-            <div class="experience-text2">현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나 온라인으로 만나보세요.</div>
+        <div class="experience__textbox">
+            <div class="experience__title">세상을 만나는 특별한 방법</div>
+            <div class="experience__desc">현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나 온라인으로 만나보세요.</div>
         </div>
-        <div class="experience-infos">
-            <div class="experience-info">
-                <img src="images/ex.png" alt="" class="experience-img">
-                <div class="experience-info-text1">온라인 체험</div>
-                <div class="experience-info-text2">집에서 즐기는 랜선 세계 여행</div>
-            </div>
-            <div class="experience-info">
-                <img src="images/ex.png" alt="" class="experience-img">
-                <div class="experience-info-text1">체험</div>
-                <div class="experience-info-text2">어디에서든 즐길 수 있는 체험</div>
-            </div>
-            <div class="experience-info">
-                <img src="images/ex.png" alt="" class="experience-img">
-                <div class="experience-info-text1">어드밴처</div>
-                <div class="experience-info-text2">숙박과 식사가 포함된 며칠 일정의 여행입니다.</div>
-            </div>
+        <div class="experience__container">
+            <ul class="experience__content">
+                <a href="#"><img src="images/ex.png" alt="" class="experience__img"></a>
+                <li><a href="#" class="experience__link experience__link--title">온라인 체험</a></li>
+                <li><a href="#" class="experience__link">집에서 즐기는 랜선 세계여행</a></li>
+            </ul>
+            <ul class="experience__content">
+                <a href="#"><img src="images/ex.png" alt="" class="experience__img"></a>
+                <li><a href="#" class="experience__link experience__link--title">체험</a></li>
+                <li><a href="#" class="experience__link">어디서든 즐길 수 있는 체험</a></li>
+            </ul>
+            <ul class="experience-info">
+                <a href="#"><img src="images/ex.png" alt="" class="experience__img"></a>
+                <li><a href="#" class="experience__link experience__link--title">어드밴체</a></li>
+                <li><a href="#" class="experience__link">숙박과 식사가 포함된 며칠 일정의 여행입니다.</a></li>
+            </ul>
         </div>
     </div>
     <div class="host">
-        <div class="host-title">수백만 명에 이르는 에어비앤비 호스트 커퓨니티의 일원이 되어보세요</div>
-        <div class="host-container">
-            <div class="host-content">
-                <img src="images/ex.png" alt="" class="host-image">
-                <div class="host-text">숙소 호스트 되기</div>
+        <div class="host__title">수백만 명에 이르는 에어비앤비 호스트 커퓨니티의 일원이 되어보세요</div>
+        <div class="host__container">
+            <div class="host__content">
+                <img src="images/ex.png" alt="" class="host__image">
+                <div class="host__desc">숙소 호스트 되기</div>
             </div>
-            <div class="host-content">
-                <img src="images/ex.png" alt="" class="host-image">
-                <div class="host-text">온라인 체험 호스팅하기</div>
+            <div class="host__content">
+                <img src="images/ex.png" alt="" class="host__image">
+                <div class="host__desc">온라인 체험 호스팅하기</div>
             </div>
-            <div class="host-content">
-                <img src="images/ex.png" alt="" class="host-image">
-                <div class="host-text">체험 호스팅하기</div>
+            <div class="host__content">
+                <img src="images/ex.png" alt="" class="host__image">
+                <div class="host__text">체험 호스팅하기</div>
             </div>
         </div>
     </div>
-    <footer>
-        <div class="footer-nav">
-            <div class="footer-nav-container">
-                <div class="footer-nav-title">소개
-                    <div class="footer-nav-datail">
-                        <div class="footer-nav-datail1">에어비앤비 이용 방법</div>
-                        <div class="footer-nav-datail1">뉴스룸</div>
-                        <div class="footer-nav-datail1">투자자 정보</div>
-                        <div class="footer-nav-datail1">에어비앤비 플러스</div>
-                        <div class="footer-nav-datail1">에어비앤비 Luxe</div>
-                        <div class="footer-nav-datail1">호텔투나잇</div>
-                        <div class="footer-nav-datail1">에어비앤비 비지니스 프로그램</div>
-                        <div class="footer-nav-datail1">올리픽</div>
-                        <div class="footer-nav-datail1">채용정보</div>
-                    </div>
-                </div>
-
-                <div class="footer-nav-title">커뮤니티
-                    <div class="footer-nav-datail">
-                        <div class="footer-nav-datail1">에어비앤비 이용 방법</div>
-                        <div class="footer-nav-datail1">뉴스룸</div>
-                        <div class="footer-nav-datail1">투자자 정보</div>
-                        <div class="footer-nav-datail1">에어비앤비 플러스</div>
-                        <div class="footer-nav-datail1">에어비앤비 Luxe</div>
-                        <div class="footer-nav-datail1">호텔투나잇</div>
-                        <div class="footer-nav-datail1">에어비앤비 비지니스 프로그램</div>
-                        <div class="footer-nav-datail1">올리픽</div>
-                        <div class="footer-nav-datail1">채용정보</div>
-                    </div>
-                </div>
-
-                <div class="footer-nav-title">호스팅하기
-                    <div class="footer-nav-datail">
-                        <div class="footer-nav-datail1">에어비앤비 이용 방법</div>
-                        <div class="footer-nav-datail1">뉴스룸</div>
-                        <div class="footer-nav-datail1">투자자 정보</div>
-                        <div class="footer-nav-datail1">에어비앤비 플러스</div>
-                        <div class="footer-nav-datail1">에어비앤비 Luxe</div>
-                        <div class="footer-nav-datail1">호텔투나잇</div>
-                        <div class="footer-nav-datail1">에어비앤비 비지니스 프로그램</div>
-                        <div class="footer-nav-datail1">올리픽</div>
-                        <div class="footer-nav-datail1">채용정보</div>
-                    </div>
-                </div>
-
-                <div class="footer-nav-title">에어비엔비 지원
-                    <div class="footer-nav-datail">
-                        <div class="footer-nav-datail1">에어비앤비 이용 방법</div>
-                        <div class="footer-nav-datail1">뉴스룸</div>
-                        <div class="footer-nav-datail1">투자자 정보</div>
-                        <div class="footer-nav-datail1">에어비앤비 플러스</div>
-                        <div class="footer-nav-datail1">에어비앤비 Luxe</div>
-                        <div class="footer-nav-datail1">호텔투나잇</div>
-                        <div class="footer-nav-datail1">에어비앤비 비지니스 프로그램</div>
-                        <div class="footer-nav-datail1">올리픽</div>
-                        <div class="footer-nav-datail1">채용정보</div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-footer">
-                <div class="footer1">
-                    <div class="copyright">2021 Airbnb, Inc. All rights reserved</div>
-                    <div class="private">개인정보 처리방침</div>
-                </div>
-                <div class="footer2"></div>
-                <div class="footer3"></div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
