@@ -67,6 +67,16 @@ section, header, footer {
   }
 }
 
+.section-alert {
+  background-color: #000;
+  padding: 20px 80px;
+  text-align: center;
+  z-index: 1;
+  a {
+    color: #fff;
+  }
+}
+
 body, main {
   float: left;
   width: 100%;
