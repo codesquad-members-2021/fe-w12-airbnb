@@ -3,9 +3,99 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Airbnb</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
+    <header class="header">
+      <div class="header__column">
+        <div class="header__logo">
+          <i class="fab fa-airbnb"></i>
+          <div>airbnb</div>
+        </div>
+      </div>
+      <div class="header__column">
+        <form>
+          <fieldset>
+            <label for="search-stay">
+              <input
+                type="radio"
+                name="search-tab"
+                class="search-tab"
+                id="search-stay"
+              />
+              <span class="search-tab-text">숙소</span>
+            </label>
+            <label for="search-experience">
+              <input
+                type="radio"
+                name="search-tab"
+                class="search-tab"
+                id="search-experience"
+              />
+              <span class="search-tab-text">체험</span>
+            </label>
+            <a href="#" class="search-tab-text">온라인 체험</a>
+          </fieldset>
+          <div class="search-query">
+            <div class="query__column">
+              <label for="search-query-location">
+                <div>위치</div>
+                <input
+                  type="text"
+                  name="search-query-location"
+                  id="search-query-location"
+                  placeholder="어디로 여행가십니까"
+                />
+              </label>
+            </div>
+            <div class="boundary"></div>
+            <div class="query-date-wrapper">
+              <div class="query__column">
+                <div>체크인</div>
+                <div>날짜 추가</div>
+              </div>
+              <div class="boundary"></div>
+              <div class="query__column">
+                <div>체크아웃</div>
+                <div>날짜 추가</div>
+              </div>
+            </div>
+            <div class="boundary"></div>
+            <div class="query__column">
+              <div>
+                <div>인원</div>
+                <div>게스트 추가</div>
+              </div>
+              <div>
+                <button type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="header__column">
+        <nav class="nav">
+          <div>
+            <a href="#"><div>호스트되기</div></a>
+            <button>
+              <a href="#"><i class="fas fa-globe"></i></a>
+            </button>
+          </div>
+          <div>
+            <button>
+              <div><i class="fas fa-bars"></i></div>
+              <div><i class="fas fa-user"></i></div>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
     <main>
       <div class="main-column">
         <div class="main-background">
