@@ -1,0 +1,36 @@
+.activitysection {
+    height: 571.104px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .activitysection > div {
+    margin-bottom: 8px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .activitytitle{
+      padding-bottom: 2px;
+  }
+  .activitysection > ul {
+    display: flex;
+    justify-content: center;
+  }
+  .activity_picture {
+    height: 355.104px;
+    width: 355.104px;
+    border-radius: 8px;
+  }
+  .activity_list {
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0 5px 0 5px;
+    margin: 4px 6px 8px 0;
+  }
+  .activity_list > div{
+      margin-top: 8px;
+  }
