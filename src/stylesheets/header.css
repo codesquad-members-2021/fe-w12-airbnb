@@ -57,7 +57,21 @@
   justify-content: flex-end;
   flex-basis: 33.3333%;
 }
-.nav__center-item {}
+
+.nav__right > .start {
+  justify-content: flex-end;
+}
+.nav__right > .center {
+  justify-content: center;
+}
+.nav__right > .end {
+  justify-content: flex-start;;
+}
+
+.nav__right-item {
+  flex-grow: 1;
+  display: flex;
+}
 
 .nav--fieldset {
   width: 100%;
