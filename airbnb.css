@@ -283,3 +283,41 @@
 .content_list > a > div {
     padding: 8px 0 0;
 }
+
+/* ---------● container_activity ●--------- */
+#container_activity {
+    background-color: black;
+    padding-top: 40px;
+    height: 630px;
+}
+#activity {
+    color: #fff;
+}
+#activity > h1 {
+    padding-bottom: 5px;
+}
+#activity > span {
+    font-size: 0.9em;
+    font-weight: 300;
+}
+#activity > ul {
+    margin-top: 10px;
+}
+.activity_list > a > img {
+    width: 412px;
+    height: 412px;
+}
+.activity_list > a > div {
+    color: #fff;
+    line-height: 1.3;
+}
+.activity_list > a > div > span:first-child {
+    font-size: 1em;
+    font-weight: 600;
+}
+.activity_list > a > div > span:last-child {
+    font-size: 0.8em;
+    font-weight: 300;
+}
+
+/* ---------● container_host ●--------- */
