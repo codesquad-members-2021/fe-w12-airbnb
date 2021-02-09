@@ -9,6 +9,7 @@
     --font-weight-bold: bold;
     --image-border-radius: 15px;
     --nav-btn-border-radius: 30px;
+    --page-tb-margin: 40px;
     --page-side-margin: 80px;
     --section-font-weight: 600;
 }
@@ -110,6 +111,21 @@ a {
     border-radius: var(--image-border-radius);
 }
 
+/* input 관련 form 추가 */
+.info-form-container {
+    margin: var(--page-tb-margin) var(--page-side-margin);
+    text-align: left;
+    display: flex;
+    justify-content: center;
+}
+
+.info-input-form {
+    height: 80px;
+    width:50%;
+    background-color: var(--info-color);
+    display: flex;
+}
+
 .slogan-section {
     margin: 150px var(--page-side-margin) 0 var(--page-side-margin);;
     height: 70%;
@@ -135,7 +151,7 @@ a {
 
 
 .city-section {
-    margin: 40px var(--page-side-margin);
+    margin: var(--page-tb-margin) var(--page-side-margin);
 }
 
 .city-aritcle {
@@ -209,13 +225,13 @@ a {
 }
 
 .second-middle-sec-container {
-    margin-top: 60px;
+    margin: var(--page-tb-margin) 0;
     background-color: var(--black);
     color:var(--font-color);
 }
 
 .second-middle-sec-top {
-    padding: 40px var(--page-side-margin);
+    padding: var(--page-tb-margin) var(--page-side-margin);
     display: flex;
     justify-content: space-between;
 }
@@ -255,14 +271,15 @@ a {
     flex-direction: column;
     object-fit: cover;
     position: relative;
-    grid-area: 1 / 1 / span 2
+    grid-area: 1 / 1 / span 2;
+    justify-content:flex-end;
 }
 
-.summary-img.first span {
-    padding: 10px;
+.summary-img.first div {
     width: 100%;
+    padding-left: 10px;
+    bottom: 5%;
     position: absolute;
-    bottom: 20px;
     z-index: 1;
     font-size: var(--normal-font-size);
     color:var(--font-family);
@@ -274,14 +291,15 @@ a {
     flex-direction: column;
     object-fit: cover;
     position: relative;
-    grid-column: 2 / span 1
+    grid-column: 2 / span 1;
+    justify-content:flex-end;
 }
 
-.summary-img.second span {
-    padding: 10px;
+.summary-img.second div {
+    padding-left: 10px;
+    bottom: 10%;
     width: 100%;
     position: absolute;
-    bottom: 20px;
     z-index: 1;
     font-size: var(--normal-font-size);
     color:var(--font-family);
@@ -293,14 +311,15 @@ a {
     flex-direction: column;
     object-fit: cover;
     position: relative;
-    grid-column: 3 / span 1
+    grid-column: 3 / span 1;
+    justify-content: flex-end;
 }
 
-.summary-img.third span {
-    padding: 10px;
+.summary-img.third div {
+    padding-left: 10px;
+    bottom: 10%;
     width: 100%;
     position: absolute;
-    bottom: 0;
     z-index: 1;
     font-size: var(--normal-font-size);
     color:var(--font-family);
@@ -313,18 +332,47 @@ a {
     object-fit: cover;
     position: relative;
     grid-column: 2 / span 2;
+    justify-content:flex-end;
 }
 
-/* summary-img.second span과 같음 */
-.summary-img.forth span {
-    padding: 10px;
-    width: calc(100%/2);
+.summary-img.forth div {
+    padding-left: 10px;
+    bottom: 10%;
+    width: 100%;
     position: absolute;
-    bottom: 0;
     z-index: 1;
     font-size: var(--normal-font-size);
     color:var(--font-family);
     font-weight: var(--section-font-weight);
+}
+
+.last-section-container {
+    margin: var(--page-tb-margin) var(--page-side-margin);
+}
+
+.last-section-container h1 {
+    font-size: var(--title-font-size);
+}
+
+.last-sec-articles {
+    display: flex;
+}
+
+.last-sec-content {
+    margin: 0 8px;
+}
+
+.last-sec-content img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--image-border-radius);
+}
+
+.last-sec-content span {
+    padding-left: 15px;
+    color: var(--black);
+    font-weight: var(--section-font-weight);
+    font-size: 1.1rem;
 }
 
 
