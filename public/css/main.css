@@ -26,10 +26,11 @@ ul {
 /*CORONA 관련 맨 윗부분 CSS STYLE*/
 
 .corona {
-  padding: 20px;
+  padding: 17px;
   background: black;
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .corona a {
@@ -61,7 +62,14 @@ header {
 }
 
 header .logo {
+  display: flex;
   font-size: 35px;
+}
+
+header .logo span {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 header nav {
@@ -285,6 +293,7 @@ header .member_setting .host {
 }
 
 /* SECTION BEHOST */
+
 .section_beHost {
   padding: 60px 70px;
 }
