@@ -1,3 +1,5 @@
+@import url('./ratio.css');
+
 * {
     padding: 0;
     margin: 0;
@@ -7,24 +9,46 @@ ul {
     list-style: none;
 }
 
-div.index {
+.float_left {
+    float: left;
+}
+
+.float_right {
+    float: right;
+}
+
+.float_clear {
+    clear: both;
+}
+
+/* --------------------------- */
+
+/* 전체 Wrapper */
+div.wrap {
     width: 1900px;
     height: 1080px;
     margin: 0 auto;
+    position: relative;
+    left: -2px;
 }
 
-/* 헤더 */
-div.index-head {
+/* 헤더 Wrapper */
+div.header {
     width: 100%;
-    height: 70%;
+    height: calc(80% - 20px);
     background-image: url('../images/top_banner.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
-/* 헤더 - 코로나 */
-div.index-head > div.covid {
+div.header > header {
+    width: 100%;
+    height: 80px;
+}
+
+/* 헤더 1 - 코로나 알림 */
+div.header__covid {
     width: 100%;
     height: 60px;
     background-color: black;
@@ -32,93 +56,189 @@ div.index-head > div.covid {
     line-height: 60px;
 }
 
-div.index-head > div.covid > a,
-a:link,
-a:visited {
+div.header__covid > a,
+div.header__covid > a:link,
+div.header__covid > a:visited {
     font-size: 14px;
     font-weight: bold;
     color: white;
 }
 
-div.index-head > div.covid > a:hover,
-a:active {
+div.header__covid > a:hover,
+div.header__covid > a:active {
     color: #ddddddcc;
 }
 
-/* 헤더 - 메인 */
-div.index-head > header {
+/* 헤더 2 -  로고, 검색 옵션, 로그인  */
+div.header__top1 {
     width: 100%;
-    height: 80px;
+    padding: 25px 0px;
+    position: absolute;
+
+    display: flex;
+    justify-content: space-around;
 }
 
-div.header-logo {
-    height: 100%;
+/* 1) 로고 */
+div.header__top1__logo {
+    flex-grow: 1;
+    text-align: center;
+}
+div.header__top1__logo > a {
+    color: white;
+}
+
+/* 2) 검색 옵션 */
+div.header__top1__radioGroup {    
+    color: white;        
+    flex-grow: 3;
+    text-align: center;
+}
+
+div.header__top1__radioGroup > label > input[type='radio'] {
+    display: none;
+}
+
+div.header__top1__radioGroup > label > input[type='radio'] + span {
+    display: inline-block;    
+    padding: 0 13px;
+    cursor: pointer;
+}
+
+div.header__top1__radioGroup > label > input[type='radio']:checked + span > p.underline {    
+    padding-top: 8px;
+    border-bottom: 2px solid white;
+}
+
+/*
+div.header__top1__radioGroup > label > input[type='radio']:checked + span {
+    text-decoration: underline white;
+    text-underline-position: under;
+}
+*/
+
+/* 3) 로그인 (예정) */
+div.header__top1__login {
+    font-size: 14px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+/* ----------------------------- */
+
+/* 콘텐츠 Wrapper */
+div.content {
     width: 100%;
 }
 
-div.logo {
-    position: relative;
-    border-radius: 12px;
-    left: 30px;
-    top: 20px;
-    margin-left: 120px;
-    margin-right: 120px;
+div.content > ul > li {
+    margin: 70px 8%;
 }
 
-/* content */
-div.index-main {
-    width: 100%;
+div.content > ul > li.black {
+    margin: 0;
+    background-color: black;
 }
 
-div.index-main > ul > li {
-    margin: 40px 8%;
+div.content-flexAble {
+    margin: 70px auto;
 }
 
-div.flexable {
-    margin: 60px auto;
+/* 콘텐츠 공통 */
+p.content-secDesc {
+    font-size: 24pt;
+    font-weight: bold;
 }
 
-/* content - section1  */
-ul.section1 > li {
-    display: inline-block;
-    width: 24.6%;
+/* 콘텐츠 - section1  */
+ul.content__sec1 {
+    margin: 0 0 0 13px;
 }
 
-ul.section1 > li > img {
+ul.content__sec1 > li > img {
     width: 20%;
     border: 1px solid white;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    -webkit-border-radius: 5px;
 }
 
-div.info {
+ul.content__sec1 > li > div.info {
     display: inline-block;
     position: relative;
     top: -22px;
 }
 
-/* content - section 2  */
-ul.section2 {
-    margin-top: 20px;
-}
-ul.section2 > li {
-    display: inline-block;
-    width: 24.6%;
-    text-align: center;
-}
-ul.section2 > li > img {
-    width: 95%;
-    margin: 0 2.5%;
-    border: 1px solid white;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    -webkit-border-radius: 5px;
+/* 콘텐츠 - section 2  */
+ul.content__sec2 {
+    margin: 0 auto;
 }
 
-ul.section2 > li > p {
+ul.content__sec2 > li > img {
+    width: 95%;
+    margin-left: 5%;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+ul.content__sec2 > li > p {
     text-align: left;
-    margin: 0 2.5%;
+    margin-left: 5%;
+}
+
+/* 콘텐츠 - section 3  */
+/* 1) 상단 글자 및 버튼 */
+div.content__sec3 {
+    margin: 70px 8%;
+    padding: 30px 0;
+}
+
+button.content__sec3__btn {
+    position: relative;
+    top: 20px;
+    right: 20px;
+
+    border-radius: 5px;
+    padding: 7px;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+
+    cursor: pointer;
+}
+
+button.content__sec3__btn:hover {
+    background-color: rgb(119, 119, 119);
+}
+
+/* 2) 하단 이미지들 */
+ul.content__sec3__ul {
+    padding: 20px 0;
+}
+
+ul.content__sec3__ul > li > p {
+    position: relative;
+    top: -55px;
+    left: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+ul.content__sec3__ul > li > img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+/* 콘텐츠 - section 4  */
+ul.content__sec4 {
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+ul.content__sec4 > li {
+    display: inline-block;
+    width: 33%;
+}
+ul.content__sec4 > li > img {
+    width: 100%;
+    border-radius: 16px;
 }
