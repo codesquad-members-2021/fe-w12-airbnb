@@ -79,7 +79,6 @@
 #nav_right > li > a:first-child {
     font-size: 0.9em;
 }
-
 /* ---------● 검색창 ●--------- */
 #search {
     width: 853px;
@@ -242,7 +241,7 @@
 }
 
 /* -----●●● wrap_content_box ●●●----- */
-/* --------●●● 공통 부분 ●●●-------- */
+/* ------------ 공통 부분 ------------ */
 .wrap_content_box {
     margin: 40px 0;
     height: 400px;
@@ -259,7 +258,6 @@
     font-weight: 600;
     padding-bottom: 16px;
 }
-/* house_list class */
 .content_list {
     float: left;
     margin-top: 10px;
