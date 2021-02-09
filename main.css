@@ -10,22 +10,66 @@
  background-size: cover;
  background-repeat: no-repeat;
  background-position: center center;
-
- 
- 
 }
+
+
+.header {
+    display: flex;
+    height:80px;
+    padding-left:80px;
+    padding-right:80px;
+    align-items: center;
+}
+
+.header_left_menu {
+    display:inline-block;
+    width: 577px;
+    height: 80px;
+}
+
+.header_center_menu {
+    display:inline-block;
+    padding: 0px 24px;
+}
+
+.header_center_menu > span {
+    padding: 10px 16px;
+    color:white;
+}
+
+.header_right_menu {
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+
+}
+.sign_up_host {
+    width:100px;
+}
+.header_right_menu > button {
+    display: inline-block;
+    background-color:transparent;
+    border-color:transparent
+    /* width:52px;
+    height:42px; */
+}
+
+
+.airbnb_icon {
+    display: flex;
+    padding-top: 10px;
+    width: 108px;
+    height: 54px;
+}
+
 .main_square {
     
    
 }
 
-.header {
-
-}
 .corona_Top {
-    display: flex;
     display: block;
-    position:sticky;
     text-decoration: underline;
     text-align: center;
     color:white;
@@ -34,11 +78,27 @@
     background: black;
 }
 
-.airbnb_icon {
+.earth_btn {
     display: flex;
-    
-    width: 118px;
-    height: 64px;
+    width:52px;
+    height:42px;
+}
+
+.header_right_menu >.user_btn {
+    display:flex;
+    width:72px;
+    height: 42px;
+    background-color: white;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_right_menu >.user_btn > img {
+    display: inline-block;
+    width: 16px;
+    height: 30px;
+    padding-left:7px;
 }
 
 .small_btn {
