@@ -1,47 +1,110 @@
-body {
-    padding-left: 1rem;
+b{
+    font-weight: bold;
 }
 li {
     display: inline;
 }
-.top_wrapper {
-    background-image: url(./src/main.jpg);
-    background-position: bottom;
+h4{
+    font-size : 2rem;
+    font-weight: bold;
+}
+.main--background{
+    background-image: url(./src/main-wide.jpg);
+    background-position:left bottom;
     background-size: 100%;
-    height: 20rem;
-    color: white;
-}
-.top_bar {
-    text-align: center;
-}
-#logo {
-    float: left;
 }
 .main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 25rem;
+    color: white;
+}
+.main__menu {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.main__logo {
+    padding-top: 0.5rem;/*center로 세로 조정 다시 할 것*/
+}
+.main__content {
     clear:both;
     margin-top: 5rem;
     font-size: 4rem;
     font-weight: bold;
 }
-.site_menu {
-    vertical-align:middle;
-}
-.user_menu {
-    display: flex;
-    justify-content: flex-end;
-}
 .location {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 2rem;
-    width: 100%;
-    justify-content:space-between;
+    padding-top : 2rem;
+    padding-left: 2rem;
+}
+.location__city{
+    display: inline-flex;
+    /* justify-content: space-between; 이거 왜 동작안해 */ 
+    width:24%;
+    /*4분의 1을 표현하며 쬐끔의 padding도 커버칠 적당할 표현 없나*/
     align-items: center;
 }
-.location img{
+.location__city--image{
     float: left;
+    width: 100px;
+    height: 100px;
+    border-radius: 15%;
 }
-.location_description{
+.location__city--description{
+    line-height: 130%;
+    padding-left: 1rem;
+}
+.house{
+    padding: 2rem;
+}
+.house__content{
+    padding-top: 2rem;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.house__type--image{
+    width:300px;
+    height:300px;
+    border-radius: 15%;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+.activity--background{
+    background-color: black;
+}
+.activity{
+    padding: 2rem;
+    color: white;
+    /**/
+}
+.activity__content{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.activity__type--image{
+    width:300px;
+    height:300px;
+    border-radius: 15%;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+.activity__type--description{
+    line-height: 130%;
+}
+.host{
+    padding: 2rem;
+}
+.host__type--image{
+    width:300px;
+    height:300px;
+    border-radius: 15%;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+.host__content{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
 }

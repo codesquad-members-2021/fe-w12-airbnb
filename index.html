@@ -11,97 +11,125 @@
 </head>
 
 <body>
-    <div class="top_wrapper">
-        <div class="top_bar">
-            <div id="logo"><img src="src/codesquad2.png" height="50px" alt=""></div>
-            <div class="site_menu">
-                <span>숙소</span>
-                <span>체험</span>
-                <span>온라인 체험</span>
-            </div>
-            <div class="user_menu">
-                <span>호스트 되기</span>
-                <span>🌐</span>
-                <!-- <span>로그인? 유저정보 아이콘</span> -->
-            </div>
-        </div>
+    <div class="main--background">
         <div class="main">
-            <h1>이제, 여행은 <br> 가까운 곳에서</h1>
-            <button>근처의 숙소 둘러보기</button>
+            <div class="main__menu">
+                <div class="main__logo"><img src="src/codesquad2.png" height="50px" alt=""></div>
+                <div class="main__site-menu">
+                    <span>숙소</span>
+                    <span>체험</span>
+                    <span>온라인 체험</span>
+                </div>
+                <div class="main__user-menu">
+                    <span>호스트 되기</span>
+                    <span>🌐</span>
+                    <!-- <span>로그인? 유저정보 아이콘</span> -->
+                </div>
+            </div>
+            <div class="main__content">
+                <h1><b>이제, 여행은 <br> 가까운 곳에서</b></h1>
+                <button>근처의 숙소 둘러보기</button>
+            </div>
         </div>
     </div>
-    <div class="location">
-        <div>
-            <img src="src/둥이.png" height="150px" width="150px">
-            <span class="location_description">
-                <span>
-                    <b>카일</b>
-                </span>
-                <span>
-                    둥이
-                </span>
-            </span>
-        </div>
-        <div>
-            <img src="src/뿌꾸.png" height="150px" width="150px">
-            어텀
-            뿌꾸
-        </div>
-        <img src="src/탱자.png" height="150px" width="150px" alt="">
+    <ul class="location">
+        <li class="location__city">
+            <img src="src/둥이.png" class="location__city--image" alt="">
+            <span class='location__city--description'><b>서울</b><br>차로 30분 거리</span>
+        </li>
+        <li class="location__city">
+            <img src="src/둥이2.png" class="location__city--image" alt="">
+            <div class="location__city--description"><b>인천</b><br>차로 45분 거리</div>
+        </li>
+        <li class="location__city">
+            <img src="src/뿌꾸.png" class="location__city--image" alt="">
+            <span class="location__city--description"><b>대구</b><br>차로 3.5시간 거리</span>
+        </li>
+        <li class="location__city">
+            <img src="src/탱자.png" class="location__city--image" alt="">
+            <span class="location__city--description"><b>의정부시</b><br>차로 45분 거리</span>
+        </li>
+    </ul>
 
-        이브
-        탱자
-        <div>
-            <img src="src/라쿤.jpg" height="150px" width="150px" alt="">
-            라쿤
-            라쿤
-        </div>
-        <div>
-            <img src="src/펭도리.jpg" height="150px" width="150px" alt="">
-            펭도리
-            펭도리
-        </div>
-        <div>
-            <img src="src/비모.jpg" height="150px" width="150px" alt="">
-            비모
-            비모
-        </div>
-        <!-- <div>
-            <img src="src/크롱.jpg" height="150px" width="150px" alt="">
-        </div> -->
-    </div>
-    <div>
+    <ul class="location">
+        <li class="location__city">
+            <img src="src/라쿤.jpg" class="location__city--image" alt="">
+            <span class="location__city--description"><b>대전</b><br>차로 2시간 거리</span>
+        </li>
+        <li class="location__city">
+            <img src="src/펭도리.jpg" class="location__city--image" alt="">
+            <span class="location__city--description"><b>수원시</b><br> 차로 30분 거리</span>
+        </li>
+        <li class="location__city">
+            <img src="src/비모.jpg" class="location__city--image" alt="">
+            <span class="location__city--description"><b>부천시</b><br> 차로 45분 거리</span>
+        </li>
+        <li class="location__city">
+            <img src="src/크롱.jpg" class="location__city--image" alt="">
+            <span class="location__city--description"><b>안산시</b><br> 차로 45분 거리</span>
+        </li>
+    </ul>
+    <div class="house">
         <h4>어디에서나, 여행은 살아보는 거야!</h4>
-        <ul>
-            <li>
-                대충 집전체
+        <ul class="house__content">
+            <li class="house__type">
+                <img class="house__type--image" src="src/house1.jpg" alt="">
+                <br>
+                <span class="house__type--description"><b>집 전체</b></span>
             </li>
-            <li>
-                대충 벽난로
+            <li class="house__type">
+                <img class="house__type--image" src="src/house2.png" alt="">
+                <br>
+                <span class="house__type--description"><b>벽난로</b></span>
             </li>
-            <li>
-                대충 독특한 공간
+            <li class="house__type">
+                <img class="house__type--image" src="src/house3.png" alt="">
+                <br>
+                <span class="house__type--description"><b>독특한 공간</b></span>
             </li>
-            <li>
-                대충 통나무집 및 전원주택
-            </li>
-        </ul>
+        </ul> 
     </div>
-    <div>
-        <h4>세상을 만나는 특별한 방법</h4>
-        <span>현지 전문가와 함께하는 독특한 액티비티를 직접체험하거나 온라인으로 만나보세요.</span>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+    <div class="activity--background">
+        <div class="activity">
+            <h4>세상을 만나는 특별한 방법</h4>
+            <span>현지 전문가와 함께하는 독특한 액티비티를 직접체험하거나 온라인으로 만나보세요.</span>
+            <ul class="activity__content">
+                <li class="activity__type">
+                    <img src="src/crong-slack.png" class="activity__type--image" alt="">
+                    <br>
+                    <span class="activity__type--description"><b>온라인 체험</b><br>집에서 즐기는 랜선 세계 여행</span>
+                </li>
+                <li class="activity__type">
+                    <img src="src/honux-slack.png" class="activity__type--image" alt="">
+                    <br>
+                    <span class="activity__type--description"><b>체험</b><br>어디에서든 즐길 수 있는 체험</span>
+                </li>
+                <li class="activity__type">
+                    <img src="src/jk-slack.png" class="activity__type--image" alt="">
+                    <br>
+                    <span class="activity__type--description"><b>어드벤처</b><br>숙박과 식사가 포함된 며칠 일정의 여행입니다.</span>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div>
-        <h4>수백만 명에 이르는에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</h4>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+    <div class="host">
+        <h4>수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</h4>
+        <ul class="host__content">
+            <li class="host__type">
+                <img src="src/crong.jpg" class="host__type--image" alt="">
+                <br>
+                <span class="host__type--description"><b>숙소 호스트 되기</b></span>
+            </li>
+            <li class="host__type">
+                <img src="src/honux.jpg" class="host__type--image" alt="">
+                <br>
+                <span class="host__type--description"><b>온라인 체험 호스팅하기</b></span>
+            </li>
+            <li class="host__type">
+                <img src="src/jk2.jpg" class="host__type--image" alt="">
+                <br>
+                <span class="host__type--description"><b>체험 호스팅하기</b></span>
+            </li>
         </ul>
     </div>
 </body>
