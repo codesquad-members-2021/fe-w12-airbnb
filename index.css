@@ -35,7 +35,7 @@ li {
 header {
   margin-top: 0;
   background-image: linear-gradient(
-      rgba(77, 73, 73, 0.719),
+      rgba(77, 73, 73, 0.411),
       rgba(184, 184, 184, 0)
     ),
     url("./images/bground.jpg");
@@ -98,7 +98,7 @@ header {
 }
 
 .login_menu {
-  float: right;
+  /* float: right; */
   color: #fff;
 }
 
@@ -137,7 +137,12 @@ div.login_set > img {
 }
 
 .search_box {
-  /* justify-content: space-between; */
+  height: 3rem;
+  margin-top: 1rem;
+  margin-left: 13rem;
+  margin-right: 13rem;
+  background-color: #fff;
+  border-radius: 50px;
 }
 
 fieldset.search_box > div {
@@ -154,7 +159,7 @@ fieldset.search_box > div {
 .main_textbox {
   position: absolute;
   width: 1140px;
-  top: 60%;
+  top: 55%;
   left: 35%;
   transform: translate(-50%, -50%);
   text-align: left;
@@ -188,6 +193,15 @@ h1 {
   padding-top: 1rem;
 }
 
+.cities {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.cities_firsthalf {
+  margin-top: 3rem;
+}
+
 .cities_container {
   display: flex;
   justify-content: space-between;
@@ -202,11 +216,17 @@ h1 {
 ul.cities_container > li {
   width: 25%;
   display: flex;
+  flex-grow: 1;
   justify-content: flex-start;
 }
 
-ul.cities_container > li > span {
-  font-size: 0.2rem;
+.txt_box {
+  height: 80px;
+  display: inline-block;
+  font-size: 0.7rem;
+  text-align: left;
+  margin-left: 0.5rem;
+  /* margin-bottom: 0.7rem; */
 }
 
 .city_pic {
@@ -238,6 +258,11 @@ ul.cities_container > li > span {
   /* margin: 0.5rem; */
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+div.sec2_container > div > p {
+  text-align: left;
+  font-size: 0.8rem;
 }
 
 .house_pic {
@@ -275,6 +300,11 @@ ul.cities_container > li > span {
 
 div.sec3_container > div > p {
   color: #fff;
+  text-align: left;
+}
+
+.p2 {
+  font-size: 0.7rem;
 }
 
 .activity_pic {
@@ -306,6 +336,10 @@ div.sec3_container > div > p {
   justify-content: space-between;
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+div.sec4_container > div > p {
+  text-align: left;
 }
 
 .community_pic {
