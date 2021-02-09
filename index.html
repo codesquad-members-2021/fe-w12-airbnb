@@ -10,42 +10,127 @@
 </head>
 <body>
     <header>
-        <div class="announcement">
+        <div id="announcement">
             <div class="corona_info"><u class="corona_info">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</u></div>
         </div>
         <nav>
             <div class="logo_and_nav">
-                <img src="images/airbnb.svg" alt="airbnb logo" class="airbnb_logo">
-                <ul class="main-nav">
-                    <li><a href="#">숙소</a></li>
-                    <li><a href="#">체험</a></li>
-                    <li><a href="#">온라인 체험</a></li>
-                </ul>
-                <ul class="login_menu">
-                    <li>호스트 되기</li>
-                    <li><img src="images/earth.svg" alt="earth logo" class="earth_logo"></li>
-                    <li>
-                        <span class="login_set">
-                            <img src="images/list.svg" alt="list logo" class="list_logo">
-                            <img src="images/people.svg" alt="peoplg logo" class="people_logo">
-                        </span>
-                    </li>
-                </ul>
+                <div class="nav_left">
+                    <img src="images/airbnb.svg" alt="airbnb logo" class="airbnb_logo">
+                </div>
+                <div class="nav_center">
+                    <ul class="main-nav">
+                        <li><a href="#">숙소</a></li>
+                        <li><a href="#">체험</a></li>
+                        <li><a href="#">온라인 체험</a></li>
+                    </ul>
+                </div>
+                <div class="nav_right">
+                    <ul class="login_menu">
+                        <li>호스트 되기</li>
+                        <li><img src="images/earth.svg" alt="earth logo" class="earth_logo"></li>
+                        <li>
+                            <span class="login_set">
+                                <img src="images/list.svg" alt="list logo" class="list_logo">
+                                <img src="images/people.svg" alt="peoplg logo" class="people_logo">
+                            </span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <fieldset class="search_box"><!--fieldset 태그를 사용할 것인지 form 태그를 사용할 것인지 생각해보기-->
-            <legend>위치<input type="text" placeholder="어디로 여행가세요?"></legend>
-            <legend>체크인<input type="text" placeholder="날짜 추가"></legend>
-            <legend>체크아웃<input type="text" placeholder="날짜 추가"></legend>
-            <legend>인원<input type="text" placeholder="게스트 추가"></legend>
-            <img src="images/search.svg" alt="search logo" class="search_logo">
+            <div>
+                <legend>위치<input type="text" placeholder="어디로 여행가세요?"></legend>
+            </div>
+            <div>
+                <legend>체크인<input type="text" placeholder="날짜 추가"></legend>
+            </div>
+            <div>
+                <legend>체크아웃<input type="text" placeholder="날짜 추가"></legend>
+            </div>
+            <div>
+                <legend>인원<input type="text" placeholder="게스트 추가"></legend>
+            </div>
+            <div>
+                <img src="images/search.svg" alt="search logo" class="search_logo">
+            </div>
         </fieldset>
         <div class="main_textbox">
             <h1>이제&#44; 여행은 <br>가까운 곳에서</h1>
             <button class="main_textbox_button">근처의 숙소 둘러보기</button>
         </div>
     </header>
-    <section class="main">
+    <section id="cities">
+        <div class="cities">
+            <div class="cities_firsthalf">
+                <ul class="cities_container cities_firstrow">
+                    <div class="cities_inner_container">
+                        <li>
+                            <img src="./images/sec1-01.jpg" alt="seoul pic" class="city_pic">
+                            <span><b>서울</b></span><br>
+                            <span>차로 30분 거리</span>
+                        </li>
+                    </div>
+                    <div class="cities_inner_container">
+                        <li>
+                            <img src="./images/sec1-02.jpg" alt="incheon pic" class="city_pic">
+                            <span><b>인천</b></span><br>
+                            <span>차로 30분 거리</span>
+                        </li>
+                    </div>
+                    <div class="cities_inner_container">
+                        <li>
+                            <img src="./images/sec1-07.jpg" alt="bucheon pic" class="city_pic">
+                            <span><b>부천시</b></span><br>
+                            <span>차로 30분 거리</span>
+                        </li>
+                    </div>
+                    <div class="cities_inner_container">
+                        <li>
+                            <img src="images/sec1-06.jpg" alt="ansan pic" class="city_pic">
+                            <span><b>안산시</b></span><br>
+                            <span>차로 30분 거리</span>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="cities_secondhalf">
+                <ul class="cities_container cities_secondrow">
+                    <div class="cities_inner_container">
+                        <li>
+                            <img src="images/sec1-03.jpg" alt="uijeongbu pic" class="city_pic">
+                            <span><b>의정부시</b></span><br>
+                            <span>차로 45분 거리</span>
+                        </li>
+                    </div>
+                    <div class="cities_inner_container">
+                        <li>
+                            <img src="images/sec1-04.jpg" alt="daejeon pic" class="city_pic">
+                            <span><b>대전</b></span><br>
+                            <span>차로 2.5시간 거리</span>
+                        </li>
+                    </div>
+                    <div class="cities_inner_container">
+                        <li>
+                            <img src="images/sec1-08.jpg" alt="suwon pic" class="city_pic">
+                            <span><b>수원시</b></span><br>
+                            <span>차로 30분 거리</span>
+                        </li>
+                    </div>
+                    <div class="cities_inner_container">
+                        <li>
+                            <img src="images/sec1-05.jpg" alt="daegu pic" class="city_pic">
+                            <span><b>대구</b></span><br>
+                            <span>차로 4시간 거리</span>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="option_features">
+
     </section>
     <script src="./index.js"></script>
 </body>
