@@ -71,8 +71,10 @@ nav {
 }
 .local__content {
   display: inline-block;
+  /* vertical-align: middle; */
   padding-top: 40px;
   margin-left: 100px;
+  /* text-align: center; */
 }
 .local__content img {
   /* display: inline; */
@@ -82,7 +84,34 @@ nav {
 }
 .local__textbox {
   display: inline-block;
+  margin-left: 10px;
+  /* padding-bottom: 20px; */
 }
+.room__title {
+  margin-left: 100px;
+  margin-top: 40px;
+  font-size: 30px;
+}
+.room__container {
+  /* display: inline-block; */
+  /* vertical-align: middle; */
+  margin-top: 20px;
+  margin-left: 80px;
+}
+.room__content {
+  display: inline-block;
+  margin-left: 20px;
+}
+.room__desc {
+  /* display: inline-block; */
+}
+.room__image {
+  /* display: inline; */
+  width: 280px;
+  height: 280px;
+  border-radius: 6px;
+}
+
 /* .home {
   display: flex;
   background: url("images/banner.jpg") no-repeat center;
