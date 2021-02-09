@@ -58,11 +58,11 @@
 
 .banner.headline.content { 
   width: 312px;
-  color: var(--tl-lg-color, #222222) !important;
-  font-size: var(--tl-lg-font-size, 32px) !important;
-  font-weight: var(--tl-lg-font-weight, 800) !important;
-  letter-spacing: var(--tl-lg-letter-spacing, normalem) !important;
-  line-height: var(--tl-lg-line-height, 36px) !important;
+  color: var(--tl-lg-color, #222222);
+  font-size: var(--tl-lg-font-size, 32px);
+  font-weight: var(--tl-lg-font-weight, 800);
+  letter-spacing: var(--tl-lg-letter-spacing, normalem);
+  line-height: var(--tl-lg-line-height, 36px);
 
   display:inherit;
   flex-direction: column;
