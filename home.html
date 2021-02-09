@@ -15,15 +15,16 @@
       </div>
       <header>
         <div class="header__content">
-          <div class="header__home-btn">
+          <div>
             <a href="">
-              <i class="fab fa-airbnb"></i>
+              <!-- <i class="fab fa-airbnb"></i> -->
+              <img id="airbnb__logo" src="../airbnb_image/airbnb/images/airbnb.svg" alt="airbnbLogo" />
             </a>
           </div>
           <div class="header__search">
             <!-- <div class="header__search-btn">
-              <button>검색 시작하기</button>
-            </div> -->
+                <button>검색 시작하기</button>
+              </div> -->
             <div class="header__search-btn">
               <form action="">
                 <fieldset>
@@ -44,64 +45,65 @@
                     <div>위치</div>
                     <input type="text" name="" id="header__search-form__place" placeholder="어디로 여행가세요?" />
                   </div>
-                  <div class="header__search">
-                    <div class="header__search-form">
-                      <div>체크인</div>
-                      <div class="header__search-form__date">날짜 추가</div>
-                    </div>
-                    <div class="header__search-form">
-                      <div>체크아웃</div>
-                      <div class="header__search-form__date">날짜 추가</div>
-                    </div>
+                  <div class="header__search-form">
+                    <div>체크인</div>
+                    <div class="header__search-form__date">날짜 추가</div>
                   </div>
-                  <div class="header__search">
-                    <div class="header__search-form">
-                      <div>인원</div>
-                      <div class="header__search-form__people">게스트 추가</div>
-                    </div>
-                    <div class="header__search-form">
-                      <button>
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
+                  <div class="header__search-form">
+                    <div>체크아웃</div>
+                    <div class="header__search-form__date">날짜 추가</div>
+                  </div>
+                  <div class="header__search-form">
+                    <div>인원</div>
+                    <div class="header__search-form__people">게스트 추가</div>
+                  </div>
+                  <div class="header__search-form">
+                    <button>
+                      <i class="fas fa-search"></i>
+                    </button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
           <div class="header__account">
-            <nav>
-              <div class="header__account-content">
-                <a href="" class="header__account-content__item">호스트 되기 </a>
-                <button class="header__account-content__item">
-                  <i class="fas fa-globe"></i>
-                </button>
-              </div>
-              <div class="header__account-content">
-                <button class="header__account-content__item">
-                  <span><i class="fas fa-bars"></i></span>
-                  <span><i class="fas fa-user-circle"></i></span>
-                </button>
-              </div>
-            </nav>
+            <div>
+              <a href="">호스트 되기</a>
+              <button class="header__account-content__item">
+                <i class="fas fa-globe"></i>
+              </button>
+            </div>
+            <div>
+              <button class="header__account-content__item">
+                <span><i class="fas fa-bars"></i></span>
+                <span><i class="fas fa-user-circle"></i></span>
+              </button>
+            </div>
           </div>
         </div>
-      </header>
-    </div>
-    <main>
-      <div class="main">
-        <section class="main__image">
-          <!-- 이제, 여행은 가까운 곳에서 근처의 숙소 둘러보기 -->
-          <div class="picture"><img src="../airbnb_image/airbnb/images/main.jpg" alt="" /></div>
-          <div class="statement">
+        <div class="main__image">
+          <div class="main__statement">
             <div>
-              <span> 이제, 여행은 가까운 곳에서</span>
+              <h1>이제, 여행은 가까운 곳에서</h1>
             </div>
             <button>
               <span>근처의 숙소 둘러보기</span>
             </button>
           </div>
-        </section>
+          <img src="https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1440" alt="" />
+          <!-- <img src="../airbnb_image/airbnb/main/mainImage.webp" alt="main__image" /> -->
+        </div>
+      </header>
+    </div>
+    <div class="main">
+      <main>
+        <!-- <section class="main__image">
+          이제, 여행은 가까운 곳에서 근처의 숙소 둘러보기
+          <img src="../airbnb_image/airbnb/images/main.jpg" alt="main_backgroundImage" />
+          <div class="statement">
+            
+          </div>
+        </section> -->
         <section class="main__destinations">
           <ul class="item">
             <li>
@@ -110,7 +112,10 @@
                   <!-- <picture></picture> -->
                   <img src="../airbnb_image/airbnb/images/sec1-04.jpg" alt="daejeon" />
                 </span>
-                <span>대전 차로 15분 거리</span>
+                <span>
+                  <div class="city">대전</div>
+                  <div class="distance">차로 15분 거리</div>
+                </span>
               </a>
             </li>
             <li>
@@ -119,7 +124,10 @@
                   <!-- <picture></picture> -->
                   <img src="../airbnb_image/airbnb/images/sec1-01.jpg" alt="seoul" />
                 </span>
-                <span>서울 차로 2.5시간 거리</span>
+                <span>
+                  <div class="city">서울</div>
+                  <div class="distance">차로 2.5시간 거리</div>
+                </span>
               </a>
             </li>
             <li>
@@ -128,7 +136,10 @@
                   <!-- <picture></picture> -->
                   <img src="../airbnb_image/airbnb/images/sec1-05.jpg" alt="daegu" />
                 </span>
-                <span>대구 차로 2시간 거리</span>
+                <span>
+                  <div class="city">대구</div>
+                  <div class="distance">차로 2시간 거리</div>
+                </span>
               </a>
             </li>
             <li>
@@ -137,7 +148,10 @@
                   <!-- <picture></picture> -->
                   <img src="../airbnb_image/airbnb/images/sec1-08.jpg" alt="cheongju" />
                 </span>
-                <span>청주시 차로 45분 거리</span>
+                <span>
+                  <div class="city">청주시</div>
+                  <div class="distance">차로 45분 거리</div>
+                </span>
               </a>
             </li>
             <li>
@@ -146,7 +160,10 @@
                   <!-- <picture></picture> -->
                   <img src="../airbnb_image/airbnb/images/sec1-02.jpg" alt="incheon" />
                 </span>
-                <span>인천 차로 2.5시간 거리</span>
+                <span>
+                  <div class="city">인천</div>
+                  <div class="distance">차로 2.5시간 거리</div>
+                </span>
               </a>
             </li>
             <li>
@@ -155,7 +172,10 @@
                   <!-- <picture></picture> -->
                   <img src="../airbnb_image/airbnb/images/sec1-06.jpg" alt="uijeongbu" />
                 </span>
-                <span>의정부시 차로 2.5시간 거리</span>
+                <span>
+                  <div class="city">의정부시</div>
+                  <div class="distance">차로 2.5시간 거리</div>
+                </span>
               </a>
             </li>
             <li>
@@ -164,7 +184,10 @@
                   <!-- <picture></picture> -->
                   <img src="../airbnb_image/airbnb/images/sec1-03.jpg" alt="suwon" />
                 </span>
-                <span>수원시 차로 2시간 거리</span>
+                <span>
+                  <div class="city">수원시</div>
+                  <div class="distance">차로 2시간 거리</div>
+                </span>
               </a>
             </li>
             <li>
@@ -173,7 +196,10 @@
                   <!-- <picture></picture> -->
                   <img src="../airbnb_image/airbnb/images/sec1-07.jpg" alt="bucheon" />
                 </span>
-                <span>부천시 차로 2.5시간 거리</span>
+                <span>
+                  <div class="city">부천시</div>
+                  <div class="distance">차로 2.5시간 거리</div>
+                </span>
               </a>
             </li>
           </ul>
@@ -181,35 +207,35 @@
         <section class="main__houseType">
           <!-- 어디에서나, 여행은 살아보는 거야! -->
           <!-- <div class=""> -->
-          <h2>어디에서나, 여행은 살아보는 거야!</h2>
+          <p>어디에서나, 여행은 살아보는 거야!</p>
           <!-- </div> -->
           <ul class="house">
             <li>
               <a href="#">
                 <!-- <picture></picture> -->
                 <img src="../airbnb_image/airbnb/images/sec2-01.jpg" alt="wholeHouse" />
-                <div>집전체</div>
+                <div class="title">집 전체</div>
               </a>
             </li>
             <li>
               <a href="#">
                 <!-- <picture></picture> -->
-                <img src="../airbnb_image/airbnb/images/sec2-02.jpg" alt="woodHouse" />
-                <div>통나무집 및 전원주택</div>
+                <img src="https://a0.muscache.com/im/pictures/ff69ac49-64e7-4f4a-ae2b-ee01163d0790.jpg?im_w=480" alt="woodHouse" />
+                <div class="title">통나무집 및 전원주택</div>
               </a>
             </li>
             <li>
               <a href="#">
                 <!-- <picture></picture> -->
                 <img src="../airbnb_image/airbnb/images/sec2-03.jpg" alt="uniqueHouse" />
-                <div>독특한 공간</div>
+                <div class="title">독특한 공간</div>
               </a>
             </li>
             <li>
               <a href="#">
                 <!-- <picture></picture> -->
-                <img src="../airbnb_image/airbnb/images/sec2-04.jpg" alt="withPetHouse" />
-                <div>반려동물 동반 가능</div>
+                <img src="https://a0.muscache.com/im/pictures/fbe849a4-841a-41b3-b770-419402a6316f.jpg?im_w=480" alt="withPetHouse" />
+                <div class="title">반려동물 동반 가능</div>
               </a>
             </li>
           </ul>
@@ -217,21 +243,26 @@
         <!-- 온라인 체험-->
         <section>
           <div class="main__online-activity">
-            <div class="title">
-              <h3>온라인 체험</h3>
-              <span>전문가가 진행하고 모두 함께 즐기는 참여형 액티비티</span>
+            <div class="header">
+              <div class="title">
+                <p>온라인 체험</p>
+                <span>전문가가 진행하고 모두 함께 즐기는 참여형 액티비티</span>
+              </div>
+              <button>모두 둘러보기</button>
             </div>
             <div class="item">
               <ul>
                 <li class="big">
                   <div>
                     <a href="#">
-                      <div>
+                      <div class="description">
                         <!-- <picture></picture> -->
-                        <img src="../airbnb_image/airbnb/images/sec3-01.jpg" alt="makingPastaGrandma" />
-                      </div>
-                      <div>
-                        <span>이탈리아 할머니와 함께 수제 파스타 만들기</span>
+                        <div>
+                          <img src="../airbnb_image/airbnb/images/sec3-01.jpg" alt="makingPastaGrandma" />
+                        </div>
+                        <div class="description__text">
+                          <span>이탈리아 할머니와 함께 수제 파스타 만들기</span>
+                        </div>
                       </div>
                     </a>
                   </div>
@@ -239,13 +270,13 @@
                 <li class="small">
                   <div>
                     <a href="#">
-                      <div>
+                      <div class="description">
                         <div>
                           <!-- <picture></picture> -->
                           <img src="../airbnb_image/airbnb/images/sec3-02.jpg" alt="mentalHealthDiner" />
                         </div>
-                        <div>
-                          <span>선(禪) 사상을 통한 마음챙김 식사</span>
+                        <div class="description__text">
+                          <div>선(禪) 사상을 통한 마음챙김 식사</div>
                         </div>
                       </div>
                     </a>
@@ -254,12 +285,12 @@
                 <li class="small">
                   <div>
                     <a href="#">
-                      <div>
+                      <div class="description">
                         <div>
                           <!-- <picture></picture> -->
                           <img src="../airbnb_image/airbnb/images/sec3-03.jpg" alt="argentinaMete" />
                         </div>
-                        <div>
+                        <div class="description__text">
                           <span>아르헨티나를 대표하는 예르바마테차 알아보기</span>
                         </div>
                       </div>
@@ -269,12 +300,12 @@
                 <li class="middle">
                   <div>
                     <a href="#">
-                      <div>
+                      <div class="description">
                         <div>
                           <!-- <picture></picture> -->
                           <img src="../airbnb_image/airbnb/images/sec3-04.jpg" alt="parisPianist" />
                         </div>
-                        <div>
+                        <div class="description__text">
                           <span>파리의 콘서트 피아니스트와 함께 음악 들으며 명상하기</span>
                         </div>
                       </div>
@@ -328,112 +359,116 @@
             </div>
           </div>
         </section>
-      </div>
-    </main>
-    <footer>
-      <div class="footer__about">
-        <section>
-          <h4>소개</h4>
-          <ul>
-            <li>에어비앤비 이용 방법</li>
-            <li>뉴스룸</li>
-            <li>투자자 정보</li>
-            <li>에어비앤비 플러스</li>
-            <li>에어비앤비 Luxe</li>
-            <li>호텔투나잇</li>
-            <li>에어비앤비 비즈니스 프로그램</li>
-            <li>올림픽</li>
-            <li>채용정보</li>
-          </ul>
-        </section>
-        <section>
-          <h4>커뮤니티</h4>
-          <ul>
-            <li>다양성 및 소속감</li>
-            <li>접근성</li>
-            <li>에어비앤비 어소시에이트</li>
-            <li>구호 인력을 위한 숙소</li>
-            <li>친구 초대하기</li>
-            <li>Airbnb.org</li>
-          </ul>
-        </section>
-        <section>
-          <h4>호스팅하기</h4>
-          <ul>
-            <li>숙소 호스팅</li>
-            <li>온라인 체험 호스팅하기</li>
-            <li>체험 호스팅하기</li>
-            <li>책임감 있는 호스팅</li>
-            <li>자료 센터</li>
-            <li>커뮤니티 센터</li>
-          </ul>
-        </section>
-        <section>
-          <h4>에어비앤비 지원</h4>
-          <ul>
-            <li>에어비앤비의 코로나19 대응 방안</li>
-            <li>도움말 센터</li>
-            <li>예약 취소 옵션</li>
-            <li>에어비앤비 이웃 민원 지원</li>
-            <li>신뢰와 안전</li>
-          </ul>
-        </section>
-      </div>
-      <div class="footer__others">
-        <section>
-          <div class="options">
-            <div class="country">
-              <span>
-                <a href="">
-                  <span class="chooseLang"><img src="../airbnb_image/airbnb/images/earth.svg" alt="" /></span>
-                  <!-- <span>아이콘</span> -->
-                  <span>한국어 (KR)</span>
-                </a>
-              </span>
-              <span>
-                <a href="">
-                  <span>₩</span>
-                  <span>KRW</span>
-                </a>
-              </span>
+      </main>
+    </div>
+    <div class="footer">
+      <footer>
+        <div class="footer__about">
+          <section>
+            <h4>소개</h4>
+            <ul>
+              <li>에어비앤비 이용 방법</li>
+              <li>뉴스룸</li>
+              <li>투자자 정보</li>
+              <li>에어비앤비 플러스</li>
+              <li>에어비앤비 Luxe</li>
+              <li>호텔투나잇</li>
+              <li>에어비앤비 비즈니스 프로그램</li>
+              <li>올림픽</li>
+              <li>채용정보</li>
+            </ul>
+          </section>
+          <section>
+            <h4>커뮤니티</h4>
+            <ul>
+              <li>다양성 및 소속감</li>
+              <li>접근성</li>
+              <li>에어비앤비 어소시에이트</li>
+              <li>구호 인력을 위한 숙소</li>
+              <li>친구 초대하기</li>
+              <li>Airbnb.org</li>
+            </ul>
+          </section>
+          <section>
+            <h4>호스팅하기</h4>
+            <ul>
+              <li>숙소 호스팅</li>
+              <li>온라인 체험 호스팅하기</li>
+              <li>체험 호스팅하기</li>
+              <li>책임감 있는 호스팅</li>
+              <li>자료 센터</li>
+              <li>커뮤니티 센터</li>
+            </ul>
+          </section>
+          <section>
+            <h4>에어비앤비 지원</h4>
+            <ul>
+              <li>에어비앤비의 코로나19 대응 방안</li>
+              <li>도움말 센터</li>
+              <li>예약 취소 옵션</li>
+              <li>에어비앤비 이웃 민원 지원</li>
+              <li>신뢰와 안전</li>
+            </ul>
+          </section>
+        </div>
+        <div class="footer__others">
+          <section>
+            <div class="options">
+              <div class="country">
+                <span>
+                  <a href="">
+                    <span class="chooseLang">
+                      <i class="fas fa-globe"></i>
+                    </span>
+                    <!-- <span>아이콘</span> -->
+                    <span>한국어 (KR)</span>
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <span>₩</span>
+                    <span>KRW</span>
+                  </a>
+                </span>
+              </div>
+              <div class="sns">
+                <ul>
+                  <li>
+                    <a href="">facebook</a>
+                  </li>
+                  <li>
+                    <a href="">twitter</a>
+                  </li>
+                  <li>
+                    <a href="">instagram</a>
+                  </li>
+                  <li>
+                    <a href="">blog</a>
+                  </li>
+                  <li>
+                    <a href="">band</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="sns">
-              <ul>
-                <li>
-                  <a href="">facebook</a>
-                </li>
-                <li>
-                  <a href="">twitter</a>
-                </li>
-                <li>
-                  <a href="">instagram</a>
-                </li>
-                <li>
-                  <a href="">blog</a>
-                </li>
-                <li>
-                  <a href="">band</a>
-                </li>
-              </ul>
+            <div class="copyright">
+              <div>© 2021 Airbnb, Inc. All rights reserved</div>
+              <div>
+                <span>·</span>
+                <a href="">개인정보 처리방침</a>
+                <span>·</span>
+                <a href="">이용약관</a>
+                <span>·</span>
+                <a href="">사이트맵</a>
+                <span>·</span>
+                <a href="">한국의 변경된 환불 정책</a>
+                <span>·</span>
+                <a href="">회사 세부정보</a>
+              </div>
             </div>
-          </div>
-          <div class="copyright">
-            <div>© 2021 Airbnb, Inc. All rights reserved</div>
-            <div>
-              <span>·</span>
-              <a href="">개인정보 처리방침</a>
-              <span>·</span>
-              <a href="">이용약관</a>
-              <span>·</span>
-              <a href="">사이트맵</a>
-              <span>·</span>
-              <a href="">한국의 변경된 환불 정책</a>
-              <span>·</span>
-              <a href="">회사 세부정보</a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </footer>
+          </section>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
