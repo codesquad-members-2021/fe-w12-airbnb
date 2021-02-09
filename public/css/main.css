@@ -44,9 +44,10 @@ ul {
 
 .firstPage {
   height: 700px;
-  background: url("/img/main-wide.jpg");
+  background: url("/img/top_banner.webp");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
 }
 
 header {
