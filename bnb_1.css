@@ -2,16 +2,17 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  color: #333333;
+  color: rgba(0, 0, 0, 1);
 }
 
-.clear {
+.clearfix {
   content: "";
   clear: both;
   display: block;
 }
 
 .inner {
+  border: 1px solid red;
   max-width: 1600px;
   height: auto;
   margin: 0 auto;
@@ -20,6 +21,18 @@ body {
   /* inner를 기준으로 위치를 배치시키기 위해=>relative */
 } /*maragin 0 auto쓰려면 너비설정되어야함*/
 
+.ment {
+  font-size: 30px;
+  font-weight: 800;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+section span {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/** HEADER =====================**/
 header .corona {
   background-color: black;
   text-align: center;
@@ -43,36 +56,80 @@ header .corona a:hover {
 }
 
 header .menuGroup {
-  /* display: inline; */
   color: rgba(255, 255, 255, 0.925);
   height: auto;
-}
-
-header .logo {
-  float: left;
+  margin-top: 25px;
+  position: relative;
 }
 
 header .logoIMG {
   /* background-image: url("airbnb.svg"); !css_로고안됨 */
   width: 100px;
-  height: 100px;
-  text-indent: -9999px;
+  height: 35px;
 }
 
-header .menuCenter a {
+header .menu_center {
+  margin-top: 10px;
+  position: absolute;
+  right: 700px;
+  top: 0;
+}
+
+header .menu_center a {
   padding: 10px;
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.925);
   text-decoration: none;
 }
 
-header .menuCenter a:hover {
+header .menu_center a:hover {
   color: rgba(255, 255, 255, 0.404);
 }
 
-header .menuRight div {
+header .menu_right {
+  position: absolute;
+  top: 0px;
+  right: 0;
+}
+
+header .menu_right div {
   display: inline;
-  float: right;
+  margin-left: 20px;
+}
+
+header .toggleBtn {
+  width: 80px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.925);
+}
+
+header .toggle .list {
+  background-image: url("./img/list.svg");
+  width: 16px;
+  height: 16px;
+  /*! border-style: none; */
+}
+
+header .personIMG {
+  background-image: url("./img/people.svg");
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+header .toggle ul {
+  background-color: rgba(255, 255, 255, 0.925);
+  width: 240px;
+  height: auto;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+header .toggle li {
+  padding: 15px;
 }
 
 header .toggle a {
@@ -80,24 +137,81 @@ header .toggle a {
   text-decoration: none;
 }
 
+header .language {
+  background-image: url("./img/global.svg");
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0); /*글자투명하게*/
+}
+
 header .search {
-  display: flex;
+  position: absolute;
+  top: 80px;
+  right: 400px;
+  width: 850px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50px;
+}
+
+header .search button {
+  background-color: rgba(255, 56, 92, 1);
+  border: none;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  color: rgba(255, 255, 255, 0);
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+header .search button img {
+  background-image: url("./img/search.svg");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 17px;
+  left: 17px;
+}
+
+.search form div {
+  /*float로 바꾸면서 block이된다.*/
+  box-sizing: border-box;
+  padding: 17px 30px;
+  width: 170px;
+  border-left: 1px solid rgba(73, 67, 67, 0.404);
+  float: left;
+  font-size: 12px;
+  font-weight: 800;
+}
+/*todo: border-left 크기 줄여주기 */
+
+.search form div:nth-child(1) {
+  width: 220px;
+  margin-left: 10px;
+  border-left: none;
+}
+
+.search form input {
+  margin-top: 5px;
+  display: block;
+  border: none;
 }
 
 header .title {
   color: rgba(255, 255, 255, 0.925);
+  margin-top: 300px;
 }
 
 header .ment {
-  margin-top: 70px;
   width: 320px;
   font-size: 55px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 800;
   line-height: 1.3;
 }
 
-header button {
+header .title button {
   margin: 20px auto 250px 0;
   padding: 5px 15px;
   background-color: #fff;
@@ -106,4 +220,133 @@ header button {
   border-radius: 10px;
 }
 
-/* SECTION_MAIN */
+/** SECTION_location =====================**/
+section .location_list {
+  padding-top: 65px;
+  padding-bottom: 45px;
+}
+
+section .location_list li {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 17px;
+  margin-bottom: 17px;
+  width: 382px;
+  border: 1px solid green;
+}
+
+section .location_list li:nth-child(4),
+section .location_list li:nth-child(8) {
+  margin-right: 0;
+}
+
+section .location_list img {
+  width: 65px;
+  height: 65px;
+  border-radius: 10px;
+}
+
+section .span_wrapper {
+  border: 1px solid blue;
+}
+
+/** SECTION_house =====================**/
+
+.house_style_section .ment {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.house_style_section .house_img div {
+  display: inline-block;
+}
+
+.house_style_section .house_img img {
+  box-sizing: border-box;
+  width: 382px;
+  height: 382px;
+  margin-right: 17px;
+  border-radius: 15px;
+}
+
+#lastimg {
+  margin-right: 0px;
+}
+
+/*!왜 nth-child(4)가 먹히지않을까?!
+ .house_style_section .house_img div img:nth-child(4) {
+  margin-right: 0px;
+} */
+
+.house_img span {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
+/** SECTION_activity =====================**/
+.activity_section {
+  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 1);
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.activity_section p {
+  font-size: 14px;
+  font-weight: 200;
+  margin-top: 10px;
+}
+
+.activity_section .activity_img div {
+  display: inline-block;
+}
+
+.same_part img {
+  width: 517px;
+  height: 517px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 17px;
+  display: block;
+}
+
+#activity3 {
+  margin-right: 0;
+}
+
+/*!이것도반영x->id로 대체: .activity_img img:nth-child(3) { */
+
+/** SECTION_HOSTING =====================**/
+.hosting_section {
+  padding-top: 35px;
+  padding-bottom: 70px;
+}
+
+.hosting_section .hostImg div {
+  display: inline-block;
+}
+
+.same_part .hostImg img {
+  height: auto;
+}
+
+#hosting3 {
+  margin-right: 0;
+}
+
+/** footer =====================**/
+footer {
+  background-color: rgb(247, 247, 247);
+}
+
+.footer1 div {
+  display: inline;
+}
+
+.footer2 {
+  height: 70px;
+  width: 100%;
+  border-top: 1px solid rgb(221, 221, 221);
+}
