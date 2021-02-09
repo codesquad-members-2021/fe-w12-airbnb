@@ -10,9 +10,9 @@
     <!-- awesome5 -->
     <script src="https://kit.fontawesome.com/yourcode.js"></script>
   </head>
-  <body>
-    <div class="firstpage">
 
+  <body>
+    <div class="first-page">
         <div id="corona">
             <div>
                 <span>
@@ -24,7 +24,7 @@
         <div class="nav">
             <div class="header">
                 <!-- 로고 -->
-                <div>
+                <div class='nav-left'>
                     <div id="logo" OnClick="location.href ='http://localhost:3000/'">
                         <svg width="102" height="32" fill="white" stroke="white" >
                             <path 
@@ -57,7 +57,7 @@
                         </svg>
                     </div>
 
-                    <button>
+                    <button class="userBtn">
                         <i class="fa fa-bars"></i>
                         <svg width="102" height="32" fill="white" stroke="black" >
                             <path 
@@ -69,11 +69,11 @@
                 </div>
             </div>
 
-            <div class="nav menu"> 
+            <div class="nav-menu"> 
                 <!-- 메뉴 -->
-                <span>숙소</span>
-                <span>체험</span>
-                <span>온라인 체험</span>
+                <span class="nav-span">숙소</span>
+                <span class="nav-span">체험</span>
+                <span class="nav-span">온라인 체험</span>
                 <!-- 패널 -->
             </div>
         </div>
@@ -83,7 +83,7 @@
         <div id="outline">
             <!-- <img class="mainImg" src="http://localhost:3000/images/main_top.webp" alt=""> -->
             <div id="inlinebox">
-                <div id="mainTitle"><h1>이제, 여행은 가까운 곳에서</h1></div>
+                <div id="mainTitle">이제, 여행은 <br>가까운 곳에서</div>
                 <span id="btn1" class="w3-button  w3-border w3-border-blue w3-round-large">근처의 숙소 둘러보기</span>
             </div>
         </div>
@@ -94,87 +94,118 @@
    
 
     <!-- second page -->
-    <div>
-        <div id="recommandPlace">
-            <div id="seoul">
-                <a href="http://localhost:3000/images/gotoSeoul">
-                <img class="smallImg" src="http://localhost:3000/images/seoul.webp" alt="">
-                <li>서울</li>
+    <div class="second-page">
+        <a class="second-page_tile" href="http://localhost:3000/images/gotoSeoul">
+            <img class="smallImg" src="http://localhost:3000/images/seoul.webp" alt="">
+            <div class="second-page_text">
+                <ul>
+                <li style="font-weight: 600">서울</li>
                 <li>차로 45분 거리</li>
-                </a>    
+                </ul>
             </div>
-            <div id="incheon">
-                <a href="http://localhost:3000/images/gotoSeoul">
-                <img class="smallImg" src="http://localhost:3000/images/incheon.webp" alt="">
-                <li>인천</li>
+        </a>  
+        <a class="second-page_tile" href="http://localhost:3000/images/gotoSeoul">
+            <img class="smallImg" src="http://localhost:3000/images/incheon.webp" alt="">
+            <div class="second-page_text">
+                <ul>
+                <li style="font-weight: 600">인천</li>
                 <li>차로 45분 거리</li>
-                </a>    
+                </ul>   
             </div>
-            <div id="daejeon">
-                <a href="http://localhost:3000/images/gotoSeoul">
-                <img class="smallImg" src="http://localhost:3000/images/daejeon.webp" alt="">
-                <li>대전</li>
+        </a>    
+        <a class="second-page_tile" href="http://localhost:3000/images/gotoSeoul">
+            <img class="smallImg" src="http://localhost:3000/images/daejeon.webp" alt="">
+            <div class="second-page_text">
+                <ul>
+                <li style="font-weight: 600">대전</li>
                 <li>차로 2시간 거리</li>
-                </a>    
+                </ul>
             </div>
-            <div id="suwon">
-                <a href="http://localhost:3000/images/gotoSeoul">
-                <img class="smallImg" src="http://localhost:3000/images/suwon.webp" alt="">
-                <li>수원</li>
+        </a>   
+        <a class="second-page_tile" href="http://localhost:3000/images/gotoSeoul">
+            <img class="smallImg" src="http://localhost:3000/images/suwon.webp" alt="">
+            <div class="second-page_text">
+                <ul>
+                <li style="font-weight: 600">수원</li>
                 <li>차로 15분 거리</li>
-                </a>    
+                </ul>
             </div>
-            <div id="uijeongbu">
-                <a href="http://localhost:3000/images/gotoSeoul">
-                <img class="smallImg" src="http://localhost:3000/images/uijeongbu.webp" alt="">
-                <li>의정부시</li>
+        </a>  
+        <a class="second-page_tile" href="http://localhost:3000/images/gotoSeoul">
+            <img class="smallImg" src="http://localhost:3000/images/uijeongbu.webp" alt="">
+            <div class="second-page_text">
+                <ul>
+                <li style="font-weight: 600">의정부시</li>
                 <li>차로 1시간 거리</li>
-                </a>    
+                </ul>
             </div>
-            <div id="daegu">
-                <a href="http://localhost:3000/images/gotoSeoul">
-                <img class="smallImg" src="http://localhost:3000/images/daegu.webp" alt="">
-                <li>대구</li>
+        </a>  
+        <a class="second-page_tile" href="http://localhost:3000/images/gotoSeoul">
+            <img class="smallImg" src="http://localhost:3000/images/daegu.webp" alt="">
+            <div class="second-page_text">
+                <ul>
+                <li style="font-weight: 600">대구</li>
                 <li>차로 3.5시간 거리</li>
-                </a>    
+                </ul>
             </div>
-        </div>
+        </a>
+        <a class="second-page_tile" href="http://localhost:3000/images/gotoSeoul">
+            <img class="smallImg" src="http://localhost:3000/images/ansan.webp" alt="">
+            <div class="second-page_text">
+                <ul>
+                <li style="font-weight: 600">안산</li>
+                <li>차로 30분 거리</li>
+                </ul>
+            </div>
+        </a> 
+        <a class="second-page_tile" href="http://localhost:3000/images/gotoSeoul">
+            <img class="smallImg" src="http://localhost:3000/images/sungnam.webp" alt="">
+            <div class="second-page_text">
+                <ul>
+                <li style="font-weight: 600">성남</li>
+                <li>차로 30분 거리</li>
+                </ul>
+            </div>
+        </a> 
     </div>
     <!-- end second page -->
 
 
     <!-- third page -->
-    <div>
-        <span><h1>어디에서나, 여행은 살아보는 거야!</h1></span>
-
-        <div class='button'>
-            <button class="arrow left"> </button>
-        </div>
+    <div class="third-page">
+        
+        <span class="third-title">어디에서나, 여행은 살아보는 거야!</span>
         
         <div>
-            <img class="smallImg" src="http://localhost:3000/images/home1.webp" alt="">
             <div>
-                <span>집 전체</span>
+                <button class="arrow left"> </button>
+            </div>
+            
+            <div class="third-tile">
+                <img class="smallImg" src="http://localhost:3000/images/home1.webp" alt="">
+                <div>
+                    <span>집 전체</span>
+                </div>
+            </div>
+            <div>
+                <img class="smallImg" src="http://localhost:3000/images/home2.webp" alt="">
+                <div>
+                    <span>독특한 공간</span>
+                </div>
+            </div>
+            <div>
+                <img class="smallImg" src="http://localhost:3000/images/home3.webp" alt="">
+                <div>
+                    <span>물가에 인접한 숙소</span>
+                </div>
             </div>
         </div>
-        <div>
-            <img class="smallImg" src="http://localhost:3000/images/home2.webp" alt="">
-            <div>
-                <span>독특한 공간</span>
-            </div>
-        </div>
-        <div>
-            <img class="smallImg" src="http://localhost:3000/images/home3.webp" alt="">
-            <div>
-                <span>물가에 인접한 숙소</span>
-            </div>
-        </div>
-        <div>
+        <!-- <div>
             <img class="smallImg" src="http://localhost:3000/images/home4.webp" alt="">
             <div>
                 <span>자연을 만끽할 수 있는 숙소</span>
             </div>
-        </div>
+        </div> -->
 
         <div class='button'>
             <button class="arrow right"> </button>
