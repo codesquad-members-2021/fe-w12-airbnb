@@ -28,10 +28,6 @@ header {
   font-size: 16px;
   z-index: 2;
 }
-header .contents_wrapper > div {
-  display: flex;
-  align-items: center;
-}
 header .contents_wrapper {
   box-sizing: border-box;
   display: flex;
@@ -42,6 +38,8 @@ header .contents_wrapper {
 header .contents_wrapper > div {
   width: 30%;
   height: 2rem;
+  display: flex;
+  align-items: center;
 }
 
 header .logo object {
@@ -144,8 +142,11 @@ header .searchBox-button button {
 header .searchBox-button button:hover {
   background: rgb(219, 28, 76);
 }
-
+header .menu {
+  justify-content: flex-end;
+}
 header .menuBox {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
