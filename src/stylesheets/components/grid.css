@@ -23,6 +23,8 @@
 }
 
 .grid__item {
+  cursor:pointer;
+  
   display: flex;
   max-width: 25%;
   flex-basis: 20%;
@@ -41,6 +43,7 @@
 
 .image__content {
   width: var(--exp-grid-img-width);
+  border-radius: 8px;
 }
 
 .grid.text__content {}

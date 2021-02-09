@@ -1,7 +1,10 @@
 /* font */
 
-.font-white {
+.font--white {
   color:white;
+}
+.font--black {
+  color:black;
 }
 
 /* ==== font ==== */
@@ -13,6 +16,9 @@
 }
 /* ==== global margin ==== */
 
+.cursor--pointer {
+  cursor: pointer;
+}
 .no--margin {
   margin:0;
 }
