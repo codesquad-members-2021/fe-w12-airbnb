@@ -3,59 +3,73 @@
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>AirBnB - json</title>
+  <title>숙소, 체험, 장소를 모두 한 곳에서</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <!-- <link rel="stylesheet" href="scss/main.scss"> -->
+  <link rel="stylesheet" href="scss/main.scss">
 </head>
 <body>
   <section class="col-12 section-alert">
     <a href="https://google.com" target="_blank">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a>
   </section>
-  <header class="col-12">
-    <div class="col-12">
+  <header>
+    <div class="col-12 logo-line">
       <div class="col-2">
         <a href="https://airbnb.com" target="_blank">
-          <img src="./images/airbnb.svg" width="102">
+          <object class="logo" type="image/svg+xml" data="./images/airbnb.svg" width="102">
         </a>
       </div>
       <div class="col-8">
         <div class="col-3"></div>
-        <div class="col-6 anchor-wrap">
-          <a>숙소</a>
-          <a>체험</a>
-          <a>온라인 체험</a>
+        <div class="col-6 category">
+          <a class="category__anchor">숙소</a>
+          <a class="category__anchor">체험</a>
+          <a class="category__anchor">온라인 체험</a>
+          <button class="input-button-sticky__toggle">
+            <span>검색 시작하기</span>
+            <span>🔍</span>
+          </button>
         </div>
         <div class="col-3"></div>
       </div>
-      <div class="col-2">
-        <a>호스트 되기</a>
-        <button>
+      <nav class="col-2">
+        <a class="nav__anchor">호스트 되기</a>
+        <button class="nav__button">
           <img src="./images/earth.svg" width="16">
         </button>
-        <button>
+        <button class="nav__button-toggle">
           <img src="./images/list.svg" width="16">
           <img src="./images/people.svg" width="30">
         </button>
-      </div>
+        <ul class="nav__list hidden">
+          <li><a><b>회원 가입</b></a></li>
+          <li class="bottom-line"><a>로그인</a></li>
+          <li><a>숙소 호스트 되기</a></li>
+          <li><a>체험 호스팅하기</a></li>
+          <li><a>도움말</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="col-12">
+    <div class="col-12 input-wrap">
       <div class="col-2"></div>
-      <div class="col-8 search-wrap">
-        <div class="input-wrap">
-          <span class="input-label">위치</span>
-          <input type="text" placeholder="어디로 여행가세요?">
+      <div class="col-8 input-items">
+        <div class="input-item">
+          <span class="input-item__label">위치</span>
+          <input class="input-item__text" type="text" placeholder="어디로 여행가세요?">
         </div>
-        <div class="input-wrap">
-          <span class="input-label">체크인</span>
-          <input type="text" placeholder="날짜 추가">
+        <div class="input-item">
+          <span class="input-item__label">체크인</span>
+          <input class="input-item__text" type="text" placeholder="날짜 추가">
         </div>
-        <div class="input-wrap">
-          <span class="input-label">체크아웃</span>
-          <input type="text" placeholder="날짜 추가">
+        <div class="input-item">
+          <span class="input-item__label">체크아웃</span>
+          <input class="input-item__text" type="text" placeholder="날짜 추가">
         </div>
-        <div class="input-wrap">
-          <span class="input-label">인원</span>
-          <input type="text" placeholder="게스트 추가">
+        <div class="input-item">
+          <span class="input-item__label">인원</span>
+          <input class="input-item__text" type="text" placeholder="게스트 추가">
+          <button class="input-item__button">
+            🔍
+          </button>
         </div>
       </div>
       <div class="col-2"></div>
@@ -63,127 +77,125 @@
   </header>
   <main>
     <section class="section-main">
-      <div class="div-bg">
-        <div class="bg" style="background-image: url(./images/main-wide.jpg);"></div>
-        <div class="div-main-title-wrap">
-          <span class="title">
-            이제, 여행은<br>가까운 곳에서
-          </span>
-          <a href="">근처의 숙소 둘러보기</a>
-        </div>
+      <div class="bg" style="background-image: url(./images/main-wide.jpg);"></div>
+      <div class="bg-content">
+        <p class="bg-content__text">
+          이제, 여행은<br>가까운 곳에서
+        </p>
+        <a class="bg-content__anchor" href="">근처의 숙소 둘러보기</a>
       </div>
     </section>
     <section class="section-01">
-      <div class="col-12 box-list">
-        <div class="col-3 box-small">
+      <ul class="col-12 ul__multi-four">
+        <li class="box-small">
           <a class="box-small__anchor">
             <img class="box-small__image" src="./images/sec1-01.jpg">
-            <p class="box-small__text">
+            <span class="box-small__text">
               <span class="box-small__text-main">서울</span>
               <span class="box-small__text-sub">차로 30분 거리</span>
-            </p>
+            </span>
           </a>
-        </div>
-        <div class="col-3 box-small">
+        </li>
+        <li class="box-small">
           <a class="box-small__anchor">
             <img class="box-small__image" src="./images/sec1-02.jpg">
-            <p class="box-small__text">
+            <span class="box-small__text">
               <span class="box-small__text-main">인천</span>
               <span class="box-small__text-sub">차로 30분 거리</span>
-            </p>
+            </span>
           </a>
-        </div>
-        <div class="col-3 box-small">
+        </li>
+        <li class="box-small">
           <a class="box-small__anchor">
             <img class="box-small__image" src="./images/sec1-03.jpg">
-            <p class="box-small__text">
+            <span class="box-small__text">
               <span class="box-small__text-main">의정부시</span>
               <span class="box-small__text-sub">차로 45분 거리</span>
-            </p>
+            </span>
           </a>
-        </div>
-        <div class="col-3 box-small">
+        </li>
+        <li class="box-small">
           <a class="box-small__anchor">
             <img class="box-small__image" src="./images/sec1-04.jpg">
-            <p class="box-small__text">
+            <span class="box-small__text">
               <span class="box-small__text-main">대전</span>
               <span class="box-small__text-sub">차로 2.5시간 거리</span>
-            </p>
+            </span>
           </a>
-        </div>
-        <div class="col-3 box-small">
+        </li>
+        <li class="box-small">
           <a class="box-small__anchor">
             <img class="box-small__image" src="./images/sec1-05.jpg">
-            <p class="box-small__text">
+            <span class="box-small__text">
               <span class="box-small__text-main">대구</span>
               <span class="box-small__text-sub">차로 4시간 거리</span>
-            </p>
+            </span>
           </a>
-        </div>
-        <div class="col-3 box-small">
+        </li>
+        <li class="box-small">
           <a class="box-small__anchor">
             <img class="box-small__image" src="./images/sec1-06.jpg">
-            <p class="box-small__text">
+            <span class="box-small__text">
               <span class="box-small__text-main">고양시</span>
               <span class="box-small__text-sub">차로 30분 거리</span>
-            </p>
+            </span>
           </a>
-        </div>
-        <div class="col-3 box-small">
+        </li>
+        <li class="box-small">
           <a class="box-small__anchor">
             <img class="box-small__image" src="./images/sec1-07.jpg">
-            <p class="box-small__text">
+            <span class="box-small__text">
               <span class="box-small__text-main">부천시</span>
               <span class="box-small__text-sub">차로 15분 거리</span>
-            </p>
+            </span>
           </a>
-        </div>
-        <div class="col-3 box-small">
+        </li>
+        <li class="box-small">
           <a class="box-small__anchor">
             <img class="box-small__image" src="./images/sec1-08.jpg">
-            <p class="box-small__text">
+            <span class="box-small__text">
               <span class="box-small__text-main">수원시</span>
               <span class="box-small__text-sub">차로 45분 거리</span>
-            </p>
+            </span>
           </a>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
     <section class="section-02">
       <h1 class="section__title">
         <span class="section__title-main">어디에서나, 여행은 살아보는 거야!</span>
       </h1>
-      <div class="col-12 box-list">
-        <div class="col-3 box-medium">
+      <div class="col-12 grid box-grid grid-four">
+        <div class="box-medium">
           <a class="box-medium__anchor">
             <img class="box-medium__image" src="./images/sec2-01.jpg">
-            <p class="box-medium__text">
+            <span class="box-medium__text">
               <span class="box-medium__text-main">집 전체</span>
-            </p>
+            </span>
           </a>
         </div>
-        <div class="col-3 box-medium">
+        <div class="box-medium">
           <a class="box-medium__anchor">
             <img class="box-medium__image" src="./images/sec2-02.jpg">
-            <p class="box-medium__text">
+            <span class="box-medium__text">
               <span class="box-medium__text-main">물가에 인접한 숙소</span>
-            </p>
+            </span>
           </a>
         </div>
-        <div class="col-3 box-medium">
+        <div class="box-medium">
           <a class="box-medium__anchor">
             <img class="box-medium__image" src="./images/sec2-03.jpg">
-            <p class="box-medium__text">
+            <span class="box-medium__text">
               <span class="box-medium__text-main">독특한 공간</span>
-            </p>
+            </span>
           </a>
         </div>
-        <div class="col-3 box-medium">
+        <div class="box-medium">
           <a class="box-medium__anchor">
             <img class="box-medium__image" src="./images/sec2-04.jpg">
-            <p class="box-medium__text">
+            <span class="box-medium__text">
               <span class="box-medium__text-main">자연을 만끽할 수 있는 숙소</span>
-            </p>
+            </span>
           </a>
         </div>        
       </div>
@@ -192,32 +204,32 @@
       <h1 class="section__title">
         <span class="section__title-main">온라인 체험</span>
         <span class="section__title-sub">전문가가 진행하고 모두 함께 즐기는 참여형 액티비티</span>
-        <a class="section__titme-anchor">모두 둘러보기</a>
+        <a class="section__title-anchor">모두 둘러보기</a>
       </h1>
-      <div class="col-12 box-list-grid">
-        <a href="" class="box-grid__anchor">
-          <img class="box-grid__image" src="./images/sec3-01.jpg">
-          <p class="box-grid__text">
+      <div class="col-12 grid box-grid grid-custom">
+        <a href="" class="box-medium__anchor">
+          <img class="box-custom__image" src="./images/sec3-01.jpg">
+          <span class="box-custom__text">
             <span class="box-grid__text-main">이탈리아 할머니와 함께 수제 파스타 만들기</span>
-          </p>
+          </span>
         </a>
-        <a href="" class="box-grid__anchor">
-          <img class="box-grid__image" src="./images/sec3-02.jpg">
-          <p class="box-grid__text">
-            <span class="box-grid__text-main">선(禪) 사상을 통한 마음챙김 식사</span>
-          </p>
+        <a href="" class="box-custom__anchor">
+          <img class="box-custom__image" src="./images/sec3-02.jpg">
+          <span class="box-custom__text">
+            <span class="box-custom__text-main">선(禪) 사상을 통한 마음챙김 식사</span>
+          </span>
         </a>
-        <a href="" class="box-grid__anchor">
-          <img class="box-grid__image" src="./images/sec3-03.jpg">
-          <p class="box-grid__text">
-            <span class="box-grid__text-main">아르헨티나를 대표하는 예르바 마테차 알아보기</span>
-          </p>
+        <a href="" class="box-custom__anchor">
+          <img class="box-custom__image" src="./images/sec3-03.jpg">
+          <span class="box-custom__text">
+            <span class="box-custom__text-main">아르헨티나를 대표하는 예르바 마테차 알아보기</span>
+          </span>
         </a>
-        <a href="" class="box-grid__anchor">
-          <img class="box-grid__image" src="./images/sec3-04.jpg">
-          <p class="box-grid__text">
-            <span class="box-grid__text-main">파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</span>
-          </p>
+        <a href="" class="box-custom__anchor">
+          <img class="box-custom__image" src="./images/sec3-04.jpg">
+          <span class="box-custom__text">
+            <span class="box-custom__text-main">파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</span>
+          </span>
         </a>
       </div>
     </section>
@@ -225,33 +237,34 @@
       <h1 class="section__title">
         <span class="section__title-main">수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</span>
       </h1>
-      <div class="col-12 box-list">
-        <div class="col-4 box-large">
+      <div class="col-12 grid box-grid grid-three">
+        <div class="box-large">
           <a class="box-large__anchor">
             <img class="box-large__image" src="images/sec4-01.jpg">
-            <p class="box-large__text">
+            <span class="box-large__text">
               <span class="box-large__text-main">숙소 호스트 되기</span>
-            </p>
+            </span>
           </a>
         </div>
-        <div class="col-4 box-large">
+        <div class="box-large">
           <a class="box-large__anchor">
-            <img class="box-large__image" src="images/sec4-01.jpg">
-            <p class="box-large__text">
+            <img class="box-large__image" src="images/sec4-02.jpg">
+            <span class="box-large__text">
               <span class="box-large__text-main">온라인 체험 호스팅하기</span>
-            </p>
+            </span>
           </a>
         </div>
-        <div class="col-4 box-large">
+        <div class="box-large">
           <a class="box-large__anchor">
-            <img class="box-large__image" src="images/sec4-01.jpg">
-            <p class="box-large__text">
+            <img class="box-large__image" src="images/sec4-03.jpg">
+            <span class="box-large__text">
               <span class="box-large__text-main">체험 호스팅하기</span>
-            </p>
+            </span>
           </a>
         </div>
       </div>
     </section>
   </main>
+  <script src="./js/main.js"></script>
 </body>
 </html>
