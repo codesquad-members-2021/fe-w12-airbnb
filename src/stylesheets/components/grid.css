@@ -1,0 +1,109 @@
+.grid {
+  /* 
+  * 사용 되는 변수
+
+  --exp-grid-lg-margin-top: 0px; 
+  --exp-grid-lg-margin-bot: 0px;
+  --exp-grid-img-width: 50px;
+  
+  * 사용 예정 변수
+  --exp-grid-md-margin-top: 40px;
+  --exp-grid-md-margin-bot: 40px; 
+  */
+}
+
+/* 
+* grid global used
+*/
+
+.grid__row {
+  display: flex;
+  flex-basis:100%;
+}
+
+.grid__item {
+  display: flex;
+  max-width: 25%;
+  flex-basis: 20%;
+  flex-grow: 1;
+}
+
+.grid__wrapper {
+  margin-top: var(--exp-grid-lg-margin-top);
+  margin-bottom: var(--exp-grid-lg-margin-bot);
+  
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.image__content {
+  width: var(--exp-grid-img-width);
+}
+
+.grid.text__content {}
+
+/* 
+ * location 
+ */
+
+.grid.grid__location {
+  /* --exp-grid-md-margin-top: 40px;
+  --exp-grid-md-margin-bot: 40px; */
+  --exp-grid-lg-margin-top: 64px;
+  --exp-grid-lg-margin-bot: 64px;
+
+  --exp-grid-img-width: 64px;
+}
+
+.grid__location.grid__item {
+  margin-bottom: 14px;
+  margin-right: 14px;
+}
+
+.grid__location > .grid--text {
+  margin-left: 16px;
+  
+  display: flex;
+  align-items: center;
+}
+
+/* 
+ * house 
+*/
+
+.grid.grid__house {
+  /* --exp-grid-md-margin-top: 24px;
+  --exp-grid-md-margin-bot: 24px; */
+  
+  --exp-grid-lg-margin-bot: 48px;
+  --exp-grid-lg-margin-top: 48px;
+
+  --exp-grid-img-width: 100%;
+}
+
+.grid__house.grid__item {
+  margin-right: 14px;
+  
+  display:flex;
+  flex-direction:column;
+}
+
+.grid__house > .grid--text {
+  margin-top: 16px;
+}
+
+.grid.grid__activity {
+  /* activity */
+  --exp-grid-lg-margin-bot: 40px;
+  --exp-grid-lg-margin-top: 40px;
+}
+
+.grid.grid__activity {
+  /* join-community */
+  /* --exp-grid-sm-margin-top: 20px;
+  --exp-grid-md-margin-top: 20px; */
+  --exp-grid-lg-margin-bot: 64px;
+  --exp-grid-lg-margin-top: 32px;
+}
+
+/* .grid.grid */
