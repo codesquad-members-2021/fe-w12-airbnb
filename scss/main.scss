@@ -82,3 +82,205 @@ body, main {
   width: 100%;
   position: relative;
 }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: 80px;
+  padding: 20px 80px;
+  /* IntersectionObserver의 observe를 위함 */
+  top: -1px;                       
+  /* top -1px을 보정! */
+  padding-top: calc(20px + 1px);    
+  .logo {
+    padding-top: 4px;
+  }
+  .logo-line {
+    & > * {
+      height: 40px;
+      line-height: 40px;
+    }
+    a {
+      height: 100%;
+      display: inline-block;
+    }
+  }
+  .category {
+    text-align: center;
+    &__anchor {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 0px 12px;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        border-radius: 1px;
+        height: 2px;
+        background: #fff;
+        margin: 0 auto;
+        width: 0px;
+        visibility: hidden;
+        bottom: 0;
+        left: 50%;
+        transition: width 0.15s, left 0.15s;
+        transition-timing-function: ease-in-out;
+      }
+      &:hover {
+        opacity: 0.8;
+        &::after {
+          width: 5px;
+          left: calc(50% - 2.5px);
+          visibility: visible;
+        }
+      }
+    }
+  }
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  .nav {
+    &__anchor {
+      color: #fff;
+      padding: 0px 12px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 20px;
+      font-weight: 600;
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+    &__button {
+      background: transparent;
+      cursor: pointer;
+      border: 0;
+      outline: none;
+      padding: 0 12px;
+      height: 40px;
+      border-radius: 20px;
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+    &__button-toggle {
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      grid-gap: 8px;
+      align-items: center;
+      border-radius: 20px;
+      padding: 0px 12px;
+      height: 40px;
+      border: 1px solid #d2d2d2;
+      outline: none;
+    }
+    &__list {
+      width: 250px;
+      position: absolute;
+      top: 50px;
+      right: 60px;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      z-index: 1;
+      li {
+        padding: 0 15px;
+        font-size: 14px;
+        &:hover {
+          background: #f7f7f7;
+        }
+        &.bottom-line {
+          border-bottom: 1px solid #d2d2d2;
+        }
+        a {
+          height: 100%;
+          display: inline-block;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .input-wrap {
+    position: relative;
+    top: 20px;
+    transition: all 0.1s linear;
+  }
+  .input-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #fff;
+    border-radius: 50px;
+    overflow: hidden;
+  }
+  .input-item {
+    background: #fff;
+    cursor: pointer;
+    padding: 15px 0 15px 25px;
+    border-radius: 50px;
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      width: 0px;
+      height: 30px;
+      top: 0;
+      margin-top: 20px;
+      left: 0;
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      position: absolute;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.12);
+      &::after, & + *::after {
+        border: none;
+      }
+    }
+    &__label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    &__text {
+      border: 0;
+      cursor: inherit;
+      background: transparent;
+      width: 100%;
+      font-size: 14px;
+    }
+    &__button {
+      background: #FF385C;
+      padding: 12px;
+      font-size: 16px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        filter: grayscale(0.2);
+      }
+    }
+  }
+  .input-button-sticky__toggle {
+    transition: all 0.1s linear;
+    top: 80px;
+    transform: scale(1.5);
+    height: 30px;
+    line-height: 48px;
+    position: relative;
+    border-radius: 50px;
+    width: 18vw;
+    padding: 0 15px;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    font-weight: 600;
+    margin: 0 auto;
+    opacity: 0;
+    user-select: none;
+  }
+}
