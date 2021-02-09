@@ -2,9 +2,18 @@
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 } */
-
+*{
+  outline: solid red 1px;
+  margin: 0;
+  padding: 0;
+}
 a {
   color: #00B7FF;
+}
+
+ul{
+  list-style:none;
+  padding:1rem;
 }
 
 #logo {
@@ -35,11 +44,50 @@ span.ingredient {
 #outline {
   margin-left: 80px;
   color: white;
+  margin-top: 10%
 }
 
 #btn1 {
   color: black;
   background-color: white;
+  margin-top: 2rem;
+}
+
+#nav-right {
+  margin-right: 80px;
+  margin-left: auto;
+  display:flex;
+  align-items: center; 
+}
+
+#mainTitle {
+  color: white;
+  font-size: 48px;
+  font-weight: bolder;
+  line-height: 58px;
+}
+
+.nav-menu{
+  text-align: center;
+  color:white;
+}
+
+.btn1{
+  box-shadow: 0px 0px 10px 0px white;
+}
+
+.nav-span{
+  font-size: 16px !important;
+  line-height: 20px !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-weight: 400 !important;
+  padding: 10px 12px !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  text-align: center !important;
+  z-index: 0 !important;
+  color: #FFFFFF !important;
 }
 
 .header{
@@ -47,15 +95,7 @@ span.ingredient {
   align-items: center;
 }
 
-#nav-right {
-  
-  margin-right: 80px;
-  margin-left: auto;
-  display: inline-flex;
-  /* align-items: center;  */
-}
-
-.firstpage {
+.first-page {
     background-image: url("http://localhost:3000/images/main_top.webp");
     background-position: 0 -330px;
     width:100%;
@@ -63,8 +103,10 @@ span.ingredient {
 }
 
 .smallImg{
-  width: 100px;
-  height: 100px;
+  margin:auto;
+  border-radius: 10px;
+  width: 64px;
+  height: 64px;
 }
 
 .mainImg{
@@ -102,10 +144,48 @@ span.ingredient {
   height: 200px;
 }
 
-#recommandPlace{
+.second-page{
   display: flex;
-  margin: 20px;
   flex-wrap: wrap;
+  justify-content: space-around;
+  height: 50%;
+  align-items: center;
+  margin-left:80px;
+  margin-right:80px;
+  /* width: 30%; */
+}
+.second-page_tile{
+  display: inline-flex;
+  width:25%;
+  /* margin: 2rem; */
+  /* padding-left: 1rem; */
+}
+
+.second-page_text{
+  padding:1rem;
+}
+
+.third-title{
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-left:80px;
+}
+.thrid-page{
+  display: inline-block;
+}
+
+.thrid-tile{
+  display: inline-flex;
+  background-color: black;
+  
+}
+
+#recommandPlace{
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
 }
 /* <style>
         #logo {
