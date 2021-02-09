@@ -2,6 +2,11 @@
     padding: 0;
     margin: 0;
 }
+
+body {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    /* font-size: 14px; */
+}
 .main {
  position: flex;
  width: 100%;
@@ -10,62 +15,7 @@
  background-size: cover;
  background-repeat: no-repeat;
  background-position: center center;
-}
-
-
-.header {
-    display: flex;
-    height:80px;
-    padding-left:80px;
-    padding-right:80px;
-    align-items: center;
-}
-
-.header_left_menu {
-    display:inline-block;
-    width: 577px;
-    height: 80px;
-}
-
-.header_center_menu {
-    display:inline-block;
-    padding: 0px 24px;
-}
-
-.header_center_menu > span {
-    padding: 10px 16px;
-    color:white;
-}
-
-.header_right_menu {
-    display:flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: white;
-
-}
-.sign_up_host {
-    width:100px;
-}
-.header_right_menu > button {
-    display: inline-block;
-    background-color:transparent;
-    border-color:transparent
-    /* width:52px;
-    height:42px; */
-}
-
-
-.airbnb_icon {
-    display: flex;
-    padding-top: 10px;
-    width: 108px;
-    height: 54px;
-}
-
-.main_square {
-    
-   
+ justify-content: center;
 }
 
 .corona_Top {
@@ -78,10 +28,82 @@
     background: black;
 }
 
+.main > .search {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    height:80px;
+    padding-left:80px;
+    padding-right:80px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_left_menu {
+    width: 577px;
+    height: 80px;
+}
+
+
+.airbnb_icon {
+    padding-top: 10px;
+    width: 108px;
+    height: 54px;
+}
+
+.header_center_menu {
+    padding: 0px 40px;
+}
+.main > .header_center_menu {
+    display:flex;
+    justify-content: center;
+
+}
+
+.header_center_menu > .menus {
+    padding: 10px 16px;
+    color:white;
+    display: inline-block;
+}
+
+.header_right_menu {
+    float:inline-end;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    width: 577px;
+    height: 80px;
+
+}
+
+.sign_up_host {
+    width:100px;
+}
+
+.header_right_menu > button {
+    display: inline-block;
+    background-color:transparent;
+    border-color:transparent;
+}
+
+.header_right_menu > .earth_btn {
+    padding-right: 16px;
+}
+
+
 .earth_btn {
     display: flex;
     width:52px;
     height:42px;
+}
+
+.earth_btn > img {
+    width:16px;
+    height:16px;
 }
 
 .header_right_menu >.user_btn {
@@ -99,18 +121,6 @@
     width: 16px;
     height: 30px;
     padding-left:7px;
-}
-
-.small_btn {
-    display: flex;
-    width: 16px;
-    height: 16px;
-}
-
-.person_btn {
-    display: flex;
-    width: 30px;
-    height: 30px;
 }
 
 
