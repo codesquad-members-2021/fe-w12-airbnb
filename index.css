@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  color: #555;
+  font-weight: 400;
+  font-size: 40px;
+  font-family: "Lato", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  margin-top: 0;
+  background-image: url("./images/bground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.announcement {
+  background-size: cover;
+  background-color: black;
+  background-position: center;
+  height: 2rem;
+}
+
+.corona_info {
+  color: #fff;
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 0.6rem;
+  padding-top: 0.6rem;
+}
+
+.logo_and_nav {
+}
+
+.airbnb_logo {
+  height: 80px;
+  width: auto;
+  float: left;
+  filter: brightness(0) invert(1); /*svg 흰색으로 바꾸기*/
+}
+
+.login_menu {
+  float: right;
+  color: #fff;
+}
+
+.search_logo {
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.main_textbox {
+  position: absolute;
+  width: 1140px;
+  top: 60%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+h1 {
+  color: #fff;
+  font-size: 230%;
+}
+
+.main_textbox_button {
+  width: 200px;
+  height: 50px;
+  font-size: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.main {
+  /* background-image: url("./main.jpg"); */
+  /* height: 100vh; */
+  /* background-size: cover; */
+  /* background-position: center; */
+}
