@@ -9,6 +9,7 @@
     padding: 20px 40px;
     background: black;
 }
+
 .header {
     /* margin-top: 20px; */
     padding: 0px 80px;
@@ -16,12 +17,16 @@
     padding-right: 80px;
     /* border:1px solid red;  */
 }
-.header_center_menu {
-    
-    padding: 10px 16px;
-  
+.small_btn {
+    width: 16px;
+    height: 16px;
 }
-.header_menu {
+
+.person_btn {
+    width: 30px;
+    height: 30px;
+}
+.header_center_menu {
     position: absolute;
     /* text-align: center; */
     width: 300px;
@@ -52,6 +57,9 @@ div {
     
 }
 
+.activity_types {
+    /* background-color: black; */
+}
 body {
     margin:0;
 }
