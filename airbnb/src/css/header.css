@@ -9,7 +9,6 @@ header {
 .search-tab {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
 }
 .search-tab > a {
   padding: 5px;
@@ -17,10 +16,35 @@ header {
 }
 
 .search-query {
+  width: 675px;
+  height: 70px;
+  background-color: white;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 35px;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+  padding: 0 25px;
 }
-
+.search-query > div:first-child > input {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  outline: none;
+}
+.query-date-wrapper {
+  display: flex;
+}
+.query__column {
+  width: 150px;
+}
+.query__column > div:last-child {
+  color: rgba(0, 0, 0, 0.3);
+}
+.query__column-submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 nav {
   display: flex;
   align-items: center;
