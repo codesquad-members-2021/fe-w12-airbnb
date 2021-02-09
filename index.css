@@ -24,7 +24,8 @@ body {
 }
 
 section {
-  padding: 120px 0;
+  /* padding: 120px 0; */
+  /* margin-top: 2rem; */
 }
 
 li {
@@ -214,7 +215,7 @@ ul.cities_container > li > span {
 /*-------------------------------*/
 
 #house_options {
-  height: 100vh;
+  height: 60vh;
   background-size: cover;
   background-position: center;
 }
@@ -232,3 +233,43 @@ ul.cities_container > li > span {
   width: 500px;
   border-radius: 3%;
 }
+
+/*-------------------------------*/
+/*ACTIVITIES*/
+/*-------------------------------*/
+
+#activities_options {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  margin-top: 3rem;
+}
+
+#sec3_title {
+  padding-top: 2rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.sec3_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+div.sec3_container > div > p {
+  color: #fff;
+}
+
+.activity_pic {
+  margin-top: 1rem;
+  height: 700px;
+  width: 700px;
+  border-radius: 3%;
+}
+
+/*-------------------------------*/
+/*COMMUNITY*/
+/*-------------------------------*/
