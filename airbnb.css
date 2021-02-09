@@ -247,12 +247,12 @@
 }
 
 /* -----● 숙소 종류 ●----- */
-#house {
+#container_house {
     margin: 40px 0;
     height: 400px;
     position: relative;
 }
-#house > ul {
+#house {
     width: 1275px;
     position: absolute;
     left: 50%;
