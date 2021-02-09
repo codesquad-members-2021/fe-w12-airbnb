@@ -135,7 +135,7 @@ body {
 .main > .main_square {
     width: 1502px;
     height: 610.44px;
-
+    line-height:3.7em;
     margin:auto;
     /* border:red 1px solid; */
 
@@ -146,7 +146,7 @@ body {
     color: white;
     font-size: 52px;
     font-weight: bold;
-    padding-bottom:30px;
+    padding-bottom:15px;
 }
 
 .main_square > span {
