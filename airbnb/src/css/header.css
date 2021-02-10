@@ -1,5 +1,5 @@
 header {
-  width: 100%;
+  padding: 20px 150px;
   display: flex;
   justify-content: space-between;
 }
@@ -37,6 +37,9 @@ header {
 .query__column {
   width: 150px;
 }
+.query__column div:first-child {
+  margin-bottom: 5px;
+}
 .query__column > div:last-child {
   color: rgba(0, 0, 0, 0.3);
 }
@@ -45,8 +48,7 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-.header__column:last-child {
-}
+
 nav {
   display: flex;
   align-items: center;
