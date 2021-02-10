@@ -192,12 +192,10 @@ header .member_setting .menuAndAcountIcon i:last-child {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  grid-gap: 16px;
 }
 .section_cities li {
-  width: 320px;
   display: flex;
-
-  margin: 8px;
 }
 .section_cities img {
   width: 65px;
