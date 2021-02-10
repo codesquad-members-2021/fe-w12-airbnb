@@ -62,25 +62,25 @@ button {
   display: flex;
 }
 
-.main__statement {
+.header__main-statement {
   position: absolute;
   top: 45%;
   left: 5%;
 }
 
-.main__statement h1 {
+.header__main-statement h1 {
   max-width: 430px;
   border: 1px solid red;
   font-size: 50px;
 }
 
-.main__image {
+.header__main-image {
   max-height: 48rem;
   overflow: hidden;
   width: auto;
 }
 
-.main__image img {
+.header__main-image img {
   max-height: initial;
   margin-top: -8%;
   width: 100%;
@@ -98,7 +98,7 @@ li {
 .main__destinations {
   width: auto;
   /* border: 1px solid blue; */
-  padding: 0 10%;
+  padding: 0 5%;
 }
 
 .main__destinations .item {
@@ -138,7 +138,7 @@ p {
 .main__houseType {
   /* border: 1px solid green; */
   margin: 2.5rem 0;
-  padding: 0 10%;
+  padding: 0 5%;
 }
 
 .main__houseType .house {
@@ -174,7 +174,7 @@ p {
   color: white;
   width: auto;
   background-color: black;
-  padding: 0 10% 5% 10%;
+  padding: 0 7% 5% 7%;
 }
 
 .main__online-activity .header {
@@ -254,7 +254,7 @@ p {
 
 .main__beHost {
   margin: 4rem 0;
-  padding: 0 10%;
+  padding: 0 5%;
   /* border: 1px solid green; */
   /* position: relative; */
 }
@@ -271,4 +271,65 @@ p {
 .main__beHost .item ul img {
   width: 100%;
   border-radius: 8px;
+}
+
+/* footer */
+
+.footer {
+  border-top: 1px solid #dddddd;
+  background-color: #f7f7f7;
+  padding: 0 5%;
+  font-size: 14px;
+}
+
+.footer h4 {
+  font-size: 12px;
+}
+
+.footer .footer__about {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* border: 1px solid red; */
+  /* justify-content: span; */
+  padding: 3% 0;
+}
+
+.footer .footer__about section {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .footer__about section ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .footer__about section ul li {
+  margin-bottom: 5%;
+}
+
+.footer .footer__others {
+  /* border: 1px solid blue; */
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  align-items: center;
+  padding: 2% 0;
+}
+
+.footer .footer__others .item {
+  /* border: 1px solid orangered; */
+  width: inherit;
+}
+
+.footer .footer__others .global,
+.footer .footer__others .sns ul {
+  /* border: 1px solid forestgreen; */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer .footer__others .global div {
+  padding: 0 3%;
 }
