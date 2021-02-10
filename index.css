@@ -381,6 +381,11 @@ a {
   position: relative;
 }
 
+.online__upper {
+  border: 1px solid green;
+  height: 80px;
+}
+
 .online__upper > div {
   display: inline-block;
   position: absolute;
@@ -416,6 +421,50 @@ a {
   border-radius: 10px;
   color: #fff;
   font-size: 14px;
+}
+
+.online__body {
+  border: 1px solid red;
+  width: 100%;
+  height: 90%;
+}
+
+.online__activity__box {
+  margin-top: 10px;
+}
+
+.online__body > ul {
+  /* position: absolute; */
+  /* display: inline-block; */
+  float: left;
+}
+
+.online__body > ul:nth-child(1) {
+  width: 545px;
+  height: 561px;
+}
+
+.online__body > ul:nth-child(2) {
+  width: 272.5px;
+  height: 272.5px;
+  margin-left: 18px;
+}
+
+.online__body > ul:nth-child(3) {
+  width: 272.5px;
+  height: 272.5px;
+  margin-left: 18px;
+}
+
+.online__body > ul:nth-child(4) {
+  width: 561px;
+  height: 272.5px;
+  margin-left: 18px;
+  margin-top: 18px;
+}
+
+.online__activity__box > img {
+  width: 100%;
 }
 
 .section__membership {
