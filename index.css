@@ -10,10 +10,10 @@
 
 html {
   background-color: #fff;
-  color: #555;
+  color: black;
   scroll-behavior: smooth;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 30px;
   font-family: "Lato", sans-serif;
   text-rendering: optimizeLegibility;
 }
@@ -21,10 +21,6 @@ html {
 body {
   text-align: center;
   justify-content: center;
-}
-
-section {
-  padding: 120px 0;
 }
 
 li {
@@ -39,7 +35,7 @@ li {
 header {
   margin-top: 0;
   background-image: linear-gradient(
-      rgba(77, 73, 73, 0.719),
+      rgba(77, 73, 73, 0.411),
       rgba(184, 184, 184, 0)
     ),
     url("./images/bground.jpg");
@@ -66,6 +62,7 @@ header {
 }
 
 .logo_and_nav {
+  display: flex;
   width: 100%;
   padding-left: 80px;
   padding-right: 80px;
@@ -75,14 +72,15 @@ header {
 .nav_left,
 .nav_center,
 .nav_right {
-  flex-grow: 1;
+  width: 33%;
 }
 
 .airbnb_logo {
-  height: 65px;
-  width: auto;
   float: left;
-  filter: brightness(0) invert(1); /*svg 흰색으로 바꾸기*/
+  margin-left: 2rem;
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
 }
 
 .nav_center {
@@ -102,47 +100,103 @@ header {
 }
 
 .login_menu {
-  float: right;
   color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .login_menu li {
   display: inline-block;
   margin-left: 40px;
   font-size: 0.7rem;
+  cursor: pointer;
 }
 
 .earth_logo {
-  height: 30px;
+  height: 20px;
   width: auto;
   filter: brightness(0) invert(1);
 }
 
 .login_set {
-  /* height: 4rem;
-  width: 50px; */
+  height: 1.7rem;
+  width: 100px;
   background-color: #fff;
-  border-radius: 50%;
+  border-radius: 50px;
 }
 
-span.login_set > img {
-  height: 50px;
+div.login_set > img {
+  filter: invert(60%) sepia(1%) saturate(0%) hue-rotate(106deg) brightness(90%)
+    contrast(86%);
+}
+
+.list_logo {
+  margin-bottom: 0.4rem;
+  height: 20px;
   width: auto;
-  filter: invert(27%) sepia(0%) saturate(55%) hue-rotate(268deg)
-    brightness(109%) contrast(80%);
+}
+
+.people_logo {
+  margin-top: 0.2rem;
+  margin-left: 0.3rem;
+  height: 40px;
+  width: auto;
 }
 
 .search_box {
-  /* justify-content: space-between; */
+  height: 3rem;
+  margin-top: 1rem;
+  margin-left: 13rem;
+  margin-right: 13rem;
+  background-color: #fff;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 fieldset.search_box > div {
   display: inline-block;
-  /* justify-content: space-between; */
+  margin-left: 0.8rem;
+  margin-top: 0.7rem;
+  height: 1.5rem;
+}
+
+fieldset.search_box > div > label {
+  float: left;
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
+fieldset.search_box > div > input {
+  border: none;
+  float: left;
+  font-size: 0.6rem;
+  color: rgb(224, 221, 221);
+}
+
+.sec_op,
+.third_op,
+.fourth_op {
+  padding-left: 1rem;
+  border-left: 0.07rem solid rgb(224, 221, 221);
+}
+
+#search_btn {
+  background-color: #12cbc4;
+  border-radius: 50px;
+  height: 1.7rem;
+  width: 1.8rem;
+  cursor: pointer;
 }
 
 .search_logo {
-  height: 30px;
+  padding-top: 0.5rem;
+  height: 35px;
   width: auto;
   filter: brightness(0) invert(1);
 }
@@ -150,8 +204,8 @@ fieldset.search_box > div {
 .main_textbox {
   position: absolute;
   width: 1140px;
-  top: 60%;
-  left: 30%;
+  top: 55%;
+  left: 35%;
   transform: translate(-50%, -50%);
   text-align: left;
 }
@@ -162,11 +216,11 @@ h1 {
 }
 
 .main_textbox_button {
-  width: 200px;
-  height: 50px;
-  font-size: 0.5rem;
+  width: 180px;
+  height: 45px;
+  font-size: 0.6rem;
   margin-top: 1rem;
-  border-radius: 0.3rem;
+  border-radius: 10px;
   padding: 0.3rem;
   border: none;
   cursor: pointer;
@@ -178,34 +232,159 @@ h1 {
 /*-------------------------------*/
 
 #cities {
-  height: 100vh;
+  height: 50vh;
   background-size: cover;
   background-position: center;
-  /* display: block; */
+  padding-top: 1rem;
+}
+
+.cities {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .cities_container {
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem;
-}
-
-.cities_inner_container {
-  display: inline-block;
-  margin-right: 2rem;
+  margin-top: 3rem;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 50px;
+  row-gap: 16px;
 }
 
 ul.cities_container > li {
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
 }
 
-ul.cities_container > li > span {
-  font-size: 0.2rem;
+.txt_box {
+  display: inline-block;
+  align-items: center;
+  font-size: 0.7rem;
+  text-align: left;
+  margin-left: 0.5rem;
+}
+
+.txt_box :first-child {
+  font-weight: 700;
 }
 
 .city_pic {
   border-radius: 10%;
-  height: 130px;
+  height: 80px;
   width: auto;
+}
+
+/*-------------------------------*/
+/*HOUSES*/
+/*-------------------------------*/
+
+#house_options {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+}
+
+#sec2_title {
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.sec2_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+div.sec2_container > div > p {
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.house_pic {
+  height: auto;
+  width: 400px;
+  border-radius: 3%;
+}
+
+/*-------------------------------*/
+/*ACTIVITIES*/
+/*-------------------------------*/
+
+#activities_options {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  margin-top: 3rem;
+}
+
+#sec3_title {
+  padding-top: 2rem;
+  color: #fff;
+  font-weight: 500;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.sec3_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+div.sec3_container > div > p {
+  color: #fff;
+  text-align: left;
+}
+
+.p2 {
+  font-size: 0.7rem;
+}
+
+.activity_pic {
+  margin-top: 1rem;
+  height: auto;
+  width: 555px;
+  border-radius: 10px;
+}
+
+/*-------------------------------*/
+/*COMMUNITY*/
+/*-------------------------------*/
+
+#community_options {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  margin-top: 3rem;
+}
+
+#sec4_title {
+  font-weight: 500;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.sec4_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+div.sec4_container > div > p {
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.community_pic {
+  margin-top: 1rem;
+  height: 400px;
+  width: 560px;
+  border-radius: 3%;
 }
