@@ -1,14 +1,21 @@
 @import 'reset.css';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
 :root {
   --main-padding: 0px 80px;
   --header-brand-color: rgb(255 56 92);
   --white: rgba(255, 255, 255, 1);
+  --dark-gray: rgb(34, 34, 34);
 }
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+  padding: 20px 0px;
 }
 
 .display-flex {
@@ -121,4 +128,98 @@ body {
   padding: 7px 15px;
   border-radius: 8px;
   font-size: 14px;
+}
+
+/* 추천 도시 목록 */
+
+.recommended-cities {
+  padding: 60px 80px;
+}
+
+.cities {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+}
+
+.city__img {
+  width: 64px;
+  height: 64px;
+}
+
+.city__img > img {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+}
+
+.cities__city,
+.city__content {
+  display: flex;
+  color: var(--dark-gray);
+}
+.cities__city {
+  align-items: center;
+}
+
+.city__content {
+  flex-direction: column;
+  margin-left: 16px;
+}
+.city__content span:nth-child(2) {
+  font-weight: 300;
+}
+
+/* 숙소 타입 */
+
+.stay-types {
+  padding: var(--main-padding);
+  margin-bottom: 60px;
+}
+
+.stay-types__lists {
+  display: flex;
+  justify-content: space-between;
+}
+
+.type__img {
+  margin-bottom: 5px;
+}
+.type__img,
+.type__img > img {
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+}
+
+.stay-type > span {
+  color: var(--dark-gray);
+  font-size: 18px;
+}
+
+/* 온라인 체험 */
+
+.experiences {
+  padding: 60px 80px;
+  background-color: black;
+}
+
+.experiences__header {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.section-explain > h2 {
+  padding: 0;
+}
+
+.experiences__header > a {
+  color: var(--white);
+  border: 1px solid white;
+  padding: 5px 15px;
+  border-radius: 8px;
 }
