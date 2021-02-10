@@ -187,9 +187,9 @@ a:visited {
 }
 .section__div > ul {
   position: absolute;
-  border: springgreen solid 1px;
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
+  border: springgreen solid 5px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 .section__main-text {
   width: 1604px;
