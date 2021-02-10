@@ -5,6 +5,7 @@
   --main-padding: 0px 80px;
   --header-brand-color: rgb(255 56 92);
   --white: rgba(255, 255, 255, 1);
+  --dark-gray: rgb(34, 34, 34);
 }
 
 body {
@@ -136,8 +137,30 @@ body {
   grid-gap: 16px;
 }
 
+.city__img {
+  width: 64px;
+  height: 64px;
+}
+
 .city__img > img {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   border-radius: 10px;
+}
+
+.cities__city,
+.city__content {
+  display: flex;
+  color: var(--dark-gray);
+}
+.cities__city {
+  align-items: center;
+}
+
+.city__content {
+  flex-direction: column;
+  margin-left: 16px;
+}
+.city__content span:nth-child(2) {
+  font-weight: 300;
 }
