@@ -45,7 +45,6 @@ header {
   height: 100vh;
   width: 100%;
 }
-/*background-position : bottom*/
 
 #announcement {
   background-size: cover;
@@ -73,8 +72,7 @@ header {
 .nav_left,
 .nav_center,
 .nav_right {
-  width: 33%; /* 이렇게 하니 nav_center가 중앙정렬이 맞는다. */
-  /* flex-grow: 1; flex-grow를 쓰려면 flex를 써야한다. float가 아니라!! */
+  width: 33%;
 }
 
 .airbnb_logo {
@@ -82,7 +80,7 @@ header {
   margin-left: 2rem;
   height: 40px;
   width: auto;
-  filter: brightness(0) invert(1); /*svg 흰색으로 바꾸기*/
+  filter: brightness(0) invert(1);
 }
 
 .nav_center {
@@ -102,7 +100,6 @@ header {
 }
 
 .login_menu {
-  /* float: right; */
   color: #fff;
   display: flex;
   justify-content: flex-end;
@@ -167,8 +164,6 @@ fieldset.search_box > div {
   margin-left: 0.8rem;
   margin-top: 0.7rem;
   height: 1.5rem;
-  /* align-items: flex-start; */
-  /* vertical-align: middle; */
 }
 
 fieldset.search_box > div > label {
@@ -248,10 +243,6 @@ h1 {
   padding-right: 3rem;
 }
 
-/* .cities_firsthalf {
-  margin-top: 3rem;
-} */
-
 .cities_container {
   margin-top: 3rem;
   display: grid;
@@ -272,6 +263,10 @@ ul.cities_container > li {
   font-size: 0.7rem;
   text-align: left;
   margin-left: 0.5rem;
+}
+
+.txt_box :first-child {
+  font-weight: 700;
 }
 
 .city_pic {
@@ -384,6 +379,7 @@ div.sec3_container > div > p {
 
 div.sec4_container > div > p {
   text-align: left;
+  font-size: 0.8rem;
 }
 
 .community_pic {
