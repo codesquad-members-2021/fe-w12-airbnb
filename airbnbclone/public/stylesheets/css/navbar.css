@@ -1,0 +1,95 @@
+header {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+.navbar_ul {
+  display: flex;
+  width: 33%;
+  height: 43px;
+  justify-content: center;
+  align-items: center;
+}
+.navbar_ul > li {
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar_span {
+  padding: 10px 16px;
+}
+.navbar_selectedline {
+  border: 1px;
+  width: 18px;
+  height: 0px;
+  border-style: solid;
+  background-color: white;
+}
+.navbar_line {
+  visibility: hidden;
+  border: 1px;
+  width: 10px;
+  height: 0px;
+  border-style: solid;
+  background-color: white;
+}
+.navbar_ul > li:hover .navbar_line {
+  visibility: visible;
+}
+.navbar_logo {
+  width: 33%;
+  height: 43px;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.navbar_login {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 33%;
+}
+
+.navbar_login_icons {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  width: 77px;
+  height: 42px;
+  cursor: pointer;
+  border-radius: 21px;
+  outline: none;
+  border-style: none;
+  border: 1px;
+}
+
+.navbar_login_earthicon {
+  display: flex;
+  align-items: center;
+  width: 143 px;
+  height: 42px;
+  margin-right: 8px;
+}
+.navbar_login_earthicon > button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.navbar_login_earthicon > span:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.navbar_login_earthicon > button {
+  text-align: center;
+  height: 42px;
+  width: 46px;
+  padding: 12px;
+  border-radius: 21px;
+  background: none;
+}
+.navbar_login_earthicon > span {
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 21px;
+}
