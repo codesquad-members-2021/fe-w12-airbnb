@@ -61,7 +61,7 @@ div.header__covid > a:link,
 div.header__covid > a:visited {
     font-size: 14px;
     font-weight: bold;
-    color: white;
+    color: #FFF;
 }
 
 div.header__covid > a:hover,
@@ -69,61 +69,141 @@ div.header__covid > a:active {
     color: #ddddddcc;
 }
 
-/* 헤더 2 -  로고, 검색 옵션, 로그인  */
-div.header__top1 {
+/* 헤더 2 - 로고, 검색, 로그인  */
+div.header__main {
     width: 100%;
     padding: 25px 0px;
-    position: absolute;
-
     display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 
 /* 1) 로고 */
-div.header__top1__logo {
-    flex-grow: 1;
+div.header__main__logo {
+    position: relative;
+    left: -2%;
+    width: 25%;
     text-align: center;
 }
-div.header__top1__logo > a {
-    color: white;
+div.header__main__logo > a {
+    color: #FFF;
 }
 
-/* 2) 검색 옵션 */
-div.header__top1__radioGroup {    
-    color: white;        
-    flex-grow: 3;
+/* 2-1) 검색 - 검색 옵션 */
+div.header__main__searchOptions {    
+    color: #FFF;   
+    width: 50%;         
     text-align: center;
 }
 
-div.header__top1__radioGroup > label > input[type='radio'] {
+div.header__main__searchOptions > input[type='radio'] {
     display: none;
 }
 
-div.header__top1__radioGroup > label > input[type='radio'] + span {
+div.header__main__searchOptions > input[type='radio'] + label {
     display: inline-block;    
     padding: 0 13px;
     cursor: pointer;
 }
 
-div.header__top1__radioGroup > label > input[type='radio']:checked + span > p.underline {    
+div.header__main__searchOptions > input[type='radio'] + label:hover {
+    filter: brightness(0.85);
+}
+
+div.header__main__searchOptions > input[type='radio']:checked + label > p.underline {    
     padding-top: 8px;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #FFF;
 }
 
-/*
-div.header__top1__radioGroup > label > input[type='radio']:checked + span {
-    text-decoration: underline white;
-    text-underline-position: under;
+/* 2-2) 검색 - 검색바 */
+div.header__main__searchBar {
+    position: absolute;
+    top: 144px;    
+    height: 66px;    
+    border: 1px solid #FFF; 
 }
-*/
 
-/* 3) 로그인 (예정) */
-div.header__top1__login {
+
+/* 3) 로그인 */
+div.header__main__login {
+    position: relative;
+    right: 2%;
+    width: 25%;
+    text-align: center;    
+    color: #FFF;   
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+}
+
+div.header__main__login > a.becomeHost {    
+    color: #FFF;  
+    text-decoration: none;    
+    border-radius: 20px;
     font-size: 14px;
-    flex-grow: 1;
-    text-align: center;
+    font-weight: 600;
+    padding: 10px 12px;
 }
 
+div.header__main__login > a.becomeHost:hover {
+    background-color: #ffffff18;
+}
+
+div.header__main__login > a.region {    
+    border-radius: 20px;
+    padding: 8px;    
+}
+
+div.header__main__login > a.region:hover {
+    background-color: #ffffff18;
+}
+
+div.header__main__login > a.region > img.earthLogo {
+    position: relative;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+}
+
+div.header__main__login > button.navBtn {
+    background: none;    
+	border: none;	
+    cursor: pointer;
+    color: #FFF;
+    margin-left: 12px;
+    padding: 4px 6px 4px 12px;
+    background-color: #FFF;
+    border-radius: 25px;
+}
+
+div.header__main__login > button.navBtn > img.icon--list {
+    position: relative;
+    top: -5px;        
+    width: 16px;
+    height: 16px;
+}
+
+div.header__main__login > button.navBtn > img.icon--people {
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+}
+
+/* 헤더 3 - 헤더 큰 텍스트 */
+div.header__headingText {
+    width: 340px;
+    height: 660px;
+    margin: 0px 8%;    
+    display: flex;
+    align-items: center;
+}
+
+div.header__headingText > span.text {
+    color: #FFF;
+    font-size: 52px;
+    font-weight: bold;
+    display: block;
+}
 
 /* ----------------------------- */
 
@@ -142,103 +222,103 @@ div.content > ul > li.black {
 }
 
 div.content-flexAble {
-    margin: 70px auto;
+    margin: 70px auto;    
 }
 
 /* 콘텐츠 공통 */
 p.content-secDesc {
-    font-size: 24pt;
+    font-size: 32px;
     font-weight: bold;
 }
 
-/* 콘텐츠 - section1  */
-ul.content__sec1 {
+/* 콘텐츠 - section1 (지역 종류)  */
+ul.content__locationType {
     margin: 0 0 0 13px;
 }
 
-ul.content__sec1 > li > img {
+ul.content__locationType > li > img {
     width: 20%;
-    border: 1px solid white;
+    border: 1px solid #FFF;
     border-radius: 5px;
 }
 
-ul.content__sec1 > li > div.info {
+ul.content__locationType > li > div.info {
     display: inline-block;
     position: relative;
     top: -22px;
 }
 
-/* 콘텐츠 - section 2  */
-ul.content__sec2 {
+/* 콘텐츠 - section 2 (숙소 종류?)  */
+ul.content__roomType {
     margin: 0 auto;
 }
 
-ul.content__sec2 > li > img {
+ul.content__roomType > li > img {
     width: 95%;
     margin-left: 5%;
-    border: 1px solid white;
+    border: 1px solid #FFF;
     border-radius: 5px;
 }
 
-ul.content__sec2 > li > p {
+ul.content__roomType > li > p {
     text-align: left;
     margin-left: 5%;
 }
 
-/* 콘텐츠 - section 3  */
+/* 콘텐츠 - section 3 (액티비티)  */
 /* 1) 상단 글자 및 버튼 */
-div.content__sec3 {
+div.content__activity {
     margin: 70px 8%;
     padding: 30px 0;
 }
 
-button.content__sec3__btn {
+button.content__activity__btn {
     position: relative;
     top: 20px;
     right: 20px;
 
     border-radius: 5px;
     padding: 7px;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #FFF;
+    color: #FFF;
     font-weight: bold;
     background-color: black;
 
     cursor: pointer;
 }
 
-button.content__sec3__btn:hover {
+button.content__activity__btn:hover {
     background-color: rgb(119, 119, 119);
 }
 
 /* 2) 하단 이미지들 */
-ul.content__sec3__ul {
+ul.content__activity__ul {
     padding: 20px 0;
 }
 
-ul.content__sec3__ul > li > p {
+ul.content__activity__ul > li > p {
     position: relative;
     top: -55px;
     left: 20px;
-    color: white;
+    color: #FFF;
     font-weight: bold;
 }
 
-ul.content__sec3__ul > li > img {
+ul.content__activity__ul > li > img {
     width: 100%;
     border-radius: 16px;
 }
 
-/* 콘텐츠 - section 4  */
-ul.content__sec4 {
+/* 콘텐츠 - section 4 (호스팅)  */
+ul.content__hosting {
     padding-top: 20px;
     padding-bottom: 80px;
 }
-ul.content__sec4 > li {
+ul.content__hosting > li {
     display: inline-block;
     width: 33%;
 }
-ul.content__sec4 > li > img {
+ul.content__hosting > li > img {
     width: 100%;
     border-radius: 16px;
 }
