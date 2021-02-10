@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+a:link { color:white; text-decoration: none; }
+a:visited { color:white; }
+
+#aside a:visited {
+    color: white;
+}
+
+#aside {
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 20px 80px;
+    margin: 0;
+}
+
+#main {
+    background-image: url('./images/main-wide.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 83vh;
+    position:relative;
+}
+
+.mainlogo {
+    display:flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.maincenter {
+    display:flex;
+    justify-content: space-between;
+    width: 250px;
+    font-size: 20px;
+    padding-left: 150px;
+    padding-top:10px;
+}
+.ghost-button {
+    background-color: transparent;
+    border:none;
+    outline:none;
+    padding-right: 20px;
+}
+
+/* 클릭시 바운스효과 */
+.ghost-button:active {
+    transform: translateY(2px);
+}
+
+.loginbox {
+    border-radius: 20px;
+    border:none;
+    outline:none;
+    height:50px;
+    width: 100px;
+}
+.loginbox:active {
+    transform: translateY(2px);
+}
+
+/* ====================================================  main float ======================================== */
+.mainabsolute {
+    position: absolute;
+    left : 80px;
+    top : 350px;
+}
+
+.mainfloat {
+    color:white;
+    font-weight: bold;
+    font-size:50px;
+}
+
+.mainfloatbtn {
+    background-color: white;
+    border-radius: 7px;
+    border:none;
+    padding: 6px 10px;
+    margin-top: 10px;
+    font-weight:bold; 
+    outline:none;
+    transition: all 0.5s ease-in-out;
+}
+
+.mainfloatbtn:hover {
+    background-color: #e51d59;
+}
+.mainfloatbtn:hover:active {
+    transform: translateY(5px);
+}
+
+/* ====================================================  center Information ======================================== */
+
+#ceterInfoSVG {
+    border-radius: 50%;
+    background-color: #e51d59;
+    width:40px;
+    height:35px;
+    padding-top: 0px;
+}
+
+#ceterInfoSVG:active {
+    transform: translateY(2px);
+}
+
+.centerInfo {
+    display: flex;
+    justify-content:space-between;
+    background-color: white;
+    width:50%;
+    margin:auto;
+    margin-top:20px;
+    border-radius: 20px;
+}
+
+.Infofont {
+    font-weight: bold;
+}
+.Infofontunder {
+    font-size: 15px;
+    color:gray;
+}
+.Infobox {
+    margin:auto;
+    padding: 5px 0;
+}
+.SVGbtn {
+    background-color:transparent;
+    border:none;
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    outline:none;
+    transition: all 0.5s ease-in-out;
+}
+
+.SVGbtn:hover {
+    background-color:blue;
+}

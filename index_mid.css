@@ -1,0 +1,55 @@
+#midImage {
+    padding: 40px 80px;
+}
+
+.photobox {
+    display:flex;
+    justify-content:space-between;
+    padding-bottom: 20px;
+}
+
+.phototext {
+    height:72px;
+    width:25%;
+}
+
+.city {
+    width:72px;
+    height:72px;
+    border-radius: 10px;;
+}
+
+.textpadding {
+    position:relative;
+    color:black;
+    left:10%;
+    top:10px;
+    align-items: center;
+}
+
+/* ======================================= blackup ============== */
+
+.blackup {
+    padding: 0 80px;
+}
+
+.list {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    
+}
+.listimg {
+    width: 25%;
+    padding-right: 10px;
+}
+
+.listimg > a {
+    color:black;
+}
+
+.listphoto {
+    width:100%;
+    object-fit:cover;
+}
