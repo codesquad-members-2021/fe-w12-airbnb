@@ -32,7 +32,7 @@
             <input class="nav_item" type="radio" id="nav_radio_2" />
             <label for="nav_radio_2">체험</label>
           </div>
-          <a href="">온라인체험</a>
+          <div class="atag"><a href="">온라인체험</a></div>
         </nav>
         <div class="member_setting">
           <span class="host">호스트되기</span>
@@ -181,6 +181,8 @@
     <script>
       const header = document.querySelector("header");
       const intersectPoint = document.querySelector(".main");
+      const atag = document.getElementsByTagName("a");
+
       const options = {
         rootMargin: "-40px 0px 0px 0px",
       };
