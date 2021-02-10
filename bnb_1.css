@@ -1,6 +1,9 @@
+/** global */
 body {
   margin: 0;
   padding: 0;
+  font-family: "Noto Sans KR", sans-serif; /*->적용안됨...*/
+  font-weight: 400;
   font-size: 16px;
   color: rgba(0, 0, 0, 1);
 }
@@ -12,19 +15,18 @@ body {
 }
 
 .inner {
-  border: 1px solid red;
+  border: 1px solid rgba(255, 255, 255, 0); /*->지우면 오류남....*/
   max-width: 1600px;
   height: auto;
   margin: 0 auto;
-  box-sizing: border-box;
   position: relative;
-  /* inner를 기준으로 위치를 배치시키기 위해=>relative */
+  box-sizing: border-box;
 } /*maragin 0 auto쓰려면 너비설정되어야함*/
 
 .ment {
   font-size: 30px;
   font-weight: 800;
-  font-family: "Noto Sans KR", sans-serif;
+  /* font-family: "Noto Sans KR", sans-serif; */
 }
 
 section span {
@@ -45,14 +47,15 @@ header .corona a {
   font-weight: bold;
 }
 header .corona a:hover {
-  color: rgba(255, 255, 255, 0.404);
+  color: rgba(184, 164, 164, 0.233);
 }
 
-.background {
+header .background {
   background-image: url("./img/backImg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  box-sizing: border-box;
 }
 
 header .menuGroup {
@@ -63,7 +66,6 @@ header .menuGroup {
 }
 
 header .logoIMG {
-  /* background-image: url("airbnb.svg"); !css_로고안됨 */
   width: 100px;
   height: 35px;
 }
@@ -83,7 +85,7 @@ header .menu_center a {
 }
 
 header .menu_center a:hover {
-  color: rgba(255, 255, 255, 0.404);
+  color: rgba(255, 255, 255, 0.604);
 }
 
 header .menu_right {
@@ -92,31 +94,60 @@ header .menu_right {
   right: 0;
 }
 
+header .menu_right :hover {
+  cursor: pointer;
+}
+
 header .menu_right div {
   display: inline;
-  margin-left: 20px;
+  width: auto;
+  height: auto;
+  margin-left: 10px;
+}
+
+.menu_right .host:hover,
+.menu_right .language:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+}
+
+header .host {
+  padding: 15px;
+}
+
+header .language {
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  padding: 15px;
+  vertical-align: middle;
+}
+
+header .hide {
+  display: none;
+}
+
+header .menu_right .toggle {
+  vertical-align: middle;
 }
 
 header .toggleBtn {
-  width: 80px;
-  height: 50px;
+  padding: 5px 10px;
   border: none;
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.925);
 }
 
 header .toggle .list {
-  background-image: url("./img/list.svg");
   width: 16px;
   height: 16px;
-  /*! border-style: none; */
+  vertical-align: super;
 }
 
 header .personIMG {
-  background-image: url("./img/people.svg");
-  background-repeat: no-repeat;
   width: 30px;
   height: 30px;
+  padding-top: 5px;
 }
 
 header .toggle ul {
@@ -137,13 +168,6 @@ header .toggle a {
   text-decoration: none;
 }
 
-header .language {
-  background-image: url("./img/global.svg");
-  width: 16px;
-  height: 16px;
-  color: rgba(255, 255, 255, 0); /*글자투명하게*/
-}
-
 header .search {
   position: absolute;
   top: 80px;
@@ -154,13 +178,48 @@ header .search {
   border-radius: 50px;
 }
 
+header .search .innerdiv {
+  float: left;
+  box-sizing: border-box;
+  margin: 19px 0px;
+  padding: 0px 20px;
+  width: 180px;
+  height: 100;
+  border-left: 1px solid rgba(73, 67, 67, 0.404);
+  font-size: 12px;
+  font-weight: 800;
+  /* border: 1px solid red; */
+}
+
+header .search .innerdiv:first-child {
+  width: 240px;
+}
+
+header .search .innerdiv:hover {
+  padding: 19px 20px;
+  margin: 0;
+  background-color: rgba(230, 230, 230, 0.863);
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.search input {
+  background: transparent;
+  width: 150px;
+  margin-top: 5px;
+  display: block;
+  border: none;
+  padding: 0;
+}
+
 header .search button {
   background-color: rgba(255, 56, 92, 1);
+  color: rgba(255, 255, 255, 0);
   border: none;
   border-radius: 50px;
   width: 50px;
   height: 50px;
-  color: rgba(255, 255, 255, 0);
   position: relative;
   float: right;
   margin-right: 15px;
@@ -168,36 +227,11 @@ header .search button {
 }
 
 header .search button img {
-  background-image: url("./img/search.svg");
   width: 15px;
   height: 15px;
   position: absolute;
   top: 17px;
   left: 17px;
-}
-
-.search form div {
-  /*float로 바꾸면서 block이된다.*/
-  box-sizing: border-box;
-  padding: 17px 30px;
-  width: 170px;
-  border-left: 1px solid rgba(73, 67, 67, 0.404);
-  float: left;
-  font-size: 12px;
-  font-weight: 800;
-}
-/*todo: border-left 크기 줄여주기 */
-
-.search form div:nth-child(1) {
-  width: 220px;
-  margin-left: 10px;
-  border-left: none;
-}
-
-.search form input {
-  margin-top: 5px;
-  display: block;
-  border: none;
 }
 
 header .title {
@@ -221,33 +255,46 @@ header .title button {
 }
 
 /** SECTION_location =====================**/
-section .location_list {
+.location_section .location_list {
   padding-top: 65px;
   padding-bottom: 45px;
 }
 
-section .location_list li {
+.location_section .location_list li {
   box-sizing: border-box;
   display: inline-block;
   margin-right: 17px;
   margin-bottom: 17px;
   width: 382px;
-  border: 1px solid green;
+  position: relative;
 }
 
-section .location_list li:nth-child(4),
-section .location_list li:nth-child(8) {
+.location_section .location_list li:nth-child(4),
+.location_section .location_list li:nth-child(8) {
   margin-right: 0;
 }
 
-section .location_list img {
+.location_section .location_list img {
   width: 65px;
   height: 65px;
   border-radius: 10px;
 }
 
-section .span_wrapper {
-  border: 1px solid blue;
+.location_section .span_wrapper {
+  position: absolute;
+  top: 17px;
+  left: 80px;
+  display: inline-block;
+}
+
+.location_section .span_wrapper span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.location_section .span_wrapper span:first-child {
+  font-weight: 800;
 }
 
 /** SECTION_house =====================**/
@@ -269,14 +316,9 @@ section .span_wrapper {
   border-radius: 15px;
 }
 
-#lastimg {
+.house_style_section .house_img :last-child img {
   margin-right: 0px;
 }
-
-/*!왜 nth-child(4)가 먹히지않을까?!
- .house_style_section .house_img div img:nth-child(4) {
-  margin-right: 0px;
-} */
 
 .house_img span {
   display: block;
@@ -302,7 +344,7 @@ section .span_wrapper {
   display: inline-block;
 }
 
-.same_part img {
+.same_part div img {
   width: 517px;
   height: 517px;
   border-radius: 10px;
@@ -312,11 +354,9 @@ section .span_wrapper {
   display: block;
 }
 
-#activity3 {
+.activity_img div:last-child img {
   margin-right: 0;
 }
-
-/*!이것도반영x->id로 대체: .activity_img img:nth-child(3) { */
 
 /** SECTION_HOSTING =====================**/
 .hosting_section {
@@ -332,7 +372,7 @@ section .span_wrapper {
   height: auto;
 }
 
-#hosting3 {
+.hostImg div:last-child img {
   margin-right: 0;
 }
 
@@ -341,8 +381,33 @@ footer {
   background-color: rgb(247, 247, 247);
 }
 
-.footer1 div {
+.footer1 {
+  vertical-align: super;
+  font-size: 14px;
+  padding-top: 35px;
+}
+
+.footer1 .menu {
   display: inline;
+  float: left;
+}
+
+.footer1 .menu div {
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.footer1 .menu li {
+  padding: 17px;
+}
+.footer1 .menu li a {
+  display: block;
+  text-decoration: none;
+  color: rgba(0, 0, 0);
+}
+
+.footer1 div a:hover {
+  text-decoration: underline;
 }
 
 .footer2 {

@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>에어비앤비</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type ="text/css" href="./bnb_1.css"></link>
     <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
    
    </head>
   <body>
      <!-- HEADER -->
     <header>
-       
       <div class="corona">
          <a href="#">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a>
       </div>
@@ -34,13 +35,13 @@
    
                <div class="menu_right">
                   <div class="host">호스트 되기</div>
-                  <div class="language">lan</div>
+                  <div><img src="./img/global.svg" class="language" alt="language"></div>
                   <div class="toggle">
                      <button class="toggleBtn">
-                        <img class="list"></img>
-                        <img class="personIMG"></img>
+                        <img class="list" src="img/list.svg"></img>
+                        <img class="personIMG" src="img/people.svg"></img>
                      </button>
-                     <ul>
+                     <ul class="hide">
                         <li><a href="#">회원 가입</a></li>
                         <li><a href="#">로그인</a></li>
                         <hr>
@@ -52,33 +53,34 @@
                   
                </div>
             </div>
+   
             <div class="search">
-               <form id="infoSearchForm">
-                  <div>
-                     <span>위치</span>
-                     <input type="text" name="where" placeholder="어디로 여행가세요?"/>
-                  </div>
-                  <div>
-                     <span>체크인</span>
-                     <input name="checkIn" placeholder="날짜 추가"/>
-                  </div>
-                  <div>체크아웃
-                     <input name="checkOut" placeholder="날짜 추가"/>
-                  </div>
-                  <div>
-                     <span>인원</span>
-                     <input  name="peopleNumber"  placeholder="게스트 추가"/>
-                  </div>
-                  <button type="submit" text="검색">
-                     <img>돋보기</img>
-                  </button>
-               </form>
+              
+               <div class="innerdiv">
+                  <label>위치</label>
+                  <input type="text" name="where" placeholder="어디로 여행가세요?"/>
+               </div>
+               <div class="innerdiv">
+                  <label>체크인</label>
+                  <input name="checkOut" placeholder="날짜 추가"/>
+               </div>            
+               <div class="innerdiv">
+                  <label>체크아웃</label>
+                  <input name="checkOut" placeholder="날짜 추가"/>
+               </div>
+               <div class="innerdiv">
+                  <label>인원</label>
+                  <input  name="peopleNumber"  placeholder="게스트 추가"/>
+               </div>
+               <button type="submit" text="검색">
+                  <img src="./img/search.svg" alt="돋보기"></img>
+               </button>
+            </div>
 
                   <!-- <input type="button hide"/>
                   <div>검색 시작하기</div>
                   <img>돋보기</img> -->
-               
-            </div>
+         
             <div class="title">
                <div class="ment">
                   이제, 여행은 가까운&nbsp;곳에서
@@ -94,62 +96,63 @@
    <section class="location_section inner">
       <ul class="location_list">
          <li>
-            <img src="./img/sec1-seoul.jpg"/>
+            <img src="./img/sec1-01.jpg"/>
             <div class="span_wrapper">
-               서울
-               <div class="time">차로 15분 거리</div>
+               <span>서울</span>
+               <br>
+               <span>차로 15분 거리</span>
             </div>
          </li>
          <li>
-            <img src="./img/sec1-seoul.jpg"/>
+            <img src="./img/sec1-02.jpg"/>
             <div class="span_wrapper">
-               서울
-               <div class="time">차로 15분 거리</div>
+               <span>인천</span>
+               <br>
+               <span>차로 45분 거리</span>
+            </div>
+         </li> <li>
+            <img src="./img/sec1-03.jpg"/>
+            <div class="span_wrapper">
+               <span>대구</span>
+               <br>
+               <span>차로 3.5시간 거리</span>
+            </div>
+         </li> <li>
+            <img src="./img/sec1-04.jpg"/>
+            <div class="span_wrapper">
+               <span>제주도</span>
+               <br>
+               <span>비행기로 2시간 거리</span>
+            </div>
+         </li> <li>
+            <img src="./img/sec1-05.jpg"/>
+            <div class="span_wrapper">
+               <span>대전</span>
+               <br>
+               <span>차로 2시간 거리</span>
+            </div>
+         </li> <li>
+            <img src="./img/sec1-06.jpg"/>
+            <div class="span_wrapper">
+               <span>전주</span>
+               <br>
+               <span>차로 3시간 거리</span>
+            </div>
+         </li> <li>
+            <img src="./img/sec1-07.jpg"/>
+            <div class="span_wrapper">
+               <span>괌</span>
+               <br>
+               <span>비행기로 7시간 거리</span>
+            </div>
+         </li> <li>
+            <img src="./img/sec1-08.jpg"/>
+            <div class="span_wrapper">
+               <span>부산</span>
+               <br>
+               <span>KTX로 2시간 30분 거리</span>
             </div>
          </li>
-         <li>
-            <img src="./img/sec1-seoul.jpg"/>
-            <div class="span_wrapper">
-               서울
-               <div class="time">차로 15분 거리</div>
-            </div>
-         </li>
-         <li>
-            <img src="./img/sec1-seoul.jpg"/>
-            <div class="span_wrapper">
-               서울
-               <div class="time">차로 15분 거리</div>
-            </div>
-         </li>
-         <li>
-            <img src="./img/sec1-seoul.jpg"/>
-            <div class="span_wrapper">
-               서울
-               <div class="time">차로 15분 거리</div>
-            </div>
-         </li>
-         <li>
-            <img src="./img/sec1-seoul.jpg"/>
-            <div class="span_wrapper">
-               서울
-               <div class="time">차로 15분 거리</div>
-            </div>
-         </li>
-         <li>
-            <img src="./img/sec1-seoul.jpg"/>
-            <div class="span_wrapper">
-               서울
-               <div class="time">차로 15분 거리</div>
-            </div>
-         </li>
-         <li>
-            <img src="./img/sec1-seoul.jpg"/>
-            <div class="span_wrapper">
-               서울
-               <div class="time">차로 15분 거리</div>
-            </div>
-         </li>
-        
       </ul>
    </section>
       
@@ -195,7 +198,7 @@
                <p>어디에서든 즐길 수 있는 체험</p>
             </div>
             <div>
-               <img id="activity3" src="./img/sec3-activity03.webp" alt="activity1"/>
+               <img src="./img/sec3-activity03.webp" alt="activity1"/>
                <span>어드벤처</span>
                <p>숙박과 식사가 포함된 며칠 일정의 여행입니다.</p>
             </div>      
@@ -214,18 +217,54 @@
             <span>온라인 체험 호스팅하기</span>
          </div>
          <div>
-            <img id="hosting3" src="./img/sec4-hosting03.jpg" alt="hosting3"/><span>체험 호스팅하기</span></div>
+            <img src="./img/sec4-hosting03.jpg" alt="hosting3"/>
+            <span>체험 호스팅하기</span>
+         </div>
       </div>
    </section>
 
-    <footer>
+    <footer class="inner">
        <div class="footer1">
-         <div class="menu">소개</div>
-         <div class="menu">커뮤니티</div>
-         <div class="menu">호스팅하기</div>
-         <div class="menu">에어비앤비 지원</div>
+         <ul class="menu">
+            <div>소개</div>
+            <li><a href="#">에어비앤비 이용 방법</a></li>
+            <li><a href="#">뉴스룸</a></li>
+            <li><a href="#">투자자 정보</a></li>
+            <li><a href="#">에어비앤비 플러스</a></li>
+            <li><a href="#">에어비앤비 Luxe</a></li>
+            <li><a href="#">호텔투나잇</a></li>
+            <li><a href="#">에어비앤비 비즈니스 프로그램</a></li>
+            <li><a href="#">올림픽</a></li>
+            <li><a href="#">채용정보</a></li>
+         </ul>
+         <ul class="menu">
+            <div>커뮤니티</div>
+            <li><a href="#">다양성 및 소속감</a></li>
+            <li><a href="#">접근성</a></li>
+            <li><a href="#">에어비앤비 어소시에이트</a></li>
+            <li><a href="#">구호 인력을 위한 숙소</a></li>
+            <li><a href="#">친구 초대하기</a></li>
+            <li><a href="#">Airbnb.org</a></li>
+         </ul>
+         <ul class="menu">
+            <div>호스팅하기</div>
+            <li><a href = "#">숙소 호스팅</a></li>
+            <li><a href = "#">온라인 체험 호스팅하기</a></li>
+            <li><a href = "#">체험 호스팅하기</a></li>
+            <li><a href = "#">책임감 있는 호스팅</a></li>
+            <li><a href = "#">자료 센터</a></li>
+            <li><a href = "#">커뮤니티 센터</a></li>
+         </ul>
+         <ul class="menu">
+            <div>에어비앤비 지원</div>
+            <li><a href="#">에어비앤비의 코로나19 대응 방안</a></li>
+            <li><a href="#">도움말 센터</a></li>
+            <li><a href="#">예약 취소 옵션</a></li>
+            <li><a href="#">에어비앤비 이웃 민원 지원</a></li>
+            <li><a href="#">신뢰와 안전</a></li>
+         </ul>
       </div>
-      <div class="footer2">
+      <div class="footer2 clearfix">
          <div class="left">
             <span>© 2021 Airbnb, Inc. All rights reserved</span>
          </div>
