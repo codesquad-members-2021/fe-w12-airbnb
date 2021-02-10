@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Jua&family=Nanum+Brush+Script&display=swap');
+
 :root {
     --black: #000000;
     --info-color: #f5f6fa;
     --grey:grey;
-    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-normal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-jua-googlefont: 'Jua', sans-serif;
     --font-color: #ffffff;
     --normal-font-size: 1rem;
     --title-font-size: 2rem;
@@ -12,16 +15,20 @@
     --page-tb-margin: 40px;
     --page-side-margin: 80px;
     --section-font-weight: 600;
+    
 }
 
 * {
     box-sizing: border-box;
-    font-family: var(--font-family);
 }
 
 html, body {
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: var(--font-family-jua-googlefont);
 }
 
 
@@ -175,7 +182,7 @@ a {
 
 .slogan-section .slogan {
     margin-bottom: 20px;
-    width: 420px;
+    width: 370px;
     color: var(--font-color);
     font-size: 64px
 }
