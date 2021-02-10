@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  min-width: 1300px;
+  width: 1300px;
 }
 
 a {
@@ -7,6 +9,7 @@ a {
 }
 
 /* Covid Info */
+
 .covid__box {
   height: 62px;
   background: #000;
@@ -480,12 +483,46 @@ a {
 }
 
 .section__membership {
-  background: tomato;
-  border: 1px solid violet;
-  height: 550px;
+  height: 410px;
+  margin-top: 70px;
 }
 
-.footer {
-  background: black;
+.section__membership__container {
+  height: 85%;
+  padding: 0 80px;
+}
+
+.section__membership__upper {
+  height: 52px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.hostbox > div > img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.hostbox {
+  float: left;
+  margin-right: 16px;
+  width: calc(97% / 3);
+}
+
+.hostbox:last-child {
+  margin-right: 0;
+}
+
+.hostbox > div > span {
+  color: #222;
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 8px;
+  display: block;
+}
+
+footer {
+  background: #f7f7f7;
   height: 400px;
+  border-top: 1px solid #eee;
 }
