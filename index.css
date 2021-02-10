@@ -444,7 +444,7 @@ a {
 }
 
 .online__activity__box > div {
-  position: absolute;
+  /* position: absolute; */
 }
 
 .online__activity__box > div > span {
