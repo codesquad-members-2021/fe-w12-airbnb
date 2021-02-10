@@ -46,7 +46,7 @@
                 <svg
                   viewBox="0 0 16 16"
                   xmlns="http://www.w3.org/2000/svg"
-                  style="display: block; height: 16px; width: 16px; fill: white"
+                  style="height: 16px; width: 16px; fill: white"
                   aria-hidden="true"
                   role="presentation"
                   focusable="false"
@@ -58,7 +58,6 @@
               </div>
             </div>
 
-            <!-- User Box -->
             <div class="user__box">
               <button type="button" aria-expanded="false" id="user__button">
                 <svg
@@ -67,16 +66,10 @@
                   aria-hidden="true"
                   role="presentation"
                   focusable="false"
-                  style="
-                    fill: none;
-                    height: 16px;
-                    width: 16px;
-                    stroke: currentcolor;
-                    stroke-width: 3;
-                    overflow: visible;
-                  "
+                  style="height: 16px; width: 16px; stroke: #595959; stroke-width: 4"
+                  id="globe_hamburger"
                 >
-                  <g fill="none" fill-rule="nonzero">
+                  <g fill="#595959" fill-rule="nonzero">
                     <path d="m2 16h28"></path>
                     <path d="m2 24h28"></path>
                     <path d="m2 8h28"></path>
@@ -89,6 +82,8 @@
                   aria-hidden="true"
                   role="presentation"
                   focusable="false"
+                  style="width: 30px; height: 30px; fill: #717171"
+                  id="svg_user"
                 >
                   <path
                     d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"
@@ -100,35 +95,62 @@
         </div>
         <div class="reservation__container">
           <div class="reservation__background leftside__radius__background">
-            <label class="reservation__menu" for="bigsearch-query-detached-query"
-              ><div class="reservation__menu__box">
+            <label class="reservation__menu" for="bigsearch-query-detached-query">
+              <div class="reservation__menu__box">
                 <div class="reservation__menu__text">위치</div>
-                <input class="reservation__input" placeholder="어디로 여행가세요?" /></div
-            ></label>
+                <input class="reservation__input" placeholder="어디로 여행가세요?" />
+              </div>
+            </label>
           </div>
           <div class="reservation__background middle__background">
-            <label class="reservation__menu" for="bigsearch-query-detached-query"
-              ><div class="reservation__menu__box">
-                <div class="reservation__menu__text">체크인</div>
-                <input class="reservation__input" placeholder="날짜 추가" /></div
-            ></label>
+            <div class="middle__bar">
+              <label class="reservation__menu" for="bigsearch-query-detached-query">
+                <div class="reservation__menu__box">
+                  <div class="reservation__menu__text">체크인</div>
+                  <input class="reservation__input" placeholder="날짜 추가" />
+                </div>
+              </label>
+            </div>
           </div>
           <div class="reservation__background middle__background">
-            <label class="reservation__menu" for="bigsearch-query-detached-query"
-              ><div class="reservation__menu__box">
-                <div class="reservation__menu__text">체크아웃</div>
-                <input class="reservation__input" placeholder="날짜 추가" /></div
-            ></label>
+            <div class="middle__bar">
+              <label class="reservation__menu" for="bigsearch-query-detached-query">
+                <div class="reservation__menu__box">
+                  <div class="reservation__menu__text">체크아웃</div>
+                  <input class="reservation__input" placeholder="날짜 추가" />
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="reservation__background middle__background">
+            <div class="middle__bar">
+              <label class="reservation__menu" for="bigsearch-query-detached-query">
+                <div class="reservation__menu__box">
+                  <div class="reservation__menu__text">인원</div>
+                  <input class="reservation__input" placeholder="게스트 추가" />
+                </div>
+              </label>
+            </div>
           </div>
           <div class="reservation__background rightside__radius__background">
-            <label class="reservation__menu" for="bigsearch-query-detached-query"
-              ><div class="reservation__menu__box">
-                <div class="reservation__menu__text">인원</div>
-                <input class="reservation__input" placeholder="게스트 추가" /></div
-            ></label>
+            <div class="search__circle">
+              <svg
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+                style="height: 16px; width: 16px; stroke: white; stroke-width: 4"
+              >
+                <g fill="none">
+                  <path
+                    d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+                  ></path>
+                </g>
+              </svg>
+            </div>
           </div>
         </div>
-
         <div class="catchphrase__container">
           <div class="catchphrase__box">
             <span class="catchphrase">이제, 여행은<br />가까운 곳에서</span>
@@ -138,42 +160,240 @@
           </div>
         </div>
       </div>
+      <!-- Nav Box-->
     </nav>
 
     <!-- 여기서부터 도시 -->
-    <section class="middle">
-      <div class="city_box1">
-        <div class="city_box2">
-          <div class="city city1">
-            <!-- <div
-              class="city_img"
+    <section class="section__city">
+      <div class="section__container">
+        <div class="section__container__city">
+          <ul class="city">
+            <div
+              class="city__img"
               style="
-                background-image: url(https://a0.muscache.com/im/pictures/71e23854-a3c7-491c-b715-6e86233a293f.jpg?im_q=medq&im_w=240);
+                background-image: url(https://a0.muscache.com/im/pictures/71e23854-a3c7-491c-b715-6e86233a293f.jpg?im_q=medq&im_w=720);
               "
-            ></div> -->
-            <div class="span_box">
-              <!-- <span class="city_name">서울</span>
-                <span class="city_distance">걸어서 3시간</span> -->
+            ></div>
+            <div class="city__box">
+              <b>서울</b>
+              <span>걸어서 3시간 거리</span>
             </div>
-          </div>
+          </ul>
+          <ul class="city">
+            <div
+              class="city__img"
+              style="
+                background-image: url(https://a0.muscache.com/im/pictures/8b318783-723f-4584-9b9b-0eb2c8b6078e.jpg?im_q=medq&im_w=720);
+              "
+            ></div>
+            <div class="city__box">
+              <b>인천</b>
+              <span>걸어서 13시간 거리</span>
+            </div>
+          </ul>
+          <ul class="city">
+            <div
+              class="city__img"
+              style="
+                background-image: url(https://a0.muscache.com/im/pictures/20356d40-a45f-4680-a9d0-5bb0a3836e4d.jpg?im_q=medq&im_w=720);
+              "
+            ></div>
+            <div class="city__box">
+              <b>하와이</b>
+              <span>가고싶다</span>
+            </div>
+          </ul>
+          <ul class="city">
+            <div
+              class="city__img"
+              style="
+                background-image: url(https://a0.muscache.com/im/pictures/105b8160-1109-4678-b8aa-367ea9faebea.jpg?im_q=medq&im_w=720);
+              "
+            ></div>
+            <div class="city__box">
+              <b>대구</b>
+              <span>걸어서 14시간 거리</span>
+            </div>
+          </ul>
+          <ul class="city">
+            <div
+              class="city__img"
+              style="
+                background-image: url(https://a0.muscache.com/im/pictures/8340bd19-ee32-4669-8b10-a8ac7e7735d4.jpg?im_q=medq&im_w=720);
+              "
+            ></div>
+            <div class="city__box">
+              <b>부산</b>
+              <span>SRT로 2시간 10분 거리</span>
+            </div>
+          </ul>
+          <ul class="city">
+            <div
+              class="city__img"
+              style="
+                background-image: url(https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=720);
+              "
+            ></div>
+            <div class="city__box">
+              <b>수원시</b>
+              <span>차로 30분 거리 </span>
+            </div>
+          </ul>
+          <ul class="city">
+            <div
+              class="city__img"
+              style="
+                background-image: url(https://a0.muscache.com/im/pictures/560c06e1-a396-4414-9e38-4fbe8e9f04c4.jpg?im_q=medq&im_w=720);
+              "
+            ></div>
+            <div class="city__box">
+              <b>서울</b>
+              <span>걸어서 3시간</span>
+            </div>
+          </ul>
+          <ul class="city">
+            <div class="city__img" style="background-image: url(./img/raccoon.jpg)"></div>
+            <div class="city__box">
+              <b>라쿤</b>
+              <span>걸어서 저 하늘까지</span>
+            </div>
+          </ul>
         </div>
-        <div class="city city2"></div>
-        <div class="city city3"></div>
-        <div class="city city4"></div>
-        <div class="city city5"></div>
-        <div class="city city6"></div>
-        <div class="city city7"></div>
-        <div class="city city8"></div>
       </div>
     </section>
 
     <!-- 여기서부터 공간 -->
-    <section class="middle2"></section>
+    <section class="section__space">
+      <div class="space__container">
+        <div class="phrase">
+          <span> 어디에서나, 여행은 살아보는 거야! </span>
+        </div>
 
-    <!-- 여기서부터 호객 -->
-    <section class="middle3"></section>
-    <div class="blank"></div>
-    <section class="middle4"></section>
+        <li class="space">
+          <div>
+            <img
+              class="_1cb9q3xq"
+              aria-hidden="true"
+              alt=""
+              decoding="async"
+              src="https://a0.muscache.com/im/pictures/a0316ecb-e49b-4b3a-b6b6-c2876b820e8c.jpg?im_w=720"
+              data-original-uri="https://a0.muscache.com/im/pictures/a0316ecb-e49b-4b3a-b6b6-c2876b820e8c.jpg?aki_policy=large"
+              style="object-fit: cover"
+            />
+          </div>
+          <div><span> 집 전체 </span></div>
+        </li>
+        <li class="space">
+          <div>
+            <img
+              class="_1cb9q3xq"
+              aria-hidden="true"
+              alt=""
+              decoding="async"
+              src="https://a0.muscache.com/im/pictures/c3bf8833-5678-4d94-9f16-696ef85a6dd4.jpg?im_w=720"
+              data-original-uri="https://a0.muscache.com/im/pictures/c3bf8833-5678-4d94-9f16-696ef85a6dd4.jpg?aki_policy=large"
+              style="object-fit: cover"
+            />
+          </div>
+          <div><span> 방갈로 </span></div>
+        </li>
+        <li class="space">
+          <div>
+            <img
+              class="_1cb9q3xq"
+              aria-hidden="true"
+              alt=""
+              decoding="async"
+              src="https://a0.muscache.com/im/pictures/ce6814ba-ed53-4d6e-b8f8-c0bbcf821011.jpg?im_w=720"
+              data-original-uri="https://a0.muscache.com/im/pictures/ce6814ba-ed53-4d6e-b8f8-c0bbcf821011.jpg?aki_policy=large"
+              style="object-fit: cover"
+            />
+          </div>
+          <div><span> 뭔가 독특한 공간 </span></div>
+        </li>
+        <li class="space">
+          <div>
+            <img
+              class="_1cb9q3xq"
+              aria-hidden="true"
+              alt=""
+              decoding="async"
+              src="https://a0.muscache.com/im/pictures/b5de192d-dc0d-4e85-927a-dec69928b406.jpg?im_w=720"
+              data-original-uri="https://a0.muscache.com/im/pictures/b5de192d-dc0d-4e85-927a-dec69928b406.jpg?aki_policy=large"
+              style="object-fit: cover"
+            />
+          </div>
+          <div><span> 벽난로 </span></div>
+        </li>
+      </div>
+    </section>
+
+    <section class="section__online">
+      <div class="online__upper">
+        <div>
+          <span>온라인 체험</span>
+          <br />
+          <span>전문가가 진행하고 모두 함께 즐기는 참여형 액티비티</span>
+        </div>
+        <div>
+          <div class="lookaround__button">모두 둘러보기</div>
+        </div>
+      </div>
+      <div class="online__body">
+        <ul class="online__activity__box">
+          <img
+            class="_6tbg2q"
+            aria-hidden="true"
+            alt=""
+            decoding="async"
+            src="https://a0.muscache.com/im/pictures/22f7dfe7-344e-4b55-88a0-3da9e0d45c97.jpg?im_q=medq&amp;im_w=720"
+            data-original-uri="https://a0.muscache.com/im/pictures/22f7dfe7-344e-4b55-88a0-3da9e0d45c97.jpg?aki_policy=large"
+            style="border-radius: 16px"
+          />
+        </ul>
+        <ul class="online__activity__box">
+          <img
+            class="_6tbg2q"
+            aria-hidden="true"
+            alt=""
+            decoding="async"
+            src="https://a0.muscache.com/im/pictures/c4f98b13-4d9e-4376-b014-6b3e827c31d0.jpg?im_q=medq&amp;im_w=720"
+            data-original-uri="https://a0.muscache.com/im/pictures/c4f98b13-4d9e-4376-b014-6b3e827c31d0.jpg?aki_policy=large"
+            style="object-fit: cover; vertical-align: bottom; border-radius: 16px"
+          />
+          <div>
+            <span>
+              이탈리아 할머니와 함께 수제<br />
+              파스타 만들기
+            </span>
+          </div>
+        </ul>
+        <ul class="online__activity__box">
+          <img
+            class="_6tbg2q"
+            aria-hidden="true"
+            alt=""
+            decoding="async"
+            src="https://a0.muscache.com/im/pictures/572d1f80-e3dc-4e48-b54b-5c802090e881.jpg?im_q=medq&amp;im_w=720"
+            data-original-uri="https://a0.muscache.com/im/pictures/572d1f80-e3dc-4e48-b54b-5c802090e881.jpg?aki_policy=large"
+            style="object-fit: cover; vertical-align: bottom; border-radius: 16px"
+          />
+        </ul>
+        <ul class="online__activity__box">
+          <img
+            class="_6tbg2q"
+            aria-hidden="true"
+            alt=""
+            decoding="async"
+            src="https://a0.muscache.com/im/pictures/15c33e47-2301-43bf-8a3c-8c8aa1643aa9.jpg?im_q=medq&amp;im_w=720"
+            data-original-uri="https://a0.muscache.com/im/pictures/15c33e47-2301-43bf-8a3c-8c8aa1643aa9.jpg?aki_policy=large"
+            style="object-fit: cover; vertical-align: bottom; border-radius: 16px"
+          />
+        </ul>
+      </div>
+    </section>
+
+    <section class="section__membership"></section>
     <div class="footer"></div>
   </body>
 </html>
