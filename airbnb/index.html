@@ -16,21 +16,19 @@
     <header class="header">
       <div class="header__column">
         <div class="header__logo">
-          <!-- <i class="fab fa-airbnb"></i>
-          <div>airbnb</div> -->
-          <img src="./src/images/airbnb.svg" alt="" />
+          <object fill="#000000" data="./src/images/airbnb.svg"></object>
         </div>
       </div>
       <div class="header__column">
-        <form>
+        <form class="search-form">
           <div>
-            <ul class="search-tab">
-              <a href="#"><li>숙소</li></a>
-              <a href="#"><li>체험</li></a>
-              <a href="#"><li>온라인 체험</li></a>
+            <ul class="search-form__tab">
+              <li>숙소</li>
+              <li>체험</li>
+              <li><a href="#">온라인 체험</a></li>
             </ul>
           </div>
-          <div class="search-query">
+          <div class="search-form__query">
             <div class="query__column">
               <div>위치</div>
               <input
@@ -40,19 +38,19 @@
                 placeholder="어디로 여행가십니까"
               />
             </div>
-            <div class="boundary"></div>
+            <div class="devider"></div>
             <div class="query-date-wrapper">
               <div class="query__column">
                 <div>체크인</div>
                 <div>날짜 추가</div>
               </div>
-              <div class="boundary"></div>
+              <div class="devider"></div>
               <div class="query__column">
                 <div>체크아웃</div>
                 <div>날짜 추가</div>
               </div>
             </div>
-            <div class="boundary"></div>
+            <div class="devider"></div>
             <div class="query__column-submit">
               <div class="query__column">
                 <div>인원</div>

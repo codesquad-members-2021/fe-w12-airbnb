@@ -54,7 +54,7 @@ main {
 .stay-item,
 .experience-item,
 .host-community-item {
-  margin-right: 16px;
+  margin-right: 1%;
 }
 .city-item:nth-child(4),
 .city-item:last-child,
@@ -66,7 +66,7 @@ main {
 
 .city-item,
 .stay-item {
-  width: 388px;
+  width: 24%;
   margin-top: 15px;
 }
 /* city */
@@ -93,7 +93,8 @@ main {
   margin-bottom: 10px;
 }
 .stay-item img {
-  width: 386px;
+  /* width: 386px; */
+  width: 100%;
 }
 .stay-item .stay-name {
   margin-top: 7px;
@@ -137,8 +138,12 @@ main {
   font-weight: 600;
   margin-bottom: 10px;
 }
+.host-community-item {
+  width: 32%;
+}
 .host-community-item img {
-  width: 523px;
+  width: 100%;
+  /* width: 523px; */
   height: 347px;
 }
 .host-community-item .host-community-name {

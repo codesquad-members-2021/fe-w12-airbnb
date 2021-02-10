@@ -120,7 +120,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -129,7 +129,6 @@ table {
 }
 
 a {
-  color: blue;
   text-decoration: none;
 }
 
@@ -138,6 +137,6 @@ button {
   outline: 0;
   background-color: rgba(0, 0, 0, 0);
 }
-input[type="radio"] {
+input[type='radio'] {
   display: none;
 }
