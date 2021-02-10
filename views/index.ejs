@@ -32,7 +32,7 @@
             <input class="nav_item" type="radio" id="nav_radio_2" />
             <label for="nav_radio_2">체험</label>
           </div>
-          <a href="">온라인체험</a>
+          <div class="atag"><a href="">온라인체험</a></div>
         </nav>
         <div class="member_setting">
           <span class="host">호스트되기</span>
@@ -178,5 +178,27 @@
         </li>
       </ul>
     </section>
+    <script>
+      const header = document.querySelector("header");
+      const intersectPoint = document.querySelector(".main");
+      const headerLogo = document.querySelector(".logo");
+
+      const options = {
+        rootMargin: "-40px 0px 0px 0px",
+      };
+      const interObserve = new IntersectionObserver((entries, interObserve) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            header.classList.add("white");
+            headerLogo.classList.add("pink");
+          } else {
+            header.classList.remove("white");
+            headerLogo.classList.remove("pink");
+          }
+        });
+      }, options);
+
+      interObserve.observe(intersectPoint);
+    </script>
   </body>
 </html>
