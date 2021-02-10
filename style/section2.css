@@ -1,0 +1,40 @@
+/* section 2 - houseType */
+
+p {
+  font-size: 32px;
+  font-weight: bolder;
+}
+
+.main__houseType {
+  /* border: 1px solid green; */
+  margin-bottom: 4rem;
+  padding: 0 5%;
+  /* border: 1px solid red; */
+}
+
+.main__houseType .house {
+  display: grid;
+  gap: 1.2%;
+  grid-template-columns: repeat(4, 1fr);
+  /* border: 1px solid blue; */
+}
+
+.main__houseType .house a {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid green; */
+}
+
+.main__houseType .house img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.main__houseType .house .title,
+.main__beHost .item ul li .title {
+  all: unset;
+  padding-top: 1.2%;
+  font-size: 18px;
+  font-weight: bold;
+}
