@@ -141,6 +141,7 @@
     padding: 0;
     margin-top: 5px;
     outline: none;
+    background-color: transparent;
 }
 /* ----- 체크인 체크아웃 ----- */
 #search > li:nth-child(2),
