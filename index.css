@@ -1,5 +1,5 @@
 @import 'reset.css';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
 :root {
   --main-padding: 0px 80px;
@@ -10,6 +10,12 @@
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+  padding: 20px 0px;
 }
 
 .display-flex {
@@ -163,4 +169,22 @@ body {
 }
 .city__content span:nth-child(2) {
   font-weight: 300;
+}
+
+/* 숙소 타입 */
+
+.stay-types {
+  padding: var(--main-padding);
+}
+
+.stay-types__lists {
+  display: flex;
+  justify-content: space-between;
+}
+
+.type__img,
+.type__img > img {
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
 }
