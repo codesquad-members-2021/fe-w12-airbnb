@@ -118,11 +118,6 @@ a {
     opacity: 1;
 }
 
-.top-list-words:focus {
-    margin-top: 5px;
-    border-bottom: 2px solid var(--info-color);
-}
-
 .top-list-words:hover {
     cursor: pointer;
     opacity: 70%;
@@ -139,6 +134,7 @@ a {
 
 .nav-list {
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .nav-btn {
