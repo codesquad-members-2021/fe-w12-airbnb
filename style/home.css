@@ -310,7 +310,7 @@ p {
 }
 
 .footer .footer__others {
-  /* border: 1px solid blue; */
+  border-top: 1px solid #dddddd;
   /* display: flex; */
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
