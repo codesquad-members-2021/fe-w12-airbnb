@@ -36,7 +36,6 @@ a {
   background-size: cover;
   padding: 0 80px;
   background-image: url(https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1920);
-  position: relative;
 }
 
 .nav__container {
@@ -133,9 +132,7 @@ a {
   border-bottom-left-radius: 50px;
 }
 
-.leftside__radius__background .reservation__menu__text {
-  padding-left: 30px;
-}
+.leftside__radius__background .reservation__menu__text,
 .leftside__radius__background .reservation__input {
   padding-left: 30px;
 }
@@ -444,7 +441,7 @@ a {
 }
 
 .online__activity__box > div {
-  /* position: absolute; */
+  position: absolute;
 }
 
 .online__activity__box > div > span {
