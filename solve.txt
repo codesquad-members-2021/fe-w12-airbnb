@@ -13,3 +13,12 @@
 -float, clear
 
 -menuRight순서바뀌는 이유
+
+-datetime-local
+
+-brightness
+
+-placeself
+
+-https://www.w3schools.com/cssref/playit.asp?filename=playcss_vertical-align&preval=25px
+vertical-align
