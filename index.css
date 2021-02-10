@@ -45,6 +45,7 @@ header {
   height: 100vh;
   width: 100%;
 }
+/*background-position : bottom*/
 
 #announcement {
   background-size: cover;
@@ -67,11 +68,13 @@ header {
   padding-left: 80px;
   padding-right: 80px;
   margin-top: 1rem;
+  /* text-align: center; */
 }
 
 .nav_left,
 .nav_center,
 .nav_right {
+  /* width: 33%; */
   flex-grow: 1; /*flex-grow를 쓰려면 flex를 써야한다. float가 아니라!!*/
 }
 
@@ -143,15 +146,54 @@ div.login_set > img {
   margin-right: 13rem;
   background-color: #fff;
   border-radius: 50px;
+  border: none;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 fieldset.search_box > div {
   display: inline-block;
-  /* justify-content: space-between; */
+  margin-left: 0.8rem;
+  margin-top: 0.7rem;
+  height: 1.5rem;
+  /* align-items: flex-start; */
+  /* vertical-align: middle; */
+}
+
+fieldset.search_box > div > label {
+  float: left;
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
+fieldset.search_box > div > input {
+  border: none;
+  float: left;
+  font-size: 0.6rem;
+  color: rgb(224, 221, 221);
+}
+
+.sec_op,
+.third_op,
+.fourth_op {
+  padding-left: 1rem;
+  border-left: 0.07rem solid rgb(224, 221, 221);
+}
+
+#search_btn {
+  background-color: #12cbc4;
+  border-radius: 50px;
+  height: 1.7rem;
+  width: 1.8rem;
+  cursor: pointer;
 }
 
 .search_logo {
-  height: 30px;
+  padding-top: 0.5rem;
+  height: 35px;
   width: auto;
   filter: brightness(0) invert(1);
 }
