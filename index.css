@@ -122,3 +122,22 @@ body {
   border-radius: 8px;
   font-size: 14px;
 }
+
+/* 추천 도시 목록 */
+
+.recommended-cities {
+  padding: 60px 80px;
+}
+
+.cities {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+}
+
+.city__img > img {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+}
