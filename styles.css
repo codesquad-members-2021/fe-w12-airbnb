@@ -1,23 +1,28 @@
 body{
     margin: 0;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
 }
 
+img , a {
+    cursor:pointer;
+}
+/* ---------------------------------------------------------------- */
 .CVD19_banner_box{
     box-sizing: border-box;
-    border: 5px solid orange;
-    color: white;
     background-color: black;
-    padding-top: 21px;
-    padding-bottom: 21px;
+    color: #DDDDDD;
+    padding: 20px 80px;
     text-align: center;
-    font-size: 0.9em;
+    position: relative;
+    /* position: fixed;
+    z-index: 1;
+    width: 100%; */
 }
 
-.CVD19_banner_box a:link{text-decoration: none; color: white;}
-.CVD19_banner_box a:visited{text-decoration: none; color: white;}
-.CVD19_banner_box a:active{text-decoration: none; color: white;}
-.CVD19_banner_box a:hover{text-decoration: none; color: white;}
-
+.CVD19_banner_box a{text-decoration: none; color: #DDDDDD;}
+/* ---------------------------------------------------------------- */
 .include_mainImage_box{
     box-sizing: border-box;
     width: 100%;
@@ -27,28 +32,52 @@ body{
     background-position: center;
     position: relative;
     background-image: url('https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1920');
-    margin-bottom: 25px;
 }
 
 .header_box {
-    box-sizing: border-box;
+    height: 80px;
+    align-items: center;
+    color: #FFFFFF;
     display: flex;
-    margin-bottom: 25px;
+    padding: 0px 80px;
 }
 
-.header_box .logo{
+.header_box_logo a{text-decoration: none; color: #FFFFFF;}
+
+.header_box_logo{
+    border: 1px solid white;
+    width: calc(100%/3);
+    text-align: left;
 }
 
-.header_box .menu{
+.header_box_menu {
+    border: 1px solid white;
+    width: calc(100%/3);
+    text-align: center;
 }
 
-.header_box .my_info {
+.header_box_menu li{
+    display: inline;
+    cursor: pointer;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+
+.header_box_my_info{
+    border: 1px solid white;
+    width: calc(100%/3);
+    text-align: right;
+}
+
+.header_box_my_info li{
+    display: inline;
+    cursor: pointer;
 }
 
 .search_box {
     box-sizing: border-box;
     display: flex;
-    margin-bottom: 25px;
 }
 
 .search_box ul:nth-child(n){
@@ -56,57 +85,49 @@ body{
 }
 
 .phrase_box {
+    color: #FFFFFF;
     box-sizing: border-box;
-    display: block;
 }
-
+/* ---------------------------------------------------------------- */
 .select_locations_box {
     background-color: #e7e6e1;
-    margin-bottom: 25px;
 }
 
 .select_locations_box > .locations img{
     width: 64px;
     height: 64px;
     border-radius: 8px;
-    cursor: pointer;
 }
 
 .select_where_live_box {
     background-color: #f7f6e7;
-    margin-bottom: 25px;
 }
 
 .select_where_live_box > .House_type img{
     width: 300px;
     height: 300px;
     border-radius: 8px;
-    cursor: pointer;
 }
 
 .select_experience_box {
     background-color: black;
     color: white;
-    margin-bottom: 25px;
 }
 
 .select_experience_box > .experience_type img{
     width: 320px;
     height: 320px;
     border-radius: 8px;
-    cursor: pointer;
 }
 
 .host_box {
     background-color: #f2a154;
-    margin-bottom: 25px;
 }
 
 .host_box > .hosting_type img{
     width: 320px;
     height: 213px;
     border-radius: 8px;
-    cursor: pointer;
 }
 
 .footer{
@@ -127,4 +148,4 @@ footer > .footer_upper div{
 footer > .footer_upper div li:nth-child(1){
     font-weight: bold;
     font-size: large;
-}
+} 
