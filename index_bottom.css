@@ -1,0 +1,18 @@
+.backgroundblack {
+    background-color: black;
+    color : white;
+    padding: 0 80px;
+}
+
+.backgroundblack > ul {
+    list-style: none;
+}
+
+.backgroundblack > h2 {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.backgroundblack > span {
+    font-size: 14px;
+}
