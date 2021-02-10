@@ -2,89 +2,15 @@ body,
 ul,
 button,
 fieldset,
-a {
+a,
+input {
   all: unset;
 }
 
 a,
-button {
+button,
+input {
   cursor: pointer;
-}
-
-.header {
-  position: relative;
-  width: auto;
-}
-
-.header,
-.header a {
-  color: white;
-  /* border: 3px solid red; */
-}
-
-.header__alertMessage {
-  height: 60px;
-  background-color: black;
-  text-align: center;
-  display: flex;
-  align-items: center;
-}
-
-.header__alertMessage a {
-  color: white;
-  width: 100%;
-  text-align: center;
-}
-
-.header__alertMessage a:hover {
-  color: gray;
-}
-
-.header__content {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid red;
-  margin-top: 20px;
-  height: 150px;
-  width: 100%;
-  position: absolute;
-}
-
-#airbnb__logo {
-  width: 100px;
-}
-
-.header__search {
-  display: flex;
-}
-
-.header__account {
-  display: flex;
-}
-
-.header__main-statement {
-  position: absolute;
-  top: 45%;
-  left: 5%;
-}
-
-.header__main-statement h1 {
-  max-width: 430px;
-  border: 1px solid red;
-  font-size: 50px;
-}
-
-.header__main-image {
-  max-height: 48rem;
-  overflow: hidden;
-  width: auto;
-}
-
-.header__main-image img {
-  max-height: initial;
-  margin-top: -8%;
-  width: 100%;
-  object-fit: cover;
 }
 
 /* main sections*/
@@ -98,8 +24,12 @@ li {
 .footer {
   border-top: 1px solid #dddddd;
   background-color: #f7f7f7;
-  padding: 0 5%;
+  padding: 0 7%;
   font-size: 14px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
 
 .footer h4 {
