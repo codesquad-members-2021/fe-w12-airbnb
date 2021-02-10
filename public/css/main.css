@@ -189,9 +189,9 @@ header .member_setting .menuAndAcountIcon i:last-child {
   padding: 60px 70px;
 }
 .section_cities ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 .section_cities li {
   width: 320px;
