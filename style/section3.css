@@ -1,0 +1,99 @@
+.main__online-activity {
+  color: white;
+  width: auto;
+  background-color: black;
+  /* padding: 0 5% 5% 5%; */
+  padding: 0 7% 5% 7%;
+}
+
+.main__online-activity .header {
+  /* border: 1px solid greenyellow; */
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  /* margin-bottom: 2%; */
+  /* margin-top: 7%; */
+}
+
+.main__online-activity .header p {
+  margin-bottom: 0;
+}
+
+.main__online-activity .header button span {
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 0.4em 1em;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.main__online-activity .header button span:hover {
+  background-color: #717171;
+}
+
+.main__online-activity .item {
+  padding-top: 2em;
+  /* border: 1px solid greenyellow; */
+}
+
+.main__online-activity .item ul {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1% 1.1%;
+  height: 100%;
+}
+
+.main__online-activity .item ul li {
+  all: unset;
+  /* border: 1px solid blueviolet; */
+}
+
+.main__online-activity .item ul li:nth-child(1) {
+  grid-area: 1 / 1 / span 2 / auto;
+  /* border: 3px solid pink; */
+}
+
+.main__online-activity .item ul li:nth-child(2) {
+  grid-area: 1 / 2 / auto / auto;
+}
+
+.main__online-activity .item ul li:nth-child(4) {
+  grid-area: 2 / 2 / auto / span 2;
+}
+
+.main__online-activity .item ul li .description {
+  position: relative;
+}
+
+.main__online-activity .item ul li .description .img img {
+  object-fit: cover;
+  width: 100%;
+  vertical-align: bottom;
+  border-radius: 16px;
+}
+
+.main__online-activity .item ul li .description #firstText {
+  top: 92%;
+}
+
+.main__online-activity .item ul li .description #thirdText,
+.main__online-activity .item ul li .description #secondText {
+  /* bottom: 4%; */
+  padding: 0 4%;
+}
+
+.main__online-activity .item ul li .description .description__text {
+  position: absolute;
+  /* border: 1px solid yellow; */
+  top: 84%;
+  padding: 0 2%;
+  text-align: left;
+}
+
+.main__online-activity .item ul li .description .description__text span {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
