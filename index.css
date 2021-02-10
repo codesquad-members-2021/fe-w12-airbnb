@@ -175,6 +175,7 @@ h2 {
 
 .stay-types {
   padding: var(--main-padding);
+  margin-bottom: 60px;
 }
 
 .stay-types__lists {
@@ -195,4 +196,30 @@ h2 {
 .stay-type > span {
   color: var(--dark-gray);
   font-size: 18px;
+}
+
+/* 온라인 체험 */
+
+.experiences {
+  padding: 60px 80px;
+  background-color: black;
+}
+
+.experiences__header {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.section-explain > h2 {
+  padding: 0;
+}
+
+.experiences__header > a {
+  color: var(--white);
+  border: 1px solid white;
+  padding: 5px 15px;
+  border-radius: 8px;
 }
