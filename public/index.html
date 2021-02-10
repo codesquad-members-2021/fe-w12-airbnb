@@ -8,218 +8,225 @@
     <link rel="stylesheet" href="style.css" />
     <title>airbnb-clone</title>
   </head>
-  <div class="img-cover">
-    <aside>
-      <span class="info-corona"
-        >에어비엔비의 코로나19 대응 방안에 대한 최신정보를 확인하세요.</span
-      >
-    </aside>
-    <header class="header">
-      <div class="logo">
-        <a href="#"
-          ><span class="logo-font"
-            ><i class="fab fa-airbnb"></i> airbnb</span
-          ></a
+  <body>
+    <div class="img-cover">
+      <aside>
+        <span class="info-corona"
+          >에어비엔비의 코로나19 대응 방안에 대한 최신정보를 확인하세요.</span
         >
+      </aside>
+      <header class="header">
+        <div class="logo">
+          <a href="#"
+            ><span class="logo-font"
+              ><i class="fab fa-airbnb"></i> airbnb</span
+            ></a
+          >
+        </div>
+        <ul class="top-list">
+          <li class="top-list-words">숙소</li>
+          <li class="top-list-words">체험</li>
+          <li class="top-list-words"><a href="#">온라인 체험</a></li>
+        </ul>
+        <nav class="nav">
+          <a href="#" class="nav-list">호스트 되기</a>
+          <button class="nav-list nav-btn"><i class="fas fa-globe"></i></button>
+          <button class="nav-list nav-btn profile">
+            <i class="fas fa-align-justify"></i>
+            <i class="fas fa-user-circle"></i>
+          </button>
+        </nav>
+      </header>
+      <div class="info-form-container">
+        <form class="info-input-form">
+          <div class="labels-input">
+            <label for="location">위치</label>
+            <input
+              id="location"
+              type="text"
+              class="info-inputs"
+              placeholder="어디로 여행가세요?"
+            />
+          </div>
+          <div class="labels-input">
+            <label for="check-in">체크인</label>
+            <input
+              id="check-in"
+              type="date"
+              class="info-inputs"
+              placeholder=""
+            />
+          </div>
+          <div class="labels-input">
+            <label for="check-out">체크아웃</label>
+            <input
+              id="check-out"
+              type="date"
+              class="info-inputs"
+              placeholder=""
+            />
+          </div>
+          <div class="labels-input" id="no-border">
+            <label for="reserve-number">인원</label>
+            <input
+              id="reserve-number"
+              type="number"
+              class="info-inputs"
+              placeholder="게스트 추가"
+            />
+          </div>
+          <div class="search-btn-container">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
       </div>
-      <ul class="top-list">
-        <li class="top-list-words">숙소</li>
-        <li class="top-list-words">체험</li>
-        <li class="top-list-words"><a href="#">온라인 체험</a></li>
-      </ul>
-      <nav class="nav">
-        <a href="#" class="nav-list">호스트 되기</a>
-        <button class="nav-list nav-btn"><i class="fas fa-globe"></i></button>
-        <button class="nav-list nav-btn profile">
-          <i class="fas fa-align-justify"></i>
-          <i class="fas fa-user-circle"></i>
-        </button>
-      </nav>
-    </header>
-    <div class="info-form-container">
-      <form class="info-input-form">
-        <div class="labels-input">
-          <label for="location">위치</label>
-          <input
-            id="location"
-            type="text"
-            class="info-inputs"
-            placeholder="어디로 여행가세요?"
-          />
-        </div>
-        <div class="labels-input">
-          <label for="check-in">체크인</label>
-          <input id="check-in" type="date" class="info-inputs" placeholder="" />
-        </div>
-        <div class="labels-input">
-          <label for="check-out">체크아웃</label>
-          <input
-            id="check-out"
-            type="date"
-            class="info-inputs"
-            placeholder=""
-          />
-        </div>
-        <div class="labels-input" id="no-border">
-          <label for="reserve-number">인원</label>
-          <input
-            id="reserve-number"
-            type="number"
-            class="info-inputs"
-            placeholder="게스트 추가"
-          />
-        </div>
-        <div class="search-btn-container">
-          <button class="search-btn"><i class="fas fa-search"></i></button>
-        </div>
-      </form>
+      <section class="slogan-section">
+        <article class="slogan-article">
+          <h1 class="slogan">이제, 여행은 가까운 곳에서</h1>
+          <a href="#" class="slgoan-btn">근처의 숙소 둘러보기</a>
+        </article>
+      </section>
     </div>
-    <section class="slogan-section">
-      <article class="slogan-article">
-        <h1 class="slogan">이제, 여행은 가까운 곳에서</h1>
-        <a href="#" class="slgoan-btn">근처의 숙소 둘러보기</a>
-      </article>
+    <section class="city-section">
+      <div class="city-aritcle">
+        <div class="city-lists">
+          <img src="./img/sec1-01.jpg" alt="seoul" />
+          <div class="city-spans">
+            <span class="city-name">서울</span>
+            <span>차로 40분 거리</span>
+          </div>
+        </div>
+        <div class="city-lists">
+          <img src="./img/sec1-02.jpg" alt="suwon" />
+          <div class="city-spans">
+            <span class="city-name">수원시</span>
+            <span>차로 15분 거리</span>
+          </div>
+        </div>
+        <div class="city-lists">
+          <img src="./img/sec1-03.jpg" alt="incheon" />
+          <div class="city-spans">
+            <span class="city-name">인천</span>
+            <span>차로 45분 거리</span>
+          </div>
+        </div>
+        <div class="city-lists">
+          <img src="./img/sec1-04.jpg" alt="ewjungbu" />
+          <div class="city-spans">
+            <span class="city-name">의정부시</span>
+            <span>차로 1시간 거리</span>
+          </div>
+        </div>
+        <div class="city-lists">
+          <img src="./img/sec1-05.jpg" alt="daejeon" />
+          <div class="city-spans">
+            <span class="city-name">대전</span>
+            <span>차로 2시간 거리</span>
+          </div>
+        </div>
+        <div class="city-lists">
+          <img src="./img/sec1-06.jpg" alt="daegu" />
+          <div class="city-spans">
+            <span class="city-name">대구</span>
+            <span>차로 3시간 30분 거리</span>
+          </div>
+        </div>
+        <div class="city-lists">
+          <img src="./img/sec1-07.jpg" alt="ansan" />
+          <div class="city-spans">
+            <span class="city-name">안산시</span>
+            <span>차로 30분 거리</span>
+          </div>
+        </div>
+        <div class="city-lists">
+          <img src="./img/sec1-08.jpg" alt="sungnam" />
+          <div class="city-spans">
+            <span class="city-name">성남시</span>
+            <span>차로 30분 거리</span>
+          </div>
+        </div>
+      </div>
     </section>
-  </div>
-  <section class="city-section">
-    <div class="city-aritcle">
-      <div class="city-lists">
-        <img src="./img/sec1-01.jpg" alt="seoul" />
-        <div class="city-spans">
-          <span class="city-name">서울</span>
-          <span>차로 40분 거리</span>
-        </div>
+    <section class="first-middle-section">
+      <h2 class="first-middle-sec-title">어디에서나, 여행은 살아보는 거야!</h2>
+      <div class="first-middle-sec-container">
+        <a href="#" class="first-middle-sec-content">
+          <div class="img-content">
+            <img src="./img/sec2-01.jpg" alt="" />
+          </div>
+          <span>집 전체</span>
+        </a>
+        <a href="#" class="first-middle-sec-content">
+          <div class="img-content">
+            <img src="./img/sec2-02.jpg" alt="" />
+          </div>
+          <span>셀프 체크인</span>
+        </a>
+        <a href="#" class="first-middle-sec-content">
+          <div class="img-content">
+            <img src="./img/sec2-03.jpg" alt="" />
+          </div>
+          <span>독특한 공간</span>
+        </a>
+        <a href="#" class="first-middle-sec-content">
+          <div class="img-content">
+            <img src="./img/sec2-04.jpg" alt="" />
+          </div>
+          <span>캠핑 및 글램핑</span>
+        </a>
       </div>
-      <div class="city-lists">
-        <img src="./img/sec1-02.jpg" alt="suwon" />
-        <div class="city-spans">
-          <span class="city-name">수원시</span>
-          <span>차로 15분 거리</span>
+    </section>
+    <section class="second-middle-sec-container">
+      <article class="second-middle-sec-top">
+        <div class="title">
+          <h2>온라인 체험</h2>
+          <p>전문가가 진행하고 모두함께 즐기는 참여형 액티비티</p>
         </div>
+        <button>모두 둘러보기</button>
+      </article>
+      <div class="second-middle-aritcles-container">
+        <a href="#" class="summary-img first">
+          <img src="./img/sec3-01.jpg" alt="pasta-making" />
+          <div>이탈리아 할머니와 함께 수제 파스타 만들기</div>
+        </a>
+        <a href="#" class="summary-img second">
+          <img src="./img/sec3-02.jpg" alt="dinner with inner peace" />
+          <div>선 사상을 통한 마음챙김 식사</div>
+        </a>
+        <a href="#" class="summary-img third">
+          <img src="./img/sec3-03.jpg" alt="dig into tea" />
+          <div>아르헨티나를 대표하는 마테차 알아보기</div>
+        </a>
+        <a href="#" class="summary-img forth">
+          <img src="./img/sec3-04.jpg" alt="listen to music" />
+          <div>파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</div>
+        </a>
       </div>
-      <div class="city-lists">
-        <img src="./img/sec1-03.jpg" alt="incheon" />
-        <div class="city-spans">
-          <span class="city-name">인천</span>
-          <span>차로 45분 거리</span>
-        </div>
+    </section>
+    <section class="last-section-container">
+      <h2>
+        수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.
+      </h2>
+      <div class="last-sec-contents-list">
+        <a href="#" class="last-sec-content">
+          <div>
+            <img src="./img/sec4-01.jpg" alt="" />
+          </div>
+          <span>숙소 호스트 되기</span>
+        </a>
+        <a href="#" class="last-sec-content">
+          <div>
+            <img src="./img/sec4-02.jpg" alt="" />
+          </div>
+          <span>온라인 체험 호스팅하기</span>
+        </a>
+        <a href="#" class="last-sec-content">
+          <div>
+            <img src="./img/sec4-03.jpg" alt="" />
+          </div>
+          <span>체험 호스팅하기</span>
+        </a>
       </div>
-      <div class="city-lists">
-        <img src="./img/sec1-04.jpg" alt="ewjungbu" />
-        <div class="city-spans">
-          <span class="city-name">의정부시</span>
-          <span>차로 1시간 거리</span>
-        </div>
-      </div>
-      <div class="city-lists">
-        <img src="./img/sec1-05.jpg" alt="daejeon" />
-        <div class="city-spans">
-          <span class="city-name">대전</span>
-          <span>차로 2시간 거리</span>
-        </div>
-      </div>
-      <div class="city-lists">
-        <img src="./img/sec1-06.jpg" alt="daegu" />
-        <div class="city-spans">
-          <span class="city-name">대구</span>
-          <span>차로 3시간 30분 거리</span>
-        </div>
-      </div>
-      <div class="city-lists">
-        <img src="./img/sec1-07.jpg" alt="ansan" />
-        <div class="city-spans">
-          <span class="city-name">안산시</span>
-          <span>차로 30분 거리</span>
-        </div>
-      </div>
-      <div class="city-lists">
-        <img src="./img/sec1-08.jpg" alt="sungnam" />
-        <div class="city-spans">
-          <span class="city-name">성남시</span>
-          <span>차로 30분 거리</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="first-middle-section">
-    <h2 class="first-middle-sec-title">어디에서나, 여행은 살아보는 거야!</h2>
-    <div class="first-middle-sec-container">
-      <a href="#" class="first-middle-sec-content">
-        <div class="img-content">
-          <img src="./img/sec2-01.jpg" alt="" />
-        </div>
-        <span>집 전체</span>
-      </a>
-      <a href="#" class="first-middle-sec-content">
-        <div class="img-content">
-          <img src="./img/sec2-02.jpg" alt="" />
-        </div>
-        <span>셀프 체크인</span>
-      </a>
-      <a href="#" class="first-middle-sec-content">
-        <div class="img-content">
-          <img src="./img/sec2-03.jpg" alt="" />
-        </div>
-        <span>독특한 공간</span>
-      </a>
-      <a href="#" class="first-middle-sec-content">
-        <div class="img-content">
-          <img src="./img/sec2-04.jpg" alt="" />
-        </div>
-        <span>캠핑 및 글램핑</span>
-      </a>
-    </div>
-  </section>
-  <section class="second-middle-sec-container">
-    <article class="second-middle-sec-top">
-      <div class="title">
-        <h2>온라인 체험</h2>
-        <p>전문가가 진행하고 모두함께 즐기는 참여형 액티비티</p>
-      </div>
-      <button>모두 둘러보기</button>
-    </article>
-    <div class="second-middle-aritcles-container">
-      <a href="#" class="summary-img first">
-        <img src="./img/sec3-01.jpg" alt="pasta-making" />
-        <div>이탈리아 할머니와 함께 수제 파스타 만들기</div>
-      </a>
-      <a href="#" class="summary-img second">
-        <img src="./img/sec3-02.jpg" alt="dinner with inner peace" />
-        <div>선 사상을 통한 마음챙김 식사</div>
-      </a>
-      <a href="#" class="summary-img third">
-        <img src="./img/sec3-03.jpg" alt="dig into tea" />
-        <div>아르헨티나를 대표하는 마테차 알아보기</div>
-      </a>
-      <a href="#" class="summary-img forth">
-        <img src="./img/sec3-04.jpg" alt="listen to music" />
-        <div>파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</div>
-      </a>
-    </div>
-  </section>
-  <section class="last-section-container">
-    <h2>수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</h2>
-    <div class="last-sec-contents-list">
-      <a href="#" class="last-sec-content">
-        <div>
-          <img src="./img/sec4-01.jpg" alt="" />
-        </div>
-        <span>숙소 호스트 되기</span>
-      </a>
-      <a href="#" class="last-sec-content">
-        <div>
-          <img src="./img/sec4-02.jpg" alt="" />
-        </div>
-        <span>온라인 체험 호스팅하기</span>
-      </a>
-      <a href="#" class="last-sec-content">
-        <div>
-          <img src="./img/sec4-03.jpg" alt="" />
-        </div>
-        <span>체험 호스팅하기</span>
-      </a>
-    </div>
-  </section>
-
-  <body></body>
+    </section>
+  </body>
 </html>
