@@ -1,7 +1,12 @@
+.divider {
+  height: 30px;
+  border-left: 1px solid #ebebeb;
+}
 header {
   padding: 20px 150px;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 .header__column {
   width: 33%;
@@ -23,8 +28,9 @@ header {
   display: flex;
   align-items: center;
   color: white;
+  font-size: 1.2em;
 }
-.search-form__tab > li + li {
+.search-form__tab li + li {
   margin-right: 15px;
 }
 .search-form__tab > a {
@@ -32,10 +38,12 @@ header {
   border: 1px black solid;
 }
 
+/* form-query */
+
 .search-form__query {
   position: absolute;
   top: 100px;
-  width: 635px;
+  width: 720px;
   height: 70px;
   background-color: white;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
@@ -43,18 +51,24 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0 25px;
+  padding: 0 0 0 25px;
 }
 .search-form__query > div:first-child > input {
   background-color: rgba(0, 0, 0, 0);
+  width: 130px;
+  height: 16px;
   border: none;
   outline: none;
 }
 .query-date-wrapper {
   display: flex;
+  align-items: center;
+}
+.query-date-wrapper > .divider {
+  margin-right: 25px;
 }
 .query__column {
-  width: 150px;
+  width: 130px;
 }
 .query__column div:first-child {
   margin-bottom: 5px;
@@ -67,9 +81,16 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+.query__column-submit button {
+  color: white;
+  padding: 17px;
+  background-color: red;
+  border-radius: 100%;
+}
 
 /* nav */
 .header__column:last-child nav {
+  font-size: 1.2em;
   display: flex;
   justify-content: flex-end;
 }

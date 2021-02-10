@@ -1,7 +1,6 @@
 @import url(./reset.css);
 @import url(./header.css);
 @import url(./main.css);
-@import url(./util.css);
 
 * {
   box-sizing: border-box;
