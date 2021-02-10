@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div id="notice">
+    <div id="notice" class="darkBackground">
       <a href="#"
         >에어비앤비의 코로나 19대응 방안에 대한 최신 정보를 확인하세요.</a
       >
@@ -21,11 +21,13 @@
       <header>
         <div class="contents_wrapper">
           <div class="logo">
-            <object
-              data="./img/logo.svg"
-              type="image/svg+xml"
-              aria-label="LOGO"
-            ></object>
+            <a href="#">
+              <object
+                data="./img/logo.svg"
+                type="image/svg+xml"
+                aria-label="LOGO"
+              ></object
+            ></a>
           </div>
           <div class="search">
             <form>
@@ -87,10 +89,10 @@
               </div>
             </form>
           </div>
-          <div>
+          <div class="menu">
             <nav>
-              <ul class="nav-menu">
-                <li>호스트 되기</li>
+              <ul class="menuBox">
+                <li><a href="#">호스트되기</a></li>
                 <li>
                   <object
                     data="./img/icon.svg"
@@ -98,7 +100,7 @@
                     aria-label="icon"
                   ></object>
                 </li>
-                <li>
+                <li class="menu-mypage">
                   <object
                     data="./img/menu.svg"
                     type="image/svg+xml"
@@ -227,6 +229,32 @@
               </div>
             </div>
           </article>
+          <article class="article-box article-dark">
+            <div class="contents_wrapper">
+              <h3>세상을 만나는 특별한 방법</h3>
+              <p>
+                현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나
+                온라인으로 만나보세요.
+              </p>
+              <div>
+                <div class="article-item">
+                  <img src="./img/way_1.jpg" alt="온라인 체험" />
+                  <div>온라인 체험</div>
+                  <p>집에서 즐기는 랜선 세계 여행</p>
+                </div>
+                <div class="article-item">
+                  <img src="./img/way_2.jpg" alt="체험" />
+                  <div>체험</div>
+                  <p>어디에서든 즐길 수 있는 체험</p>
+                </div>
+                <div class="article-item">
+                  <img src="./img/way_3.jpg" alt="어드벤처" />
+                  <div>어드벤처</div>
+                  <p>숙바고가 식사가 포함된 며칠 일정의 여행입니다.</p>
+                </div>
+              </div>
+            </div>
+          </article>
           <article class="article-box">
             <div class="contents_wrapper">
               <h3>
@@ -313,3 +341,9 @@
     </div>
   </body>
 </html>
+
+<div>
+  <img src="" alt="" />
+  <div></div>
+  <div></div>
+</div>
