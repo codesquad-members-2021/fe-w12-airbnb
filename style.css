@@ -8,6 +8,17 @@ h4{
     font-size : 2rem;
     font-weight: bold;
 }
+.topbar--background{
+    background-color: black;
+}
+.topbar--content{
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    
+}
 .main--background{
     background-image: url(./src/main-wide.jpg);
     background-position:left bottom;
@@ -26,10 +37,20 @@ h4{
     align-items: center;
 }
 .main__logo {
-    padding-top: 0.5rem;/*center로 세로 조정 다시 할 것*/
+    padding-top: 0.5rem;
+}
+.main__menu{
+    text-shadow: -1px 0 black,
+                0 1px black,
+                1px 0 black,
+                0 -1px black;
+}
+.main__site-menu__content{
+    padding: 0.5rem;
 }
 .main__content {
     clear:both;
+    line-height: 120%;
     margin-top: 5rem;
     font-size: 4rem;
     font-weight: bold;
@@ -40,9 +61,7 @@ h4{
 }
 .location__city{
     display: inline-flex;
-    /* justify-content: space-between; 이거 왜 동작안해 */ 
     width:24%;
-    /*4분의 1을 표현하며 쬐끔의 padding도 커버칠 적당할 표현 없나*/
     align-items: center;
 }
 .location__city--image{
@@ -53,7 +72,7 @@ h4{
 }
 .location__city--description{
     line-height: 130%;
-    padding-left: 1rem;
+    padding-left: 0.5rem;
 }
 .house{
     padding: 2rem;
