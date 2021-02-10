@@ -83,7 +83,6 @@ a {
     align-items: center;
     font-size: var(--normal-font-size);
     color: var(--font-color);
-    position: relative;
 }
 
 .top-list-words {
@@ -92,14 +91,41 @@ a {
     padding: 0 20px;
     list-style: none;
     font-size: var(--normal-font-size);
+    position: relative;
 }
 
 .top-list-words a {
     line-height: 0;
 }
 
+.top-list-words::after {
+    content: "";
+    margin: -4px;
+    left:50%;
+    display: block;
+    height: 2px;
+    width:3px;
+    border-bottom: 2px solid var(--info-color);
+    position: absolute;
+    opacity: 0;
+    transition-property: opacity, width;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+}
+
+.top-list-words:hover::after{
+    width: 10px;
+    opacity: 1;
+}
+
+.top-list-words:focus {
+    margin-top: 5px;
+    border-bottom: 2px solid var(--info-color);
+}
+
 .top-list-words:hover {
     cursor: pointer;
+    opacity: 70%;
 }
 
 .nav {
