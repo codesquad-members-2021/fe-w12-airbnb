@@ -27,13 +27,13 @@ button {
 }
 
 .logo {
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .search {
     position: relative;
     margin-top: 30px;
-    margin-left: 500px;
+    margin-left: 600px;
 }
 
 .search input {
@@ -59,7 +59,7 @@ button {
 
 .hosting {
     margin-top: 30px;
-    margin-left: 400px;
+    margin-left: 450px;
 }
 
 .earth {
@@ -86,7 +86,7 @@ button {
 .picture {
     height: 800px;
     background-image: url("img/main-wide.jpg");
-    background-position: center;
+    background-position: cotain;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     position: relative;
@@ -97,7 +97,7 @@ button {
     font-size: 80px;
     color: white;
     top: 300px;
-    left: 100px;
+    left: 150px;
 }
 
 
@@ -106,7 +106,7 @@ button {
 .look-around {
     position: absolute;
     top: 520px;
-    left: 100px;
+    left: 150px;
     background-color: white;
     font-size: 14px;
     color: black;
@@ -115,12 +115,12 @@ button {
 }
 
 .city {
-    height: 200px;
+    height: 300px;
 }
 
 .city img {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     border-radius: 5px;
 }
 
@@ -129,9 +129,13 @@ button {
     float: left;
 }
 
+.row {
+    padding: 30px;
+}
+
 .live {
-    height: 600px;
-    margin-left: 100px;
+    height: 500px;
+    margin-left: 150px;
 }
 
 .live>h1 {
@@ -166,13 +170,13 @@ button {
     position: relative;
     top: 20px;
     color: white;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .exprience>h2 {
     font-size: 13px;
     color: white;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .exprience>ul>li>a {
@@ -189,12 +193,12 @@ button {
 .exprience li {
     float: left;
     margin-right: -40px;
-    margin-left: 60px;
+    margin-left: 110px;
 }
 
 .host {
     height: 600px;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .host h1 {
@@ -209,7 +213,7 @@ button {
 
 .host li {
     float: left;
-    margin-right: 60px;
+    margin-right: 110px;
     margin-left: -40px;
 }
 
