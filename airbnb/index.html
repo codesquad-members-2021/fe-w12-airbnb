@@ -16,21 +16,19 @@
     <header class="header">
       <div class="header__column">
         <div class="header__logo">
-          <!-- <i class="fab fa-airbnb"></i>
-          <div>airbnb</div> -->
-          <img src="./src/images/airbnb.svg" alt="" />
+          <object data="./src/images/airbnb.svg"></object>
         </div>
       </div>
       <div class="header__column">
-        <form>
+        <form class="search-form">
           <div>
-            <ul class="search-tab">
-              <a href="#"><li>숙소</li></a>
-              <a href="#"><li>체험</li></a>
-              <a href="#"><li>온라인 체험</li></a>
+            <ul class="search-form__tab">
+              <li>숙소</li>
+              <li>체험</li>
+              <li><a href="#">온라인 체험</a></li>
             </ul>
           </div>
-          <div class="search-query">
+          <div class="search-form__query">
             <div class="query__column">
               <div>위치</div>
               <input
@@ -40,19 +38,19 @@
                 placeholder="어디로 여행가십니까"
               />
             </div>
-            <div class="boundary"></div>
+            <div class="divider"></div>
             <div class="query-date-wrapper">
               <div class="query__column">
                 <div>체크인</div>
                 <div>날짜 추가</div>
               </div>
-              <div class="boundary"></div>
+              <div class="divider"></div>
               <div class="query__column">
                 <div>체크아웃</div>
                 <div>날짜 추가</div>
               </div>
             </div>
-            <div class="boundary"></div>
+            <div class="divider"></div>
             <div class="query__column-submit">
               <div class="query__column">
                 <div>인원</div>
@@ -85,18 +83,19 @@
       </div>
     </header>
     <main>
-      <div class="main-column">
+      <div class="main__column">
         <div class="main-background">
-          <img src="./src/images/main-wide.jpg" width="100%" />
+          <img src="./src/images/main-wide.jpg" />
         </div>
         <div class="main-title">
-          <span class="main-title__span">이제, 여행은 가까운 곳에서</span>
+          <span class="main-title__span">이제, 여행은</span>
+          <span class="main-title__span">가까운 곳에서</span>
           <button class="main-title__btn">근처의 숙소 둘러보기</button>
         </div>
       </div>
-      <div class="main-column">
-        <ul class="city-lists">
-          <li class="city-list">
+      <div class="main__column">
+        <ul class="city-list">
+          <li class="city-item">
             <img
               src="https://a0.muscache.com/im/pictures/71e23854-a3c7-491c-b715-6e86233a293f.jpg?im_q=medq&im_w=240"
             />
@@ -105,7 +104,7 @@
               <div class="city-info__distance">차로 15분 거리</div>
             </div>
           </li>
-          <li class="city-list">
+          <li class="city-item">
             <img
               src="https://a0.muscache.com/im/pictures/76e5f1c6-a788-418c-a28b-f0ee29cffd41.jpg?im_q=medq&im_w=240"
             />
@@ -114,7 +113,7 @@
               <div class="city-info__distance">차로 4시간 거리</div>
             </div>
           </li>
-          <li class="city-list">
+          <li class="city-item">
             <img
               src="https://a0.muscache.com/im/pictures/8340bd19-ee32-4669-8b10-a8ac7e7735d4.jpg?im_q=medq&im_w=240"
             />
@@ -123,7 +122,7 @@
               <div class="city-info__distance">차로 2.5시간 거리</div>
             </div>
           </li>
-          <li class="city-list">
+          <li class="city-item">
             <img
               src="https://a0.muscache.com/im/pictures/8b318783-723f-4584-9b9b-0eb2c8b6078e.jpg?im_q=medq&im_w=240"
             />
@@ -132,9 +131,7 @@
               <div class="city-info__distance">차로 45분 거리</div>
             </div>
           </li>
-        </ul>
-        <ul class="city-lists">
-          <li class="city-list">
+          <li class="city-item">
             <img
               src="https://a0.muscache.com/im/pictures/ac2086c9-df0d-4085-94c0-94fe3fb94862.jpg?im_q=medq&im_w=240"
             />
@@ -143,7 +140,7 @@
               <div class="city-info__distance">차로 30분 거리</div>
             </div>
           </li>
-          <li class="city-list">
+          <li class="city-item">
             <img
               src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=240"
             />
@@ -152,7 +149,7 @@
               <div class="city-info__distance">차로 45분 거리</div>
             </div>
           </li>
-          <li class="city-list">
+          <li class="city-item">
             <img
               src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=240"
             />
@@ -161,7 +158,7 @@
               <div class="city-info__distance">차로 45분 거리</div>
             </div>
           </li>
-          <li class="city-list">
+          <li class="city-item">
             <img
               src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=240"
             />
@@ -172,33 +169,33 @@
           </li>
         </ul>
       </div>
-      <div class="main-column">
+      <div class="main__column">
         <div class="stay-title">
           <h2>어디에서나, 여행은 살아보는거야!</h2>
         </div>
-        <ul class="stay-lists">
-          <li class="stay-list">
+        <ul class="stay-list">
+          <li class="stay-item">
             <img
               class="stay-img"
               src="https://a0.muscache.com/im/pictures/a0316ecb-e49b-4b3a-b6b6-c2876b820e8c.jpg"
             />
             <div class="stay-name">집 전체</div>
           </li>
-          <li class="stay-list">
+          <li class="stay-item">
             <img
               class="stay-img"
               src="https://a0.muscache.com/im/pictures/ce6814ba-ed53-4d6e-b8f8-c0bbcf821011.jpg"
             />
             <div class="stay-name">독특한 공간</div>
           </li>
-          <li class="stay-list">
+          <li class="stay-item">
             <img
               class="stay-img"
               src="https://a0.muscache.com/im/pictures/ce25bfe7-b199-48c2-83aa-619d6a4344b9.jpg"
             />
             <div class="stay-name">셀프 체크인</div>
           </li>
-          <li class="stay-list">
+          <li class="stay-item">
             <img
               class="stay-img"
               src="https://a0.muscache.com/im/pictures/fbe849a4-841a-41b3-b770-419402a6316f.jpg"
@@ -207,32 +204,60 @@
           </li>
         </ul>
       </div>
-      <div class="main-column">
+      <div class="main__column">
+        <div class="experience-title">
+          <h2>온라인 체험</h2>
+          <h4>전문가가 진행하고 모두 함께 즐기는 참여형 액티비티</h4>
+        </div>
+        <ul class="experience-list">
+          <li class="experience-item">
+            <img src="./src/images/sec3-01.jpg" />
+            <div class="experience-name">
+              이탈리아 할머니와 함께 수제 파스타 만들기
+            </div>
+          </li>
+          <li class="experience-item">
+            <img src="./src/images/sec3-02.jpg" />
+            <div class="experience-name">선 사상을 통한 마음챙김 식사</div>
+          </li>
+          <li class="experience-item">
+            <img src="./src/images/sec3-03.jpg" />
+            <div class="experience-name">
+              아르헨티나를 대표하는 예르바 마테차 알아보기
+            </div>
+          </li>
+          <li class="experience-item">
+            <img src="./src/images/sec3-04.jpg" />
+            <div class="experience-name">
+              파리의 콘서트 피아니스트와 함꼐 음악을 들으며 명상하기
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="main__column">
         <div class="host-community-title">
           <h2>
             수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.
           </h2>
         </div>
-        <ul class="host-community-lists">
-          <li class="host-community-list">
+        <ul class="host-community-list">
+          <li class="host-community-item">
             <img
               src="https://a0.muscache.com/im/pictures/2a16f833-464c-446c-8d74-33eb8c643975.jpg?im_w=240"
               class="host-community-img"
             />
             <div class="host-community-name">숙소 호스트 되기</div>
           </li>
-        </ul>
-        <ul class="host-community-lists">
-          <li class="host-community-list">
+
+          <li class="host-community-item">
             <img
               src="https://a0.muscache.com/im/pictures/426a8116-0b94-4407-ae87-924126c81d78.jpg?im_w=240"
               class="host-community-img"
             />
             <div class="host-community-name">온라인 체험 호스팅하기</div>
           </li>
-        </ul>
-        <ul class="host-community-lists">
-          <li class="host-community-list">
+
+          <li class="host-community-item">
             <img
               src="https://a0.muscache.com/im/pictures/a84e92bd-68e6-4ce2-9fdf-b2ce1a377f53.jpg?im_w=240"
               class="host-community-img"

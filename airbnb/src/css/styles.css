@@ -2,6 +2,10 @@
 @import url(./header.css);
 @import url(./main.css);
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   width: 100%;

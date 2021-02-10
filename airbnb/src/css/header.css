@@ -1,22 +1,59 @@
+.divider {
+  height: 30px;
+  border-left: 1px solid #ebebeb;
+}
 header {
-  width: 100%;
+  padding: 20px 150px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
-.header__logo img {
+.header__column {
+  width: 33%;
+}
+
+/* logo */
+.header__logo {
+  height: 100%;
+}
+
+.header__logo object {
   width: 100px;
+  color: white;
 }
-.search-tab {
+
+/* form */
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.search-form__tab {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
+  color: white;
+  font-size: 1rem;
 }
-.search-tab > a {
+.search-form__tab > li:not(:last-child) {
+  margin-right: 15px;
+}
+
+.search-form__tab > a {
   padding: 5px;
   border: 1px black solid;
 }
 
-.search-query {
-  width: 635px;
+/* form-query */
+
+.search-form__query {
+  position: absolute;
+  top: 100px;
+  width: 720px;
   height: 70px;
   background-color: white;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
@@ -24,18 +61,27 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0 25px;
+  padding: 0 0 0 25px;
 }
-.search-query > div:first-child > input {
+.search-form__query > div:first-child > input {
   background-color: rgba(0, 0, 0, 0);
+  width: 130px;
+  height: 16px;
   border: none;
   outline: none;
 }
 .query-date-wrapper {
   display: flex;
+  align-items: center;
+}
+.query-date-wrapper > .divider {
+  margin-right: 25px;
 }
 .query__column {
-  width: 150px;
+  width: 130px;
+}
+.query__column div:first-child {
+  margin-bottom: 5px;
 }
 .query__column > div:last-child {
   color: rgba(0, 0, 0, 0.3);
@@ -45,7 +91,18 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-.header__column:last-child {
+.query__column-submit button {
+  color: white;
+  padding: 17px;
+  background-color: red;
+  border-radius: 100%;
+}
+
+/* nav */
+.header__column:last-child nav {
+  font-size: 1rem;
+  display: flex;
+  justify-content: flex-end;
 }
 nav {
   display: flex;
@@ -53,6 +110,9 @@ nav {
 }
 nav > div {
   margin-left: 10px;
+}
+nav a {
+  font-size: 1rem;
 }
 .nav-user {
   display: flex;
