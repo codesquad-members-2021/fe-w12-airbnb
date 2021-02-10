@@ -177,7 +177,7 @@ a:visited {
   height: 569px;
   border: deeppink 1px solid;
 }
-.room-section__div {
+.section__div {
   position: relative;
   width: 1600px;
   height: 550px;
@@ -185,13 +185,13 @@ a:visited {
   padding: 0px 80px 0px 80px;
   border: black solid 1px;
 }
-.room-section__div > ul {
+.section__div > ul {
   position: absolute;
-  border: springgreen solid;
+  border: springgreen solid 1px;
   padding: 0 0 0 0;
   margin: 0 0 0 0;
 }
-.room-section__main-text {
+.section__main-text {
   width: 1604px;
   height: 42px;
   padding-bottom: 16px;
@@ -200,10 +200,11 @@ a:visited {
   border: deeppink 1px solid;
 }
 
-.room-section__list {
+.section__list {
+  position: relative;
   float: left;
   font-size: 14px;
-  border: blue 5px solid;
+  border: blue 1px solid;
   margin-right: 1px;
 }
 
@@ -214,18 +215,32 @@ a:visited {
   border: deeppink 1px solid;
 }
 
-.room-section__list--text {
+.section__list--text {
   padding-top: 8px;
   font-size: 18px;
   border: green 1px solid;
 }
 
 .activity-section {
-  height: 1068px;
+  height: 892px;
   background-color: black;
   color: white;
   padding: 64px 0px 80px 0px;
 }
+.activity-section__list--text {
+  position: absolute;
+  height: 44px;
+  width: 752px;
+  padding: 16px 16px 16px 16px;
+  font-size: 16px;
+  border: deeppink 1px solid;
+  bottom: 0;
+}
+.activity-section__main-text {
+  font-size: 32px;
+  border: cyan solid;
+}
+
 .activity-section__div {
   height: 892px;
 }
@@ -234,9 +249,6 @@ a:visited {
   font-size: 14px;
 }
 
-.activity-section__main-text {
-  font-size: 32px;
-}
 .activity-section span {
   text-align: left;
   vertical-align: middle;
@@ -248,12 +260,18 @@ a:visited {
   float: left;
 }
 
-#pasta {
+#activity-img01 {
   width: 800px;
   height: 784px;
   float: left;
 }
-#piano {
+#activity-img02 {
+  width: 392px;
+  height: 392px;
+  float: left;
+}
+
+#activity-img03 {
   width: 800px;
   height: 392px;
   float: left;
