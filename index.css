@@ -261,7 +261,7 @@ a {
   padding: 15px;
 }
 
-.section {
+.section__city {
   background: white;
   height: 300px;
   position: relative;
@@ -325,7 +325,47 @@ a {
 
 .section__space {
   background: #eee;
-  height: 600px;
+  height: 420px;
+  margin: 40px 0;
+}
+
+.space__container {
+  padding: 0 80px;
+  height: 100%;
+  border: 1px solid tomato;
+}
+
+.phrase > span {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.phrase {
+  padding-bottom: 16px;
+}
+
+.space {
+  width: 25%;
+  height: 70%;
+  float: left;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.space > div > img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.space > div > span {
+  color: #222;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.space > div:nth-child(2) {
+  border: 1px solid red;
+  padding-top: 8px;
 }
 
 .middle3 {
