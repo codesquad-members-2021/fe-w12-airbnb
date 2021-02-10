@@ -38,29 +38,28 @@
     width: 100px;
 }
 
+/* ----- 중앙 네비게이션 ----- */
 #nav_middle {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#nav_middle > li {
+#nav_middle > li,
+#nav_right > li {
     float: left;
     margin-right: 10px;
-    padding: 0 15px;
-}
-#nav_middle > li:last-child {
-    margin-right: 0;
 }
 #nav_middle > li > a,
 #nav_right > li > a {
+    padding: 0 12px;
     display: block;
     height: 50px;
     color: #fff;
     text-decoration: none;
     text-align: center;
     line-height: 50px;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: 400;
 }
 
@@ -68,16 +67,34 @@
     float: right;
     margin-top: 15px;
 }
-#nav_right > li {
-    float: left;
-    margin-right: 10px;
-    padding: 0 15px;
-}
 #nav_right > li:last-child {
     margin-right: 0;
+    margin-top: 2px;
 }
-#nav_right > li > a:first-child {
-    font-size: 0.9em;
+#nav #nav_right > li:nth-child(2) {
+    font-size: 1.2em;
+}
+#nav_right > li:last-child > a {
+    width: 80px;
+    height: 45px;
+    background-color: #fff;
+    border-radius: 24px;
+    position: relative;
+}
+.globe {
+    color: #444;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 14px;
+}
+.user {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 6px;
+    color: #777;
+    font-size: 2.3em;
 }
 /* ---------● 검색창 ●--------- */
 #search {
