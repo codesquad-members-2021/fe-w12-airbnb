@@ -125,6 +125,9 @@ fieldset a:hover {
   background-color: #ff385c;
   padding: 10px;
   border-radius: 50%;
+}
+
+.fa-search {
   color: white;
 }
 
