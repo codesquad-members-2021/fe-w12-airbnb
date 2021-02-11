@@ -51,5 +51,6 @@
 
 .listphoto {
     width:100%;
+    border-radius: 5px;
     object-fit:cover;
 }
