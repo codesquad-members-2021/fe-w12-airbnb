@@ -36,22 +36,16 @@ h2 {
 
 .header__logo {
   align-items: center;
-  width: 120px;
   height: 64px;
 }
 
-.header__logo__img {
-  width: 120px;
-  align-items: center;
-}
-
 .header__menu {
-  width: 350px;
   height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 300;
+  padding: 0px 150px;
 }
 
 .header__menu > li {
@@ -65,7 +59,8 @@ h2 {
 .header__navbar {
   display: flex;
   align-items: center;
-  padding: 5px 5px 5px 12px;
+  justify-content: space-between;
+  padding: 5px 5px 5px 320px;
 }
 
 .navbar__join-host {
@@ -76,6 +71,7 @@ h2 {
   height: 42px;
   color: var(--white);
   border-radius: 10px;
+  font-size: 15px;
 }
 
 .navbar__languages {
@@ -94,6 +90,12 @@ h2 {
   border: 1px solid rgb(221 221 221);
   border-radius: 20px;
   cursor: pointer;
+}
+
+.logo-container,
+.header__menu,
+.header__navbar {
+  width: 33%;
 }
 
 /* main banner */
