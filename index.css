@@ -18,6 +18,10 @@ h2 {
   padding: 20px 0px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .display-flex {
   display: flex;
 }
@@ -63,6 +67,11 @@ h2 {
   padding: 5px 5px 5px 320px;
 }
 
+.navbar__join-host:hover,
+.navbar__languages:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .navbar__join-host {
   display: flex;
   align-items: center;
@@ -70,13 +79,14 @@ h2 {
   width: 95px;
   height: 42px;
   color: var(--white);
-  border-radius: 10px;
+  border-radius: 22px;
   font-size: 15px;
 }
 
 .navbar__languages {
   width: 52px;
   height: 42px;
+  border-radius: 22px;
 }
 
 .navbar__mypage {
