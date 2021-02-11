@@ -20,6 +20,8 @@ h2 {
 
 button {
   cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 0;
 }
 
 .display-flex {
@@ -60,11 +62,13 @@ button {
   color: var(--white);
 }
 
+.nav-container {
+}
+
 .header__navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 5px 5px 5px 320px;
+  padding: 5px 5px 5px 310px;
 }
 
 .navbar__join-host:hover,
@@ -76,7 +80,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 95px;
+  width: 180px;
   height: 42px;
   color: var(--white);
   border-radius: 22px;
@@ -84,9 +88,13 @@ button {
 }
 
 .navbar__languages {
-  width: 52px;
+  width: 100px;
   height: 42px;
   border-radius: 22px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar__mypage {
@@ -94,7 +102,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 78px;
+  width: 120px;
   height: 42px;
   background-color: var(--white);
   border: 1px solid rgb(221 221 221);
@@ -104,7 +112,7 @@ button {
 
 .logo-container,
 .header__menu,
-.header__navbar {
+.nav-container {
   width: 33%;
 }
 
