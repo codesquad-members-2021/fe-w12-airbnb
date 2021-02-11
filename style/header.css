@@ -26,7 +26,7 @@
 }
 
 .header__alertMessage a:hover {
-  color: #606060;
+  color: #cfcdcc;
 }
 
 .header__content {
@@ -54,13 +54,22 @@ svg {
   fill: white;
 }
 
-.header__search-radio form fieldset {
+fieldset {
   width: 100%;
   color: white;
 }
 
 label {
   padding-right: 2em;
+}
+
+fieldset span {
+  cursor: pointer;
+}
+
+fieldset span:hover,
+fieldset a:hover {
+  color: #cfcdcc;
 }
 
 .header__search-check {
@@ -74,7 +83,7 @@ label {
   border-radius: 2em;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 0.32fr;
-  gap: 1.2em;
+  gap: 1em;
   padding: 0.5em;
 }
 
@@ -84,6 +93,7 @@ label {
   width: 100%;
   border-right: 1px solid #dddddd;
   justify-content: space-evenly;
+  cursor: pointer;
 }
 
 .header__search-check .location div {

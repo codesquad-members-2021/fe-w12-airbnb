@@ -1,0 +1,60 @@
+#calendar {
+  visibility: hidden;
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 300px;
+  /* border: 1px solid red; */
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* gap: 10px; */
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  padding: 2em;
+  border-radius: 3em;
+}
+
+.calendar-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid blue; */
+}
+
+.calendar-cell:hover {
+  border: 1px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.yesterday:hover,
+.day:hover,
+.past-month:hover {
+  border: none;
+  cursor: unset;
+}
+
+.day {
+  all: unset;
+  color: #717171;
+  font-weight: bold;
+}
+
+.today {
+  color: #ff385c;
+}
+
+.this-month {
+  font-weight: bold;
+}
+
+.past-month,
+.yesterday {
+  color: #e1e1e1;
+}

@@ -11,8 +11,10 @@
   <link rel="stylesheet" href="./style/section2.css">
   <link rel="stylesheet" href="./style/section3.css">
   <link rel="stylesheet" href="./style/section4.css">
+  <link rel="stylesheet" href="./style/calendar.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+  <script defer src="./src/index.js"></script>
   <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
 </head>
 
@@ -41,52 +43,47 @@
             <form action="">
               <fieldset>
                 <!-- <div aria-label="무엇을 찾고 계신가요?" class="header__search-tab"> -->
-                  <label for="stay">
-                    <input type="radio" id="stay" name="checkBeforeSearch" class="header__search-tab__item" checked />
-                    <span>숙소</span>
-                  </label>
-                  <label for="experiences">
-                    <input type="radio" id="experiences" name="checkBeforeSearch" class="header__search-tab__item" />
-                    <span>체험</span>
-                  </label>
-                  <a href="" class="header__search-tab__item">온라인 체험</a>
+                <label for="stay">
+                  <input type="radio" id="stay" name="checkBeforeSearch" class="header__search-tab__item" checked />
+                  <span>숙소</span>
+                </label>
+                <label for="experiences">
+                  <input type="radio" id="experiences" name="checkBeforeSearch" class="header__search-tab__item" />
+                  <span>체험</span>
+                </label>
+                <a href="" class="header__search-tab__item">온라인 체험</a>
                 <!-- </div> -->
               </fieldset>
             </form>
           </div>
         </div>
         <div class="header__search-check">
-          <div class="item location">
+          <button class="item location">
             <div class="title">위치</div>
             <div class="header__search-form">
               <input type="text" id="place" class="header__search-form" placeholder="어디로 여행가세요?" />
             </div>
-          </div>
-          <div class="item">
+          </button>
+          <button class="item search-check__date">
             <div class="title">체크인</div>
-            <div class="header__search-form date">날짜 추가</div>
-          </div>
-          <div class="item">
+            <div class="header__search-form">날짜 추가</div>
+          </button>
+          <button class="item search-check__date">
             <div class="title">체크아웃</div>
-            <div class="header__search-form date">날짜 추가</div>
-          </div>
-          <div class="item search-btn">
-            <!-- < class="search-btn"> -->
-              <!-- <span> -->
-                <div class="title">인원</div>
-                <div class="header__search-form people">게스트 추가</div>
-              <!-- </span> -->
-              <!-- </> -->
-            </div>
-            <span id="search-icon-btn">
-              <button id="">
-                <i class="fas fa-search"></i>
-                <!-- 검색 -->
-              </button>
-            </span>
-          <!-- <div class="item"> -->
-          <!-- </div> -->
+            <div class="header__search-form">날짜 추가</div>
+          </button>
+          <button class="item search-btn">
+            <div class="title">인원</div>
+            <div class="header__search-form people">게스트 추가</div>
+          </button>
+          <span id="search-icon-btn">
+            <button id="">
+              <i class="fas fa-search"></i>
+              <!-- 검색 -->
+            </button>
+          </span>
         </div>
+        <div id="calendar"></div>
         <!-- 계정 -->
         <div class="item header__account">
           <div class="header__account-items">
@@ -94,12 +91,12 @@
               <button class="header__account-btn fa-beHost">호스트 되기</button>
               <!-- </div> -->
               <!-- <div class="header__account-btn"> -->
-                <button class="header__account-btn">
-                  <i class="fas fa-globe"></i>
-                </button>
+              <button class="header__account-btn">
+                <i class="fas fa-globe"></i>
+              </button>
               <!-- </div> -->
-            <!-- </div> -->
-            <!-- <div class="header__account-btn"> -->
+              <!-- </div> -->
+              <!-- <div class="header__account-btn"> -->
               <button class="header__account-btn" id="account">
                 <span><i class="fas fa-bars"></i></span>
                 <span><i class="fas fa-user-circle"></i></span>
@@ -112,7 +109,7 @@
       <div class="header__main-image">
         <div class="header__main-statement">
           <!-- <div> -->
-            <h1>이제, 여행은 가까운 곳에서</h1>
+          <h1>이제, 여행은 가까운 곳에서</h1>
           <!-- </div> -->
           <button>
             <span>근처의 숙소 둘러보기</span>
@@ -260,7 +257,7 @@
             </div>
             <button>
               <span>모두 둘러보기</span>
-              </button>
+            </button>
           </div>
           <div class="item">
             <ul>
