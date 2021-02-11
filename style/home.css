@@ -10,6 +10,7 @@ input {
 a,
 button,
 input {
+  color: black;
   cursor: pointer;
 }
 
