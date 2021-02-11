@@ -1,5 +1,8 @@
 * {
   /* border: 1px solid black; */
+  box-sizing: border-box;
+  font-size: 16px;
+  color: white;
 }
 
 html,
@@ -12,13 +15,11 @@ body {
 }
 
 header {
-  text-align: center;
-  background-color: teal;
-  float: left;
-  position: fixed;
   width: 100%;
-  height: 140px;
+  height: 80px;
+  position: absolute;
   z-index: 1;
+  /* background-color: teal; */
 }
 
 label {
@@ -32,47 +33,121 @@ label {
   font-weight: bold;
 }
 
-#home-lbl {
-  display: inline-block;
-  text-align: left;
-  position: absolute;
-  width: 13%;
-  height: 20%;
-  top: 20%;
-  font-size: large;
+.float-clear {
+  clear: both;
+}
+
+.solid-rounded {
+  border-radius: 1000000px;
+}
+
+header > nav {
+  width: 100%;
+  height: 100%;
+  padding: 0 5%;
+}
+
+header > nav > * {
+  float: left;
+}
+
+#home-icon-container {
+  width: 35%;
+  height: 100%;
+}
+
+#home-icon-container > svg {
+  width: 102;
+  height: 32;
+  position: relative;
+  top: 30px;
+  fill: currentColor;
 }
 
 #center-menu {
   text-align: center;
-  position: absolute;
-  top: 22%;
-  left: 40%;
-  margin: 0 auto;
-  font-size: medium;
-  font-weight: bold;
+  width: 30%;
+  position: relative;
+  top: 34px;
+  padding: 0 20px;
 }
 
-#center-menu > * {
-  margin: 0 5px;
+#center-menu > span {
+  margin: 0 13px;
+  /* font-size: 16px; */
 }
 
 #right-menu {
-  position: absolute;
-  width: 22%;
-  height: 20%;
-  top: 20%;
-  right: 10%;
-  font-size: medum;
+  width: 35%;
+  height: 100%;
+  /* padding-left: 20%; */
+  position: relative;
   font-weight: bold;
 }
 
-#right-menu > div.solid-rounded {
-  position: absolute;
+#right-menu * {
+  display: inline-block;
+}
+
+#right-menu > .solid-rounded {
+  float: right;
+  padding: 11px 13px 15px 13px;
+  position: relative;
+  top: 22px;
+  /* background-color: blue; */
+}
+/*  */
+#right-menu > .solid-rounded:nth-child(2) > svg {
+  display: block;
+  height: 18px;
+  width: 18px;
+  padding-right: 1%;
+  margin-right: 8px;
+  position: relative;
+  top: 2px;
+  fill: white;
+}
+
+#right-menu > .solid-rounded:first-child {
+  padding: 7px 9px 7px 9px;
+  padding-left: 10px;
+  color: black;
+  background-color: white;
+}
+
+/* #right-menu > .solid-rounded:first-child > div { */
+/* width: 50%; */
+/* height: 100%; */
+/* } */
+
+#right-menu > .solid-rounded:first-child > svg {
+  /* display: inline-block; */
+  float: left;
+  height: 20px;
+  width: 18px;
+  box-sizing: content-box;
+  padding-left: 4px;
+  position: relative;
+  top: 6px;
+  left: 0;
+  fill: none;
+  stroke: slategray;
+  stroke-width: 4;
+  overflow: visible;
+}
+
+#right-menu > .solid-rounded:first-child > svg + svg {
+  height: 32px;
+  width: 32px;
+  padding-left: 0;
+  margin-left: 10px;
+  position: relative;
   top: 0;
-  height: 100%;
-  line-height: 180%;
-  /* border: 1px solid blue; */
-  border-radius: 15px;
+  left: 0;
+  /* left: -0.5px; */
+  fill: slategray;
+  stroke: none;
+  /* stroke: slategray; */
 }
 
 #search-bar {
@@ -80,7 +155,7 @@ label {
   position: absolute;
   width: 70%;
   height: 50px;
-  top: 55%;
+  top: 150%;
   left: 15%;
   border: 0px;
   border-color: blue;
@@ -94,7 +169,6 @@ label {
   top: 0;
   left: 0;
   height: 100%;
-  box-sizing: border-box;
   padding: 8px 20px;
   border-radius: inherit;
   background: lightgray;
@@ -108,10 +182,26 @@ label {
   position: absolute;
   top: 10%;
   right: 3%;
+  border: 0;
   border-radius: 20px;
   background-color: deeppink;
   color: white;
   font-size: 19px;
+}
+
+.welcome-lbl {
+  display: block;
+  width: 40%;
+  top: 55%;
+  font-size: 40px;
+}
+
+.solid-semi-rounded-btn {
+  padding: 5px 10px 5px 10px;
+  border: 0;
+  border-radius: 7px;
+  font-size: small;
+  font-weight: bold;
 }
 
 #first > .solid-semi-rounded-btn {
@@ -119,6 +209,7 @@ label {
   position: absolute;
   top: 74%;
   left: 10%;
+  color: black;
   background-color: white;
 }
 
@@ -180,7 +271,6 @@ label {
   position: absolute;
   bottom: 0;
   left: 0;
-  box-sizing: border-box;
   padding: 10px;
   background-color: rgb(66, 64, 64);
   border-radius: 0 0 10px 10px;
@@ -215,23 +305,7 @@ label {
   padding-top: 75%;
 }
 
-.welcome-lbl {
-  display: block;
-  width: 40%;
-  top: 55%;
-  font-size: 40px;
-}
-
-.solid-semi-rounded-btn {
-  padding: 5px 10px 5px 10px;
-  border: 0;
-  border-radius: 7px;
-  font-size: small;
-  font-weight: bold;
-}
-
 .main-block {
-  box-sizing: border-box;
   position: relative;
   width: 100%;
   max-height: 600px !important;
