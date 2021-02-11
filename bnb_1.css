@@ -26,7 +26,7 @@ body {
 .ment {
   font-size: 30px;
   font-weight: 800;
-  /* font-family: "Noto Sans KR", sans-serif; */
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 section span {
@@ -47,7 +47,7 @@ header .corona a {
   font-weight: bold;
 }
 header .corona a:hover {
-  color: rgba(184, 164, 164, 0.233);
+  color: rgba(184, 164, 164, 0.633);
 }
 
 header .background {
@@ -56,6 +56,17 @@ header .background {
   background-repeat: no-repeat;
   background-position: center center;
   box-sizing: border-box;
+}
+
+header .background::before {
+  content: "";
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(255, 255, 255, 0)
+  );
 }
 
 header .menuGroup {
@@ -80,12 +91,46 @@ header .menu_center {
 header .menu_center a {
   padding: 10px;
   box-sizing: border-box;
-  color: rgba(255, 255, 255, 0.925);
+  color: rgba(255, 255, 255, 1);
   text-decoration: none;
+  display: inline-block;
+  position: relative;
 }
 
 header .menu_center a:hover {
-  color: rgba(255, 255, 255, 0.604);
+  color: rgba(255, 255, 255, 0.804);
+}
+
+header .menu_center a:hover::after {
+  content: "";
+  width: 2px;
+  height: 1.5px;
+  background: rgba(255, 255, 255);
+  position: absolute;
+  top: 37px;
+  left: 25px;
+  display: block;
+  transition: 0.2s;
+}
+
+header .menu_center a:last-child::after {
+  left: 50px;
+}
+
+header .menu_center a:focus::after {
+  content: "";
+  width: 20px;
+  height: 1.5px;
+  background: rgba(255, 255, 255);
+  position: absolute;
+  top: 37px;
+  left: 15px;
+  display: block;
+}
+
+header .menu_center a:last-child:focus::after {
+  width: 20px;
+  left: 40px;
 }
 
 header .menu_right {
@@ -123,10 +168,6 @@ header .language {
   vertical-align: middle;
 }
 
-header .hide {
-  display: none;
-}
-
 header .menu_right .toggle {
   vertical-align: middle;
 }
@@ -136,6 +177,10 @@ header .toggleBtn {
   border: none;
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.925);
+}
+
+header .menu_right .hide_show {
+  display: none;
 }
 
 header .toggle .list {
@@ -170,7 +215,7 @@ header .toggle a {
 
 header .search {
   position: absolute;
-  top: 80px;
+  top: 90px;
   right: 400px;
   width: 850px;
   height: 70px;
@@ -236,7 +281,7 @@ header .search button img {
 
 header .title {
   color: rgba(255, 255, 255, 0.925);
-  margin-top: 300px;
+  margin-top: 250px;
 }
 
 header .ment {
@@ -269,8 +314,7 @@ header .title button {
   position: relative;
 }
 
-.location_section .location_list li:nth-child(4),
-.location_section .location_list li:nth-child(8) {
+.location_section .location_list li:nth-child(4n) {
   margin-right: 0;
 }
 
@@ -381,37 +425,86 @@ footer {
   background-color: rgb(247, 247, 247);
 }
 
+.footer1 .menu a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .footer1 {
-  vertical-align: super;
-  font-size: 14px;
   padding-top: 35px;
+  font-size: 14px;
 }
 
 .footer1 .menu {
-  display: inline;
   float: left;
+  padding: 20px 0;
+  width: 390px;
+  box-sizing: border-box;
 }
 
 .footer1 .menu div {
   font-weight: 800;
-  font-size: 12px;
+  font-size: 13px;
+  padding-bottom: 17px;
 }
 
 .footer1 .menu li {
-  padding: 17px;
+  padding: 17px 0px;
 }
+
 .footer1 .menu li a {
   display: block;
   text-decoration: none;
   color: rgba(0, 0, 0);
 }
 
-.footer1 div a:hover {
-  text-decoration: underline;
-}
-
 .footer2 {
-  height: 70px;
+  height: auto;
   width: 100%;
   border-top: 1px solid rgb(221, 221, 221);
+  font-size: 14px;
+  padding: 30px 0;
+}
+
+.footer2 div {
+  display: inline;
+}
+
+.footer2 .left a {
+  text-decoration: none;
+  color: rgba(0, 0, 0);
+}
+
+.footer2 .left a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer2 .right {
+  position: absolute;
+  right: 0;
+}
+.footer2 .right span {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+}
+
+.footer2 .languageChoice img {
+  width: 16px;
+  height: 16px;
+}
+
+.footer2 .current a {
+  margin-left: 17px;
+  margin-right: 35px;
+}
+
+.footer2 .current a span:first-child {
+  display: inline-block;
+  padding-right: 5px;
+  text-decoration: none;
+}
+
+.footer2 .sns svg {
+  margin-left: 17px;
 }
