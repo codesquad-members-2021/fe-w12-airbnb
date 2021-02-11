@@ -159,7 +159,7 @@ div.header__main__search__bar > label > div > input {
     background-color: transparent;
 }
 
-div.header__main__search__bar > label > div > input[type="datetime-local"] {
+div.header__main__search__bar > label > div > input[type="date"] {
     margin-top: 5px;
     border: none;
     width: 100%;
@@ -168,24 +168,23 @@ div.header__main__search__bar > label > div > input[type="datetime-local"] {
     background-color: transparent;
 }
 
-div.header__main__search__bar > label > div.searchBarBtn {
+div.header__main__search__bar > label > button.searchBarBtn {
     background-color: red;
+    border: none;      
+    border-radius: 32px;
     padding: 16px 17px;
     margin-left: 10px;    
-    position: relative;
+    position: absolute;
     top: 7px;
     right: 7px;
+    cursor: pointer;
 }
 
-div.header__main__search__bar > label > div.searchBarBtn:hover {
+div.header__main__search__bar > label > button.searchBarBtn:hover {
     background-color: #e31b60;    
 }
 
-div.header__main__search__bar > label > div.searchBarBtn > button {    
-    background-color: transparent;
-    border: none;    
-}
-div.header__main__search__bar > label > div.searchBarBtn > button > img {
+div.header__main__search__bar > label > button.searchBarBtn > img {
     width: 16px;
     height: 16px;    
 }
@@ -391,8 +390,7 @@ ul.content__activity__ul > li > img {
 
 /* 콘텐츠 - section 4 (호스팅)  */
 ul.content__hosting {
-    padding-top: 20px;
-    padding-bottom: 80px;
+    padding-top: 20px;    
 }
 ul.content__hosting > li {
     display: inline-block;
@@ -402,3 +400,41 @@ ul.content__hosting > li > img {
     width: 100%;
     border-radius: 16px;
 }
+
+
+/* 푸터 Wrapper */
+div.footer {
+    width: 100%;    
+    background-color: #f7f7f7;
+    border-top: 1px solid #DDD;
+}
+
+div.footer > footer {
+    margin-left: 8%;
+    margin-right: 16%;
+    padding: 48px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.footer > footer > section {
+    padding: 0 12px;
+}
+
+div.footer > footer > section > h4 {
+    color: #222222;    
+    font-size: 12px;
+    margin-bottom: 0px;    
+}
+
+div.footer > footer > section > ul > li {
+    margin-top: 16px;
+}
+
+div.footer > footer > section > ul > li > a {
+    text-decoration: none;
+    color: #222222;
+    font-size: 14px;
+    line-height: 18px;
+}
+
