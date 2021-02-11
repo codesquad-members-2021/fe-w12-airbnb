@@ -243,3 +243,42 @@ button {
   padding: 5px 15px;
   border-radius: 8px;
 }
+
+.experience__img > img {
+  border-radius: 16px;
+}
+
+.experience-01 {
+  width: calc(50% - 32px / 3);
+}
+.experience-02,
+.experience-03 {
+  width: calc(25% - 32px / 3);
+}
+.experience-04 {
+  width: calc(50% - 16px);
+}
+.experience-01,
+.experience-02 {
+  float: left;
+}
+
+.experience-01,
+.experience-02 {
+  margin-right: 8px;
+}
+
+.experience-02,
+.experience-03,
+.experience-04 {
+  margin-left: 8px;
+}
+
+.experience-02,
+.experience-03 {
+  margin-bottom: 16px;
+}
+
+.experience__explain {
+  color: var(--white);
+}
