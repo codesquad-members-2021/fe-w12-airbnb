@@ -32,27 +32,58 @@
                         </div>
 
                         <!-- fieldset, form 활용하여 searchOption이랑 searchBar 합쳐보기 -->
-                        <div class="header__main__searchOptions">                            
-                            <input type="radio" name="selSearchOpt" id="rooms" checked/>
-                            <label for="rooms">
-                                숙소
-                                <p class="underline"></p>
-                            </label>                            
-                            
-                            <input type="radio" name="selSearchOpt" id="experience"/>
-                            <label for="experience">
-                                체험
-                                <p class="underline"></p>
-                            </label>
-                            
-                            <input type="radio" name="selSearchOpt" id="onlineExperience"/> 
-                            <label for="onlineExperience">
-                                온라인 체험
-                                <p class="underline"></p>
-                            </label>
-                        </div>
-                        <div class="header__main__searchBar">              
-                            가나다라마바사검색바가나다라마바사검색바가나다라마바사검색바
+                        <div class="header__main__search">
+                            <div class="header__main__search__options">                            
+                                <input type="radio" name="selSearchOpt" id="rooms" checked/>
+                                <label for="rooms">
+                                    숙소
+                                    <p class="underline"></p>
+                                </label>                            
+                                
+                                <input type="radio" name="selSearchOpt" id="experience"/>
+                                <label for="experience">
+                                    체험
+                                    <p class="underline"></p>
+                                </label>
+                                
+                                <input type="radio" name="selSearchOpt" id="onlineExperience"/> 
+                                <label for="onlineExperience">
+                                    온라인 체험
+                                    <p class="underline"></p>
+                                </label>
+                            </div>
+                            <div class="header__main__search__bar">   
+                                <!-- label의 for는 label안에 요소가 있으면 안써도 됨!  -->
+                                <label>
+                                    <div>
+                                        <p>위치</p>
+                                        <input type="text" name="locationInput" id="locationInput" placeholder="어디로 여행가세요?"/>
+                                    </div>                                    
+                                </label>
+                                <label class="checkin-out">
+                                    <div>
+                                        <p>체크인</p>
+                                        <input type="date" name="checkin" id="checkin" placeholder="날짜추가"/>                                        
+                                    </div>                                       
+                                </label>
+                                <label class="checkin-out">
+                                    <div>
+                                        <p>체크아웃</p>
+                                        <input type="date" name="checkout" id="checkout" placeholder="날짜추가"/>
+                                    </div>
+                                </label>
+                                <label>
+                                    <div>
+                                        <p>인원</p>
+                                        <input type="text" name="guestAdd" id="guestAdd" placeholder="게스트 추가"/>
+                                    </div>
+                                </label>
+                                <label>
+                                    <button type="button" class="searchBarBtn">
+                                        <img src="./images/search-solid_ver2.svg" />
+                                    </button>
+                                </label>
+                            </div>
                         </div>
 
                         <div class="header__main__login">
@@ -68,9 +99,13 @@
                     </div>
 
                     <div class="header__headingText" >    
-                        <span class="text">이제, 여행은 가까운&nbsp;곳에서</span>                  
+                        <span class="bigtext">이제, 여행은<br/>가까운 곳에서</span>  
+                        <a href="/" class="nearby">
+                            근처의 숙소 둘러보기
+                        </a>
                     </div>
-                </header>             
+                    
+                </header>          
             </div>
 
             <div class="content">
@@ -197,8 +232,7 @@
                                     <img src="./images/sec3-04.jpg" alt="sec3-04">                                    
                                     <p>파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</p>     
                                 </li>                           
-                            </ul>
-                            
+                            </ul>                            
                             <div class="float_clear"></div>
                         </div>                          
                     </li>
@@ -226,6 +260,125 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="footer">
+                <footer>
+                    <section>
+                        <h4>소개</h4>
+                        <ul>
+                            <li>
+                                <a href="/d/howairbnbworks">에어비앤비 이용 방법</a>
+                            </li>
+                            <li>
+                                <a href="/press/news">뉴스룸</a>
+                            </li>
+                            <li>
+                                <a href="https://investors.airbnb.com">투자자 정보</a>
+                            </li>
+                            <li>
+                                <a href="/plus">에어비앤비 플러스</a>
+                            </li>
+                            <li>
+                                <a href="/luxury">에어비앤비 Luxe</a>
+                            </li>
+                            <li>
+                                <a 
+                                    href="https://www.hoteltonight.com/?utm_source_name=Airbnb&amp;utm_campaign_name=Dr_Us_Desktop_Airbnb_Footer"
+                                >
+                                    호텔투나잇
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/work?s=footer">에어비앤비 비즈니스 프로그램</a>
+                            </li>
+                            <li>
+                                <a href="/d/olympics">올림픽</a>
+                            </li>
+                            <li>
+                                <a href="/careers">채용정보</a>
+                            </li>
+                        </ul>
+                    </section>      
+                    
+                    <section>
+                        <h4>커뮤니티</h4>
+                        <ul>
+                            <li>
+                                <a href="/diversity">다양성 및 소속감</a>
+                            </li>
+                            <li>
+                                <a href="/accessibility">접근성</a>
+                            </li>
+                            <li>
+                                <a href="/associates?from=footer">에어비앤비 어소시에이트</a>
+                            </li>
+                            <li>
+                                <a href="/d/covid19relief">구호 인력을 위한 숙소</a>
+                            </li>
+                            <li>
+                                <a href="/invite?r=6">친구 초대하기</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.airbnb.org?locale=ko"
+                                >
+                                    Airbnb.org
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4>호스팅하기</h4>
+                        <ul>
+                            <li>
+                                <a href="/host/homes?from_footer=1">숙소 호스팅</a>
+                            </li>
+                            <li>
+                                <a href="/d/onlinehost">온라인 체험 호스팅하기</a>
+                            </li>
+                            <li>
+                                <a href="/host/experiences">체험 호스팅하기</a>
+                            </li>
+                            <li>
+                                <a href="/help/responsible-hosting">책임감 있는 호스팅</a>
+                            </li>
+                            <li>
+                                <a href="/resources">자료 센터</a>
+                            </li>
+                            <li>
+                                <a href="/help/community?s=footer">커뮤니티 센터</a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4>에어비앤비 지원</h4>
+                        <ul>
+                            <li>
+                                <a href="/d/covidsafety">에어비앤비의 코로나19 대응 방안</a>
+                            </li>
+                            <li>
+                                <a href="/help?from=footer">도움말 센터</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/help/article/2701/extenuating-circumstances-policy-and-the-coronavirus-covid19"
+                                >
+                                    예약 취소 옵션
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/neighbors">에어비앤비 이웃 민원 지원</a>
+                            </li>
+                            <li>
+                                <a href="/trust">신뢰와 안전</a>
+                            </li>
+                        </ul>
+                    </section>    
+                </footer>
+            </div>        
+
         </div>
     </body>
 </html>
