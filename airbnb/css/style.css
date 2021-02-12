@@ -51,7 +51,6 @@ nav{
     padding: 2rem 0;
     /* justify-content: center; */
     /* align-items: center; */
-    background-color: #FF385C;
     grid-gap:32px;
 }
 
@@ -95,8 +94,8 @@ nav{
 
 .search__box {
     display: grid;
-    margin:0 0 0 470px;
-    width: 900px;
+    margin:0 0 0 485px;
+    width: 850px;
     height: 66px;
     background-color: white;
     /* display: inline-block; */
@@ -109,14 +108,17 @@ nav{
 table {
     /* width:100% */
     padding: 3px 30px;
+    /* border-bottom-left-radius: 1px solid #444444; */
+    /* border-collapse: collapse; */
 }
 
 
 .search__sub__title{
-    padding: 10px 0px;
-    font-size: 14px;
+    padding: 10px 0px 0 0;
+    font-size: 12px;
     font-weight: 600;
 }
+
 .search__input {
     border:none;
     color: rgb(100,98,98);
@@ -125,6 +127,7 @@ table {
 .search__button {
     display:grid;
     justify-content: end;
+    margin:3px -20px 0 0;
     padding-left: 20px;
 }
 .search__button button{
