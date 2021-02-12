@@ -49,19 +49,7 @@ main {
 .host-community-list {
   display: flex;
   flex-wrap: wrap;
-}
-.city-item,
-.stay-item,
-.experience-item,
-.host-community-item {
-  margin-right: 1%;
-}
-.city-item:nth-child(4),
-.city-item:last-child,
-.stay-item:last-child,
-.experience-item:last-child,
-.host-community-item:last-child {
-  margin-right: 0;
+  justify-content: space-between;
 }
 
 .city-item,
@@ -117,16 +105,32 @@ main {
 .experience-title h4 {
   font-size: 1.2rem;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+}
+.experience-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+.experience-item:first-child {
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+.experience-item:last-child {
+  grid-column: 3/5;
+  grid-row: 2/3;
 }
 .experience-item img {
-  width: 400px;
+  width: 100%;
+  height: 100%;
 }
 
-.experience-item div {
+.experience-name {
   color: white;
   position: relative;
-  bottom: 20px;
+  text-align: center;
+  bottom: 47px;
 }
 
 /* host-community */
