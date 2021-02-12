@@ -136,12 +136,46 @@ a:visited {
   font-size: 14px;
 }
 
-.search-destination {
-  color: white;
-}
 .search-date {
   display: inline-block;
   color: white;
+}
+.search-section {
+  position: absolute;
+}
+
+.search-basic {
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  right: 50%;
+  margin: 0px 0px 0px 0px;
+  width: 200px;
+  height: 36px;
+
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+}
+.search-basic span {
+  display: block;
+  width: 100px;
+}
+.search__input {
+  width: 130px;
+  border: none;
+}
+#search-icon {
+  position: relative;
+  width: 21px;
+  float: right;
+  padding: 5px;
+  bottom: 20px;
+  border-radius: 75px;
+  background-color: var(--main-color);
+}
+#search-icon img {
+  fill: white;
 }
 
 .city-section {
@@ -175,7 +209,6 @@ a:visited {
   position: relative;
   font-size: 14px;
   height: 569px;
-  border: deeppink 1px solid;
 }
 .section__div {
   position: relative;
@@ -183,11 +216,9 @@ a:visited {
   height: 550px;
   margin: 0px 362.5px 0px 362.5px;
   padding: 0px 80px 0px 80px;
-  border: black solid 1px;
 }
 .section__div > ul {
   position: absolute;
-  border: springgreen solid 5px;
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
 }
@@ -197,14 +228,12 @@ a:visited {
   padding-bottom: 16px;
   font-size: 32px;
   font-weight: 700;
-  border: deeppink 1px solid;
 }
 
 .section__list {
   position: relative;
   float: left;
   font-size: 14px;
-  border: blue 1px solid;
   margin-right: 1px;
 }
 
@@ -212,13 +241,11 @@ a:visited {
   width: 386.5px;
   height: 386.5px;
   border-radius: 10px;
-  border: deeppink 1px solid;
 }
 
 .section__list--text {
   padding-top: 8px;
   font-size: 18px;
-  border: green 1px solid;
 }
 
 .activity-section {
@@ -233,12 +260,10 @@ a:visited {
   width: 752px;
   padding: 16px 16px 16px 16px;
   font-size: 16px;
-  border: deeppink 1px solid;
   bottom: 0;
 }
 .activity-section__main-text {
   font-size: 32px;
-  border: cyan solid;
 }
 
 .activity-section__div {
@@ -281,36 +306,4 @@ a:visited {
   width: 520.656px;
   height: 347.094px;
   border-radius: 16px 16px 16px 16px;
-  border: black solid 1px;
 }
-/* .host-section {
-  height: 478.656px;
-  display: block;
-  border: red 1px solid;
-}
-.host-section__div {
-  height: 449.094px;
-  width: 1600px;
-  display: inline-block;
-  text-align: left;
-  font-size: 14px;
-  padding: 0px 80px 0px 80px;
-  margin: 0px 361.5px 0px 361.5px;
-  border: red 1px solid;
-}
-.host-section__div li {
-  float: left;
-  margin-left: 5px;
-  margin-right: 5px;
-  border: blue 1px solid;
-}
-.host-section__main-text {
-  font-size: 32px;
-  font-weight: 700;
-  border: green solid 1px;
-} */
-
-/* .host-section__sub-text {
-  font-size: 18px;
-  background-color: blueviolet;
-} */
