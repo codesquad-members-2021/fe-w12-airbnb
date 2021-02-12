@@ -27,6 +27,11 @@ header {
   z-index: 1;
 }
 
+button {
+  border: none;
+}
+
+.title,
 .bold-text {
   font-weight: bold;
 }
@@ -226,7 +231,7 @@ section {
 .contents-block {
   width: 100%;
   height: 100%;
-  padding: 0 5%;
+  padding: 4% 5%;
   position: absolute;
   top: 0;
   left: 0;
@@ -280,7 +285,7 @@ section {
 }
 
 #sect2 {
-  height: 53vw;
+  height: 51vw;
 }
 
 #sect2 * {
@@ -290,10 +295,6 @@ section {
 #second-background-block {
   position: absolute;
   background-color: white;
-}
-
-#city-container {
-  padding: 5% 0 8% 0;
 }
 
 ul.horizontal-list {
@@ -339,6 +340,7 @@ ul.horizontal-list > li + li {
 
 #live-anywhere-lbl {
   display: block;
+  margin-top: 7%;
   font-weight: 800;
   font-size: 32px;
 }
@@ -352,17 +354,17 @@ ul.horizontal-list > li + li {
   width: 100%;
 }
 
-.description {
+.medium-card > .description {
   margin-top: 6px;
   font-weight: bold;
   font-size: 18px;
 }
 
 #sect3 {
-  height: 40vw;
+  height: 60vw;
 }
 
-#sect3 * {
+#sect3 *:not(.sect-info, .sect-info *, #tour-all-btn) {
   box-shadow: 0 0 0 1px rgb(255, 255, 255) inset;
 }
 
@@ -371,31 +373,31 @@ ul.horizontal-list > li + li {
 }
 
 #third-contents-block {
+  padding-top: 4%;
 }
 
-#third > .text-container {
-  position: absolute;
-  width: 40%;
-  top: 10%;
-  left: 10%;
-  border: 0;
-  color: white;
+.sect-info {
+  display: inline-block;
+  width: 50%;
 }
 
-#third > .text-container > div:nth-child(1) {
-  font-size: 30px;
+.sect-info > .title {
+  font-size: 32px;
+}
+
+.sect-info > .description {
+  margin-top: 4px;
 }
 
 #tour-all-btn {
-  position: absolute;
-  width: 11%;
-  height: 5%;
-  top: 12%;
-  right: 10%;
-  background-color: black;
-  border: 1px solid white;
-  font-size: 13px;
+  float: right;
+  /* display: inline-block; */
+  padding: 5px 14px;
+  font-weight: 800;
+  font-size: 15px;
   color: white;
+  border: 1px solid white;
+  background-color: black;
 }
 
 .text-in-card-container {
@@ -405,6 +407,15 @@ ul.horizontal-list > li + li {
   padding-top: 40%;
   top: 25%;
   left: 10%;
+}
+
+#third-contents-block > .text-container {
+  width: 40%;
+  color: white;
+}
+
+#third > .text-container > div:nth-child(1) {
+  font-size: 30px;
 }
 
 .text-in-card {
