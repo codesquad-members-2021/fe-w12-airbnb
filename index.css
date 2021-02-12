@@ -18,6 +18,12 @@ h2 {
   padding: 20px 0px;
 }
 
+button {
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 0;
+}
+
 .display-flex {
   display: flex;
 }
@@ -36,22 +42,16 @@ h2 {
 
 .header__logo {
   align-items: center;
-  width: 120px;
   height: 64px;
 }
 
-.header__logo__img {
-  width: 120px;
-  align-items: center;
-}
-
 .header__menu {
-  width: 350px;
   height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 300;
+  padding: 0px 150px;
 }
 
 .header__menu > li {
@@ -62,25 +62,39 @@ h2 {
   color: var(--white);
 }
 
+.nav-container {
+}
+
 .header__navbar {
   display: flex;
-  align-items: center;
-  padding: 5px 5px 5px 12px;
+  justify-content: space-between;
+  padding: 5px 5px 5px 310px;
+}
+
+.navbar__join-host:hover,
+.navbar__languages:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar__join-host {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 95px;
+  width: 180px;
   height: 42px;
   color: var(--white);
-  border-radius: 10px;
+  border-radius: 22px;
+  font-size: 15px;
 }
 
 .navbar__languages {
-  width: 52px;
+  width: 100px;
   height: 42px;
+  border-radius: 22px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar__mypage {
@@ -88,12 +102,18 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 73px;
+  width: 120px;
   height: 42px;
   background-color: var(--white);
   border: 1px solid rgb(221 221 221);
   border-radius: 20px;
   cursor: pointer;
+}
+
+.logo-container,
+.header__menu,
+.nav-container {
+  width: 33%;
 }
 
 /* main banner */
@@ -222,4 +242,69 @@ h2 {
   border: 1px solid white;
   padding: 5px 15px;
   border-radius: 8px;
+}
+
+.experience__img > img {
+  border-radius: 16px;
+}
+
+.experience-01 {
+  width: calc(50% - 32px / 3);
+}
+.experience-02,
+.experience-03 {
+  width: calc(25% - 32px / 3);
+}
+.experience-04 {
+  width: calc(50% - 16px);
+}
+.experience-01,
+.experience-02 {
+  float: left;
+}
+
+.experience-01,
+.experience-02 {
+  margin-right: 8px;
+}
+
+.experience-02,
+.experience-03,
+.experience-04 {
+  margin-left: 8px;
+}
+
+.experience-02,
+.experience-03 {
+  margin-bottom: 16px;
+}
+
+.experience__explain {
+  color: var(--white);
+}
+
+/* 에어비앤비 호스트 커뮤니티 */
+
+.join-host {
+  padding: var(--main-padding);
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.join-host__lists {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.list-item__img > img {
+  width: 98%;
+  border-radius: 16px;
+}
+
+.list-item__explain {
+  color: var(--dark-gray);
+  font-size: 18px;
 }
