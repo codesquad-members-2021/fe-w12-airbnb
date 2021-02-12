@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+* :focus {
+  outline: none;
+}
+
 body {
   margin: 0;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
@@ -15,6 +19,10 @@ a,
 ul,
 button {
   cursor: pointer;
+}
+
+button {
+  border: none;
 }
 
 .container {
@@ -75,6 +83,7 @@ button {
   justify-content: center;
   font-size: 16px;
   margin-left: 110px;
+  cursor: pointer;
 }
 
 .header__menu span {
@@ -86,13 +95,14 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .header__my-info span {
   padding: 10px;
 }
 
-.header__my-info__infoBtn {
+.infoBtn {
   height: 44px;
   width: 77px;
   border-radius: 20px;
@@ -106,15 +116,8 @@ button {
   justify-content: space-between;
 }
 
-.infoBtn__login img:nth-child(1) {
-  width: 19px;
-  height: 17px;
-  margin-right: 7px;
-}
-
-.infoBtn__login img:nth-child(2) {
-  width: 30px;
-  height: 29px;
+.infoBtn__login div:nth-child(2) {
+  margin-left: 12px;
 }
 
 .header__search {
@@ -157,15 +160,16 @@ button {
   padding-left: 10px;
 }
 
-.header__search ul > img {
-  padding: 15px 0px;
-}
-
 .search-button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: #ff385c;
+}
+
+.search-button svg {
+  display: flex;
+  margin-left: 10px;
 }
 
 .header__phrase {
@@ -354,7 +358,7 @@ footer {
 }
 
 .company-info {
-  width: 960px;
+  width: 910px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -366,15 +370,23 @@ footer {
 }
 
 .countries {
-  width: 190px;
+  width: 240px;
   display: flex;
   flex-direction: row;
   align-items: center;
   text-decoration: underline;
 }
 
-.countries button {
-  border: none;
+.language,
+.currency {
+  margin: 0px 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.language div,
+.currency div {
+  margin: 0px 5px;
 }
 
 .sns {
@@ -383,8 +395,4 @@ footer {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
-}
-
-.sns button {
-  border: none;
 }
