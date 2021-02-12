@@ -3,6 +3,7 @@
 
 <head>
   <title>w12-airbnb_Neis</title>
+  <!-- <meta name"viewport" content="width=device-width"> -->
   <link rel="stylesheet" href="./style.css">
 </head>  
 
@@ -78,132 +79,143 @@
     <!-- </nav> -->
   </header>
   
-  <div class="main-block" id="first" style="background-color:slategray;">
-    <label class="welcome-lbl">이제, 여행은</label>
-    <label class="welcome-lbl" style="top: 62%;">가까운 곳에서</label>
-    <button class="solid-semi-rounded-btn">근처의 숙소 둘러보기</button>
-  </div>
-  <div class="main-block" id="second" style="color: black; background-color: white;">
-    <ul class="horizontal-list">
-      <li><div class="small-card">
-        <div class="picture">사진</div>
-        <div class="city">도시</div>
-        <div class="distance">차로 100분 거리</div>
-      </div></li>
-      <li><div class="small-card">
-        <div class="picture">사진</div>
-        <div class="city">도시</div>
-        <div class="distance">차로 100분 거리</div>
-      </div></li>
-      <li><div class="small-card">
-        <div class="picture">사진</div>
-        <div class="city">도시</div>
-        <div class="distance">차로 100분 거리</div>
-      </div></li>
-      <li><div class="small-card">
-        <div class="picture">사진</div>
-        <div class="city">도시</div>
-        <div class="distance">차로 100분 거리</div>
-      </div></li>
-    </ul>
-    <ul class="horizontal-list" style="top: 22%;">
-      <li><div class="small-card">
-        <div class="picture">사진</div>
-        <div class="city">도시</div>
-        <div class="distance">차로 100분 거리</div>
-      </div></li>
-      <li><div class="small-card">
-        <div class="picture">사진</div>
-        <div class="city">도시</div>
-        <div class="distance">차로 100분 거리</div>
-      </div></li>
-      <li><div class="small-card">
-        <div class="picture">사진</div>
-        <div class="city">도시</div>
-        <div class="distance">차로 100분 거리</div>
-      </div></li>
-      <li><div class="small-card">
-        <div class="picture">사진</div>
-        <div class="city">도시</div>
-        <div class="distance">차로 100분 거리</div>
-      </div></li>
-    </ul>
+  <section>
+      <div class="background-block" id="first-background-block"></div>
+      <div class="contents-block" id = "first-contents-block">
+        <label id="welcome-lbl">이제, 여행은<br>가까운 곳에서</label>
+        <button class="solid-semi-rounded" id="tour-nearby-btn">근처의 숙소 둘러보기</button>
+      </div>
+  </section>
+  <section>
+    <div class="background-block" id="second-background-block"></div>
+    <div class="contents-block">
+      <ul class="horizontal-list" id="city-list1">
+        <li><div class="small-card">
+          <div class="picture">사진</div>
+          <div class="city">도시</div>
+          <div class="distance">차로 100분 거리</div>
+        </div></li>
+        <li><div class="small-card">
+          <div class="picture">사진</div>
+          <div class="city">도시</div>
+          <div class="distance">차로 100분 거리</div>
+        </div></li>
+        <li><div class="small-card">
+          <div class="picture">사진</div>
+          <div class="city">도시</div>
+          <div class="distance">차로 100분 거리</div>
+        </div></li>
+        <li><div class="small-card">
+          <div class="picture">사진</div>
+          <div class="city">도시</div>
+          <div class="distance">차로 100분 거리</div>
+        </div></li>
+      </ul>
+      <ul class="horizontal-list" id="city-list2">
+        <li><div class="small-card">
+          <div class="picture">사진</div>
+          <div class="city">도시</div>
+          <div class="distance">차로 100분 거리</div>
+        </div></li>
+        <li><div class="small-card">
+          <div class="picture">사진</div>
+          <div class="city">도시</div>
+          <div class="distance">차로 100분 거리</div>
+        </div></li>
+        <li><div class="small-card">
+          <div class="picture">사진</div>
+          <div class="city">도시</div>
+          <div class="distance">차로 100분 거리</div>
+        </div></li>
+        <li><div class="small-card">
+          <div class="picture">사진</div>
+          <div class="city">도시</div>
+          <div class="distance">차로 100분 거리</div>
+        </div></li>
+      </ul>
+    </div>
     <label style="top: 43%; font-size:x-large;">어디에서나, 여행은 살아보는거야!</label>
     <ul class="horizontal-list" style="top: 50%;">
+      <li>
+        <div class="medium-card">
+          <div class="picture"></div>
+          <div class="description">집 전체</div>
+        </div>
+      </li>
+      <li><div class ="medium-card">
+        <div class="picture"></div>
+        <div class="description">통나무집 및 전원주택</div>
+      </div></li>
+      <li><div class ="medium-card">
+        <div class="picture"></div>
+        <div class="description">독특한 공간</div>
+      </div></li>
+      <li><div class ="medium-card">
+        <div class="picture"></div>
+        <div class="description">반려동물 동반 가능</div>
+      </div></li>
+    </ul>
+  </section>
+  <section>
+    <div class="background-block" id="third" style="position: relative; background-color: black;"></div>
+    <div class="contents-block">
+      <div class="text-container">
+        <div class="bold-text">온라인 체험</div>
+        <div>전문가가 진행하고 모두 함께 즐기는 참여형 액티비티</div>
+      </div>
+      <button class="solid-semi-rounded-btn">모두 둘러보기</button>
+      <div class="text-in-card-container">
+        <div class="text-in-card" style="width: calc(100% - 5px); height: 100%;">
+          <div class="picture">
+            <div class="description">이탈리아 할머니와 함께 수제 파스타 만들기</div>
+          </div>
+        </div>
+      </div>
+      <div class="text-in-card-container" style="left: 50%;">
+        <div class="text-in-card" style="width: 50%; height: 50%;">
+          <div class="picture">
+            <div class="description">선(禪) 사상을 통한 마음챙김 식사</div>
+          </div>
+        </div>
+        <div class="text-in-card" style="width: 50%; height: 50%; left: 50%;">
+          <div class="picture" style="left: 5px;">
+            <div class="description">아르헨티나를 대표하는 예르바 마테차 알아보기</div>
+          </div>
+        </div>
+        <div class="text-in-card" style="width: 100%; height: 50%; top: 50%;">
+          <div class="picture" style="width: 100%; height: calc(100% - 10px); top: 5px">
+            <div class="description">파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="background-block" id="fourth" style="position: relative;"></div>
+    <div class="contents-block">
+      <div class="bold-text">수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</div>
+      <ul class="horizontal-list" style="top: 30%;">
         <li>
           <div class="medium-card">
             <div class="picture"></div>
-            <div class="description">집 전체</div>
+            <div class="description">숙소 호스트 되기</div>
           </div>
         </li>
-        <li><div class ="medium-card">
-          <div class="picture"></div>
-          <div class="description">통나무집 및 전원주택</div>
-        </div></li>
-        <li><div class ="medium-card">
-          <div class="picture"></div>
-          <div class="description">독특한 공간</div>
-        </div></li>
-        <li><div class ="medium-card">
-          <div class="picture"></div>
-          <div class="description">반려동물 동반 가능</div>
-        </div></li>
-    </ul>
-  </div>
-  <div class="main-block" id="third" style="background-color: black;">
-    <div class="text-container">
-      <div class="bold-text">온라인 체험</div>
-      <div>전문가가 진행하고 모두 함께 즐기는 참여형 액티비티</div>
+        <li>
+          <div class="medium-card">
+            <div class="picture"></div>
+            <div class="description">온라인 체험 호스팅하기</div>
+          </div>
+        </li>
+        <li>
+          <div class="medium-card">
+            <div class="picture"></div>
+            <div class="description">체험 호스팅하기</div>
+          </div>
+        </li>
+      </ul>
     </div>
-    <button class="solid-semi-rounded-btn">모두 둘러보기</button>
-    <div class="text-in-card-container">
-      <div class="text-in-card" style="width: calc(100% - 5px); height: 100%;">
-        <div class="picture">
-          <div class="description">이탈리아 할머니와 함께 수제 파스타 만들기</div>
-        </div>
-      </div>
-    </div>
-    <div class="text-in-card-container" style="left: 50%;">
-      <div class="text-in-card" style="width: 50%; height: 50%;">
-        <div class="picture">
-          <div class="description">선(禪) 사상을 통한 마음챙김 식사</div>
-        </div>
-      </div>
-      <div class="text-in-card" style="width: 50%; height: 50%; left: 50%;">
-        <div class="picture" style="left: 5px;">
-          <div class="description">아르헨티나를 대표하는 예르바 마테차 알아보기</div>
-        </div>
-      </div>
-      <div class="text-in-card" style="width: 100%; height: 50%; top: 50%;">
-        <div class="picture" style="width: 100%; height: calc(100% - 10px); top: 5px">
-          <div class="description">파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="main-block" id="fourth">
-    <div class="bold-text">수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</div>
-    <ul class="horizontal-list" style="top: 30%;">
-      <li>
-        <div class="medium-card">
-          <div class="picture"></div>
-          <div class="description">숙소 호스트 되기</div>
-        </div>
-      </li>
-      <li>
-        <div class="medium-card">
-          <div class="picture"></div>
-          <div class="description">온라인 체험 호스팅하기</div>
-        </div>
-      </li>
-      <li>
-        <div class="medium-card">
-          <div class="picture"></div>
-          <div class="description">체험 호스팅하기</div>
-        </div>
-      </li>
-    </ul>
-  </div>
+  </section>
 </body>
 
 </html>
