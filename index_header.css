@@ -3,6 +3,10 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+input {
+    outline: none;
+}
+
 a:link { color:white; text-decoration: none; }
 a:visited { color:white; }
 
@@ -30,17 +34,44 @@ a:visited { color:white; }
 .mainlogo {
     display:flex;
     justify-content: space-between;
-    padding-top: 30px;
+    padding: 30px 80px 0 80px;
 }
 
 .maincenter {
     display:flex;
     justify-content: space-between;
-    width: 250px;
+    width: 300px;
     font-size: 20px;
-    padding-left: 150px;
-    padding-top:10px;
 }
+
+.maincenter > div {
+    height: 29px;
+}
+
+.maincenter > div:after {
+    content: "";
+    display: block;
+    width:0px;
+    margin:auto;
+    transition: width 0.2s ease-in-out;
+}
+
+.maincenter > div:hover:after {
+    content: "";
+    display: block;
+    width:10px;
+    border-bottom: 2px solid white;
+    margin:auto;
+}
+
+.maincenter > div > a:hover {
+    color: #cbd5da;
+}
+
+.maincenter > div > a:focus {
+    border-bottom: 2px solid white;
+}
+
 .ghost-button {
     background-color: transparent;
     border:none;
@@ -96,27 +127,14 @@ a:visited { color:white; }
 }
 
 /* ====================================================  center Information ======================================== */
-
-#ceterInfoSVG {
-    border-radius: 50%;
-    background-color: #e51d59;
-    width:40px;
-    height:35px;
-    padding-top: 0px;
-}
-
-#ceterInfoSVG:active {
-    transform: translateY(2px);
-}
-
 .centerInfo {
     display: flex;
     justify-content:space-between;
     background-color: white;
     width:50%;
+    height: 70px;
     margin:auto;
-    margin-top:20px;
-    border-radius: 20px;
+    border-radius: 50px;
 }
 
 .Infofont {
@@ -126,20 +144,67 @@ a:visited { color:white; }
     font-size: 15px;
     color:gray;
 }
+
 .Infobox {
-    margin:auto;
-    padding: 5px 0;
-}
-.SVGbtn {
-    background-color:transparent;
-    border:none;
-    width:40px;
-    height:40px;
-    border-radius: 50%;
-    outline:none;
-    transition: all 0.5s ease-in-out;
+    justify-content:space-between;
+    padding-left: 40px;
 }
 
-.SVGbtn:hover {
+.BOX {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 25%;
+    margin: 0 auto;
+    border-radius: 50px; 
+    /* transition: background 0.1s ease-in-out; */
+}
+
+/* 첫번째 박스만 빼고 다 적용시킨다. */
+.BOX:not(:first-child):before {
+    content: '|';
+    color:#ebebeb;
+    position: absolute;
+    left: 0;
+}
+
+.BOX:hover {
+    background-color: #ebebeb;
+}
+
+/* 어려운 부분 */
+/* .BOX:hover:before, 는 현재 내가 선택한 div를 hover했을 때
+   .BOX:hover + .BOX:before 는 hover 했을때 다음 div의 before 속성 */
+/* + 는 "그 다음" 을 나타낸다. 따라서  .BOX:hover:before, .BOX:hover + .BOX:before 구문은
+   내가 hover한 박스의 hover속성을 적용하고 hover일 경우 다음 박스의before에도 hover을 적용한다.*/
+.BOX:hover:before, .BOX:hover + .BOX:before {
+    color:transparent;
+}
+
+#centerBTN {
+    align-self: center;
+    padding-right: 10px;
+}
+
+.centerbtn {
+    border-radius: 50%;
+    background-color: #e51d59;
+    border:none;
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    outline:none;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.centerbtn:hover {
     background-color:blue;
+}
+
+.centerbtn:active {
+    transform: translateY(2px);
+}
+
+.centerbtnSVG {
+    margin:auto;
 }
