@@ -9,7 +9,6 @@ main {
   margin-top: 50px;
   padding-left: 150px;
   padding-right: 150px;
-  /* margin-left: 150px; */
 }
 .main__column img {
   border-radius: 10px;
@@ -63,7 +62,7 @@ main {
 }
 /* city */
 .city-item img {
-  width: 64px;
+  height: 100%;
 }
 .city-item {
   height: 64px;
@@ -133,8 +132,11 @@ main {
   color: white;
   position: relative;
   left: 10px;
-  bottom: 65px;
+  bottom: 16%;
   font-size: 0.8rem;
+}
+.experience-item:first-child .experience-name {
+  bottom: 8%;
 }
 
 /* host-community */
@@ -151,8 +153,6 @@ main {
 }
 .host-community-item img {
   width: 100%;
-  /* width: 523px; */
-  height: 347px;
 }
 .host-community-item .host-community-name {
   margin-top: 7px;
