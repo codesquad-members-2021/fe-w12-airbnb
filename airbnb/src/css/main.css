@@ -11,6 +11,9 @@ main {
   padding-right: 150px;
   /* margin-left: 150px; */
 }
+.main__column img {
+  border-radius: 10px;
+}
 .main__column:first-child {
   margin: 0;
   padding: 0;
@@ -19,6 +22,7 @@ main {
 .main-background img {
   width: 100%;
   height: 823px;
+  border-radius: 0px;
 }
 .main-title {
   position: absolute;
@@ -60,7 +64,6 @@ main {
 /* city */
 .city-item img {
   width: 64px;
-  border-radius: 10px;
 }
 .city-item {
   height: 64px;
@@ -129,8 +132,9 @@ main {
 .experience-name {
   color: white;
   position: relative;
-  text-align: center;
-  bottom: 47px;
+  left: 10px;
+  bottom: 65px;
+  font-size: 0.8rem;
 }
 
 /* host-community */
