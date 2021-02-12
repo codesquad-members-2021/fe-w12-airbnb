@@ -40,8 +40,6 @@ header {
 }
 
 .solid-semi-rounded {
-  padding: 7px 17px;
-  border: 0;
   border-radius: 8px;
 }
 
@@ -221,10 +219,6 @@ header > nav {
 }
 
 section {
-  width: 100%;
-  height: 50vw;
-  min-height: 540px;
-  max-height: 620px;
   position: relative;
   box-shadow: 0 0 0 3px rgb(1, 255, 35) inset;
 }
@@ -245,6 +239,12 @@ section {
   top: 0;
   left: 0;
   box-shadow: 0 0 0 3px rgb(18, 1, 255) inset;
+}
+
+#sect1 {
+  height: 50vw;
+  min-height: 540px;
+  max-height: 620px;
 }
 
 #first-background-block {
@@ -271,6 +271,7 @@ section {
 }
 
 #tour-nearby-btn {
+  padding: 7px 17px;
   margin-top: 20px;
   color: black;
   background-color: white;
@@ -278,24 +279,12 @@ section {
   font-weight: bold;
 }
 
-ul.horizontal-list {
-  position: absolute;
-  width: 80%;
-  top: 7%;
-  left: 10%;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+#sect2 {
+  height: 53vw;
 }
 
-ul.horizontal-list > li {
-  display: inline-block;
-  position: relative;
-  width: 24%;
-  border: 0;
-  margin-top: 5px;
-  margin-left: 4px;
-  background-color: rgb(155, 155, 226);
+#sect2 * {
+  color: black;
 }
 
 #second-background-block {
@@ -303,11 +292,85 @@ ul.horizontal-list > li {
   background-color: white;
 }
 
-#city-list1 {
+#city-container {
+  padding: 5% 0 8% 0;
 }
 
-#city-list2 {
-  top: 22%;
+ul.horizontal-list {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-size: 0;
+}
+
+ul.horizontal-list > li {
+  display: inline-block;
+  width: calc(25% - 10.5px);
+  height: 100%;
+  font-size: 0px;
+  /* background-color: rgb(155, 155, 226); */
+}
+
+ul.horizontal-list + ul.horizontal-list {
+  margin-top: 14px;
+}
+
+ul.horizontal-list > li + li {
+  margin-left: 14px;
+}
+
+.small-card > * {
+  float: left;
+}
+
+.small-card > img {
+  width: 64px;
+  margin-right: 16px;
+  font-size: 0;
+}
+
+.city-info > .name {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+#live-anywhere-lbl {
+  display: block;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+#house-container {
+  margin-top: 2%;
+  margin-bottom: 10%;
+}
+
+.medium-card > img {
+  width: 100%;
+}
+
+.description {
+  margin-top: 6px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#sect3 {
+  height: 40vw;
+}
+
+#sect3 * {
+  box-shadow: 0 0 0 1px rgb(255, 255, 255) inset;
+}
+
+#third-background-block {
+  background-color: black;
+}
+
+#third-contents-block {
 }
 
 #third > .text-container {
@@ -323,7 +386,7 @@ ul.horizontal-list > li {
   font-size: 30px;
 }
 
-#third .solid-semi-rounded-btn {
+#tour-all-btn {
   position: absolute;
   width: 11%;
   height: 5%;
@@ -400,54 +463,4 @@ ul.horizontal-list > li {
 
 #fourth .picture {
   padding-top: 75%;
-}
-
-.small-card {
-  display: inline-block;
-  position: relative;
-  min-width: 180px;
-  max-width: 200px;
-  width: 100%;
-  padding-top: 33.3%;
-  border: inherit;
-}
-
-.small-card > .picture {
-  position: absolute;
-  top: 5%;
-  left: 1.7%;
-  width: 30%;
-  height: 90%;
-  background-color: gray;
-  border: inherit;
-  border-radius: 5px;
-}
-
-.city {
-  position: absolute;
-  top: 20%;
-  left: 35%;
-  font-weight: bold;
-  border: inherit;
-}
-
-.distance {
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  border: inherit;
-  font-size: smaller;
-}
-
-.medium-card > .picture {
-  width: 100%;
-  padding-top: 100%;
-  background-color: gray;
-  border: inherit;
-  border-radius: 10px;
-}
-
-.description {
-  border: inherit;
-  font-weight: bold;
 }
