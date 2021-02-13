@@ -182,6 +182,39 @@ header .member_setting .menuAndAcountIcon i:last-child {
   background: rgb(248, 248, 248);
 }
 
+.main_reserve_container {
+  width: 50%;
+  display: flex;
+  background-color: white;
+  position: absolute;
+  height: 60px;
+  border-radius: 40px;
+  left: 25%;
+  top: 20%;
+  justify-content: space-between;
+}
+.main_reserve_container li {
+  padding: 4px 8px;
+  width: 25%;
+  border-radius: 40px;
+  border: none;
+}
+
+.main_reserve_container li span:first-child {
+  display: block;
+  font-size: 15px;
+}
+
+.main_reserve_container li span:last-child {
+  display: block;
+  font-size: 15px;
+  color: rgb(204, 203, 203);
+}
+
+.main_reserve_container li:hover {
+  background-color: #ddd;
+}
+
 /* ------------------SECTION PARTS---------------------- */
 /* SECTION CITIES*/
 
