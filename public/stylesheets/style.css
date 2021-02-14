@@ -300,7 +300,7 @@ div.content > ul > li.black {
     background-color: black;
 }
 
-div.content-flexAble {
+div.content-margin__topBot--70 {
     margin: 70px auto;    
 }
 
@@ -311,6 +311,32 @@ p.content-secDesc {
 }
 
 /* 콘텐츠 - section1 (지역 종류)  */
+ul.content__locationType {
+    margin-left: 20px;    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+ul.content__locationType > li {
+    display: grid;
+    grid-template-columns: 64px auto;
+    column-gap: 10px;
+    align-items: center;
+    
+}
+
+ul.content__locationType > li > img {
+    width: 100%;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+}
+
+ul.content__locationType > li > div.info {
+    display: inline-block;
+}
+/* 
+-- no grid Version
 ul.content__locationType {
     margin: 0 0 0 13px;
 }
@@ -326,6 +352,7 @@ ul.content__locationType > li > div.info {
     position: relative;
     top: -22px;
 }
+*/
 
 /* 콘텐츠 - section 2 (숙소 종류?)  */
 ul.content__roomType {
