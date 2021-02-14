@@ -1,17 +1,13 @@
 const express = require('express');
-
-const app = express();
-const port = 8080;
 const path = require('path');
+const app = express();
 
-app.use(express.static('public'));
-app.get('/', function (request, response) {
-  response.sendFile(path.join(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
-app.listen(port, function (err) {
-  console.log('Connected port - ' + port);
-  if (err) {
-    return console.log('Found error - ', err);
-  }
+app.listen(8080, () => {
+  console.log('Express App on port 8080!');
 });

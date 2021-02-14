@@ -46,7 +46,7 @@ aside {
     height: 1000px;
     background-size: cover;
     background-attachment: scroll;
-    background-image: url(./img/main-wide.jpg);
+    background-image: url(../img/main-wide.jpg);
     background-repeat: no-repeat;
 }
 
@@ -59,6 +59,7 @@ aside {
 
 .header {
     padding: 20px var(--page-side-margin);
+    width:100%;
     display: flex;
     justify-content: space-between;
 }
@@ -151,21 +152,24 @@ a {
     background-color: var(--info-color);
     color:var(--grey);
     font-size: 20px;
+    border: 1px solid rgba(177, 176, 176, 0.5);
     border-radius: var(--image-border-radius);
 }
 
 /* input 관련 form 추가 */
 .info-form-container {
-    margin: 0 var(--page-side-margin);
+    left: 25%;
+    top: 152px;
+    width: 50%;
     text-align: left;
-    display: flex;
-    justify-content: center;
+    position: absolute;
 }
 
 .info-input-form {
+    margin: 0;
     padding: 10px;
+    width: 100%;
     height: 70px;
-    width: 60%;
     background-color: var(--info-color);
     display: flex;
     border-radius: 40px;
@@ -190,13 +194,46 @@ a {
     border: 0;
 }
 
+/* header sticky 이벤트*/
+.header-bar-sticky{
+    position: fixed;
+    background-color: var(--info-color);
+    top: 0;
+    z-index: 2;
+}
+
+.header-bar-sticky-logo {
+    color: rgb(255, 56, 92);
+}
+
+.search-btn-sticky {
+    left: 200px;
+    visibility:visible;
+}
+
+.form-display-hidden {
+    top: 0;
+    visibility: hidden;
+}
+
 #no-border{
     border: 0;
+}
+
+.form-display-hidden {
+    width: 0;
+    height: 0;
 }
 
 .search-btn-container{
     display: flex;
     position: relative;
+}
+
+.search-btn-input-hidden {
+    width: 0;
+    height: 0;
+    visibility: hidden;
 }
 
 .search-btn {
@@ -371,16 +408,9 @@ a {
     font-weight: var(--section-font-weight);
 }
 
-.summary-img.second {
-    display: flex;
-    flex-direction: column;
-    object-fit: cover;
-    position: relative;
-    grid-column: 2 / span 1;
-    justify-content:flex-end;
-}
-
-.summary-img.second div {
+.summary-img.second div,
+.summary-img.third div,
+.summary-img.forth div {
     padding-left: 10px;
     bottom: 10%;
     width: 100%;
@@ -389,6 +419,15 @@ a {
     font-size: var(--normal-font-size);
     color:var(--font-family);
     font-weight: var(--section-font-weight);
+}
+
+.summary-img.second {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    position: relative;
+    grid-column: 2 / span 1;
+    justify-content:flex-end;
 }
 
 .summary-img.third {
@@ -400,16 +439,6 @@ a {
     justify-content: flex-end;
 }
 
-.summary-img.third div {
-    padding-left: 10px;
-    bottom: 10%;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    font-size: var(--normal-font-size);
-    color:var(--font-family);
-    font-weight: var(--section-font-weight);
-}
 
 .summary-img.forth {
     display: flex;
@@ -420,16 +449,6 @@ a {
     justify-content:flex-end;
 }
 
-.summary-img.forth div {
-    padding-left: 10px;
-    bottom: 10%;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    font-size: var(--normal-font-size);
-    color:var(--font-family);
-    font-weight: var(--section-font-weight);
-}
 
 .last-section-container {
     margin: var(--page-tb-margin) var(--page-side-margin);
