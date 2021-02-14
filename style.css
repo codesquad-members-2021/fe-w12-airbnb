@@ -123,5 +123,76 @@ nav .menu li,
 
 /* room  */
 .room {
-  padding: 30px 80px;
+  padding: 10px 80px;
+}
+.room__title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.room__container {
+  margin-top: 25px;
+  text-align: justify;
+}
+.room__container:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+.room__content {
+  display: inline-block;
+}
+.room__image {
+  width: 280px;
+  height: 280px;
+  border-radius: 6px;
+}
+.room__desc {
+  /* font-weight: bold; */
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+/* experience  */
+.experience {
+  background-color: black;
+  padding: 20px 80px;
+}
+.experience__textbox {
+  color: white;
+  padding: 20px 0;
+}
+.experience__title {
+  font-size: 30px;
+  /* margin-bottom: 10px; */
+}
+.experience__desc {
+  font-size: 14px;
+}
+.experience__container {
+  text-align: justify;
+  min-width: 1230px;
+}
+.experience__container:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+.experience__content {
+  display: inline-block;
+}
+.experience__img {
+  width: 400px;
+  border-radius: 6px;
+  /* height: 400; */
+}
+.experience__subtitle {
+  color: white;
+  font-size: 20px;
+  /* margin-bottom: 20px; */
+}
+.experience__content li {
+  margin-top: 10px;
+}
+.experience__desc {
+  color: white;
 }
