@@ -1,0 +1,27 @@
+.rooms {
+  padding: 0px 80px;
+  height: 530px;
+}
+
+.rooms__text {
+  padding-bottom: 16px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.rooms__type {
+  display: flex;
+  flex-direction: row;
+}
+
+.rooms__type ul {
+  margin-right: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.rooms img {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+}

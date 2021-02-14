@@ -1,0 +1,148 @@
+.background {
+  width: 100%;
+  height: 771px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1920");
+}
+
+.header {
+  width: 100%;
+}
+
+.header__contents {
+  padding: 0px 80px;
+  width: 100%;
+  height: 80px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header__menu {
+  width: 357px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-left: 110px;
+  cursor: pointer;
+}
+
+.header__menu span {
+  padding: 10px 16px;
+}
+
+.header__my-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.header__my-info span {
+  padding: 10px;
+}
+
+.infoBtn {
+  height: 44px;
+  width: 77px;
+  border-radius: 20px;
+  padding: 5px 12px;
+}
+
+.infoBtn__login {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoBtn__login div:nth-child(2) {
+  margin-left: 12px;
+}
+
+.header__search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 64px;
+  background-color: #fff;
+  border-radius: 32px;
+}
+
+.header__search ul {
+  border-right: 1px solid gainsboro;
+}
+
+.header__search div:nth-child(1) {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.header__search div:nth-child(2) {
+  font-weight: lighter;
+}
+
+.header__search ul:nth-child(1) {
+  padding: 12px 30px;
+  width: 270px;
+}
+
+.header__search ul:nth-child(2),
+.header__search ul:nth-child(3),
+.header__search ul:nth-child(4) {
+  padding: 11.6px 20px;
+  width: 170px;
+}
+
+.header__search ul:nth-child(5) {
+  width: 70px;
+  border: none;
+  padding-left: 10px;
+}
+
+.search-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ff385c;
+}
+
+.search-button svg {
+  display: flex;
+  margin-left: 10px;
+}
+
+.header__phrase {
+  color: #ffffff;
+  position: absolute;
+  top: 45%;
+  left: 80px;
+  width: 416px;
+  font-size: 52px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__phrase button {
+  padding: 7px 15px;
+  border-radius: 8px;
+  margin-top: 22px;
+  border: none;
+}

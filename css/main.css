@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+* :focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+img,
+a,
+ul,
+button {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+}
+
+.container {
+  border-bottom: 1px solid gainsboro;
+}
