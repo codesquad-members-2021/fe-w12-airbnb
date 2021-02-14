@@ -59,6 +59,26 @@ nav .menu li,
   display: inline-block;
   margin-left: 20px;
 }
+.login__menu {
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: white;
+}
+.login__menu .login {
+  display: inline-block;
+  margin-left: 8px;
+  margin-top: 5px;
+  font-size: 30px;
+  color: black;
+}
+.login__menu .toogle {
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 20px;
+  color: black;
+}
 
 .banner-content {
   padding-top: 170px;
@@ -103,7 +123,6 @@ nav .menu li,
   /* padding: 0px; */
   /* margin: 0px; */
   width: 190px;
-  background-color: blue;
 }
 .local__content img {
   width: 60px;
@@ -195,4 +214,32 @@ nav .menu li,
 }
 .experience__desc {
   color: white;
+}
+
+/* host  */
+.host {
+  padding: 20px 80px;
+}
+.host__title {
+  padding: 20px 0;
+  font-size: 30px;
+}
+.host__container {
+  text-align: justify;
+}
+.host__container:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+.host__content {
+  display: inline-block;
+}
+.host__image {
+  width: 400px;
+  border-radius: 6px;
+}
+.host__desc {
+  margin-top: 5px;
+  font-size: 20px;
 }
