@@ -28,7 +28,14 @@
   display: inline-block;
   padding-left: 120px;
   margin: 20px 0;
-  font-size: 25px;
+  font-size: 30px;
+  /* color: white; */
+}
+.logo a {
+  color: white;
+}
+.logo__title {
+  margin-left: 10px;
 }
 nav {
   display: inline-block;
@@ -167,10 +174,13 @@ nav {
   /* margin-right: 50px; */
   width: 33%;
   /* position: absolute; */
+  /* margin-left: 10px; */
 }
 .host__content img {
-  width: 390px;
-  height: 270px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 350px;
   border-radius: 6px;
 }
 .host__desc {
