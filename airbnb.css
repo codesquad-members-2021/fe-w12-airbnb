@@ -69,28 +69,28 @@ a {
     float: right;
     margin-top: 15px;
 }
-#header__right_nav > li:last-child {
+#header__globe {
+    font-size: 1.2em;
+}
+#header_user {
     margin-right: 0;
     margin-top: 2px;
 }
-#header__right_nav > li:nth-child(2) {
-    font-size: 1.2em;
-}
-#header__right_nav > li:last-child > a {
+#header_user > a {
     width: 80px;
     height: 45px;
     background-color: #fff;
     border-radius: 24px;
     position: relative;
 }
-.globe {
+.globe_icon {
     color: #444;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 14px;
 }
-.user {
+.user_icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -133,11 +133,11 @@ a {
     color: #555;
 }
 /* ----- 위치 ----- */
-#search > li:first-child {
+#search__place {
     width: 270px;
     padding-left: 35px;
 }
-#search > li:first-child > input {
+#search__place > input {
     width: 150px;
     border: 0;
     padding: 0;
@@ -146,18 +146,18 @@ a {
     background-color: transparent;
 }
 /* ----- 체크인 체크아웃 ----- */
-#search > li:nth-child(2),
-#search > li:nth-child(3) {
+#search__checkin,
+#search__checkout {
     width: 180px;
     cursor: pointer;
 }
 /* ----- 인원, 게스트 추가 ----- */
-#search > li:last-child {
+#search__guest {
     width: 223px;
     position: relative;
     cursor: pointer;
 }
-#search > li:last-child > button {
+#search__guest > button {
     position: absolute;
     top: 8px;
     right: 10px;
@@ -227,14 +227,7 @@ a {
     width: 306.25px;
     height: 65px;
 }
-.local__list:nth-child(5),
-.local__list:nth-child(6),
-.local__list:nth-child(7),
-.local__list:nth-child(8) {
-    margin-bottom: 0;
-}
-.local__list:nth-child(4),
-.local__list:nth-child(8) {
+.local__right {
     margin-right: 0;
 }
 .local__list > img {
