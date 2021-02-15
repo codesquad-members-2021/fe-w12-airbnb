@@ -53,7 +53,7 @@ a {
 .background--image {
   width: 100%;
   background-image: url('https://a0.muscache.com/im/pictures/3c23cdc9-b2bc-45e2-8bbd-930bf3076449.jpg?im_w=720');
-  background-position: bottom left;
+  background-position: left bottom;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -250,17 +250,21 @@ nav {
 
 .section--visual {
   padding: 0;
-  position: relative;
 }
 
-.catchphrase__box {
-  padding: 0 80px;
+.visual__container {
+  padding: 146px 80px 40px;
+  height: 364px;
+}
+
+.catchphrase--box {
+  height: 364px;
 }
 
 .catchphrase {
   font-size: 52px;
   font-weight: bold;
-  line-height: 1.1;
+  line-height: 1.2;
   color: #fff;
 }
 
@@ -275,35 +279,29 @@ nav {
   height: 20px;
   margin-top: 22px;
   padding: 7px 15px;
-  background: white;
-  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .lookaround__text {
   font-size: 14px;
   font-weight: 600;
   justify-content: center;
-  position: absolute;
-  top: 9px;
-  left: 18px;
 }
 
-.clearfix::after {
-  content: '';
-  clear: both;
-  display: block;
-}
-
-/* Section City */
+/* SECTION: City */
 .section__background {
-  border: 1px solid white;
+  border: 1px solid #fff;
   width: 200px;
-  background: white;
+  background: #fff;
   padding: 15px;
 }
 
 .section__city {
-  background: white;
+  background: #fff;
   height: 300px;
   position: relative;
 }
