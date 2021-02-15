@@ -11,48 +11,56 @@
 </head>
 <body>
     <!-- 코로나 배너 -->
-    <div id="corona">
+    <div class="corona">
         <div>에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</div>
     </div>
 
-    <div id="container__header">
+    <div class="container__header">
         <!-- 헤더 부분 -->
-        <header id="header">
-            <div id="header__logo">
+        <header class="header">
+            <div class="header__logo">
                 <img src="https://i.postimg.cc/CLx3dSN2/580b57fcd9996e24bc43c513.png" alt="airbnb logo">
             </div>
-            <ul id="header__middle_nav">
+            <ul class="header__middle_nav">
                 <li><a href="#">숙소</a></li>
                 <li><a href="#">체험</a></li>
                 <li><a href="#">온라인 체험</a></li>
             </ul>
-            <ul id="header__right_nav">
+            <ul class="header__right_nav">
                 <li><a href="#">호스트 되기</a></li>
-                <li id="header__globe"><a href="#">
+                <li class="header__globe"><a href="#">
                     <i class="fas fa-globe"></i>
                 </a></li>
-                <li id="header__user"><a href="#">
+                <li class="header__user"><a href="#">
                     <i class="fas fa-bars bars_icon"></i>
                     <i class="fas fa-user-circle user_icon"></i>
                 </a></li>
             </ul>
         </header>
+
+        <ul class="user_menu hidden">
+            <li class="user_menu__list signin"><a href="#">회원 가입</a></li>
+            <li class="user_menu__list login"><a href="#">로그인</a></li>
+            <li class="user_menu__list"><a href="#">숙소 호스트 되기</a></li>
+            <li class="user_menu__list"><a href="#">체험 호스팅하기</a></li>
+            <li class="user_menu__list"><a href="#">도움말</a></li>
+        </ul>
     
         <!-- 검색 -->
-        <ul id="search">
-            <li id="search__place">
+        <ul class="search">
+            <li class="search__place">
                 <span>위치</span><br>
                 <input type="text" placeholder="어디로 여행가세요?">
             </li>
-            <li id="search__checkin">
+            <li class="search__checkin">
                 <span>체크인</span><br>
                 <div>날짜 추가</div>
             </li>
-            <li id="search__checkout">
+            <li class="search__checkout">
                 <span>체크아웃</span><br>
                 <div>날짜 추가</div>
             </li>
-            <li id="search__guest">
+            <li class="search__guest">
                 <span>인원</span><br>
                 <div>게스트 추가</div>
                 <button>✈︎</button>
@@ -60,8 +68,8 @@
         </ul>
 
         <!-- 큰 배너 이미지 -->
-        <div id="banner">
-            <div id="banner__title">
+        <div class="banner">
+            <div class="banner__title">
                 <div>이제, 여행은 가까운 곳에서</div>
                 <a href="#">근처의 숙소 둘러보기</a>
             </div>
@@ -70,7 +78,7 @@
     </div> <!-- container__header -->
 
 
-    <div id="local">
+    <div class="local">
         <ul>
             <li class="local__list">
                 <img src="https://i.esdrop.com/d/vjkVnrKAtK.jpg">
@@ -155,8 +163,8 @@
         </div>
     </div>
 
-    <div id="container__activity" class="container__content">
-        <div id="activity" class="content">
+    <div class="container__activity container__content">
+        <div class="activity content">
             <h1>세상을 만나는 특별한 방법</h1>
             <span>현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나 온라인으로 만나보세요.</span>
             <ul>
