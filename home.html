@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./style/home.css" />
   <link rel="stylesheet" href="./style/header.css">
+  <!-- <link rel="stylesheet" href="./style/headerLayers.css"> -->
   <link rel="stylesheet" href="./style/section1.css">
   <link rel="stylesheet" href="./style/section2.css">
   <link rel="stylesheet" href="./style/section3.css">
@@ -14,19 +15,20 @@
   <link rel="stylesheet" href="./style/calendar.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
-  <script defer src="./src/index.js"></script>
+  <!-- <script defer src="./src/index.js"></script> -->
   <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
 </head>
 
 <body>
   <div class="header">
-    <!-- 코로나19 대응 방안 메시지 -->
+    <!--------------------- 코로나19 대응 방안 메시지 ---------------------->
     <div class="header__alertMessage">
       <a href="#">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a>
     </div>
     <header>
       <div class="header__content">
-        <!-- 로고 -->
+
+        <!--------------------------- 에어비앤비 로고 --------------------------->
         <div class="item header__logo">
           <a href="">
             <svg id="airbnb-logo">
@@ -37,12 +39,12 @@
             <!-- <img id="airbnb__logo" src="../airbnb_image/airbnb/images/airbnb.svg" alt="airbnbLogo" /> -->
           </a>
         </div>
-        <!-- 검색 -->
+
+        <!---------------------------------- 탭 ------------------------------------->
         <div class="item header__search">
           <div class="header__search-radio">
             <form action="">
               <fieldset>
-                <!-- <div aria-label="무엇을 찾고 계신가요?" class="header__search-tab"> -->
                 <label for="stay">
                   <input type="radio" id="stay" name="checkBeforeSearch" class="header__search-tab__item" checked />
                   <span>숙소</span>
@@ -52,77 +54,130 @@
                   <span>체험</span>
                 </label>
                 <a href="" class="header__search-tab__item">온라인 체험</a>
-                <!-- </div> -->
               </fieldset>
             </form>
           </div>
         </div>
-        <div class="header__search-check">
-          <button class="item location">
-            <div class="title">위치</div>
-            <div class="header__search-form">
-              <input type="text" id="place" class="header__search-form" placeholder="어디로 여행가세요?" />
-            </div>
-          </button>
-          <button class="item search-check__date">
-            <div class="title">체크인</div>
-            <div class="header__search-form">날짜 추가</div>
-          </button>
-          <button class="item search-check__date">
-            <div class="title">체크아웃</div>
-            <div class="header__search-form">날짜 추가</div>
-          </button>
-          <button class="item search-btn">
-            <div class="title">인원</div>
-            <div class="header__search-form people">게스트 추가</div>
-          </button>
-          <span id="search-icon-btn">
-            <button id="">
-              <i class="fas fa-search"></i>
-              <!-- 검색 -->
+
+        <!--------------------------------- 검색바 ------------------------------------>
+        <div class="header__search-bar">
+          <span class="item search-bar__location">
+            <button class="search-bar__element">
+              <div class="title">위치</div>
+              <div class="header__search-form">
+                <input type="text" id="place" class="header__search-form" placeholder="어디로 여행가세요?" />
+              </div>
             </button>
           </span>
+
+          <span class="search-bar__divideLine"></span>
+
+          <span class="item search-bar__date">
+            <button class="search-bar__element">
+              <div class="title">체크인</div>
+              <div class="header__search-form">날짜 추가</div>
+            </button>
+          </span>
+
+          <span class="search-bar__divideLine"></span>
+
+          <span class="item search-bar__date">
+            <button class="search-bar__element">
+              <div class="title">체크아웃</div>
+              <div class="header__search-form">날짜 추가</div>
+            </button>
+          </span>
+
+          <span class="search-bar__divideLine"></span>
+
+          <span class="item search-bar__people">
+            <button class="search-bar__element">
+              <div class="title">인원</div>
+              <div class="header__search-form people">게스트 추가</div>
+            </button>
+            <button class="header__search-form search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+            </button>
+
         </div>
+
+        <!----------------------- 체크인, 체크아웃 선택시 나오는 달력 - 미완 ---------------------->
         <div id="calendar"></div>
-        <!-- 계정 -->
+
+        <!----------------------------------- 계정 부분 ----------------------------------->
         <div class="item header__account">
+
           <div class="header__account-items">
-            <div class="">
-              <button class="header__account-btn fa-beHost">호스트 되기</button>
-              <!-- </div> -->
-              <!-- <div class="header__account-btn"> -->
-              <button class="header__account-btn">
-                <i class="fas fa-globe"></i>
+            <span class="account-items__element">
+              <button>
+                <span>호스트 되기</span>
               </button>
-              <!-- </div> -->
-              <!-- </div> -->
-              <!-- <div class="header__account-btn"> -->
-              <button class="header__account-btn" id="account">
+            </span>
+
+            <span class="account-items__element">
+              <button class="">
+                <!-- <i class="fas fa-globe"></i> -->
+                <svg id="globe" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                  role="presentation" focusable="false"
+                  style="display: block; height: 16px; width: 16px; fill: currentcolor;">
+                  <path
+                    d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z">
+                  </path>
+                </svg>
+              </button>
+            </span>
+            
+            <span class="account-items__btn">
+              <button class="" id="account">
                 <span><i class="fas fa-bars"></i></span>
-                <span><i class="fas fa-user-circle"></i></span>
+                <span><svg id="people" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                    role="presentation" focusable="false"
+                    style="display: block; height: 100%; width: 100%; fill: currentcolor;">
+                    <path
+                      d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z">
+                    </path>
+                  </svg></span>
               </button>
+            </span>
+            
+            <!------------------------------- 계정 버튼 누르면 나오는 레이어  --------------------------------->
+            <div class="account__layer">
+              <ul>
+                <li class="account__layer-first">회원가입</li>
+                <li>로그인</li>
+                <li class="line"></li>
+                <li>숙소 호스트 되기</li>
+                <li>체험 호스팅하기</li>
+                <li class="account__layer-last">도움말</li>
+              </ul>
             </div>
+
           </div>
         </div>
       </div>
-      <!-- 메인이미지와 문구 -->
+
+
+      <!-------------------------------------- 대문 이미지와 문구 --------------------------------------->
+
       <div class="header__main-image">
         <div class="header__main-statement">
-          <!-- <div> -->
           <h1>이제, 여행은 가까운 곳에서</h1>
-          <!-- </div> -->
           <button>
             <span>근처의 숙소 둘러보기</span>
           </button>
         </div>
-        <!-- <img src="https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1440" alt="" /> -->
       </div>
     </header>
   </div>
-  <!-- 메인 -->
+
+  <!----------------------------------------- 메인 --------------------------------------------->
+
   <div class="main">
     <main>
-      <!-- section 1 - cities -->
+
+      <!----------------------------- section 1 - cities --------------------------------->
+
       <section class="main__destinations">
         <ul class="item">
           <li>
@@ -215,7 +270,9 @@
           </li>
         </ul>
       </section>
-      <!-- section 2 - houseType -->
+
+      <!----------------------------------- section 2 - houseType --------------------------------------->
+
       <section class="main__houseType">
         <p>어디에서나, 여행은 살아보는 거야!</p>
         <ul class="house">
@@ -247,7 +304,9 @@
           </li>
         </ul>
       </section>
-      <!-- section 3 - online-activities -->
+
+      <!---------------------------------------- section 3 - online-activities ----------------------------------------->
+
       <section>
         <div class="main__online-activity">
           <div class="header">
@@ -321,7 +380,9 @@
         </div>
   </div>
   </section>
-  <!-- section 4 - beHost -->
+
+  <!----------------------------------------------- section 4 - beHost --------------------------------------------------->
+
   <section>
     <div class="main__beHost">
       <div class="title">
@@ -353,9 +414,11 @@
   </section>
   </main>
   </div>
-  <!-- footer -->
+
+  <!-------------------------------------------- footer ----------------------------------------------->
   <div class="footer">
     <footer>
+
       <div class="footer__about">
         <section>
           <h4>소개</h4>
@@ -404,6 +467,7 @@
           </ul>
         </section>
       </div>
+
       <div class="footer__others">
         <div class="item copyright">
           <span>© 2021 Airbnb, Inc. All rights reserved</span>
@@ -456,6 +520,7 @@
           </ul>
         </div>
       </div>
+
     </footer>
   </div>
 </body>

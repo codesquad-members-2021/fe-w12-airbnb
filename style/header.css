@@ -8,6 +8,8 @@
   color: white;
 }
 
+/* header - 코로나 알림 메시지 */
+
 .header__alertMessage {
   height: 60px;
   background-color: black;
@@ -29,6 +31,8 @@
   color: #cfcdcc;
 }
 
+/* header 로고, 탭, 계정 라인 */
+
 .header__content {
   display: flex;
   color: black;
@@ -41,6 +45,7 @@
 }
 
 .header__content .item {
+  /* border: 1px solid black; */
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -50,13 +55,17 @@
   justify-content: center;
 }
 
-svg {
+#airbnb-logo {
   fill: white;
+  /* padding: 0.8em; */
 }
 
 fieldset {
   width: 100%;
   color: white;
+  font-weight: 200px;
+  font-size: 16.5px;
+  /* padding: 0.8em; */
 }
 
 label {
@@ -72,114 +81,181 @@ fieldset a:hover {
   color: #cfcdcc;
 }
 
-.header__search-check {
+/* header - 검색바 */
+
+.header__search-bar {
   position: absolute;
-  width: 45%;
-  top: 18%;
+  width: 50%;
+  max-width: 900px;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
-  min-height: 3em;
+  height: 4.3em;
   border-radius: 2em;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 0.32fr;
-  gap: 1em;
-  padding: 0.5em;
+  display: flex;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-.header__search-check .item {
+.header__search-bar .item {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  border-right: 1px solid #dddddd;
   justify-content: space-evenly;
+  flex: 1 1 20px;
+  padding: 0.3em 0.7em;
+  width: 100%;
   cursor: pointer;
 }
 
-.header__search-check .location div {
-  width: max-content;
-  transform: translateX(1.5rem);
+.header__search-bar .item:hover {
+  border-radius: 2em;
+  background-color: #f1f1f1;
 }
 
-.header__search-check .search-btn {
-  border-right: none;
+.header__search-bar .search-bar__location {
+  /* background-color: khaki; */
+  flex-grow: 2;
 }
 
-.header__search-check .item .title {
+.header__search-bar .search-bar__date {
+  flex-grow: 1;
+}
+
+.header__search-bar .search-bar__people {
+  /* background-color: teal; */
+  flex-grow: 1.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-bar__divideLine {
+  all: unset;
+  border-right: 1px solid #dddddd;
+  flex: 0 0 0px;
+  height: 32px;
+  align-self: center;
+}
+
+.fa-search {
+  font-size: 20px;
+  padding: 0.7em;
+  border-radius: 50%;
+  background-color: #ff385c;
+  color: white;
+}
+
+.search-bar__element {
+  transform: translateX(14%);
+  font-size: 14px;
+}
+
+.search-bar__element .title {
   font-size: 12px;
   font-weight: bold;
 }
 
-.header__search-check .item .header__search-form {
-  font-size: 14px;
-}
+/* header - 계정 부분 */
 
-.header__search-check .item .search-btn {
-  display: inline-flex;
-  justify-content: space-between;
-}
-
-#search-icon-btn {
+.header__account-items {
+  /* border: 1px solid black; */
+  width: 100%;
   display: flex;
-  justify-content: center;
-  background-color: #ff385c;
-  padding: 10px;
-  border-radius: 50%;
-}
-
-.fa-search {
-  color: white;
-}
-
-.header__account {
-  /* border: 1px solid red; */
+  flex-direction: row;
   justify-content: flex-end;
 }
 
-.header__account .header__account-items {
-  /* border: 1px solid blue; */
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+.account-items__element {
+  all: unset;
+  /* border: 1px solid red; */
+  font-size: 14px;
+  font-weight: bold;
+  /* padding: 0.7em; */
 }
 
 .header__account-btn {
-  margin-left: 1em;
-  padding: 0.8em;
   border-radius: 2em;
-  color: white;
   font-size: 14px;
   font-weight: bold;
-  /* padding: 1em; */
 }
 
-.fa-globe {
-  padding: 0.5em 0.3em 0 0;
+.account-items__element button {
+  padding: 0.8em 20px 0 0;
+  color: white;
 }
 
-.header__account-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+#globe {
+  padding-top: 0.1em;
+}
+
+.account-items__btn {
+  /* border: 1px solid blue; */
+  width: 80px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #account {
   all: unset;
   cursor: pointer;
-  margin-left: 1em;
-  padding: 0.4em;
-  border-radius: 2em;
   background-color: white;
+  display: flex;
+  height: 45px;
+  /* width: 80px; */
+  align-items: center;
+  text-align: center;
+  /* margin-left: 1em; */
+  /* padding: 0.4em; */
+  border-radius: 1.5em;
+  /* background-color: white; */
   color: #717171;
 }
 
-.fa-user-circle {
-  font-size: 2em;
+#account span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 1px solid red; */
+  width: 80%;
+  height: 100%;
+  padding: 0.25em;
 }
 
-.fa-bars,
-.fa-beHost,
-.header__account-items .fa-globe {
-  transform: translateY(-0.4em);
+/* 계정버튼 누르면 나오는 레이어 */
+
+.account__layer {
+  visibility: hidden;
+  position: absolute;
+  background-color: white;
+  /* padding: 0.8em; */
+  width: 13%;
+  top: 18%;
+  border-radius: 0.7em;
+}
+
+.account__layer ul li {
+  margin: 3px;
+  padding: 10px 15px 10px;
+  font-size: 14px;
+}
+
+.account__layer ul li:hover {
+  background-color: #f1f1f1;
+}
+
+.account__layer ul .line {
+  all: unset;
+  margin: 0.5em 0;
+  border-top: 1px solid #dddddd;
+}
+
+.account__layer ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.account__layer-first {
+  font-weight: bold;
 }
 
 .header__main-statement {
@@ -203,5 +279,5 @@ fieldset a:hover {
 }
 
 .header__main-statement button:hover {
-  background: #f1f1f1;
+  background-color: #f1f1f1;
 }
