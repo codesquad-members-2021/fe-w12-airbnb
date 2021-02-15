@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--Header-->
+    <section class="covid-19-notice">
+      <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest"
+        >에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a
+      >
+    </section>
+
+    <!--Main-->
+    <main>
+      <section class="top-section">
+        <div class="top-section__div">
+          <div class="top-section__img">
+            <img class="airbnb-logo" src="img/airbnb.svg" />
+          </div>
+
+          <nav class="top-section__nav">
+            <ul>
+              <li class="top-section__nav--list"><span>숙소</span></li>
+              <li class="top-section__nav--list"><span>체험</span></li>
+              <li class="top-section__nav--list">
+                <a
+                  id="oline"
+                  href="https://www.airbnb.co.kr/s/experiences/online"
+                  >온라인 체험</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="right-section">
+            <button class="right-section__btn-text">호스트 되기</button>
+
+            <button class="right-section__btn-earth">
+              <img id="icon-earth" src="img/earth.svg" width="15px" />
+            </button>
+
+            <button class="right-section__btn-login">
+              <img id="icon-list" src="img/list.svg" width="16px" />
+              <img id="icon-person" src="img/people.svg" width="30px" />
+            </button>
+          </div>
+
+          <!--Search-->
+          <section class="search-section">
+            <div class="search-destination">
+              <span>위치</span>
+              <input
+                class="search__input"
+                contype="text"
+                placeholder="어디로 여행가세요?"
+              />
+            </div>
+            <div class="search-basic">
+              <span>체크인</span>
+              <input
+                class="search__input"
+                contype="date"
+                placeholder="날짜 추가"
+              />
+            </div>
+            <div class="search-basic">
+              <span>체크아웃</span>
+              <input
+                class="search__input"
+                contype="date"
+                placeholder="날짜 추가"
+              />
+            </div>
+            <div class="search-basic">
+              <span>인원</span>
+              <input
+                class="search__input"
+                contype="date"
+                placeholder="게스트 추가"
+              />
+              <div id="search-icon"><img src="img/search.svg" /></div>
+            </div>
+          </section>
+
+          <div class="top-section__text-div">
+            이제, 여행은<br />가까운 곳에서<br />
+            <button class="top-section__text-div--btn">
+              근처의 숙소 둘러보기
+            </button>
+          </div>
+        </div>
+      </section>
+      <!--City-->
+      <section class="city-section">
+        <ul class="city-section__div">
+          <li class="city-section__list">
+            <img class="city-section__img" src="img/sec1-01.jpg" alt="seoul" />
+            <div>서울 <br />차로 3분거리</div>
+          </li>
+          <li class="city-section__list">
+            <img src="img/sec1-02.jpg" alt="incheon" />
+            <div>
+              인천<br />
+              차로 30분 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img src="img/sec1-03.jpg" alt="uijeongbu" />
+            <div>
+              의정부시<br />
+              차로 45분 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img src="img/sec1-04.jpg" alt="daejeon" />
+            <div>
+              대전<br />
+              차로 2.5시간 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img src="img/sec1-05.jpg" alt="daegu" />
+            <div>대구 <br />차로 4시간 거리</div>
+          </li>
+          <li class="city-section__list">
+            <img class="city-section__img" src="img/sec1-06.jpg" alt="goyang" />
+            <div>
+              고양시<br />
+              차로 30분 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img
+              class="city-section__img"
+              src="img/sec1-07.jpg"
+              alt="bucheon"
+            />
+            <div>
+              부천시<br />
+              차로 15분 거리
+            </div>
+          </li>
+          <li class="city-section__list">
+            <img class="city-section__img" src="img/sec1-08.jpg" alt="suwon" />
+            <div>수원시 <br />차로 45분 거리</div>
+          </li>
+        </ul>
+      </section>
+      <!--room-->
+      <section class="room-section">
+        <div class="section__div">
+          <div class="section__main-text">
+            어디에서나, 여행은 살아보는 거야!
+          </div>
+          <ul>
+            <li class="section__list">
+              <img
+                class="room-section__img"
+                src="img/sec2-01.jpg"
+                alt="rural-house"
+              />
+              <div class="section__list--text">집 전체</div>
+            </li>
+            <li class="section__list">
+              <img
+                class="room-section__img"
+                src="img/sec2-02.jpg"
+                alt="shack"
+              />
+              <div class="section__list--text">바다가 보이는 집</div>
+            </li>
+            <li class="section__list">
+              <img
+                class="room-section__img"
+                src="img/sec2-03.jpg"
+                alt="unique-space"
+              />
+              <div class="section__list--text">독특한 공간</div>
+            </li>
+            <li class="section__list">
+              <img
+                class="room-section__img"
+                src="img/sec2-04.jpg"
+                alt="pets-allowed"
+              />
+              <div class="section__list--text">나만의 아지트</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!--New Activity-->
+      <section class="activity-section">
+        <div class="section__div">
+          <div class="section__main-text">
+            온라인 체험
+            <span> 전문가가 진행하고 모두 함께 즐기는 참여형 액티비티 </span>
+          </div>
+          <ul>
+            <li class="section__list">
+              <img id="activity-img01" src="img/sec3-01.jpg" alt="make-pasta" />
+              <div class="activity-section__list--text">
+                이탈리아 할머니와 함께 수제 파스타 만들기
+              </div>
+            </li>
+            <li class="section__list">
+              <img
+                class="activity-img02"
+                src="img/sec3-02.jpg"
+                alt="mindful-eating"
+              />
+              <div class="activity-section__list--text">
+                선(禪) 사상을 통한 마음챙김 식사
+              </div>
+            </li>
+            <li class="section__list">
+              <img
+                class="activity-img02"
+                src="img/sec3-03.jpg"
+                alt="know-mate-tea"
+              />
+              <div class="activity-section__list--text">
+                아르헨티나를 대표하는 예르바 마테차 알아보기
+              </div>
+            </li>
+            <li class="section__list">
+              <img
+                id="activity-img03"
+                src="img/sec3-04.jpg"
+                alt="meditaion-with-piano-music"
+              />
+              <div class="activity-section__list--text">
+                파리의 콘서트 피아니스트와 함께 음악을 들으며 명상하기
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="room-section">
+        <div class="section__div">
+          <div class="section__main-text">
+            수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.
+          </div>
+          <ul>
+            <li class="section__list">
+              <img
+                class="host-section__img"
+                src="img/sec4-01.jpg"
+                alt="be-host"
+              />
+
+              <div class="section__list--text">숙소 호스트 되기</div>
+            </li>
+            <li class="section__list">
+              <img
+                class="host-section__img"
+                src="img/sec4-02.jpg"
+                alt="host-onlie-activity"
+              />
+              <div class="section__list--text">온라인 체험 호스팅하기</div>
+            </li>
+            <li class="section__list">
+              <img
+                class="host-section__img"
+                src="img/sec4-03.jpg"
+                alt="host-activity"
+              />
+              <div class="section__list--text">체험 호스팅 하기</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/fb7e7bab0c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

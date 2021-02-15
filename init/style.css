@@ -1,0 +1,332 @@
+:root {
+  /*Color*/
+  --main-color: #ff5a5f;
+
+  /*Size* 기
+  (가변 크기로 만들 박스의 가로 너비 ÷ 가변 크기로 만들 박스를 감싸고 있는 박스의 가로 너비) X 100 = 가변 크기의 % 값 이거 공식만들어서 다 %로 바
+  꾸기  cal((가변 / 원본)*100)
+
+  /*font-size*/
+}
+
+ul {
+  list-style: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.covid-19-notice {
+  box-sizing: border-box;
+  display: block;
+  height: 58px;
+  background-color: black;
+  padding: 20px 80px 20px 80px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.covid-19-notice a:link,
+a:visited {
+  color: white;
+  text-decoration: underline;
+}
+.covid-19-notice a:hover {
+  color: gray;
+  text-decoration: underline;
+}
+
+.airbnb-logo {
+  width: 118px;
+  height: 64px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.top-section {
+  background-image: url("img/main-wide.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 83vh;
+
+  position: relative;
+}
+
+.top-section__img {
+  display: inline-block;
+  width: 626px;
+  height: 80px;
+}
+
+.top-section__div {
+  height: 80px;
+  width: 1600px;
+  margin: 0px 361.5px 0px 361.5px;
+  padding: 0px 80px;
+}
+.top-section__nav {
+  position: absolute;
+  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  width: 300px;
+  display: inline-block;
+  color: white;
+}
+
+.top-section__nav--list {
+  float: left;
+  list-style: none;
+  padding: 0px 16px 0px 16px;
+}
+
+.right-section {
+  position: relative;
+  float: right;
+  text-align: right;
+  height: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 626px;
+}
+.right-section__btn-text {
+  position: absolute;
+  right: 120px;
+  height: 30px;
+  background-color: transparent;
+  border: transparent;
+  margin-bottom: 10px;
+  color: white;
+}
+.right-section__btn-earth {
+  position: absolute;
+  right: 90px;
+  height: 30px;
+  background-color: transparent;
+  border: transparent;
+}
+.right-section__btn-login {
+  position: absolute;
+  right: 5px;
+  border-radius: 21px;
+  border: transparent;
+}
+#icon-list {
+  padding: 5px 5px 5px 5px;
+}
+.top-section__text-div {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-10%, -50%);
+  font-size: 54px;
+  font-weight: 800;
+  color: white;
+  text-align: left;
+}
+.top-section__text-div--btn {
+  background-color: white;
+  width: 144.969px;
+  height: 32px;
+  margin-top: 22px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.search-section {
+  position: relative;
+  left: 25%;
+  background-color: white;
+  width: 855px;
+  border-radius: 30px;
+}
+
+.search-basic {
+  display: inline-block;
+  margin: 0px 0px 0px 0px;
+  width: 169.234px;
+  height: 44px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  outline: red solid;
+}
+.search-basic > span {
+  display: block;
+  width: 100px;
+}
+.search-destination {
+  display: inline-block;
+  background-color: white;
+  border-radius: 20px;
+  padding-left: 30px;
+  width: 234.594px;
+  height: 44px;
+  left: 30px;
+}
+.search-destination > span {
+  display: block;
+}
+
+.search__input {
+  width: 130px;
+  border: none;
+}
+
+#search-icon {
+  position: relative;
+  width: 30px;
+  float: right;
+  padding: 5px;
+  bottom: 35px;
+  border-radius: 100%;
+  background-color: var(--main-color);
+}
+#search-icon > img {
+  width: 20px;
+  position: relative;
+  left: 5px;
+  top: 3px;
+  fill: white;
+}
+
+.city-section {
+  height: px;
+  width: 1600px;
+  padding: 64px 0px;
+  margin-left: 360px;
+  margin-right: 360px;
+}
+
+.city-section__div {
+  height: 144px;
+  padding: 0px 0px 0px 0px;
+}
+.city-section__list {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  width: 370px;
+  margin: 0px 10px 10px 0px;
+}
+
+.city-section__list > div {
+  padding: 20px;
+  position: absolute;
+  display: inline-block;
+
+  height: 30px;
+  bottom: 2px;
+}
+.city-section__list img {
+  width: 65px;
+  height: 65px;
+  border-radius: 8px;
+}
+
+.room-section {
+  position: relative;
+  font-size: 14px;
+  height: 569px;
+  margin: 10px;
+}
+.section__div {
+  position: relative;
+  width: 1600px;
+  height: 550px;
+  margin: 0px 362.5px 0px 362.5px;
+  padding: 88px 80px 88px 0px;
+}
+.section__div > ul {
+  position: absolute;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+.section__main-text {
+  width: 1604px;
+  height: 42px;
+  padding-bottom: 16px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.section__list {
+  position: relative;
+  float: left;
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+.room-section__img {
+  width: 386.5px;
+  height: 386.5px;
+  border-radius: 10px;
+}
+
+.section__list--text {
+  padding-top: 8px;
+  font-size: 18px;
+}
+
+.activity-section {
+  height: 892px;
+  background-color: black;
+  color: white;
+  padding: 64px 0px 80px 0px;
+}
+.activity-section__list--text {
+  position: absolute;
+  height: 44px;
+  width: 752px;
+  padding: 16px 16px 16px 16px;
+  font-size: 16px;
+  bottom: 0;
+}
+.activity-section__main-text {
+  font-size: 32px;
+}
+
+.activity-section__div {
+  height: 892px;
+}
+.activity-section span {
+  display: block;
+  font-size: 14px;
+}
+
+.activity-section span {
+  text-align: left;
+  vertical-align: middle;
+}
+.activity-section img {
+  width: 392px;
+  height: 392px;
+  border-radius: 16px 16px 16px 16px;
+  float: left;
+}
+
+#activity-img01 {
+  width: 800px;
+  height: 784px;
+  float: left;
+}
+#activity-img02 {
+  width: 392px;
+  height: 392px;
+  float: left;
+}
+
+#activity-img03 {
+  width: 800px;
+  height: 392px;
+  float: left;
+}
+
+.host-section__img {
+  width: 520.656px;
+  height: 347.094px;
+  border-radius: 16px 16px 16px 16px;
+}
