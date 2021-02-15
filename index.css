@@ -19,6 +19,10 @@ a {
   position: relative;
 }
 
+.section__container {
+  height: 272px;
+}
+
 .float--left {
   float: left;
 }
@@ -158,8 +162,6 @@ a {
 }
 
 /* NAV: RESERVATION */
-nav {
-}
 
 .reservation__container {
   min-width: 850px;
@@ -300,35 +302,22 @@ nav {
   padding: 15px;
 }
 
-.section__city {
-  background: #fff;
-  height: 300px;
-  position: relative;
-}
-
-.section__container {
-  height: 180px;
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0 80px;
-}
-
 .section__container__city {
-  height: 153px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  margin: 0 80px;
+.section__container__city--list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
 .city {
-  margin-right: 20px;
-  margin-bottom: 20px;
-  width: 253px;
-  height: 64px;
-
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
@@ -337,26 +326,19 @@ nav {
 }
 
 .city__box > * {
-  width: 150%;
   display: block;
-  margin-left: 10px;
-  padding: 2px;
+  margin-left: 15px;
+  padding: 4px;
   color: #222;
 }
 
 .city__box > b {
-  font-weight: bold;
-}
-
-.city__box {
-  position: absolute;
-  top: 10px;
-  left: 70px;
+  font-weight: 600;
 }
 
 .city__img {
-  width: 62px;
-  height: 62px;
+  width: 64px;
+  height: 64px;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
