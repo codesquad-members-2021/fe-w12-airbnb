@@ -1,0 +1,38 @@
+.locations {
+  padding: 62px 80px;
+  height: 288px;
+  font-size: 16px;
+}
+
+.locations__row1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.locations__row1 ul,
+.locations__row2 ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.locations__row2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.locations ul div:nth-child(1) {
+  font-weight: bold;
+}
+
+.locations img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  margin-right: 16px;
+}
