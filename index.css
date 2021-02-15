@@ -344,36 +344,33 @@ a {
   background-position: center;
 }
 
-.section__space {
-  height: 380px;
-  margin: 40px 0;
-}
+/* SECTION: Space */
 
-.space__container {
-  padding: 0 80px;
-  height: 100%;
+.section__container__space {
+  margin: 40px 0;
+  height: 488px;
 }
 
 .phrase > span {
   font-size: 2em;
-  font-weight: bold;
+  font-weight: 800;
 }
 
 .phrase {
   padding-bottom: 16px;
 }
 
-.space {
-  width: 24%;
-  height: 80%;
-  float: left;
-  margin-top: 10px;
-  list-style: none;
-  margin-right: 15px;
+.space--list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.space:last-child {
-  margin-right: 0;
+.space {
+  width: 25%;
+  margin-top: 10px;
+  margin-right: 15px;
+  box-sizing: border-box;
 }
 
 .space > div > img {
