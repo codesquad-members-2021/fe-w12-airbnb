@@ -1,4 +1,4 @@
-.CVD19_banner_box {
+.banner {
   box-sizing: border-box;
   background-color: black;
   color: #dddddd;
@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-.CVD19_banner_box a {
+.banner a {
   text-decoration: none;
   color: #dddddd;
 }
