@@ -205,9 +205,19 @@
 .account-items__element {
   all: unset;
   /* border: 1px solid red; */
+  display: flex;
+  padding: 0 1em;
   font-size: 14px;
   font-weight: bold;
-  /* padding: 0.7em; */
+  border-radius: 2em;
+}
+
+.account-items__globe {
+  padding-right: 1.5em;
+}
+
+.account-items__element:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .header__account-btn {
@@ -217,7 +227,6 @@
 }
 
 .account-items__element button {
-  padding: 0.8em 20px 0 0;
   color: white;
 }
 
