@@ -42,7 +42,7 @@ main {
   height: 32px;
   background-color: white;
   border-radius: 7px;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 600;
   margin-top: 22px;
 }
