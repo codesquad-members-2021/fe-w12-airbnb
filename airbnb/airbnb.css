@@ -351,3 +351,15 @@ footer ul>li {
 .display_none {
   display: none;
 }
+
+.margin8 {
+  margin: 8px 0;
+}
+
+.dark-gray_background {
+  background: #d6d6d6;
+}
+
+.height1 {
+  height: 1px;
+}
