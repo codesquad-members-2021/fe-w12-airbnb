@@ -13,6 +13,12 @@ a {
   text-decoration: none;
 }
 
+.section {
+  padding: 0 80px;
+  box-sizing: border-box;
+  position: relative;
+}
+
 .float--left {
   float: left;
 }
@@ -42,20 +48,33 @@ a {
   text-decoration: underline;
 }
 
-/* 배경 화면 */
-.bg {
+/* Background Image */
+
+.background--image {
   width: 100%;
+  background-image: url('https://a0.muscache.com/im/pictures/3c23cdc9-b2bc-45e2-8bbd-930bf3076449.jpg?im_w=720');
+  background-position: bottom left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.background--image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 /* HEADER */
 .header {
+  width: 100%;
   height: 80px;
-  background: yellowgreen;
 }
 
 .header__container {
   height: 100%;
-  padding: 0 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,9 +98,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.header__container--centerbox > ul > li {
 }
 
 .header__container--centerbox > ul > li .menu {
@@ -141,101 +157,111 @@ a {
   padding: 0 10px;
 }
 
-/* Reservation Menu */
-.leftside__radius__background {
-  width: 270px;
-  background: white;
-  padding: 15px;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-}
-
-.leftside__radius__background .reservation__menu__text,
-.leftside__radius__background .reservation__input {
-  padding-left: 30px;
-}
-
-.rightside__radius__background {
-  width: 60px;
-  background: white;
-  padding: 15px;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  position: relative;
-}
-
-.search__circle {
-  background: #ff385c;
-  width: 52px;
-  height: 52px;
-  border-radius: 50px;
-  position: absolute;
-  top: 7px;
-  left: 0;
-}
-
-.search__circle > svg {
-  position: absolute;
-  top: 18px;
-  left: 18px;
+/* NAV: RESERVATION */
+nav {
 }
 
 .reservation__container {
-  padding-left: 100px;
+  min-width: 850px;
   height: 66px;
+  display: flex;
+  justify-content: center;
 }
 
-.reservation__background {
-  float: left;
-  padding: 15px 0;
-  height: 35px;
+.reservation__label--box {
+  background: #fff;
+  display: flex;
+  align-items: center;
 }
 
-.middle__background {
-  width: 170px;
-  background: white;
-  padding: 15px 0;
-  height: 35px;
+.reservation__menu__box {
+  width: 130px;
+}
+
+.reservation__menu__box div {
+  width: 100%;
+}
+
+.reservation__menu__box input {
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.leftside__radius__box {
+  min-width: 270px;
+  background: #fff;
+  padding: 14px 32px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.middle__box {
+  background: #fff;
+  padding: 14px 24px;
+  box-sizing: border-box;
 }
 
 .middle__bar {
-  border-left: 1px solid #717171;
+  border-right: 1px solid #ddd;
+  height: 32px;
 }
 
-.reservation__menu__text {
+.rightside__radius__box {
+  width: 48px;
+  background: #fff;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -6px;
+  padding-right: 9px;
+}
+
+.search__circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ff385c;
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+.search__circle > svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reservation__container label {
   font-size: 12px;
-  font-weight: bold;
-  padding-left: 15px;
-  padding-bottom: 7px;
+  font-weight: 500;
+  display: block;
+  line-height: 18px;
 }
 
-.reservation__input {
-  padding-left: 15px;
-  background: transparent;
-  border: 0;
-  font-size: 14px;
-}
+/* SECTION: visual */
 
-/* Catchphrase */
-.catchphrase__container {
-  width: 400px;
-  height: 300px;
-
-  position: absolute;
-  top: 300px;
-  left: 80px;
+.section--visual {
+  padding: 0;
+  position: relative;
 }
 
 .catchphrase__box {
-  margin-top: 60px;
-  margin-bottom: 5px;
+  padding: 0 80px;
 }
 
 .catchphrase {
   font-size: 52px;
   font-weight: bold;
   line-height: 1.1;
-  color: white;
+  color: #fff;
 }
 
 .lookaround {
