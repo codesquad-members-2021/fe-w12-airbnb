@@ -78,7 +78,7 @@
 
 #tabUI {
   position: absolute;
-  top: 10%;
+  top: 9.5%;
   right: 92px;
   width: 240px;
   height: 243px;
@@ -91,6 +91,7 @@
   padding: 12px 16px;
   color: #000;
   font-weight: lighter;
+  cursor: pointer;
 }
 
 #tabUI div:nth-child(1) {
@@ -102,6 +103,7 @@
   margin: 8px 0px;
   height: 1px;
   background-color: gainsboro;
+  cursor: none;
 }
 
 .tabUI__show {
