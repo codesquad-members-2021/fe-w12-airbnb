@@ -5,6 +5,10 @@
   color: white;
 }
 
+a[href='#'] {
+  text-decoration: none;
+}
+
 html,
 body {
   color: white;
@@ -48,6 +52,14 @@ button {
   border-radius: 8px;
 }
 
+.color-white {
+  color: rgb(255, 255, 255);
+}
+
+.color-gray {
+  color: rgb(207, 218, 226);
+}
+
 header > nav {
   width: 100%;
   height: 100%;
@@ -89,6 +101,30 @@ header > nav {
   margin: 0 13px;
   position: relative;
   top: 34px;
+}
+
+#center-menu > span > a:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  background-color: rgb(207, 217, 266);
+  transition: width 0.2s, left 0.2s;
+}
+
+#center-menu > span > a:hover:after {
+  width: 6px;
+  left: calc(50% - 3px);
+}
+
+#center-menu > span > a:focus:after {
+  width: 60%;
+  height: 1.5px;
+  left: 20%;
+  background-color: rgb(255, 255, 255);
 }
 
 #search-bar {
