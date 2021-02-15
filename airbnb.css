@@ -267,13 +267,9 @@ a {
     font-weight: 600;
     padding-bottom: 16px;
 }
-.content__list {
-    float: left;
-    margin-top: 10px;
-    margin-right: 17px;
-}
-.content__list:last-child {
-    margin-right: 0;
+.content > ul {
+    display: flex;
+    justify-content: space-between;
 }
 .content__list > a {
     font-size: 1.1em;
