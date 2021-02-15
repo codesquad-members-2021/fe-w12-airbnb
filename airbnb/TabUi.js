@@ -16,11 +16,11 @@ class TabUI {
                 <a href="#" class="tap_ui__anchor"><div>메시지</div></a>
                 <a href="#" class="tap_ui__anchor"><div>여행</div></a>
                 <a href="#" class="tap_ui__anchor"><div>저장 목록</div></a>
-                <div></div>
+                <div class="margin8 dark-gray_background height1"></div>
                 <a href="#" class="tap_ui__anchor"><div>숙소 호스트 되기</div></a>
                 <a href="#" class="tap_ui__anchor"><div>체험 호스팅하기</div></a>
                 <a href="#" class="tap_ui__anchor"><div>계정</div></a>
-                <div></div>
+                <div class="margin8 dark-gray_background height1"></div>
                 <a href="#" class="tap_ui__anchor"><div>도움말</div></a>
                 <a href="#" class="tap_ui__anchor"><div>로그아웃</div></a>
             </div>`;
