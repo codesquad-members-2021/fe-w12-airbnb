@@ -38,7 +38,6 @@ aside {
     padding: 20px var(--page-side-margin);
     background-color: var(--black);
     text-align: center;
-    position: initial;
 }
 
 .img-cover {
@@ -46,7 +45,7 @@ aside {
     height: 1000px;
     background-size: cover;
     background-attachment: scroll;
-    background-image: url(./img/main-wide.jpg);
+    background-image: url(../img/main-wide.jpg);
     background-repeat: no-repeat;
 }
 
