@@ -25,6 +25,15 @@ ul {
     clear: both;
 }
 
+.bgColor--black {
+    background-color: #000;
+}
+
+.margin__topBot--70px {
+    margin: 70px auto;
+}
+
+
 /* 전체 Wrapper */
 div.wrap {
     width: 1900px;

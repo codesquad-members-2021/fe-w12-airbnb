@@ -7,13 +7,14 @@ div.content > ul > li {
     margin: 70px 8%;
 }
 
+div.content > ul > li.bgColor--black {
+    /* li.bgColor--black 부분은 margin 0 */
+    margin: 0;
+}
+
 div.content > ul > li.black {
     margin: 0;
     background-color: #000;
-}
-
-div.content-margin__topBot--70 {
-    margin: 70px auto;    
 }
 
 /* 콘텐츠 공통 */

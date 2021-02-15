@@ -16,8 +16,7 @@ div.header > header {
 /* ---- 헤더 1 - 코로나 알림 ---- */
 div.header__covid {
     width: 100%;
-    height: 60px;
-    background-color: #000;
+    height: 60px;    
     text-align: center;
     line-height: 60px;
 }
@@ -74,8 +73,13 @@ div.header__main__search__options > input[type='radio'] + label:hover {
     filter: brightness(0.85);
 }
 
-div.header__main__search__options > input[type='radio']:checked + label > p.underline {    
-    padding-top: 8px;
+div.header__main__search__options > input[type='radio']:checked + label:after {
+    /* input[type='radio']:checked 클릭 시 밑줄 */
+    content: "";
+    display: block;
+    margin: 0 auto; 
+    width: 70%; 
+    padding-top: 9px; 
     border-bottom: 2px solid var(--default-font-color);
 }
 
