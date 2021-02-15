@@ -148,6 +148,33 @@ header .member_setting .menuAndAcountIcon i:last-child {
   font-size: 30px;
 }
 
+.header_dropdown {
+  display: flex;
+  padding: 10px 0px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  width: 15%;
+  background: white;
+  color: black;
+  position: absolute;
+  right: 5%;
+  top: 70px;
+}
+
+.header_dropdown li {
+  padding: 12px;
+  font-size: 14px;
+}
+.header_dropdown li:hover {
+  cursor: pointer;
+  background-color: rgb(238, 238, 238);
+}
+
+.header_dropdown_li2 {
+  border-bottom: #ddd solid 1px;
+}
+
 .main {
   width: 100%;
 }

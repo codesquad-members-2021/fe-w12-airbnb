@@ -25,11 +25,21 @@
         </div>
         <nav>
           <div>
-            <input class="nav_item" type="radio" id="nav_radio_1" />
+            <input
+              class="nav_item"
+              name="choice"
+              type="radio"
+              id="nav_radio_1"
+            />
             <label for="nav_radio_1">숙소</label>
           </div>
           <div>
-            <input class="nav_item" type="radio" id="nav_radio_2" />
+            <input
+              class="nav_item"
+              name="choice"
+              type="radio"
+              id="nav_radio_2"
+            />
             <label for="nav_radio_2">체험</label>
           </div>
           <div class="atag"><a href="">온라인체험</a></div>
@@ -42,6 +52,13 @@
             <i class="fas fa-user-circle"></i>
           </div>
         </div>
+        <ul class="header_dropdown">
+          <li>회원가입</li>
+          <li class="header_dropdown_li2">로그인</li>
+          <li>숙소 호스트 되기</li>
+          <li>체험 호스팅 하기</li>
+          <li>도움말</li>
+        </ul>
       </header>
       <div class="main">
         <ul class="main_reserve_container">
@@ -194,27 +211,5 @@
         </li>
       </ul>
     </section>
-    <script>
-      const header = document.querySelector("header");
-      const intersectPoint = document.querySelector(".main");
-      const headerLogo = document.querySelector(".logo");
-
-      const options = {
-        rootMargin: "-40px 0px 0px 0px",
-      };
-      const interObserve = new IntersectionObserver((entries, interObserve) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            header.classList.add("white");
-            headerLogo.classList.add("pink");
-          } else {
-            header.classList.remove("white");
-            headerLogo.classList.remove("pink");
-          }
-        });
-      }, options);
-
-      interObserve.observe(intersectPoint);
-    </script>
   </body>
 </html>
