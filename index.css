@@ -6,6 +6,8 @@
   --header-brand-color: rgb(255 56 92);
   --white: rgba(255, 255, 255, 1);
   --dark-gray: rgb(34, 34, 34);
+  --medium-gray: rgb(200, 200, 200);
+  --light-gray: rgb(245, 245, 245);
 }
 
 body {
@@ -29,6 +31,10 @@ button:focus {
 
 .display-flex {
   display: flex;
+}
+
+.display-none {
+  display: none;
 }
 
 /* header */
@@ -108,6 +114,45 @@ button:focus {
   border: 1px solid rgb(221 221 221);
   border-radius: 20px;
   cursor: pointer;
+}
+
+.mypage-menu {
+  width: 250px;
+  height: 250px;
+  position: fixed;
+  top: 80px;
+  right: 80px;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 2px 2px 20px rgb(0 0 0 / 12%);
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 0px;
+}
+
+.mypage-menu > button,
+.mypage-menu > a {
+  color: var(--dark-gray);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px 17px;
+}
+.mypage-menu > button:hover,
+.mypage-menu > a:hover {
+  background-color: var(--light-gray);
+}
+
+.mypage-menu > button {
+  text-align: left;
+}
+
+.mypage-menu > button:nth-child(1) {
+  font-weight: 500;
+}
+.div-line {
+  height: 8px;
+  border-top: 0.5px solid var(--medium-gray);
+  margin-top: 8px;
 }
 
 .logo-container,
