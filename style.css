@@ -1,6 +1,12 @@
 .b{
     font-weight: bold;
 }
+.u{
+    text-decoration: underline;
+}
+.transparent{
+    opacity: 0%;
+}
 li {
     display: inline;
 }
@@ -17,7 +23,6 @@ h4{
     text-align: center;
     font-size: 0.8rem;
     text-decoration: underline;
-    
 }
 .main--background{
     background-image: url(./src/main-wide.jpg);
@@ -28,7 +33,7 @@ h4{
 .main {
     padding-left: 2rem;
     padding-right: 2rem;
-    height: 25rem;
+    height: 30rem;
     color: white;
 }
 .main__menu {
@@ -46,6 +51,10 @@ h4{
                 1px 0 black,
                 0 -1px black;
 }
+.main__site-menu>span{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
 .main__search-bar{
     display: inline-flex;
     color: black;
@@ -53,31 +62,28 @@ h4{
     position: absolute;
     width: 70%;
     left: 15%;
-    top: 11%;
+    top: 6rem;
     padding: 1rem;
     border-radius: 1rem;
+    font-size: 0.8rem;
+    line-height: 140%;
     justify-content: space-between;
     align-items: center;
 }
-.search-house{
-    opacity: 0%;
-}
-.search-activity{
-    opacity: 0%;
-}
 .main__search-bar--content{
-    width: 30%;
+    padding-left: 1rem;
+    border-left: solid 1px;
+}
+.main__search-bar--content:first-child{
+    border-left: unset;
 }
 .main__search-bar--button{
     width: 10%;
 }
-/* .main__site-menu__content{
-    padding: 0.5rem;
-} */
 .main__content {
     clear:both;
     line-height: 120%;
-    margin-top: 5rem;
+    margin-top: 8rem;
     font-size: 4rem;
     font-weight: bold;
 }
