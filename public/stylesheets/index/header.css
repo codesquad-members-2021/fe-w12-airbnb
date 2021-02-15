@@ -1,5 +1,5 @@
 /* 헤더 Wrapper */
-div.header {
+.header {
     width: 100%;
     height: calc(80% - 20px);
     background-image: url('../../images/top_banner.webp');
@@ -8,34 +8,34 @@ div.header {
     background-position: center center;
 }
 
-div.header > header {
+.header > header {
     width: 100%;
     height: 80px;
 }
 
 /* ---- 헤더 1 - 코로나 알림 ---- */
-div.header__covid {
+.header__covid {
     width: 100%;
     height: 60px;    
     text-align: center;
     line-height: 60px;
 }
 
-div.header__covid > a,
-div.header__covid > a:link,
-div.header__covid > a:visited {
+.header__covid > a,
+.header__covid > a:link,
+.header__covid > a:visited {
     font-size: 14px;
     font-weight: bold;
     text-decoration: underline;
 }
 
-div.header__covid > a:hover,
-div.header__covid > a:active {
+.header__covid > a:hover,
+.header__covid > a:active {
     color: var(--covid-searchBar-hover-color);
 }
 
 /* ---- 헤더 2 - 로고, 검색, 언어지역 & 로그인버튼 ----  */
-div.header__main {
+.header__main {
     width: 100%;
     padding: 25px 0px;
     display: flex;
@@ -44,7 +44,7 @@ div.header__main {
 }
 
 /* 1. 로고 */
-div.header__main__logo {
+.header__main__logo {
     position: relative;
     left: -2%;
     width: 25%;
@@ -52,28 +52,28 @@ div.header__main__logo {
 }
 
 /* 2) 검색 */
-div.header__main__search {    
+.header__main__search {    
     color: var(--default-font-color);   
     width: 50%;         
     text-align: center;
 }
 
 /* 2-1) 검색 : 검색 옵션 */
-div.header__main__search__options > input[type='radio'] {
+.header__main__search__options > input[type='radio'] {
     display: none;
 }
 
-div.header__main__search__options > input[type='radio'] + label {
+.header__main__search__options > input[type='radio'] + label {
     display: inline-block;    
     padding: 0 13px;
     cursor: pointer;
 }
 
-div.header__main__search__options > input[type='radio'] + label:hover {
+.header__main__search__options > input[type='radio'] + label:hover {
     filter: brightness(0.85);
 }
 
-div.header__main__search__options > input[type='radio']:checked + label:after {
+.header__main__search__options > input[type='radio']:checked + label:after {
     /* input[type='radio']:checked 클릭 시 밑줄 */
     content: "";
     display: block;
@@ -84,7 +84,7 @@ div.header__main__search__options > input[type='radio']:checked + label:after {
 }
 
 /* 2-2) 검색 : 검색바 */
-div.header__main__search__bar {
+.header__main__search__bar {
     position: relative;
     top: 22px;    
     margin: 0 55px;
@@ -101,30 +101,30 @@ div.header__main__search__bar {
     justify-content: space-around;
 }
 
-div.header__main__search__bar > label {
+.header__main__search__bar > label {
     padding: 14px 26px;
     border-radius: 32px;
     cursor: pointer;
     font-weight: 600;
 }
 
-div.header__main__search__bar > label:hover {
+.header__main__search__bar > label:hover {
     background-color: var(--covid-searchBar-hover-color);
 }
 
 
-div.header__main__search__bar > label.checkin-out {
+.header__main__search__bar > .checkin-out {
     width: 25%;
 }
 
-div.header__main__search__bar > label > input {
+.header__main__search__bar > label > input {
     margin-top: 7px;
     border: none;
     width: 100%;    
     background-color: transparent;
 }
 
-div.header__main__search__bar > label > input[type="date"] {
+.header__main__search__bar > label > input[type="date"] {
     margin-top: 5px;
     border: none;
     width: 100%;
@@ -133,7 +133,7 @@ div.header__main__search__bar > label > input[type="date"] {
     background-color: transparent;
 }
 
-div.header__main__search__bar > label > button.searchBarBtn {
+.header__main__search__bar > label > .searchBarBtn {
     background-color: #ff0000;
     border: none;      
     border-radius: 32px;
@@ -145,17 +145,17 @@ div.header__main__search__bar > label > button.searchBarBtn {
     cursor: pointer;
 }
 
-div.header__main__search__bar > label > button.searchBarBtn:hover {
+.header__main__search__bar > label > .searchBarBtn:hover {
     background-color: #e31b60;    
 }
 
-div.header__main__search__bar > label > button.searchBarBtn > img {
+.header__main__search__bar > label > .searchBarBtn > img {
     width: 16px;
     height: 16px;    
 }
 
 /* 3) 언어지역 & 로그인버튼 */
-div.header__main__login {
+.header__main__login {
     position: relative;
     right: 2%;
     width: 25%;
@@ -166,7 +166,7 @@ div.header__main__login {
     justify-content: center;
 }
 
-div.header__main__login > a.becomeHost {    
+.header__main__login > .becomeHost {    
     color: var(--default-font-color); 
     text-decoration: none;    
     border-radius: 20px;
@@ -175,27 +175,27 @@ div.header__main__login > a.becomeHost {
     padding: 10px 12px;
 }
 
-div.header__main__login > a.becomeHost:hover {
+.header__main__login > .becomeHost:hover {
     background-color: #ffffff18;
 }
 
-div.header__main__login > a.region {    
+.header__main__login > .region {    
     border-radius: 20px;
     padding: 8px;    
 }
 
-div.header__main__login > a.region:hover {
+.header__main__login > .region:hover {
     background-color: #ffffff18;
 }
 
-div.header__main__login > a.region > img.earthLogo {
+.header__main__login > .region > .earthLogo {
     position: relative;
     top: 1px;
     width: 16px;
     height: 16px;
 }
 
-div.header__main__login > button.navBtn {
+.header__main__login > .navBtn {
     background: none;    
 	border: none;	
     cursor: pointer;
@@ -206,21 +206,21 @@ div.header__main__login > button.navBtn {
     border-radius: 25px;
 }
 
-div.header__main__login > button.navBtn > img.icon--list {
+.header__main__login > .navBtn > .icon--list {
     position: relative;
     top: -5px;        
     width: 16px;
     height: 16px;
 }
 
-div.header__main__login > button.navBtn > img.icon--people {
+.header__main__login > .navBtn > .icon--people {
     width: 30px;
     height: 30px;
     margin-left: 8px;
 }
 
 /* ---- 헤더 3 - 헤더 큰 텍스트 ---- */
-div.header__headingText {    
+.header__headingText {    
     height: 636px;    
     margin: 0px 8%;
     margin-top: -45px;    
@@ -229,13 +229,13 @@ div.header__headingText {
     justify-content: center;
 }
 
-div.header__headingText > span.bigtext {
+.header__headingText > .bigtext {
     color: var(--default-font-color);
     font-size: 52px;
     font-weight: bold;
     display: block;
 }
-div.header__headingText > a.nearby {
+.header__headingText > .nearby {
     margin-top: 22px;
     display: block;
     width: 160px;
@@ -248,6 +248,4 @@ div.header__headingText > a.nearby {
     text-align: center;
     text-decoration: none;
 }
-
-/* ----------------------------- */
 

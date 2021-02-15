@@ -1,20 +1,15 @@
 /* 콘텐츠 Wrapper */
-div.content {
+.content {
     width: 100%;
 }
 
-div.content > ul > li {
+.content > ul > li {
     margin: 70px 8%;
 }
 
-div.content > ul > li.bgColor--black {
-    /* li.bgColor--black 부분은 margin 0 */
+.content > ul > li.bgColor--black {
+    /* .content > ul > li.bgColor--black 부분은 margin 0 */
     margin: 0;
-}
-
-div.content > ul > li.black {
-    margin: 0;
-    background-color: #000;
 }
 
 /* 콘텐츠 공통 */
@@ -24,7 +19,7 @@ p.content-secDesc {
 }
 
 /* 콘텐츠 - section1 (지역 종류)  */
-ul.content__locationType {
+.content__locationType {
     margin-left: 20px;    
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -32,43 +27,43 @@ ul.content__locationType {
     row-gap: 10px;
 }
 
-ul.content__locationType > li {
+.content__locationType > li {
     display: grid;
     grid-template-columns: 64px auto;
     column-gap: 10px;
     align-items: center;
 }
 
-ul.content__locationType > li > img {
+.content__locationType > li > img {
     width: 100%;
     border: 1px solid var(--default-font-color);
     border-radius: 5px;
 }
 
-ul.content__locationType > li > div.info {
+.content__locationType > li > .info {
     display: inline-block;
 }
 
 /* 콘텐츠 - section 2 (숙소 종류?)  */
-ul.content__roomType {
+.content__roomType {
     margin: 0 auto;
 }
 
-ul.content__roomType > li > img {
+.content__roomType > li > img {
     width: 95%;
     margin-left: 5%;
     border: 1px solid var(--default-font-color);
     border-radius: 5px;
 }
 
-ul.content__roomType > li > p {
+.content__roomType > li > p {
     text-align: left;
     margin-left: 5%;
 }
 
 /* 콘텐츠 - section 3 (액티비티)  */
 /* 1) 상단 글자 및 버튼 */
-div.content__activity {
+.content__activity {
     margin: 70px 8%;
     padding: 30px 0;
 }
@@ -77,8 +72,7 @@ div.content__activity {
     color: var(--default-font-color);
 }
 
-
-button.content__activity__btn {
+.content__activity__btn {
     position: relative;
     top: 20px;
     right: 20px;
@@ -93,16 +87,16 @@ button.content__activity__btn {
     cursor: pointer;
 }
 
-button.content__activity__btn:hover {
+.content__activity__btn:hover {
     background-color: rgb(119, 119, 119);
 }
 
 /* 2) 하단 이미지들 */
-ul.content__activity__ul {
+.content__activity__ul {
     padding: 20px 0;
 }
 
-ul.content__activity__ul > li > p {
+.content__activity__ul > li > p {
     position: relative;
     top: -48px;
     left: 20px;
@@ -110,26 +104,26 @@ ul.content__activity__ul > li > p {
     font-weight: bold;
 }
 
-ul.content__activity__ul > li > img {
+.content__activity__ul > li > img {
     width: 100%;
     border-radius: 16px;
 }
 
 /* 콘텐츠 - section 4 (호스팅)  */
-ul.content__hosting {
+.content__hosting {
     padding-top: 20px;    
 }
-ul.content__hosting > li {
+.content__hosting > li {
     display: inline-block;
     width: calc(33.3% - 10px);
 }
 
-ul.content__hosting > li >  p {
+.content__hosting > li >  p {
     margin-top: 5px;
     font-weight: 800;
 }
 
-ul.content__hosting > li > img {
+.content__hosting > li > img {
     width: 100%;
     border-radius: 16px;
 }

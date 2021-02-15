@@ -1,11 +1,12 @@
 /* 푸터 Wrapper */
-div.footer {
+.footer {   
+    /* div 'footer' class */
     width: 100%;    
     background-color: #f7f7f7;
     border-top: 1px solid #DDD;
 }
 
-div.footer > footer {
+footer {
     margin-left: 8%;
     margin-right: 16%;
     padding: 48px 0;
@@ -13,21 +14,21 @@ div.footer > footer {
     justify-content: space-between;
 }
 
-div.footer > footer > section {
+footer > section {
     padding: 0 12px;
 }
 
-div.footer > footer > section > h4 {
+footer > section > h4 {
     color: var(--footer-font-color);    
     font-size: 12px;
     margin-bottom: 0px;    
 }
 
-div.footer > footer > section > ul > li {
+footer > section > ul > li {
     margin-top: 16px;
 }
 
-div.footer > footer > section > ul > li > a {
+footer > section > ul > li > a {
     text-decoration: none;
     color: var(--footer-font-color);
     font-size: 14px;

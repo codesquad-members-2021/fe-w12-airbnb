@@ -35,7 +35,7 @@ ul {
 
 
 /* 전체 Wrapper */
-div.wrap {
+.all-wrapper {
     width: 1900px;
     height: 1080px;
     margin: 0 auto;
