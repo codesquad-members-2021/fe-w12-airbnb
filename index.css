@@ -62,9 +62,6 @@ button {
   color: var(--white);
 }
 
-.nav-container {
-}
-
 .header__navbar {
   display: flex;
   justify-content: space-between;
@@ -206,7 +203,7 @@ button {
 .type__img {
   margin-bottom: 5px;
 }
-.type__img,
+
 .type__img > img {
   width: 400px;
   height: 400px;
@@ -226,7 +223,7 @@ button {
 }
 
 .experiences__header {
-  color: white;
+  color: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -239,7 +236,7 @@ button {
 
 .experiences__header > a {
   color: var(--white);
-  border: 1px solid white;
+  border: 1px solid var(--white);
   padding: 5px 15px;
   border-radius: 8px;
 }
