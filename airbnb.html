@@ -16,8 +16,8 @@
     <title>스윙비엔비</title>
   </head>
   <body>
-    <header class="CVD19_banner_box">
-      <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest">
+    <header class="banner">
+      <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest" target="blank">
         <u>에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요</u>
       </a>
     </header>
@@ -118,6 +118,14 @@
                   </button>
                 </a>
               </span>
+            </div>
+            <div id="tabUI" class="tabUI__hidden" tabindex="0" onblur="setTimeout(dropdownClose, 100)">
+                <div>회원 가입</div>
+                <div>로그인</div>
+                <div></div>
+                <div>숙소 호스트 되기</div>
+                <div>체험 호스팅하기</div>
+                <div>도움말</div>
             </div>
           </div>
         </div>
@@ -459,5 +467,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="/fe-w12-airbnb/js/tabUI.js"></script>
   </body>
 </html>
