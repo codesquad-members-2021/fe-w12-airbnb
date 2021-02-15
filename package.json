@@ -1,0 +1,25 @@
+{
+  "name": "fe-w12-airbnb",
+  "version": "1.0.0",
+  "description": "프론트엔드 1,2주차 미션저장소",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somedaycode/fe-w12-airbnb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/somedaycode/fe-w12-airbnb/issues"
+  },
+  "homepage": "https://github.com/somedaycode/fe-w12-airbnb#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
