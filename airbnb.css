@@ -1,3 +1,7 @@
+/* * {
+    outline: 1px solid red
+} */
+
 body {
     margin: 0px;
 }
@@ -16,10 +20,21 @@ button {
     border: 0px transparent solid;
     padding: 10px;
     font-size: 16px;
+    outline: 0px;
 }
 
 .menu {
     height: 100px;
+}
+
+.menu-list {
+    margin-top: 30px;
+    margin-left: 500px;
+}
+
+.menu-list button {
+    float: left;
+    margin-right: 50px;
 }
 
 .menu>div {
@@ -31,16 +46,35 @@ button {
 }
 
 .search {
+    z-index: 1;
     position: relative;
-    margin-top: 30px;
-    margin-left: 600px;
+    margin-top: 50px;
+    margin-left: 350px;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 600px;
+    background-color: white;
+    text-align: center;
+}
+
+.search div {
+    float: left;
+    margin-left: 25px;
+    margin-right: 20px;
+    border: 0px solid;
+    width: 80px;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.search div>span {
+    font-size: 10px;
 }
 
 .search input {
-    width: 350px;
-    height: 40px;
+    width: 50px;
     border-radius: 25px;
-    padding-left: 20px;
+    border: 0px solid transparent;
 }
 
 .search input[placeholder] {
@@ -53,13 +87,13 @@ button {
     background-color: rgb(230, 59, 59);
     border-radius: 25px;
     color: white;
-    left: 330px;
-    top: 3px;
+    left: 570px;
+    top: 20px;
 }
 
 .hosting {
     margin-top: 30px;
-    margin-left: 350px;
+    margin-left: 500px;
 }
 
 .earth {
@@ -67,9 +101,12 @@ button {
     margin-left: 10px;
 }
 
-.drop-menu {
-    margin-top: 30px;
+.drop {
+    margin-top: 40px;
     margin-left: 10px;
+    border: 1px solid gray;
+    border-radius: 25px;
+    position: relative;
 }
 
 .drop-menu div {
@@ -78,9 +115,29 @@ button {
     margin-right: 10px;
 }
 
-.drop-menu button {
+.drop-content {
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+    left: -80px;
+    width: 200px;
+    display: none;
     border: 1px solid gray;
     border-radius: 25px;
+    background-color: white;
+}
+
+.drop-content div:nth-child(1) {
+    padding: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.drop-content div:nth-child(2) {
+    padding: 20px;
+}
+
+.drop-content a {
+    display: block;
 }
 
 .picture {
@@ -220,4 +277,8 @@ button {
 .host span {
     font-size: 20px;
     font-weight: bold;
+}
+
+.clicked {
+    border-bottom: 1px solid black;
 }
