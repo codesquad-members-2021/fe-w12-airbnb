@@ -54,8 +54,8 @@ a {
     float: left;
     margin-right: 10px;
 }
-#header__middle_nav > li > a,
-#header__right_nav > li > a {
+#header__middle_nav a,
+#header__right_nav a {
     padding: 0 12px;
     height: 50px;
     color: #fff;
@@ -72,18 +72,18 @@ a {
 #header__globe {
     font-size: 1.2em;
 }
-#header_user {
+#header__user {
     margin-right: 0;
     margin-top: 2px;
 }
-#header_user > a {
+#header__user > a {
     width: 80px;
-    height: 45px;
+    height: 43px;
     background-color: #fff;
     border-radius: 24px;
     position: relative;
 }
-.globe_icon {
+.bars_icon {
     color: #444;
     position: absolute;
     top: 50%;
@@ -96,7 +96,7 @@ a {
     transform: translateY(-50%);
     right: 6px;
     color: #777;
-    font-size: 2.3em;
+    font-size: 2em;
 }
 /* ---------● 검색창 ●--------- */
 #search {
