@@ -47,12 +47,8 @@
 .header__content .item {
   /* border: 1px solid black; */
   width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.header__content .header__search {
-  justify-content: center;
+  /* display: flex; */
+  /* flex-direction: row; */
 }
 
 #airbnb-logo {
@@ -60,25 +56,55 @@
   /* padding: 0.8em; */
 }
 
-fieldset {
+.header__search-radio {
+  display: flex;
+  justify-content: center;
+  color: white;
+  /* display: grid; */
+  /* border: 1px solid red; */
+  /* height: 40px; */
+}
+
+/* fieldset {
   width: 100%;
+  display: flex;
+  border: 1px solid white;
   color: white;
   font-weight: 200px;
   font-size: 16.5px;
-  /* padding: 0.8em; */
+} */
+
+.tab__item {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid white; */
+  margin: 0 1em;
 }
 
-label {
-  padding-right: 2em;
-}
-
-fieldset span {
+.search-tab__title {
+  /* margin: 0 1em; */
   cursor: pointer;
+  /* border: 1px solid black; */
 }
 
-fieldset span:hover,
-fieldset a:hover {
+.search-tab__title:hover {
   color: #cfcdcc;
+}
+
+.default__underBar {
+  /* js로 동작해야 할 듯 */
+  margin-top: 0.5em;
+  width: 6px;
+  transform: translateX(200%);
+  border-bottom: 2px solid white;
+}
+
+.set__underBar {
+  margin-top: 0.5em;
+  width: 18px;
+  transform: translateX(50%);
+  border-bottom: 2px solid white;
+  border-radius: 1em;
 }
 
 /* header - 검색바 */
@@ -95,6 +121,10 @@ fieldset a:hover {
   border-radius: 2em;
   display: flex;
   box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.none {
+  display: none;
 }
 
 .header__search-bar .item {
@@ -124,6 +154,13 @@ fieldset a:hover {
 .header__search-bar .search-bar__people {
   /* background-color: teal; */
   flex-grow: 1.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header__search-bar .search-bar__date-experience {
+  flex-grow: 2;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -224,13 +261,21 @@ fieldset a:hover {
 /* 계정버튼 누르면 나오는 레이어 */
 
 .account__layer {
-  visibility: hidden;
+  /* visibility: hidden; */
   position: absolute;
   background-color: white;
   /* padding: 0.8em; */
   width: 13%;
   top: 18%;
   border-radius: 0.7em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .account__layer ul li {
