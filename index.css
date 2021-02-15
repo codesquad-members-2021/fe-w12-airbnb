@@ -3,12 +3,10 @@
 /* COMMON */
 
 .body__container {
-  margin: 0;
-  min-width: 1300px;
-  width: 1300px;
   font-family: 'Roboto', 'Noto Sans KR', sans-serif;
   font-size: 16px;
   font-weight: 400;
+  color: #333;
 }
 
 a {
@@ -28,21 +26,20 @@ a {
   display: block;
 }
 
-/* Covid Info */
+/* ASIDE: Covid info */
 
-.covid__box {
+.aside {
   height: 62px;
   background: #000;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.covid__info {
-  color: white;
+.aside a {
+  color: #fff;
   font-size: 14px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-decoration: underline;
 }
 
 /* 배경 화면 */
