@@ -62,7 +62,7 @@ header {
   justify-content: space-evenly;
   padding: 0 0 0 25px;
 }
-.search-form__query > div:first-child > input {
+.search-form__query .query__input input {
   background-color: rgba(0, 0, 0, 0);
   width: 130px;
   height: 16px;
@@ -79,7 +79,7 @@ header {
 .query__column {
   width: 130px;
 }
-.query__column div:first-child {
+.query__column .query__column-title {
   margin-bottom: 5px;
 }
 .query__column > div:last-child {
@@ -98,7 +98,7 @@ header {
 }
 
 /* nav */
-.header__column:last-child {
+.header__column-nav {
   display: flex;
   justify-content: flex-end;
   align-self: baseline;

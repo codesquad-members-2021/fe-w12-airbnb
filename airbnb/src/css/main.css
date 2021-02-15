@@ -13,7 +13,7 @@ main {
 .main__column img {
   border-radius: 10px;
 }
-.main__column:first-child {
+.main-section__background {
   margin: 0;
   padding: 0;
 }
@@ -94,7 +94,7 @@ main {
 }
 
 /* experience */
-.main__column:nth-child(4) {
+.main-section__experience {
   background-color: black;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -115,11 +115,11 @@ main {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
 }
-.experience-item:first-child {
+.experience-item__first {
   grid-column: 1/3;
   grid-row: 1/3;
 }
-.experience-item:last-child {
+.experience-item__last {
   grid-column: 3/5;
   grid-row: 2/3;
 }
@@ -135,12 +135,12 @@ main {
   bottom: 16%;
   font-size: 0.8rem;
 }
-.experience-item:first-child .experience-name {
+.experience-item__first .experience-name {
   bottom: 8%;
 }
 
 /* host-community */
-.main__column:last-child {
+.main-section__host-community {
   margin-bottom: 50px;
 }
 .host-community-title > h2 {
