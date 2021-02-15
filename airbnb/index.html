@@ -46,44 +46,63 @@
 
         </nav>
 
-
-
             <div class="search__box">
-                <table>
-                    <tr>
-                        <td class="search__sub__title">위치</td>
-                        <td class="search__sub__title">체크인</td>
-                        <td class="search__sub__title">체크아웃</td>
-                        <td class="search__sub__title">인원</td>
-                        <td rowspan="2">
-                            <div class="search__button">
-                                <button><svg viewBox="-15 0 1 27" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg></button>
-                            </div>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="search__input" type="text" placeholder="어디로 여행가세요?"/>
-                        </td>
-                        <td> <input class="search__input" type="date" value="날짜 추가"/></td>
-                        <td><input class="search__input" type="date"/></td>
-                        <td>
-                            <select class="search__input">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                            
-                        </td>
-                    </tr>
-                </table>
+                <span class="item search__location">
+                    <button class="search__button">
+                        <div class="search__sub__title">위치</div>
+                        <div class="search__input">
+                            <input class="search__input-form" type="text" placeholder="어디로 여행가세요?"/>
+                        </div>
+                    </button>
+                </span>
+                <div class="search-bar__divideLine"></div>
+
+                <span class="item search__checkin">
+                    <button class="search__button">
+                        <div class="search__sub__title">체크인</div>
+                        <div class="search__input">
+                            <input class="search__input-form" type="text" placeholder="날짜 추가"/>
+                        </div>
+                    </button>
+                </span>
+                <div class="search-bar__divideLine"></div>
+
+                <span class="item search__checkout">
+                    <button class="search__button">
+                        <div class="search__sub__title">체크아웃</div>
+                        <div class="search__input">
+                            <input class="search__input-form" type="text" placeholder="날짜 추가"/>
+                        </div>
+                    </button>
+                </span>
+                <div class="search-bar__divideLine"></div>
+
+                <span class="item search__people">
+                    <button class="search__button">
+                        <div class="search__sub__title">인원</div>
+                        <div class="search__input">
+                            <input class="search__input-form" type="text" placeholder="게스트 추가"/>
+                        </div>
+                    </button>
+
+                    <div class="search__button__glass">
+                        <button><svg viewBox="4 4 1 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg></button>
+                    </div>
+                </span>
+               
+
+
             </div>
+
+            
             <div class = "view__ment">이제, 여행은<br>가까운 곳에서
             </div>
             <div>
                 <button class = "view__button">근처의 숙소 둘러보기</button>
+            </div>
+            <div class="search__button-mirror">
+                <button><svg viewBox="-15 0 1 27" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg></button>
             </div>
 
 
@@ -355,3 +374,4 @@
     </main>
 </body>
 </html>
+

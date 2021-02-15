@@ -126,50 +126,97 @@ nav{
 }
 
 .search__box {
-    display: grid;
-    margin:0 0 0 485px;
-    width: 850px;
-    height: 66px;
+    position: absolute;
+    width: 50%;
+    max-width: 850px;
+    top: 17.3%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: white;
-    /* display: inline-block; */
-    /* position: relative;  */
-    /* left:500px; */
-    border-radius: 100px;
-    box-shadow: 0 2px 2px 0 rgb(214,214,214);
+    height: 4.3rem;
+    border-radius: 2rem;
+    display: flex;
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
 }
+.item {
+    display: flex;
+    flex-direction: raw;
+    justify-content: space-between;
+    flex: 1 1 20px;
+    padding: 0.3em 0.7em;
+    width: 100%;
+    cursor: pointer;
+  }
+  .item:hover{
+    border-radius: 2em;
+    background-color: #f1f1f1;
+  }
 
-table {
-    /* width:100% */
-    padding: 3px 30px;
-    /* border-bottom-left-radius: 1px solid #444444; */
-    /* border-collapse: collapse; */
+.search__location {
+    flex-grow:2;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
 }
-
-
-.search__sub__title{
-    padding: 10px 0px 0 0;
-    font-size: 12px;
-    font-weight: 600;
+.search__checkin {
+    flex-grow:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
-
-.search__input {
-    border:none;
-    color: rgb(100,98,98);
-
+.search__checkout {
+    flex-grow:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.search__people {
+    flex-grow:1.5;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* align-content: center; */
 }
 .search__button {
-    display:grid;
-    justify-content: end;
-    margin:3px -20px 0 0;
-    padding-left: 20px;
+    transform: translateX(14%);
+    font-size: 14px;
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+
+
+    
+  }
+.search__sub__title {
+    font-size: 12px;
+    font-weight: bold;
+    float:left;
 }
-.search__button button{
+
+.search__input-form {
+    border:none;
+    color: rgb(100,98,98);
+    outline: none;
+    width: 120px;
+}
+
+.search__button__glass button {
     background-color: #FF385C;
     color:white;
     width:50px;
     height: 50px;
-    border-radius: 50px;
+    padding: 0.7em;
+    border-radius: 50%;
     border: 0px;
+    margin: 0 0 0 40px;
+}
+
+.search-bar__divideLine {
+    all: unset;
+    border-left: 1px solid #f07070;
+    flex: 0 0 0px;
+    height: 32px;
+    align-self: center;
 }
 
 section {
