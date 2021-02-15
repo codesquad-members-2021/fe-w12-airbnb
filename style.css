@@ -42,6 +42,8 @@ header .logo {
   list-style: none;
   display: table-cell;
   vertical-align: bottom;
+  /* background-color: green;
+  border-radius: 8px; */
 }
 header .logo li {
   display: table-cell;
@@ -120,6 +122,55 @@ nav .menu li,
   border-radius: 6px;
 }
 
+/* search  */
+/* ---------● 검색창 ●--------- */
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin: auto;
+  width: 800px;
+  border-radius: 50px;
+  list-style: none;
+}
+.search li {
+  /* background-color: wheat; */
+  border-radius: 50px;
+  width: 200px;
+  padding: 10px 10px;
+}
+.search li:hover {
+  background-color: whitesmoke;
+}
+
+.search__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search__icon {
+  background-color: red;
+  padding: 10px 10px;
+  border-radius: 50%;
+}
+.search__location > input {
+  border: none;
+}
+.search__location > input:hover {
+  background-color: whitesmoke;
+}
+.search__location > input:focus {
+  outline: none;
+}
+.search__title {
+  font-size: 12px;
+  font-weight: 500;
+}
+.search__desc {
+  font-size: 13px;
+  color: gray;
+}
 /* local */
 .local {
   padding: 80px 80px;
