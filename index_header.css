@@ -28,7 +28,10 @@ a:visited { color:white; }
     background-size: cover;
     width: 100%;
     height: 83vh;
-    position:relative;
+}
+
+body {
+    box-sizing: border-box;
 }
 
 .mainlogo {
@@ -72,6 +75,10 @@ a:visited { color:white; }
     border-bottom: 2px solid white;
 }
 
+.right_box {
+    position:relative;
+}
+
 .ghost-button {
     background-color: transparent;
     border:none;
@@ -91,6 +98,7 @@ a:visited { color:white; }
     height:50px;
     width: 100px;
 }
+
 .loginbox:active {
     transform: translateY(2px);
 }

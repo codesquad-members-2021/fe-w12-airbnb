@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="index_header.css">
     <link rel="stylesheet" href="index_mid.css">
     <link rel="stylesheet" href="index_bottom.css">
+    <link rel="stylesheet" href="class_List.css">
 </head>
 
-<body>
+<body id="Body">
     <!-- 꼭대기 에어비앤비 코로나 부분 -->
     <aside id="aside" style="text-decoration: underline;">
         <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를확인하세요.</a>
@@ -38,7 +39,7 @@
                     <div><a href="https://www.airbnb.co.kr/s/experiences/online" style="text-decoration:none">온라인 체험</a>
                     </div>
                 </div>
-                <div style="align-items: center;">
+                <div class="right_box">
                     <a href="#" style="text-decoration:none; font-size:20px;">호스트 되기</a>
                     <button class="ghost-button">
                         <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000.svg"
@@ -48,6 +49,7 @@
                             </path>
                         </svg>
                     </button>
+                    <!-- 이 버튼이 그 버튼입뉘닷 행님 -->
                     <button class="loginbox" type="button">
                         <div style="display:flex; justify-content:space-between;">
                             <div style="padding-left:10px; padding-top: 5px;"><img src="./images/list.svg"
@@ -351,6 +353,8 @@
             </ul>
         </div>
     </footer>
+
+    <script src="login_box.js"></script>
 </body>
 
 </html>

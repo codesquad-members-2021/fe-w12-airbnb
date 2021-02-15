@@ -1,0 +1,27 @@
+.List_box {
+    display: block;
+    background-color: white;
+    color: black;
+    position: absolute;
+    width:110%;
+    left:-10%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+#tempdiv {
+    display: none;
+}
+
+.box_class {
+    color:black !important;
+    padding-left: 20px;
+}
+
+.box_div {
+    padding: 10px 0;
+}
+
+#secondbox_div {
+    border-bottom: 2px solid #ebebeb;
+}
