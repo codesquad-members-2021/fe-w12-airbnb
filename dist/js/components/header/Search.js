@@ -16,7 +16,7 @@ export default class Search extends Component {
                   <a href="">온라인 체험</a>
                 </div>
               </fieldset>
-              <div class="floatBox">
+              <div class="search-floatBox">
                 <div class="searchBox">
                   <div class="searchBox-location">
                     <label class="searchBox-section" for="search-location">

@@ -25,8 +25,41 @@ export default class Menu extends Component {
                     aria-label="me"
                   ></object>
                 </li>
+                <li class="menu-floatbox">
+                    <ul>
+                        <li>메세지</li>
+                        <li>여행</li>
+                        <li>저장 목록</li>
+                    </ul>
+                    <ul>
+                        <li>숙소 호스트 되기</li>
+                        <li>체험 호스팅하기</li>
+                        <li>계정</li>
+                    </ul>
+                    <ul>
+                        <li>도움말</li>
+                        <li>로그아웃</li>
+                    </ul>
+                  </li>
             </ul>
         </nav>
+        
         `;
+  }
+  setEvent() {
+    const $menuMypage = this.$target.querySelector(".menu-mypage");
+    const $menuFloatBox = this.$target.querySelector(".menu-floatbox");
+
+    $menuMypage.addEventListener("click", () => {
+      $menuFloatBox.classList.toggle("show");
+    });
+    window.addEventListener("click", ({ target }) => {
+      if (
+        target === $menuMypage ||
+        [...$menuFloatBox.getElementsByTagName("*")].includes(target)
+      )
+        return;
+      $menuFloatBox.classList.remove("show");
+    });
   }
 }
