@@ -6,12 +6,12 @@ a {
     text-decoration: none;
 }
 /* ---------● 코로나 배너 ●--------- */
-#corona {
+.corona {
     height: 60px;
     background-color: #000;
     position: relative;
 }
-#corona > div {
+.corona > div {
     width: 343px;
     border-bottom: 1px solid #ddd;
     position: absolute;
@@ -24,38 +24,38 @@ a {
     cursor: pointer;
 }
 /* ---------● 헤더 ●--------- */
-#container__header {
+.container__header {
     position: relative;
 }
-#header {
+.header {
     position: absolute;
     padding: 0 80px;
     z-index: 10;
     width: 100%;
     height: 80px;
 }
-#header__logo {
+.header__logo {
     margin-top: 24px;
     float: left;
 }
-#header__logo > img {
+.header__logo > img {
     width: 100px;
 }
 
 /* ----- 중앙 네비게이션 ----- */
-#header__middle_nav {
+.header__middle_nav {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#header__middle_nav > li,
-#header__right_nav > li {
+.header__middle_nav li,
+.header__right_nav li {
     float: left;
     margin-right: 10px;
 }
-#header__middle_nav a,
-#header__right_nav a {
+.header__middle_nav a,
+.header__right_nav a {
     padding: 0 12px;
     height: 50px;
     color: #fff;
@@ -65,18 +65,18 @@ a {
     font-weight: 400;
 }
 
-#header__right_nav {
+.header__right_nav {
     float: right;
     margin-top: 15px;
 }
-#header__globe {
+.header__globe {
     font-size: 1.2em;
 }
-#header__user {
+.header__right_nav > li:last-child {
     margin-right: 0;
     margin-top: 2px;
 }
-#header__user > a {
+.header__user > a {
     width: 80px;
     height: 43px;
     background-color: #fff;
@@ -98,8 +98,39 @@ a {
     color: #777;
     font-size: 2em;
 }
+/* ---------● user 드롭다운 메뉴바 ●--------- */
+.user_menu {
+    background: #fff;
+    width: 240px;
+    height: 245px;
+    border-radius: 13px;
+    position: absolute;
+    top: 70px;
+    right: 80px;
+    z-index: 20;
+}
+.user_menu__list {
+    height: 48px;
+    line-height: 49px;
+    padding-left: 20px;
+}
+.user_menu__list > a {
+    font-size: 0.85rem;
+    color: #444;
+}
+.signin > a {
+    font-weight: 600;
+}
+.login {
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
 /* ---------● 검색창 ●--------- */
-#search {
+.search {
     width: 853px;
     background-color: #fff;
     position: absolute;
@@ -111,33 +142,33 @@ a {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15),
         0px 3px 8px rgba(0, 0, 0, 0.1);
 }
-#search > li {
+.search > li {
     float: left;
     height: 66px;
     padding: 15px 25px;
     background-color: #fff;
     border-radius: 45px;
 }
-#search > li:hover {
+.search > li:hover {
     background-color: #eee;
 }
-#search > li > span:first-child {
+.search > li > span:first-child {
     font-size: 0.78em;
     font-weight: 600;
     color: #222;
 }
-#search > li > div {
+.search > li > div {
     margin-top: 6px;
     font-size: 0.87em;
     font-weight: 300;
     color: #555;
 }
 /* ----- 위치 ----- */
-#search__place {
+.search__place {
     width: 270px;
     padding-left: 35px;
 }
-#search__place > input {
+.search__place > input {
     width: 150px;
     border: 0;
     padding: 0;
@@ -146,18 +177,18 @@ a {
     background-color: transparent;
 }
 /* ----- 체크인 체크아웃 ----- */
-#search__checkin,
-#search__checkout {
+.search__checkin,
+.search__checkout {
     width: 180px;
     cursor: pointer;
 }
 /* ----- 인원, 게스트 추가 ----- */
-#search__guest {
+.search__guest {
     width: 223px;
     position: relative;
     cursor: pointer;
 }
-#search__guest > button {
+.search__guest > button {
     position: absolute;
     top: 8px;
     right: 10px;
@@ -172,7 +203,7 @@ a {
 }
 
 /* ---------● 배너 ●--------- */
-#banner {
+.banner {
     height: 652px;
     width: 100%;
     background-repeat: no-repeat;
@@ -181,21 +212,21 @@ a {
     background-image: url(https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1440);
     position: relative;
 }
-#banner__title {
+.banner__title {
     width: 400px;
     height: 190px;
     position: absolute;
     top: 46%;
     left: 80px;
 }
-#banner__title > div {
+.banner__title > div {
     width: 18rem;
     color: #fff;
     font-size: 3.1em;
     font-weight: 600;
     line-height: 1.2;
 }
-#banner__title > a {
+.banner__title > a {
     width: 148px;
     height: 34px;
     margin-top: 10px;
@@ -209,11 +240,11 @@ a {
 }
 
 /* ---------● 지역 안내 ●--------- */
-#local {
+.local {
     height: 270px;
     position: relative;
 }
-#local > ul {
+.local > ul {
     width: 1276px;
     position: absolute;
     top: 50%;
@@ -286,22 +317,22 @@ a {
 }
 
 /* ---------● activity ●--------- */
-#container__activity {
+.container__activity {
     background-color: black;
     padding-top: 40px;
     height: 630px;
 }
-#activity {
+.activity {
     color: #fff;
 }
-#activity > h1 {
+.activity > h1 {
     padding-bottom: 5px;
 }
-#activity > span {
+.activity > span {
     font-size: 0.9em;
     font-weight: 300;
 }
-#activity > ul {
+.activity > ul {
     margin-top: 10px;
 }
 .activity__list > a > img {
