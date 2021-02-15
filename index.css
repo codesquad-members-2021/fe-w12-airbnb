@@ -1,4 +1,8 @@
-body {
+@charset "UTF-8";
+
+/* COMMON */
+
+body_container {
   margin: 0;
   min-width: 1300px;
   width: 1300px;
