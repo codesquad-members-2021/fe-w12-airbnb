@@ -1,7 +1,3 @@
-.divider {
-  height: 30px;
-  border-left: 1px solid #ebebeb;
-}
 header {
   padding: 20px 150px;
   display: flex;
@@ -58,31 +54,38 @@ header {
   border-radius: 35px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  padding: 0 0 0 25px;
+  padding: 0 10px 0 25px;
 }
-.search-form__query .query__input input {
+.search-form__query .divider {
+  height: 30px;
+  border-left: 1px solid #ebebeb;
+  margin-right: 20px;
+  flex: 0;
+}
+.query__location,
+.query__checkIn,
+.query__checkOut,
+.query__column-submit {
+  flex: 1;
+}
+.query__location input {
   background-color: rgba(0, 0, 0, 0);
-  width: 130px;
-  height: 16px;
+  font-size: 0.8rem;
   border: none;
   outline: none;
 }
 .query-date-wrapper {
+  flex: 1.5;
   display: flex;
   align-items: center;
 }
-.query-date-wrapper > .divider {
-  margin-right: 25px;
-}
-.query__column {
-  width: 130px;
-}
+
 .query__column .query__column-title {
   margin-bottom: 5px;
 }
 .query__column > div:last-child {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
 }
 .query__column-submit {
   display: flex;
