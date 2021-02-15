@@ -31,24 +31,44 @@ header {
   padding: 20px 80px;
   text-align: justify;
   min-width: 740px;
+  position: relative;
 }
 header:after {
   content: "";
   display: inline-block;
   width: 100%;
 }
-header .logo a {
-  color: white;
-  font-size: 30px;
+header .logo {
+  list-style: none;
+  display: table-cell;
+  vertical-align: bottom;
 }
-header .logo span {
-  margin-left: 10px;
+header .logo li {
+  display: table-cell;
+  vertical-align: middle;
+}
+header .logo__image {
+  font-size: 40px;
+  color: white;
+}
+header .logo__name {
+  font-size: 30px;
+  margin-left: 5px;
+  color: white;
 }
 header .logo,
 header nav,
 header .service {
   display: inline-block;
+  /* padding-top: 10px; */
   /* color: white; */
+}
+.service {
+  display: table;
+}
+.service li {
+  display: table-cell;
+  vertical-align: middle;
 }
 .menu__btn,
 .service__btn {
@@ -60,24 +80,24 @@ nav .menu li,
   margin-left: 20px;
 }
 .login__menu {
-  display: inline-block;
-  width: 80px;
-  height: 40px;
+  display: table;
   border-radius: 20px;
   background-color: white;
+  padding: 0 10px;
+  padding-top: 5px;
+  /* margin-top: 20px; */
 }
 .login__menu .login {
-  display: inline-block;
-  margin-left: 8px;
-  margin-top: 5px;
+  padding-left: 10px;
   font-size: 30px;
-  color: black;
+  color: gray;
+  display: table-cell;
+  vertical-align: middle;
 }
 .login__menu .toogle {
-  display: inline-block;
-  margin-left: 15px;
-  font-size: 20px;
-  color: black;
+  color: gray;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .banner-content {
