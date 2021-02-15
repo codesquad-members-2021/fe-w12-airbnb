@@ -1,0 +1,24 @@
+{
+  "name": "fe-w12-airbnb",
+  "version": "1.0.0",
+  "description": "module for airbnb project",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ha3158987/fe-w12-airbnb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ha3158987/fe-w12-airbnb/issues"
+  },
+  "homepage": "https://github.com/ha3158987/fe-w12-airbnb#readme",
+  "dependencies": {
+    "ejs": "^3.1.6"
+  }
+}
