@@ -1,0 +1,36 @@
+/* 푸터 Wrapper */
+div.footer {
+    width: 100%;    
+    background-color: #f7f7f7;
+    border-top: 1px solid #DDD;
+}
+
+div.footer > footer {
+    margin-left: 8%;
+    margin-right: 16%;
+    padding: 48px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.footer > footer > section {
+    padding: 0 12px;
+}
+
+div.footer > footer > section > h4 {
+    color: var(--footer-font-color);    
+    font-size: 12px;
+    margin-bottom: 0px;    
+}
+
+div.footer > footer > section > ul > li {
+    margin-top: 16px;
+}
+
+div.footer > footer > section > ul > li > a {
+    text-decoration: none;
+    color: var(--footer-font-color);
+    font-size: 14px;
+    line-height: 18px;
+}
+

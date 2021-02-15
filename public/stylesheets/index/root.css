@@ -1,0 +1,35 @@
+:root {
+    --default-font-color: #FFF;
+    --covid-searchBar-hover-color: #ddddddcc;
+    --footer-font-color: #222222;    
+}
+
+a {
+    text-decoration: none;
+    color: var(--default-font-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-clear {
+    clear: both;
+}
+
+/* 전체 Wrapper */
+div.wrap {
+    width: 1900px;
+    height: 1080px;
+    margin: 0 auto;
+    position: relative;
+    left: -2px;
+}
