@@ -22,3 +22,6 @@
 
 -https://www.w3schools.com/cssref/playit.asp?filename=playcss_vertical-align&preval=25px
 vertical-align
+
+- 어려웠던 점: flex, grid 기능을 사용하지 않고 레이아웃 잡기
+- 배운 점: 상대적으로 잘 몰랐던 Float나 position의 속성을 알게되었다. (적용시 block속성으로 변경되는 점/ 가장 상단에 (z축기준) 위치하게 되는 점 등)
