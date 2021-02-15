@@ -47,10 +47,10 @@
         <div class="member_setting">
           <span class="host">호스트되기</span>
           <i class="fas fa-globe"></i>
-          <div class="menuAndAcountIcon">
+          <button class="menuAndAcountIcon">
             <i class="fas fa-bars"></i>
             <i class="fas fa-user-circle"></i>
-          </div>
+          </button>
         </div>
         <ul class="header_dropdown">
           <li>회원가입</li>
@@ -211,5 +211,36 @@
         </li>
       </ul>
     </section>
+    <script>
+      const header = document.querySelector("header");
+      const intersectPoint = document.querySelector(".main");
+      const headerLogo = document.querySelector(".logo");
+
+      const options = {
+        rootMargin: "-40px 0px 0px 0px",
+      };
+      //scroll 내리면 헤더 색 변경
+      const interObserve = new IntersectionObserver((entries, interObserve) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            header.classList.add("white");
+            headerLogo.classList.add("pink");
+          } else {
+            header.classList.remove("white");
+            headerLogo.classList.remove("pink");
+          }
+        });
+      }, options);
+
+      interObserve.observe(intersectPoint);
+
+      window.onload = function () {
+        const dropdownbtn = document.querySelector(".menuAndAcountIcon");
+        const dropdowndiv = document.querySelector(".header_dropdown");
+        dropdownbtn.addEventListener("click", (e) => {
+          dropdowndiv.classList.toggle("flex");
+        });
+      };
+    </script>
   </body>
 </html>

@@ -149,10 +149,9 @@ header .member_setting .menuAndAcountIcon i:last-child {
 }
 
 .header_dropdown {
-  display: flex;
+  display: none;
   padding: 10px 0px;
   flex-direction: column;
-  justify-content: space-evenly;
   border-radius: 10px;
   width: 15%;
   background: white;
@@ -162,13 +161,17 @@ header .member_setting .menuAndAcountIcon i:last-child {
   top: 70px;
 }
 
+.flex {
+  display: flex;
+}
+
 .header_dropdown li {
   padding: 12px;
   font-size: 14px;
 }
 .header_dropdown li:hover {
   cursor: pointer;
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(245, 245, 245);
 }
 
 .header_dropdown_li2 {
