@@ -52,27 +52,27 @@
                                     <p class="underline"></p>
                                 </label>
                             </div>
-                            <div class="header__main__search__bar">   
-                                <!-- label의 for는 label안에 요소가 있으면 안써도 됨!  -->
-                                <label>
+                            <div class="header__main__search__bar">
+                                <!-- label의 for는 label안에 요소가 있으면 안써도 됨!  -->                                
+                                <label class="public-searchOption">
                                     <div>
                                         <p>위치</p>
                                         <input type="text" name="locationInput" id="locationInput" placeholder="어디로 여행가세요?"/>
                                     </div>                                    
                                 </label>
-                                <label class="checkin-out">
+                                <label class="checkin-out roomsType">
                                     <div>
                                         <p>체크인</p>
                                         <input type="date" name="checkin" id="checkin" placeholder="날짜추가"/>                                        
                                     </div>                                       
                                 </label>
-                                <label class="checkin-out">
+                                <label class="checkin-out roomsType">
                                     <div>
                                         <p>체크아웃</p>
                                         <input type="date" name="checkout" id="checkout" placeholder="날짜추가"/>
                                     </div>
                                 </label>
-                                <label>
+                                <label class="roomsType">
                                     <div>
                                         <p>인원</p>
                                         <input type="text" name="guestAdd" id="guestAdd" placeholder="게스트 추가"/>
@@ -83,6 +83,13 @@
                                         <img src="./images/search-solid_ver2.svg" />
                                     </button>
                                 </label>
+                                <label class="experienceType">
+                                    <div>
+                                        <p>날짜</p>
+                                        <input type="text" name="selectDate" id="selectDate" placeholder="원하는 날짜를 입력하세요."/>
+                                    </div>
+                                </label>
+                                
                             </div>
                         </div>
 
@@ -381,4 +388,5 @@
 
         </div>
     </body>
+    <script type="text/javascript" src= "./javascripts/tabUI.js"></script>
 </html>
