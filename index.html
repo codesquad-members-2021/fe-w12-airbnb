@@ -18,38 +18,43 @@
       </div>
       <form id="center-menu-container">
         <div id="center-menu">
-          <span tabindex="1"><a href="#">숙소</a></span>
-          <span tabindex="2"><a href="#">체험</a></span>
-          <span tabindex="3"><a href="#">온라인 체험</a></span>
+          <input type="radio" hidden checked name="center-menu-tab">
+          <span class="cursor-default"tabindex="0">숙소</span>
+          <input type="radio" hidden name="center-menu-tab">
+          <span tabindex="0">체험</span>
+          <input type="radio" hidden name="center-menu-tab">
+          <span tabindex="0">온라인 체험</span>
         </div>
         <div class="solid-rounded" id="search-bar">
-          <div class="solid-rounded">
-            <div class="bold-text">위치</div>
-            <div>어디로 여행가세요?</div>
+            <div class="solid-rounded pointable" id="location-in-search-bar">
+              <div class="bold-text">위치</div>
+              <div>어디로 여행가세요?</div>
+            </div>
+            <div></div>
+            <div class="removable">
+              <div class="solid-rounded pointable" id="checkin-in-search-bar">
+                <div class="bold-text">체크인</div>
+                <div>날짜 추가</div>
+              </div>
+              <div></div>
+              <div class="solid-rounded pointable" id="checkout-in-search-bar">
+                <div class="bold-text">체크아웃</div>
+                <div>날짜 추가</div>
+              </div>
+              <div></div>
+            </div>
+            <div class="solid-rounded with-search-btn pointable">
+              <div class="bold-text">인원</div>
+              <div>게스트 추가</div>
+              <button class="solid-rounded pointable" id="search-btn">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
+                  <g fill="none">
+                    <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
+                  </g>
+                </svg>
+              </button>
+            </div>
           </div>
-          <div></div>
-          <div class="solid-rounded">
-            <div class="bold-text">체크인</div>
-            <div>날짜 추가</div>
-          </div>
-          <div></div>
-          <div class="solid-rounded">
-            <div class="bold-text">체크아웃</div>
-            <div>날짜 추가</div>
-          </div>
-          <div></div>
-          <div class="solid-rounded">
-            <div class="bold-text">인원</div>
-            <div>게스트 추가</div>
-            <button class="solid-rounded" id="search-btn">
-              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
-                <g fill="none">
-                  <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
-                </g>
-              </svg>
-            </button>
-          </div>
-          <!-- <div class="float-clear"></div> -->
         </div>
       </form>
       <div id="right-menu">
@@ -75,9 +80,6 @@
       </div>
       <div class="float-clear"></div>
     </nav>
-    <!-- <nav id="search-bar"> -->
-      <!--  -->
-    <!-- </nav> -->
   </header>
   
   <section id="sect1">
