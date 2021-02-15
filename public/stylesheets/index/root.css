@@ -25,14 +25,25 @@ ul {
     clear: both;
 }
 
+.color--white {
+    color: var(--default-font-color);
+}
+
 .bgColor--black {
     background-color: #000;
+}
+
+.margin__top--10px { 
+    margin-top: 10px;
 }
 
 .margin__topBot--70px {
     margin: 70px auto;
 }
 
+.margin__leftBot--20px {
+    margin: 0 0 20px 20px;
+}
 
 /* 전체 Wrapper */
 .all-wrapper {

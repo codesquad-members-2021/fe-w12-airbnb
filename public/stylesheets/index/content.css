@@ -68,10 +68,6 @@ p.content-secDesc {
     padding: 30px 0;
 }
 
-.color--white {
-    color: var(--default-font-color);
-}
-
 .content__activity__btn {
     position: relative;
     top: 20px;

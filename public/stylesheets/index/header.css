@@ -108,6 +108,10 @@
     font-weight: 600;
 }
 
+.header__main__search__bar > .noPadding {
+    padding: 0;
+}
+
 .header__main__search__bar > label:hover {
     background-color: var(--covid-searchBar-hover-color);
 }
