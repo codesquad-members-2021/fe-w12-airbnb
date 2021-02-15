@@ -136,32 +136,30 @@ div.header__main__search__bar {
     justify-content: space-around;
 }
 
+div.header__main__search__bar > label {
+    padding: 14px 26px;
+    border-radius: 32px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+div.header__main__search__bar > label:hover {
+    background-color: #ddddddcc;
+}
+
+
 div.header__main__search__bar > label.checkin-out {
     width: 25%;
 }
 
-div.header__main__search__bar > label > div {
-    padding: 14px 26px;
-    border-radius: 32px;
-    cursor: pointer;
-}
-
-div.header__main__search__bar > label > div:hover {
-    background-color: #ddddddcc;
-}
-
-div.header__main__search__bar > label > div > p {
-    font-weight: 600;
-}
-
-div.header__main__search__bar > label > div > input {
+div.header__main__search__bar > label > input {
     margin-top: 7px;
     border: none;
     width: 100%;    
     background-color: transparent;
 }
 
-div.header__main__search__bar > label > div > input[type="date"] {
+div.header__main__search__bar > label > input[type="date"] {
     margin-top: 5px;
     border: none;
     width: 100%;
