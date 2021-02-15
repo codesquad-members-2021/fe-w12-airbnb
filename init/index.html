@@ -4,96 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
-    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body>
     <!--Header-->
-    <section class="covid-19-notice">
+    <header class="covid-19-notice">
       <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest"
         >에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a
       >
-    </section>
+    </header>
 
     <!--Main-->
     <main>
+      <!--background image-->
       <section class="top-section">
-        <div class="top-section__div">
-          <div class="top-section__img">
-            <img class="airbnb-logo" src="img/airbnb.svg" />
+        <!--nav 영역 시작-->
+        <nav class="top-section__nav">
+          <!-- <div class="top-section__logo"> -->
+          <img class="airbnb-logo" src="img/airbnb.svg" />
+          <!-- </div> -->
+          <ul class="nav__menu">
+            <li><a href="">숙소</a></li>
+            <li><a href="">체험</a></li>
+            <li>
+              <a href="https://www.airbnb.co.kr/s/experiences/online"
+                >온라인 체험</a
+              >
+            </li>
+          </ul>
+
+          <ul class="nav__icons">
+            <li><a href="">호스트 되기</a></li>
+            <li>
+              <a class="nav__icons__btn-earth">
+                <img id="icon-earth" src="img/earth.svg" />
+              </a>
+            </li>
+            <li>
+              <div class="nav__icons__btn-login">
+                <img id="icon-list" src="img/list.svg" />
+                <img id="icon-person" src="img/people.svg" />
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <!--Search-->
+        <section class="search-section">
+          <div class="search-destination">
+            <span>위치</span>
+            <input
+              class="search__input"
+              type="text"
+              placeholder="어디로 여행가세요?"
+            />
           </div>
-
-          <nav class="top-section__nav">
-            <ul>
-              <li class="top-section__nav--list"><span>숙소</span></li>
-              <li class="top-section__nav--list"><span>체험</span></li>
-              <li class="top-section__nav--list">
-                <a
-                  id="oline"
-                  href="https://www.airbnb.co.kr/s/experiences/online"
-                  >온라인 체험</a
-                >
-              </li>
-            </ul>
-          </nav>
-
-          <div class="right-section">
-            <button class="right-section__btn-text">호스트 되기</button>
-
-            <button class="right-section__btn-earth">
-              <img id="icon-earth" src="img/earth.svg" width="15px" />
-            </button>
-
-            <button class="right-section__btn-login">
-              <img id="icon-list" src="img/list.svg" width="16px" />
-              <img id="icon-person" src="img/people.svg" width="30px" />
-            </button>
+          <div class="search-basic">
+            <span>체크인</span>
+            <input class="search__input" type="text" placeholder="날짜 추가" />
           </div>
-
-          <!--Search-->
-          <section class="search-section">
-            <div class="search-destination">
-              <span>위치</span>
-              <input
-                class="search__input"
-                contype="text"
-                placeholder="어디로 여행가세요?"
-              />
-            </div>
-            <div class="search-basic">
-              <span>체크인</span>
-              <input
-                class="search__input"
-                contype="date"
-                placeholder="날짜 추가"
-              />
-            </div>
-            <div class="search-basic">
-              <span>체크아웃</span>
-              <input
-                class="search__input"
-                contype="date"
-                placeholder="날짜 추가"
-              />
-            </div>
-            <div class="search-basic">
-              <span>인원</span>
-              <input
-                class="search__input"
-                contype="date"
-                placeholder="게스트 추가"
-              />
-              <div id="search-icon"><img src="img/search.svg" /></div>
-            </div>
-          </section>
-
-          <div class="top-section__text-div">
-            이제, 여행은<br />가까운 곳에서<br />
-            <button class="top-section__text-div--btn">
-              근처의 숙소 둘러보기
-            </button>
+          <div class="search-basic">
+            <span>체크아웃</span>
+            <input class="search__input" type="text" placeholder="날짜 추가" />
           </div>
+          <div class="search-basic">
+            <span>인원</span>
+            <input
+              class="search__input"
+              type="text"
+              placeholder="게스트 추가"
+            />
+            <div id="search-icon"><img src="img/search.svg" /></div>
+          </div>
+        </section>
+
+        <div class="top-section__text-div">
+          이제, 여행은<br />가까운 곳에서<br />
+          <button class="top-section__text-div--btn">
+            근처의 숙소 둘러보기
+          </button>
         </div>
       </section>
+      <!--Top section 종료-->
+
       <!--City-->
       <section class="city-section">
         <ul class="city-section__div">
@@ -279,6 +272,6 @@
       src="https://kit.fontawesome.com/fb7e7bab0c.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
