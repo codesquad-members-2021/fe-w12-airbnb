@@ -16,8 +16,7 @@
     --page-tb-margin: 40px;
     --page-side-margin: 80px;
     --section-font-size: 2.4rem;
-    --section-font-weight: 600;
-    
+    --section-font-weight: 600;    
 }
 
 * {
@@ -157,7 +156,6 @@ a {
     border-radius: var(--image-border-radius);
 }
 
-/* input 관련 form 추가 */
 .info-form-container {
     margin: 0 var(--page-side-margin);
     text-align: left;
@@ -354,15 +352,6 @@ a {
     height: 100%;
 }
 
-.summary-img.first {
-    display: flex;
-    flex-direction: column;
-    object-fit: cover;
-    position: relative;
-    grid-area: 1 / 1 / span 2;
-    justify-content:flex-end;
-}
-
 .summary-img.first div {
     width: 100%;
     padding-left: 10px;
@@ -374,16 +363,9 @@ a {
     font-weight: var(--section-font-weight);
 }
 
-.summary-img.second {
-    display: flex;
-    flex-direction: column;
-    object-fit: cover;
-    position: relative;
-    grid-column: 2 / span 1;
-    justify-content:flex-end;
-}
-
-.summary-img.second div {
+.summary-img.second div,
+.summary-img.third div,
+.summary-img.forth div {
     padding-left: 10px;
     bottom: 10%;
     width: 100%;
@@ -393,6 +375,25 @@ a {
     color:var(--font-family);
     font-weight: var(--section-font-weight);
 }
+
+.summary-img.first {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    position: relative;
+    grid-area: 1 / 1 / span 2;
+    justify-content:flex-end;
+}
+
+.summary-img.second {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    position: relative;
+    grid-column: 2 / span 1;
+    justify-content:flex-end;
+}
+
 
 .summary-img.third {
     display: flex;
@@ -403,16 +404,7 @@ a {
     justify-content: flex-end;
 }
 
-.summary-img.third div {
-    padding-left: 10px;
-    bottom: 10%;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    font-size: var(--normal-font-size);
-    color:var(--font-family);
-    font-weight: var(--section-font-weight);
-}
+
 
 .summary-img.forth {
     display: flex;
@@ -421,17 +413,6 @@ a {
     position: relative;
     grid-column: 2 / span 2;
     justify-content:flex-end;
-}
-
-.summary-img.forth div {
-    padding-left: 10px;
-    bottom: 10%;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    font-size: var(--normal-font-size);
-    color:var(--font-family);
-    font-weight: var(--section-font-weight);
 }
 
 .last-section-container {
