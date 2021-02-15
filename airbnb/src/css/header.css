@@ -148,15 +148,17 @@ nav a {
 }
 .nav-user__bar .user-bar__divider {
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
 .nav-user__bar .user-bar__item {
   width: 100%;
   padding: 10px 20px 10px 20px;
 }
-
+.nav-user__bar .user-bar__item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
 .hidden {
   display: none;
 }
