@@ -23,6 +23,10 @@ button {
   cursor: pointer;
 }
 
+* {
+  outline: 1px red solid;
+}
+
 img {
   border-radius: 10px;
 }
@@ -321,4 +325,29 @@ footer ul>li {
 .last_footer>div:nth-child(1) {
   width: 50%;
   text-align-last: left;
+}
+
+.tap_ui {
+  position: relative;
+  float: right;
+  top: 16px;
+  width: 65%;
+  padding: 10px 0;
+  background-color: #FFF;
+  border-radius: 10px;
+}
+
+.tap_ui .tap_ui__anchor {
+  display: block;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.tap_ui .tap_ui__anchor:hover {
+  background-color: rgb(236, 236, 236);
+  border-radius: 0;
+}
+
+.display_none {
+  display: none;
 }
