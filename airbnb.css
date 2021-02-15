@@ -1,6 +1,10 @@
 * {
     box-sizing: border-box;
 }
+a {
+    display: block;
+    text-decoration: none;
+}
 /* ---------● 코로나 배너 ●--------- */
 #corona {
     height: 60px;
@@ -53,10 +57,8 @@
 #nav_middle > li > a,
 #nav_right > li > a {
     padding: 0 12px;
-    display: block;
     height: 50px;
     color: #fff;
-    text-decoration: none;
     text-align: center;
     line-height: 50px;
     font-size: 0.9em;
@@ -194,7 +196,6 @@
     line-height: 1.2;
 }
 #banner > div > a {
-    display: block;
     width: 148px;
     height: 34px;
     margin-top: 10px;
@@ -205,7 +206,6 @@
     line-height: 34px;
     text-align: center;
     color: #333;
-    text-decoration: none;
 }
 
 /* ---------● 지역 안내 ●--------- */
@@ -244,12 +244,10 @@
     border-radius: 10px;
 }
 .local_list > a {
-    display: block;
     width: 230px; /* 링크 클릭 범위 설정 */
     padding: 12px 20px 12px 80px;
     line-height: 1.35;
     color: #333;
-    text-decoration: none;
 }
 .local_list > a > span:first-child {
     font-weight: 500;
@@ -285,11 +283,9 @@
     margin-right: 0;
 }
 .content_list > a {
-    display: block;
     font-size: 1.1em;
     font-weight: 500;
     color: #333;
-    text-decoration: none;
     cursor: pointer;
 }
 .content_list > a > img {
