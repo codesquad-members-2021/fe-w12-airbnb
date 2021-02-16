@@ -168,26 +168,34 @@ a {
 }
 
 .nav-profile-tab {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.nav-profile-tab-show {
     margin-top: 20px;
-    top: 50%;
     width: 100%;
-    background-color: var(--info-color);
-    text-align: left;
-    border-radius: var(--nav-btn-border-radius);
-    box-shadow: 2px 2px 10px var(--grey);
+    height: auto;
+    top: 50%;
+    visibility: visible;
     position: absolute;
 }
 
-.nav-profile-tab ul {
-    margin: 20px 0;
+.nav-profile-menu {
+    background-color: var(--info-color);
+    box-shadow: 2px 2px 10px var(--grey);
+    border-radius: var(--nav-btn-border-radius);
+    text-align: left;
 }
 
-.nav-profile-tab li {
+
+.nav-profile-tab-show li {
+    padding: 20px;
     cursor: pointer;
-    padding: 10px;
 }
 
-.nav-profile-tab li:hover {
+.nav-profile-tab-show li:hover {
     background-color: rgba(177, 172, 172, 0.15);
 }
 
