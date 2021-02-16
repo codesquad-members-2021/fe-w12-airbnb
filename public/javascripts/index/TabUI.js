@@ -1,8 +1,17 @@
-import _ from "../util.js";
+import _ from '../util.js';
 
 class TabUI {
-    constructor() {}
-    // 작업예정
+    constructor(target) {
+        this.target = target;
+    }
+
+    tabUIClick() {
+        this.target.addEventListener('click', this._tabUIClickHandler);
+    }
+
+    _tabUIClickHandler(e) {        
+        const { target } = e;
+    }
 }
 
 export default TabUI;
