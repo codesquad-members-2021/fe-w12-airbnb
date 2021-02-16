@@ -8,6 +8,7 @@
   --dark-gray: rgb(34, 34, 34);
   --medium-gray: rgb(200, 200, 200);
   --light-gray: rgb(245, 245, 245);
+  --border: 1px solid rgb(221 221 221);
 }
 
 body {
@@ -55,12 +56,12 @@ button:focus {
 }
 
 .header__menu {
-  height: 50px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 300;
-  padding: 0px 150px;
+  padding: 0px 320px;
 }
 
 .header__menu > li > button,
@@ -74,7 +75,7 @@ button:focus {
 .header__navbar {
   display: flex;
   justify-content: space-between;
-  padding: 0px 0px 5px 310px;
+  padding: 0px 0px 5px 170px;
 }
 
 .navbar__join-host:hover,
@@ -111,7 +112,7 @@ button:focus {
   width: 120px;
   height: 42px;
   background-color: var(--white);
-  border: 1px solid rgb(221 221 221);
+  border: var(--border);
   border-radius: 20px;
   cursor: pointer;
 }
@@ -156,9 +157,23 @@ button:focus {
 }
 
 .logo-container,
-.header__menu,
 .nav-container {
-  width: 33%;
+  width: 25%;
+}
+.search-menu-container {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 25%;
+}
+
+.search-bar {
+  width: 100%;
+  height: 66px;
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: 32px;
+  box-shadow: 1px 1px 25px rgb(0 0 0 / 17%);
 }
 
 /* main banner */
