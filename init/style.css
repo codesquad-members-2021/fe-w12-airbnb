@@ -1,0 +1,530 @@
+:root {
+  /*Color*/
+  --main-color: #fe375c;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.test td {
+  margin: 0px;
+  padding: 5%;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.covid-19-notice {
+  box-sizing: border-box;
+  height: 58px;
+  background-color: black;
+  padding: 20px 80px 20px 80px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.covid-19-notice a {
+  color: white;
+  text-decoration: underline;
+}
+
+.covid-19-notice a:hover {
+  color: gray;
+  text-decoration: underline;
+}
+
+.top-section {
+  position: relative;
+  background-image: url("img/main-wide.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 83vh;
+}
+
+.airbnb-logo {
+  position: absolute;
+  left: 18%;
+  top: 200%;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.top-section__nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  color: white;
+}
+
+.nav__menu {
+  position: absolute;
+  top: 260%;
+  left: 45%;
+  display: flex;
+  list-style: none;
+  padding: 0px;
+}
+
+.nav__menu > label > span {
+  padding: 4px;
+}
+
+.nav__menu > label > input {
+  width: 1px;
+}
+
+.nav__icons {
+  right: 17%;
+  position: absolute;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav__icons li {
+  padding: 8px 12px;
+}
+
+.nav__icons__btn-earth {
+  border-radius: 21px;
+}
+
+.nav--icons {
+  border-radius: 21px;
+  background-color: white;
+  padding: 5px;
+}
+
+.popup-tb {
+  background-color: white;
+  width: 230px;
+  height: 230px;
+  position: absolute;
+  right: 2%;
+  top: 120%;
+  color: black;
+  border-radius: 20px;
+  z-index: 1;
+  font-size: 14px;
+  padding-left: 8%;
+}
+
+.popup__icon-list {
+  padding: 5px 5px 5px 5px;
+  width: 16px;
+}
+
+.icon-person {
+  width: 30px;
+}
+
+#icon-earth {
+  width: 20px;
+}
+
+.top-section__text-div {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-10%, -50%);
+  font-size: 54px;
+  font-weight: 800;
+  color: white;
+  text-align: left;
+}
+
+.top-section__text-div--btn {
+  height: 35px;
+  width: 140px;
+  border-radius: 10px;
+}
+
+.search-section {
+  position: absolute;
+  list-style: none;
+  padding: 0px;
+  top: 10%;
+  left: 32%;
+  width: 35%;
+  height: 70px;
+  background-color: white;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.search-section__activity {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 0px;
+  top: 10%;
+  left: 32%;
+  width: 35%;
+  height: 70px;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.search__input {
+  border: none;
+  font-size: 14px;
+}
+
+#search-destination {
+  position: absolute;
+  display: inline-block;
+  background-color: white;
+  border-radius: 30px;
+  width: 30%;
+  height: 70px;
+}
+
+#activity-destination {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  width: 50%;
+  height: 70px;
+}
+
+#search-destination > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#activity-destination > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 6%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-destination > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#activity-destination > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 6%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-check-in {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  width: 20%;
+  height: 70px;
+  left: 30%;
+}
+
+#search-check-in > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-check-in > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-check-out {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  width: 20%;
+  height: 70px;
+  left: 50%;
+}
+
+#search-check-out > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-check-out > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-people {
+  position: absolute;
+  display: inline-block;
+
+  border-radius: 30px;
+  width: 20%;
+  height: 70px;
+  left: 70%;
+}
+
+#search-people > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-people > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#activity-date {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  width: 40%;
+  height: 70px;
+  left: 50%;
+}
+
+#activity-date > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 6%;
+  width: 60%;
+  padding: 0px;
+}
+
+#activity-date > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 6%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  bottom: 15%;
+  left: 115%;
+  border-radius: 100%;
+  background-color: var(--main-color);
+}
+
+#search-icon > img {
+  width: 20px;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  fill: white;
+}
+
+#activity-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  bottom: 15%;
+  left: 107.5%;
+  border-radius: 100%;
+  background-color: var(--main-color);
+}
+
+#activity-icon > img {
+  width: 20px;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  fill: white;
+}
+
+.city-section {
+  height: px;
+  width: 1600px;
+  padding: 64px 0px;
+  margin-left: 360px;
+  margin-right: 360px;
+}
+
+.city-section__div {
+  height: 144px;
+  padding: 0px 0px 0px 0px;
+}
+
+.city-section__list {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  width: 370px;
+  margin: 0px 10px 10px 0px;
+}
+
+.city-section__list > div {
+  padding: 20px;
+  position: absolute;
+  display: inline-block;
+  height: 30px;
+  bottom: 2px;
+}
+
+.city-section__list img {
+  width: 65px;
+  height: 65px;
+  border-radius: 8px;
+}
+
+.room-section {
+  position: relative;
+  font-size: 14px;
+  height: 569px;
+  margin: 10px;
+}
+
+.section__div {
+  position: relative;
+  width: 1600px;
+  height: 550px;
+  margin: 0px 362.5px 0px 362.5px;
+  padding: 88px 80px 88px 0px;
+}
+
+.section__div > ul {
+  position: absolute;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+.section__main-text {
+  width: 1604px;
+  height: 42px;
+  padding-bottom: 16px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.section__list {
+  position: relative;
+  float: left;
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+.room-section__img {
+  width: 386.5px;
+  height: 386.5px;
+  border-radius: 10px;
+}
+
+.section__list--text {
+  padding-top: 8px;
+  font-size: 18px;
+}
+
+.activity-section {
+  height: 892px;
+  background-color: black;
+  color: white;
+  padding: 64px 0px 80px 0px;
+}
+
+.activity-section__list--text {
+  position: absolute;
+  height: 44px;
+  width: 752px;
+  padding: 16px 16px 16px 16px;
+  font-size: 16px;
+  bottom: 0;
+}
+
+.activity-section__main-text {
+  font-size: 32px;
+}
+
+.activity-section__div {
+  height: 892px;
+}
+
+.activity-section span {
+  display: block;
+  font-size: 14px;
+}
+
+.activity-section span {
+  text-align: left;
+  vertical-align: middle;
+}
+
+.activity-section img {
+  width: 392px;
+  height: 392px;
+  border-radius: 16px 16px 16px 16px;
+  float: left;
+}
+
+#activity-img01 {
+  width: 800px;
+  height: 784px;
+  float: left;
+}
+
+#activity-img02 {
+  width: 392px;
+  height: 392px;
+  float: left;
+}
+
+#activity-img03 {
+  width: 800px;
+  height: 392px;
+  float: left;
+}
+
+.host-section__img {
+  width: 520.656px;
+  height: 347.094px;
+  border-radius: 16px 16px 16px 16px;
+}
