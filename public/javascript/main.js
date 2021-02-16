@@ -7,18 +7,35 @@ class TopMenu {
     this.activity = targetEl[1];
   }
 
-  changeFormForActivity() {
-    this.activity.addEventListener('click', this.activityFormHandler);
+  onEvents() {
+    this.activity.addEventListener('click', this.activityHandler);
+    this.accommodations.addEventListener('click', this.accommodationHandler);
   }
 
-  activityFormHandler() {
+  accommodationHandler() {
     const detailsForRooms = document.querySelectorAll('.input-for-rooms');
-    const dateInput = document.querySelector('.input-date-hidden');
+    detailsForRooms.forEach((input) =>
+      input.classList.remove('check-inout-hidden')
+    );
+
+    const dateInput = document.querySelector('.input-date');
+    if (dateInput) {
+      dateInput.classList.remove('input-date');
+      dateInput.classList.add('input-date-hidden');
+    }
+  }
+
+  activityHandler() {
+    const detailsForRooms = document.querySelectorAll('.input-for-rooms');
     detailsForRooms.forEach((input) =>
       input.classList.add('check-inout-hidden')
     );
-    dateInput.classList.remove('input-date-hidden');
-    dateInput.classList.add('input-date');
+
+    const dateInput = document.querySelector('.input-date-hidden');
+    if (dateInput) {
+      dateInput.classList.remove('input-date-hidden');
+      dateInput.classList.add('input-date');
+    }
   }
 }
 
@@ -31,7 +48,7 @@ const showProfileTab = () => {
 const changeForm = () => {
   const topMenuLists = document.querySelectorAll('.top-list-words');
   const topmenu = new TopMenu(topMenuLists);
-  topmenu.changeFormForActivity();
+  topmenu.onEvents();
 };
 
 const main = () => {
