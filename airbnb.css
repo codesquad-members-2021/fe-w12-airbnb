@@ -58,6 +58,9 @@ a {
     float: left;
     margin-right: 10px;
 }
+.header__middle_nav > li > a:hover {
+    color: #eee;
+}
 .header__middle_nav a,
 .header__right_nav a {
     padding: 0 12px;
@@ -65,16 +68,15 @@ a {
     color: #fff;
     text-align: center;
     line-height: 50px;
-    font-size: 0.9em;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .header__right_nav {
     float: right;
     margin-top: 15px;
 }
-.header__globe {
-    font-size: 1.2em;
+.header__right_nav > li:first-child {
+    font-size: 0.9rem;
 }
 .header__right_nav > li:last-child {
     margin-right: 0;
