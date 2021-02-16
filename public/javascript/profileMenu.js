@@ -1,4 +1,4 @@
-export default class TabUI {
+export default class ProfileMenu {
   constructor(targetEl) {
     this.targetEl = targetEl;
   }
