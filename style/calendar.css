@@ -26,7 +26,7 @@
   flex-direction: column;
 }
 
-p {
+.month p {
   all: unset;
   margin-top: 2em;
 }
