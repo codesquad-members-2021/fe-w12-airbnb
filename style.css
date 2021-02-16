@@ -144,6 +144,8 @@ nav .menu li,
   border-radius: 50px;
   width: 100%;
   padding: 10px 10px;
+  /* margin-bottom: 20px; */
+  /* height: 100px; */
 }
 .search li:hover {
   background-color: whitesmoke;
@@ -155,9 +157,13 @@ nav .menu li,
   align-items: center;
 }
 .search__icon {
-  background-color: red;
-  padding: 10px 10px;
+  background-color: #ff385c;
+  padding: 15px 17px;
   border-radius: 50%;
+  color: white;
+  /* position: absolute; */
+  /* margin-left: 100px; */
+  /* float: r; */
 }
 .search__location > input {
   font-size: 13px;
@@ -166,7 +172,11 @@ nav .menu li,
 .search__location {
   /* margin-left: 20px; */
 }
-
+.search__title {
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
 .search__title {
   font-size: 12px;
   font-weight: 500;
@@ -174,6 +184,7 @@ nav .menu li,
 .search__desc {
   font-size: 13px;
   color: gray;
+  /* padding-top: 100px; */
 }
 
 .search span,
