@@ -33,7 +33,7 @@ h4{
 .main {
     padding-left: 2rem;
     padding-right: 2rem;
-    height: 30rem;
+    height: 35rem;
     color: white;
 }
 .main__menu {
@@ -43,17 +43,66 @@ h4{
     align-items: center;
 }
 .main__logo {
-    padding-top: 0.5rem;
+    padding-right: 5rem;
 }
 .main__menu{
-    text-shadow: -1px 0 black,
+    padding-top: 1rem;
+    /* text-shadow: -1px 0 black,
                 0 1px black,
                 1px 0 black,
-                0 -1px black;
+                0 -1px black; */
 }
 .main__site-menu>span{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+}
+.main__user-menu{
+    display: inline-flex;
+    align-items: center;
+}
+.main__user-menu>span{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.main__user-menu>span:first-child{
+    padding-left: 0;
+    padding-right: 0;
+}
+.main__user-menu--user{
+    background-color: white;
+    height: 2.5rem;
+    border-radius: 2rem;
+    padding: 5px;
+    border: none;
+}
+.main__user-menu--user>svg{
+    background-color: transparent;
+    border-style: unset;
+    color: #717171;
+    flex: 0 0 30px;
+    height: 30px;
+    margin-left: 10px;
+    z-index: 1;
+}
+.main__user--tab{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    position: absolute;
+    top: 7rem;
+    right: 2rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 10rem;
+    line-height: 150%;
+    z-index: 1;
+}
+.main__user--tab>div{
+    padding-top: 0.5rem;
+}
+.main__user--tab>div:first-child{
+    padding-top: 0rem;
 }
 .main__search-bar{
     display: inline-flex;
@@ -62,9 +111,9 @@ h4{
     position: absolute;
     width: 70%;
     left: 15%;
-    top: 6rem;
-    padding: 1rem;
-    border-radius: 1rem;
+    top: 7rem;
+    padding: 0.5rem;
+    border-radius: 3rem;
     font-size: 0.8rem;
     line-height: 140%;
     justify-content: space-between;
@@ -72,20 +121,30 @@ h4{
 }
 .main__search-bar--content{
     padding-left: 1rem;
-    border-left: solid 1px;
+    border-left: solid 1px rgba(0, 0, 0, 0.2);
 }
 .main__search-bar--content:first-child{
     border-left: unset;
 }
-.main__search-bar--button{
-    width: 10%;
+.main_search-bar--button{
+    border-radius: 100%;
+    padding: 1rem;
+    background-color:#FF385C;
+    color: white;
 }
 .main__content {
     clear:both;
     line-height: 120%;
-    margin-top: 8rem;
+    margin-top: 12rem;
     font-size: 4rem;
     font-weight: bold;
+}
+.main__content>button{
+    border: none;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
 }
 .location {
     padding-top : 2rem;
