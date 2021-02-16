@@ -1,0 +1,59 @@
+.main_people {
+  position: absolute;
+  right: 80px;
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  margin-top: 12px;
+  max-height: calc(100vh - 220px);
+  padding: 16px 32px;
+}
+.main_people__column1 {
+  flex-grow: 1;
+}
+.main_people__column1 > span {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: rgb(113, 113, 113);
+}
+.main_people__column2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 104px;
+  height: 32px;
+  color: rgb(34, 34, 34);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+.main_people_li {
+  cursor: none;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 330px;
+}
+
+.people_column_btn {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: inline-flex;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(176, 176, 176);
+  color: rgb(113, 113, 113);
+  outline: none;
+  touch-action: manipulation;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+}
