@@ -8,6 +8,7 @@ const profileBtnClickHandler = () => {
 const bodyClickHandler = () => {
   profileHeader.classList.add("hide");
   mainLocation.classList.add("hide");
+  mainPeople.classList.add("hide");
 };
 
 profileBtn.addEventListener("click", (e) => {

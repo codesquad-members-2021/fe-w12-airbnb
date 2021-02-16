@@ -1,15 +1,18 @@
 const seachbarRooms = document.querySelector("#main_seachbar_rooms");
 const seachbaractivity = document.querySelector("#main_seachbar_activity");
-const mainLocation = document.querySelector(".main_location");
 //<==== 질문 =--->//
-//SelectorAll 을 해서 Node[0], Node[1] 을 각자 불러오는 것이 좋을까요?
+//seachbar를 불러올 때, SelectorAll 을 해서 Node[0], Node[1] 을 각자 불러오는 것이 좋을까요?
 //아니면 이렇게 서로 id 를 부여해서 불러오는 것이 좋을까요?
-
-const navbar = document.querySelector(".navbar_ul");
-const lists = navbar.getElementsByTagName("li");
+const main = document.querySelector(".main");
+const mainPeople = main.querySelector(".main_people");
+const mainLocation = main.querySelector(".main_location");
+const mainNavbar = main.querySelector(".navbar_ul");
+const lists = mainNavbar.getElementsByTagName("li");
 const searchbar = (searchbarDocument) => {
   const location = searchbarDocument.firstElementChild;
   const input = searchbarDocument.querySelector("input");
+  const peoplebtn = searchbarDocument.querySelector(".seachbar_lastmenu");
+  const searchbtn = peoplebtn.querySelector(".seachbar_btn");
 
   const locationClickHandler = () => {
     input.focus();
@@ -17,7 +20,19 @@ const searchbar = (searchbarDocument) => {
   const locationFoucusHandler = () => {
     mainLocation.classList.remove("hide");
   };
+  const peoplebtnClickHandler = () => {
+    mainPeople.classList.remove("hide");
+  };
 
+  peoplebtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    peoplebtnClickHandler();
+  });
+
+  searchbtn.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    locationClickHandler();
+  })
   location.addEventListener("click", (e) => {
     e.stopPropagation();
     locationClickHandler();
