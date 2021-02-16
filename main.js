@@ -4,13 +4,7 @@
   const $airbnbBtn = document.querySelector('#airbnb--button');
   const $activityBtn = document.querySelector('#activity--button');
   const $onlineActBtn = document.querySelector('#online--activity--button');
-  const $lowBar = document.querySelector('.low-bar');
-  const $shortBar = document.querySelector('.low-bar-short');
   const $longBar = document.querySelector('.low-bar-long');
-
-  console.log($airbnbBtn);
-  console.log($activityBtn.querySelector('.lower--box').classList[1]);
-  console.log($onlineActBtn);
 
   console.log();
 
