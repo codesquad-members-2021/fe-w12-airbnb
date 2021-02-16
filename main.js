@@ -12,7 +12,7 @@ class ContainerUI extends ComponentUI{
 class ChildUI extends ComponentUI{
 }
 
-class MenuChildUI extends ChildUI {
+class CenterMenuChildUI extends ChildUI {
   onEvents() {
     this.targetEl.addEventListener('mouseover', this._onMouseOver);
     this.targetEl.addEventListener('mouseout', this._onMouseOut);
@@ -59,8 +59,6 @@ class MenuChildUI extends ChildUI {
       })
     );
   }
-
-  _o
 }
 
 class SearchBarUI extends ContainerUI {
@@ -101,6 +99,7 @@ class SearchBarUI extends ContainerUI {
   }
 }
 
+
 class SearchBarChildUI extends ChildUI {
   onEvents() {
     this.targetEl.addEventListener('mouseover', this.targetEl._onMouseOver);
@@ -116,6 +115,18 @@ class SearchBarChildUI extends ChildUI {
   }
 }
 
+class RightMenuChildWithPopupUI extends ChildUI {
+  onEvents() {
+    this.targetEl.addEventListener('click', this._onClick);
+  }
+
+  _onClick(evt) {
+    const popupMenu = document.querySelector('#popup-menu');
+    popupMenu.classList.remove('display-none');
+    popupMenu.focus();
+  }
+}
+
 function main() {
   const searchBar = new SearchBarUI(document.querySelector('#search-bar'));
   searchBar.onEvents();
@@ -123,8 +134,15 @@ function main() {
   const searchBarChild = [...document.querySelectorAll('#search-bar > .pointable')].map(el => new SearchBarChildUI(el));
   searchBarChild.forEach(el => el.onEvents());
 
-  const centerMenuChild = [...document.querySelectorAll('#center-menu > span')].map(el => new MenuChildUI(el));
+  const centerMenuChild = [...document.querySelectorAll('#center-menu > span')].map(el => new CenterMenuChildUI(el));
   centerMenuChild.forEach(el => el.onEvents());
+
+  const rightMenuChildWithPopup = new RightMenuChildWithPopupUI(document.querySelector('#right-menu > .solid-rounded:first-child'));
+  rightMenuChildWithPopup.onEvents();
+
+  const popupMenu = document.querySelector('#popup-menu');
+  popupMenu.addEventListener('focus', (evt) => evt.target.classList.remove('display-none'), true);
+  popupMenu.addEventListener('blur', (evt) => evt.target.classList.add('display-none'), true);
 }
 
 main();
