@@ -120,11 +120,12 @@ header nav a:hover {
   opacity: 0;
 }
 
-.nav_item:hover {
-  border-bottom: 1px solid white;
+.nav_item + label:hover {
+  cursor: pointer;
 }
 
 input[type="radio"]:checked + label {
+  cursor: default;
   color: white;
   padding: 5px 0px;
   border-bottom: 1px solid white;
@@ -165,7 +166,7 @@ header .member_setting .menuAndAcountIcon i:last-child {
   color: black;
   position: absolute;
   right: 5%;
-  top: 70px;
+  top: 120px;
 }
 
 .flex {
@@ -220,16 +221,17 @@ header .member_setting .menuAndAcountIcon i:last-child {
 }
 
 .main_reserve_container {
+  display: none;
   width: 45%;
-  display: flex;
   background-color: white;
-  position: relative;
+  position: absolute;
   height: 60px;
   border-radius: 40px;
   left: 27.5%;
-  top: 70px;
-  justify-content: ;
+  top: 120px;
+  justify-content: space-evenly;
 }
+
 .main_reserve_container li {
   padding: 10px 17px;
   width: 25%;

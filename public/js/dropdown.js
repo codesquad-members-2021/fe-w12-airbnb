@@ -9,4 +9,7 @@ window.onload = function () {
   body.addEventListener("click", (e) => {
     dropdowndiv.classList.remove("flex");
   });
+
+  //   if (document.getElementById("nav_radio_1").checked) {
+  //   }
 };
