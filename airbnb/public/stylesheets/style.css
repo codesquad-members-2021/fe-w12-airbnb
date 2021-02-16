@@ -21,9 +21,15 @@
   background-image: url('http://localhost:3000/images/main.png');
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 570px;
-  display: flex;
-  flex-flow: column;
+  height: 650px;
+}
+
+body section {
+  margin: 0 3vh;
+}
+
+ul {
+  list-style: none;
 }
 
 nav {
@@ -54,7 +60,7 @@ nav ul li {
   float: none;
   position: absolute;
   left: 42%;
-  top: 35%;
+  top: 55%;
 }
 
 .nav-right {
@@ -64,67 +70,110 @@ nav ul li {
 
 .nav-right img {
   width: 20px;
-  filter: brightness(3);
+  filter: invert(100%) brightness(100%);
 }
 
 .account-group {
-  background-color: coral;
-  /* width: 50px; */
+  background-color: white;
+  border-radius: 20px;
+  padding: 13px 7px 7px 5px;
+}
+
+.account-group img {
+  filter: invert(60%) sepia(8%) saturate(0%) brightness(90%) contrast(86%);
+}
+
+.account-menu {
+  position: absolute;
+  left: 76%;
+  top: 150%;
+  border-radius: 10px;
+  background-color: white;
+  color: #222222;
+  width: 230px;
+  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.account-menu p {
+  font-size: 14px;
+  padding: 1rem;
+}
+
+.account-menu div:not(:last-child) {
+  border-bottom: 1px solid #a09e9e79;
 }
 
 .search {
   background-color: white;
   border-radius: 35px;
+  padding: 10px 10px 10px 30px;
+  color: #222222;
   font-size: 14px;
-  width: 60%;
-  height: 70px;
-  margin: auto;
+  height: 4rem;
+  margin: 3% 15%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.search > a > p {
-  margin: 5px;
+.search-location,
+.search-date-checkin,
+.search-date-checkout,
+.search-guests {
+  width: calc(100% / 4);
+  padding: 0 20px;
+  border-right: 1px solid #a09e9e79;
+}
+
+.search-guests {
+  border-right: none;
 }
 
 .search-button {
-  border-radius: 25px;
-  padding: 9px;
-  width: 50px;
-  color: white;
-  background-color: rgb(255, 90, 95);
+  border-radius: 50%;
+  padding: 11px;
+  width: 40px;
+  float: right;
+  background-color: #ff385c;
 }
 
-.destinations {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  margin: 1.5rem;
-}
-
-.destination {
-  width: 33.33%;
-  /* text-align: center; */
-}
-
-.destination > span {
-  display: flex;
-  vertical-align: middle;
-  justify-content: center;
-}
-
-.destination img {
-  width: 72px;
+.search-button img {
+  filter: invert(100%) brightness(100%);
 }
 
 .main-section {
-  padding: 50px 50px;
+  padding: 5% 5%;
 }
 
 .main-text {
   color: white;
   font-size: 3em;
+}
+
+.destinations ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 1.5rem;
+}
+
+.destination {
+  width: calc(100% / 3);
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.destination-text {
+  padding: 2px 15px;
+  display: flex;
+}
+
+.destination img {
+  border-radius: 10%;
+  width: 72px;
 }
 
 .search-nearby {
@@ -134,18 +183,29 @@ nav ul li {
   font-size: 14px;
   border: none;
   border-radius: 12px;
-  color: black;
+  color: #222222;
   background-color: white;
+}
+
+.houses-text {
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 0.5rem;
 }
 
 .house-type {
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
 }
 
 .house-type-sub {
-  margin: 10px;
-  width: 30%;
+  width: calc(100% / 3);
+  padding: 0.5rem;
+}
+
+.house-type-sub img {
+  width: 100%;
+  border-radius: 5%;
 }
 
 .experience {
