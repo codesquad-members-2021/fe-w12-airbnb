@@ -33,3 +33,8 @@ li {
   text-decoration: none;
   list-style: none;
 }
+
+.invisible {
+  visibility: hidden;
+  /* opacity: 0 */
+}

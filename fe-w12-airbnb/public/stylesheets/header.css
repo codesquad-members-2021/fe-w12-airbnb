@@ -171,6 +171,12 @@ fieldset.search_box > div > input {
   filter: brightness(0) invert(1);
 }
 
+.dropdown {
+  border: 5px solid #555;
+  width: 3rem;
+  height: 5rem;
+}
+
 .main_textbox {
   position: absolute;
   width: 1140px;
