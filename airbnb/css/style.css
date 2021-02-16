@@ -38,12 +38,12 @@ nav{
     display:grid;
     grid-template-columns: auto auto auto;
     justify-content: space-between;
-    /* margin:0 200px; */
-    /* background-color: burlywood; */
+    padding: 0 80px;
 }
 
 .logo{
-    margin:25px 0 0 136px;
+    margin:25px 0 0 0;
+    text-align: center;
     color:white;
     font-size: 35px;
     /* background-color: #FF385C; */
@@ -52,39 +52,36 @@ nav{
 .center__menu ul{
     display:grid;
     grid-template-columns: auto auto auto;
-    margin:0 0 0 100px;
-    color: white;
-    font-weight: 400;
-    list-style-type: none;
-    padding: 2rem 0;
     grid-gap:32px;
-}
-
-.right__menu{
-    display: grid;
-    margin:20px 0px 0 100px;
-    grid-template-columns: auto auto;
-    grid-gap: 25px;
-
-}
-.right__menu1{
-    grid-template-columns: auto auto ;
-    margin: 15px 0 0 0;
-    grid-gap: 25px;
-    display: grid;
+    margin:0 0 0 100px;
+    padding: 2rem 0;
     list-style-type: none;
-    margin-right:10px;
-    /* background-color: #FF385C; */
+    font-weight: 400;
+    color: white;
+   
+}
+
+.right__menu-ul{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 25px;
+    margin: 15px 0 0 0;
+    list-style-type: none;
+    padding: 0.5rem 0 0 0;
+    background-color: #FF385C;
+    align-items: center;
     font-size: 14px;
     font-weight: 600;
+    
 }
-.right__menu1 a{
+.right__menu-ul a{
     text-decoration: none;
     color:white;
     /* margin-top: 25px; */
 }
 
-.dropdown {
+
+/* .dropdown {
     position:relative;
     z-index: 1;
     width: 200px;
@@ -92,30 +89,27 @@ nav{
     background-color: pink;
     /* align-items: flex-start; */
     /* margin-right: 80px; */
-    margin-bottom: 8px;
+    /* margin-bottom: 8px;
     text-align: right;
-}
+} */ 
 
-.menu button {
-    margin: px 0 0 0;
+
+.right__menu-btn {
     height: 40px;
     width: 80px;
-}
-
-.menu__but {
     border: 1px solid #DDDDDD ;
-    color: #222222;
     display: inline-flex;
-    line-height: inherit;
+    /* line-height: inherit; */
     padding: 5px 5px 5px 12px;
     align-items: center;
+    color: #222222;
     background-color: #FFFFFF;
     border-radius: 21px;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     transition: box-shadow 0.2s ease;
     cursor: pointer;
 }
-#hi {
+#user-icon {
     margin-left: 10px;
     height:30px;
     display: block;
@@ -147,7 +141,7 @@ nav{
     z-index:2;
     width: 100%;
     max-height:200px;
-    /* background-color: red; */
+    background-color: red;
     border: 1px solid transparent;
     border-radius: 6px;
     /* transition: border-color 200ms ease-in,
