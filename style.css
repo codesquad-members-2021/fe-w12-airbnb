@@ -340,7 +340,7 @@ header > nav {
   border-color: transparent;
 }
 
-#search-bar .solid-rounded.pointable:hover,
+#search-bar .solid-rounded.pointable:not(#search-btn):hover,
 #popup-menu a:hover {
   background-color: rgb(237, 240, 243);
 }

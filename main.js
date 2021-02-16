@@ -116,14 +116,48 @@ class SearchBarChildUI extends ChildUI {
 }
 
 class RightMenuChildWithPopupUI extends ChildUI {
+  constructor(targetEl, popupMenu) {
+    super(targetEl);
+    this.popupMenu = popupMenu;  
+  }
+
   onEvents() {
-    this.targetEl.addEventListener('click', this._onClick);
+    this.targetEl.addEventListener('click', this._onClick.bind(this));
   }
 
   _onClick(evt) {
-    const popupMenu = document.querySelector('#popup-menu');
-    popupMenu.classList.remove('display-none');
-    popupMenu.focus();
+    if (this.popupMenu.isShown())
+      return;
+
+    this.popupMenu.targetEl.dispatchEvent(new Event('focus'));
+  }
+}
+
+class PopupMenuUI extends ChildUI {
+  constructor(targetEl) {
+    super(targetEl);
+    this.shown = false;
+  }
+
+  isShown() { return this.shown; }
+
+  onEvents() {
+    this.targetEl.addEventListener('focus', this._onFocus);
+    this.targetEl.addEventListener('blur', this._onBlur);
+  }
+
+  _onFocus(evt) {
+    evt.target.classList.remove('display-none');
+    evt.target.focus();
+    this.shown = true;
+  }
+
+  _onBlur(evt) {
+    if (evt.relatedTarget === document.querySelector('#right-menu > .solid-rounded:first-child'))
+      return;
+
+    evt.target.classList.add('display-none');
+    this.shown = false;
   }
 }
 
@@ -137,12 +171,11 @@ function main() {
   const centerMenuChild = [...document.querySelectorAll('#center-menu > span')].map(el => new CenterMenuChildUI(el));
   centerMenuChild.forEach(el => el.onEvents());
 
-  const rightMenuChildWithPopup = new RightMenuChildWithPopupUI(document.querySelector('#right-menu > .solid-rounded:first-child'));
-  rightMenuChildWithPopup.onEvents();
+  const popupMenu = new PopupMenuUI(document.querySelector('#popup-menu'));
+  popupMenu.onEvents();
 
-  const popupMenu = document.querySelector('#popup-menu');
-  popupMenu.addEventListener('focus', (evt) => evt.target.classList.remove('display-none'), true);
-  popupMenu.addEventListener('blur', (evt) => evt.target.classList.add('display-none'), true);
+  const rightMenuChildWithPopup = new RightMenuChildWithPopupUI(document.querySelector('#right-menu > .solid-rounded:first-child'), popupMenu);
+  rightMenuChildWithPopup.onEvents();
 }
 
 main();
