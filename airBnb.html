@@ -28,13 +28,11 @@
          </a>
       </div>
 
-      <div class="search">
+      <div class="h2_search">
          <span>검색 시작하기</span>
-         <button type="submit">
-            <div class="search_btn">
+         <div type="submit">
                <img src="./img/search.svg" alt="돋보기"></img>
-            </div>
-         </button>
+         </div>
       </div>   
 
       <div class="menu_right">
@@ -71,11 +69,20 @@
                      <img src="./img/airbnb.svg" href="#" class="logoIMG" alt="로고이미지">
                   </a>
                </div>
-   
+ 
                <div class="menu_center">
-                  <a href="#">숙소</a>
-                  <a href="#">체험</a>
-                  <a href="#">온라인체험</a>
+                  <label>
+                     <input type="radio" name="menu_choice" checked></input>
+                     <span>숙소</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="menu_choice"></input>
+                     <span>체험</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="menu_choice"></input>
+                     <span>온라인체험</span>
+                  </label>
                </div>   
    
                <div class="menu_right">
@@ -86,7 +93,7 @@
                         <img class="list" src="img/list.svg"></img>
                         <img class="personIMG" src="img/people.svg"></img>
                      </button>
-                     <ul class="hide_show toggleMenu" >
+                     <ul class="hide_show toggleList toggleMenu" >
                         <div class="toggleList">
                            <li class="toggleList"><a id="sign_up" href="#">회원 가입</a></li>
                            <li class="toggleList"><a href="#">로그인</a></li>
@@ -98,9 +105,9 @@
                      </ul>
                   </div>
                </div>
-            </div>    
-            <div class="search">
-               <div class="outerdiv">
+            </div> 
+            <div class="search_wrapper">
+               <div class="search search_ver1">
                   <div class="innerdiv" id="inner1">
                      <label>위치</label>
                      <input type="text" name="where" placeholder="어디로 여행가세요?"/>
@@ -121,10 +128,29 @@
                      <button type="submit" text="검색">
                         <img src="./img/search.svg" alt="돋보기"></img>
                      </button>
-                  
                   </div>
                </div>
             </div>
+
+            <div class="search_wrapper hide_show">
+               <div class="search search_ver2">
+                  <div class="innerdiv" id="inner1">
+                     <label>위치</label>
+                     <input type="text" name="where" placeholder="어디로 여행가세요?"/>
+                  </div>
+                  
+                  <div class="innerdiv" id="inner4">
+                     <div>
+                        <label>날짜</label>
+                        <input  name="peopleNumber"  placeholder="원하는 날짜를 입력하세요."/>
+                     </div>
+                     <button type="submit" text="검색">
+                        <img src="./img/search.svg" alt="돋보기">  검색</img>
+                     </button>
+                  </div>
+               </div>
+            </div>
+
             <div class="title">
                <div class="ment">
                   이제, 여행은 가까운&nbsp;곳에서

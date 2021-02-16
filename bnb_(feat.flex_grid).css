@@ -71,28 +71,38 @@ section span {
   border: 1px solid rgba(184, 164, 164, 0.633);
 }
 
-.header2 .search {
+.h2_search {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid rgba(184, 164, 164, 0.633);
+  border-radius: 40px;
   width: 300px;
-  height: auto;
-  padding: 5px 0;
-  font-size: 14px;
+  padding: 10px;
   position: absolute;
   left: 40%;
 }
 
-.header2 .search span {
+.h2_search span {
   font-weight: 800;
-  padding-left: 30px;
+  font-size: 14px;
+  padding-left: 10px;
 }
 
-.header2 .search button {
+.h2_search div {
   width: 35px;
   height: 35px;
+  border: none;
+  border-radius: 50px;
+  background-color: rgba(255, 56, 92, 1);
   margin-right: 10px;
+  text-align: center;
+}
+
+.h2_search div img {
+  width: 16px;
+  height: 16px;
+  margin: 10px;
 }
 
 /** HEADER =====================**/
@@ -154,49 +164,66 @@ header .basic_menu div {
 .menu_center {
   min-width: 250px;
   position: absolute;
-  left: 45%;
+  left: 40%;
 }
 
-.menu_center a {
-  padding: 10px; /*->click을 수월하게*/
-  box-sizing: border-box;
-  color: rgba(255, 255, 255);
+.menu_center label {
+  display: inline-block;
   position: relative;
-}
-.menu_center a:hover {
-  color: rgba(255, 255, 255, 0.804);
+  margin: 15px;
 }
 
-.header1 .menu_center a:hover::after {
+.header1 .menu_center label:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.menu_center label input {
+  position: absolute;
+  bottom: 50px;
+  opacity: 0;
+}
+
+.header1 .menu_center input:not(:checked) + span:hover::before {
+  content: "";
+  width: 2px;
+  height: 1.5px;
+  background: rgba(255, 255, 255);
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 15px;
+}
+
+.header1
+  .menu_center
+  label:last-child
+  input:not(:checked)
+  + span:hover::before {
+  left: 30px;
+}
+
+.header1 .menu_center label:last-child input:checked + span::before {
+  left: 30px;
+}
+
+.header1 .menu_center input:checked + span::before {
   content: "";
   width: 2px;
   height: 1.5px;
   background: rgba(255, 255, 255);
   position: absolute;
-  top: 37px;
-  left: 25px;
-  display: block;
-  transition: 0.2s;
-}
-
-.header1 .menu_center a:focus::after {
-  content: "";
-  width: 20px;
-  height: 1.5px;
-  background: rgba(255, 255, 255);
-  position: absolute;
-  top: 37px;
+  top: 30px;
   left: 15px;
   display: block;
+  transition: 0.3s;
+  transform: scaleX(10);
 }
 
-.header1 .menu_center a:last-child::after {
-  left: 50px;
-}
-
-.header1 .menu_center a:last-child:focus::after {
-  width: 20px;
-  left: 40px;
+/* checked input + span  */
+.header1 .menu_center input:checked + span {
+  cursor: default;
+  color: rgba(255, 255, 255);
 }
 
 .menu_right {
@@ -285,53 +312,87 @@ header .basic_menu div {
   font-weight: 800;
 }
 
-.search {
+.search_wrapper {
+  text-align: center;
+}
+
+.search_ver1 {
+  text-align: left;
   width: 840px;
-  height: auto;
+  height: 75px;
   margin: 15px auto;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 50px;
   box-sizing: border-box;
+  display: inline-grid;
+  grid-template-columns: 26% 22% 22% 30%;
 }
 
-.search .outerdiv {
-  display: flex;
+.search_ver2 {
+  text-align: left;
+  width: 840px;
+  height: 75px;
+  margin: 15px auto;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50px;
+  box-sizing: border-box;
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.search_ver2 div button {
+  width: 100px;
+  border-radius: 30px;
+
+  color: rgba(255, 255, 255, 1);
+}
+
+.search_ver2 button {
+  background-color: rgba(255, 56, 92, 1);
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 800;
+  height: 50px;
+  position: absolute;
+  bottom: 13px;
+  right: 15px;
 }
 
 .search .innerdiv {
   box-sizing: border-box;
-  padding: 0px 15px;
-  margin: 10px 0;
-  border-left: 1px solid rgba(73, 67, 67, 0.404);
+  padding: 0px 20px;
+  padding-top: 20px;
   font-size: 12px;
   font-weight: 800;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
 }
 
-#inner1 input {
-  width: 200px;
+.search .innerdiv label {
+  display: block;
 }
-
-#inner1 {
-  border-left: none;
+.search .innerdiv input {
+  padding-top: 5px;
 }
 
 #inner4 {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  position: relative;
 }
 
-#inner4 div {
-  width: 150px;
+.search_ver1 button {
+  background-color: rgba(255, 56, 92, 1);
+  border: none;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 13px;
+  right: 15px;
 }
 
 .search .innerdiv:hover {
   box-sizing: border-box;
-  padding: 10px 15px;
-  margin: 0;
   background-color: rgba(230, 230, 230, 0.863);
   border-radius: 50px;
   border: none;
@@ -340,18 +401,10 @@ header .basic_menu div {
 
 .search input {
   background: transparent;
-  width: 160px;
-  margin-top: 5px;
+  width: 100%;
+  font-size: 15px;
   border: none;
   padding: 0;
-}
-
-.search button {
-  background-color: rgba(255, 56, 92, 1);
-  border: none;
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
 }
 
 .search button img {
