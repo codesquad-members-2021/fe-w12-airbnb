@@ -75,4 +75,6 @@
     if (isLongBar(btn)) return;
     btn.querySelector(LowerBox).classList.replace(SHORT_BAR, TP_BAR);
   }
+
+  // NAV
 })(window, document);

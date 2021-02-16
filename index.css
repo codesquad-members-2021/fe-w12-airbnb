@@ -186,7 +186,7 @@ a {
 .host {
   min-width: 100px;
   font-weight: 500;
-  color: white;
+  color: #fff;
   font-size: 14px;
   padding: 0 15px;
   box-sizing: border-box;
@@ -202,6 +202,12 @@ a {
   height: 66px;
   display: flex;
   justify-content: center;
+}
+
+.reservation__box {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
 }
 
 .reservation__label--box {
@@ -253,7 +259,10 @@ input {
   padding: 14px 24px;
   box-sizing: border-box;
   cursor: pointer;
+  /* display: none; */
 }
+
+/* 양쪽 다 middle bar를 없애는 방법이 없을까... */
 .middle__box:hover {
   background: #ebebeb;
   border-radius: 50px;
@@ -311,6 +320,32 @@ input {
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
+}
+
+.leftside__radius__box--activity {
+  min-width: 410px;
+  background: #fff;
+  padding: 14px 32px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+  /* display: none; */
+}
+
+.rightside__radius__box--activity {
+  min-width: 440px;
+  background: #fff;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding: 14px 24px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  /* display: none; */
 }
 
 /* SECTION: visual */
