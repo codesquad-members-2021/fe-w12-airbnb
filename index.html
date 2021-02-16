@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script defer src="main.js"></script>
-    <script defer src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script defer src="loginMenu.js"></script>
+    <script defer src="searchBar.js"></script>
+    <script src="https://kit.fontawesome.com/c3d44d5c03.js" crossorigin="anonymous"></script>
     <title>airbnbClone</title>
 </head>
 <body>
@@ -15,22 +16,80 @@
     </div>
     <div class="banner">
         <header>
-            <div class="logo">
-                <a href="#"><i class="fab fa-airbnb"></i><span class="logo_title">airbnb<span></a>
-            </div>
+            <ul class="logo">
+                <li><a href="#" class="logo__image"><i class="fab fa-airbnb"></i></a></li>
+                <li><a href="#" class="logo__name">airbnb</a></li>
+            </ul>
             <nav>
                 <ul class="menu">
-                    <li><a href="#" class="menu__btn">숙소</a></li>
-                    <li><a href="#" class="menu__btn">체험</a></li>
-                    <li><a href="#" class="menu__btn">온라인 체험</a></li>
+                    <li><a href="javascript:void(0)" class="menu__rooms">숙소</a>
+                    </li>
+                    <li><a href="#" class="menu__experience">체험</a></li>
+                    <li><a href="#" class="menu__online">온라인 체험</a></li>
                 </ul>
             </nav>
             <ul class="service">
                 <li><a href="#" class="service__btn">호스트 되기</a></li>
                 <li><a href="#" class="service__btn"><i class="fas fa-globe"></i></a></li>
-                <li><a href="#" class="service__btn">로그인그림</a></li>
+                <li><a href="#" class="service__btn"><div class="login__menu">
+                    <div class="toogle"><i class="fas fa-bars"></i></div>
+                    <div class="login">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div></a></li>
             </ul>
         </header>
+        <ul class="search">
+            <li class="search__location">
+                <span class="search__title">위치</span>
+                <input type="text" placeholder="어디로 여행가세요?">
+            </li>
+            <li class="search__checkin">
+                <span class="search__title">체크인</span>
+                <span class="search__desc">날짜 추가</span>
+            </li>
+            <li class="search__checkout">
+                <span class="search__title">체크아웃</span>
+                <span class="search__desc">날짜 추가</span>
+            </li>
+            <li class="search__total">
+                <div class="total__textbox">
+                    <span class="search__title">인원</span>
+                    <span class="search__desc">게스트 추가</span>
+                </div>
+                <div class="search__icon"><i class="fas fa-search"></i></div>
+            </li>
+        </ul>
+
+        <ul class="search-sub">
+            <li class="search-sub__location">
+                <span class="search-sub__title">위치</span>
+                <input type="text" placeholder="어디로 여행가세요?">
+            </li>
+            <li class="search-sub__experience">
+                <div class="total__textbox">
+                    <span class="search-sub__title">날짜</span>
+                    <span class="search-sub__desc">원하는 날짜를 입력하세요.</span>
+                </div>
+                <div class="search-sub__icon"><i class="fas fa-search"></i></div>
+            </li>
+        </ul>
+
+        <!-- login popup -->
+        <div class="login__pop-up">
+            <ul class="login__main">
+                <li class="login__sign-up">회원가입</li>
+                <li>로그인</li>
+            </ul>
+            <ul class="login__etc">
+                <li>숙소 호스트되기</li>
+                <li>체험 호스팅하기</li>
+                <li>도움말</li>
+            </ul>
+
+        </div>
+
+
         <div class="banner-content">
             <div class="text1">이제, 여행은<br>가까운 곳에서</div>
             <a href="#">근처의 숙소 둘러보기</a>
@@ -38,80 +97,84 @@
     </div>
 
     <div class="local">
+        <div class="local__line1">
         <div class="local__content">
-            <img src="images/ex.png" alt="">
+            <img src="images/seoul.jpg" alt="">
             <div class="local__textbox">
                 <div class="local__name">서울</div>
                 <div class="local__time">차로 30분 거리</div>
             </div>
         </div>
         <div class="local__content">
-            <img src="images/ex.png" alt="">
+            <img src="images/Incheon.jpg" alt="">
             <div class="local__textbox">
                 <div class="local__name">인천</div>
                 <div class="local__time">차로 30분 거리</div>
             </div>
         </div>
         <div class="local__content">
-            <img src="images/ex.png" alt="">
+            <img src="images/Uijeongbu.jpg" alt="">
             <div class="local__textbox">
                 <div class="local__name">의정부</div>
                 <div class="local__time">차로 30분 거리</div>
             </div>
         </div>
         <div class="local__content">
-            <img src="images/ex.png" alt="">
+            <img src="images/Dae-gu.jpg" alt="">
+            <div class="local__textbox">
+                <div class="local__name">대구</div>
+                <div class="local__time">차로 4시간 거리</div>
+            </div>
+        </div>
+        </div>
+        <div class="local__line2">
+        <div class="local__content">
+            <img src="images/Daejeon.jpg" alt="">
             <div class="local__textbox">
                 <div class="local__name">대전</div>
                 <div class="local__time">차로 2.5시간 거리</div>
             </div>
         </div>
         <div class="local__content">
-            <img src="images/ex.png" alt="">
-            <div class="local__textbox">
-                <div class="local__name">대구</div>
-                <div class="local__time">차로 4시간 거리</div>
-            </div>
-        </div>
-        <div class="local__content">
-            <img src="images/ex.png" alt="">
-            <div class="local__textbox">
-                <div class="local__name">고양시</div>
-                <div class="local__time">차로 15분 거리</div>
-            </div>
-        </div>
-        <div class="local__content">
-            <img src="images/ex.png" alt="">
+            <img src="images/Bucheon.jpg" alt="">
             <div class="local__textbox">
                 <div class="local__name">부천시</div>
                 <div class="local__time">차로 30분 거리</div>
             </div>
         </div>
         <div class="local__content">
-            <img src="images/ex.png" alt="">
+            <img src="images/Goyang.jpg" alt="">
+            <div class="local__textbox">
+                <div class="local__name">고양시</div>
+                <div class="local__time">차로 15분 거리</div>
+            </div>
+        </div>
+        <div class="local__content">
+            <img src="images/Suwon.jpg" alt="">
             <div class="local__textbox">
                 <div class="local__name">수원시</div>
                 <div class="local__time">차로 1시간 거리</div>
             </div>
+        </div>
         </div>
     </div>
     <div class="room">
         <div class="room__title">어디에서나, 여행은 살아보는 거야!</div>
         <div class="room__container">
             <div class="room__content">
-                <img src="images/ex.png" class="room__image" alt="">
+                <img src="images/total-home.jpg" class="room__image" alt="">
                 <div class="room__desc">집 전체</div>
             </div>
             <div class="room__content">
-                <img src="images/ex.png" class="room__image" alt="">
+                <img src="images/power-house.jpg" class="room__image" alt="">
                 <div class="room__desc">통나무집 및 전원주택</div>
             </div>
             <div class="room__content">
-                <img src="images/ex.png" class="room__image" alt="">
+                <img src="images/special-space.jpg" class="room__image" alt="">
                 <div class="room__desc">독특한 공간</div>
             </div>
             <div class="room__content">
-                <img src="images/ex.png" class="room__image" alt="">
+                <img src="images/with-pet.jpg" class="room__image" alt="">
                 <div class="room__desc">반려동물 동반 가능</div>
             </div>
         </div>
@@ -125,19 +188,20 @@
         </div>
         <div class="experience__container">
             <ul class="experience__content">
-                <a href="#"><img src="images/ex.png" alt="" class="experience__img"></a>
-                <li><a href="#" class="experience__link experience__link--title">온라인 체험</a></li>
-                <li><a href="#" class="experience__link">집에서 즐기는 랜선 세계여행</a></li>
+                <a href="#"><img src="images/online.jpg" alt="" class="experience__img"></a>
+                <li><a href="#" class="experience__subtitle">온라인 체험</a></li>
+                <li><a href="#" class="experience__desc">집에서 즐기는 랜선 세계여행</a></li>
             </ul>
             <ul class="experience__content">
-                <a href="#"><img src="images/ex.png" alt="" class="experience__img"></a>
-                <li><a href="#" class="experience__link experience__link--title">체험</a></li>
-                <li><a href="#" class="experience__link">어디서든 즐길 수 있는 체험</a></li>
+                <a href="#"><img src="images/experience.jpg" alt="" class="experience__img"></a>
+                <li><a href="#" class="experience__subtitle">체험</a></li>
+                <li><a href="#" class="experience__desc">어디서든 즐길 수 있는 체험</a></li>
             </ul>
-            <ul class="experience-info">
-                <a href="#"><img src="images/ex.png" alt="" class="experience__img"></a>
-                <li><a href="#" class="experience__link experience__link--title">어드밴체</a></li>
-                <li><a href="#" class="experience__link">숙박과 식사가 포함된 며칠 일정의 여행입니다.</a></li>
+            <ul class="experience__content">
+                <a href="#"><img src="images/advanture.jpg"
+                    alt="" class="experience__img"></a>
+                <li><a href="#" class="experience__subtitle">어드밴체</a></li>
+                <li><a href="#" class="experience__desc">숙박과 식사가 포함된 며칠 일정의 여행입니다.</a></li>
             </ul>
         </div>
     </div>
@@ -145,18 +209,20 @@
         <div class="host__title">수백만 명에 이르는 에어비앤비 호스트 커퓨니티의 일원이 되어보세요</div>
         <div class="host__container">
             <div class="host__content">
-                <img src="images/ex.png" alt="" class="host__image">
+                <img src="images/host.jpg" alt="" class="host__image">
                 <div class="host__desc">숙소 호스트 되기</div>
             </div>
             <div class="host__content">
-                <img src="images/ex.png" alt="" class="host__image">
+                <img src="images/online-host.jpg" alt="" class="host__image">
                 <div class="host__desc">온라인 체험 호스팅하기</div>
             </div>
             <div class="host__content">
-                <img src="images/ex.png" alt="" class="host__image">
-                <div class="host__text">체험 호스팅하기</div>
+                <img src="images/experience-hosting.jpg" alt="" class="host__image">
+                <div class="host__desc">체험 호스팅하기</div>
             </div>
         </div>
     </div>
+
+
 </body>
 </html>
