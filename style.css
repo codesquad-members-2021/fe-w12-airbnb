@@ -5,7 +5,7 @@
     text-decoration: underline;
 }
 .transparent{
-    opacity: 0%;
+    visibility: hidden;
 }
 li {
     display: inline;
@@ -131,6 +131,40 @@ h4{
     padding: 1rem;
     background-color:#FF385C;
     color: white;
+}
+.main__calender {
+    background-color: white;
+    color: black;
+    position: absolute;
+    left: 30rem;
+    top: 12rem;
+    height: 17rem;
+    width: 22rem;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 2rem;
+}
+.main__calender--title{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 90%;
+    font-weight: bold;
+}
+.main__calender--title button{
+    background-color: transparent;
+    border : none;
+    font-weight: bold;
+    font-size: 110%;
+}
+.main__calender thead td{
+    padding:1rem;
+    padding-bottom: 0.2rem;
+    font-size: 80%;
+}
+.main__calender tbody td{
+    padding: 1rem;
+    /* width: 3rem;
+    height: 2rem; */
 }
 .main__content {
     clear:both;

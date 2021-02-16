@@ -46,18 +46,22 @@ class ViewTab {
     toggleUserTab(e) {
         _.CT(this.userTab, 'transparent')
         e.stopPropagation();
-        console.log('toggle')
     }
 
     hideUserTab() {
         _.CA(this.userTab, 'transparent')
-        console.log('hide')
     }
 }
 
 class ViewCalender {
-    constructor() {
+    constructor(calenderTab, calenderTriggers) {
+        this.calenderTab = calenderTab
+        this.calenderTriggers = calenderTriggers//이거 여기서 쓰냐?
+    }
 
+    toggleCalender() {
+        _.CT(this.calenderTab, 'transparent')
+        console.log('달력 토글 진행')
     }
 
     appendCalender() {
@@ -68,8 +72,9 @@ class ViewCalender {
 class Controller {
     constructor(DOM) {
         //이렇게 기괴하게;; 선언하는게 맞나? 더 깔끔한 방법 모색할 것
-        [this.houseMenu, this.activityMenu, this.searchHouse, this.searchActivity, this.userMenu, this.userTab] = DOM
+        [this.houseMenu, this.activityMenu, this.searchHouse, this.searchActivity, this.userMenu, this.userTab, this.calenderTab, this.calenderTriggers] = DOM
         this.tab = new ViewTab(...DOM)
+        this.calender = new ViewCalender(this.calenderTab, this.calenderTriggers)
         this.init()
     }
 
@@ -79,7 +84,9 @@ class Controller {
         _.E(this.activityMenu, 'click', this.tab.clickActivity.bind(this.tab))
         _.E(document, 'click', this.tab.hideUserTab.bind(this.tab))
         _.E(this.userMenu, 'click', this.tab.toggleUserTab.bind(this.tab))
-        _.E(this.userTab, 'click', (e) => e.stopPropagation())
+        _.E(this.userTab, 'click', (e) => e.stopPropagation())//이렇게 막는 게 올바른 방법인가?
+
+        this.calenderTriggers.forEach((element)=>_.E(element, 'click', this.calender.toggleCalender.bind(this.calender)))
     }
 
 }
@@ -89,9 +96,12 @@ const searchHouse = _.$('.search-house')
 const searchActivity = _.$('.search-activity')
 const houseMenu = _.$('.main__site-menu--house')
 const activityMenu = _.$('.main__site-menu--activity')
+// const onlineActivityMenu = _.$('.main__site-menu--online-activity')
+
 const userMenu = _.$('.main__user-menu--user')//네이밍 이게 최선?
 const userTab = _.$('.main__user--tab')
+const calenderTab = _.$('.main__calender')// class calender와 calender 네이밍 정리할 것
+const calenderTriggers = _.$A('.calender-trigger')
 
-
-const DOMList = [houseMenu, activityMenu, searchHouse, searchActivity, userMenu, userTab]
+const DOMList = [houseMenu, activityMenu, searchHouse, searchActivity, userMenu, userTab, calenderTab, calenderTriggers]
 new Controller(DOMList)
