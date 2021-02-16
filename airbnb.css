@@ -25,6 +25,7 @@ button {
 
 .menu {
     height: 100px;
+    position: relative;
 }
 
 .menu-list {
@@ -47,12 +48,12 @@ button {
 
 .search {
     z-index: 1;
-    position: relative;
-    margin-top: 50px;
-    margin-left: 350px;
+    position: absolute;
+    left: 700px;
+    top: 150px;
     border: 1px solid black;
     border-radius: 25px;
-    width: 600px;
+    width: 800px;
     background-color: white;
     text-align: center;
 }
@@ -62,7 +63,7 @@ button {
     margin-left: 25px;
     margin-right: 20px;
     border: 0px solid;
-    width: 80px;
+    width: 70px;
     padding: 10px;
     border-radius: 25px;
 }
@@ -72,13 +73,13 @@ button {
 }
 
 .search input {
-    width: 50px;
+    width: 100px;
     border-radius: 25px;
     border: 0px solid transparent;
 }
 
 .search input[placeholder] {
-    font-size: 20px;
+    font-size: 3px;
     font-weight: bold;
 }
 
@@ -87,8 +88,64 @@ button {
     background-color: rgb(230, 59, 59);
     border-radius: 25px;
     color: white;
-    left: 570px;
-    top: 20px;
+    left: 750px;
+    top: 10px;
+}
+
+
+/* 
+
+*/
+
+.exprienceBtn-search {
+    z-index: 1;
+    position: absolute;
+    left: 700px;
+    top: 150px;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 800px;
+    background-color: white;
+    text-align: center;
+    display: none;
+}
+
+.exprienceBtn-search div {
+    float: left;
+    border: 0px solid;
+    width: 150px;
+    height: 60px;
+    border-radius: 25px;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.exprienceBtn-search div>span {
+    font-size: 3px;
+}
+
+.exprienceBtn-search input {
+    width: 100px;
+    border-radius: 25px;
+    border: 0px solid transparent;
+}
+
+.exprienceBtn-search input[placeholder] {
+    font-size: 3px;
+    font-weight: bold;
+}
+
+.calendar {
+    z-index: 2;
+    background-color: white;
+    position: absolute;
+    top: 250px;
+    left: 700px;
+    width: 800px;
+    height: 400px;
+    display: none;
+    border-radius: 25px;
+    padding: 25px;
 }
 
 .hosting {
@@ -121,10 +178,10 @@ button {
     top: 50px;
     left: -80px;
     width: 200px;
-    display: none;
     border: 1px solid gray;
     border-radius: 25px;
     background-color: white;
+    display: none;
 }
 
 .drop-content div:nth-child(1) {
@@ -137,6 +194,10 @@ button {
 }
 
 .drop-content a {
+    display: block;
+}
+
+.drop-show {
     display: block;
 }
 
@@ -279,6 +340,17 @@ button {
     font-weight: bold;
 }
 
+
+/*  */
+
 .clicked {
     border-bottom: 1px solid black;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
 }
