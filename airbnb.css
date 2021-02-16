@@ -5,6 +5,10 @@ a {
     display: block;
     text-decoration: none;
 }
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
 /* ---------● 코로나 배너 ●--------- */
 .corona {
     height: 60px;
@@ -124,12 +128,8 @@ a {
 .login {
     border-bottom: 1px solid rgb(221, 221, 221);
 }
-.hidden {
-    visibility: hidden;
-    opacity: 0;
-}
 
-/* ---------● 검색창 ●--------- */
+/* ---------● 검색창__공통 ●--------- */
 .search {
     width: 853px;
     background-color: #fff;
@@ -149,6 +149,9 @@ a {
     background-color: #fff;
     border-radius: 45px;
 }
+.search > li:first-child {
+    padding-left: 35px;
+}
 .search > li:hover {
     background-color: #eee;
 }
@@ -163,12 +166,7 @@ a {
     font-weight: 300;
     color: #555;
 }
-/* ----- 위치 ----- */
-.search__place {
-    width: 270px;
-    padding-left: 35px;
-}
-.search__place > input {
+.search input {
     width: 150px;
     border: 0;
     padding: 0;
@@ -176,19 +174,7 @@ a {
     outline: none;
     background-color: transparent;
 }
-/* ----- 체크인 체크아웃 ----- */
-.search__checkin,
-.search__checkout {
-    width: 180px;
-    cursor: pointer;
-}
-/* ----- 인원, 게스트 추가 ----- */
-.search__guest {
-    width: 223px;
-    position: relative;
-    cursor: pointer;
-}
-.search__guest > button {
+.search button {
     position: absolute;
     top: 8px;
     right: 10px;
@@ -200,6 +186,29 @@ a {
     font-size: 2em;
     color: #fff;
     cursor: pointer;
+}
+
+/* ---------● 검색창__숙소 ●--------- */
+.accommo__place {
+    width: 270px;
+}
+.accommo__checkin,
+.accommo__checkout {
+    width: 180px;
+    cursor: pointer;
+}
+.accommo__guest {
+    width: 223px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* ---------● 검색창__체험 ●--------- */
+.activity__place {
+    width: 410px;
+}
+.activity__date {
+    width: 443px;
 }
 
 /* ---------● 배너 ●--------- */
