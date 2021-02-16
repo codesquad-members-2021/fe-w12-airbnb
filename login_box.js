@@ -26,9 +26,9 @@ class Button_List {
             const shade = document.querySelector('#tempdiv');
             const close = e.target.closest(".loginbox");
 
-            if (close) {
+            if (close && shade.style.display == "none") {
                 shade.style.display = "block";
-            } else if (!close) {
+            } else if (close && shade.style.display == "block") {
                 shade.style.display = "none";
             } else {
                 shade.style.display = "none";
