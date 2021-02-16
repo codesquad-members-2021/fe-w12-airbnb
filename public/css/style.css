@@ -16,8 +16,7 @@
     --page-tb-margin: 40px;
     --page-side-margin: 80px;
     --section-font-size: 2.4rem;
-    --section-font-weight: 600;
-    
+    --section-font-weight: 600;    
 }
 
 * {
@@ -38,7 +37,15 @@ aside {
     padding: 20px var(--page-side-margin);
     background-color: var(--black);
     text-align: center;
-    position: initial;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
 }
 
 .img-cover {
@@ -46,7 +53,7 @@ aside {
     height: 1000px;
     background-size: cover;
     background-attachment: scroll;
-    background-image: url(./img/main-wide.jpg);
+    background-image: url(../img/main-wide.jpg);
     background-repeat: no-repeat;
 }
 
@@ -135,10 +142,12 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .nav-list {
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .nav-btn {
@@ -158,7 +167,39 @@ a {
     border-radius: var(--image-border-radius);
 }
 
-/* input 관련 form 추가 */
+.nav-profile-tab {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.nav-profile-tab-show {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    visibility: visible;
+    position: absolute;
+    z-index: 2;
+}
+
+.nav-profile-menu {
+    background-color: var(--info-color);
+    box-shadow: 2px 2px 10px var(--grey);
+    border-radius: var(--nav-btn-border-radius);
+    text-align: left;
+}
+
+
+.nav-profile-tab-show li {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.nav-profile-tab-show li:hover {
+    background-color: rgba(177, 172, 172, 0.15);
+}
+
 .info-form-container {
     margin: 0 var(--page-side-margin);
     text-align: left;
@@ -183,6 +224,7 @@ a {
     font-weight: var(--font-weight-bold);
     border: 1px solid transparent;
     border-right-color: var(--grey);
+    cursor:pointer;
 }
 
 .info-input-form .labels-input input {
@@ -192,6 +234,21 @@ a {
     background: none;
     outline: 0;
     border: 0;
+}
+
+.check-inout-hidden {
+    display: none;
+}
+
+.input-date-hidden {
+    display: none;
+}
+
+.input-date .info-inputs{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    cursor:pointer;
 }
 
 #no-border{
@@ -355,15 +412,6 @@ a {
     height: 100%;
 }
 
-.summary-img.first {
-    display: flex;
-    flex-direction: column;
-    object-fit: cover;
-    position: relative;
-    grid-area: 1 / 1 / span 2;
-    justify-content:flex-end;
-}
-
 .summary-img.first div {
     width: 100%;
     padding-left: 10px;
@@ -375,16 +423,9 @@ a {
     font-weight: var(--section-font-weight);
 }
 
-.summary-img.second {
-    display: flex;
-    flex-direction: column;
-    object-fit: cover;
-    position: relative;
-    grid-column: 2 / span 1;
-    justify-content:flex-end;
-}
-
-.summary-img.second div {
+.summary-img.second div,
+.summary-img.third div,
+.summary-img.forth div {
     padding-left: 10px;
     bottom: 10%;
     width: 100%;
@@ -394,6 +435,25 @@ a {
     color:var(--font-family);
     font-weight: var(--section-font-weight);
 }
+
+.summary-img.first {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    position: relative;
+    grid-area: 1 / 1 / span 2;
+    justify-content:flex-end;
+}
+
+.summary-img.second {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    position: relative;
+    grid-column: 2 / span 1;
+    justify-content:flex-end;
+}
+
 
 .summary-img.third {
     display: flex;
@@ -404,16 +464,7 @@ a {
     justify-content: flex-end;
 }
 
-.summary-img.third div {
-    padding-left: 10px;
-    bottom: 10%;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    font-size: var(--normal-font-size);
-    color:var(--font-family);
-    font-weight: var(--section-font-weight);
-}
+
 
 .summary-img.forth {
     display: flex;
@@ -422,17 +473,6 @@ a {
     position: relative;
     grid-column: 2 / span 2;
     justify-content:flex-end;
-}
-
-.summary-img.forth div {
-    padding-left: 10px;
-    bottom: 10%;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    font-size: var(--normal-font-size);
-    color:var(--font-family);
-    font-weight: var(--section-font-weight);
 }
 
 .last-section-container {
@@ -463,6 +503,3 @@ a {
     font-weight: var(--section-font-weight);
     font-size: 1.1rem;
 }
-
-
-
