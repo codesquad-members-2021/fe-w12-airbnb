@@ -5,11 +5,15 @@ class SearchBarControl {
         this.target = target;
     }
 
-    searchOptionClick() {
-        this.target.addEventListener('click', this._searchOptionClickHandler);
+    init() {
+        this._setSearchOptionsClickEvent();
     }
 
-    _searchOptionClickHandler(e) {
+    _setSearchOptionsClickEvent() {        
+        this.target.addEventListener('click', this._searchOptionsClickHandler);
+    }
+
+    _searchOptionsClickHandler(e) {
         const { target: {id} } = e;
         const searchClassName = '.header__main__search__bar';
         

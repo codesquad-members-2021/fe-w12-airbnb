@@ -54,6 +54,14 @@ ul {
     display: none;
 }
 
+.visibility--hidden {
+    visibility: hidden;
+}
+
+.visibility--visible {
+    visibility: visible;
+}
+
 /* 전체 Wrapper */
 .all-wrapper {
     width: 1900px;

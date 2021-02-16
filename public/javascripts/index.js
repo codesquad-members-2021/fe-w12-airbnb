@@ -3,9 +3,8 @@ import SearchBarControl from "./index/SearchBarControl.js";
 import TabUI from "./index/TabUI.js";
 
 const inputList = _.$All('.header__main__search__options input');
-_.classAdd(_.$('.header__main__search__bar > .experienceType'), 'displayNone');
 
-inputList.forEach((input) => new SearchBarControl(input).searchOptionClick());
+inputList.forEach((input) => new SearchBarControl(input).init());
 
-const tabUI = new TabUI(_.$('.header__main__login > .tabUI'));
-tabUI.tabUIClick();
+const tabUISetting = new TabUI(_.$('.header__main__login > .tabUI'), _.$('.header__main__login > .navBtn'));
+tabUISetting.init();
