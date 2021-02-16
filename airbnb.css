@@ -121,10 +121,10 @@ button {
     top: 50px;
     left: -80px;
     width: 200px;
-    display: none;
     border: 1px solid gray;
     border-radius: 25px;
     background-color: white;
+    display: none;
 }
 
 .drop-content div:nth-child(1) {
@@ -281,4 +281,8 @@ button {
 
 .clicked {
     border-bottom: 1px solid black;
+}
+
+.drop-show {
+    display: block;
 }
