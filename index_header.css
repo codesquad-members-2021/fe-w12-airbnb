@@ -18,7 +18,7 @@ a:visited { color:white; }
     text-align: center;
     color: white;
     background-color: black;
-    padding: 20px 80px;
+    padding: 25px 80px;
     margin: 0;
 }
 
@@ -30,6 +30,13 @@ a:visited { color:white; }
     height: 83vh;
 }
 
+#logo {
+    width:102px;
+    height:32px;
+    fill:white;
+    display:block;
+}
+
 body {
     box-sizing: border-box;
 }
@@ -37,71 +44,138 @@ body {
 .mainlogo {
     display:flex;
     justify-content: space-between;
-    padding: 30px 80px 0 80px;
+    padding: 30px 80px 30px 80px;
+}
+
+.mainlogo_div {
+    padding-top: 7px;
+    align-self: center;
 }
 
 .maincenter {
     display:flex;
     justify-content: space-between;
     width: 300px;
-    font-size: 20px;
+    height:30px;
+    padding-top:7px;
+    padding-left:200px;
 }
 
-.maincenter > div {
-    height: 29px;
+.maincenter > label {
+    display:flex;
 }
 
-.maincenter > div > a:after {
+.maincenter_input_span {
+    position: relative;
+    display:block;
+}
+
+.maincenter > label > input + span {
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.maincenter > label > input + span:after {
     content: "";
+    margin:auto;
     display: block;
     width:0px;
-    padding: 0px;
-    margin:auto;
-    transition: width 0.15s ease-in-out, border 0.15s ease-in-out, border-bottom 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
-.maincenter > div > a:hover:after {
-    content: "";
-    width:15px;
-    border-bottom: 2px solid white;
-    margin:auto;
-}
-
-.maincenter > div > a:not(:hover):not(:focus):after {
-    content: "";
-    padding: 0px;
-    margin:auto;
-    border: 0px solid white;
-}
-
-.maincenter > div > a:hover {
+.maincenter > label > input:not(:checked) + span:hover {
     color: #cbd5da;
 }
 
-.maincenter > div > a:focus {
-    /* pointer-events: none; */
-    cursor:ndone;
-    color:white;
+.maincenter > label > input:not(:checked) + span:hover:after {
+    content: "";
+    width:15px;
+    height:5px;
+    border-bottom: 2px solid white;
+    margin:auto;
+}
+
+.maincenter > label > input:not(:checked) + span:not(:hover):after {
+    content: "";
+    margin:auto;
+    height:5px;
+    border: 0px solid white;
+}
+
+.maincenter > label > input:checked + span:after {
+    cursor:default;
+    content: "";
+    width:15px;
+    height:5px;
     border-bottom: 2px solid white;
 }
 
-.maincenter_div {
+.maincenter_input {
     position:relative;
-}
-
-.maincenter_div > a {
-    text-decoration: none;
+    visibility:hidden;
 }
 
 .right_box {
     position:relative;
+    display:flex;
+    width: 280px;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.right_box_div {
+    display:flex;
+    width:180px;
+    justify-content:space-around;
+    align-self: center;
+}
+
+.right_box_e1 {
+    width:65%;
+    padding: 7px 0;
+    text-align:center;
+}
+
+.right_box_e1:hover {
+    background-color: #ffffff;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 50px;
+}
+
+.right_box_e2 {
+    width:35%;
+    padding: 5px 0;
+    text-align:center;
+}
+
+.right_box_e2:hover {
+    background-color: #ffffff;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 50px;
+}
+
+.right_box_btn {
+    justify-content:center;
+    align-self: center;
 }
 
 .ghost-button {
     background-color: transparent;
+    
     border:none;
     outline:none;
-    padding-right: 20px;
+    width:20px;
+    padding:0;
+}
+
+#ghost_id {
+    display:block;
+    margin:auto;
+    height:16px; 
+    width:16px; 
+    padding-top: 7px;
+    fill:white;
 }
 
 /* 클릭시 바운스효과 */
@@ -110,11 +184,30 @@ body {
 }
 
 .loginbox {
+    display:flex;
+    align-items: center;
     border-radius: 20px;
     border:none;
     outline:none;
-    height:50px;
-    width: 100px;
+    width:70px;
+    height:40px;
+}
+
+#loginbox_id {
+    display:flex; 
+    align-items: center;
+    width: 100%;
+    justify-content:space-between;
+}
+
+.login_img1 {
+    width:16px; 
+    height:20px;
+}
+
+.login_img2 {
+    width:30px; 
+    height:30px;
 }
 
 .loginbox:active {
