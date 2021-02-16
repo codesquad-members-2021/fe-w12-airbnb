@@ -6,15 +6,34 @@
   const $activityBtn = document.querySelector('#activity--button');
   const $onlineActBtn = document.querySelector('#online--activity--button');
 
+  const LONG_BAR = 'low-bar-long';
+  const SHORT_BAR = 'low-bar-short';
+  const TP_BAR = 'low-bar-transparent';
+  const BUTTON = 'button';
+  const DEFAULT_BUTTON = 'button--default';
+  const MENU = 'menu';
+  const MENU_HOVER = 'menu__hover';
+
+  const LongBar = '.low-bar-long';
+  const ShortBar = '.low-bar-short';
+  const TpBar = '.low-bar-transparent';
+  const Button = '.button';
+  const DefaultButton = '.button--default';
+  const LowerBox = '.lower--box';
+  const Menu = '.menu';
+  const MenuHover = '.menu__hover';
+
   console.log($headerButtonGrounp);
 
-  $airbnbBtn.addEventListener('click', () => longBar($airbnbBtn));
+  // HEADER__MENU--BUTTON-GROUP
+
   $airbnbBtn.addEventListener('mouseenter', () => shortBar($airbnbBtn));
   $airbnbBtn.addEventListener('mouseleave', () => transparentBar($airbnbBtn));
+  $airbnbBtn.addEventListener('click', () => longBar($airbnbBtn));
 
-  $activityBtn.addEventListener('click', () => longBar($activityBtn));
   $activityBtn.addEventListener('mouseenter', () => shortBar($activityBtn));
   $activityBtn.addEventListener('mouseleave', () => transparentBar($activityBtn));
+  $activityBtn.addEventListener('click', () => longBar($activityBtn));
 
   $onlineActBtn.addEventListener('mouseenter', () => shortBar($onlineActBtn));
   $onlineActBtn.addEventListener('mouseleave', () => transparentBar($onlineActBtn));
@@ -25,34 +44,41 @@
   // 이걸 다 클래스로 만들어야겠지?...
 
   function cursorInit() {
-    if ($headerButtonGrounp.querySelector('.low-bar-long')) {
-      document.querySelector('.button').classList.replace('button', 'button--default');
+    if ($headerButtonGrounp.querySelector(LongBar)) {
+      document.querySelector(Button).classList.replace(BUTTON, DEFAULT_BUTTON);
+    }
+  }
+
+  function cursorChange() {
+    if ($headerButtonGrounp.querySelector(TpBar)) {
+      document.querySelector(DefaultButton).classList.replace(DEFAULT_BUTTON, BUTTON);
     }
   }
 
   function isLongBar(btn) {
-    return btn.querySelector('.lower--box').classList.contains('low-bar-long');
+    return btn.querySelector(LongBar);
   }
 
   function longBar(btn) {
     cursorInit();
     if (isLongBar($headerButtonGrounp)) {
-      $headerButtonGrounp.querySelector('.lower--box').classList.replace('low-bar-long', 'low-bar-transparent');
+      $headerButtonGrounp.querySelector(LongBar).classList.replace(LONG_BAR, TP_BAR);
     }
-    btn.querySelector('.lower--box').classList.replace('low-bar-short', 'low-bar-long');
+    btn.querySelector(LowerBox).classList.replace(SHORT_BAR, LONG_BAR);
+    cursorChange();
   }
 
   function shortBar(btn) {
     if (isLongBar(btn)) return;
-    btn.querySelector('.lower--box').classList.replace('low-bar-transparent', 'low-bar-short');
-    btn.querySelector('.menu').className = 'menu__hover';
+    btn.querySelector(LowerBox).classList.replace(TP_BAR, SHORT_BAR);
+    btn.querySelector(Menu).className = MENU_HOVER;
   }
 
   function transparentBar(btn) {
-    if (btn.querySelector('.menu__hover')) {
-      btn.querySelector('.menu__hover').className = 'menu';
+    if (btn.querySelector(MenuHover)) {
+      btn.querySelector(MenuHover).className = MENU;
     }
     if (isLongBar(btn)) return;
-    btn.querySelector('.lower--box').classList.replace('low-bar-short', 'low-bar-transparent');
+    btn.querySelector(LowerBox).classList.replace(SHORT_BAR, TP_BAR);
   }
 })(window, document);
