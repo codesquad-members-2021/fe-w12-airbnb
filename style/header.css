@@ -8,6 +8,8 @@
   color: white;
 }
 
+/* header - 코로나 알림 메시지 */
+
 .header__alertMessage {
   height: 60px;
   background-color: black;
@@ -20,14 +22,16 @@
 }
 
 .header__alertMessage a {
-  color: #dddddd;
+  color: #ddd;
   width: 100%;
   text-align: center;
 }
 
 .header__alertMessage a:hover {
-  color: #606060;
+  color: #cfcdcc;
 }
+
+/* header 로고, 탭, 계정 라인 */
 
 .header__content {
   display: flex;
@@ -42,131 +46,247 @@
 
 .header__content .item {
   width: 100%;
-  display: flex;
-  flex-direction: row;
 }
 
-.header__content .header__search {
-  justify-content: center;
-}
-
-svg {
+#airbnb-logo {
   fill: white;
 }
 
-.header__search-radio form fieldset {
-  width: 100%;
+.header__search-radio {
+  display: flex;
+  justify-content: center;
   color: white;
 }
 
-label {
-  padding-right: 2em;
+.tab__item {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1em;
 }
 
-.header__search-check {
+.search-tab__title {
+  cursor: pointer;
+}
+
+.search-tab__title:hover {
+  color: #cfcdcc;
+}
+
+.default__underBar {
+  /* js로 동작해야 할 듯 */
+  margin-top: 0.5em;
+  width: 6px;
+  transform: translateX(200%);
+  border-bottom: 2px solid white;
+}
+
+.set__underBar {
+  margin-top: 0.5em;
+  width: 18px;
+  transform: translateX(50%);
+  border-bottom: 2px solid white;
+  border-radius: 1em;
+}
+
+/* header - 검색바 */
+
+.header__search-bar {
   position: absolute;
-  width: 45%;
-  top: 18%;
+  width: 50%;
+  max-width: 900px;
+  top: 17.3%;
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
-  min-height: 3em;
+  height: 4.3em;
   border-radius: 2em;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 0.32fr;
-  gap: 1.2em;
-  padding: 0.5em;
+  display: flex;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-.header__search-check .item {
+.none {
+  display: none;
+}
+
+.header__search-bar .item {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  border-right: 1px solid #dddddd;
   justify-content: space-evenly;
+  flex: 1 1 20px;
+  padding: 0.3em 0.7em;
+  width: 100%;
+  cursor: pointer;
 }
 
-.header__search-check .location div {
-  width: max-content;
-  transform: translateX(1.5rem);
+.header__search-bar .item:hover {
+  border-radius: 2em;
+  background-color: #f1f1f1;
 }
 
-.header__search-check .search-btn {
-  border-right: none;
+.checked {
+  /* search-bar의 item 클릭 시 그림자 효과 주기 */
+  border-radius: 2em;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-.header__search-check .item .title {
+.header__search-bar .search-bar__location {
+  flex-grow: 2;
+}
+
+.header__search-bar .search-bar__date {
+  flex-grow: 1;
+}
+
+.header__search-bar .search-bar__people {
+  flex-grow: 1.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header__search-bar .search-bar__date-experience {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-bar__divideLine {
+  all: unset;
+  border-right: 1px solid #ddd;
+  flex: 0 0 0px;
+  height: 32px;
+  align-self: center;
+}
+
+.fa-search {
+  font-size: 20px;
+  padding: 0.7em;
+  border-radius: 50%;
+  background-color: #ff385c;
+  color: white;
+}
+
+.search-bar__element {
+  transform: translateX(14%);
+  font-size: 14px;
+}
+
+.search-bar__element .title {
   font-size: 12px;
   font-weight: bold;
 }
 
-.header__search-check .item .header__search-form {
-  font-size: 14px;
-}
+/* header - 계정 부분 */
 
-.header__search-check .item .search-btn {
-  display: inline-flex;
-  justify-content: space-between;
-}
-
-#search-icon-btn {
+.header__account-items {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  background-color: #ff385c;
-  padding: 10px;
-  border-radius: 50%;
-  color: white;
-}
-
-.header__account {
-  /* border: 1px solid red; */
+  flex-direction: row;
   justify-content: flex-end;
 }
 
-.header__account .header__account-items {
-  /* border: 1px solid blue; */
-  width: 100%;
+.account-items__element {
+  all: unset;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  padding: 0 1em;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 2em;
+}
+
+.account-items__globe {
+  padding-right: 1.5em;
+}
+
+.account-items__element:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .header__account-btn {
-  margin-left: 1em;
-  padding: 0.8em;
   border-radius: 2em;
-  color: white;
   font-size: 14px;
   font-weight: bold;
-  /* padding: 1em; */
 }
 
-.fa-globe {
-  padding: 0.5em 0.3em 0 0;
+.account-items__element button {
+  color: white;
 }
 
-.header__account-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+#globe {
+  padding-top: 0.1em;
+}
+
+.account-items__btn {
+  width: 80px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #account {
   all: unset;
   cursor: pointer;
-  margin-left: 1em;
-  padding: 0.4em;
-  border-radius: 2em;
   background-color: white;
+  display: flex;
+  height: 45px;
+  /* 계정 버튼 배경 높이 */
+  align-items: center;
+  text-align: center;
+  border-radius: 1.5em;
   color: #717171;
 }
 
-.fa-user-circle {
-  font-size: 2em;
+#account span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 1px solid red; */
+  width: 80%;
+  height: 100%;
+  padding: 0.25em;
 }
 
-.fa-bars,
-.fa-beHost,
-.header__account-items .fa-globe {
-  transform: translateY(-0.4em);
+/* 계정버튼 누르면 나오는 레이어 */
+
+.account__layer {
+  position: absolute;
+  background-color: white;
+  width: 13%;
+  top: 18%;
+  border-radius: 0.7em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.account__layer ul li {
+  margin: 3px;
+  padding: 10px 15px 10px;
+  font-size: 14px;
+}
+
+.account__layer ul li:hover {
+  background-color: #f1f1f1;
+}
+
+.account__layer ul .line {
+  all: unset;
+  margin: 0.5em 0;
+  border-top: 1px solid #ddd;
+}
+
+.account__layer ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.account__layer-first {
+  font-weight: bold;
 }
 
 .header__main-statement {
@@ -190,5 +310,5 @@ label {
 }
 
 .header__main-statement button:hover {
-  background: #f1f1f1;
+  background-color: #f1f1f1;
 }

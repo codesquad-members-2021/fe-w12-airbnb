@@ -1,5 +1,6 @@
 body,
 ul,
+li,
 button,
 fieldset,
 a,
@@ -10,13 +11,8 @@ input {
 a,
 button,
 input {
+  color: black;
   cursor: pointer;
-}
-
-/* main sections*/
-
-li {
-  all: unset;
 }
 
 /* footer */
@@ -60,8 +56,7 @@ li {
 }
 
 .footer .footer__others {
-  border-top: 1px solid #dddddd;
-  /* display: flex; */
+  border-top: 1px solid #ddd;
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
   align-items: center;
@@ -69,13 +64,11 @@ li {
 }
 
 .footer .footer__others .item {
-  /* border: 1px solid orangered; */
   width: inherit;
 }
 
 .footer .footer__others .global,
 .footer .footer__others .sns ul {
-  /* border: 1px solid forestgreen; */
   display: flex;
   justify-content: space-evenly;
 }
