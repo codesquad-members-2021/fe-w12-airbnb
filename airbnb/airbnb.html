@@ -60,8 +60,8 @@
           </button></span>
       </div>
     </div>
-    <div>
-      <div class="search_input">
+    <div class="search_input_box">
+      <div class="search_input rooms_box">
         <div>
           <a href="#">
             <div>위치</div>
@@ -71,13 +71,13 @@
         <div>
           <a href="#">
             <div>체크인</div>
-            <input type="datetime" placeholder="날짜 추가">
+            <input type="datetime" placeholder="날짜 추가" readonly>
           </a>
         </div>
         <div>
           <a href="#">
             <div>체크아웃</div>
-            <input type="datetime" placeholder="날짜 추가">
+            <input type="datetime" placeholder="날짜 추가" readonly>
           </a>
         </div>
         <div>
@@ -86,6 +86,20 @@
             <input type="number" placeholder="게스트 추가">
           </a>
         </div>
+        <div>
+          <button class="search_button" style="text-align: center;">
+            <img src="./images/magnifyingGlass.svg" class="magnifying_glass">
+          </button>
+        </div>
+      </div>
+      <div class="search_input experience_box display_none">
+        <div style="width:52%"><a href="#">
+            <div style="margin:0 39px">위치</div> <input type="text" placeholder="어디로 여행가세요?" style="width:80.5%">
+          </a></div>
+        <div class="search_input__full_date" style="width:52%"><a href="#">
+            <div style="margin:0 39px">날짜</div> <input type="datetime" placeholder="원하는 날짜를 입력하세요." style="width:80.5%"
+              readonly>
+          </a></div>
         <div>
           <button class="search_button" style="text-align: center;">
             <img src="./images/magnifyingGlass.svg" class="magnifying_glass">
@@ -332,6 +346,7 @@
   </footer>
   <script src="./TabUi.js"></script>
   <script src="./PopupLayer.js"></script>
+  <script src="./Calender.js"></script>
 </body>
 
 </html>
