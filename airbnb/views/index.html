@@ -23,9 +23,11 @@
           </div>
 
           <ul class="nav-center">
-            <li><a href="#">숙소</a></li>
-            <li><a href="#">체험</a></li>
-            <li><a href="#">온라인 체험</a></li>
+            <li class="nav-center-stay"><a href="#">숙소</a></li>
+            <li class="nav-center-experience"><a href="#">체험</a></li>
+            <li class="nav-center-online-experience">
+              <a href="#">온라인 체험</a>
+            </li>
           </ul>
           <ul class="nav-right">
             <li><a href="#">호스트 되기</a></li>
@@ -48,11 +50,11 @@
             </li>
           </ul>
           <div class="account-menu">
-            <div>
-              <p><b>가입</b></p>
+            <div class="sub-1">
+              <p><b>회원가입</b></p>
               <p>로그인</p>
             </div>
-            <div>
+            <div class="sub-2">
               <p>숙소 호스트 되기</p>
               <p>체험 호스팅하기</p>
               <p>도움말</p>
@@ -60,29 +62,7 @@
           </div>
         </nav>
 
-        <div class="search">
-          <div class="search-location">
-            <p><b>위치</b></p>
-            <p>어디로 여행가세요?</p>
-          </div>
-          <div class="search-date-checkin">
-            <p><b>체크인</b></p>
-            <p>날짜 추가</p>
-          </div>
-          <div class="search-date-checkout">
-            <p><b>체크아웃</b></p>
-            <p>날짜 추가</p>
-          </div>
-          <div class="search-guests">
-            <p><b>인원</b></p>
-            <p>게스트 추가</p>
-          </div>
-          <div class="search-button-part">
-            <div class="search-button">
-              <img src="http://localhost:3000/images/search-solid.svg" alt="" />
-            </div>
-          </div>
-        </div>
+        <div class="search"></div>
 
         <div class="main-section">
           <div class="main-text">
@@ -194,20 +174,28 @@
       </ul>
     </section>
     <section class="host">
-      <p>수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</p>
+      <div class="host-text">
+        수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.
+      </div>
       <div class="host-div">
         <ul>
           <li>
             <img src="http://localhost:3000/images/host-1.jpg" alt="" />
+            <p>숙소 호스트 되기</p>
           </li>
           <li>
             <img src="http://localhost:3000/images/host-2.jpg" alt="" />
+            <p>온라인 체험 호스팅하기</p>
           </li>
           <li>
             <img src="http://localhost:3000/images/host-3.jpg" alt="" />
+            <p>체험 호스팅하기</p>
           </li>
         </ul>
       </div>
     </section>
+
+    <script src="/javascripts/account.js"></script>
+    <script src="/javascripts/nav_sub.js"></script>
   </body>
 </html>

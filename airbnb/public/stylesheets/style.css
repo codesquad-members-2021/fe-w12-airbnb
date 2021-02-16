@@ -84,6 +84,7 @@ nav ul li {
 }
 
 .account-menu {
+  visibility: hidden;
   position: absolute;
   left: 76%;
   top: 150%;
@@ -100,6 +101,10 @@ nav ul li {
   padding: 1rem;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .account-menu div:not(:last-child) {
   border-bottom: 1px solid #a09e9e79;
 }
@@ -111,23 +116,24 @@ nav ul li {
   color: #222222;
   font-size: 14px;
   height: 4rem;
+  /* width: 50%; */
   margin: 3% 15%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.search-location,
-.search-date-checkin,
-.search-date-checkout,
-.search-guests {
-  width: calc(100% / 4);
+.search div:not(:last-child) {
   padding: 0 20px;
   border-right: 1px solid #a09e9e79;
 }
 
-.search-guests {
-  border-right: none;
+.search-align-2 {
+  width: calc(100% / 4);
+}
+
+.search-align-2 {
+  width: calc(100% / 2);
 }
 
 .search-button {
@@ -162,7 +168,6 @@ nav ul li {
   width: calc(100% / 3);
   padding: 5px;
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
@@ -187,15 +192,16 @@ nav ul li {
   background-color: white;
 }
 
-.houses-text {
+.houses-text,
+.host-text {
   font-weight: bold;
   font-size: 2rem;
   padding: 0.5rem;
+  margin: 2rem 0;
 }
 
 .house-type {
   display: flex;
-  flex-flow: row;
 }
 
 .house-type-sub {
@@ -205,24 +211,25 @@ nav ul li {
 
 .house-type-sub img {
   width: 100%;
-  border-radius: 5%;
+  border-radius: 5px;
 }
 
 .experience {
   background-color: black;
 }
 
-/* .host-div {
+.host-div ul {
   display: flex;
-  flex-direction: row;
-} */
-
-host-div ul {
-  display: inline;
 }
 
-.host-div > ul > li img {
-  width: 15%;
+.host-div ul li {
+  width: calc(100% / 3);
+  padding: 0.5rem;
+}
+
+.host-div ul li img {
+  width: 100%;
+  border-radius: 5px;
 }
 
 a {
