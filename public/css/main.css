@@ -214,18 +214,18 @@ header .member_setting .menuAndAcountIcon i:last-child {
 }
 
 .main_reserve_container {
-  width: 50%;
+  width: 45%;
   display: flex;
   background-color: white;
   position: relative;
   height: 60px;
   border-radius: 40px;
-  left: 25%;
+  left: 27.5%;
   top: 70px;
-  justify-content: space-between;
+  justify-content: ;
 }
 .main_reserve_container li {
-  padding: 4px 8px;
+  padding: 10px 17px;
   width: 25%;
   border-radius: 40px;
   border: none;
@@ -233,12 +233,12 @@ header .member_setting .menuAndAcountIcon i:last-child {
 
 .main_reserve_container li span:first-child {
   display: block;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .main_reserve_container li span:last-child {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   color: rgb(204, 203, 203);
 }
 
@@ -255,6 +255,24 @@ header .member_setting .menuAndAcountIcon i:last-child {
   border-right: solid 1px #ddd;
   height: 32px;
   align-self: center;
+}
+
+.main_reserve_container_searchBtn {
+  display: flex;
+  color: white;
+  background-color: rgb(255, 56, 92);
+  justify-content: center;
+  align-items: center;
+  border-radius: 70%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.main_reserve_container_searchBtn:hover {
+  background-color: rgb(245, 14, 14);
 }
 
 /* ------------------SECTION PARTS---------------------- */
