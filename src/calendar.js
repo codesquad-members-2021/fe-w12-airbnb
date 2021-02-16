@@ -1,8 +1,6 @@
 export default class Calendar {
   constructor(day, calendarElement) {
     this.day = !day ? new Date() : new Date(day[0], day[1]);
-    // this.calendar = calToggle;
-    // this.calHtml = "";
     this.element = calendarElement;
   }
 
@@ -44,7 +42,6 @@ export default class Calendar {
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 7; j++) {
         // 일~토: 7번 반복
-        // if (i === 0) {
         if (i === 0) {
           if (j < firstDayName) {
             calHtml += `<div class="calendar__date}"><span></span><span></span></div>`;

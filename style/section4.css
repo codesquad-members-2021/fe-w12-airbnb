@@ -1,15 +1,12 @@
 .main__beHost {
   margin: 4rem 0;
   padding: 0 7%;
-  /* border: 1px solid green; */
-  /* position: relative; */
 }
 
 .main__beHost .item ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2%;
-  /* border: 1px solid purple; */
   width: auto;
   height: 100%;
 }

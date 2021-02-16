@@ -6,7 +6,6 @@ const accountButton = document.querySelector("#account");
 const accountLayer = new Toggle("account__layer");
 
 accountButton.addEventListener("click", () => {
-  // 계정 버튼 클릭 시 레이어 나오는 이벤트 등록
   accountLayer.init();
 });
 
@@ -17,6 +16,9 @@ const calendarCheckIn = new Toggle("calendar__check-in");
 // 체크아웃 버튼 - 체크아웃용 달력
 const checkOutButton = document.querySelector(".check-out");
 const calendarCheckOut = new Toggle("calendar__check-out");
+// 체험 > 날짜 버튼 - 체험 날짜용 달력
+const experienceDateButton = document.querySelector(".experience-date");
+const calendarExperienceDate = new Toggle("calendar__experience-date");
 
 const createCalendar = (calendarElement) => {
   const today = new Date();
@@ -42,6 +44,11 @@ checkOutButton.addEventListener("click", () => {
   calendarEvent(calendarCheckOut);
 });
 
+experienceDateButton.addEventListener("click", () => {
+  console.log(`experienceDateButton`);
+  calendarEvent(calendarExperienceDate);
+});
+
 const isContain = (node, target) => {
   return node.contains(target) ? true : false;
 };
@@ -54,13 +61,17 @@ document.addEventListener("click", (e) => {
 
     if (!isContain(checkInButton, e.target) && !isContain(calendarCheckIn.element, e.target)) {
       // 체크인 버튼과 체크인 달력의 외부를 클릭했을 때
-      console.log("calendarCheckIn");
+      console.log("outside of calendarCheckIn");
       calendarCheckIn.hide();
     }
     if (!isContain(checkOutButton, e.target) && !isContain(calendarCheckOut.element, e.target)) {
       // 체크아웃 버튼과 체크아웃 달력의 외부를 클릭했을 때
-      console.log("calendarCheckOut");
+      console.log("outside of calendarCheckOut");
       calendarCheckOut.hide();
+    }
+    if (!isContain(experienceDateButton, e.target) && !isContain(calendarExperienceDate.element, e.target)) {
+      console.log(`outside of calendarExperienceDate`);
+      calendarExperienceDate.hide();
     }
 
     accountLayer.hide();

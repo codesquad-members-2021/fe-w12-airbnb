@@ -84,13 +84,11 @@
 
 .main__online-activity .item ul li .description #thirdText,
 .main__online-activity .item ul li .description #secondText {
-  /* bottom: 4%; */
   padding: 0 4%;
 }
 
 .main__online-activity .item ul li .description .description__text {
   position: absolute;
-  /* border: 1px solid yellow; */
   top: 84%;
   padding: 0 2%;
   text-align: left;

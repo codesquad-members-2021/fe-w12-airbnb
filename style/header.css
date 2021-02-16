@@ -22,7 +22,7 @@
 }
 
 .header__alertMessage a {
-  color: #dddddd;
+  color: #ddd;
   width: 100%;
   text-align: center;
 }
@@ -159,7 +159,7 @@
 
 .search-bar__divideLine {
   all: unset;
-  border-right: 1px solid #dddddd;
+  border-right: 1px solid #ddd;
   flex: 0 0 0px;
   height: 32px;
   align-self: center;
@@ -289,7 +289,7 @@
 .account__layer ul .line {
   all: unset;
   margin: 0.5em 0;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
 }
 
 .account__layer ul {

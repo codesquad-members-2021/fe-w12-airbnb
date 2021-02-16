@@ -14,20 +14,19 @@
   <link rel="stylesheet" href="./style/calendar.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
-  <!-- <script defer src="./src/index.js"></script> -->
   <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
 </head>
 
 <body>
   <div class="header">
-    <!--------------------- 코로나19 대응 방안 메시지 ---------------------->
+    <!--------------- 코로나19 대응 방안 메시지 --------------->
     <div class="header__alertMessage">
       <a href="#">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</a>
     </div>
     <header>
       <div class="header__content">
 
-        <!--------------------------- 에어비앤비 로고 --------------------------->
+        <!--------------- 에어비앤비 로고 ----------------->
         <div class="item header__logo">
           <a href="">
             <svg id="airbnb-logo">
@@ -38,7 +37,7 @@
           </a>
         </div>
 
-        <!---------------------------------- 탭 ------------------------------------->
+        <!---------------- 탭 ------------------->
         <div class="item header__search">
           <div class="header__search-radio">
 
@@ -64,7 +63,7 @@
           </div>
         </div>
 
-        <!--------------------------------- 검색바 ------------------------------------>
+        <!----------------- 검색바 ------------------->
 
         <!-- 숙소 눌렀을 때 -->
         <div class="header__search-bar search-bar__stay">
@@ -123,7 +122,7 @@
 
           <span class="search-bar__divideLine"></span>
 
-          <span class="item search-bar__date-experience">
+          <span class="item search-bar__date-experience experience-date">
             <button class="search-bar__element">
               <div class="title">날짜</div>
               <div class="header__search-form people">원하는 날짜를 입력하세요.</div>
@@ -134,11 +133,14 @@
           </span>
         </div>
 
-        <!----------------------- 체크인 선택시 나오는 달력 ---------------------->
+        <!----------- 체크인 선택시 나오는 달력 ------------>
         <div class="hidden calendar calendar__check-in"></div>
-        <!---------------------- 체크아웃 선택시 나오는 달력 --------------------->
+        <!----------- 체크아웃 선택시 나오는 달력 ------------>
         <div class="hidden calendar calendar__check-out"></div>
-        <!----------------------------------- 계정 부분 ----------------------------------->
+        <!----------- 체험 > 날짜 선택시 나오는 달력 ------------>
+        <div class="hidden calendar calendar__experience-date"></div>
+
+        <!------------------ 계정 부분 ------------------->
         <div class="item header__account">
 
           <div class="header__account-items">
@@ -175,7 +177,7 @@
               </button>
             </span>
 
-            <!------------------------------- 계정 버튼 누르면 나오는 레이어  --------------------------------->
+            <!------------- 계정 버튼 누르면 나오는 레이어  --------------->
             <div class="account__layer hidden">
               <ul>
                 <li class="account__layer-first">회원가입</li>
@@ -192,7 +194,7 @@
       </div>
 
 
-      <!-------------------------------------- 대문 이미지와 문구 --------------------------------------->
+      <!--------------- 대문 이미지와 문구 ---------------->
 
       <div class="header__main-image">
         <div class="header__main-statement">
@@ -205,12 +207,12 @@
     </header>
   </div>
 
-  <!----------------------------------------- 메인 --------------------------------------------->
+  <!------------------ 메인 ------------------>
 
   <div class="main">
     <main>
 
-      <!----------------------------- section 1 - cities --------------------------------->
+      <!------------ section 1 - cities ------------->
 
       <section class="main__destinations">
         <ul class="item">
@@ -305,7 +307,7 @@
         </ul>
       </section>
 
-      <!----------------------------------- section 2 - houseType --------------------------------------->
+      <!---------------- section 2 - houseType ------------------>
 
       <section class="main__houseType">
         <p>어디에서나, 여행은 살아보는 거야!</p>
@@ -339,7 +341,7 @@
         </ul>
       </section>
 
-      <!---------------------------------------- section 3 - online-activities ----------------------------------------->
+      <!----------------- section 3 - online-activities ------------------>
 
       <section>
         <div class="main__online-activity">
@@ -415,7 +417,7 @@
   </div>
   </section>
 
-  <!----------------------------------------------- section 4 - beHost --------------------------------------------------->
+  <!----------------- section 4 - beHost ------------------->
 
   <section>
     <div class="main__beHost">
@@ -449,7 +451,7 @@
   </main>
   </div>
 
-  <!-------------------------------------------- footer ----------------------------------------------->
+  <!----------------- footer ----------------->
   <div class="footer">
     <footer>
 
@@ -557,8 +559,6 @@
 
     </footer>
     <script type="module" src="./src/main.js"></script>
-    <!-- <script type="module" src="./src/test.js"></script>
-    <script type="module" src="./src/calendar.js"></script> -->
   </div>
 </body>
 
