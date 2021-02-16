@@ -169,7 +169,6 @@ a {
 
 .nav-profile-tab {
     margin-top: 20px;
-    padding: 10px;
     top: 50%;
     width: 100%;
     background-color: var(--info-color);
@@ -179,8 +178,17 @@ a {
     position: absolute;
 }
 
+.nav-profile-tab ul {
+    margin: 20px 0;
+}
+
 .nav-profile-tab li {
+    cursor: pointer;
     padding: 10px;
+}
+
+.nav-profile-tab li:hover {
+    background-color: rgba(177, 172, 172, 0.15);
 }
 
 .info-form-container {
