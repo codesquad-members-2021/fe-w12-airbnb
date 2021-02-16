@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import 'reset.css';
+@import 'header.css';
+@import 'banner.css';
+@import 'recommended-cities.css';
+@import 'stay-type.css';
+@import 'experiences.css';
+@import 'host-community.css';
+
+:root {
+  --main-padding: 0px 80px;
+  --header-brand-color: rgb(255 56 92);
+  --white: rgba(255, 255, 255, 1);
+  --dark-gray: rgb(34, 34, 34);
+  --medium-dark-gray: rgb(65, 65, 65);
+  --medium-gray: rgb(200, 200, 200);
+  --light-gray: rgb(245, 245, 245);
+  --border: 1px solid rgb(221 221 221);
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+  padding: 20px 0px;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}

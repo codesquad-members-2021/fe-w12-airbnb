@@ -105,6 +105,20 @@ ul {
 button {
   background-color: transparent;
   border-style: none;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 0;
+}
+button:focus,
+input:focus {
+  outline-style: none;
+}
+
+input {
+  border-style: none;
+  background-color: transparent;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 0;
 }
 
 /* a-style */

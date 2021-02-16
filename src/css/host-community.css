@@ -1,0 +1,23 @@
+.join-host {
+  padding: var(--main-padding);
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.join-host__lists {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.list-item__img > img {
+  width: 98%;
+  border-radius: 16px;
+}
+
+.list-item__explain {
+  color: var(--dark-gray);
+  font-size: 18px;
+}
