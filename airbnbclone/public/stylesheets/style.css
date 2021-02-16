@@ -9,6 +9,7 @@
 @import "css/host.css";
 @import "css/footer.css";
 @import "css/searchbar.css";
+@import "css/profile.css";
 
 body{
     font-family: 'Noto Sans KR', sans-serif;

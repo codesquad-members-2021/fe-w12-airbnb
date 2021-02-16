@@ -1,0 +1,30 @@
+.profileHeader {
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
+  color: rgb(34, 34, 34);
+  margin-top: 34px;
+  padding: 8px 0px;
+  position: absolute;
+  top: 6%;
+  right: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  z-index: 2;
+  min-width: 240px;
+  display: block;
+}
+.profileHeader_list {
+  color: #222222;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  padding: 12px 16px;
+  align-items: center;
+}
+
+.profile_border {
+  border-bottom: 1px solid;
+  border-color: #dddd;
+}

@@ -12,6 +12,7 @@
   }
   
   .main {
+    position: relative;
     background-image: url("/images/top_banner.webp");
     background-position: center;
     background-repeat: no-repeat;
