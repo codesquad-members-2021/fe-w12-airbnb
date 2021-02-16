@@ -17,7 +17,6 @@ class PopupLayer {
   }
 
   changeTemplateHandler({ target }) {
-    console.log(target.className)
     switch (target.className) {
       case 'rooms':
         this.$roomsBox.classList.remove('display_none');
