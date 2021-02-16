@@ -107,6 +107,10 @@ a {
   align-items: center;
 }
 
+.header__container--centerbox > ul > li {
+  cursor: pointer;
+}
+
 .header__container--centerbox > ul > li .menu {
   color: #fff;
   height: 20px;
@@ -116,7 +120,20 @@ a {
   align-items: center;
 }
 
+/* .header__container--centerbox > ul > li .menu:hover {
+  color: rgba(255, 255, 255, 0.8);
+} */
+
 .header__container--centerbox > ul > li .low-bar {
+  background: #fff;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin: 0 auto;
+  transition: 0.2s;
+}
+
+.header__container--centerbox > ul > li .low-bar-long {
   background: #fff;
   width: 18px;
   height: 2px;
