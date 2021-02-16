@@ -34,15 +34,14 @@ header {
 .logo_and_nav {
   display: flex;
   width: 100%;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 0 80px 0 80px;
   margin-top: 1rem;
 }
 
 .nav_left,
-.nav_center,
 .nav_right {
-  width: 33%;
+  width: calc(100% / 3);
+  /* display: flex; */
 }
 
 .airbnb_logo {
@@ -59,14 +58,13 @@ header {
 
 .main-nav li {
   display: inline-block;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin: 0 30px 0 30px;
 }
 
 .main-nav a {
   text-decoration: none;
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 .login_menu {
@@ -79,8 +77,12 @@ header {
 .login_menu li {
   display: inline-block;
   margin-left: 40px;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   cursor: pointer;
+}
+
+.login_menu li:first-child {
+  font-size: 0.5rem;
 }
 
 .earth_logo {
@@ -108,31 +110,26 @@ div.login_set > img {
 }
 
 .people_logo {
-  margin-top: 0.2rem;
-  margin-left: 0.3rem;
+  margin: 0.2rem 0 0 0.3rem;
   height: 40px;
   width: auto;
 }
 
 .search_box {
-  height: 3rem;
-  margin-top: 1rem;
-  margin-left: 13rem;
-  margin-right: 13rem;
+  height: 2.5rem;
+  margin: 1rem 1rem 0 1rem;
+  padding: 0 0.5rem 0 0.5rem;
   background-color: #fff;
   border-radius: 50px;
   border: none;
   box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
 }
 
 fieldset.search_box > div {
   display: inline-block;
-  margin-left: 0.8rem;
-  margin-top: 0.7rem;
+  margin: 0.5rem 0 0 0.8rem;
   height: 1.5rem;
 }
 
@@ -160,8 +157,9 @@ fieldset.search_box > div > input {
   background-color: #12cbc4;
   border-radius: 50px;
   height: 1.7rem;
-  width: 1.8rem;
+  width: 2rem;
   cursor: pointer;
+  margin-top: 0.4rem;
 }
 
 .search_logo {
@@ -172,9 +170,16 @@ fieldset.search_box > div > input {
 }
 
 .dropdown {
-  border: 5px solid #555;
-  width: 3rem;
-  height: 5rem;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 8rem;
+  height: 10rem;
+  margin: 1rem 0 0 0;
+}
+
+.dropdown > ul > li {
+  font-size: 0.5rem;
+  font-weight: 350;
 }
 
 .main_textbox {
