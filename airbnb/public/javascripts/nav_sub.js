@@ -1,3 +1,6 @@
+const navbar = document.querySelector('nav');
+const sticky = navbar.offsetTop;
+
 const $searchBar = document.querySelector('.search');
 const $stayButton = document.querySelector('.nav-center-stay');
 const $experienceButton = document.querySelector('.nav-center-experience');
@@ -16,7 +19,6 @@ const experienceOption = [
 
 function makeHtml(option) {
   return function () {
-    console.log(option);
     const html = option
       .map(
         (i) =>
@@ -51,3 +53,15 @@ function makeHtml(option) {
 document.addEventListener('DOMContentLoaded', makeHtml(stayOption));
 $stayButton.addEventListener('click', makeHtml(stayOption));
 $experienceButton.addEventListener('click', makeHtml(experienceOption));
+
+window.onscroll = function () {
+  myFunction();
+};
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add('sticky');
+  } else {
+    navbar.classList.remove('sticky');
+  }
+}
