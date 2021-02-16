@@ -38,10 +38,8 @@ header {
   margin-top: 1rem;
 }
 
-.nav_left,
-.nav_right {
+.nav_left {
   width: calc(100% / 3);
-  /* display: flex; */
 }
 
 .airbnb_logo {
@@ -65,54 +63,6 @@ header {
   text-decoration: none;
   color: #fff;
   font-size: 0.6rem;
-}
-
-.login_menu {
-  color: #fff;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.login_menu li {
-  display: inline-block;
-  margin-left: 40px;
-  font-size: 0.5rem;
-  cursor: pointer;
-}
-
-.login_menu li:first-child {
-  font-size: 0.5rem;
-}
-
-.earth_logo {
-  height: 20px;
-  width: auto;
-  filter: brightness(0) invert(1);
-}
-
-.login_set {
-  height: 1.7rem;
-  width: 100px;
-  background-color: #fff;
-  border-radius: 50px;
-}
-
-div.login_set > img {
-  filter: invert(60%) sepia(1%) saturate(0%) hue-rotate(106deg) brightness(90%)
-    contrast(86%);
-}
-
-.list_logo {
-  margin-bottom: 0.4rem;
-  height: 20px;
-  width: auto;
-}
-
-.people_logo {
-  margin: 0.2rem 0 0 0.3rem;
-  height: 40px;
-  width: auto;
 }
 
 .search_box {
@@ -169,17 +119,106 @@ fieldset.search_box > div > input {
   filter: brightness(0) invert(1);
 }
 
+.nav_right {
+  width: calc(100% / 3);
+  display: flex;
+  flex-direction: column;
+}
+
+.login_menu {
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.login_menu li {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 0.5rem;
+  height: 1.7rem;
+  cursor: pointer;
+}
+
+.login_menu li:hover {
+  background-color: rgba(251, 251, 251, 0.335);
+  border-radius: 50px;
+}
+
+.login_menu li:first-child {
+  padding-top: 0.5rem;
+  width: 100px;
+  font-size: 0.5rem;
+}
+
+.globe {
+  padding-top: 0.5rem;
+  width: 50px;
+}
+
+.earth_logo {
+  height: 20px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.login_set {
+  height: 1.7rem;
+  width: 100px;
+  background-color: #fff;
+  border-radius: 50px;
+}
+
+div.login_set > img {
+  filter: invert(60%) sepia(1%) saturate(0%) hue-rotate(106deg) brightness(90%)
+    contrast(86%);
+}
+
+.list_logo {
+  margin-bottom: 0.4rem;
+  height: 20px;
+  width: auto;
+}
+
+.people_logo {
+  margin: 0.2rem 0 0 0.3rem;
+  height: 40px;
+  width: auto;
+}
+
 .dropdown {
   border-radius: 10px;
   background-color: #fff;
   width: 8rem;
   height: 10rem;
-  margin: 1rem 0 0 0;
+  margin: 0.5rem 0 0 0;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
 }
 
-.dropdown > ul > li {
+.dropdown > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.upper_half {
+  height: 40%;
+}
+
+.lower_half {
+  border-top: 1px solid rgb(224, 221, 221);
+  height: 60%;
+}
+
+.dropdown > div > li {
+  align-self: flex-start;
+  flex-grow: 1;
   font-size: 0.5rem;
   font-weight: 350;
+  margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 .main_textbox {
