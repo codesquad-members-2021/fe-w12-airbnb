@@ -70,22 +70,26 @@ a {
 .header__middle_nav > li {
     position: relative;
 }
-.header__middle_nav > li > a:hover::after {
-    transform: translateX(-50%) scaleX(1.3);
-}
-.header__selected::after {
+.header__middle_nav a::after {
     content: "";
     position: absolute;
     top: 40px;
     left: 50%;
-    transform: translateX(-50%);
     width: 18px;
+    transform: translateX(-50%) scaleX(0);
     border-top: 2px solid #fff;
-
-    transition: all 400ms;
+    transition: 100ms;
 }
-.header__middle_nav > li > a:hover {
-    color: #eee;
+.header__middle_nav .header__selected::after {
+    transform: translateX(-50%) scaleX(1);
+    border-top: 2px solid #fff;
+}
+.header__middle_nav a:not(.header__selected):hover::after {
+    transform: translateX(-50%) scaleX(0.3);
+    border-top: 2px solid #fff;
+}
+.header__middle_nav > li > a:not(.header__selected):hover {
+    color: rgb(235, 235, 235);
 }
 
 /* ----- 오른쪽 네비게이션 ----- */
