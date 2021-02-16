@@ -1,4 +1,4 @@
-export default class Calendar {
+class Calendar {
   constructor(day, calendarElement) {
     this.day = !day ? new Date() : new Date(day[0], day[1]);
     this.element = calendarElement;
@@ -62,4 +62,18 @@ export default class Calendar {
 
     this.element.insertAdjacentHTML("beforeend", (calHtml += `</div>`));
   }
+}
+
+function createCalendar(calendarElement) {
+  const today = new Date();
+  for (let i = 0; i < 2; i++) {
+    const calendar = new Calendar([today.getFullYear(), today.getMonth() + i], calendarElement);
+    calendar.setCalendarData(calendar.day.getFullYear(), calendar.day.getMonth() + 1);
+  }
+}
+
+export function calendarEvent(item) {
+  item.element.innerHTML = ``;
+  createCalendar(item.element);
+  item.init();
 }
