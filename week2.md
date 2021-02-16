@@ -47,3 +47,6 @@ classList의 추가,삭제,토글
 ### 참고하는 사이트들
 
 [DOM 엘리먼트 추가,제거](https://codingnuri.com/javascript-tutorial/adding-and-removing-html-dom-elements.html)
+[tabindex](https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/tabindex)
+[input 클릭 시 글자 없애기](https://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=qna_html&wr_id=138955)
+[css 배경색만 투명하게 바꾸기](https://www.codingfactory.net/10825)

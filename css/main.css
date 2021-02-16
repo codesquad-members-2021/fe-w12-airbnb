@@ -25,6 +25,22 @@ button {
   border: none;
 }
 
+input {
+  all: unset;
+  cursor: text;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: currentColor;
+}
+
 .container {
   border-bottom: 1px solid gainsboro;
 }

@@ -1,8 +1,7 @@
-const { log } = console;
-const info = document.querySelector(".infoBtn")
+const infoBtn = document.querySelector(".infoBtn");
 const tabUI = document.querySelector("#tabUI");
 
-info.addEventListener('click', infoBtnClickHandler)
+infoBtn.addEventListener('click', infoBtnClickHandler)
 
 function infoBtnClickHandler() {
     if (tabUI.className === 'tabUI__hidden') {
