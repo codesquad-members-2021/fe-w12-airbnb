@@ -25,6 +25,7 @@ button {
 
 .menu {
     height: 100px;
+    position: relative;
 }
 
 .menu-list {
@@ -47,12 +48,12 @@ button {
 
 .search {
     z-index: 1;
-    position: relative;
-    margin-top: 50px;
-    margin-left: 350px;
+    position: absolute;
+    left: 700px;
+    top: 150px;
     border: 1px solid black;
     border-radius: 25px;
-    width: 600px;
+    width: 800px;
     background-color: white;
     text-align: center;
 }
@@ -87,7 +88,7 @@ button {
     background-color: rgb(230, 59, 59);
     border-radius: 25px;
     color: white;
-    left: 550px;
+    left: 750px;
     top: 10px;
 }
 
@@ -98,46 +99,53 @@ button {
 
 .exprienceBtn-search {
     z-index: 1;
-    position: relative;
-    margin-top: 50px;
-    margin-left: 350px;
+    position: absolute;
+    left: 700px;
+    top: 150px;
     border: 1px solid black;
     border-radius: 25px;
-    width: 600px;
+    width: 800px;
     background-color: white;
     text-align: center;
+    display: none;
 }
 
 .exprienceBtn-search div {
     float: left;
     border: 0px solid;
     width: 150px;
+    height: 60px;
     border-radius: 25px;
     margin-left: 50px;
+    margin-top: 10px;
 }
 
-.exprienceBtn div>span {
-    font-size: 10px;
+.exprienceBtn-search div>span {
+    font-size: 3px;
 }
 
-.exprienceBtn input {
+.exprienceBtn-search input {
     width: 100px;
     border-radius: 25px;
     border: 0px solid transparent;
 }
 
-.exprienceBtn input[placeholder] {
+.exprienceBtn-search input[placeholder] {
     font-size: 3px;
     font-weight: bold;
 }
 
-.exprienceBtn-btn {
+.calendar {
+    z-index: 2;
+    background-color: white;
     position: absolute;
-    background-color: rgb(230, 59, 59);
+    top: 250px;
+    left: 700px;
+    width: 800px;
+    height: 400px;
+    display: none;
     border-radius: 25px;
-    color: white;
-    left: 550px;
-    top: 10px;
+    padding: 25px;
 }
 
 .hosting {
@@ -332,6 +340,17 @@ button {
     font-weight: bold;
 }
 
+
+/*  */
+
 .clicked {
     border-bottom: 1px solid black;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
 }

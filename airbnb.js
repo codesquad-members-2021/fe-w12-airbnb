@@ -27,9 +27,25 @@ function clickHandler() {
 
 
 const search = document.querySelector(".search");
+const exprienceBtnSearch = document.querySelector(".exprienceBtn-search");
 const menuList = document.querySelectorAll(".menu-list");
 const menuListBtns = document.querySelectorAll(".menu-list button");
 
+// 숙소 눌렀을 때
+const roomsBtn = menuListBtns[0];
+roomsBtn.addEventListener("click", roomBtnHandler);
+
+function roomBtnHandler() {
+    roomsBtn.classList.add("clicked")
+    exprienceBtn.classList.remove("clicked")
+
+    // exprienceBtnSearch.style.display = "none";
+    // search.style.display = "block";
+    exprienceBtnSearch.classList.remove("display-block")
+    search.classList.remove("display-none")
+    exprienceBtnSearch.classList.add("display-none")
+    search.classList.add("display-block")
+}
 
 // 체험 눌렀을 때
 const exprienceBtn = menuListBtns[1];
@@ -39,51 +55,20 @@ exprienceBtn.addEventListener("click", exprienceBtnHandler);
 function exprienceBtnHandler() {
     exprienceBtn.classList.add("clicked")
     roomsBtn.classList.remove("clicked")
-    let template = `
-        <div>
-            <span>위치</span><br>
-            <input type="text"placeholder="어디로 여행가세요?">
-        </div>
-        <div>
-            <span>날짜</span><br>
-            <span>원하는 날짜를 입력하세요</span>
-            <button class="search-btn">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 20px; width: 20px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
-            </button>
-        </div>`
 
-    search.innerHTML = template;
-    search.classList.add("exprienceBtn-search")
+    // search.style.display = "none";
+    // exprienceBtnSearch.style.display = "block";
+    exprienceBtnSearch.classList.remove("display-none")
+    search.classList.remove("display-block")
+    search.classList.add("display-none")
+    exprienceBtnSearch.classList.add("display-block")
 }
 
-// 숙소 눌렀을 때
-const roomsBtn = menuListBtns[0];
-roomsBtn.addEventListener("click", roomBtnHandler);
+//달력
+let day = document.querySelector(".day")
+let calendar = document.querySelector(".calendar")
+day.addEventListener("click", dayHandler)
 
-function roomBtnHandler() {
-    roomsBtn.classList.add("clicked")
-    exprienceBtn.classList.remove("clicked")
-    let template = `
-    <div>
-        <span>위치</span><br>
-        <input type="text" placeholder="어디로 여행가세요?">
-    </div>
-    <div>
-        <span>체크인</span><br>
-        <span>날짜추가</span>
-    </div>
-    <div>
-        <span>체크아웃</span><br>
-        <span>날짜추가</span>
-    </div>
-    <div>
-        <span>인원</span><br>
-        <span>게스트추가</span>
-        <button class="search-btn">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 20px; width: 20px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
-        </button>
-    </div>`
-
-    search.innerHTML = template;
-    search.classList.remove("exprienceBtn-search")
+function dayHandler() {
+    calendar.style.display = "block";
 }
