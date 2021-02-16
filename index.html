@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script defer src="main.js"></script>
+    <script defer src="loginMenu.js"></script>
     <script src="https://kit.fontawesome.com/c3d44d5c03.js" crossorigin="anonymous"></script>
     <title>airbnbClone</title>
 </head>
@@ -40,23 +40,37 @@
         </header>
         <ul class="search">
             <li class="search__location">
-                <span class="search__title">위치</span><br>
+                <span class="search__title">위치</span>
                 <input type="text" placeholder="어디로 여행가세요?">
             </li>
             <li class="search__checkin">
-                <span class="search__title">체크인</span><br>
+                <span class="search__title">체크인</span>
                 <span class="search__desc">날짜 추가</span>
             </li>
             <li class="search__checkout">
-                <span class="search__title">체크아웃</span><br>
+                <span class="search__title">체크아웃</span>
                 <span class="search__desc">날짜 추가</span>
             </li>
             <li class="search__total">
                 <div class="total__textbox">
-                    <span class="search__title">인원</span><br>
+                    <span class="search__title">인원</span>
                     <span class="search__desc">게스트 추가</span>
                 </div>
                 <div class="search__icon"><i class="fas fa-search"></i></div>
+            </li>
+        </ul>
+
+        <ul class="search-sub">
+            <li class="search-sub__location">
+                <span class="search-sub__title">위치</span>
+                <input type="text" placeholder="어디로 여행가세요?">
+            </li>
+            <li class="search-sub__experience">
+                <div class="total__textbox">
+                    <span class="search-sub__title">날짜</span>
+                    <span class="search-sub__desc">원하는 날짜를 입력하세요.</span>
+                </div>
+                <div class="search-sub__icon"><i class="fas fa-search"></i></div>
             </li>
         </ul>
 

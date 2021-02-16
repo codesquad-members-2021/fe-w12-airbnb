@@ -128,7 +128,8 @@ nav .menu li,
 
 /* search  */
 /* ---------● 검색창 ●--------- */
-.search {
+.search,
+.search-sub {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -139,7 +140,8 @@ nav .menu li,
   border-radius: 50px;
   list-style: none;
 }
-.search li {
+.search li,
+.search-sub li {
   /* background-color: wheat; */
   border-radius: 50px;
   width: 100%;
@@ -147,16 +149,19 @@ nav .menu li,
   /* margin-bottom: 20px; */
   /* height: 100px; */
 }
-.search li:hover {
+.search li:hover,
+.search-sub li:hover {
   background-color: whitesmoke;
 }
 
-.search__total {
+.search__total,
+.search-sub__experience {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.search__icon {
+.search__icon,
+.search-sub__icon {
   background-color: #ff385c;
   padding: 15px 17px;
   border-radius: 50%;
@@ -165,30 +170,34 @@ nav .menu li,
   /* margin-left: 100px; */
   /* float: r; */
 }
-.search__location > input {
+.search__location > input,
+.search-sub__location > input {
   font-size: 13px;
   /* border: none; */
 }
-.search__location {
-  /* margin-left: 20px; */
-}
-.search__title {
+
+.search__title,
+.search-sub__title {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
 }
-.search__title {
+.search__title,
+.search-sub__title {
   font-size: 12px;
   font-weight: 500;
 }
-.search__desc {
+.search__desc,
+.search-sub__desc {
   font-size: 13px;
   color: gray;
   /* padding-top: 100px; */
 }
 
 .search span,
-.search__location > input {
+.search__location > input,
+.search-sub span,
+.search-sub__location > input {
   padding-left: 20px;
 }
 
