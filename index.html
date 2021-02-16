@@ -5,7 +5,7 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>숙소, 체험, 장소를 모두 한 곳에서</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel="stylesheet" href="scss/main.scss">
+  <link rel="stylesheet" href="main.scss">
 </head>
 <body>
   <section class="col-12 section-alert">
@@ -52,17 +52,17 @@
     <div class="col-12 input-wrap">
       <div class="col-2"></div>
       <div class="col-8 input-items">
-        <div class="input-item">
+        <div class="input-item js-toggle-place">
           <span class="input-item__label">위치</span>
           <input class="input-item__text" type="text" placeholder="어디로 여행가세요?">
         </div>
-        <div class="input-item">
+        <div class="input-item js-toggle-calendar">
           <span class="input-item__label">체크인</span>
-          <input class="input-item__text" type="text" placeholder="날짜 추가">
+          <input class="input-item__text" type="text" placeholder="날짜 추가" id="startDate" disabled>
         </div>
-        <div class="input-item">
+        <div class="input-item js-toggle-calendar">
           <span class="input-item__label">체크아웃</span>
-          <input class="input-item__text" type="text" placeholder="날짜 추가">
+          <input class="input-item__text" type="text" placeholder="날짜 추가" id="endDate" disabled>
         </div>
         <div class="input-item">
           <span class="input-item__label">인원</span>
@@ -70,6 +70,14 @@
           <button class="input-item__button">
             🔍
           </button>
+        </div>
+        <div class="input-item__modal hidden search-place">
+          <div class="search-place__item">
+            <img src="images/search-01.jpg" alt="가까운 여행지 둘러보기 이미지" title="Nearby place">
+            <p>가까운 여행지 둘러보기</p>
+          </div>
+        </div>
+        <div class="input-item__modal js-calendar hidden" id="calendarTarget">
         </div>
       </div>
       <div class="col-2"></div>
@@ -265,6 +273,6 @@
       </div>
     </section>
   </main>
-  <script src="./js/main.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
