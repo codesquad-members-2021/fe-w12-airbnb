@@ -27,11 +27,11 @@ class SearchBarControl {
                     _.classRemove(label, 'displayNone');
                 });
 
-                _.classRemove(experienceType, 'displayInit', 'w50');
+                _.classRemove(experienceType, 'displayInit', 'w55');
                 _.classAdd(experienceType, 'displayNone');
                                                 
-                if (_.classContains(locationType, 'w50'))
-                    _.classRemove(locationType, 'w50');
+                if (_.classContains(locationType, 'w45'))
+                    _.classRemove(locationType, 'w45');
                 _.classAdd(locationType, 'wAuto');
                 break;
             }
@@ -42,11 +42,11 @@ class SearchBarControl {
                 });
 
                 _.classRemove(experienceType, 'displayNone');
-                _.classAdd(experienceType, 'displayInit', 'w50');
+                _.classAdd(experienceType, 'displayInit', 'w55');
 
                 if (_.classContains(locationType, 'wAuto'))
                     _.classRemove(locationType, 'wAuto');
-                _.classAdd(locationType, 'w50');            
+                _.classAdd(locationType, 'w45');            
                 break;
             }
             case 'onlineExperience': {
