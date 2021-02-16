@@ -25,11 +25,18 @@ class Button_List {
         Body.addEventListener("click", (e) => {
             const shade = document.querySelector('#tempdiv');
             const close = e.target.closest(".loginbox");
+            console.log(close == "true")
 
-            if (close) {
-                shade.style.display = "block";
-            } else {
-                shade.style.display = "none";
+            // if (close) {
+            //     shade.style.display = "block";
+            // } else if (!close) {
+            //     shade.style.display = "none";
+            // } else {
+            //     shade.style.display = "none";
+            // }
+
+            if(close) {
+                document
             }
         });
     }

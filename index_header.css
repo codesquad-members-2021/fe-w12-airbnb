@@ -51,20 +51,27 @@ body {
     height: 29px;
 }
 
-.maincenter > div:after {
+.maincenter > div > a:after {
     content: "";
     display: block;
     width:0px;
+    padding: 0px;
     margin:auto;
-    transition: width 0.2s ease-in-out;
+    transition: width 0.15s ease-in-out, border 0.15s ease-in-out, border-bottom 0.2s ease-in-out;
 }
 
-.maincenter > div:hover:after {
+.maincenter > div > a:hover:after {
     content: "";
-    display: block;
-    width:10px;
+    width:15px;
     border-bottom: 2px solid white;
     margin:auto;
+}
+
+.maincenter > div > a:not(:hover):not(:focus):after {
+    content: "";
+    padding: 0px;
+    margin:auto;
+    border: 0px solid white;
 }
 
 .maincenter > div > a:hover {
@@ -72,7 +79,18 @@ body {
 }
 
 .maincenter > div > a:focus {
+    /* pointer-events: none; */
+    cursor:ndone;
+    color:white;
     border-bottom: 2px solid white;
+}
+
+.maincenter_div {
+    position:relative;
+}
+
+.maincenter_div > a {
+    text-decoration: none;
 }
 
 .right_box {
