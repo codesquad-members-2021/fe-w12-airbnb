@@ -8,6 +8,11 @@ a {
   color: white;
 }
 
+.test td {
+  margin: 0px;
+  padding: 5%;
+}
+
 ul {
   list-style: none;
 }
@@ -71,6 +76,10 @@ body {
   display: flex;
   align-items: center;
 }
+/* .nav__icons :nth-child(3) {
+  position: relative;
+  background-color: red;
+} */
 
 .nav__icons li {
   padding: 8px 12px;
@@ -84,19 +93,39 @@ body {
   border-radius: 21px;
   background-color: white;
   padding: 5px;
+  position: relative;
 }
+
+.popup-table {
+  background-color: white;
+  width: 230px;
+  height: 230px;
+  position: absolute;
+  right: 2%;
+  top: 120%;
+  color: black;
+  border-radius: 20px;
+  z-index: 1;
+  font-size: 14px;
+  padding-left: 20%;
+}
+
+/* #table-login {
+  padding-left: -3%;
+  border-bottom: gray solid 1px;
+} */
 
 #icon-list {
   padding: 5px 5px 5px 5px;
   width: 16px;
 }
 
-#icon-earth {
-  width: 20px;
-}
-
 #icon-person {
   width: 30px;
+}
+
+#icon-earth {
+  width: 20px;
 }
 
 .top-section__text-div {
@@ -109,6 +138,12 @@ body {
   font-weight: 800;
   color: white;
   text-align: left;
+}
+
+.top-section__text-div--btn {
+  height: 35px;
+  width: 140px;
+  border-radius: 10px;
 }
 
 .search-section {
