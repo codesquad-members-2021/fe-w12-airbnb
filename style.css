@@ -27,7 +27,6 @@ input {
     no-repeat center;
   height: 85vh;
   background-size: cover;
-  /* position: relative; */
 }
 
 /* header  */
@@ -46,8 +45,6 @@ header .logo {
   list-style: none;
   display: table-cell;
   vertical-align: bottom;
-  /* background-color: green;
-  border-radius: 8px; */
 }
 header .logo li {
   display: table-cell;
@@ -66,8 +63,6 @@ header .logo,
 header nav,
 header .service {
   display: inline-block;
-  /* padding-top: 10px; */
-  /* color: white; */
 }
 .service {
   display: table;
@@ -93,7 +88,6 @@ nav .menu li,
   background-color: white;
   padding: 0 10px;
   padding-top: 5px;
-  /* margin-top: 20px; */
 }
 .login__menu .login {
   padding-left: 10px;
@@ -129,8 +123,6 @@ nav .menu li,
 }
 
 /* search  */
-/* ---------● 검색창 ●--------- */
-
 .search,
 .search-sub {
   display: none;
@@ -219,13 +211,10 @@ nav .menu li,
   background-color: whitesmoke;
   width: 200px;
   position: absolute;
-  /* float: right; */
   display: none;
   top: 140px;
   right: 80px;
   border-radius: 10px;
-
-  /* margin: auto; */
 }
 .login__pop-up.active {
   display: block;
@@ -238,7 +227,6 @@ nav .menu li,
 }
 .login__pop-up li:hover {
   background-color: gray;
-  /* border-radius: 20px; */
 }
 
 /* local */
@@ -256,13 +244,9 @@ nav .menu li,
   content: "";
   display: inline-block;
   width: 100%;
-  /* margin: 0px; */
 }
 .local__content {
   display: inline-block;
-  /* margin-bottom: 10px; */
-  /* padding: 0px; */
-  /* margin: 0px; */
   width: 190px;
 }
 .local__content img {
@@ -307,7 +291,6 @@ nav .menu li,
   border-radius: 6px;
 }
 .room__desc {
-  /* font-weight: bold; */
   margin-top: 5px;
   font-size: 18px;
 }
@@ -323,7 +306,6 @@ nav .menu li,
 }
 .experience__title {
   font-size: 30px;
-  /* margin-bottom: 10px; */
 }
 .experience__desc {
   font-size: 14px;
