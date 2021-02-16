@@ -204,18 +204,11 @@ a {
   justify-content: center;
 }
 
-.reservation__container--activity {
-  min-width: 850px;
-  height: 66px;
-  display: flex;
-  justify-content: center;
-  display: none;
-}
-
 .reservation__label--box {
   background: #fff;
   display: flex;
   align-items: center;
+  border-radius: 50px;
 }
 
 .reservation__menu__box {
@@ -243,11 +236,31 @@ a {
   cursor: pointer;
 }
 
+.leftside__radius__box:hover {
+  background: #ebebeb;
+  border-radius: 50px;
+}
+.leftside__radius__box:hover + div {
+  border-right: 1px solid #fff;
+}
+
+input {
+  all: unset;
+}
+
 .middle__box {
   background: #fff;
   padding: 14px 24px;
   box-sizing: border-box;
   cursor: pointer;
+}
+.middle__box:hover {
+  background: #ebebeb;
+  border-radius: 50px;
+}
+
+.middle__box:hover + div {
+  border-right: 1px solid #fff;
 }
 
 .middle__bar {
@@ -256,15 +269,24 @@ a {
 }
 
 .rightside__radius__box {
-  width: 48px;
   background: #fff;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  padding: 14px 24px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
   display: flex;
-  justify-content: center;
+  height: 100%;
   align-items: center;
-  margin-left: -6px;
-  padding-right: 9px;
+}
+.rightside__radius__box:hover {
+  background: #ebebeb;
+  border-radius: 50px;
+}
+
+.rightside__radius__box:hover + div {
+  border-right: 1px solid #fff;
 }
 
 .search__circle {
@@ -288,7 +310,6 @@ a {
 .reservation__container label {
   font-size: 12px;
   font-weight: 500;
-  display: block;
   line-height: 18px;
 }
 

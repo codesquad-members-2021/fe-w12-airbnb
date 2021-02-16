@@ -15,15 +15,12 @@
   const MENU_HOVER = 'menu__hover';
 
   const LongBar = '.low-bar-long';
-  const ShortBar = '.low-bar-short';
   const TpBar = '.low-bar-transparent';
   const Button = '.button';
   const DefaultButton = '.button--default';
   const LowerBox = '.lower--box';
   const Menu = '.menu';
   const MenuHover = '.menu__hover';
-
-  console.log($headerButtonGrounp);
 
   // HEADER__MENU--BUTTON-GROUP
 
@@ -39,9 +36,6 @@
   $onlineActBtn.addEventListener('mouseleave', () => transparentBar($onlineActBtn));
 
   cursorInit();
-
-  // 양이 엄청 날 것 같다...
-  // 이걸 다 클래스로 만들어야겠지?...
 
   function cursorInit() {
     if ($headerButtonGrounp.querySelector(LongBar)) {
