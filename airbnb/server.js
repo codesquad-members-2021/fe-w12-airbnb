@@ -11,6 +11,6 @@ app.get("/", (req, res) => {
 
 app.listen(8080, () => {
   console.log("express App on port 8080!");
+  console.log("http://localhost:8080/");
 });
-
 console.log(path.resolve());

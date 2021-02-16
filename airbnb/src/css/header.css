@@ -64,8 +64,7 @@ header {
   flex: 0;
 }
 .query__location,
-.query__checkIn,
-.query__checkOut,
+.query__date,
 .query__column-submit {
   flex: 1;
 }

@@ -1,0 +1,9 @@
+.calendar__header {
+  display: flex;
+}
+.calendar__date {
+  display: flex;
+}
+.calendar__index-container {
+  display: flex;
+}
