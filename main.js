@@ -1,15 +1,18 @@
+import { CalenderController } from './calender.js';
+
 class ComponentUI {
-  constructor(targetEl) {
+  constructor(targetEl, ...triggerEls) {
     this.targetEl = targetEl;
+    this.triggerEls = triggerEls;
   }
 
   onEvents() { throw new Error('Abstract function!'); }
 }
 
-class ContainerUI extends ComponentUI{
+class ContainerUI extends ComponentUI {
 }
 
-class ChildUI extends ComponentUI{
+class ChildUI extends ComponentUI {
 }
 
 class CenterMenuChildUI extends ChildUI {
@@ -99,7 +102,6 @@ class SearchBarUI extends ContainerUI {
   }
 }
 
-
 class SearchBarChildUI extends ChildUI {
   onEvents() {
     this.targetEl.addEventListener('mouseover', this.targetEl._onMouseOver);
@@ -161,6 +163,34 @@ class PopupMenuUI extends ChildUI {
   }
 }
 
+class CalenderContainerUI extends ContainerUI {
+  constructor(calenderCount, targetEl, triggerEls) {
+    super(targetEl, triggerEls);
+    this.calenders = Array(calenderCount).fill(new CalenderController(this.targetEl, this.triggerEls));
+  }
+
+  init() {
+    this.calenders.forEach(calender => {
+      calender.init();
+      calender.insertViewBefore(this.targetEl.lastElementChild);
+    });
+    this._onEvents();
+  }
+
+  _onEvents() {
+    this.targetEl.firstElementChild.addEventListener('click', this._onLeftArrowClick.bind(this));
+    this.targetEl.lastElementChild.addEventListener('click', this._onRightArrowClick.bind(this));
+  }
+
+  _onLeftArrowClick(evt) {
+    this.calenders.forEach(calender => calender.changeToPrevMonth());
+  }
+
+  _onRightArrowClick(evt) {
+    this.calenders.forEach(calender => calender.changeToNextMonth());
+  }
+}
+
 function main() {
   const searchBar = new SearchBarUI(document.querySelector('#search-bar'));
   searchBar.onEvents();
@@ -176,6 +206,14 @@ function main() {
 
   const rightMenuChildWithPopup = new RightMenuChildWithPopupUI(document.querySelector('#right-menu > .solid-rounded:first-child'), popupMenu);
   rightMenuChildWithPopup.onEvents();
+
+  const searchBarCalenderContainer = new CalenderContainerUI(
+    1,
+    document.querySelector('#search-bar-calender-container'),
+    document.querySelector('#checkin-in-search-bar'),
+    document.querySelector('#checkout-in-search-bar'));
+  searchBarCalenderContainer.init();
+  
 }
 
 main();
