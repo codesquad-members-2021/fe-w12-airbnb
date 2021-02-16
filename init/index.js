@@ -19,15 +19,18 @@ const radioListEl = document.getElementsByName("nav");
 let popUp = false;
 
 const changeSearchBar = event => {
-  //숙소를 누르면 색바뀌게만 해보기
-  console.log(searchActivitySectionEl);
-  //searchActivitySectionEl.style.display = "none";
-  searchActivitySectionEl.style.display = "block";
-  searchSectionEl.style.display = "none";
-  //searchSectionEl.style.display = "block";
-  //   for (let node of radioListEl) {
-  //     if (node.checked) console.log(node);
-  //   }
+  
+  radioListEl.forEach(node => {
+    if (node.checked && node.value === "activity") {
+      searchActivitySectionEl.style.display = "block";
+      searchSectionEl.style.display = "none";
+      console.log(node.value);
+    }else if(node.checked && node.value === "room"){
+      searchActivitySectionEl.style.display = "none";
+      searchSectionEl.style.display = "block";
+    }
+  });
+
 };
 
 const drawPopupTable = () => {
