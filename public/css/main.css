@@ -120,8 +120,14 @@ header nav a:hover {
   opacity: 0;
 }
 
+.nav_item:hover {
+  border-bottom: 1px solid white;
+}
+
 input[type="radio"]:checked + label {
   color: white;
+  padding: 5px 0px;
+  border-bottom: 1px solid white;
 }
 
 header .member_setting {
