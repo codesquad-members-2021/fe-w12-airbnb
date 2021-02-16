@@ -46,63 +46,94 @@
                 </ul>
             </div>
             
-        </nav>
-
-            <div class="search__box">
-
-                <span class="item search__location">
-                    <button class="search__button">
-                        <div class="search__sub__title">위치</div>
-                        <div class="search__input">
-                            <input class="search__input-form" type="text" placeholder="어디로 여행가세요?"/>
-                        </div>
-                    </button>
-                </span>
-                <div class="divideLine"></div>
-
-                <span class="item search__checkin">
-                    <button class="search__button">
-                        <div class="search__sub__title">체크인</div>
-                        <div class="search__input">
-                            <input class="search__input-form" type="text" placeholder="날짜 추가"/>
-                        </div>
-                    </button>
-                </span>
-                <div class="divideLine"></div>
-
-                <span class="item search__checkout">
-                    <button class="search__button">
-                        <div class="search__sub__title">체크아웃</div>
-                        <div class="search__input">
-                            <input class="search__input-form" type="text" placeholder="날짜 추가"/>
-                        </div>
-                    </button>
-                </span>
-                <div class="divideLine"></div>
-
-                <span class="item search__people">
-                    <button class="search__button">
-                        <div class="search__sub__title">인원</div>
-                        <div class="search__input">
-                            <input class="search__input-form" type="text" placeholder="게스트 추가"/>
-                        </div>
-                    </button>
-
-                    <div class="search__button__glass">
-                        <button><svg viewBox="4 4 1 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg></button>
-                    </div>
-                </span>
-               
-
-
+            <div class="dropdown" tabindex="-1" data-testid="simple-header-profile-menu">
+                <div>
+                    <a class="dropdown-menu" data-testid="cypress-headernav-signup" href="/signup_login">
+                    <div class="dropdown-option">회원 가입</div>
+                    </a>
+    
+                    <a class="dropdown-menu" data-testid="cypress-headernav-login" href="/login">
+                        <div class="dropdown-option">로그인</div>
+                    </a>
+                    <div class="divideLine-row"></div>
+                    
+    
+                    <a class="dropdown-menu" href="/host/homes">
+                        <div class="dropdown-option">숙소 호스트 되기</div>
+                    </a>
+    
+                    <a class="dropdown-menu" href="/d/onlinehost">
+                        <div class="dropdown-option">체험 호스팅하기</div>
+                    </a>
+    
+                    <a class="dropdown-menu" data-no-client-routing="" href="/help">
+                        <div class="dropdown-option">도움말</div>
+                    </a>
+                
             </div>
+
+
+        </nav>
+       
+
+
+        
+
+        <div class="search__box">
+
+            <span class="item search__location">
+                <button class="search__button">
+                    <div class="search__sub__title">위치</div>
+                    <div class="search__input">
+                        <input class="search__input-form" type="text" placeholder="어디로 여행가세요?"/>
+                    </div>
+                </button>
+            </span>
+            <div class="divideLine"></div>
+
+            <span class="item search__checkin">
+                <button class="search__button">
+                    <div class="search__sub__title">체크인</div>
+                    <div class="search__input">
+                        <input class="search__input-form" type="text" placeholder="날짜 추가"/>
+                    </div>
+                </button>
+            </span>
+            <div class="divideLine"></div>
+
+            <span class="item search__checkout">
+                <button class="search__button">
+                    <div class="search__sub__title">체크아웃</div>
+                    <div class="search__input">
+                        <input class="search__input-form" type="text" placeholder="날짜 추가"/>
+                    </div>
+                </button>
+            </span>
+            <div class="divideLine"></div>
+
+            <span class="item search__people">
+                <button class="search__button">
+                    <div class="search__sub__title">인원</div>
+                    <div class="search__input">
+                        <input class="search__input-form" type="text" placeholder="게스트 추가"/>
+                    </div>
+                </button>
+
+                <div class="search__button__glass">
+                    <button><svg viewBox="4 4 1 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg></button>
+                </div>
+            </span>
+            
+
+
+        </div>
 
             
-            <div class = "view__ment">이제, 여행은<br>가까운 곳에서
-            </div>
-            <div>
-                <button class = "view__button">근처의 숙소 둘러보기</button>
-            </div>
+        <div class = "view__ment">이제, 여행은<br>가까운 곳에서
+        </div>
+        <div>
+            <button class = "view__button">근처의 숙소 둘러보기</button>
+        </div>
 
 
 
