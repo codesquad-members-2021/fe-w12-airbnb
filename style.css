@@ -31,7 +31,8 @@ input {
 
 /* header  */
 header {
-  padding: 20px 80px;
+  padding: 0 80px;
+  padding-top: 15px;
   text-align: justify;
   min-width: 740px;
   position: relative;
@@ -92,12 +93,12 @@ nav .menu li,
 .login__menu .login {
   padding-left: 10px;
   font-size: 30px;
-  color: gray;
+  color: #717171;
   display: table-cell;
   vertical-align: middle;
 }
 .login__menu .toogle {
-  color: gray;
+  color: #717171;
   display: table-cell;
   vertical-align: middle;
 }
@@ -195,7 +196,7 @@ nav .menu li,
 .search__desc,
 .search-sub__desc {
   font-size: 13px;
-  color: gray;
+  color: #8e8e8e;
   /* padding-top: 100px; */
 }
 
@@ -204,6 +205,14 @@ nav .menu li,
 .search-sub span,
 .search-sub__location > input {
   padding-left: 20px;
+}
+.search__line {
+  border-left: 0.1px solid green;
+  height: 20px;
+  float: right;
+}
+.search li:hover + .search__line {
+  border-left: 0.1px solid transparent;
 }
 
 /* login pop-up  */
@@ -226,7 +235,10 @@ nav .menu li,
   padding: 10px 10px;
 }
 .login__pop-up li:hover {
-  background-color: gray;
+  background-color: #aeaeae;
+}
+hr {
+  border-top: 0.1px solid #aeaeae;
 }
 
 /* local */
