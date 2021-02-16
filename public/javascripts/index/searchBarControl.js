@@ -1,11 +1,4 @@
-const _ = {
-    $: (strSelector) => document.querySelector(strSelector),
-    $All: (strSelector) => document.querySelectorAll(strSelector),
-    classAdd: (target, ...classNames) => target.classList.add(...classNames),
-    classRemove: (target, ...classNames) => target.classList.remove(...classNames),  
-    classToggle: (target, className) => target.classList.toggle(className),
-    classContains: (target, className) => target.classList.contains(className),
-}
+import _ from "../util.js";
 
 class SearchBarControl {
     constructor(target) {
@@ -61,7 +54,4 @@ class SearchBarControl {
     }
 }
 
-const inputList = _.$All('.header__main__search__options input');
-_.classAdd(_.$('.header__main__search__bar > .experienceType'), 'displayNone');
-
-inputList.forEach((input) => new SearchBarControl(input).searchOptionClick());
+export default SearchBarControl;
