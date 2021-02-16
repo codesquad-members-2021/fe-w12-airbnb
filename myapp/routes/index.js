@@ -9,4 +9,8 @@ router.get('/', function(req, res, next) {
   res.render('index.html');
 });
 
+router.get('/popup', function(req, res, next) {
+  res.render('popup.html');
+});
+
 module.exports = router;
