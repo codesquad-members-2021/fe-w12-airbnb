@@ -16,6 +16,7 @@ a {
 ul {
   list-style: none;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -35,18 +36,14 @@ body {
   color: white;
   text-decoration: underline;
 }
+
 .covid-19-notice a:hover {
   color: gray;
   text-decoration: underline;
 }
 
-.airbnb-logo {
-  width: 118px;
-  height: 64px;
-  margin-bottom: 10px;
-}
-
 .top-section {
+  position: relative;
   background-image: url("img/main-wide.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -54,32 +51,47 @@ body {
   height: 83vh;
 }
 
+.airbnb-logo {
+  position: absolute;
+  left: 18%;
+  top: 200%;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
 .top-section__nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
-
   padding: 8px 12px;
+  color: white;
 }
 
 .nav__menu {
+  outline: chartreuse solid;
+  position: absolute;
+  top: 260%;
+  left: 45%;
   display: flex;
   list-style: none;
-  padding-left: 10;
+  padding: 0px;
 }
 
-.nav__menu li {
+.nav__menu > span {
   padding: 8px 12px;
 }
 
+.nav__menu > label > input {
+  width: 1px;
+}
+
 .nav__icons {
+  right: 17%;
+  position: absolute;
   list-style: none;
   display: flex;
   align-items: center;
 }
-/* .nav__icons :nth-child(3) {
-  position: relative;
-  background-color: red;
-} */
 
 .nav__icons li {
   padding: 8px 12px;
@@ -93,7 +105,6 @@ body {
   border-radius: 21px;
   background-color: white;
   padding: 5px;
-  position: relative;
 }
 
 .popup-tb {
@@ -107,13 +118,8 @@ body {
   border-radius: 20px;
   z-index: 1;
   font-size: 14px;
-  padding-left: 20%;
+  padding-left: 8%;
 }
-
-/* #table-login {
-  padding-left: -3%;
-  border-bottom: gray solid 1px;
-} */
 
 .popup__icon-list {
   padding: 5px 5px 5px 5px;
@@ -129,10 +135,9 @@ body {
 }
 
 .top-section__text-div {
-  /*이제, 여행은<br />가까운 곳에서<br /> 부분*/
   position: absolute;
   top: 50%;
-  left: 10%;
+  left: 20%;
   transform: translate(-10%, -50%);
   font-size: 54px;
   font-weight: 800;
@@ -147,62 +152,231 @@ body {
 }
 
 .search-section {
-  position: relative;
-  left: 25%;
+  position: absolute;
+  list-style: none;
+  padding: 0px;
+  top: 20%;
+  left: 28%;
+  width: 40%;
+  height: 70px;
   background-color: white;
-  width: 855px;
   border-radius: 30px;
 }
 
-.search-basic {
-  display: inline-block;
-  margin: 0px 0px 0px 0px;
-  width: 169.234px;
-  height: 44px;
+.search-section__activity {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 0px;
+  top: 20%;
+  left: 28%;
+  width: 40%;
+  height: 70px;
   background-color: white;
-  border-radius: 20px;
-  padding: 10px;
-}
-
-.search-basic > span {
-  display: block;
-  width: 100px;
-}
-
-.search-destination {
-  display: inline-block;
-  background-color: white;
-  border-radius: 20px;
-  padding-left: 30px;
-  width: 234.594px;
-  height: 44px;
-  left: 30px;
-}
-
-.search-destination > span {
-  display: block;
+  border-radius: 30px;
 }
 
 .search__input {
-  width: 130px;
   border: none;
 }
 
+#search-destination {
+  position: absolute;
+  display: inline-block;
+  background-color: white;
+  border-radius: 30px;
+  width: 30%;
+  height: 70px;
+}
+
+#activity-destination {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  width: 50%;
+  height: 70px;
+}
+
+#search-destination > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#activity-destination > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 6%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-destination > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#activity-destination > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 6%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-check-in {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  width: 20%;
+  height: 70px;
+  left: 30%;
+}
+
+#search-check-in > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-check-in > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-check-out {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  width: 20%;
+  height: 70px;
+  left: 50%;
+}
+
+#search-check-out > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-check-out > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-people {
+  position: absolute;
+  display: inline-block;
+
+  border-radius: 30px;
+  width: 20%;
+  height: 70px;
+  left: 70%;
+}
+
+#search-people > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#search-people > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10%;
+  width: 60%;
+  padding: 0px;
+}
+
+#activity-date {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  width: 40%;
+  height: 70px;
+  left: 50%;
+}
+
+#activity-date > span {
+  position: absolute;
+  display: block;
+  top: 20%;
+  left: 6%;
+  width: 60%;
+  padding: 0px;
+}
+
+#activity-date > input {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 6%;
+  width: 60%;
+  padding: 0px;
+}
+
 #search-icon {
-  position: relative;
-  width: 30px;
-  float: right;
+  position: absolute;
+  width: 40px;
+  height: 40px;
   padding: 5px;
-  bottom: 35px;
+  bottom: 15%;
+  left: 120%;
   border-radius: 100%;
   background-color: var(--main-color);
 }
 
 #search-icon > img {
   width: 20px;
-  position: relative;
-  left: 5px;
-  top: 3px;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  fill: white;
+}
+
+#activity-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  bottom: 15%;
+  left: 110%;
+  border-radius: 100%;
+  background-color: var(--main-color);
+}
+
+#activity-icon > img {
+  width: 20px;
+  position: absolute;
+  left: 30%;
+  top: 30%;
   fill: white;
 }
 
@@ -218,6 +392,7 @@ body {
   height: 144px;
   padding: 0px 0px 0px 0px;
 }
+
 .city-section__list {
   position: relative;
   display: inline-block;
@@ -234,6 +409,7 @@ body {
   height: 30px;
   bottom: 2px;
 }
+
 .city-section__list img {
   width: 65px;
   height: 65px;
@@ -246,6 +422,7 @@ body {
   height: 569px;
   margin: 10px;
 }
+
 .section__div {
   position: relative;
   width: 1600px;
@@ -253,11 +430,13 @@ body {
   margin: 0px 362.5px 0px 362.5px;
   padding: 88px 80px 88px 0px;
 }
+
 .section__div > ul {
   position: absolute;
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
 }
+
 .section__main-text {
   width: 1604px;
   height: 42px;
@@ -290,6 +469,7 @@ body {
   color: white;
   padding: 64px 0px 80px 0px;
 }
+
 .activity-section__list--text {
   position: absolute;
   height: 44px;
@@ -298,6 +478,7 @@ body {
   font-size: 16px;
   bottom: 0;
 }
+
 .activity-section__main-text {
   font-size: 32px;
 }
@@ -305,6 +486,7 @@ body {
 .activity-section__div {
   height: 892px;
 }
+
 .activity-section span {
   display: block;
   font-size: 14px;
@@ -314,6 +496,7 @@ body {
   text-align: left;
   vertical-align: middle;
 }
+
 .activity-section img {
   width: 392px;
   height: 392px;
@@ -326,6 +509,7 @@ body {
   height: 784px;
   float: left;
 }
+
 #activity-img02 {
   width: 392px;
   height: 392px;
