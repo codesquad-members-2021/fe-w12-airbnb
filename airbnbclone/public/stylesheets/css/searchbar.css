@@ -1,0 +1,86 @@
+.main_seachbar {
+  box-sizing: border-box;
+  height: 66px;
+  border-radius: 32px;
+  width: auto;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  margin: 0 80px;
+  display: flex;
+}
+.flex_1 {
+    flex: 1 0 0%;
+}
+
+.seachbar_column {
+  padding: 14px 32px;
+}
+
+.flex_2 {
+    flex: 2 0 0%;
+  display: flex;
+}
+.seachbar_menu {
+    cursor: pointer;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-radius: 32px;
+    min-width: 0px;
+    display: block;
+}
+.seachbar_column > input {
+  display: block;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  background: none;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: #222222;
+  text-overflow: ellipsis;
+}
+
+.seachbar_title {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+  line-height: 16px;
+  padding-bottom: 2px;
+}
+.seachbar_bar {
+  border-right: 1px solid #dddddd;
+  height: 32px;
+  align-self: center;
+}
+.seachbar_menu:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.seachbar_btn {
+  padding: 16px;
+  background-color: #ff385c;
+  border-radius: 24px;
+  height: 48px;
+  max-width: 48px;
+  color: white;
+  margin-right: 9px;
+  
+}
+
+.display_flex {
+  display: flex;
+}
+
+.seachbar_lastmenu {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+    
+}
+
+.seachbar_lastmenu > h6 {
+    text-align: start;
+}

@@ -140,6 +140,7 @@ button {
   outline: none;
   border-style: none;
   border: 1px;
+  background-color: transparent;
 }
 a {
   text-decoration: none;
