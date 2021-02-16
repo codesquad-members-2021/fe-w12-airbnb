@@ -1,0 +1,290 @@
+/* 헤더 Wrapper */
+.header {
+    width: 100%;
+    height: calc(80% - 20px);
+    background-image: url('../../images/top_banner.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.header > header {
+    width: 100%;
+    height: 80px;
+}
+
+/* ---- 헤더 1 - 코로나 알림 ---- */
+.header__covid {
+    width: 100%;
+    height: 60px;    
+    text-align: center;
+    line-height: 60px;
+}
+
+.header__covid > a,
+.header__covid > a:link,
+.header__covid > a:visited {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.header__covid > a:hover,
+.header__covid > a:active {
+    color: var(--covid-searchBar-hover-color);
+}
+
+/* ---- 헤더 2 - 로고, 검색, 언어지역 & 로그인버튼 ----  */
+.header__main {
+    width: 100%;
+    padding: 25px 0px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+}
+
+/* 1. 로고 */
+.header__main__logo {
+    position: relative;
+    left: -2%;
+    width: 25%;
+    text-align: center;
+}
+
+/* 2) 검색 */
+.header__main__search {    
+    color: var(--default-font-color);   
+    width: 50%;         
+    text-align: center;
+}
+
+/* 2-1) 검색 : 검색 옵션 */
+.header__main__search__options > input[type='radio'] {
+    display: none;
+}
+
+.header__main__search__options > input[type='radio'] + label {
+    display: inline-block;    
+    padding: 0 13px;
+    cursor: pointer;
+}
+
+.header__main__search__options > input[type='radio'] + label:hover {
+    filter: brightness(0.85);
+}
+
+.header__main__search__options > input[type='radio']:checked + label:after {
+    /* input[type='radio']:checked 클릭 시 밑줄 */
+    content: "";
+    display: block;
+    margin: 0 auto; 
+    width: 70%; 
+    padding-top: 9px; 
+    border-bottom: 2px solid var(--default-font-color);
+}
+
+/* 2-2) 검색 : 검색바 */
+.header__main__search__bar {
+    position: relative;
+    top: 22px;    
+    margin: 0 55px;
+    height: 66px;    
+    border: 1px solid var(--default-font-color);
+    background-color: var(--default-font-color);
+    font-size: 12px;
+    color: #000;
+    border-radius: 32px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 40%);
+    text-align: left;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.header__main__search__bar > label {
+    padding: 14px 26px;
+    border-radius: 32px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.header__main__search__bar > .noPadding {
+    padding: 0;
+}
+
+.header__main__search__bar > label:hover {
+    background-color: var(--covid-searchBar-hover-color);
+}
+
+
+.header__main__search__bar > .checkin-out {
+    width: 25%;
+}
+
+.header__main__search__bar > label > input {
+    margin-top: 7px;
+    border: none;
+    width: 100%;    
+    background-color: transparent;
+}
+
+.header__main__search__bar > label > input[type="date"] {
+    margin-top: 5px;
+    border: none;
+    width: 100%;
+    font-size: 12px;
+    color: #8d8d8d;
+    background-color: transparent;
+}
+
+.header__main__search__bar > label > .searchBarBtn {
+    background-color: #ff0000;
+    border: none;      
+    border-radius: 32px;
+    padding: 16px 17px;
+    margin-left: 10px;    
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+}
+
+.header__main__search__bar > label > .searchBarBtn:hover {
+    background-color: #e31b60;    
+}
+
+.header__main__search__bar > label > .searchBarBtn > img {
+    width: 16px;
+    height: 16px;    
+}
+
+/* 3) 언어지역 & 로그인버튼 */
+.header__main__login {
+    position: relative;
+    right: 2%;
+    width: 25%;
+    text-align: center;    
+    color: var(--default-font-color);   
+    display: flex;    
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.header__main__login > .becomeHost {    
+    color: var(--default-font-color); 
+    text-decoration: none;    
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 12px;
+}
+
+.header__main__login > .becomeHost:hover {
+    background-color: #ffffff18;
+}
+
+.header__main__login > .region {    
+    border-radius: 20px;
+    padding: 8px;    
+}
+
+.header__main__login > .region:hover {
+    background-color: #ffffff18;
+}
+
+.header__main__login > .region > .earthLogo {
+    position: relative;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+}
+
+.header__main__login > .navBtn {
+    background: none;    
+	border: none;	
+    cursor: pointer;
+    color: var(--default-font-color);
+    margin-left: 12px;
+    padding: 4px 6px 4px 12px;
+    background-color: var(--default-font-color);
+    border-radius: 25px;
+}
+
+.header__main__login > .navBtn > .icon--list {
+    position: relative;
+    top: -5px;        
+    width: 16px;
+    height: 16px;
+}
+
+.header__main__login > .navBtn > .icon--people {
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+}
+
+.header__main__login > .tabUI {
+    background-color: var(--default-font-color);
+    display: block;
+    color: #222;
+    padding: 8px 0px;
+    position: absolute;
+    top: 50%;
+    right: 27%;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
+}
+
+.header__main__login > .tabUI .tabItem {            
+    color: #222;
+    cursor: pointer;      
+    padding: 16px 110px 16px 16px;
+    width: auto;
+    font-size: 14px;
+    display: flex;    
+    justify-content: flex-start;
+}
+
+.header__main__login > .tabUI .tabItem:hover {
+    background-color: #ebebebcc;   
+}
+
+.header__main__login > .tabUI .tabItem--bold {
+    font-weight: 600;
+}
+
+.header__main__login > .tabUI .tabItem--borderBottom {
+    border-bottom: 1px solid #d8d8d8;    
+}
+
+
+/* ---- 헤더 3 - 헤더 큰 텍스트 ---- */
+.header__headingText {    
+    height: 636px;    
+    margin: 0px 8%;
+    margin-top: -45px;    
+    display: flex;    
+    flex-direction: column;  
+    justify-content: center;
+}
+
+.header__headingText > .bigtext {
+    color: var(--default-font-color);
+    font-size: 52px;
+    font-weight: bold;
+    display: block;
+}
+.header__headingText > .nearby {
+    margin-top: 22px;
+    display: block;
+    width: 160px;
+    padding: 6px 0px;    
+    border-radius: 8px;
+    background-color: var(--default-font-color);
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
