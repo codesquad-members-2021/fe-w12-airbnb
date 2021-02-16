@@ -76,8 +76,8 @@ a {
     top: 40px;
     left: 50%;
     width: 18px;
-    transform: translateX(-50%) scaleX(0);
     border-top: 2px solid #fff;
+    transform: translateX(-50%) scaleX(0);
     transition: 100ms;
 }
 .header__middle_nav .header__selected::after {
@@ -172,12 +172,26 @@ a {
     padding: 15px 25px;
     background-color: #fff;
     border-radius: 45px;
+    position: relative;
 }
 .search > li:first-child {
     padding-left: 35px;
 }
+.search > li:not(:last-child)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    height: 30px;
+    border-right: 1px solid #ccc;
+}
 .search > li:hover {
     background-color: #eee;
+}
+.search:hover > li::after {
+    opacity: 0;
 }
 .search > li > span:first-child {
     font-size: 0.78em;
