@@ -62,7 +62,7 @@ button {
     margin-left: 25px;
     margin-right: 20px;
     border: 0px solid;
-    width: 80px;
+    width: 70px;
     padding: 10px;
     border-radius: 25px;
 }
@@ -72,13 +72,13 @@ button {
 }
 
 .search input {
-    width: 50px;
+    width: 100px;
     border-radius: 25px;
     border: 0px solid transparent;
 }
 
 .search input[placeholder] {
-    font-size: 20px;
+    font-size: 3px;
     font-weight: bold;
 }
 
@@ -87,8 +87,57 @@ button {
     background-color: rgb(230, 59, 59);
     border-radius: 25px;
     color: white;
-    left: 570px;
-    top: 20px;
+    left: 550px;
+    top: 10px;
+}
+
+
+/* 
+
+*/
+
+.exprienceBtn-search {
+    z-index: 1;
+    position: relative;
+    margin-top: 50px;
+    margin-left: 350px;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 600px;
+    background-color: white;
+    text-align: center;
+}
+
+.exprienceBtn-search div {
+    float: left;
+    border: 0px solid;
+    width: 150px;
+    border-radius: 25px;
+    margin-left: 50px;
+}
+
+.exprienceBtn div>span {
+    font-size: 10px;
+}
+
+.exprienceBtn input {
+    width: 100px;
+    border-radius: 25px;
+    border: 0px solid transparent;
+}
+
+.exprienceBtn input[placeholder] {
+    font-size: 3px;
+    font-weight: bold;
+}
+
+.exprienceBtn-btn {
+    position: absolute;
+    background-color: rgb(230, 59, 59);
+    border-radius: 25px;
+    color: white;
+    left: 550px;
+    top: 10px;
 }
 
 .hosting {
@@ -137,6 +186,10 @@ button {
 }
 
 .drop-content a {
+    display: block;
+}
+
+.drop-show {
     display: block;
 }
 
@@ -281,8 +334,4 @@ button {
 
 .clicked {
     border-bottom: 1px solid black;
-}
-
-.drop-show {
-    display: block;
 }
