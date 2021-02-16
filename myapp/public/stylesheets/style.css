@@ -3,7 +3,7 @@
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 } */
 *{
-  outline: solid red 1px;
+  /* outline: solid red 1px; */
   margin: 0;
   padding: 0;
 }
@@ -18,8 +18,8 @@ ul{
 
 #logo {
   cursor: pointer;
-  margin-top:16px;
-  margin-left: 80px;
+  /* margin-top:16px;
+  margin-left: 80px; */
 }
 
 #logo2 {
@@ -53,12 +53,7 @@ span.ingredient {
   margin-top: 2rem;
 }
 
-#nav-right {
-  margin-right: 80px;
-  margin-left: auto;
-  display:flex;
-  align-items: center; 
-}
+
 
 #mainTitle {
   color: white;
@@ -67,33 +62,91 @@ span.ingredient {
   line-height: 58px;
 }
 
+.nav{
+  height: 80px;
+  margin: 0 80px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nav-left{
+  width:33%;
+  margin: auto;
+  margin-left: 0;
+}
+
 .nav-menu{
+  width:33%;
   text-align: center;
   color:white;
+  margin: auto;
+}
+
+.nav-right {
+  width:33%;
+  display:flex;
+  align-items:center;
+  justify-content: flex-end;
+  color:white;
+}
+
+.nav-span{
+  font-size: 16px ;
+  line-height: 20px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  padding: 10px 12px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  z-index: 0;
+  color: #FFFFFF;
+}
+
+.userBtn{
+  width:85px;
+  height: 42px;
+  border-radius: 21px;
+  background-color: #fff;
+  border: 1px solid  #fff;
+  color: #222222;
+  cursor: pointer;
+  display:flex;
+  flex-direction: column;
+}
+
+.containerTitle{
+  display:flex;
+  flex-direction: row;
+  margin: 4 auto;
+}
+.containerHidden{
+  visibility: hidden;
+  /* visibility: visible; */
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  z-index: 1;
+  position: relative;
+  right: 76px;
+  top: 2px;
+}
+
+.containerShow{
+  margin:auto;
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
 }
 
 .btn1{
   box-shadow: 0px 0px 10px 0px white;
 }
 
-.nav-span{
-  font-size: 16px !important;
-  line-height: 20px !important;
-  cursor: pointer !important;
-  display: inline-block !important;
-  font-weight: 400 !important;
-  padding: 10px 12px !important;
-  pointer-events: auto !important;
-  position: relative !important;
-  text-align: center !important;
-  z-index: 0 !important;
-  color: #FFFFFF !important;
-}
-
-.header{
-  display: flex;
-  align-items: center;
-}
 
 .first-page {
     background-image: url("http://localhost:3000/images/main_top.webp");
@@ -178,7 +231,16 @@ span.ingredient {
 .thrid-tile{
   display: inline-flex;
   background-color: black;
-  
+}
+
+.fa{
+  margin:auto;
+}
+
+.userIcon{
+  margin:auto;
+  margin-left: 10px;
+  padding: 0;
 }
 
 #recommandPlace{
@@ -187,8 +249,21 @@ span.ingredient {
   flex-wrap: wrap;
   text-align: center;
 }
-/* <style>
-        #logo {
-            cursor: pointer;
-        }
-    </style> */
+
+.earthBtn{
+  background:transparent;
+  border-style: none;
+}
+
+.earthIcon{
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+
+#logoEarth {
+  /* width:17px;
+  height: 17px; */
+  margin: auto 5px;
+  padding: 0;
+}
