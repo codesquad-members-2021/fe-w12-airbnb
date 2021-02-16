@@ -180,6 +180,7 @@ header {
 }
 
 .search_input input {
+  cursor: default;
   background: transparent;
 }
 
@@ -289,6 +290,10 @@ header {
   color: #FFFFFF;
 }
 
+.white_background {
+  background: #FFF;
+}
+
 .gray-background {
   background: #F7F7F7;
 }
@@ -350,10 +355,6 @@ footer ul>li {
   border-radius: 0;
 }
 
-.display_none {
-  display: none;
-}
-
 .margin8 {
   margin: 8px 0;
 }
@@ -377,4 +378,23 @@ input[type='radio'] {
 
 input[type='radio']:checked+span {
   border-bottom: 1px solid #FFF;
+  cursor: default;
+}
+
+.width50per {
+  width: 50%;
+}
+
+.calender_box {
+  display: flex;
+  width: 850px;
+  margin: 10px auto auto;
+}
+
+.display_none {
+  display: none;
+}
+
+.border-radius32 {
+  border-radius: 32px;
 }
