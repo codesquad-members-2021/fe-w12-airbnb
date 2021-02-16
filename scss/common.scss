@@ -23,8 +23,8 @@ ul {
   list-style: none;
 }
 
-.hidden {
-  display: none;
+*.hidden {
+  display: none !important;
 }
 
 .col-1 {

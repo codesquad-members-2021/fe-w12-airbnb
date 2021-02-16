@@ -131,7 +131,7 @@ header {
     grid-template-columns: repeat(4, 1fr);
     background: #fff;
     border-radius: 50px;
-    overflow: hidden;
+    // overflow: hidden;
   }
   .input-item {
     background: #fff;
@@ -167,6 +167,7 @@ header {
       background: transparent;
       width: 100%;
       font-size: 14px;
+      font-weight: 600;
     }
     &__button {
       background: #FF385C;
@@ -180,6 +181,39 @@ header {
       cursor: pointer;
       &:hover {
         filter: grayscale(0.2);
+      }
+    }
+    &__modal {
+      margin-top: 15px;
+      top: 75px;
+      position: absolute;
+      border-radius: 20px;
+      background: #fff;
+      padding: 2vw;
+      &.search-place {
+        width: 50%;
+        padding: 1vw 0;
+        .search-place__item {
+          float: left;
+          width: 100%;
+          padding: 0 1.5vw;
+          cursor: pointer;
+          &:hover {
+            background: #eee;
+          }
+          img {
+            height: 50px;
+            margin-right: 20px;
+            float: left;
+            border-radius: 5px;
+          }
+          p {
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            font-size: 14px;
+          }
+        }
       }
     }
   }
