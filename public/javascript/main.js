@@ -33,8 +33,8 @@ class TopMenu {
 
     const dateInputHidden = document.querySelector('.input-date-hidden');
     if (dateInputHidden) {
-      dateInput.classList.remove('input-date-hidden');
-      dateInput.classList.add('input-date');
+      dateInputHidden.classList.remove('input-date-hidden');
+      dateInputHidden.classList.add('input-date');
     }
   }
 }
