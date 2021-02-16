@@ -63,6 +63,7 @@ header {
   outline: none;
   border-style: none;
   border: 1px;
+  background-color: white;
 }
 
 .navbar_login_earthicon {

@@ -7,7 +7,15 @@
 @import "css/housetype.css";
 @import "css/activity.css";
 @import "css/host.css";
-
+@import "css/footer.css";
+@import "css/searchbar.css";
+@import "css/profile.css";
+@import "css/mainLocation.css";
+@import "css/mainPeople.css";
 body{
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+.hide {
+    display: none;
+  }
