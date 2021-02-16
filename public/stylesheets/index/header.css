@@ -223,6 +223,41 @@
     margin-left: 8px;
 }
 
+.header__main__login > .tabUI {
+    background-color: var(--default-font-color);
+    display: block;
+    color: #222;
+    padding: 8px 0px;
+    position: absolute;
+    top: 50%;
+    right: 27%;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
+}
+
+.header__main__login > .tabUI .tabItem {            
+    color: #222;
+    cursor: pointer;      
+    padding: 16px 110px 16px 16px;
+    width: auto;
+    font-size: 14px;
+    display: flex;    
+    justify-content: flex-start;
+}
+
+.header__main__login > .tabUI .tabItem:hover {
+    background-color: #ebebebcc;   
+}
+
+.header__main__login > .tabUI .tabItem--bold {
+    font-weight: 600;
+}
+
+.header__main__login > .tabUI .tabItem--borderBottom {
+    border-bottom: 1px solid #d8d8d8;    
+}
+
+
 /* ---- 헤더 3 - 헤더 큰 텍스트 ---- */
 .header__headingText {    
     height: 636px;    
