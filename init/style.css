@@ -89,14 +89,14 @@ body {
   border-radius: 21px;
 }
 
-.nav__icons__btn-login {
+.nav--icons {
   border-radius: 21px;
   background-color: white;
   padding: 5px;
   position: relative;
 }
 
-.popup-table {
+.popup-tb {
   background-color: white;
   width: 230px;
   height: 230px;
@@ -115,12 +115,12 @@ body {
   border-bottom: gray solid 1px;
 } */
 
-#icon-list {
+.popup__icon-list {
   padding: 5px 5px 5px 5px;
   width: 16px;
 }
 
-#icon-person {
+.icon-person {
   width: 30px;
 }
 

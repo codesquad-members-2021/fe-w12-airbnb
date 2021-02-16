@@ -1,10 +1,11 @@
-const iconListEl = document.querySelector("#icon-list");
-const iconPersonEl = document.querySelector("#icon-person");
-const iconNavigator = document.querySelector(".nav__icons__btn-login");
+const iconListEl = document.querySelector(".popup__icon-list");
+const iconPersonEl = document.querySelector(".icon-person");
+const iconNavigator = document.querySelector(".nav--icons");
+const bodyEl = document.querySelector("body");
 
 const drawPopupTable = () => {
   const table = document.createElement("table");
-  table.className = "popup-table";
+  table.className = "popup-tb";
 
   const trList = [
     "회원가입",
@@ -17,7 +18,8 @@ const drawPopupTable = () => {
   for (let i = 0; i < trList.length; i++) {
     let tr = document.createElement("tr");
     let td = document.createElement("td");
-    td.innerText = trList[i];
+    td.className = "popup-tb-td";
+    td.textContent = trList[i];
     tr.appendChild(td);
     table.appendChild(tr);
   }
@@ -26,6 +28,12 @@ const drawPopupTable = () => {
 
 const init = () => {
   iconListEl.addEventListener("click", drawPopupTable);
+  bodyEl.addEventListener("click", hidePopupTable);
+};
+
+const hidePopupTable = event => {
+  const table = document.querySelector(".popup-tb");
+  if (!event.target.className.includes("popup")) table.remove();
 };
 
 init();
