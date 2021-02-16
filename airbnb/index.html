@@ -28,9 +28,9 @@
               <li><a href="#">온라인 체험</a></li>
             </ul>
           </div>
-          <div class="search-form__query">
-            <div class="query__column">
-              <div>위치</div>
+          <div class="search-form__query form__stay">
+            <div class="query__column query__location">
+              <div class="query__column-title">위치</div>
               <input
                 type="text"
                 name="search-query-location"
@@ -40,20 +40,20 @@
             </div>
             <div class="divider"></div>
             <div class="query-date-wrapper">
-              <div class="query__column">
-                <div>체크인</div>
+              <div class="query__column query__date">
+                <div class="query__column-title">체크인</div>
                 <div>날짜 추가</div>
               </div>
               <div class="divider"></div>
-              <div class="query__column">
-                <div>체크아웃</div>
+              <div class="query__column query__date">
+                <div class="query__column-title">체크아웃</div>
                 <div>날짜 추가</div>
               </div>
             </div>
             <div class="divider"></div>
             <div class="query__column-submit">
-              <div class="query__column">
-                <div>인원</div>
+              <div class="query__column query__guest">
+                <div class="query__column-title">인원</div>
                 <div>게스트 추가</div>
               </div>
               <div>
@@ -61,9 +61,31 @@
               </div>
             </div>
           </div>
+          <div class="search-form__query form__experience hidden">
+            <div class="query__column query__location">
+              <div class="query__column-title">위치</div>
+              <input
+                type="text"
+                name="search-query-location"
+                id="search-query-location"
+                placeholder="어디로 여행가십니까"
+              />
+            </div>
+            <div class="divider"></div>
+            <div class="query__column-submit">
+              <div class="query__column query__date">
+                <div class="query__column-title">날짜</div>
+                <div>원하는 날짜를 입력하세요</div>
+              </div>
+              <div>
+                <button type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="calendar" id="js-calendar"></div>
         </form>
       </div>
-      <div class="header__column">
+      <div class="header__column header__column-nav">
         <nav>
           <div>
             <a href="#"><div>호스트되기</div></a>
@@ -78,12 +100,28 @@
               <div><i class="fas fa-bars"></i></div>
               <div><i class="fas fa-user"></i></div>
             </button>
+            <div class="nav-user__bar hidden">
+              <div class="user-bar__item">
+                <a href="#"
+                  ><strong style="font-weight: 600">회원 가입</strong></a
+                >
+              </div>
+              <div class="user-bar__item"><a href="#">로그인</a></div>
+              <div class="user-bar__divider"></div>
+              <div class="user-bar__item">
+                <a href="#">숙소 호스트 되기</a>
+              </div>
+              <div class="user-bar__item">
+                <a href="#">체험 호스팅하기</a>
+              </div>
+              <div class="user-bar__item"><a href="#">도움말</a></div>
+            </div>
           </div>
         </nav>
       </div>
     </header>
     <main>
-      <div class="main__column">
+      <div class="main__column main-section__background">
         <div class="main-background">
           <img src="./src/images/main-wide.jpg" />
         </div>
@@ -93,7 +131,7 @@
           <button class="main-title__btn">근처의 숙소 둘러보기</button>
         </div>
       </div>
-      <div class="main__column">
+      <div class="main__column main-section__city">
         <ul class="city-list">
           <li class="city-item">
             <img
@@ -169,7 +207,7 @@
           </li>
         </ul>
       </div>
-      <div class="main__column">
+      <div class="main__column main-section__stay">
         <div class="stay-title">
           <h2>어디에서나, 여행은 살아보는거야!</h2>
         </div>
@@ -204,13 +242,13 @@
           </li>
         </ul>
       </div>
-      <div class="main__column">
+      <div class="main__column main-section__experience">
         <div class="experience-title">
           <h2>온라인 체험</h2>
           <h4>전문가가 진행하고 모두 함께 즐기는 참여형 액티비티</h4>
         </div>
         <ul class="experience-list">
-          <li class="experience-item">
+          <li class="experience-item experience-item__first">
             <img src="./src/images/sec3-01.jpg" />
             <div class="experience-name">
               이탈리아 할머니와 함께 수제 파스타 만들기
@@ -226,7 +264,7 @@
               아르헨티나를 대표하는 예르바 마테차 알아보기
             </div>
           </li>
-          <li class="experience-item">
+          <li class="experience-item experience-item__last">
             <img src="./src/images/sec3-04.jpg" />
             <div class="experience-name">
               파리의 콘서트 피아니스트와 함꼐 음악을 들으며 명상하기
@@ -234,7 +272,7 @@
           </li>
         </ul>
       </div>
-      <div class="main__column">
+      <div class="main__column main-section__host-community">
         <div class="host-community-title">
           <h2>
             수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.
@@ -243,7 +281,7 @@
         <ul class="host-community-list">
           <li class="host-community-item">
             <img
-              src="https://a0.muscache.com/im/pictures/2a16f833-464c-446c-8d74-33eb8c643975.jpg?im_w=240"
+              src="https://a0.muscache.com/im/pictures/2a16f833-464c-446c-8d74-33eb8c643975.jpg?im_w=480"
               class="host-community-img"
             />
             <div class="host-community-name">숙소 호스트 되기</div>
@@ -251,7 +289,7 @@
 
           <li class="host-community-item">
             <img
-              src="https://a0.muscache.com/im/pictures/426a8116-0b94-4407-ae87-924126c81d78.jpg?im_w=240"
+              src="https://a0.muscache.com/im/pictures/426a8116-0b94-4407-ae87-924126c81d78.jpg?im_w=480"
               class="host-community-img"
             />
             <div class="host-community-name">온라인 체험 호스팅하기</div>
@@ -259,7 +297,7 @@
 
           <li class="host-community-item">
             <img
-              src="https://a0.muscache.com/im/pictures/a84e92bd-68e6-4ce2-9fdf-b2ce1a377f53.jpg?im_w=240"
+              src="https://a0.muscache.com/im/pictures/a84e92bd-68e6-4ce2-9fdf-b2ce1a377f53.jpg?im_w=480"
               class="host-community-img"
             />
             <div class="host-community-name">체험 호스팅하기</div>
@@ -267,5 +305,7 @@
         </ul>
       </div>
     </main>
+
+    <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>

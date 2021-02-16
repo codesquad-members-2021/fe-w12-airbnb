@@ -1,0 +1,16 @@
+.calendar {
+  width: 400px;
+  height: 350px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 15px 30px 15px 30px;
+}
+.calendar__header {
+  display: flex;
+}
+.calendar__date {
+  display: flex;
+}
+.calendar__index-container {
+  display: flex;
+}

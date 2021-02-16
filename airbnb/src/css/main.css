@@ -9,9 +9,11 @@ main {
   margin-top: 50px;
   padding-left: 150px;
   padding-right: 150px;
-  /* margin-left: 150px; */
 }
-.main__column:first-child {
+.main__column img {
+  border-radius: 10px;
+}
+.main-section__background {
   margin: 0;
   padding: 0;
 }
@@ -19,6 +21,7 @@ main {
 .main-background img {
   width: 100%;
   height: 823px;
+  border-radius: 0px;
 }
 .main-title {
   position: absolute;
@@ -39,7 +42,7 @@ main {
   height: 32px;
   background-color: white;
   border-radius: 7px;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 600;
   margin-top: 22px;
 }
@@ -49,19 +52,7 @@ main {
 .host-community-list {
   display: flex;
   flex-wrap: wrap;
-}
-.city-item,
-.stay-item,
-.experience-item,
-.host-community-item {
-  margin-right: 1%;
-}
-.city-item:nth-child(4),
-.city-item:last-child,
-.stay-item:last-child,
-.experience-item:last-child,
-.host-community-item:last-child {
-  margin-right: 0;
+  justify-content: space-between;
 }
 
 .city-item,
@@ -71,8 +62,7 @@ main {
 }
 /* city */
 .city-item img {
-  width: 64px;
-  border-radius: 10px;
+  height: 100%;
 }
 .city-item {
   height: 64px;
@@ -104,7 +94,7 @@ main {
 }
 
 /* experience */
-.main__column:nth-child(4) {
+.main-section__experience {
   background-color: black;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -117,20 +107,40 @@ main {
 .experience-title h4 {
   font-size: 1.2rem;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+}
+.experience-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+.experience-item__first {
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+.experience-item__last {
+  grid-column: 3/5;
+  grid-row: 2/3;
 }
 .experience-item img {
-  width: 400px;
+  width: 100%;
+  height: 100%;
 }
 
-.experience-item div {
+.experience-name {
   color: white;
   position: relative;
-  bottom: 20px;
+  left: 10px;
+  bottom: 16%;
+  font-size: 0.8rem;
+}
+.experience-item__first .experience-name {
+  bottom: 8%;
 }
 
 /* host-community */
-.main__column:last-child {
+.main-section__host-community {
   margin-bottom: 50px;
 }
 .host-community-title > h2 {
@@ -143,8 +153,6 @@ main {
 }
 .host-community-item img {
   width: 100%;
-  /* width: 523px; */
-  height: 347px;
 }
 .host-community-item .host-community-name {
   margin-top: 7px;
