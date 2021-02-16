@@ -1,5 +1,6 @@
 body,
 ul,
+li,
 button,
 fieldset,
 a,
@@ -12,12 +13,6 @@ button,
 input {
   color: black;
   cursor: pointer;
-}
-
-/* main sections*/
-
-li {
-  all: unset;
 }
 
 /* footer */

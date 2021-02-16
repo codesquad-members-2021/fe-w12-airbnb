@@ -6,23 +6,19 @@ p {
 }
 
 .main__houseType {
-  /* border: 1px solid green; */
   margin-bottom: 4rem;
   padding: 0 7%;
-  /* border: 1px solid red; */
 }
 
 .main__houseType .house {
   display: grid;
   gap: 1.2%;
   grid-template-columns: repeat(4, 1fr);
-  /* border: 1px solid blue; */
 }
 
 .main__houseType .house a {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid green; */
 }
 
 .main__houseType .house img {
