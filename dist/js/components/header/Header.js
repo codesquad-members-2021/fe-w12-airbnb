@@ -1,5 +1,5 @@
 import Component from "../../core/Component.js";
-import Menu from "./menu.js";
+import Menu from "./Menu.js";
 import Search from "./Search.js";
 
 export default class Header extends Component {
