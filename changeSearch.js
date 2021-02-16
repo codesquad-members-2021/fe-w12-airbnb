@@ -12,10 +12,17 @@ export default class ChangeSearch {
     }
     showSearchAccommo() {
         this.searchAccommo.classList.remove('hidden');
+        this.accommoAnchor.classList.add('header__selected');
+
         this.searchActivity.classList.add('hidden');
+        this.activityAnchor.classList.remove('header__selected');
     }
     showSearchActivity() {
         this.searchActivity.classList.remove('hidden');
+        this.activityAnchor.classList.add('header__selected');
+
         this.searchAccommo.classList.add('hidden');
+        this.accommoAnchor.classList.remove('header__selected');
+
     }
 }
