@@ -54,10 +54,7 @@ export default class Menu extends Component {
       $menuFloatBox.classList.toggle("show");
     });
     window.addEventListener("click", ({ target }) => {
-      if (
-        target === $menuMypage ||
-        $menuFloatBox.contains(target))
-        return;
+      if (target === $menuMypage || $menuFloatBox.contains(target)) return;
       $menuFloatBox.classList.remove("show");
     });
   }

@@ -47,16 +47,46 @@ object {
   pointer-events: none;
 }
 header .search {
-  display: flex;
-  align-items: center;
   justify-content: center;
   position: relative;
 }
-header .search-type label {
-  margin-right: 1rem;
+header .search-type {
+  display: flex;
+}
+header .search-type > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+header .search-type > div + div {
+  margin-left: 1rem;
+}
+header .search-type > div::after {
+  position: absolute;
+  top: 1.6rem;
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  transition: width 0.3s ease;
+  background: white;
+}
+
+header .search-type > div:hover {
+  color: rgb(221, 219, 219);
   cursor: pointer;
 }
-header .search-type > *:hover {
+.search-type > div:hover::after {
+  width: 0.2rem;
+}
+header .search-type > .selected::after {
+  width: 50%;
+}
+header .search-type label {
+  cursor: pointer;
+}
+header .search-type a:hover {
   color: rgb(221, 219, 219);
 }
 
@@ -147,7 +177,6 @@ header .searchBox-button button:hover {
 }
 header .menu {
   height: 100%;
-
   justify-content: flex-end;
 }
 header .menu nav {
@@ -193,13 +222,11 @@ header .menu-floatbox {
   top: 3.5rem;
   width: 120%;
   border-radius: 0.7rem;
-  height: 0;
-  max-height: 0;
+  max-height: 0rem;
   overflow: hidden;
   transition: max-height 2s ease-out;
 }
 header .menu-floatbox.show {
-  height: auto;
   max-height: 90rem;
 }
 header .menu-floatbox ul {

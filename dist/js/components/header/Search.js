@@ -5,19 +5,26 @@ export default class Search extends Component {
     this.state = { searchType: "STAYS" };
   }
   template() {
+    const { searchType } = this.state;
     return `
         <form>
             <fieldset>
                 <div class="search-type">
-                  <label for="STAYS">
-                    <input type="radio" id="STAYS"/ name="searchType">
-                    <span>숙소</span>
-                  </label>
-                  <label for="EXPERIENCES">
-                    <input type="radio" id="EXPERIENCES" name="searchType" />
-                    <span>체험</span>
-                  </label>
-                  <a href="">온라인 체험</a>
+                  <div class="typeBox ">
+                    <label for="STAYS">
+                      <input type="radio" id="STAYS"/ name="searchType">
+                      <span>숙소</span>
+                    </label>
+                  </div>
+                  <div class="typeBox ">
+                    <label for="EXPERIENCES">
+                      <input type="radio" id="EXPERIENCES" name="searchType" />
+                      <span>체험</span>
+                    </label>
+                  </div>
+                  <div class="typeBox">
+                    <a href=""><span>온라인 체험</span></a>
+                  </div>
                 </div>
             </fieldset>
             <div class="search-floatBox">
@@ -37,6 +44,12 @@ export default class Search extends Component {
     this.addEvent("click", ".search-type", ({ target }) => {
       if (target.tagName === "INPUT") {
         this.changeSearchType(target.id);
+        setTimeout(() => {
+          const { searchType } = this.state;
+          const afterTarget = document.querySelector(`#${searchType}`);
+          const typeBox = afterTarget.closest(".typeBox");
+          typeBox.classList.add("selected");
+        }, 100);
       }
     });
   }

@@ -20,11 +20,10 @@ export default class Header extends Component {
         </div>
         `;
   }
-  mounted(){
-      const $search = this.$target.querySelector('.search')
-      const $menu = this.$target.querySelector('.menu')
-      new Search($search)
-      new Menu($menu)
+  mounted() {
+    const $search = this.$target.querySelector(".search");
+    const $menu = this.$target.querySelector(".menu");
+    new Search($search);
+    new Menu($menu);
   }
-
 }
