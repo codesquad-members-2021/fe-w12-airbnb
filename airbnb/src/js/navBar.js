@@ -13,7 +13,7 @@ class NavBar {
   renderNavBar(e) {
     if (this.navBtn.contains(e.target)) {
       this.navBar.classList.toggle(HIDDEN);
-    } else if (e.target !== this.navBar) {
+    } else if (this.navBar.contains()) {
       this.navBar.classList.add(HIDDEN);
     }
   }
