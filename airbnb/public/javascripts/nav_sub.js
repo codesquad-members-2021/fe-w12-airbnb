@@ -14,7 +14,7 @@ const experienceOption = [
   { title: '날짜', content: '원하는 날짜를 입력하세요' },
 ];
 
-function makeHtml(option, style) {
+function makeHtml(option) {
   return function () {
     console.log(option);
     const html = option
@@ -34,24 +34,20 @@ function makeHtml(option, style) {
       </div>
     `;
     $searchBar.innerHTML = `${html} ${searchButton}`;
-    if (style === 'search-align-2') {
-      const $searchBarChild = document.querySelectorAll('.search div');
-      $searchBarChild.classList.remove('search-align-4');
-      $searchBarChild.classList.add(style);
-    } else {
-      const $searchBarChild = document.querySelectorAll('.search div');
-      $searchBarChild.classList.remove('search-align-2');
-      $searchBarChild.classList.add(style);
-    }
+
+    // 서치바 간격 조정을 위한 class 조정 중
+    // if (style === 'search-align-2') {
+    //   const $searchBarChild = document.querySelectorAll('.search div');
+    //   $searchBarChild.classList.toggle('search-align-4');
+    //   $searchBarChild.classList.toggle(style);
+    // } else {
+    //   const $searchBarChild = document.querySelectorAll('.search div');
+    //   $searchBarChild.classList.toggle('search-align-2');
+    //   $searchBarChild.classList.toggle(style);
+    // }
   };
 }
 
-document.addEventListener(
-  'DOMContentLoaded',
-  makeHtml(stayOption, 'search-align-4')
-);
-$stayButton.addEventListener('click', makeHtml(stayOption, 'search-align-4'));
-$experienceButton.addEventListener(
-  'click',
-  makeHtml(experienceOption, 'search-align-2')
-);
+document.addEventListener('DOMContentLoaded', makeHtml(stayOption));
+$stayButton.addEventListener('click', makeHtml(stayOption));
+$experienceButton.addEventListener('click', makeHtml(experienceOption));
