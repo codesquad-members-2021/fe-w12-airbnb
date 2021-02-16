@@ -56,8 +56,7 @@ export default class Menu extends Component {
     window.addEventListener("click", ({ target }) => {
       if (
         target === $menuMypage ||
-        [...$menuFloatBox.getElementsByTagName("*")].includes(target)
-      )
+        $menuFloatBox.contains(target))
         return;
       $menuFloatBox.classList.remove("show");
     });
