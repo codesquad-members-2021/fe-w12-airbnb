@@ -47,6 +47,7 @@ ul {
 /* -------------------HEADER-------------------*/
 
 .firstPage {
+  position: relative;
   height: 700px;
   background: url("/img/top_banner.webp") no-repeat center center;
   background-size: cover;
@@ -216,11 +217,11 @@ header .member_setting .menuAndAcountIcon i:last-child {
   width: 50%;
   display: flex;
   background-color: white;
-  position: absolute;
+  position: relative;
   height: 60px;
   border-radius: 40px;
   left: 25%;
-  top: 20%;
+  top: 70px;
   justify-content: space-between;
 }
 .main_reserve_container li {
@@ -243,6 +244,17 @@ header .member_setting .menuAndAcountIcon i:last-child {
 
 .main_reserve_container li:hover {
   background-color: #ddd;
+}
+
+.main_reserve_checkInOut {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main_reserve_container_line {
+  border-right: solid 1px #ddd;
+  height: 32px;
+  align-self: center;
 }
 
 /* ------------------SECTION PARTS---------------------- */
