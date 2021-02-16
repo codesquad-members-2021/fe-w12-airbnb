@@ -360,11 +360,6 @@ a {
   justify-content: center;
 }
 
-.space--box {
-  display: block;
-  height: fit-content;
-}
-
 .phrase {
   padding-bottom: 16px;
 }
@@ -375,6 +370,7 @@ a {
 }
 
 .space--list {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
@@ -395,7 +391,7 @@ a {
 .space > div > span {
   color: #222;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 /* SECTION: Online */
@@ -470,35 +466,29 @@ a {
   grid-column: 3 / 5;
 }
 
-.online__activity__box img {
-  width: 100%;
-}
-
 .online__activity__box {
-}
-
-.activity--image {
-  outline: 1px solid green;
   position: relative;
 }
 
-.activity--bottom-box {
-  /* background: #232323; */
-  width: 100%;
-  background: yellow;
-  box-sizing: border-box;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  outline: 1px solid red;
-  height: 30px;
-  position: absolute;
-  bottom: 0;
+.activity--image {
+  height: 100%;
 }
 
+.activity--image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+/* 일단 보이기에 좋게 넣어놓았다.. 나중에 보자 ㅠㅠ! */
 .activity--description {
   color: #fff;
   font-weight: 400;
   line-height: 1.4;
+  position: relative;
+  display: inline-block;
+  top: -60px;
+  left: 10px;
 }
 
 /* SECTION: Membership */
