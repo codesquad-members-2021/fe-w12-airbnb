@@ -1,3 +1,4 @@
+// 오른쪽 상단 버튼 눌렀을 때
 const dropMenu = document.querySelector(".drop-menu");
 
 dropMenu.addEventListener("click", clickHandler);
@@ -24,15 +25,20 @@ function clickHandler() {
     dropContent.classList.toggle('drop-show')
 }
 
-// 체험 눌렀을 때
+
 const search = document.querySelector(".search");
 const menuList = document.querySelectorAll(".menu-list");
 const menuListBtns = document.querySelectorAll(".menu-list button");
+
+
+// 체험 눌렀을 때
 const exprienceBtn = menuListBtns[1];
 
 exprienceBtn.addEventListener("click", exprienceBtnHandler);
 
 function exprienceBtnHandler() {
+    exprienceBtn.classList.add("clicked")
+    roomsBtn.classList.remove("clicked")
     let template = `
         <div>
             <span>위치</span><br>
@@ -55,6 +61,8 @@ const roomsBtn = menuListBtns[0];
 roomsBtn.addEventListener("click", roomBtnHandler);
 
 function roomBtnHandler() {
+    roomsBtn.classList.add("clicked")
+    exprienceBtn.classList.remove("clicked")
     let template = `
     <div>
         <span>위치</span><br>
