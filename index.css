@@ -107,8 +107,11 @@ a {
   align-items: center;
 }
 
-.header__container--centerbox > ul > li {
+.header__container--centerbox > ul .button {
   cursor: pointer;
+}
+.header__container--centerbox > ul .button--default {
+  cursor: default;
 }
 
 .header__container--centerbox > ul > li .menu {
@@ -120,25 +123,36 @@ a {
   align-items: center;
 }
 
-/* .header__container--centerbox > ul > li .menu:hover {
+.header__container--centerbox > ul > li .menu__hover {
   color: rgba(255, 255, 255, 0.8);
-} */
+  height: 20px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .header__container--centerbox > ul > li .low-bar {
-  background: #fff;
-  width: 0;
   height: 2px;
   display: block;
   margin: 0 auto;
+}
+
+.header__container--centerbox > ul > li .low-bar-transparent {
+  background: transparent;
+  width: 0px;
   transition: 0.2s;
 }
 
 .header__container--centerbox > ul > li .low-bar-long {
   background: #fff;
   width: 18px;
-  height: 2px;
-  display: block;
-  margin: 0 auto;
+  transition: 0.2s;
+}
+.header__container--centerbox > ul > li .low-bar-short {
+  background: #fff;
+  width: 4px;
+  transition: 0.2s;
 }
 
 .header__container--rightbox {
@@ -190,6 +204,14 @@ a {
   justify-content: center;
 }
 
+.reservation__container--activity {
+  min-width: 850px;
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  display: none;
+}
+
 .reservation__label--box {
   background: #fff;
   display: flex;
@@ -225,6 +247,7 @@ a {
   background: #fff;
   padding: 14px 24px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .middle__bar {
@@ -253,6 +276,7 @@ a {
   height: 48px;
   border-radius: 50px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .search__circle > svg {
