@@ -27,8 +27,31 @@
           <a href="http://">온라인 체험</a>
         </li>
       </ul>
-      <div class="search-bar">
-        
+      <div class="search-bar display-flex">
+        <button class="search-bar__location">
+          <div class="search-title">위치</div>
+          <label><input type="text" placeholder="어디로 여행가세요?"></input></label>
+        </button>
+        <div class="div-line-vertical"></div>
+        <button class="search-bar__checkin">
+          <div class="search-title">체크인</div>
+          <div class="search-description">날짜 추가</div>
+        </button>
+        <div class="div-line-vertical"></div>
+        <button class="search-bar__checkout">
+          <div class="search-title">체크아웃</div>
+          <div class="search-description">날짜 추가</div>
+        </button>
+        <div class="div-line-vertical"></div>
+        <button class="search-bar__guests display-flex">
+          <div class="search-bar__last-container">
+            <div class="search-title">인원</div>
+            <div class="search-description">게스트 추가</div>
+          </div>
+          <div class="search-icon display-flex">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
+          </div>
+        </button>
       </div>
     </div>
     <div class="nav-container">

@@ -6,6 +6,7 @@
   --header-brand-color: rgb(255 56 92);
   --white: rgba(255, 255, 255, 1);
   --dark-gray: rgb(34, 34, 34);
+  --medium-dark-gray: rgb(65, 65, 65);
   --medium-gray: rgb(200, 200, 200);
   --light-gray: rgb(245, 245, 245);
   --border: 1px solid rgb(221 221 221);
@@ -26,8 +27,16 @@ button {
   font-family: 'Noto Sans KR', sans-serif;
   padding: 0;
 }
-button:focus {
+button:focus,
+input:focus {
   outline-style: none;
+}
+
+input {
+  border-style: none;
+  background-color: transparent;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 0;
 }
 
 .display-flex {
@@ -174,6 +183,78 @@ button:focus {
   border: var(--border);
   border-radius: 32px;
   box-shadow: 1px 1px 25px rgb(0 0 0 / 17%);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar > button {
+  border-radius: 32px;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.search-bar > button:hover {
+  background-color: var(--light-gray);
+}
+.search-bar > button > div,
+.search-bar > button > label > input {
+  text-align: left;
+}
+.search-bar > button > label > input {
+  width: 100%;
+}
+
+.search-bar__location {
+  width: 35%;
+  padding: 14px 32px;
+}
+.search-bar__checkin,
+.search-bar__checkout {
+  width: 20%;
+  padding: 14px 24px;
+}
+.search-bar__guests {
+  width: 25%;
+  padding: 14px 10px 14px 24px;
+}
+
+.div-line-vertical {
+  width: 1px;
+  height: 30px;
+  background-color: rgb(221 221 221); /* border color와 동일 */
+  align-self: center;
+}
+
+.search-icon {
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  background: var(--header-brand-color);
+  color: rgb(255 255 255);
+  border-radius: 25px;
+}
+
+.search-icon:hover {
+  background-color: #dc1062;
+  transition: ease-in-out 0.1s;
+}
+.search-icon:not(:hover) {
+  transition: ease-in-out 0.1s;
+}
+
+.search-title {
+  color: var(--dark-gray);
+  font-weight: 600;
+  font-size: 12px;
+  padding-bottom: 2px;
+}
+
+input::placeholder,
+.search-description {
+  color: var(--medium-dark-gray);
+  font-weight: 300;
+  font-size: 14px;
 }
 
 /* main banner */
