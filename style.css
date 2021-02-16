@@ -135,48 +135,26 @@ header > nav {
   cursor: pointer;
 }
 
+#center-menu > span::before {
+  content: '';
+  transform: scaleX(0);
+  width: 18px;
+  height: 2px;
+  position: absolute;
+  bottom: -50%;
+  left: calc(50% - 9px);
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.2s ease;
+}
+
 #center-menu > input:checked + span::before {
   transform: scaleX(1);
+  transition: transform 0.2s ease;
 }
 
-#center-menu > span::before {
-  transform: scaleX(0);
-  content: '';
-  display: block;
-  width: 60%;
-  height: 2px;
-  position: absolute;
-  bottom: -50%;
-  left: 20%;
-  background-color: rgb(255, 255, 255);
-}
-
-#center-menu > span::after {
-  z-index: 5;
-}
-
-#center-menu > input:not(:checked) + span::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  position: absolute;
-  bottom: -50%;
-  left: 50%;
+#center-menu > input:not(:checked) + span:hover::before {
+  transform: scaleX(0.222222);
   background-color: rgb(207, 217, 266);
-  transition: width 0.2s, left 0.2s;
-}
-
-#center-menu > input:not(:checked) + span:hover::after {
-  width: 6px;
-  left: calc(50% - 3px);
-}
-
-#center-menu > input:not(:checked) + span:focus::after {
-  width: 60%;
-  height: 1.5px;
-  left: 20%;
-  background-color: rgb(255, 255, 255);
 }
 
 #search-bar {
