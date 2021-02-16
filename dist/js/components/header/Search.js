@@ -1,5 +1,9 @@
 import Component from "../../core/Component.js";
+import SearchBox from "./SearchBox.js";
 export default class Search extends Component {
+  setup() {
+    this.state = { searchType: "STAYS" };
+  }
   template() {
     return `
         <form>
@@ -15,50 +19,28 @@ export default class Search extends Component {
                   </label>
                   <a href="">온라인 체험</a>
                 </div>
-              </fieldset>
-              <div class="search-floatBox">
-                <div class="searchBox">
-                  <div class="searchBox-location">
-                    <label class="searchBox-section" for="search-location">
-                      <div>위치</div>
-                      <input
-                        type="text"
-                        placeholder="어디로 여행가세요?"
-                        id="search-location"
-                      />
-                    </label>
-                  </div>
-                  <div class="verticalBar"></div>
-                  <div class="searchBox-date">
-                    <div class="searchBox-section">
-                      <div>체크인</div>
-                      <div>날짜 추가</div>
-                    </div>
-                    <div class="verticalBar"></div>
-                    <div class="searchBox-section">
-                      <div>체크아웃</div>
-                      <div>날짜 추가</div>
-                    </div>
-                  </div>
-                  <div class="verticalBar"></div>
-                   <div class="searchBox-person">
-                    <div class="searchBox-section">
-                      <div>인원</div>
-                      <div>게스트 추가</div>
-                    </div>
-                  </div>
-                  <div class="searchBox-button">
-                    <button>
-                      <object
-                        data="./img/search.svg"
-                        type="image/svg+xml"
-                        aria-label="searchBtn"
-                      ></object>
-                    </button>
-                  </div>
-                </div>
+            </fieldset>
+            <div class="search-floatBox">
+              <div class="searchBox"></div>
             </div>
         </form>
         `;
+  }
+  mounted() {
+    const { searchType } = this.state;
+    const $searchBox = this.$target.querySelector(".searchBox");
+    new SearchBox($searchBox, {
+      searchType,
+    });
+  }
+  setEvent() {
+    this.addEvent("click", ".search-type", ({ target }) => {
+      if (target.tagName === "INPUT") {
+        this.changeSearchType(target.id);
+      }
+    });
+  }
+  changeSearchType(searchType) {
+    this.setState({ searchType });
   }
 }

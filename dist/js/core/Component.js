@@ -21,11 +21,11 @@ export default class Component {
   }
   setEvent() {}
   setState(newState) {
-    this.state = [...this.state, ...newState];
-    this.render()
+    this.state = {...this.state, ...newState};
+    this.render();
   }
   addEvent(eventType, selector, callback) {
-    const children = [...this.$target.querySelector(selector)];
+    const children = [...this.$target.querySelectorAll(selector)];
     const isTarget = (target) => {
       return children.includes(target) || target.closest(selector);
     };
