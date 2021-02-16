@@ -46,6 +46,6 @@ if (this.targetEl.classList.contains("toggleBtn1"))
 //*TODO: 페이지 로드하면 체험버튼이 클릭되어있는 상태로 표시하기->클릭된상태에서는 MOUSEHOVER효과적용X
 
 -tabindex
-
    -
-   closest
+   closest -
+   insertAdjacentHTML / appendChild / insertAdjacentElement

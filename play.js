@@ -5,48 +5,98 @@ if (!Element.prototype.matches) {
 }
 
 //* tabUI
-class TabUI {
-   constructor(targetEl) {
-      this.targetEl = targetEl;
-      this.body = document.querySelector("body");
+
+class BtnUI {
+   constructor(el) {
+      this.el = el;
+
    }
 
-   onClickEvents() {
-      this.targetEl.addEventListener("click", () => {
-         console.log(!this.targetEl.matches(".hide_show"))
-         if (this.targetEl.matches(".toggleBtn1") && (!this.targetEl.matches(".hide_show"))) {
-            this.showClickHandler(toggleMenu[1]);
-            this.body.addEventListener("mouseup", this.hideClickHandler1)
-         }
-         if (this.targetEl.matches(".toggleBtn1") && this.targetEl.matches(".hide_show")) {
-            this.targetEl.addEventListener("mouseup", this.hideClickHandler1)
-         }
-         if (this.targetEl.matches("toggleBtn2")) {
-            this.showClickHandler(toggleMenu[0]);
-            this.body.addEventListener("mouseup", this.hideClickHandler2)
+   makeMenu() {
+      const menuBox = document.createElement('div');
+      menuBox.id = "menuBox";
+      menuBox.classList.add('toggleMenu')
+      menuBox.style.display = "none"
+      menuBox.innerHTML = `<ul>
+      <li><a id="sign_up" href="#">회원 가입</a></li>
+      <li><a href="#">로그인</a></li>
+      <hr>
+      <li><a href="#">숙소 호스트 되기</a></li>
+      <li><a href="#">체험 호스팅하기</a></li>
+      <li><a href="#">도움말</a></li>
+      </ul>`;
+
+      this.el.insertAdjacentElement("afterend", menuBox);
+
+      document.body.addEventListener("click", (evt) => {
+         let toggleMenuArea = evt.target.closest('.toggleMenu');
+         let toggleBtnArea = evt.target.closest('.toggleBtn');
+
+         if (toggleBtnArea && menuBox.style.display === 'none') {
+            menuBox.style.display = 'block';
+         } else if (toggleBtnArea && menuBox.style.display === 'block') {
+            menuBox.style.display = 'none';
+         } else if (!toggleBtnArea && !toggleMenuArea && menuBox.style.display === "block") {
+            menuBox.style.display = 'none';
          }
       })
    }
-
-   showClickHandler(target) {
-
-      target.classList.remove("hide_show");
-   }
-
-   hideClickHandler1() {
-      toggleMenu[1].classList.add("hide_show");
-   }
-
-   hideClickHandler2() {
-      toggleMenu[0].classList.add("hide_show");
-   }
-
 }
-const toggleBtn1 = new TabUI(document.querySelector(".toggleBtn1"));
-const toggleBtn2 = new TabUI(document.querySelector(".toggleBtn2"));
+
+const toggleBtn1 = document.querySelector(".toggleBtn1")
+const btnCtrl = new BtnUI(toggleBtn1);
+btnCtrl.makeMenu();
+
+document.addEventListener("click", (evt) => {
+   const evtTarget = evt.target.closest(".toggleBtn1");
+})
+
 const toggleMenu = document.querySelectorAll(".toggleMenu");
-toggleBtn1.onClickEvents();
-toggleBtn2.onClickEvents();
+
+
+
+// class TabUI {
+//    constructor(targetEl) {
+//       this.targetEl = targetEl;
+//       this.body = document.querySelector("body");
+//    }
+
+//    onClickEvents() {
+//       this.targetEl.addEventListener("click", () => {
+//          console.log(!this.targetEl.matches(".hide_show"))
+//          if (this.targetEl.matches(".toggleBtn1") && (!this.targetEl.matches(".hide_show"))) {
+//             this.showClickHandler(toggleMenu[1]);
+//             this.body.addEventListener("mouseup", this.hideClickHandler1)
+//          }
+//          if (this.targetEl.matches(".toggleBtn1") && this.targetEl.matches(".hide_show")) {
+//             this.targetEl.addEventListener("mouseup", this.hideClickHandler1)
+//          }
+//          if (this.targetEl.matches("toggleBtn2")) {
+//             this.showClickHandler(toggleMenu[0]);
+//             this.body.addEventListener("mouseup", this.hideClickHandler2)
+//          }
+//       })
+//    }
+
+//    showClickHandler(target) {
+
+//       target.classList.remove("hide_show");
+//    }
+
+//    hideClickHandler1() {
+//       toggleMenu[1].classList.add("hide_show");
+//    }
+
+//    hideClickHandler2() {
+//       toggleMenu[0].classList.add("hide_show");
+//    }
+
+// }
+// const toggleBtn1 = new TabUI(document.querySelector(".toggleBtn1"));
+// const toggleBtn2 = new TabUI(document.querySelector(".toggleBtn2"));
+// const toggleMenu = document.querySelectorAll(".toggleMenu");
+// toggleBtn1.onClickEvents();
+// toggleBtn2.onClickEvents();
 
 
 
