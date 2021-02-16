@@ -16,8 +16,8 @@
     <title>스윙비엔비</title>
   </head>
   <body>
-    <header class="CVD19_banner_box">
-      <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest">
+    <header class="banner">
+      <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest" target="blank">
         <u>에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요</u>
       </a>
     </header>
@@ -42,9 +42,9 @@
             </div>
 
             <div class="header__menu">
-              <span>숙소</span>
-              <span>체험</span>
-              <span>온라인 체험</span>
+              <span class="menu--rooms">숙소</span>
+              <span class="menu--experiences">체험</span>
+              <span><a href="https://www.airbnb.co.kr/s/experiences/online" target="blank">온라인 체험</a></span>
             </div>
 
             <div class="header__my-info">
@@ -119,12 +119,20 @@
                 </a>
               </span>
             </div>
+            <div id="tabUI" class="tabUI__hidden" tabindex="-1" onblur="setTimeout(dropdownClose, 100)">
+                <div>회원 가입</div>
+                <div>로그인</div>
+                <div></div>
+                <div>숙소 호스트 되기</div>
+                <div>체험 호스팅하기</div>
+                <div>도움말</div>
+            </div>
           </div>
         </div>
-        <div class="header__search">
+        <div id="header__search--rooms" class="rooms__show">
           <ul>
             <div>위치</div>
-            <div>어디로 여행가세요?</div>
+            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" /></div>
           </ul>
           <ul>
             <div>체크인</div>
@@ -135,13 +143,32 @@
             <div>날짜 추가</div>
           </ul>
           <ul>
-            <div>인원</div>
-            <div>게스트 추가</div>
-          </ul>
-          <ul>
-            <button class="search-button">
+            <span>
+              <div>인원</div>
+              <div>게스트 추가</div>
+            </span>
+            <span>
+              <button class="search-button">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: #FFF; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
               </button>
+            </span>
+          </ul>
+        </div>
+        <div id="header__search--experiences" class="experiences__hidden">
+          <ul>
+            <div>위치</div>
+            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" /></div>
+          </ul>
+          <ul>
+            <span>
+              <div>날짜</div>
+              <div>원하는 날짜를 입력하세요.</div>
+            </span>
+            <span>
+              <button class="search-button">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: #FFF; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
+              </button>
+            </span>
           </ul>
         </div>
         <div class="header__phrase">
@@ -459,5 +486,8 @@
         </div>
       </div>
     </footer>
+
+    <script src="/fe-w12-airbnb/js/tabUI.js"></script>
+    <script src="/fe-w12-airbnb/js/tabMenu.js"></script>
   </body>
 </html>
