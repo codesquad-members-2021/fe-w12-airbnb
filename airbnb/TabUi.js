@@ -7,8 +7,8 @@ class TabUI {
   }
 
   initEvent() {
-    this.$tabButton.addEventListener('click', this.toggleButton.bind(this));
-    document.addEventListener('click', (event) => this.hideTemplate(event))
+    this.$tabButton.addEventListener('click', this.toggleButtonHandler.bind(this));
+    document.addEventListener('click', this.hideTemplateHandler.bind(this));
   }
 
   template() {
@@ -30,13 +30,13 @@ class TabUI {
     this.$tabButton.insertAdjacentHTML('afterend', this.template());
   }
 
-  hideTemplate({ target }) {
+  hideTemplateHandler({ target }) {
     if (!target.closest(`#${this.$tabButton.id}`) && !target.closest('.tap_ui')) {
       _.$('.tap_ui').classList.add('display_none');
     }
   }
 
-  toggleButton() {
+  toggleButtonHandler() {
     _.$('.tap_ui').classList.toggle('display_none');
   }
 }
