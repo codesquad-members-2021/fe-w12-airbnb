@@ -5,8 +5,10 @@ const reference = {
     userAnchor: document.querySelector('.header__user').firstElementChild,
     userLayer: document.querySelector('.user_menu'),
     body: document.querySelector('body'),
-    navAccommo: document.querySelector('header__accommo'),
-    navActivity: document.querySelector('header__activity')
+    accommoAnchor: document.querySelector('.header__accommo'),
+    activityAnchor: document.querySelector('.header__activity'),
+    searchAccommo: document.querySelector('.search__accommo'),
+    searchActivity: document.querySelector('.search__activity')
 }
 
 const userBtnLayer = new UserBtnLayer(reference);
