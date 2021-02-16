@@ -45,6 +45,15 @@ ul {
     margin: 0 0 20px 20px;
 }
 
+
+.displayInit {
+    display: '';
+}
+
+.displayNone {
+    display: none;
+}
+
 /* 전체 Wrapper */
 .all-wrapper {
     width: 1900px;
