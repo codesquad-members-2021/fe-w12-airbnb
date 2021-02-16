@@ -1,5 +1,5 @@
-import days from "./daysByMonth.js";
-
+import days from './daysByMonth.js';
+const HIDDEN = 'hidden';
 class Calendar {
   constructor(date = new Date()) {
     this.date = date;
@@ -38,12 +38,12 @@ class Calendar {
     else return `<div class='day'></div>`;
   }
   makeWeekDiv(week) {
-    let days = "";
+    let days = '';
     week.forEach((day) => (days += this.makeDayDiv(day)));
     return `<div class='week'>${days}</div>`;
   }
   makeMonthDiv(month) {
-    let weeks = "";
+    let weeks = '';
     month.forEach((week) => (weeks += this.makeWeekDiv(week)));
     return `<div class='month'>${weeks}</div>`;
   }
@@ -69,4 +69,25 @@ class Calendar {
   }
 }
 
-// export default Calendar;
+export class CalendarView {
+  constructor(queryForm, queryDate, calendar) {
+    this.queryForm = queryForm;
+    this.queryDate = queryDate;
+    this.calendar = calendar;
+  }
+  init() {
+    this.onEvent();
+  }
+  onEvent() {
+    document.addEventListener('click', this.renderCalendar.bind(this));
+  }
+  renderCalendar(e) {
+    if (this.calendar.contains(e.target)) {
+      return;
+    } else if (this.queryDate.contains(e.target)) {
+      this.calendar.classList.toggle(HIDDEN);
+    } else {
+      this.calendar.classList.add(HIDDEN);
+    }
+  }
+}
