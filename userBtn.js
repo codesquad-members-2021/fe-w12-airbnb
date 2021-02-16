@@ -1,19 +1,27 @@
 class UserBtnLayer {
-    constructor({userBtn, userLayer}) {
-        this.userBtn = userBtn;
+    constructor({userAnchor, userLayer, body}) {
+        this.userBtn = userAnchor;
         this.userLayer = userLayer;
+        this.body = body;
         this.setEvent();
-    }
+    }          
     setEvent() {
-        this.userBtn.addEventListener('click', this.showLayer.bind(this));
+        this.body.addEventListener('click', this.toggleLayer.bind(this));
     }
-    showLayer() {
-        this.userLayer.classList.toggle('hidden');
+    toggleLayer({target}) {
+        const btnIsClicked = target.closest('a') == this.userBtn;
+        const layerHasClass = this.userLayer.classList.contains('hidden');
+        if(btnIsClicked) {
+            this.userLayer.classList.toggle('hidden');
+        } else if(!layerHasClass) {
+            this.userLayer.classList.add('hidden');
+        }
     }
 }
 
 const reference = {
-    userBtn: document.querySelector('.header__user'),
-    userLayer: document.querySelector('.user_menu')
+    userAnchor: document.querySelector('.header__user').firstElementChild,
+    userLayer: document.querySelector('.user_menu'),
+    body: document.querySelector('body')
 }
 const userBtnLayer = new UserBtnLayer(reference);
