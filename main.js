@@ -49,6 +49,8 @@ class MenuChildUI extends ChildUI {
     evt.target.classList.add('cursor-default');
     evt.target.classList.remove('color-gray');
 
+    console.log(evt.target.innerText);
+
     document.querySelector('#search-bar').dispatchEvent(
       new CustomEvent('change', {
         detail: {
@@ -71,14 +73,15 @@ class SearchBarUI extends ContainerUI {
 
   _onChange(evt) {
     const searchBar = document.querySelector('#search-bar')
-    const removable = document.querySelector('#search-bar > .removable');
-
+    
     // tmp
     if (this.backupInnerHTML) {
       searchBar.innerHTML = this.backupInnerHTML;
       searchBar.classList.remove('not-supported');
       this.backupInnerHTML = null;
     }
+
+    const removable = document.querySelector('#search-bar > .removable');
 
     switch (evt.detail.text) {
       case '숙소':
