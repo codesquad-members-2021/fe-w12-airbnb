@@ -1,9 +1,9 @@
-import TabUI from './tabUI.js';
+import ProfileMenu from './profileMenu.js';
 
 const showProfileTab = () => {
   const navProfileBtn = document.querySelector('.nav-btn.profile');
-  const tabUI = new TabUI(navProfileBtn);
-  tabUI.onEvents();
+  const profileMenu = new ProfileMenu(navProfileBtn);
+  profileMenu.onEvents();
 };
 
 const main = () => {
