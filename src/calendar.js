@@ -27,6 +27,7 @@ class Calendar {
   setCalendarData(year, month) {
     let calHtml = `<div class="month month__${month}">`;
     calHtml += `<p>${year}년 ${month}월</p>`;
+    // calHtml += `<div class="calendar__title"><p>${year}년 ${month}월</p></div>`;
     calHtml += `<div class="calendar__content">`;
     calHtml = this.insertDayName(calHtml);
     const today = new Date();
