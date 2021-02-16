@@ -76,7 +76,9 @@ header .service {
   display: table-cell;
   vertical-align: middle;
 }
-.menu__btn,
+.menu__rooms,
+.menu__experience,
+.menu__online,
 .service__btn {
   color: white;
 }
@@ -128,9 +130,10 @@ nav .menu li,
 
 /* search  */
 /* ---------● 검색창 ●--------- */
+
 .search,
 .search-sub {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   background-color: white;
@@ -140,6 +143,16 @@ nav .menu li,
   border-radius: 50px;
   list-style: none;
 }
+.search {
+  display: flex;
+}
+.search.active {
+  display: none;
+}
+.search-sub.active {
+  display: flex;
+}
+
 .search li,
 .search-sub li {
   /* background-color: wheat; */
