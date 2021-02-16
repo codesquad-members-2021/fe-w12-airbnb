@@ -1,4 +1,4 @@
-class UserBtnLayer {
+export default class UserBtnLayer {
     constructor({userAnchor, userLayer, body}) {
         this.userBtn = userAnchor;
         this.userLayer = userLayer;
@@ -18,10 +18,3 @@ class UserBtnLayer {
         }
     }
 }
-
-const reference = {
-    userAnchor: document.querySelector('.header__user').firstElementChild,
-    userLayer: document.querySelector('.user_menu'),
-    body: document.querySelector('body')
-}
-const userBtnLayer = new UserBtnLayer(reference);
