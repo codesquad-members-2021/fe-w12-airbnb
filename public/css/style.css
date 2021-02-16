@@ -224,6 +224,7 @@ a {
     font-weight: var(--font-weight-bold);
     border: 1px solid transparent;
     border-right-color: var(--grey);
+    cursor:pointer;
 }
 
 .info-input-form .labels-input input {
@@ -233,6 +234,21 @@ a {
     background: none;
     outline: 0;
     border: 0;
+}
+
+.check-inout-hidden {
+    display: none;
+}
+
+.input-date-hidden {
+    display: none;
+}
+
+.input-date .info-inputs{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    cursor:pointer;
 }
 
 #no-border{
