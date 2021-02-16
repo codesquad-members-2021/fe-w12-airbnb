@@ -1,4 +1,4 @@
-export default class ProfileMenu {
+export class ProfileMenu {
   constructor(targetEl) {
     this.targetEl = targetEl;
   }
