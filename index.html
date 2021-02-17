@@ -100,7 +100,7 @@
 
         <nav class="section">
           <div class="reservation__container">
-            <div class="reservation__box">
+            <div class="reservation__box--airbnb">
               <div class="reservation__label--box">
                 <label class="leftside__radius__box" for="location" type="button">
                   <div class="reservation__menu__box">
@@ -130,6 +130,40 @@
                   <div class="reservation__menu__box">
                     <div>인원</div>
                     <input placeholder="게스트 추가" id="person" />
+                  </div>
+                  <div class="search__circle">
+                    <svg
+                      viewBox="0 0 32 32"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      role="presentation"
+                      focusable="false"
+                      style="height: 16px; width: 16px; stroke: white; stroke-width: 4"
+                    >
+                      <g fill="none">
+                        <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="reservation__box--activity">
+              <div class="reservation__label--box">
+                <label class="leftside__radius__box--activity" for="location" type="button">
+                  <div class="reservation__menu__box">
+                    <div>위치</div>
+                    <input placeholder="어디로 여행가세요?" id="location" />
+                  </div>
+                </label>
+
+                <div class="middle__bar"></div>
+
+                <label class="rightside__radius__box--activity" for="date" type="button">
+                  <div class="reservation__menu__box">
+                    <div>날짜</div>
+                    <input placeholder="원하는 날짜를 입력하세요." id="date" />
                   </div>
                   <div class="search__circle">
                     <svg
