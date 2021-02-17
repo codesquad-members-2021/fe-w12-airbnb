@@ -23,7 +23,6 @@ class ViewTab {
         this.userTab = userTab
     }
 
-
     resetMenu() {
         _.CR(this.houseMenu, 'u')
         _.CR(this.activityMenu, 'u')
@@ -36,7 +35,7 @@ class ViewTab {
         _.CA(this.houseMenu, 'u')
         _.CR(this.searchHouse, 'transparent')
     }
-    //같은구조긴 한데 중복제거 어떻게 할까
+
     clickActivity() {
         this.resetMenu()
         _.CA(this.activityMenu, 'u')
@@ -54,25 +53,19 @@ class ViewTab {
 }
 
 class ViewCalender {
-    constructor(calenderTab) {
+    constructor(calenderTab, calenderTitle, calenderContent) {
         this.calenderTab = calenderTab;
-        //임시
-
-        // 해결할 것 : 4주나 6주 차지하는 달일때 heigth값 조정
-        // append쪽 분화
-        // render를 toggle쪽에?
-        // 오늘 이전 글자 반투명하게
-        // < > 버튼은 makeCalender(month-1 / +1) -> 이러면 firstDay 계산도 저쪽에서? 
-        // 아에 render(month조정 = 0)으로 인자 받게 해서 
-        // render(-2), render(-3) 하며 year month계산을 안에서 하는식으로?
+        this.calenderTitle = calenderTitle;
+        this.calenderContent = calenderContent;
     }
-    
+
     currentMove = 0;
 
-    toggleCalender() {
+    toggleCalender(e) {
         _.CT(this.calenderTab, 'transparent')
         this.render()
         this.currentMove = 0
+        e.stopPropagation()
     }
 
     render(modifier = 0) {
@@ -84,34 +77,32 @@ class ViewCalender {
         const [year, month] = this.checkMonth(currentYear, currentMonth)
 
         const firstDay = new Date(year, month, 1).getDay()
-        const sumDay = new Date(year, month+1, 0).getDate()
+        const sumDay = new Date(year, month + 1, 0).getDate()
         const calender = this.makeCalender(firstDay, sumDay)
 
         this.appendCalender(year, month, calender)
     }
-    
+
     makeCalender(firstDay, sumDay) {
         let html = '<tr>'
-        
+
         for (let i = 0; i < firstDay; i++)
-        html += '<td></td>'
-        
+            html += '<td></td>'
+
         for (let i = 0; i < sumDay; i++) {
             if ((firstDay + i) % 7 === 0)
-            html += '</tr><tr>'
+                html += '</tr><tr>'
             html += `<td>${i + 1}</td>`
         }
-        
+
         html += '</tr>'
         return html
     }
 
     appendCalender(year, month, calender) {
-        const foo = _.$('tbody')
-        foo.innerHTML = calender
+        this.calenderContent.innerHTML = calender
 
-        const bar = _.$('.main__calender--month')
-        bar.innerHTML = `${year}년 ${month + 1}월`
+        this.calenderTitle.innerHTML = `${year}년 ${month + 1}월`
     }
 
     checkMonth(year, month) {
@@ -121,51 +112,57 @@ class ViewCalender {
         if (month > 11) return this.checkMonth(year + 1, month - 12)
     }
 
+    hideCalender() {
+        _.CA(this.calenderTab, 'transparent')
+    }
+
 }
 
 class Controller {
-    constructor(DOM) {
-        //이렇게 기괴하게;; 선언하는게 맞나? 더 깔끔한 방법 모색할 것
-        [this.houseMenu, this.activityMenu, this.searchHouse, this.searchActivity, this.userMenu, this.userTab, this.calenderTab, this.calenderTriggers] = DOM
-        this.tab = new ViewTab(...DOM)
-        this.calender = new ViewCalender(this.calenderTab)
-        this.init()
+
+    searchHouse = _.$('.search-house')
+    searchActivity = _.$('.search-activity')
+    houseMenu = _.$('.main__site-menu--house')
+    activityMenu = _.$('.main__site-menu--activity')
+
+    userMenu = _.$('.main__user-menu--user')
+    userTab = _.$('.main__user--tab')
+
+
+    calenderTab = _.$('.main__calender')
+    calenderTitle = _.$('.main__calender--month')
+    calenderContent = _.$('tbody')
+    calenderTriggers = _.$A('.calender-trigger')
+
+    viewTab = new ViewTab(this.houseMenu, this.activityMenu, this.searchHouse, this.searchActivity, this.userMenu, this.userTab)
+    viewCalender = new ViewCalender(this.calenderTab, this.calenderTitle, this.calenderContent)
+
+    leftBtn = _.$('.main__calender--move-left')
+    rightBtn = _.$('.main__calender--move-right')
+    
+    addTabEvent() {
+        _.E(this.houseMenu, 'click', this.viewTab.clickHouse.bind(this.viewTab))
+        _.E(this.activityMenu, 'click', this.viewTab.clickActivity.bind(this.viewTab))
+        _.E(document, 'click', this.viewTab.hideUserTab.bind(this.viewTab))
+        _.E(this.userMenu, 'click', this.viewTab.toggleUserTab.bind(this.viewTab))
+        _.E(this.userTab, 'click', (e) => e.stopPropagation())
     }
 
+    addCalenderEvent() {
+        this.calenderTriggers.forEach((element) => _.E(element, 'click', this.viewCalender.toggleCalender.bind(this.viewCalender)))
+        _.E(this.leftBtn, 'click', () => this.viewCalender.render(--this.viewCalender.currentMove))//인자 쓰면서 bind하는방법?
+        _.E(this.rightBtn, 'click', () => this.viewCalender.render(++this.viewCalender.currentMove))
+        _.E(document, 'click', this.viewCalender.hideCalender.bind(this.viewCalender))
+        _.E(this.calenderTab, 'click', (e)=>e.stopPropagation())
+    }
 
     init() {
-        //이렇게 억지로 bind까지 해가며 controller에서 이벤트를 거는 게 맞나?
-        _.E(this.houseMenu, 'click', this.tab.clickHouse.bind(this.tab))
-        _.E(this.activityMenu, 'click', this.tab.clickActivity.bind(this.tab))
-        _.E(document, 'click', this.tab.hideUserTab.bind(this.tab))
-        _.E(this.userMenu, 'click', this.tab.toggleUserTab.bind(this.tab))
-        _.E(this.userTab, 'click', (e) => e.stopPropagation())//이렇게 막는 게 올바른 방법인가?
-
-        this.calenderTriggers.forEach((element) => _.E(element, 'click', this.calender.toggleCalender.bind(this.calender)))
-
-        const leftBtn = _.$('.main__calender--move-left')
-        const rightBtn = _.$('.main__calender--move-right')
-        _.E(leftBtn, 'click', ()=>{
-            this.calender.render(--this.calender.currentMove)
-        })
-        _.E(rightBtn, 'click', ()=>{
-            this.calender.render(++this.calender.currentMove)
-        })
+        this.addTabEvent()
+        this.addCalenderEvent()
     }
 
 }
 
 const searchBar = _.$A('.main__search-bar')
-const searchHouse = _.$('.search-house')
-const searchActivity = _.$('.search-activity')
-const houseMenu = _.$('.main__site-menu--house')
-const activityMenu = _.$('.main__site-menu--activity')
-// const onlineActivityMenu = _.$('.main__site-menu--online-activity')
 
-const userMenu = _.$('.main__user-menu--user')//네이밍 이게 최선?
-const userTab = _.$('.main__user--tab')
-const calenderTab = _.$('.main__calender')// class calender와 calender 네이밍 정리할 것
-const calenderTriggers = _.$A('.calender-trigger')
-
-const DOMList = [houseMenu, activityMenu, searchHouse, searchActivity, userMenu, userTab, calenderTab, calenderTriggers]
-new Controller(DOMList)
+new Controller().init()
