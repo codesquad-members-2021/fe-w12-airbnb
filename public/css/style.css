@@ -281,6 +281,11 @@ a {
     width: 100%;
 }
 
+.calendar-content h3 {
+    margin: 0;
+    padding-bottom: 30px;
+}
+
 .calendar{
     display: flex;
     flex-wrap: wrap;
