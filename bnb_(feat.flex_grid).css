@@ -36,7 +36,7 @@ a:hover {
   margin: 0 auto;
   position: relative;
   box-sizing: border-box;
-} /*maragin 0 auto쓰려면 너비설정되어야함*/
+}
 
 .ment {
   font-size: 30px;
@@ -68,7 +68,12 @@ section span {
 }
 
 .header2 .menu_right .toggleBtn {
+  box-sizing: border-box;
   border: 1px solid rgba(184, 164, 164, 0.633);
+}
+
+.header2 .menu_right .toggleMenu {
+  width: 15vw;
 }
 
 .h2_search {
@@ -164,7 +169,7 @@ header .basic_menu div {
 .menu_center {
   min-width: 250px;
   position: absolute;
-  left: 40%;
+  left: 45%;
 }
 
 .menu_center label {
@@ -220,7 +225,6 @@ header .basic_menu div {
   transform: scaleX(10);
 }
 
-/* checked input + span  */
 .header1 .menu_center input:checked + span {
   cursor: default;
   color: rgba(255, 255, 255);
@@ -283,7 +287,6 @@ header .basic_menu div {
   position: absolute;
   right: 0;
   background-color: rgba(255, 255, 255, 1);
-  height: auto;
   border-radius: 10px;
   padding: 10px 0px;
   margin-top: 10px;
