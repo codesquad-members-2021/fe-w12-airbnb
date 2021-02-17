@@ -6,12 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./style/home.css" />
-  <link rel="stylesheet" href="./style/header.css">
-  <link rel="stylesheet" href="./style/section1.css">
-  <link rel="stylesheet" href="./style/section2.css">
-  <link rel="stylesheet" href="./style/section3.css">
-  <link rel="stylesheet" href="./style/section4.css">
-  <link rel="stylesheet" href="./style/calendar.css">
+  <link rel="stylesheet" href="./style/header/header.css">
+  <link rel="stylesheet" href="./style/header/calendar.css">
+  <link rel="stylesheet" href="./style/header/searchBar.css">
+  <link rel="stylesheet" href="./style/header/accountLayer.css">
+  <link rel="stylesheet" href="./style/main/section1.css">
+  <link rel="stylesheet" href="./style/main/section2.css">
+  <link rel="stylesheet" href="./style/main/section3.css">
+  <link rel="stylesheet" href="./style/main/section4.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
   <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
@@ -134,11 +136,34 @@
         </div>
 
         <!----------- 체크인 선택시 나오는 달력 ------------>
-        <div class="hidden calendar calendar__check-in"></div>
+
+        <div class="hidden calendar__background_check-in">
+          <div class="calendar__box_check-in">
+            <span class="prev__button_check-in"><button>◀</button></span>
+            <div id="calendar__check-in"></div>
+            <span class="next__button_check-in"><button>▶</button></span>
+          </div>
+        </div>
+
         <!----------- 체크아웃 선택시 나오는 달력 ------------>
-        <div class="hidden calendar calendar__check-out"></div>
-        <!----------- 체험 > 날짜 선택시 나오는 달력 ------------>
-        <div class="hidden calendar calendar__experience-date"></div>
+
+        <div class="hidden calendar__background_check-out">
+          <div class="calendar__box_check-out">
+            <span class="prev__button_check-out"><button>◀</button></span>
+            <div id="calendar__check-out"></div>
+            <span class="next__button_check-out"><button>▶</button></span>
+          </div>
+        </div>
+
+        <!-- --------- 체험 > 날짜 선택시 나오는 달력 ---------- -->
+
+        <div class="hidden calendar__background_experience-date">
+          <div class="calendar__box_experience-date">
+            <span class="prev__button_experience-date"><button>◀</button></span>
+            <div id="calendar__experience-date"></div>
+            <span class="next__button_experience-date"><button>▶</button></span>
+          </div>
+        </div>
 
         <!------------------ 계정 부분 ------------------->
         <div class="item header__account">
@@ -558,7 +583,10 @@
 
     </footer>
     <script type="module" src="./src/main.js"></script>
-    <!-- <script src="./src/nav.js"></script> -->
+    <script type="module" src="src/searchBar/searchBarMain.js"></script>
+    <script type="module" src="./src/calendars/checkInCalendar.js"></script>
+    <script type="module" src="./src/calendars/checkOutCalendar.js"></script>
+    <script type="module" src="./src/calendars/experienceDateCalendar.js"></script>
   </div>
 </body>
 

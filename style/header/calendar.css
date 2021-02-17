@@ -1,8 +1,11 @@
-.calendar {
-  /* border: 1px solid black; */
+/* 체험 - 날짜 달력 */
+
+.calendar__background_experience-date,
+.calendar__background_check-out,
+.calendar__background_check-in {
   position: absolute;
   width: 50%;
-  height: 43%;
+  height: 45%;
   top: 27%;
   left: 50%;
   max-width: 900px;
@@ -16,32 +19,51 @@
   font-weight: bold;
 }
 
-.month {
-  /* border: 1px solid blue; */
-  align-items: center;
+.calendar__box_experience-date,
+.calendar__box_check-out,
+.calendar__box_check-in {
   width: 100%;
-  height: 100%;
+  /* border: 1px solid teal; */
+  padding: 3em 4em;
+  display: flex;
+}
+
+#calendar__experience-date,
+#calendar__check-out,
+#calendar__check-in {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  /* border: 1px solid blue; */
+}
+
+.month {
+  /* border: 1px solid teal; */
+  /* padding: 2em; */
+  text-align: center;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-p {
-  all: unset;
-  margin-top: 2em;
+.month__0 {
+  padding-right: 2em;
 }
 
+.month__1 {
+  padding-left: 2em;
+}
 .calendar__content {
-  /* border: 1px solid black; */
+  text-align: center;
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  width: 75%;
-  height: 75%;
 }
 
 .calendar__date,
 .day-name {
   border: 1px solid white;
-  /* hover될 때 cell이 움직이지 않도록 초기에 border 줌 */
   display: flex;
   justify-content: center;
   align-items: center;
