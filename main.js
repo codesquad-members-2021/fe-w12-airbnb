@@ -65,10 +65,11 @@ class ViewCalender {
         _.CT(this.calenderTab, 'transparent')
         this.render()
         this.currentMove = 0
-        this.checkedDayCount = 0;
     }
 
     render(modifier = 0) {
+        this.checkedDayCount = 0;
+        
         const now = new Date(Date.now())
 
         const currentYear = now.getFullYear()
