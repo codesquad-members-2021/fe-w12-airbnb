@@ -1,5 +1,6 @@
 import { ProfileMenu } from './profileMenu.js';
 import { TopMenu } from './topMenu.js';
+import { Calendar } from './calendar.js';
 
 const showProfileTab = () => {
   const navProfileBtn = document.querySelector('.nav-btn.profile');
@@ -13,9 +14,16 @@ const changeForm = () => {
   topmenu.onEvents();
 };
 
+const showCalendar = () => {
+  const dateForm = document.querySelector('.input-date');
+  const calendar = new Calendar(dateForm);
+  calendar.onEvents();
+};
+
 const main = () => {
   showProfileTab();
   changeForm();
+  showCalendar();
 };
 
 main();

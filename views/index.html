@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://use.fontawesome.com/releases/v5.8.0/js/all.js"></script>
     <link rel="stylesheet" href="/css/style.css" />
-    <script type="module" src="/javascript/main.js" defer></script>
+    <script type="module" src="/js/main.js" defer></script>
     <title>airbnb-clone</title>
   </head>
   <body>
@@ -85,7 +85,7 @@
               placeholder="게스트 추가"
             />
           </div>
-          <div class="labels-input input-date-hidden" id="no-border">
+          <div class="labels-input input-date input-hidden" id="no-border">
             <label for="date">날짜</label>
             <input
               id="date"
@@ -98,6 +98,26 @@
             <button class="search-btn"><i class="fas fa-search"></i></button>
           </div>
         </form>
+        <div class="calendars-wrapper calendars-wrapper-hidden">
+          <div class="calendar-container">
+            <div class="calendar-content">
+              <h3 class="calendar-title"></h3>
+              <ul class="calendar calendar-weeks">
+                <li>일</li>
+                <li>월</li>
+                <li>화</li>
+                <li>수</li>
+                <li>목</li>
+                <li>금</li>
+                <li>토</li>
+              </ul>
+              <div class="calendar calendar-days">
+                <!--span tags-->
+              </div>
+            </div>
+            <div class="calendar-content calendar-content-second"></div>
+          </div>
+        </div>
       </div>
       <section class="slogan-section">
         <article class="slogan-article">

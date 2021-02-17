@@ -205,6 +205,9 @@ a {
     text-align: left;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .info-input-form {
@@ -236,11 +239,7 @@ a {
     border: 0;
 }
 
-.check-inout-hidden {
-    display: none;
-}
-
-.input-date-hidden {
+.input-hidden {
     display: none;
 }
 
@@ -253,6 +252,49 @@ a {
 
 #no-border{
     border: 0;
+}
+
+.calendars-wrapper {
+    margin: 20px var(--page-side-margin);
+    top: 90%;
+    width: 60%;
+    background-color: var(--info-color);
+    border-radius: var(--nav-btn-border-radius);
+    z-index: 3;
+    position: absolute;
+}
+
+.calendars-wrapper-hidden {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.calendar-container {
+    padding: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.calendar-content {
+    width: 100%;
+}
+
+.calendar-content h3 {
+    margin: 0;
+    padding-bottom: 30px;
+}
+
+.calendar{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calendar li,
+.calendar span {
+    width: 40px;
+    flex: 0 1 14%;
 }
 
 .search-btn-container{
