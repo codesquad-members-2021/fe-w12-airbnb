@@ -1,7 +1,6 @@
 .main__calender {
   position: absolute;
-  left: 0px;
-  top: 100%;
+  left: 80px;
   background: rgb(255, 255, 255);
   border-radius: 32px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
@@ -12,7 +11,7 @@
 }
 .main__calender--table {
   padding: 0px 28px;
-  width: 410px;
+  width: 321px;
   height: fit-content;
 }
 .main__calender--title {

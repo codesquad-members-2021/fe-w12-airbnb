@@ -5,6 +5,9 @@ const _ = {
 
   TOGGLE: (target, className) => target.classList.toggle(className),
 
+  REPLACE: (target, oldClassName, newClassName) =>
+    target.classList.replace(oldClassName, newClassName),
+
   $: (selector, base = document) => base.querySelector(selector),
 
   $A: (selector, base = document) => base.querySelectorAll(selector),
@@ -13,59 +16,97 @@ const _ = {
     target.addEventListener(type, listener, useCapture),
 };
 
+const EventHandler = {
+  locationClick: (target) => target.focus(target),
+
+  locationFoucus: (target) => _.REMOVE(target, "hide"),
+
+  peoplebtnClick: (target) => _.REMOVE(target, "hide"),
+
+  profileBtnClick: (target) => _.TOGGLE(target, "hide"),
+
+  activityClick: (rooms, activtiy, RB, AB) => {
+    _.ADD(rooms, "hide");
+    _.REMOVE(activtiy, "hide");
+    _.REPLACE(RB, "navbar_selectedline", "navbar_line");
+    _.REPLACE(AB, "navbar_line", "navbar_selectedline");
+  },
+
+  roomClickHandler: (rooms, activtiy, RB, AB) => {
+    _.ADD(activtiy, "hide");
+    _.REMOVE(rooms, "hide");
+    _.REPLACE(AB, "navbar_selectedline", "navbar_line");
+    _.REPLACE(RB, "navbar_line", "navbar_selectedline");
+  },
+};
+//=====================================================//
+
 const main = _.$(".main");
-const seachbarRooms = _.$("#main_seachbar_rooms", main);
-const seachbaractivity = _.$("#main_seachbar_activity", main);
-//<==== 질문 =--->//
-//seachbar를 불러올 때, SelectorAll 을 해서 Node[0], Node[1] 을 각자 불러오는 것이 좋을까요?
-//아니면 이렇게 서로 id 를 부여해서 불러오는 것이 좋을까요?
-const mainPeople = main.querySelector(".main_people");
-const mainLocation = main.querySelector(".main_location");
-const mainNavbar = main.querySelector(".navbar_ul");
-const lists = mainNavbar.getElementsByTagName("li");
+const HEADER = _.$("header", main);
+const Rooms = _.$("#main_seachbar_rooms", main);
+const Activity = _.$("#main_seachbar_activity", main);
 
-const searchbar = (searchbarDocument) => {
-  const location = searchbarDocument.firstElementChild;
-  const input = searchbarDocument.querySelector("input");
-  const peoplebtn = searchbarDocument.querySelector(".seachbar_lastmenu");
-  const searchbtn = peoplebtn.querySelector(".seachbar_btn");
+const searchberEventController = (searchbarDocument) => {
+  console.log(searchbarDocument);
+  const mainPeople = _.$(".main_people", main);
+  const mainLocation = _.$(".main_location", main);
+  const child = searchbarDocument.children;
+  const location = child[0];
+  const inputTag = _.$("input", searchbarDocument);
+  const date = child[1];
+  let searchbtn;
 
-  const locationClickHandler = () => {
-    input.focus();
-  };
-  const locationFoucusHandler = () => {
-    mainLocation.classList.remove("hide");
-  };
-  const peoplebtnClickHandler = () => {
-    mainPeople.classList.remove("hide");
-  };
+  if (child[2]) {
+    const peoplebtn = child[2];
+    searchbtn = _.$("button", child[2]);
+    _.EVENT(peoplebtn, "click", (e) => {
+      EventHandler.peoplebtnClick(mainPeople);
+    });
 
-  peoplebtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    peoplebtnClickHandler();
+  } else {
+    searchbtn = _.$("button", child[1]);
+  }
+  _.EVENT(searchbtn, "click", (e) => {
+    EventHandler.locationClick(mainLocation);
   });
 
-  searchbtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    locationClickHandler();
+  _.EVENT(location, "click", (e) => {
+    EventHandler.locationClick(inputTag);
   });
-  location.addEventListener("click", (e) => {
-    e.stopPropagation();
-    locationClickHandler();
-  });
-
-  input.addEventListener("focus", (e) => {
-    locationFoucusHandler();
+  _.EVENT(inputTag, "focus", (e) => {
+    EventHandler.locationFoucus(mainLocation);
   });
 };
-searchbar(seachbarRooms);
 
-const makeCalender = (Calender, year, month) => {
+const HeaderEventControler = (header, rooms, activity) => {
+  const lists = header.getElementsByTagName("li");
+  const profilebtn = _.$(".navbar_login_icons", header);
+  const roomsBar = _.$(".navbar_selectedline", lists[0]);
+  const activityBar = _.$(".navbar_line", lists[1]);
+  const profileHeader = _.$(".profileHeader");
+
+  searchberEventController(rooms);
+
+  _.EVENT(lists[1], "click", (e) => {
+    EventHandler.activityClick(rooms, activity, roomsBar, activityBar);
+    searchberEventController(activity);
+  });
+  _.EVENT(lists[0], "click", (e) => {
+    EventHandler.roomClickHandler(rooms, activity, roomsBar, activityBar);
+    searchberEventController(rooms);
+  });
+
+  _.EVENT(profilebtn, "click", (e) => {
+    EventHandler.profileBtnClick(profileHeader);
+  });
+};
+
+const addCalenderHTML = (Calender, year, month) => {
   const tbody = _.$("tbody", Calender);
   const title = _.$(".main__calender--month", Calender);
   const datelast = new Date(year, month, 0).getDate();
   const datestart = new Date(year, month - 1, 1).getDay();
-  let date = `${year} 년 ${month} 월`;
+  let date = `${year} 년   ${month} 월`;
   let html = "<tr>";
 
   for (let i = 0; i < datestart; i++) html += "<td></td>";
@@ -79,54 +120,19 @@ const makeCalender = (Calender, year, month) => {
   title.innerHTML = date;
   tbody.innerHTML = html;
 };
-const table = _.$A(".main__calender--table");
-makeCalender(table[0], 2021, 02);
-makeCalender(table[1], 2021, 01);
-const roomsBar = lists[0].querySelector(".navbar_selectedline");
-const activityBar = lists[1].querySelector(".navbar_line");
-const activityClickHandler = () => {
-  seachbarRooms.classList.add("hide");
-  seachbaractivity.classList.remove("hide");
-  roomsBar.classList.replace("navbar_selectedline", "navbar_line");
-  activityBar.classList.replace("navbar_line", "navbar_selectedline");
-};
-const roomClickHandler = () => {
-  seachbarRooms.classList.remove("hide");
-  seachbaractivity.classList.add("hide");
-  activityBar.classList.replace("navbar_selectedline", "navbar_line");
-  roomsBar.classList.replace("navbar_line", "navbar_selectedline");
+
+const makeCalender = (year, month) => {
+  const table = _.$A(".main__calender--table");
+  addCalenderHTML(table[0], 2021, month);
+  addCalenderHTML(table[1], 2021, month + 1);
 };
 
-lists[1].addEventListener("click", (e) => {
-  activityClickHandler();
-  searchbar(seachbaractivity);
-});
-
-lists[0].addEventListener("click", (e) => {
-  roomClickHandler();
-  searchbar(seachbarRooms);
-});
-
-const profileBtn = document.querySelector(".navbar_login_icons");
-const profileHeader = document.querySelector(".profileHeader");
-const body = document.querySelector("body");
-
-const profileBtnClickHandler = () => {
-  profileHeader.classList.toggle("hide");
+const makeCurrentDateCalender = () => {
+  const nowYear = new Date().getFullYear();
+  const nowMonth = new Date().getMonth() + 1;
+  const nowDay = new Date().getDate();
+  makeCalender(nowYear, nowMonth);
 };
-const bodyClickHandler = () => {
-  profileHeader.classList.add("hide");
-  mainLocation.classList.add("hide");
-  mainPeople.classList.add("hide");
-};
+makeCurrentDateCalender();
 
-profileBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  profileBtnClickHandler();
-});
-
-body.addEventListener("click", (e) => {
-  console.log(e.currentTarget);
-  console.log(e.target);
-  bodyClickHandler();
-});
+HeaderEventControler(HEADER, Rooms, Activity);
