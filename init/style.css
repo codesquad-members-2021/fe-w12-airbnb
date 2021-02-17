@@ -1,6 +1,10 @@
 :root {
   /*Color*/
   --main-color: #fe375c;
+  --calender-th-color: rgb(113, 113, 113);
+  --calender-tb-color: rgb(34, 34, 34);
+
+  --calender-none-color: rgb(189, 189, 189);
 }
 
 a {
@@ -177,9 +181,94 @@ body {
   border-radius: 30px;
 }
 
+.search-calender {
+  position: relative;
+  list-style: none;
+  padding: 0px;
+  top: 16%;
+  left: 32%;
+  width: 35%;
+  height: 34%;
+  background-color: white;
+  border-radius: 30px;
+  /* font-family: "Nanum Gothic", sans-serif; */
+}
+
+#calender-left {
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  /* outline: #fe375c solid; */
+}
+#calender-right {
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  right: 0;
+  /* outline: #60353d solid; */
+}
+.calender-title {
+  position: relative;
+  /* background-color: violet; */
+  margin-top: 5%;
+  height: 7%;
+  text-align: center;
+}
+
+.calender-title > button {
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+}
+.calender-title > #btn-left {
+  left: 11%;
+}
+
+.calender-title > #btn-right {
+  right: 11%;
+}
+.calender-title > span {
+  position: absolute;
+  top: 1%;
+  left: 43%;
+  outline: black solid;
+  font-size: 15px;
+  line-height: 23px;
+  font-weight: 600;
+}
+.calender-table {
+  /* outline: blue solid; */
+  width: 80%;
+  height: 80%;
+  padding: 1%;
+  margin-top: 3%;
+  position: absolute;
+  left: 10%;
+  text-align: center;
+}
+.calender-table > thead {
+  outline: orange solid;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--calender-th-color);
+}
+.calender-tbody {
+  /* outline: green solid; */
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--calender-tb-color);
+}
+
 .search__input {
   border: none;
   font-size: 14px;
+  font-weight: 600;
 }
 
 #search-destination {
@@ -529,10 +618,10 @@ body {
   border-radius: 16px;
 }
 
-.display-none{
-  display:none;
+.display-none {
+  display: none;
 }
 
-.display-block{
+.display-block {
   display: block;
 }

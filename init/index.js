@@ -81,6 +81,17 @@ class SearchBarUI {
   }
 }
 
+class CalenderUI {
+  constructor() {
+    this.day = new Date();
+    this.month = this.day.getMonth() + 1;
+    this.date = this.day.getDate();
+  }
+  drawCalender() {}
+  moveNextMonth() {}
+  moveLastMonth() {}
+}
+
 const init = () => {
   const hamburgerTabUI = new HamburgerTabUI();
   hamburgerTabUI.onEvents();
