@@ -116,9 +116,9 @@ nav ul li {
 }
 
 .search {
-  background-color: white;
+  position: relative;
+  background-color: rgb(221, 221, 221);
   border-radius: 35px;
-  padding: 10px 10px 10px 30px;
   color: #222222;
   font-size: 14px;
   height: 4rem;
@@ -128,10 +128,17 @@ nav ul li {
   justify-content: space-between;
 }
 
-.search div:not(:last-child) {
+.search div {
+  padding: 1rem 0.5rem 0rem 1.5rem;
+  height: 4rem;
   width: calc(100% / 4);
-  padding: 0 20px;
+  border-radius: 35px;
   border-right: 1px solid #a09e9e79;
+}
+
+.search > div:hover {
+  background-color: white;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
 
 /* .search-align-4 {
@@ -143,10 +150,12 @@ nav ul li {
 } */
 
 .search-button {
+  position: absolute;
+  top: 38%;
+  right: 19%;
   border-radius: 50%;
   padding: 11px;
-  width: 40px;
-  float: right;
+  width: 45px;
   background-color: #ff385c;
 }
 

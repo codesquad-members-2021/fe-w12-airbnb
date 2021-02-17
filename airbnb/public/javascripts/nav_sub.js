@@ -28,14 +28,7 @@ function makeHtml(option) {
       </div>`
       )
       .join('');
-    const searchButton = `
-      <div class="search-button-part">
-        <div class="search-button">
-          <img src="http://localhost:3000/images/search-solid.svg" alt="" />
-        </div>
-      </div>
-    `;
-    $searchBar.innerHTML = `${html} ${searchButton}`;
+    $searchBar.innerHTML = html;
 
     // 서치바 간격 조정을 위한 class 조정 중
     // if (style === 'search-align-2') {
@@ -54,6 +47,7 @@ document.addEventListener('DOMContentLoaded', makeHtml(stayOption));
 $stayButton.addEventListener('click', makeHtml(stayOption));
 $experienceButton.addEventListener('click', makeHtml(experienceOption));
 
+//-------------make nav bar stick
 window.onscroll = function () {
   myFunction();
 };
