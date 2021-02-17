@@ -33,11 +33,3 @@
   background-color: gainsboro;
   cursor: none;
 }
-
-.tabUI--show {
-  visibility: visible;
-}
-
-.tabUI--hidden {
-  visibility: hidden;
-}

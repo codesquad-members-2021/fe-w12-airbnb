@@ -97,6 +97,11 @@
   margin-left: 10px;
 }
 
+.search--button:hover {
+  transition: all 0.5s;
+  background-color: #e31b5b;
+}
+
 .header__phrase {
   color: #fff;
   position: absolute;
@@ -113,5 +118,9 @@
   padding: 7px 15px;
   border-radius: 8px;
   margin-top: 22px;
-  border: none;
+  background-color: #fff;
+}
+
+.header__phrase--button:hover {
+  background-color: #f1f1f1;
 }

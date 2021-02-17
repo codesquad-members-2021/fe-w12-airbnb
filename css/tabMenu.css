@@ -1,4 +1,5 @@
-#header__search--rooms {
+#header__search--rooms,
+#header__search--experiences {
   display: flex;
   align-items: center;
   position: absolute;
@@ -6,6 +7,7 @@
   height: 64px;
   background-color: #fff;
   border-radius: 32px;
+  font-weight: lighter;
 }
 
 .search__items {
@@ -15,12 +17,12 @@
   justify-content: center;
   border-right: 0.5px solid gainsboro;
   padding: 0px 30px;
-  font-weight: lighter;
 }
 
 .search__items:hover {
   border-radius: 32px;
   background-color: #f1f1f1;
+  cursor: pointer;
 }
 
 .search__items--head-text {
@@ -51,25 +53,6 @@
   border: none;
 }
 
-.rooms--show {
-  visibility: visible;
-}
-
-.rooms--hidden {
-  visibility: hidden;
-}
-/* ------------------여기까지rooms------------------------- */
-#header__search--experiences {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 10%;
-  height: 64px;
-  background-color: #fff;
-  border-radius: 32px;
-  font-weight: lighter;
-}
-
 #header__search--experiences > .search__items:nth-child(1) {
   padding: 0px 30px;
   width: 425px;
@@ -84,12 +67,4 @@
   justify-content: space-between;
   align-items: center;
   border: none;
-}
-
-.experiences--show {
-  visibility: visible;
-}
-
-.experiences--hidden {
-  visibility: hidden;
 }

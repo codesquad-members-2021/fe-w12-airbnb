@@ -49,3 +49,11 @@ a:active {
   display: flex;
   align-items: center;
 }
+
+.show {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
