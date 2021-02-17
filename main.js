@@ -10,7 +10,6 @@ const _ = {
     $A: (selector, base = document) => base.querySelectorAll(selector),
 
     E: (target, type, listener, useCapture = false) => target.addEventListener(type, listener, useCapture)
-
 }
 
 class ViewTab {
@@ -42,13 +41,13 @@ class ViewTab {
         _.CR(this.searchActivity, 'transparent')
     }
 
-    toggleUserTab(e) {
+    toggleUserTab() {
         _.CT(this.userTab, 'transparent')
-        e.stopPropagation();
     }
 
-    hideUserTab() {
-        _.CA(this.userTab, 'transparent')
+    hideUserTab(e) {
+        if (e.target.closest('.main__user--tab') === null && e.target.closest('.main__user-menu--user') === null)
+            _.CA(this.userTab, 'transparent')
     }
 }
 
@@ -60,12 +59,13 @@ class ViewCalender {
     }
 
     currentMove = 0;
+    checkedDayCount = 0;
 
-    toggleCalender(e) {
+    toggleCalender() {
         _.CT(this.calenderTab, 'transparent')
         this.render()
         this.currentMove = 0
-        e.stopPropagation()
+        this.checkedDayCount = 0;
     }
 
     render(modifier = 0) {
@@ -96,6 +96,7 @@ class ViewCalender {
         }
 
         html += '</tr>'
+
         return html
     }
 
@@ -108,14 +109,19 @@ class ViewCalender {
     checkMonth(year, month) {
         if (0 <= month && month <= 11) return [year, month]
 
-        if (month < 0) return this.checkMonth(year - 1, month + 12)
-        if (month > 11) return this.checkMonth(year + 1, month - 12)
+        return month < 0 ? this.checkMonth(year - 1, month + 12) : this.checkMonth(year + 1, month - 12)
     }
 
-    hideCalender() {
-        _.CA(this.calenderTab, 'transparent')
+    hideCalender(e) {
+        if (e.target.closest('.main__calender') === null && e.target.closest('.calender-trigger') === null)
+            _.CA(this.calenderTab, 'transparent')
     }
 
+    checkDay(e) {
+        if (e.target.tagName !== 'TD') return
+        e.target.className === 'checked-day' ? this.checkedDayCount-- : this.checkedDayCount++
+        this.checkedDayCount > 2 ? this.checkedDayCount = 2 : _.CT(e.target, 'checked-day')
+    }
 }
 
 class Controller {
@@ -128,10 +134,9 @@ class Controller {
     userMenu = _.$('.main__user-menu--user')
     userTab = _.$('.main__user--tab')
 
-
     calenderTab = _.$('.main__calender')
     calenderTitle = _.$('.main__calender--month')
-    calenderContent = _.$('tbody')
+    calenderContent = _.$('tbody')//class 추가할 것
     calenderTriggers = _.$A('.calender-trigger')
 
     viewTab = new ViewTab(this.houseMenu, this.activityMenu, this.searchHouse, this.searchActivity, this.userMenu, this.userTab)
@@ -139,13 +144,12 @@ class Controller {
 
     leftBtn = _.$('.main__calender--move-left')
     rightBtn = _.$('.main__calender--move-right')
-    
+
     addTabEvent() {
         _.E(this.houseMenu, 'click', this.viewTab.clickHouse.bind(this.viewTab))
         _.E(this.activityMenu, 'click', this.viewTab.clickActivity.bind(this.viewTab))
         _.E(document, 'click', this.viewTab.hideUserTab.bind(this.viewTab))
         _.E(this.userMenu, 'click', this.viewTab.toggleUserTab.bind(this.viewTab))
-        _.E(this.userTab, 'click', (e) => e.stopPropagation())
     }
 
     addCalenderEvent() {
@@ -153,16 +157,13 @@ class Controller {
         _.E(this.leftBtn, 'click', () => this.viewCalender.render(--this.viewCalender.currentMove))//인자 쓰면서 bind하는방법?
         _.E(this.rightBtn, 'click', () => this.viewCalender.render(++this.viewCalender.currentMove))
         _.E(document, 'click', this.viewCalender.hideCalender.bind(this.viewCalender))
-        _.E(this.calenderTab, 'click', (e)=>e.stopPropagation())
+        _.E(this.calenderContent, 'click', this.viewCalender.checkDay.bind(this.viewCalender))
     }
 
     init() {
         this.addTabEvent()
         this.addCalenderEvent()
     }
-
 }
-
-const searchBar = _.$A('.main__search-bar')
 
 new Controller().init()

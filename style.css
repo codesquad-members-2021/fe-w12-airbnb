@@ -47,10 +47,6 @@ h4{
 }
 .main__menu{
     padding-top: 1rem;
-    /* text-shadow: -1px 0 black,
-                0 1px black,
-                1px 0 black,
-                0 -1px black; */
 }
 .main__site-menu>span{
     padding-left: 0.5rem;
@@ -143,6 +139,7 @@ h4{
     text-align: center;
     padding: 2rem;
     padding-bottom: 1rem;
+    padding-top: 1.5rem;
 }
 .main__calender--title{
     display: inline-flex;
@@ -163,8 +160,11 @@ h4{
 }
 .main__calender tbody td{
     padding: 1rem;
-    /* width: 3rem;
-    height: 2rem; */
+}
+.checked-day{
+    background-color: black;
+    color: white;
+    border-radius: 100%;
 }
 .main__content {
     clear:both;
