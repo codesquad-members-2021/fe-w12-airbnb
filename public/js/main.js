@@ -36,11 +36,21 @@ class Calendar {
   }
 
   showCalendarDays() {
-    const date = new Date();
+    const calendarDays = document.querySelector('.calendar-days');
+    console.log(calendarDays);
+    const month = new Date().getMonth();
+    const daysNum = this.days[month];
+    for (let i = 1; i <= daysNum; i += 1) {
+      const span = document.createElement('span');
+      const day = document.createTextNode(i);
+      span.appendChild(day);
+      calendarDays.appendChild(span);
+    }
   }
 
   render() {
     this.showCalendarTitle();
+    this.showCalendarDays();
   }
 }
 
