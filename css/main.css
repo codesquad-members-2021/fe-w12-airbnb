@@ -44,3 +44,8 @@ a:active {
 .container {
   border-bottom: 1px solid gainsboro;
 }
+
+.settings {
+  display: flex;
+  align-items: center;
+}

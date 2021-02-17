@@ -7,19 +7,19 @@ rooms.addEventListener('click', roomsClickHandler);
 experiences.addEventListener('click', experiencesClickHandler);
 
 function roomsClickHandler() {
-    if (roomsSearchBox.className === 'rooms__hidden') {
-        roomsSearchBox.classList.remove('rooms__hidden');
-        roomsSearchBox.classList.add('rooms__show');
-        experiencesSearchBox.classList.remove('experiences__show');
-        experiencesSearchBox.classList.add('experiences__hidden');
+    if (roomsSearchBox.className === 'rooms--hidden') {
+        roomsSearchBox.classList.remove('rooms--hidden');
+        roomsSearchBox.classList.add('rooms--show');
+        experiencesSearchBox.classList.remove('experiences--show');
+        experiencesSearchBox.classList.add('experiences--hidden');
     }
 }
 
 function experiencesClickHandler() {
-    if (experiencesSearchBox.className === 'experiences__hidden') {
-        experiencesSearchBox.classList.remove('experiences__hidden');
-        experiencesSearchBox.classList.add('experiences__show');
-        roomsSearchBox.classList.remove('rooms__show');
-        roomsSearchBox.classList.add('rooms__hidden');
+    if (experiencesSearchBox.className === 'experiences--hidden') {
+        experiencesSearchBox.classList.remove('experiences--hidden');
+        experiencesSearchBox.classList.add('experiences--show');
+        roomsSearchBox.classList.remove('rooms--show');
+        roomsSearchBox.classList.add('rooms--hidden');
     }
 }

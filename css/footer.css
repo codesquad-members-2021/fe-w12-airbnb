@@ -24,6 +24,11 @@ footer {
   font-weight: lighter;
 }
 
+.footer__upper__item div:not(.footer__upper__item--head-text):hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .footer__downer {
   width: 100%;
   padding: 24px 0px;

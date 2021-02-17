@@ -9,17 +9,17 @@
   margin-bottom: 16px;
 }
 
-.locations__upRow--item,
-.locations__downRow--item {
+.locations__upRow__item,
+.locations__downRow__item {
   align-items: center;
   width: 100%;
 }
 
-.city--name {
+.locations--name {
   font-weight: bold;
 }
 
-.city--image {
+.locations--image {
   width: 64px;
   height: 64px;
   border-radius: 8px;

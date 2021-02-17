@@ -10,7 +10,7 @@
   padding-bottom: 8px;
 }
 
-.heading--text {
+.experiences__texts--head-text {
   font-size: 36px;
   font-weight: 600;
 }
@@ -20,16 +20,16 @@
   justify-content: space-between;
 }
 
-.experiences__type--item {
+.experiences__type__item {
   margin-right: 16px;
 }
 
-.experience--boldText {
+.experiences__type__item--boldText {
   font-size: 18px;
   font-weight: 600;
 }
 
-.experience--img {
+.experiences__type__item--img {
   width: 100%;
   height: 500px;
   border-radius: 8px;

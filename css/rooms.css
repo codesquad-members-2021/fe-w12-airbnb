@@ -3,7 +3,7 @@
   height: 530px;
 }
 
-.rooms__text {
+.rooms__head-text {
   padding-bottom: 16px;
   font-size: 32px;
   font-weight: bold;
@@ -16,7 +16,7 @@
   display: block;
 }
 
-.room--img {
+.rooms__type--img {
   width: 100%;
   height: 300px;
   border-radius: 8px;
