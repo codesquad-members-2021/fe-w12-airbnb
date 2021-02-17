@@ -138,11 +138,11 @@ h4{
     position: absolute;
     left: 30rem;
     top: 12rem;
-    height: 17rem;
     width: 22rem;
     border-radius: 2rem;
     text-align: center;
     padding: 2rem;
+    padding-bottom: 1rem;
 }
 .main__calender--title{
     display: inline-flex;

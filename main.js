@@ -54,19 +54,73 @@ class ViewTab {
 }
 
 class ViewCalender {
-    constructor(calenderTab, calenderTriggers) {
-        this.calenderTab = calenderTab
-        this.calenderTriggers = calenderTriggers//이거 여기서 쓰냐?
+    constructor(calenderTab) {
+        this.calenderTab = calenderTab;
+        //임시
+
+        // 해결할 것 : 4주나 6주 차지하는 달일때 heigth값 조정
+        // append쪽 분화
+        // render를 toggle쪽에?
+        // 오늘 이전 글자 반투명하게
+        // < > 버튼은 makeCalender(month-1 / +1) -> 이러면 firstDay 계산도 저쪽에서? 
+        // 아에 render(month조정 = 0)으로 인자 받게 해서 
+        // render(-2), render(-3) 하며 year month계산을 안에서 하는식으로?
     }
+    
+    currentMove = 0;
 
     toggleCalender() {
         _.CT(this.calenderTab, 'transparent')
-        console.log('달력 토글 진행')
+        this.render()
+        this.currentMove = 0
     }
 
-    appendCalender() {
+    render(modifier = 0) {
+        const now = new Date(Date.now())
 
+        const currentYear = now.getFullYear()
+        const currentMonth = now.getMonth() + modifier
+
+        const [year, month] = this.checkMonth(currentYear, currentMonth)
+
+        const firstDay = new Date(year, month, 1).getDay()
+        const sumDay = new Date(year, month+1, 0).getDate()
+        const calender = this.makeCalender(firstDay, sumDay)
+
+        this.appendCalender(year, month, calender)
     }
+    
+    makeCalender(firstDay, sumDay) {
+        let html = '<tr>'
+        
+        for (let i = 0; i < firstDay; i++)
+        html += '<td></td>'
+        
+        for (let i = 0; i < sumDay; i++) {
+            if ((firstDay + i) % 7 === 0)
+            html += '</tr><tr>'
+            html += `<td>${i + 1}</td>`
+        }
+        
+        html += '</tr>'
+        return html
+    }
+
+    appendCalender(year, month, calender) {
+        const foo = _.$('tbody')
+        foo.innerHTML = calender
+
+        const bar = _.$('.main__calender--month')
+        bar.innerHTML = `${year}년 ${month + 1}월`
+    }
+
+    checkMonth(year, month) {
+        if (0 <= month && month <= 11) return [year, month]
+
+        if (month < 0) return this.checkMonth(year - 1, month + 12)
+        if (month > 11) return this.checkMonth(year + 1, month - 12)
+    }
+
 }
 
 class Controller {
@@ -74,9 +128,10 @@ class Controller {
         //이렇게 기괴하게;; 선언하는게 맞나? 더 깔끔한 방법 모색할 것
         [this.houseMenu, this.activityMenu, this.searchHouse, this.searchActivity, this.userMenu, this.userTab, this.calenderTab, this.calenderTriggers] = DOM
         this.tab = new ViewTab(...DOM)
-        this.calender = new ViewCalender(this.calenderTab, this.calenderTriggers)
+        this.calender = new ViewCalender(this.calenderTab)
         this.init()
     }
+
 
     init() {
         //이렇게 억지로 bind까지 해가며 controller에서 이벤트를 거는 게 맞나?
@@ -86,7 +141,16 @@ class Controller {
         _.E(this.userMenu, 'click', this.tab.toggleUserTab.bind(this.tab))
         _.E(this.userTab, 'click', (e) => e.stopPropagation())//이렇게 막는 게 올바른 방법인가?
 
-        this.calenderTriggers.forEach((element)=>_.E(element, 'click', this.calender.toggleCalender.bind(this.calender)))
+        this.calenderTriggers.forEach((element) => _.E(element, 'click', this.calender.toggleCalender.bind(this.calender)))
+
+        const leftBtn = _.$('.main__calender--move-left')
+        const rightBtn = _.$('.main__calender--move-right')
+        _.E(leftBtn, 'click', ()=>{
+            this.calender.render(--this.calender.currentMove)
+        })
+        _.E(rightBtn, 'click', ()=>{
+            this.calender.render(++this.calender.currentMove)
+        })
     }
 
 }
