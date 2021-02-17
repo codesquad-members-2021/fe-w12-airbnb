@@ -10,9 +10,12 @@ class Calendar {
   }
 
   init(e) {
-    if (e.target.closest('.input-date') !== this.target) {
+    if (
+      !e.target.closest('.input-date') &&
+      !e.target.closest('.calendars-wrapper')
+    ) {
       calendarWrapper.classList.add('calendars-wrapper-hidden');
-    }
+    } else return;
   }
 
   onEvents() {
