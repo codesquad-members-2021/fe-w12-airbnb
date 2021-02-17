@@ -220,16 +220,18 @@ a {
   justify-content: center;
 }
 
-.reservation__box--airbnb {
-  height: 100%;
-  box-sizing: border-box;
+.visible--hidden {
   display: none;
 }
 
+.visible--flex {
+  display: flex;
+}
+
+.reservation__box--airbnb,
 .reservation__box--activity {
   height: 100%;
   box-sizing: border-box;
-  display: flex;
 }
 
 .reservation__label--box {

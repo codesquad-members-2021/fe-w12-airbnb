@@ -5,6 +5,7 @@
   const $airbnbBtn = document.querySelector('#airbnb--button');
   const $activityBtn = document.querySelector('#activity--button');
   const $onlineActBtn = document.querySelector('#online--activity--button');
+  const $reservationBox = document.querySelector('.reservation__box');
 
   const LONG_BAR = 'low-bar-long';
   const SHORT_BAR = 'low-bar-short';
@@ -38,28 +39,38 @@
   initCursor();
 
   function initCursor() {
-    if ($headerButtonGrounp.querySelector(LongBar)) {
-      document.querySelector(Button).classList.replace(BUTTON, DEFAULT_BUTTON);
-    }
+    $airbnbBtn.classList.replace(BUTTON, DEFAULT_BUTTON);
   }
 
-  function cursorChange() {
-    if ($headerButtonGrounp.querySelector(TpBar)) {
-      document.querySelector(DefaultButton).classList.replace(DEFAULT_BUTTON, BUTTON);
-    }
+  function changeCursor() {
+    $airbnbBtn.classList.replace(DEFAULT_BUTTON, BUTTON);
+    $activityBtn.classList.replace(BUTTON, DEFAULT_BUTTON);
   }
 
   function isLongBar(btn) {
-    return btn.querySelector(LongBar);
+    return btn.querySelector('.low-bar').classList.contains(LONG_BAR);
   }
 
   function changeLongBar(btn) {
-    initCursor();
-    if (isLongBar($headerButtonGrounp)) {
-      $headerButtonGrounp.querySelector(LongBar).classList.replace(LONG_BAR, TP_BAR);
+    if (isLongBar(btn)) return;
+    changeCursor(btn);
+    if (btn === $airbnbBtn) {
+      btn.querySelector('.low-bar').classList.replace(SHORT_BAR, LONG_BAR);
+      $activityBtn.querySelector('.low-bar').classList.replace(LONG_BAR, TP_BAR);
     }
-    btn.querySelector(LowerBox).classList.replace(SHORT_BAR, LONG_BAR);
-    cursorChange();
+    if (btn === $activityBtn) {
+      btn.querySelector('.low-bar').classList.replace(SHORT_BAR, LONG_BAR);
+      $airbnbBtn.querySelector('.low-bar').classList.replace(LONG_BAR, TP_BAR);
+    }
+
+    // if (btn === $airbnbBtn) {
+    //   $reservationBox.classList.replace('reservation__box--activity', 'reservation__box--airbnb');
+    //   $reservationBox.classList.replace('visible--flex', 'visible--hidden');
+    // }
+    // if (btn === $activityBtn) {
+    //   $reservationBox.classList.replace('reservation__box--airbnb', 'reservation__box--activity');
+    //   $reservationBox.querySelector('.reservation__box--activity').classList.replace('visible--hidden', 'visible--flex');
+    // }
   }
 
   function changeShortBar(btn) {
