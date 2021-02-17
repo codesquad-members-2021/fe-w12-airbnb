@@ -9,10 +9,15 @@ class Calendar {
     this.days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   }
 
-  init() {}
+  init(e) {
+    if (e.target.closest('.input-date') !== this.target) {
+      calendarWrapper.classList.add('calendars-wrapper-hidden');
+    }
+  }
 
   onEvents() {
     this.target.addEventListener('click', this.dateClickHandler);
+    document.body.addEventListener('click', (e) => this.init(e));
     this.render();
   }
 
