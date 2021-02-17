@@ -10,26 +10,26 @@
   padding-bottom: 8px;
 }
 
-.experiences__texts :nth-child(1) {
+.heading--text {
   font-size: 36px;
   font-weight: 600;
 }
 
-.experience__type {
+.experiences__type {
   display: flex;
   justify-content: space-between;
 }
 
-.experience__type ul {
+.experiences__type--item {
   margin-right: 16px;
 }
 
-.experience__type ul div:nth-child(2) {
+.experience--boldText {
   font-size: 18px;
   font-weight: 600;
 }
 
-.experience__type img {
+.experience--img {
   width: 100%;
   height: 500px;
   border-radius: 8px;
