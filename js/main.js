@@ -15,10 +15,6 @@
   const MENU = 'menu';
   const MENU_HOVER = 'menu__hover';
 
-  const LongBar = '.low-bar-long';
-  const TpBar = '.low-bar-transparent';
-  const Button = '.button';
-  const DefaultButton = '.button--default';
   const LowerBox = '.lower--box';
   const Menu = '.menu';
   const MenuHover = '.menu__hover';
@@ -81,6 +77,4 @@
     if (isLongBar(btn)) return;
     btn.querySelector(LowerBox).classList.replace(SHORT_BAR, TP_BAR);
   }
-
-  // NAV
 })(window, document);

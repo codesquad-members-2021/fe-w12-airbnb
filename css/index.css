@@ -222,6 +222,48 @@ a {
   left: 60px;
 }
 
+.burger__container {
+  width: 240px;
+  height: 227px;
+  padding: 8px 0;
+  margin: 34px 0 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.12);
+  position: absolute;
+  color: #222;
+  top: 50%;
+  right: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  z-index: 2;
+  min-width: 240px;
+  overflow: hidden;
+}
+
+.burger--box > a > div:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.burger--box > a > div {
+  color: #222;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  box-sizing: border-box;
+  padding: 12px 16px;
+}
+.burger--box > a:first-child > div {
+  font-weight: 600;
+}
+
+.burger--box .burger--line {
+  width: 240px;
+  height: 1px;
+  margin: 8px 0;
+  background: #e5e5e5;
+}
+
 /* NAV: RESERVATION */
 
 .reservation__container {
