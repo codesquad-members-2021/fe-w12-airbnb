@@ -32,12 +32,6 @@ class Calendar {
         let ulTmp = null, inputDate = 1, emptyCnt = startDay;
         const nLoop = (lastDate + startDay);
 
-        // 망할 조건들
-        const currYearMonthChk = today.getFullYear() === monthInfo.getFullYear() && today.getMonth() <= monthInfo.getMonth();
-        const futureChk = today.getFullYear() < monthInfo.getFullYear();
-        const monthChk = today.getMonth() === monthInfo.getMonth();
-        // --
-
         for (let i = 0; i < nLoop; i++) {                        
             if (i % 7 === 0) {                
                 ulTmp = _.createElement("ul");
@@ -47,33 +41,44 @@ class Calendar {
             const li = _.createElement('li');
             if (emptyCnt > 0) {                               
                 emptyCnt--;                
-            } else {             
-                const txtDate = _.createTextNode(inputDate); 
-
-                if (currYearMonthChk) {                    
-                    if (today.getDate() > inputDate && monthChk) {
-                        _.classAdd(li, 'disableTxt');
-                        _.appendChild(li, txtDate);
-                    } else {
-                        const button = _.createElement('button');
-                        _.appendChild(button, txtDate);
-                        _.appendChild(li, button); 
-                    }
-                } else {
-                    if (futureChk) {
-                        const button = _.createElement('button');
-                        _.appendChild(button, txtDate);
-                        _.appendChild(li, button); 
-                    } else {
-                        _.classAdd(li, 'disableTxt');
-                        _.appendChild(li, txtDate);
-                    }
-                }          
+            } else {                              
+                this._liTagModify(li, inputDate, today, monthInfo);                          
                 inputDate++;
             }                
             _.appendChild(ulTmp, li);                                   
         }        
     }
+
+    _liTagModify(li, inputDate, today, monthInfo) {
+        // 망할 조건들
+        const currYearMonthChk = today.getFullYear() === monthInfo.getFullYear() && today.getMonth() <= monthInfo.getMonth();
+        const futureChk = today.getFullYear() < monthInfo.getFullYear();
+        const monthChk = today.getMonth() === monthInfo.getMonth();
+        // --
+        
+        // 조건별 함수들
+        const txtDate = _.createTextNode(inputDate);
+        const disableTxt = () => {
+            _.classAdd(li, 'disableTxt');
+            _.appendChild(li, txtDate);
+        };
+
+        const addButton = () => {
+            const button = _.createElement('button');
+            _.appendChild(button, txtDate);
+            _.appendChild(li, button); 
+        }
+        // ---
+
+        if (currYearMonthChk) {
+            if (today.getDate() > inputDate && monthChk) disableTxt();
+            else addButton();
+        } else {
+            if (futureChk) addButton();
+            else disableTxt();
+        }        
+    }
+    
 }
 
 export default Calendar;
