@@ -43,9 +43,20 @@ console.log("gege")
 if (this.targetEl.classList.contains("toggleBtn1"))
 =>if (this.targetEl.matches(".toggleBtn1"))
 */
-//*TODO: 페이지 로드하면 체험버튼이 클릭되어있는 상태로 표시하기->클릭된상태에서는 MOUSEHOVER효과적용X
-
+//// .TODO: 페이지 로드하면 체험버튼이 클릭되어있는 상태로 표시하기->클릭된상태에서는 MOUSEHOVER효과적용X
+/*
 -tabindex
-   -
-   closest -
-   insertAdjacentHTML / appendChild / insertAdjacentElement
+  
+closest 
+insertAdjacentHTML / appendChild / insertAdjacentElement
+https: //gist.github.com/jesperorb/3975943c4fdc5865d983e2e4df8c0b00
+
+
+Nth - Child와 Nth - Of - Type
+https: //webisfree.com/2015-12-16/[css]-nth-child%EC%99%80-nth-of-type-%EC%84%A0%ED%83%9D%EC%9E%90-%EB%B9%84%EA%B5%90%ED%95%98%EA%B8%B0
+
+
+클로져복습.->모던자바스크립트/ 자바스크립트레시피
+https://poiemaweb.com/js-closure
+*/
+//todo: focus onblur로 사라지는 트렌스폼 구축.
