@@ -2,7 +2,7 @@
 
 .reservation__container {
   min-width: 850px;
-  height: 66px;
+  height: 64px;
   display: flex;
   justify-content: center;
 }
@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   border-radius: 50px;
+  position: relative;
 }
 
 .reservation__menu__box {
@@ -53,6 +54,16 @@
   cursor: pointer;
 }
 
+.leftside__radius__box--click {
+  min-width: 270px;
+  background: #fff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
 .leftside__radius__box--activity {
   width: 400px;
   background: #fff;
@@ -67,6 +78,7 @@
   background: #ebebeb;
   border-radius: 50px;
 }
+
 .leftside__radius__box:hover + div {
   border-right: 1px solid #fff;
 }
@@ -75,6 +87,7 @@
   background: #ebebeb;
   border-radius: 50px;
 }
+
 .leftside__radius__box--activity:hover + div {
   border-right: 1px solid #fff;
 }
@@ -88,7 +101,6 @@ input {
   padding: 14px 24px;
   box-sizing: border-box;
   cursor: pointer;
-  /* display: none; */
 }
 
 /* 양쪽 다 middle bar를 없애는 방법이 없을까... */
@@ -170,4 +182,59 @@ input {
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
+}
+
+.location__container {
+  background: #fff;
+  width: 500px;
+  height: 104px;
+  margin: 12px 0 0;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: 1;
+  border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  max-height: calc(100vh - 220px);
+  overflow: hidden auto;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.6);
+  display: flex;
+}
+
+.location__box {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  outline: 1px solid blue;
+  width: 100%;
+}
+
+.location--li {
+  width: 500px;
+  height: 64px;
+  padding: 16px 32px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.location--li:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.visible--hidden {
+  display: none;
+}
+
+.location--img-box {
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+}
+
+.location--img {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
 }

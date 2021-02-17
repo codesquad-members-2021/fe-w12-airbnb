@@ -15,7 +15,6 @@
   }
 
   function closeBurgerBox(e) {
-    console.log($burgerContainer.classList);
     if (e.path.includes($burgerButton)) return;
     $burgerContainer.classList.add('visible--hidden');
   }
