@@ -207,6 +207,7 @@ a {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .info-input-form {
@@ -255,9 +256,18 @@ a {
 
 .calendars-wrapper {
     margin: 20px var(--page-side-margin);
+    top: 90%;
     width: 60%;
     background-color: var(--info-color);
     border-radius: var(--nav-btn-border-radius);
+    z-index: 3;
+    position: absolute;
+}
+
+.calendars-wrapper-hidden {
+    width: 0;
+    height: 0;
+    visibility: hidden;
 }
 
 .calendar-container {
