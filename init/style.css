@@ -27,7 +27,7 @@ body {
   box-sizing: border-box;
   height: 58px;
   background-color: black;
-  padding: 20px 80px 20px 80px;
+  padding: 20px 80px;
   font-size: 14px;
   text-align: center;
 }
@@ -392,7 +392,7 @@ body {
 
 .city-section__div {
   height: 144px;
-  padding: 0px 0px 0px 0px;
+  padding: 0px;
 }
 
 .city-section__list {
@@ -434,8 +434,8 @@ body {
 
 .section__div > ul {
   position: absolute;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .section__main-text {
@@ -475,7 +475,7 @@ body {
   position: absolute;
   height: 44px;
   width: 752px;
-  padding: 16px 16px 16px 16px;
+  padding: 16px;
   font-size: 16px;
   bottom: 0;
 }
@@ -526,7 +526,7 @@ body {
 .host-section__img {
   width: 520.656px;
   height: 347.094px;
-  border-radius: 16px 16px 16px 16px;
+  border-radius: 16px;
 }
 
 .display-none{

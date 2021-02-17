@@ -4,64 +4,90 @@ const searchSectionEl = document.querySelector(".search-section");
 const searchActivitySectionEl = document.querySelector(
   ".search-section__activity"
 );
-
+const iconPerson = document.querySelector(".icon-person");
 const navMenu = document.querySelector(".nav__menu");
 const radioListEl = document.getElementsByName("nav");
 
-let popUp = false;
+class HamburgerTabUI {
+  constructor() {
+    this.bPopUp = false;
+    this.hamburgerTab = iconListEl;
+  }
+  drawPopupTable() {
+    this.trList = [
+      "회원가입",
+      "로그인",
+      "숙소 호스트 되기",
+      "체험 호스팅 하기",
+      "도움말",
+    ];
+    this.tbClass = "popup-tb";
+    this.tdClass = "popup-tb-td";
 
-const changeSearchBar = event => {
-  radioListEl.forEach(node => {
-   if(node.checked && node.value === "room"){
-     searchSectionEl.classList.replace('display-none','display-block');
-     searchActivitySectionEl.classList.replace('display-block','display-none');
-    } else if (node.checked && node.value === "activity") {
-      searchSectionEl.classList.replace('display-block','display-none');
-      searchActivitySectionEl.classList.replace('display-none','display-block');
+    this.tableTemplate = `<table class=${this.tbClass}>
+  <tbody><tr><td class=${this.tdClass}>${this.trList[0]}</td></tr>
+  <tr><td class=${this.tdClass}>${this.trList[1]}</td></tr>
+  <tr><td class=${this.tdClass}>${this.trList[2]}</td></tr>
+  <tr><td class=${this.tdClass}>${this.trList[3]}</td></tr>
+  <tr><td class=${this.tdClass}>${this.trList[4]}</td></tr>
+  </tbody>
+  </table>`;
+    iconPerson.insertAdjacentHTML("afterend", this.tableTemplate);
+    this.bPopUp = true;
+  }
+
+  hidePopupTable(event) {
+    this.table = document.querySelector(".popup-tb");
+    if (!event.target.className.includes("popup") && this.bPopUp) {
+      this.table.remove();
+      this.bPopUp = false;
+    } else {
+      return;
     }
-  });
-};
-
-const drawPopupTable = () => {
-  const table = document.createElement("table");
-  table.className = "popup-tb";
-
-  const trList = [
-    "회원가입",
-    "로그인",
-    "숙소 호스트 되기",
-    "체험 호스팅 하기",
-    "도움말",
-  ];
-
-  for (let i = 0; i < trList.length; i++) {
-    let tr = document.createElement("tr");
-    let td = document.createElement("td");
-    td.className = "popup-tb-td";
-    td.textContent = trList[i];
-    tr.appendChild(td);
-    table.appendChild(tr);
   }
-  iconNavigator.insertAdjacentHTML("beforeend", table.outerHTML);
-  popUp = true;
-};
 
-const hidePopupTable = event => {
-  const table = document.querySelector(".popup-tb");
-  if (!event.target.className.includes("popup") && popUp) {
-    table.remove();
-    popUp = false;
-  } else {
-    return;
+  onEvents() {
+    this.hamburgerTab.addEventListener("click", this.drawPopupTable.bind(this));
+    document.addEventListener("click", this.hidePopupTable.bind(this));
   }
-};
+}
+
+class SearchBarUI {
+  constructor() {
+    this.menu = navMenu;
+    this.menuRadio = radioListEl;
+    this.menuRoom = searchSectionEl;
+    this.menuActivity = searchActivitySectionEl;
+  }
+  changeSearchBar() {
+    for (let node of this.menuRadio) {
+      if (node.checked && node.value === "room") {
+        this.menuRoom.classList.replace("display-none", "display-block");
+        this.menuActivity.classList.replace("display-block", "display-none");
+      } else if (node.checked && node.value === "activity") {
+        this.menuRoom.classList.replace("display-block", "display-none");
+        this.menuActivity.classList.replace("display-none", "display-block");
+      }
+    }
+  }
+
+  onEvents() {
+    navMenu.addEventListener("click", this.changeSearchBar.bind(this));
+  }
+
+  init() {
+    this.menuRoom.classList.add("display-block");
+    this.menuActivity.classList.add("display-none");
+  }
+}
 
 const init = () => {
-  iconListEl.addEventListener("click", drawPopupTable);
-  document.addEventListener("click", hidePopupTable);
-  navMenu.addEventListener("click", changeSearchBar);
-  searchSectionEl.classList.add('display-block');
-  searchActivitySectionEl.classList.add('display-none');
+  const hamburgerTabUI = new HamburgerTabUI();
+  hamburgerTabUI.onEvents();
+
+  const searchBarUI = new SearchBarUI();
+  searchBarUI.init();
+  searchBarUI.onEvents();
 };
 
 init();
