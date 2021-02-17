@@ -16,7 +16,7 @@ class Calendar {
     return calendarHTML;
   }
   getFirstDay(year, month) {
-    return new Date(year, month, 1).getDay();
+    return new Date(year, month - 1, 1).getDay();
   }
   isLeaf(year, month) {
     return year % 4 === 0 && month === 2;
