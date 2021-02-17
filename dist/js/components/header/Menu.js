@@ -1,7 +1,7 @@
 import Component from "../../core/Component.js";
 
 export default class Menu extends Component {
-  template() {
+  getTemplate() {
     return `
         <nav>
             <ul class="menuBox">
