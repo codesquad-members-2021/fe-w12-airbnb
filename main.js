@@ -57,20 +57,15 @@
     if (btn === $airbnbBtn) {
       btn.querySelector('.low-bar').classList.replace(SHORT_BAR, LONG_BAR);
       $activityBtn.querySelector('.low-bar').classList.replace(LONG_BAR, TP_BAR);
+      document.querySelector('.reservation__box--airbnb').classList.replace('visible--hidden', 'visible--flex');
+      document.querySelector('.reservation__box--activity').classList.replace('visible--flex', 'visible--hidden');
     }
     if (btn === $activityBtn) {
       btn.querySelector('.low-bar').classList.replace(SHORT_BAR, LONG_BAR);
       $airbnbBtn.querySelector('.low-bar').classList.replace(LONG_BAR, TP_BAR);
+      document.querySelector('.reservation__box--airbnb').classList.replace('visible--flex', 'visible--hidden');
+      document.querySelector('.reservation__box--activity').classList.replace('visible--hidden', 'visible--flex');
     }
-
-    // if (btn === $airbnbBtn) {
-    //   $reservationBox.classList.replace('reservation__box--activity', 'reservation__box--airbnb');
-    //   $reservationBox.classList.replace('visible--flex', 'visible--hidden');
-    // }
-    // if (btn === $activityBtn) {
-    //   $reservationBox.classList.replace('reservation__box--airbnb', 'reservation__box--activity');
-    //   $reservationBox.querySelector('.reservation__box--activity').classList.replace('visible--hidden', 'visible--flex');
-    // }
   }
 
   function changeShortBar(btn) {
