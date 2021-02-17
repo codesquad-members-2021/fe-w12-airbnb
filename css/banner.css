@@ -1,14 +1,14 @@
 .banner {
   box-sizing: border-box;
   background-color: black;
-  color: #dddddd;
+  color: #ddd;
   padding: 20px 80px;
   text-align: center;
 }
 
 .banner a {
-  text-decoration: none;
-  color: #dddddd;
+  text-decoration: underline;
+  color: #ddd;
 }
 
 .banner a:hover {
