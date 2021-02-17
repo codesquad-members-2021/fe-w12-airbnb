@@ -3,7 +3,12 @@
 /* --------------------------------------------------------------------- */
 
 const _ = {
-    $: (selector, base = document) => base.querySelector(selector)
+    $: (selector) => document.querySelector(selector),
+    addClass: (node, className) => node.classList.add(className),
+    removeClass: (node, className) => {
+        console.log(node);
+        node.classList.remove(className);
+    }
 }
 
 export default _;
