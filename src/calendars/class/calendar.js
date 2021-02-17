@@ -48,14 +48,15 @@ export default class Calendar {
         // 일~토: 7번 반복
         if (i === 0) {
           if (j < firstDayName) {
-            calHtml += `<div class="calendar__date}"><span></span><span></span></div>`;
+            calHtml += `<div class="calendar__date}"><span></span></div>`;
           } else {
-            calHtml += `<div class="calendar__date ${this.checkDate(startDayCount, today, date)}"><span>${startDayCount}</span><span id="${year}${month}${this.setFixDayCount(startDayCount++)}"></span></div>`;
+            calHtml += `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)} ${year}-${month}-${startDayCount}"><span>${startDayCount++}</span></div>`;
+            // className으로 해당 날짜를 넣어보려고했다... 근데 어차피 id로 주어지니까 필요 없는 것 같기도 하다.. day부분이 -1 되어서 표기된다는 것만 유의하면서 진행하면 될거같은 느낌이다..
           }
         } else if (i > 0 && startDayCount <= lastDay) {
-          calHtml += `<div class="calendar__date ${this.checkDate(startDayCount, today, date)}"><span>${startDayCount}</span><span id="${year}${month}${this.setFixDayCount(startDayCount++)}"></span></div>`;
+          calHtml += `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)} ${year}-${month}-${startDayCount}"><span>${startDayCount++}</span></div>`;
         } else if (startDayCount > lastDay) {
-          calHtml += `<div class="calendar__date"><span></span><span></span></div>`;
+          calHtml += `<div class="calendar__date"><span></span></div>`;
         }
       }
     }
