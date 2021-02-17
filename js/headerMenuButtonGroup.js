@@ -22,16 +22,16 @@
 
   // HEADER__MENU--BUTTON-GROUP
 
-  $airbnbBtn.addEventListener('mouseenter', () => changeShortBar($airbnbBtn));
-  $airbnbBtn.addEventListener('mouseleave', () => changeHiddenBar($airbnbBtn));
-  $airbnbBtn.addEventListener('click', () => changeLongBar($airbnbBtn));
+  $airbnbBtn.addEventListener('mouseenter', changeShortBar);
+  $airbnbBtn.addEventListener('mouseleave', changeHiddenBar);
+  $airbnbBtn.addEventListener('click', changeLongBar);
 
-  $activityBtn.addEventListener('mouseenter', () => changeShortBar($activityBtn));
-  $activityBtn.addEventListener('mouseleave', () => changeHiddenBar($activityBtn));
-  $activityBtn.addEventListener('click', () => changeLongBar($activityBtn));
+  $activityBtn.addEventListener('mouseenter', changeShortBar);
+  $activityBtn.addEventListener('mouseleave', changeHiddenBar);
+  $activityBtn.addEventListener('click', changeLongBar);
 
-  $onlineActBtn.addEventListener('mouseenter', () => changeShortBar($onlineActBtn));
-  $onlineActBtn.addEventListener('mouseleave', () => changeHiddenBar($onlineActBtn));
+  $onlineActBtn.addEventListener('mouseenter', changeShortBar);
+  $onlineActBtn.addEventListener('mouseleave', changeHiddenBar);
 
   initCursor();
 
@@ -48,7 +48,8 @@
     return btn.querySelector(LowBar).classList.contains(LONG_BAR);
   }
 
-  function changeLongBar(btn) {
+  function changeLongBar(e) {
+    let btn = e.currentTarget;
     if (isLongBar(btn)) return;
     changeCursor(btn);
     if (btn === $airbnbBtn) {
@@ -65,13 +66,15 @@
     }
   }
 
-  function changeShortBar(btn) {
+  function changeShortBar(e) {
+    let btn = e.target;
     if (isLongBar(btn)) return;
     btn.querySelector(LowerBox).classList.replace(TP_BAR, SHORT_BAR);
     btn.querySelector(Menu).className = MENU_HOVER;
   }
 
-  function changeHiddenBar(btn) {
+  function changeHiddenBar(e) {
+    let btn = e.target;
     if (btn.querySelector(MenuHover)) {
       btn.querySelector(MenuHover).className = MENU;
     }
