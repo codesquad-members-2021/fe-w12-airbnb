@@ -238,3 +238,20 @@ input {
   border-radius: 8px;
   width: 100%;
 }
+
+.calender__container {
+  width: 785px;
+  height: 340px;
+  padding: 16px 32px;
+  position: absolute;
+  left: 0px;
+  top: 64px;
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  margin-top: 12px;
+  max-height: calc(100vh - 220px);
+  overflow: hidden auto;
+  padding: 16px 32px;
+}
