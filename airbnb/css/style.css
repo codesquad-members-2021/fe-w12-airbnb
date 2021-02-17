@@ -133,7 +133,6 @@ nav{
     max-height: 0;
     display: block;
 }
-
 .dropdown-menu { 
     text-decoration: none;
 }
@@ -159,6 +158,57 @@ nav{
     background-color: #f1f1f1;
 }
 
+.calender2{
+    font-size: 14px;
+    line-height: 6.43;
+    box-sizing: border-box;
+    background: pink;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
+    margin-top: 34px;
+    padding: 8px 0px;
+    position: absolute;
+    overflow:hidden;
+    top: 22%;
+    right: 220px;
+    /* max-height: calc(100vh - 100px); */
+    z-index: 2;
+    min-width: 850px;
+    display: block;
+    min-height: 372px;
+    display: flex;
+    flex-direction: row;
+    /* align-items:center; */
+    align-content: space-between;
+}
+/* ---------------------------------------------------캘린더 */
+.calender {
+    height: 99%;
+    box-sizing: border-box;
+    padding: 0.5%;
+    width: 400px;
+    height: 200px;
+}
+
+.calender__day {
+display: inline-block;
+vertical-align: bottom;
+width: calc(97% / 7);
+height: calc(98% / 5);
+box-sizing: border-box;
+border-radius: 5px;
+padding: 20px;
+}
+
+.horizontalGutter {
+margin-right: 0.5%;
+}
+
+.verticalGutter {
+margin-top: 0.5%;
+}
+
+
 
 
 /* ----------------------------nav end------------------------- */
@@ -182,6 +232,7 @@ nav{
     height: 32px;
     border-radius: 6px;
     border: 0px;
+    display: inline;
 }
 
 .search__box {
@@ -524,6 +575,11 @@ box-shadow: 0 3px 3px 0 rgb(170,170,170);
     color:rgb(58, 58, 58);
     list-style-type: none;
 }
+
+
+
+
+
 
 
 

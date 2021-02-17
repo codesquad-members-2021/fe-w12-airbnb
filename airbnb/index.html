@@ -7,6 +7,7 @@
     <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비"></title>
     <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calender.css">
 </head>
 <body>
     <header>
@@ -69,6 +70,8 @@
                     </a>
                 
             </div>
+
+            
 
 
         </nav>
@@ -134,7 +137,7 @@
             <div class="divideLine"></div>
 
             <span class="search__people item">
-                <button class="search__button">
+                <button class="search__button" id="search__box__date">
                     <div class="search__sub__title">날짜</div>
                     <div class="search__input">
                         <input class="search__input-form" type="text" placeholder="원하는 날짜를 입력하세요."/>
@@ -146,7 +149,10 @@
                 </div>
             </span>
         </div>
-
+        <div class="calender2">
+            <div class="calender__preMonth">저번달</div>
+            <div class="calender__nowMonth">이번달</div>
+        </div>
             
         <div class = "view__ment">이제, 여행은<br>가까운 곳에서
         </div>
@@ -338,6 +344,10 @@
             </div>
         </section>
 
+        <div class = "calender">
+
+        </div>
+
        <footer class="f">
            <div class="fot__intro">
                <div class="fot__box">
@@ -424,6 +434,8 @@
     </main>
     <script src="./js/dropdown.js"></script>
     <script src="./js/searchbox.js"></script>
+    <script src="./js/calender.js"></script>
 </body>
 </html>
+
 
