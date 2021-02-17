@@ -236,11 +236,7 @@ a {
     border: 0;
 }
 
-.check-inout-hidden {
-    display: none;
-}
-
-.input-date-hidden {
+.input-hidden {
     display: none;
 }
 
