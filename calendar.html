@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button class="prev">prev</button>
+    <button class="next">next</button>
+    <table id="calendar" border=2>
+
+        <tr>
+            <th id="month" colspan="7"></th>
+        </tr>
+        <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+        </tr>
+
+    </table>
+
+
+    <script>
+        let calendar = document.querySelector("#calendar")
+
+        let date = new Date();
+
+        let y = date.getFullYear();
+        let m = date.getMonth();
+        let d = date.getDate();
+        let day = date.getDay();
+
+        let firstDate = new Date(y, m, 1) //2월 1일
+        let dayOfFirstDate = firstDate.getDay(); //월요일
+
+        //각 달의 마지막 날
+        let last = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        let lastDate = last[m]
+
+        //윤년체크
+        function checkLeapYear(y) {
+            if (y % 4 && y % 100 != 0 || y % 400 == 0) {
+                lastDate = last[1] = 29;
+            }
+        }
+
+
+        //년도와 몇번째 달인지 
+        function showYearAndMonth() {
+            let month = document.querySelector('#month');
+            month.innerHTML = `${y}년 ${(m + 1)}월`
+        }
+
+
+
+        //달력에 숫자넣어주기
+        function inputNumberInCalendar() {
+            let dateNumber = 1; // 달력에 표기되는 일의 초깃값
+            let row = Math.ceil((dayOfFirstDate + lastDate) / 7);
+
+            let template = '';
+
+            for (let i = 0; i < row; i++) {
+
+                template += "<tr>";
+
+                for (let j = 1; j <= 7; j++) {
+                    if ((i === 0 && j <= dayOfFirstDate) || dateNumber > lastDate) {
+                        template += '<td> &nbsp; </td>'
+                    } else {
+                        template += '<td>' + dateNumber + '</td>'
+                        dateNumber++;
+                    }
+                }
+
+                template += '</tr>'
+            }
+            calendar.insertAdjacentHTML("beforeend", template)
+        }
+
+
+        function main() {
+            checkLeapYear(y);
+            showYearAndMonth();
+            inputNumberInCalendar();
+        }
+        main();
+
+
+        let prev = document.querySelector(".prev")
+        let next = document.querySelector(".next")
+
+        prev.addEventListener("click", clickHandler)
+
+        function clickHandler() {
+
+        }
+    </script>
+
+</body>
+
+</html>
