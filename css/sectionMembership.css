@@ -1,0 +1,41 @@
+/* SECTION: Membership */
+.section__membership {
+  height: fit-content;
+  margin: 70px 0;
+}
+
+.section__membership__container {
+  height: fit-content;
+}
+
+.section__membership__upper {
+  height: 52px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.hostbox > div > img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.section__membership__body > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.hostbox > div > span {
+  color: #222;
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 8px;
+  display: block;
+}
+
+footer {
+  background: #f7f7f7;
+  height: 400px;
+  border-top: 1px solid #eee;
+}

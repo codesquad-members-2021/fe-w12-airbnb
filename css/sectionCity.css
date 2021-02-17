@@ -1,0 +1,53 @@
+/* SECTION: City */
+.section__background {
+  border: 1px solid #fff;
+  width: 200px;
+  background: #fff;
+  padding: 15px;
+}
+
+.section__container__city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__container__city--list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.city {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.city > div {
+  display: inline-block;
+}
+
+.city__box > * {
+  display: block;
+  margin-left: 15px;
+  padding: 4px;
+  color: #222;
+}
+
+.city__box > b {
+  font-weight: 600;
+}
+
+.city__box > span {
+  min-width: 165px;
+}
+
+.city__img {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}

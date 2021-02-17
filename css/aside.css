@@ -1,0 +1,15 @@
+/* ASIDE: Covid info */
+
+.aside {
+  height: 62px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aside a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: underline;
+}

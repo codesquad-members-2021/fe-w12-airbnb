@@ -1,0 +1,47 @@
+/* SECTION: visual */
+
+.section--visual {
+  padding: 0;
+}
+
+.visual__container {
+  padding: 146px 80px 40px;
+  height: 364px;
+}
+
+.catchphrase--box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.catchphrase {
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.lookaround {
+  height: 60px;
+  border: 1px solid transparent;
+}
+
+.lookaround__background {
+  border-radius: 10px;
+  width: 140px;
+  height: 20px;
+  margin-top: 22px;
+  padding: 7px 15px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lookaround__text {
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: center;
+}
