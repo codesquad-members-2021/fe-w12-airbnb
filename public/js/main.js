@@ -6,6 +6,7 @@ const calendarWrapper = document.querySelector('.calendars-wrapper');
 class Calendar {
   constructor(target) {
     this.target = target;
+    this.date = new Date();
     this.days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   }
 
@@ -30,15 +31,15 @@ class Calendar {
 
   showCalendarTitle() {
     const calendarTitle = document.querySelector('.calendar-title');
-    const year = new Date().getFullYear();
-    const month = new Date().getMonth() + 1;
+    const year = this.date.getFullYear();
+    const month = this.date.getMonth() + 1;
     calendarTitle.textContent = `${year}년 ${month}월`;
   }
 
   showCalendarDays() {
     const calendarDays = document.querySelector('.calendar-days');
     console.log(calendarDays);
-    const month = new Date().getMonth();
+    const month = this.date.getMonth();
     const daysNum = this.days[month];
     for (let i = 1; i <= daysNum; i += 1) {
       const span = document.createElement('span');
