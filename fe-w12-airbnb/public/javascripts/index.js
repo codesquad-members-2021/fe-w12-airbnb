@@ -3,24 +3,20 @@
 /* --------------------------------------------------------------------- */
 import TabUI from "./tabUI.js";
 import PopUpLayer from "./popUpLayer.js";
+import _ from "./utill.js";
 
 class Main {
     constructor(){
-        //utillity메소드 객체
-        const _ = {
-            $: (selector, base = document) => base.querySelector(selector)
-        }
         this.TU = new TabUI();
         this.PUL = new PopUpLayer();
     }
 
     init(){
-        console.log("hello world!");
-        this.TU.sayHi();
         this.setEvent();
     }
 
     setEvent(){
+        
 
     }
 }

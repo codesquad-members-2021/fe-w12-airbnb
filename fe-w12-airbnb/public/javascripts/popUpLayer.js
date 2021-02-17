@@ -2,8 +2,12 @@
 /* ----------▶︎▶︎▶︎ PopUpLayer 클래스: 오른쪽 상단 햄버거 팝업메뉴 핸들링 ◀︎◀︎◀︎---------*/
 /* --------------------------------------------------------------------- */
 
-class PopUpLayer {
+import _ from "./utill.js";
 
+class PopUpLayer {
+    addEvent(){
+        
+    }
 }
 
 export default PopUpLayer;
