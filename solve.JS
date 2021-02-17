@@ -60,3 +60,5 @@ https: //webisfree.com/2015-12-16/[css]-nth-child%EC%99%80-nth-of-type-%EC%84%A0
 https://poiemaweb.com/js-closure
 */
 //todo: focus onblur로 사라지는 트렌스폼 구축.
+
+-optional channing
