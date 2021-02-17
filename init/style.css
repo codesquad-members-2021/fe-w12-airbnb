@@ -1,10 +1,10 @@
 :root {
   /*Color*/
   --main-color: #fe375c;
-  --calender-th-color: rgb(113, 113, 113);
-  --calender-tb-color: rgb(34, 34, 34);
+  --calendar-th-color: rgb(113, 113, 113);
+  --calendar-tb-color: rgb(34, 34, 34);
 
-  --calender-none-color: rgb(189, 189, 189);
+  --calendar-none-color: rgb(189, 189, 189);
 }
 
 a {
@@ -181,7 +181,7 @@ body {
   border-radius: 30px;
 }
 
-.search-calender {
+.search-calendar {
   position: relative;
   list-style: none;
   padding: 0px;
@@ -194,14 +194,14 @@ body {
   /* font-family: "Nanum Gothic", sans-serif; */
 }
 
-#calender-left {
+#calendar-left {
   display: inline-block;
   height: 100%;
   position: absolute;
   width: 50%;
   /* outline: #fe375c solid; */
 }
-#calender-right {
+#calendar-right {
   display: inline-block;
   height: 100%;
   position: absolute;
@@ -209,7 +209,7 @@ body {
   right: 0;
   /* outline: #60353d solid; */
 }
-.calender-title {
+.calendar-title {
   position: relative;
   /* background-color: violet; */
   margin-top: 5%;
@@ -217,7 +217,7 @@ body {
   text-align: center;
 }
 
-.calender-title > button {
+.calendar-title > button {
   position: absolute;
   padding: 0px;
   margin: 0px;
@@ -226,14 +226,14 @@ body {
   font-size: 18px;
   border: none;
 }
-.calender-title > #btn-left {
+.calendar-title > #btn-left {
   left: 11%;
 }
 
-.calender-title > #btn-right {
+.calendar-title > #btn-right {
   right: 11%;
 }
-.calender-title > span {
+.calendar-title > span {
   position: absolute;
   top: 1%;
   left: 43%;
@@ -242,7 +242,7 @@ body {
   line-height: 23px;
   font-weight: 600;
 }
-.calender-table {
+.calendar-table {
   /* outline: blue solid; */
   width: 80%;
   height: 80%;
@@ -252,17 +252,23 @@ body {
   left: 10%;
   text-align: center;
 }
-.calender-table > thead {
+.calendar-table > thead {
   outline: orange solid;
   font-size: 12px;
   font-weight: 600;
-  color: var(--calender-th-color);
+  color: var(--calendar-th-color);
 }
-.calender-tbody {
+.calendar-left-tbody {
   /* outline: green solid; */
   font-size: 13px;
   font-weight: 700;
-  color: var(--calender-tb-color);
+  color: var(--calendar-tb-color);
+}
+.calendar-right-tbody {
+  /* outline: green solid; */
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--calendar-tb-color);
 }
 
 .search__input {
