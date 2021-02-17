@@ -10,12 +10,12 @@ export default class Calendar {
 
   checkDate(startDayCount, today, date) {
     const [year, month] = date;
-    if (year > this.day.getMonth() || month > this.day.getMonth()) return `tomorrow`;
-    if (year < this.day.getMonth() || month < this.day.getMonth()) return `yesterday`;
-    const todayDate = today.getDate();
-    if (startDayCount < todayDate) return `yesterday`;
-    if (startDayCount === todayDate) return `today`;
-    if (startDayCount > todayDate) return `tomorrow`;
+    const [presentYear, presentMonth, presentDate] = [today.getFullYear(), today.getMonth() + 1, today.getDate()];
+    if (presentYear > year || (presentYear === year && presentMonth > month)) return `yesterday`;
+    if (presentYear < year || (presentYear === year && presentMonth < month)) return `tomorrow`;
+    if (presentYear === year && presentMonth === month) {
+      return startDayCount < presentDate ? `yesterday` : startDayCount === presentDate ? `today` : `tomorrow`;
+    }
   }
 
   insertDayName(calHtml) {
