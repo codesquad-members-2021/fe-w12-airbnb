@@ -60,18 +60,28 @@ const searchbar = (searchbarDocument) => {
 };
 searchbar(seachbarRooms);
 
-const calculationCalenderline = (datelast,datestart) => {
-  const left = datelast%7;
-  let linenumber = datelast /7
-}
-
 const makeCalender = (Calender, year, month) => {
   const tbody = _.$("tbody", Calender);
+  const title = _.$(".main__calender--month", Calender);
   const datelast = new Date(year, month, 0).getDate();
-  const datestart = new Date(year, month, 1).getDay();
-  for(let i=0 )
-};
+  const datestart = new Date(year, month - 1, 1).getDay();
+  let date = `${year} 년 ${month} 월`;
+  let html = "<tr>";
 
+  for (let i = 0; i < datestart; i++) html += "<td></td>";
+
+  for (let i = 0; i < datelast; i++) {
+    if ((datestart + i) % 7 === 0) html += "</tr><tr>";
+    html += `<td class="calender--day">${i + 1}</td>`;
+  }
+
+  html += "</tr>";
+  title.innerHTML = date;
+  tbody.innerHTML = html;
+};
+const table = _.$A(".main__calender--table");
+makeCalender(table[0], 2021, 02);
+makeCalender(table[1], 2021, 01);
 const roomsBar = lists[0].querySelector(".navbar_selectedline");
 const activityBar = lists[1].querySelector(".navbar_line");
 const activityClickHandler = () => {
