@@ -1,0 +1,24 @@
+.ul__multi {
+  &-four {
+    column-count: 4;
+  }
+}
+
+section, footer {
+  padding: 0 80px;
+  float: left;
+  width: 100%;
+  section {
+    padding: 0;
+  }
+}
+
+body, main {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+
+main {
+  top: -80px;
+}
