@@ -1,8 +1,7 @@
 export class TopMenu {
   constructor(targetEl) {
     this.targetEl = targetEl;
-    this.accommodations = targetEl[0];
-    this.activity = targetEl[1];
+    [this.accommodations, this.activity] = targetEl;
   }
 
   onEvents() {
@@ -12,27 +11,17 @@ export class TopMenu {
 
   accommodationHandler() {
     const detailsForRooms = document.querySelectorAll('.input-for-rooms');
-    detailsForRooms.forEach((input) =>
-      input.classList.remove('check-inout-hidden')
-    );
+    detailsForRooms.forEach((input) => input.classList.remove('input-hidden'));
 
     const dateInput = document.querySelector('.input-date');
-    if (dateInput) {
-      dateInput.classList.remove('input-date');
-      dateInput.classList.add('input-date-hidden');
-    }
+    dateInput.classList.add('input-hidden');
   }
 
   activityHandler() {
     const detailsForRooms = document.querySelectorAll('.input-for-rooms');
-    detailsForRooms.forEach((input) =>
-      input.classList.add('check-inout-hidden')
-    );
+    detailsForRooms.forEach((input) => input.classList.add('input-hidden'));
 
-    const dateInputHidden = document.querySelector('.input-date-hidden');
-    if (dateInputHidden) {
-      dateInputHidden.classList.remove('input-date-hidden');
-      dateInputHidden.classList.add('input-date');
-    }
+    const dateInput = document.querySelector('.input-date');
+    dateInput.classList.remove('input-hidden');
   }
 }
