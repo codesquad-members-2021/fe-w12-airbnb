@@ -1,15 +1,23 @@
-window.onload = function () {
-  const body = document.body;
-  const dropdownbtn = document.querySelector(".menuAndAcountIcon");
-  const dropdowndiv = document.querySelector(".header_dropdown");
-  dropdownbtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdowndiv.classList.toggle("flex");
-  });
-  body.addEventListener("click", (e) => {
-    dropdowndiv.classList.remove("flex");
-  });
+class Dropdown {
+  constructor(dropdownBtn) {
+    this.dropdownBtn = dropdownBtn;
+    this.body = document.body;
+    this.dropdownDiv = document.querySelector(".header_dropdown");
+  }
 
-  //   if (document.getElementById("nav_radio_1").checked) {
-  //   }
-};
+  initDropdownEvent() {
+    this.dropdownBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.dropdownDiv.classList.toggle("flex");
+    });
+
+    this.body.addEventListener("click", (e) => {
+      this.dropdownDiv.classList.remove("flex");
+    });
+  }
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+  const dropdown = new Dropdown(document.querySelector(".menuAndAcountIcon"));
+  dropdown.initDropdownEvent();
+});
