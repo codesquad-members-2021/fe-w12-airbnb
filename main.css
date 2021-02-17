@@ -12,7 +12,7 @@ body {
  width: 100%;
  height: 800px;
  background-image: url( "images/top_banner.webp");
- background-size: cover;
+ background-size: 100%;
  background-repeat: no-repeat;
  background-position: center center;
  justify-content: center;
@@ -26,6 +26,7 @@ body {
     font-size: 14px;
     padding: 20px 40px;
     background: black;
+    /* box-shadow: 1px 1px 25px rgb(0, 0, 0 / 17%); */
 }
 
 
@@ -62,12 +63,32 @@ body {
 
 .header_center_menu > .menus {
     padding: 10px 16px;
+    font-size: 14px;
     color:white;
     display: inline-block;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.menus_activity {
+    padding: 10px 16px;
+    font-size: 14px;
+    color:white;
+    display: inline-block;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.menus_room {
+    padding: 10px 16px;
+    font-size: 14px;
+    color:white;
+    display: inline-block;
+    border-color: transparent;
+    background-color: transparent;
 }
 
 .header_right_menu {
-    float:inline-end;
     display:flex;
     align-items: center;
     justify-content: flex-end;
@@ -120,25 +141,99 @@ body {
     padding-left:7px;
 }
 
+.menus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-.main > .search {
+
+
+.room_search {
     font-size: 12px;
     font-weight: bold;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     border-color: transparent;
+    margin: 0 30%;
+    padding: 0.3% 0;
+    background-color: #fff;
+    border-radius: 50px;
 }
 
+.activity_search {
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    position: absolute;
+    width:40%;
+    justify-content:space-between;
+    border-color: transparent;
+    top:15%;
+    margin: 0 30%;
+    padding: 0.3% 0;
+    background-color: #fff;
+    border-radius: 50px;
+}
+
+
+.big_search {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+label > input {
+    margin-top: 5px;
+    border:0px;
+    width: 10em;
+
+}
+
+.activity_search > label > input {
+    margin-top: 5px;
+    border:0px;
+    width: 15em;
+}
+
+label {
+    padding-left: 30px;
+}
+.search__button {
+    background-color: #E51D56;
+    background-image: url("./images/search.svg");
+    background-size:40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+    border-radius: 50%;
+    margin-left:15px;
+    width:50px;
+    height:50px;
+}
+
+.search__button_activity {
+    background-color: #E51D56;
+    background-image: url("./images/search.svg");
+    background-size:40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+    border-radius: 50%;
+    margin-right: 10px;
+    width:50px;
+    height:50px;
+}
 
 
 
 .main > .main_square {
     width: 1502px;
-    height: 610.44px;
-    line-height:3.7em;
+    /* line-height:3.7em; */
     margin:auto;
     /* border:red 1px solid; */
-
+    
 }
 
 .main_square > header {
@@ -156,10 +251,234 @@ body {
     background-color: white;
     border-radius: 7px;
 }
+.cities_1 {
+    display:flex;
+    justify-content: space-between;
+    padding-bottom: 0.5em;
+
+}
+
+.cities_2 {
+    padding-top: 0.5em;
+    display:flex;
+    justify-content: space-between;
+}
+.cities {
+    display:flex;
+    flex-direction: column;
+    padding-top : 80px;
+    padding-bottom : 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin: 0 120px;
+}
+
+.city {
+    display:flex;
+}
+.name_distance {
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 10px;
+}
+.city > img {
+    border-radius: 12px;
+    width: 64px;
+    height: 64px;
+
+}
+
+.city_name {
+
+    font-weight: bold;
+}
+
+
+.house_types {
+    display:flex;
+    flex-direction: column;
+    align-content: space-around;
+    margin : 0 120px;
+}
+
+.house__type > img {
+    width: 362px;
+    height: 362px;
+    border-radius: 12px;
+}
+
+.house_types > .house_title {
+    display:flex;
+    padding-right: 80px;
+    padding-left: 80px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+
+.house_types > .house_photos {
+    display: flex;
+    padding-right: 80px;
+    padding-left: 80px;
+    justify-content: space-between;
+}
+
+.house__type > div {
+    font-weight: bold;
+}
+
+.activities {
+    display:flex;
+    flex-direction: column;
+    background-color: black;
+    color:white;
+    
+    margin-top: 70px;
+    padding-top:40px;
+    padding-bottom:40px;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.activities > span {
+    padding-left: 80px;
+}
+
+.activities > span > h2 {
+    font-size:30px;
+}
+.activity_types {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.activity_type > img {
+    width : 488px;
+    height : 488px;
+    border-radius: 12px;
+ 
+}
+
+.activity_type > div {
+    padding-top: 5px;
+    
+}
+
+.host {
+    display: flex;
+    flex-direction: column;
+    margin : 0 120px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: 1px 1px 25px rgb(0, 0, 0 / 17%);
+}
+
+.host > span {
+    margin-bottom: 16px;
+    font-size:20px;
+    
+}
+
+.hosting_types {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.hosting_type {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.hosting_type > img {
+    width : 30em;
+    height: 347.09px;
+    border-radius: 12px;
+}
+
+.hosting_type > span {
+    padding-top : 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user_layer {
+    background-color: white;
+    position:absolute;
+    top: 8em;
+    left : 90.5em;
+    width: 250px;
+    height: 230px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.layerMenu {
+    padding-left: 15px;
+    font-size: 14px;
+}
+
+.signup {
+    font-weight: bold;
+}
+
+.login {
+    border-bottom: 1px gray solid;
+    padding-bottom: 20px;
+}
+
+.hide {
+    display: none;
+}
 
 
 
+.minus_room {
+    background-image: url(./images/minus.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position:absolute;
+    left: 53em;
+    top: 7em;
+    width: 20px;
+    height:10px;
+    /* display: none; */
+    
+}
+
+.minus_activity {
+    background-image: url(./images/minus.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position:absolute;
+    left: 57.5em;
+    top: 7em;
+    width: 20px;
+    height:10px;
+
+    
+}
 
 
+.date_button {
+    border:transparent;
+    background-color: transparent;
+    width: 170%;
+    text-align: left;
+    margin-bottom:10px;
+}
 
-
+.date_update {
+    color:gray;
+}

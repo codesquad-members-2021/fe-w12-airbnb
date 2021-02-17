@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
+    <title>에어비앤비 클론 사이트</title>
     <link rel="stylesheet" type="text/css" href="/FE/airbnb/main.css">
+    <link rel ="stylesheet" type="text/css" href="/FE/airbnb/calendar.css">
 </head>
 <body>
     <div class="corona_Top">
@@ -17,9 +18,9 @@
                 <img src="images/airbnb.svg"class="airbnb_icon">
             </div>
             <div class = "header_center_menu">
-                <div class="menus">숙소</div>
-                <div class="menus">체험</div>
-                <div class="menus">온라인 체험</div>
+                <button class="menus_room">숙소</button>
+                <button class="menus_activity">체험</button>
+                <button class="menus">온라인 체험</button>
             </div>
             <div class = "header_right_menu">
                 <a class = "sign_up_host">호스트 되기</a>
@@ -27,99 +28,344 @@
                 <button type="button" class="user_btn"><img src="images/list.svg" ><img src="images/people.svg" style="width: 30px;"></button>
             </div>
         </div>
-        <div class="search">
-            <label class="big_search">
-                <div>위치</div>
+
+
+        <section class="room_search">
+            <label for ="big_search">
+                <div class="big_search">위치</div>
                 <input placeholder="어디로 여행가세요?">
             </label>
-            <label calss="check_in_search">
-                <div>체크인</div>
+            <label for ="big_search">
+                <div class="big_search">체크인</div>
                 <input placeholder="날짜 추가">
             </label>
-            <label>
-                <div>체크아웃</div>
+            <label for ="big_search">
+                <div class="big_search">체크아웃</div>
                 <input placeholder="날짜 추가">
             </label>
-            <label>
-                <div>인원</div>
+            <label for ="big_search">
+                <div class="big_search">인원</div>
                 <input placeholder="게스트 추가">
             </label>
+            <label for = "big_search">
+                <button class = "search__button"></button>
+            </label>
+        </section>
+
+        <section class="activity_search hide">
+            <label for ="big_search">
+                <div class="big_search">위치</div>
+                <input placeholder="어디로 여행가세요?">
+            </label>
+            <label for ="big_search">
+                <button class = "date_button">
+                <div class="big_search">날짜</div>
+                <div class="date_update">원하는 날짜를 입력하세요.</div>
+                </button>
+            </label>
+                <button class = "search__button_activity"></button>
+         
+        </section>
+
+        <div class = "user_layer hide">
+            <a class = "layerMenu signup">회원 가입</a>
+            <a class = "layerMenu login">로그인</a>
+            <a class = "layerMenu">숙소 호스팅 되기</a>
+            <a class = "layerMenu">체험 호스팅 하기</a>
+            <a class = "layerMenu">도움말</a>
         </div>
+
         <div class="main_square">
             <header>이제, 여행은</br> 가까운 곳에서</header>
             <span>근처의 숙소 둘러보기</span>
         </div>
     </div>
-    <ul class="cities">
-        <li class="city">
-            <div class="city_name">서울</div>
-            <div class="distance">차로 5시간 거리</div>
-        </li>
-        <li class="city">
-            <div class="city_name">대구</div>
-            <div class="distance">차로 2시간 거리</div>
-        </li>
-        <li class="city">
-            <div class="city_name">인천</div>
-            <div class="distance">차로 5시간 거리</div>
-        </li>
-        <li class="city">
-            <div class="city_name">대전</div>
-            <div class="distance">차로 5시간 거리</div>
-        </li>
-        <li class="city">
-            <div class="city_name">수원시</div>
-            <div class="distance">차로 5시간 거리</div>
-        </li>
-        <li class="city">
-            <div class="city_name">의정부시</div>
-            <div class="distance">차로 5시간 거리</div>
-        </li>
-        <li class="city">
-            <div class="city_name">부천시</div>
-            <div class="distance">차로 5시간 거리</div>
-        </li>
-        <li class="city">
-            <div class="city_name">청주시</div>
-            <div class="distance">차로 5시간 거리</div>
-        </li>
-    </ul>
-    <div class="house_types">
-        <h1>어디에서나, 여행은 살아보는 거야!</h1>
-        <div class="house_type">
-            <span>집 전체</span>
+
+    <section class="cities">
+        <div class = "cities_1">
+
+            <a class="city">
+                <img src = "images/sec1-01.jpg">
+                <div class = "name_distance">
+                    <div class="city_name">서울</div>
+                    <div class="distance">차로 5시간 거리</div>
+                </div>
+                
+            </a>
+            <a class="city">
+                <img src = "images/sec1-02.jpg">
+                <div class = "name_distance">
+                    <div class="city_name">대구</div>
+                    <div class="distance">차로 2시간 거리</div>
+                </div>
+            </a>
+            <a class="city">
+                <img src = "images/sec1-03.jpg">
+                <div class = "name_distance">
+                    <div class="city_name">인천</div>
+                    <div class="distance">차로 5시간 거리</div>
+                </div>
+            </a>
+            <a class="city">
+                <img src = "images/sec1-04.jpg">
+                <div class = "name_distance">
+                    <div class="city_name">대전</div>
+                    <div class="distance">차로 5시간 거리</div>
+                </div>
+            </a>
         </div>
-        <div class="house_type">
-            <span>독특한 공간</span>
+        <div class = "cities_2">
+            <a class="city">
+                <img src = "images/sec1-05.jpg">
+                <div class = "name_distance">
+                    <div class="city_name">수원시</div>
+                    <div class="distance">차로 5시간 거리</div>
+                </div>
+            </a>
+            <a class="city">
+                <img src = "images/sec1-06.jpg">
+                <div class = "name_distance">
+                    <div class="city_name">의정부시</div>
+                    <div class="distance">차로 5시간 거리</div>
+                </div>
+            </a>
+            <a class="city">
+                <img src = "images/sec1-07.jpg">
+                <div class = "name_distance">
+                    <div class="city_name">부천시</div>
+                    <div class="distance">차로 5시간 거리</div>
+                </div>
+            </a>
+            <a class="city">
+                <img src = "images/sec1-08.jpg">
+                <div class = "name_distance">
+                    <div class="city_name">청주시</div>
+                    <div class="distance">차로 5시간 거리</div>
+                </div>
+            </a>
         </div>
-        <div class="house_type">
-            <span>반려동물 동반 가능</span>
+        </section>
+
+        <section class = "house_types">
+            <div class = "house_title">
+                <h2>어디에서나, 여행은 살아보는 거야!</h2>
+            </div>
+            
+            <div class = "house_photos">
+
+                <div class="house__type">
+                    <img src = "images/sec2-01.jpg">
+                    <div>집 전체</div>
+                </div>
+                <div class="house__type">
+                    <img src = "images/sec2-02.jpg">
+                    <div>독특한 공간</div>
+                </div>
+                <div class="house__type">
+                    <img src = "images/sec2-03.jpg">
+                    <div>반려동물 동반 가능</div>
+                </div>
+                <div class="house__type">
+                    <img src = "images/sec2-04.jpg">
+                    <div>통나무집 및 전원주택</div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class = "activities">
+
+            <span><h2>세상을 만나는 특별한 방법</h2></span>
+            <span>현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나 온라인으로 만나보세요.</span>
+            <div class="activity_types">
+                <div class="activity_type">
+                    <img src = "images/sec3-06.webp">
+                    <div>온라인 체험</div>
+                    <span>집에서 즐기는 랜선 세계 여행</span>
+                </div>
+                <div class="activity_type">
+                    <img src = "images/sec3-05.webp">
+                    <div>체험</div>
+                    <span>어디에서든 즐길 수 있는 체험</span>
+                </div>
+                <div class="activity_type">
+                    <img src = "images/sec3-07.webp">
+                    <div>어드벤처</div>
+                    <span>숙박과 식사가 포함된 며칠 일정의 여행입니다.</span>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class = "host">
+            <span><h2>수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</h2></span>
+            <div class="hosting_types">
+                <div class="hosting_type">
+                    <img src = "images/sec4-01.jpg">
+                    <span>숙소 호스트 되기</span>
+                </div>
+                <div class="hosting_type">
+                    <img src = "images/sec4-02.jpg">
+                    <span>온라인 체험 호스팅하기</span>
+                </div>
+                <div class="hosting_type">
+                    <img src = "images/sec4-03.jpg">
+                    <span>체험 호스팅하기</span>
+                </div>
+            </div>
+        </section>
+
+        <div class = "calendar hide"> 
+        
+            <button class = "left_button"> < </button>
+            
+            <table class = "left_calendar">
+                <th class = "left_title">2월</th>
+                <tbody>
+                    <tr class = "week">
+                        <td class = "day">일</td>
+                        <td class = "day">월</td>
+                        <td class = "day">화</td>
+                        <td class = "day">수</td>
+                        <td class = "day">목</td>
+                        <td class = "day">금</td>
+                        <td class = "day">토</td>
+                    </tr>
+                    <tr>    <!-- 달력 첫 번째 줄-->
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 두 번째 줄-->
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 세 번째 줄-->
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 네 번째 줄-->
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 다섯 번째 줄-->
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 여섯 번째 줄-->
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                        <td class = "left_calendar_days" roll = "button"> </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <table class = "right_calendar">
+                <th class = "right_title">2월</th>
+                <tbody>
+                    <tr class = "week">
+                        <td class = "day">일</td>
+                        <td class = "day">월</td>
+                        <td class = "day">화</td>
+                        <td class = "day">수</td>
+                        <td class = "day">목</td>
+                        <td class = "day">금</td>
+                        <td class = "day">토</td>
+                    </tr>
+                    <tr>    <!-- 달력 첫 번째 줄-->
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 두 번째 줄-->
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 세 번째 줄-->
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 네 번째 줄-->
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 다섯 번째 줄-->
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                    </tr>
+                    <tr>    <!-- 달력 여섯 번째 줄-->
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                        <td class = "right_calendar_days" roll = "button"> </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            
+            <button class = "right_button"> > </button>
         </div>
-        <div class="house_type">
-            <span>통나무집 및 전원주택</span>
-        </div>
-    </div>
-    <div class="activity_types">
-        <span><h1>세상을 만나는 특별한 방법</h1></span>
-        <span>현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나 온라인으로 만나보세요.</span>
-        <div class="activity_type">
-            <div>온라인 체험</div>
-            <div>집에서 즐기는 랜선 세계 여행</div>
-        </div>
-        <div class="activity_type">
-            <div>체험</div>
-            <div>어디에서든 즐길 수 있는 체험</div>
-        </div>
-        <div class="activity_type">
-            <div>어드벤처</div>
-            <div>숙박과 식사가 포함된 며칠 일정의 여행입니다.</div>
-        </div>
-    </div>
-    <div class="hosting_types">
-        <span><h1>수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</h1></span>
-        <div class="hosting_type">숙소 호스트 되기</div>
-        <div class="hosting_type">온라인 체험 호스팅하기</div>
-        <div class="hosting_type">체험 호스팅하기</div>
-    </div>
+
+        <div class ="minus_room"></div>
+        <div class ="minus_activity hide"></div>
+
+        <script src = "user_layer.js"></script>
+        <script src = "big_search.js"></script>
+        <script src = "calendar.js"></script>
 </body>
 </html>
