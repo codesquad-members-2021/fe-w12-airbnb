@@ -18,6 +18,7 @@
   const LowerBox = '.lower--box';
   const Menu = '.menu';
   const MenuHover = '.menu__hover';
+  const LowBar = '.low-bar';
 
   // HEADER__MENU--BUTTON-GROUP
 
@@ -44,21 +45,21 @@
   }
 
   function isLongBar(btn) {
-    return btn.querySelector('.low-bar').classList.contains(LONG_BAR);
+    return btn.querySelector(LowBar).classList.contains(LONG_BAR);
   }
 
   function changeLongBar(btn) {
     if (isLongBar(btn)) return;
     changeCursor(btn);
     if (btn === $airbnbBtn) {
-      btn.querySelector('.low-bar').classList.replace(SHORT_BAR, LONG_BAR);
-      $activityBtn.querySelector('.low-bar').classList.replace(LONG_BAR, TP_BAR);
+      btn.querySelector(LowBar).classList.replace(SHORT_BAR, LONG_BAR);
+      $activityBtn.querySelector(LowBar).classList.replace(LONG_BAR, TP_BAR);
       document.querySelector('.reservation__box--airbnb').classList.replace('visible--hidden', 'visible--flex');
       document.querySelector('.reservation__box--activity').classList.replace('visible--flex', 'visible--hidden');
     }
     if (btn === $activityBtn) {
-      btn.querySelector('.low-bar').classList.replace(SHORT_BAR, LONG_BAR);
-      $airbnbBtn.querySelector('.low-bar').classList.replace(LONG_BAR, TP_BAR);
+      btn.querySelector(LowBar).classList.replace(SHORT_BAR, LONG_BAR);
+      $airbnbBtn.querySelector(LowBar).classList.replace(LONG_BAR, TP_BAR);
       document.querySelector('.reservation__box--airbnb').classList.replace('visible--flex', 'visible--hidden');
       document.querySelector('.reservation__box--activity').classList.replace('visible--hidden', 'visible--flex');
     }
