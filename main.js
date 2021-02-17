@@ -120,7 +120,7 @@ class SearchBarChildUI extends ChildUI {
 class RightMenuChildWithPopupUI extends ChildUI {
   constructor(targetEl, popupMenu) {
     super(targetEl);
-    this.popupMenu = popupMenu;  
+    this.popupMenu = popupMenu;
   }
 
   onEvents() {
@@ -166,14 +166,22 @@ class PopupMenuUI extends ChildUI {
 class CalenderContainerUI extends ContainerUI {
   constructor(calenderCount, targetEl, triggerEls) {
     super(targetEl, triggerEls);
-    this.calenders = Array(calenderCount).fill(new CalenderController(this.targetEl, this.triggerEls));
+    this.calenderCount = calenderCount;
+    this.calenders = [];
   }
 
   init() {
-    this.calenders.forEach(calender => {
+    for (let i = 0; i < this.calenderCount; i++)
+      this.calenders.push(new CalenderController(this.targetEl, this.triggerEls));
+
+    this.calenders.reduce((date, calender) => {
       calender.init();
+      calender.changeYearMonthTo(date);
       calender.insertViewBefore(this.targetEl.lastElementChild);
-    });
+      date.setMonth(date.getMonth() + 1);
+      return date;
+    }, new Date());
+
     this._onEvents();
   }
 
@@ -207,13 +215,15 @@ function main() {
   const rightMenuChildWithPopup = new RightMenuChildWithPopupUI(document.querySelector('#right-menu > .solid-rounded:first-child'), popupMenu);
   rightMenuChildWithPopup.onEvents();
 
+  // const c1 = new CalenderController(null);
+  // const c2 = new CalenderController(null);
+
   const searchBarCalenderContainer = new CalenderContainerUI(
-    1,
+    2,
     document.querySelector('#search-bar-calender-container'),
     document.querySelector('#checkin-in-search-bar'),
     document.querySelector('#checkout-in-search-bar'));
   searchBarCalenderContainer.init();
-  
 }
 
 main();

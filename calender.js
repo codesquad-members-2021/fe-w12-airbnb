@@ -7,37 +7,26 @@ export class CalenderController {
 
   init() {
     this.view.init();
-    this.changeYearMonthTo(this.model.date.getFullYear(), this.model.date.getMonth());
   }
 
   insertViewBefore(el) { this.parentEl.insertBefore(this.view.targetEl, el); }
 
   changeToPrevMonth() {
-    let prevYear = this.model.date.getFullYear();
-    const prevMonth = (this.model.date.getMonth() + 11) % 12;
-
-    if (prevMonth === 11)
-      prevYear--;
-
-    this.changeYearMonthTo(prevYear, prevMonth);
+    this.model.date = new Date(this.model.date.getFullYear(), this.model.date.getMonth() - 1);
+    this.changeWeeksTo(this.model.date);
   }
 
   changeToNextMonth() {
-    let nextYear = this.model.date.getFullYear();
-    const nextMonth = (this.model.date.getMonth() + 1) % 12;
-
-    if (nextMonth === 0)
-      nextYear++;
-
-    this.changeYearMonthTo(nextYear, nextMonth);
+    this.model.date = new Date(this.model.date.getFullYear(), this.model.date.getMonth() + 1);
+    this.changeWeeksTo(this.model.date);
   }
   
-  changeYearMonthTo(year, month) {
-    this.model.date = new Date(year, month);
-    this.changeWeeksFrom(this.model.date);
+  changeYearMonthTo(date) {
+    this.model.date = new Date(date);
+    this.changeWeeksTo(date);
   }
 
-  changeWeeksFrom(date) {
+  changeWeeksTo(date) {
     const weeks = [];
     const firstDate = new Date(date.getFullYear(), date.getMonth(), 1);
     const lastDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
@@ -87,6 +76,7 @@ class CalenderView {
       week.forEach(date => date ? rowHTML += `<td>${date}</td>` : rowHTML += `<td></td>`);
 
       rowEl.innerHTML = rowHTML;
+
       this.targetEl.lastElementChild.lastElementChild.appendChild(rowEl);
     });
   }
@@ -116,7 +106,6 @@ class CalenderView {
 class CalenderModel {
   constructor(view) {
     this.view = view;
-    this._date = new Date();
   }
 
   get weeks() { return this._weeks;}
