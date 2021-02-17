@@ -10,17 +10,13 @@
 }
 
 .rooms__type {
-  display: flex;
-  flex-direction: row;
-}
-
-.rooms__type ul {
   margin-right: 16px;
   font-size: 18px;
   font-weight: 600;
+  display: block;
 }
 
-.rooms img {
+.room--img {
   width: 100%;
   height: 300px;
   border-radius: 8px;
