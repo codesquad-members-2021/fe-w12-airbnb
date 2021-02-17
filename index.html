@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mission1</title>
+    <title>airbnb</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="class_List.css">
     <link rel="stylesheet" href="index_header.css">
     <link rel="stylesheet" href="index_mid.css">
     <link rel="stylesheet" href="index_bottom.css">
-    <link rel="stylesheet" href="class_List.css">
 </head>
 
 <body id="Body">
@@ -34,19 +34,19 @@
                     </a>
                 </div>
                 <div class="maincenter">
-                    <label><input name="neis" checked type="radio" class="maincenter_input"><span tabindex="0"
-                            class="maincenter_input_span">숙소</span></label>
-                    <label><input name="neis" type="radio" class="maincenter_input"><span tabindex="0"
+                    <label id="first_label"><input name="neis" checked type="radio" class="maincenter_input"><span
+                            tabindex="0" class="maincenter_input_span">숙소</span></label>
+                    <label id="second_label"><input name="neis" type="radio" class="maincenter_input"><span tabindex="0"
                             class="maincenter_input_span">체험</span></label>
                     <label><input name="neis" type="radio" class="maincenter_input"><span tabindex="0"
                             class="maincenter_input_span">온라인 체험</span></label>
                 </div>
                 <div class="right_box">
                     <div class="right_box_div">
-                        <div class ="right_box_e1">
+                        <div class="right_box_e1">
                             <a class="right_box_e1_a" href="#">호스트 되기</a>
                         </div>
-                        <div class ="right_box_e2">
+                        <div class="right_box_e2">
                             <button class="ghost-button">
                                 <svg id="ghost_id" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000.svg">
                                     <path
@@ -67,32 +67,33 @@
                 </div>
             </div>
 
-
             <!-- 위치 체크인 체크아웃 인원 -->
+
             <div class="centerInfo">
-                <div class="BOX">
-                    <div class="Infobox">
+                <div id="BOX_head" class="BOX">
+                    <div id="BOX_first" class="Infobox">
                         <div class="Infofont">위치</div>
                         <div><input type="text" placeholder="어디로 여행가세요?"
-                                style="background-color:transparent; border:none; font-size: 15px; width:140px"></div>
+                                style="background-color:transparent; border:none; font-size: 15px; width:140px">
+                        </div>
                     </div>
                 </div>
-                <div class="BOX">
+                <div id="calendar_in" class="BOX">
                     <div class="Infobox">
                         <div class="Infofont">체크인</div>
                         <div class="Infofontunder">날짜 추가</div>
                     </div>
                 </div>
-                <div class="BOX">
+                <div id="calendar_out" class="BOX">
                     <div class="Infobox">
                         <div class="Infofont">체크아웃</div>
                         <div class="Infofontunder">날짜 추가</div>
                     </div>
                 </div>
-                <div class="BOX">
-                    <div class="Infobox">
-                        <div class="Infofont">인원</div>
-                        <div class="Infofontunder">게스트 추가</div>
+                <div id="BOX_head" class="BOX">
+                    <div id="BOX_fourth" class="Infobox">
+                        <div id="hidden" class="Infofont">인원</div>
+                        <div id="hidden" class="Infofontunder">게스트 추가</div>
                     </div>
                     <button class="centerbtn">
                         <svg class="centerbtnSVG" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
@@ -104,14 +105,14 @@
                     </button>
                 </div>
 
-            </div>
-            <!-- 이제 여행은 가까운 곳에서 -->
-            <div class="mainabsolute">
-                <div class="mainfloat">
-                    <span>이제,여행은</br>가까운 곳에서</span>
-                </div>
-                <div>
-                    <button class="mainfloatbtn">근처의 숙소 둘러보기</button>
+                <!-- 이제 여행은 가까운 곳에서 -->
+                <div class="mainabsolute">
+                    <div class="mainfloat">
+                        <span>이제,여행은</br>가까운 곳에서</span>
+                    </div>
+                    <div>
+                        <button class="mainfloatbtn">근처의 숙소 둘러보기</button>
+                    </div>
                 </div>
             </div>
 
@@ -359,6 +360,7 @@
     </footer>
 
     <script src="login_box.js"></script>
+    <script src="calendar.js"></script>
 </body>
 
 </html>

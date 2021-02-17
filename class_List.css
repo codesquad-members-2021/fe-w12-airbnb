@@ -1,5 +1,7 @@
+/* js파일에 모든 classList 가 있습니다. */
+
+/* 우측 login_box css */
 .List_box {
-    display: block;
     background-color: white;
     color: black;
     position: absolute;
@@ -9,7 +11,7 @@
     border-radius: 10px;
 }
 
-#tempdiv {
+.tempclass {
     display: none;
 }
 
@@ -23,6 +25,47 @@
     font-size: 13px;
 }
 
-#secondbox_div {
+.secondbox_div {
     border-bottom: 2px solid #ebebeb;
 }
+
+/* center 숙소 체험 box css*/
+.centerdisplay_off {
+    display: none !important;
+}
+
+.Infofont2 {
+    font-weight: bold;
+}
+.Infofontunder2 {
+    font-size: 15px;
+    color:gray;
+}
+
+.boxwidth {
+    display:block;
+    width:50% !important;
+}
+
+.boxpadding {
+    padding-right: 180px;
+}
+
+/* calendar css*/
+
+.calendar_css {
+    background-color:white;
+    position: absolute;
+    width: 50%;
+    top: 230px;
+    border-radius: 30px;
+}
+
+.cal_table {
+    padding:20px;
+}
+
+.calendar_display {
+    display:none;
+}
+

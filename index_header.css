@@ -18,7 +18,7 @@ a:visited { color:white; }
     text-align: center;
     color: white;
     background-color: black;
-    padding: 25px 80px;
+    padding: 20px 80px;
     margin: 0;
 }
 
@@ -44,7 +44,7 @@ body {
 .mainlogo {
     display:flex;
     justify-content: space-between;
-    padding: 30px 80px 30px 80px;
+    padding: 20px 80px 30px 80px;
 }
 
 .mainlogo_div {
@@ -101,6 +101,10 @@ body {
     margin:auto;
     height:5px;
     border: 0px solid white;
+}
+
+.maincenter > label > input:checked + span {
+    cursor:default;
 }
 
 .maincenter > label > input:checked + span:after {
@@ -271,13 +275,12 @@ body {
 
 .BOX {
     display: flex;
+    cursor: pointer;
     justify-content:space-between;
     align-items: center;
     position: relative;
     width: 25%;
-    margin: 0 auto;
     border-radius: 50px; 
-    /* transition: background 0.1s ease-in-out; */
 }
 
 /* 첫번째 박스만 빼고 다 적용시킨다. */
@@ -285,7 +288,7 @@ body {
     content: '|';
     color:#ebebeb;
     position: absolute;
-    left: 0;
+    left: -4px;
 }
 
 .BOX:hover {
@@ -297,6 +300,7 @@ body {
    .BOX:hover + .BOX:before 는 hover 했을때 다음 div의 before 속성 */
 /* + 는 "그 다음" 을 나타낸다. 따라서  .BOX:hover:before, .BOX:hover + .BOX:before 구문은
    내가 hover한 박스의 hover속성을 적용하고 hover일 경우 다음 박스의before에도 hover을 적용한다.*/
+/* .BOX:hover:before, .BOX:hover + .BOX:before { */
 .BOX:hover:before, .BOX:hover + .BOX:before {
     color:transparent;
 }
