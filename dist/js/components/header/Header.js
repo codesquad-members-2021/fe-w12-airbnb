@@ -1,9 +1,9 @@
 import Component from "../../core/Component.js";
 import Menu from "./Menu.js";
-import Search from "./Search.js";
+import Search from "./search/Search.js";
 
 export default class Header extends Component {
-  template() {
+  getTemplate() {
     return `
         <div class="contents_wrapper">
           <div class="logo">

@@ -1,16 +1,16 @@
-import Component from "../../core/Component.js";
+import Component from "../../../core/Component.js";
 import SearchBox from "./SearchBox.js";
 export default class Search extends Component {
   setup() {
     this.state = { searchType: "STAYS" };
   }
-  template() {
+  getTemplate() {
     const { searchType } = this.state;
     return `
         <form>
             <fieldset>
                 <div class="search-type">
-                  <div class="typeBox ">
+                  <div class="typeBox">
                     <label for="STAYS">
                       <input type="radio" id="STAYS"/ name="searchType">
                       <span>숙소</span>
@@ -42,18 +42,18 @@ export default class Search extends Component {
   }
   setEvent() {
     this.addEvent("click", ".search-type", ({ target }) => {
-      if (target.tagName === "INPUT") {
-        this.changeSearchType(target.id);
-        setTimeout(() => {
-          const { searchType } = this.state;
-          const afterTarget = document.querySelector(`#${searchType}`);
-          const typeBox = afterTarget.closest(".typeBox");
-          typeBox.classList.add("selected");
-        }, 100);
-      }
+      if (target.tagName !== "INPUT") return;
+      this.changeSearchType(target.id);
+      setTimeout(() => {
+        const { searchType } = this.state;
+        const afterTarget = document.querySelector(`#${searchType}`);
+        const typeBox = afterTarget.closest(".typeBox");
+        typeBox.classList.add("selected");
+      }, 100);
     });
   }
   changeSearchType(searchType) {
+    console.log("before in change", this.state);
     this.setState({ searchType });
   }
 }
