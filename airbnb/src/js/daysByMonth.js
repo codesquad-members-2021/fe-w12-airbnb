@@ -1,4 +1,4 @@
-const days = {
+const MONTH_DAYS = {
   1: 31,
   2: 28,
   3: 31,
@@ -13,4 +13,4 @@ const days = {
   12: 31,
 };
 
-export default days;
+export default MONTH_DAYS;
