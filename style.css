@@ -242,7 +242,34 @@ hr {
 
 /* calendar  */
 .calendar {
-  background-color: white;
+  background-color: whitesmoke;
+  /* width: 200px; */
+  padding: 50px;
+  position: absolute;
+  display: none;
+  top: 220px;
+  right: 215px;
+  border-radius: 30px;
+  font-size: 15px;
+}
+
+.calendar.active {
+  display: block;
+}
+
+.calendar__year-month {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+.calendar__day td,
+.calendar__day th {
+  padding: 10px 15px;
+}
+.calendar__day th {
+  color: gray;
+  font-weight: 350;
+  font-size: 13px;
 }
 
 /* local */
