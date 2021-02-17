@@ -185,8 +185,7 @@ nav .menu li,
 .search__title,
 .search-sub__title {
   display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
+  margin: 7px 0px;
 }
 .search__title,
 .search-sub__title {
@@ -197,7 +196,6 @@ nav .menu li,
 .search-sub__desc {
   font-size: 13px;
   color: #8e8e8e;
-  /* padding-top: 100px; */
 }
 
 .search span,
@@ -211,7 +209,8 @@ nav .menu li,
   height: 20px;
   float: right;
 }
-.search li:hover + .search__line {
+.search li:hover + .search__line,
+.search-sub li:hover + .search__line {
   border-left: 0.1px solid transparent;
 }
 
@@ -239,6 +238,11 @@ nav .menu li,
 }
 hr {
   border-top: 0.1px solid #aeaeae;
+}
+
+/* calendar  */
+.calendar {
+  background-color: white;
 }
 
 /* local */
