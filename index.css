@@ -175,6 +175,7 @@ a {
   border: 0;
   box-sizing: border-box;
   cursor: pointer;
+  position: relative;
 }
 
 #user__button .user__button--box {
@@ -209,6 +210,16 @@ a {
 .globe:hover {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50px;
+}
+
+.red-circle {
+  width: 8px;
+  height: 8px;
+  background: #ff385c;
+  border-radius: 50px;
+  position: absolute;
+  top: 5px;
+  left: 60px;
 }
 
 /* NAV: RESERVATION */
