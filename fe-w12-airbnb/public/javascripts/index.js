@@ -1,9 +1,8 @@
 /* --------------------------------------------------------------------- */
 /* -------------▶︎▶︎▶︎ main 클래스: 프로그램 시작 및 클래스 통합 ◀︎◀︎◀︎----------------*/
 /* --------------------------------------------------------------------- */
-const { PopUpLayer } = require("./popUpLayer");
-const { TabUI } = require("./tabUI");
-TabUI.sayHi();
+import TabUI from "./tabUI.js";
+import PopUpLayer from "./popUpLayer.js";
 
 class Main {
     constructor(){
@@ -11,13 +10,13 @@ class Main {
         const _ = {
             $: (selector, base = document) => base.querySelector(selector)
         }
-        const PUL = new PopUpLayer();
-        const TU = new TabUI();
+        this.TU = new TabUI();
+        this.PUL = new PopUpLayer();
     }
 
     init(){
         console.log("hello world!");
-        this.TU.sayHi
+        this.TU.sayHi();
         this.setEvent();
     }
 

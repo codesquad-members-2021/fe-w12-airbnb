@@ -6,4 +6,4 @@ class PopUpLayer {
 
 }
 
-module.exports = { PopUpLayer };
+export default PopUpLayer;

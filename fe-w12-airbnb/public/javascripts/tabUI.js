@@ -8,4 +8,4 @@ class TabUI {
     }
 }
 
-module.exports = { TabUI };
+export default TabUI;
