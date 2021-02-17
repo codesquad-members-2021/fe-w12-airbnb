@@ -271,14 +271,15 @@ a {
     width: 100%;
 }
 
-.calender-content li {
-    width: 40px;
-    display: inline-block;
+.calender{
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.calender-days span {
+.calender li,
+.calender span {
     width: 40px;
-    display: inline-block;
+    flex: 0 1 14%;
 }
 
 .search-btn-container{
