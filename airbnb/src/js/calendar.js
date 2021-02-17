@@ -4,14 +4,12 @@ class Calendar {
   constructor(date = new Date()) {
     this.date = date;
   }
-  init() {
+  getCalendar() {
     const year = this.date.getFullYear();
     const month = this.getMonth() + 1;
     const firstDay = this.getFirstDay(year, month); //요일
     const month = this.setMonthArr(month, firstDay); //월의 날짜가 담긴 2차원 배열
     let calendar = this.makeMonthDiv(month);
-
-    return calendar;
   }
   getFirstDay(year, month) {
     return new Date(year, month, 1).getDate();

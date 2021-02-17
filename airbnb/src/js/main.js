@@ -28,9 +28,6 @@ const calendarStay = document.querySelector('.form__stay .calendar');
 const calendarExperience = document.querySelector(
   '.form__experience .calendar'
 );
-console.log(calendarStay);
-console.log(calendarExperience);
-
 const stayCalendarView = new CalendarView(
   formStay,
   queryDateStay,
