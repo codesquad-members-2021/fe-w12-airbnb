@@ -9,6 +9,9 @@
   top: 120px;
   justify-content: space-evenly;
 }
+.flex {
+  display: flex;
+}
 
 .main_reserve_container_2 li {
   padding: 10px 17px;

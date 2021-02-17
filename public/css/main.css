@@ -232,6 +232,10 @@ header .member_setting .menuAndAcountIcon i:last-child {
   justify-content: space-evenly;
 }
 
+.flex {
+  display: flex;
+}
+
 .main_reserve_container li {
   padding: 10px 17px;
   width: 25%;
