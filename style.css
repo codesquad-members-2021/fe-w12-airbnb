@@ -1,17 +1,28 @@
 * {
   /* border: 1px solid black; */
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 15px;
   color: white;
+  outline: none;
+}
+
+a[href='#'] {
+  text-decoration: none;
 }
 
 html,
 body {
   color: white;
-  border-color: red;
   background-color: white;
+  width: 100%;
+  height: 100%;
   margin: 0px;
   padding: 0px;
+}
+
+body,
+header {
+  min-width: 1050px;
 }
 
 header {
@@ -19,16 +30,13 @@ header {
   height: 80px;
   position: absolute;
   z-index: 1;
-  /* background-color: teal; */
 }
 
-label {
-  position: absolute;
-  left: 10%;
-  border-color: white;
-  font-weight: bold;
+button {
+  border: none;
 }
 
+.title,
 .bold-text {
   font-weight: bold;
 }
@@ -39,6 +47,47 @@ label {
 
 .solid-rounded {
   border-radius: 1000000px;
+}
+
+.solid-semi-rounded {
+  border-radius: 8px;
+}
+
+.color-white {
+  color: rgb(255, 255, 255);
+}
+
+.color-gray {
+  color: rgb(207, 218, 226);
+}
+
+.background-color-gray {
+  background-color: rgb(207, 218, 226);
+}
+
+.background-color-transparent {
+  background-color: transparent;
+}
+
+.pointable {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+
+.display-none {
+  display: none;
+}
+
+.not-supported {
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+  padding-top: 15px;
+  background-color: black !important;
+  color: white !important;
 }
 
 header > nav {
@@ -54,10 +103,9 @@ header > nav {
 }
 
 #home-icon-container > svg {
-  width: 102;
-  height: 32;
+  transform: scale(1.1, 1.15) translateX(5%);
   position: relative;
-  top: 30px;
+  top: 37px;
   fill: currentColor;
 }
 
@@ -70,12 +118,12 @@ header > nav {
 
 #center-menu {
   text-align: center;
-  min-width: 280px;
+  min-width: 300px;
   width: 30%;
   height: 50%;
   margin: 0 auto;
   position: relative;
-  top: 0;
+  top: -5px;
   padding: 0 20px;
 }
 
@@ -83,59 +131,99 @@ header > nav {
   margin: 0 13px;
   position: relative;
   top: 34px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#center-menu > span::before {
+  content: '';
+  transform: scaleX(0);
+  width: 18px;
+  height: 2px;
+  position: absolute;
+  bottom: -50%;
+  left: calc(50% - 9px);
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.2s ease;
+}
+
+#center-menu > input:checked + span::before {
+  transform: scaleX(1);
+  transition: transform 0.2s ease;
+}
+
+#center-menu > input:not(:checked) + span:hover::before {
+  transform: scaleX(0.222222);
+  background-color: rgb(207, 217, 266);
 }
 
 #search-bar {
-  /* display: inline-block; */
-  width: 66%;
-  min-width: 650px;
-  max-width: 950px;
-  height: 46%;
-  /* padding: 0; */
+  width: 850px;
+  height: 66px;
   margin: 0 auto;
   background-color: white;
 }
 
-#search-bar > * {
+#search-bar > *,
+#search-bar > .removable > * {
   float: left;
 }
 
-#search-bar > .solid-rounded + div {
+#search-bar > .solid-rounded,
+#search-bar > .removable > .solid-rounded {
+  text-align: left;
+  height: 100%;
+  padding: 14px 24px;
+}
+
+#search-bar > .solid-rounded + div,
+#search-bar > .removable > .solid-rounded + div {
+  width: 0;
   height: 50%;
   position: relative;
   top: 25%;
   border-left: 1px solid lightgray;
 }
 
-#search-bar > .solid-rounded {
-  text-align: left;
-  width: 20%;
+#location-in-search-bar {
+  width: calc(32% - 1px);
+  padding-left: 32px !important;
+}
+
+#search-bar > .removable {
+  width: 42%;
   height: 100%;
-  padding: 14px 3%;
-  /* background: lightgray; */
 }
 
-#search-bar > .solid-rounded:first-child {
-  width: calc(35% - 3px);
+#search-bar > .removable > .solid-rounded {
+  width: calc(50% - 1px);
 }
 
-#search-bar > .solid-rounded:last-child {
-  width: 25%;
+#search-bar > .with-search-btn {
+  width: 26%;
   position: relative;
 }
 
-#search-bar > .solid-rounded > div {
+#search-bar > .search-bar-ver2 {
+  width: calc(50% - 0.5px);
+}
+
+#search-bar .solid-rounded > div {
   font-size: 14px;
+  color: rgb(112, 111, 111);
+}
+
+#search-bar .solid-rounded > .bold-text {
+  font-size: 12px;
   color: black;
-  margin-top: 2px;
 }
 
 #search-btn {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   position: absolute;
-  top: 10.8px;
-  right: 10.8px;
+  top: 9.5px;
+  right: 9.5px;
   border: none;
   font-size: 19px;
   color: white;
@@ -146,7 +234,6 @@ header > nav {
   display: block;
   fill: none;
   width: 50%;
-  /* margin: 0 auto; */
   position: relative;
   top: 0px;
   left: 25%;
@@ -160,23 +247,30 @@ header > nav {
   min-width: 350px;
   width: 35%;
   height: 100%;
-  /* padding-left: 20%; */
   position: relative;
-  font-weight: bold;
 }
 
-#right-menu * {
-  display: inline-block;
+#right-menu > * {
+  /* display: inline-block; */
+  /* box-shadow: 0 0 0 1px rgb(202, 86, 86) inset; */
 }
 
 #right-menu > .solid-rounded {
   float: right;
-  padding: 11px 13px 15px 13px;
+  padding: 11px 12px 14px 12px;
   position: relative;
-  top: 22px;
-  /* background-color: blue; */
+  top: 18px;
 }
-/*  */
+
+#right-menu > .solid-rounded:hover {
+  background-color: rgba(124, 135, 145, 0.3);
+}
+
+#right-menu > .solid-rounded:nth-child(3) {
+  font-weight: bold;
+  font-size: 14px;
+}
+
 #right-menu > .solid-rounded:nth-child(2) > svg {
   display: block;
   height: 18px;
@@ -189,19 +283,13 @@ header > nav {
 }
 
 #right-menu > .solid-rounded:first-child {
-  padding: 7px 9px 7px 9px;
+  padding: 5.5px 6px;
   padding-left: 10px;
   color: black;
   background-color: white;
 }
 
-/* #right-menu > .solid-rounded:first-child > div { */
-/* width: 50%; */
-/* height: 100%; */
-/* } */
-
 #right-menu > .solid-rounded:first-child > svg {
-  /* display: inline-block; */
   float: left;
   height: 20px;
   width: 18px;
@@ -211,8 +299,8 @@ header > nav {
   top: 6px;
   left: 0;
   fill: none;
-  stroke: slategray;
-  stroke-width: 4;
+  stroke: rgb(102, 111, 119);
+  stroke-width: 3;
   overflow: visible;
 }
 
@@ -221,62 +309,222 @@ header > nav {
   width: 32px;
   padding-left: 0;
   margin-left: 10px;
+  top: 0;
+  fill: rgb(102, 111, 119);
+  stroke: none;
+}
+
+#popup-menu {
+  width: 240px;
+  height: 240px;
+  padding: 8px 0;
+  border-radius: 14px;
+  position: absolute;
+  top: 55px;
+  right: 0;
+  box-shadow: 0 0 5px rgba(68, 68, 68, 0.6);
+  background-color: rgb(255, 255, 255);
+}
+
+#popup-menu a {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding-top: 10px;
+  padding-left: 16px;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+}
+
+#search-bar .solid-rounded.pointable:hover + div {
+  border-color: transparent;
+}
+
+#search-bar .solid-rounded.pointable:not(#search-btn):hover,
+#popup-menu a:hover {
+  background-color: rgb(237, 240, 243);
+}
+
+#popup-menu > .horizontal-line.background-color-gray {
+  height: 0.8px;
+  margin: 11.6px 0;
+}
+
+section {
+  position: relative;
+  box-shadow: 0 0 0 3px rgb(1, 255, 35) inset;
+}
+
+.contents-block {
+  width: 100%;
+  height: 100%;
+  padding: 4% 5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.background-block {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 3px rgb(18, 1, 255) inset;
+}
+
+#sect1 {
+  height: 50vw;
+  min-height: 540px;
+  max-height: 620px;
+}
+
+#first-background-block {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent 15%),
+    url(img/welcome_background_fhd.jpg);
+  background-position-y: 48.5%;
+  background-size: cover;
+}
+
+#first-contents-block {
+  height: 55%;
+  top: 35%;
+}
+
+#welcome-lbl {
+  display: block;
+  width: 50%;
   position: relative;
   top: 0;
   left: 0;
-  /* left: -0.5px; */
-  fill: slategray;
-  stroke: none;
-  /* stroke: slategray; */
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1.1;
 }
 
-.welcome-lbl {
-  display: block;
-  width: 40%;
-  top: 55%;
-  font-size: 40px;
-}
-
-.solid-semi-rounded-btn {
-  padding: 5px 10px 5px 10px;
-  border: 0;
-  border-radius: 7px;
-  font-size: small;
+#tour-nearby-btn {
+  padding: 7px 14px;
+  margin-top: 20px;
+  color: black;
+  background-color: white;
+  font-size: 14px;
   font-weight: bold;
 }
 
-#first > .solid-semi-rounded-btn {
-  display: block;
-  position: absolute;
-  top: 74%;
-  left: 10%;
+#sect2 {
+  height: 51vw;
+}
+
+#sect2 * {
   color: black;
+}
+
+#second-background-block {
+  position: absolute;
   background-color: white;
 }
 
-#third > .text-container {
-  position: absolute;
-  width: 40%;
-  top: 10%;
-  left: 10%;
-  border: 0;
-  color: white;
+ul.horizontal-list {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-size: 0;
 }
 
-#third > .text-container > div:nth-child(1) {
-  font-size: 30px;
+ul.horizontal-list > li {
+  display: inline-block;
+  width: calc(25% - 10.5px);
+  height: 100%;
+  font-size: 0px;
+  /* background-color: rgb(155, 155, 226); */
 }
 
-#third .solid-semi-rounded-btn {
-  position: absolute;
-  width: 11%;
-  height: 5%;
-  top: 12%;
-  right: 10%;
+ul.horizontal-list + ul.horizontal-list {
+  margin-top: 14px;
+}
+
+ul.horizontal-list > li + li {
+  margin-left: 14px;
+}
+
+.small-card > * {
+  float: left;
+}
+
+.small-card > img {
+  width: 64px;
+  margin-right: 16px;
+  font-size: 0;
+}
+
+.city-info > .name {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+#live-anywhere-lbl {
+  display: block;
+  margin-top: 7%;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+#house-container {
+  margin-top: 2%;
+  margin-bottom: 10%;
+}
+
+.medium-card > img {
+  width: 100%;
+}
+
+.medium-card > .description {
+  margin-top: 6px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#sect3 {
+  height: 60vw;
+}
+
+#sect3 *:not(.sect-info, .sect-info *, #tour-all-btn) {
+  box-shadow: 0 0 0 1px rgb(255, 255, 255) inset;
+}
+
+#third-background-block {
   background-color: black;
-  border: 1px solid white;
-  font-size: 13px;
+}
+
+#third-contents-block {
+  padding-top: 4%;
+}
+
+.sect-info {
+  display: inline-block;
+  width: 50%;
+}
+
+.sect-info > .title {
+  font-size: 32px;
+}
+
+.sect-info > .description {
+  margin-top: 4px;
+}
+
+#tour-all-btn {
+  float: right;
+  /* display: inline-block; */
+  padding: 5px 14px;
+  font-weight: 800;
+  font-size: 15px;
   color: white;
+  border: 1px solid white;
+  background-color: black;
 }
 
 .text-in-card-container {
@@ -286,6 +534,15 @@ header > nav {
   padding-top: 40%;
   top: 25%;
   left: 10%;
+}
+
+#third-contents-block > .text-container {
+  width: 40%;
+  color: white;
+}
+
+#third > .text-container > div:nth-child(1) {
+  font-size: 30px;
 }
 
 .text-in-card {
@@ -344,82 +601,4 @@ header > nav {
 
 #fourth .picture {
   padding-top: 75%;
-}
-
-.main-block {
-  position: relative;
-  width: 100%;
-  max-height: 600px !important;
-  padding-top: 60%;
-  border-color: green;
-}
-
-ul.horizontal-list {
-  position: absolute;
-  width: 80%;
-  top: 7%;
-  left: 10%;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul.horizontal-list > li {
-  display: inline-block;
-  position: relative;
-  width: 24%;
-  border: 0;
-  margin-top: 5px;
-  margin-left: 4px;
-  /* background-color: rgb(155, 155, 226); */
-}
-
-.small-card {
-  display: inline-block;
-  position: relative;
-  min-width: 180px;
-  max-width: 200px;
-  width: 100%;
-  padding-top: 33.3%;
-  border: inherit;
-}
-
-.small-card > .picture {
-  position: absolute;
-  top: 5%;
-  left: 1.7%;
-  width: 30%;
-  height: 90%;
-  background-color: gray;
-  border: inherit;
-  border-radius: 5px;
-}
-
-.city {
-  position: absolute;
-  top: 20%;
-  left: 35%;
-  font-weight: bold;
-  border: inherit;
-}
-
-.distance {
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  border: inherit;
-  font-size: smaller;
-}
-
-.medium-card > .picture {
-  width: 100%;
-  padding-top: 100%;
-  background-color: gray;
-  border: inherit;
-  border-radius: 10px;
-}
-
-.description {
-  border: inherit;
-  font-weight: bold;
 }
