@@ -143,13 +143,16 @@
 }
 
 .red-circle {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: #ff385c;
   border-radius: 50px;
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 1.5px;
   position: absolute;
-  top: 5px;
-  left: 60px;
+  top: 2px;
+  left: 61px;
+  right: 4px;
+  bottom: 28px;
 }
 
 .burger__container {
