@@ -6,7 +6,7 @@
     justify-content:space-evenly;
     width: 42%;
     background-color: white;
-    /* box-shadow: 1px 1px 25px rgb(0, 0, 0 / 17%); */
+    box-shadow: 1px 1px 25px rgb(0, 0, 0 / 17%);
     border-radius: 50px;
 }
 
@@ -22,12 +22,12 @@
 
 .left_button {
     margin-left:17%;
-    /* border: transparent; */
+    border: transparent;
 }
 
 .right_button {
     margin-right:17%;
-    /* border: transparent; */
+    border: transparent;
 }
 
 .left_calendar {
@@ -51,10 +51,6 @@
 }
 
 
-
-
-
-
 .left_calendar_days > button, .right_calendar_days > button {
     width: 48px;
     height: 47px;
@@ -74,8 +70,3 @@ table {
     font-weight: bold;
     color:rgb(88, 88, 88);
 }
-
-
-/* .over {
-    border: 2px solid black;
-} */

@@ -146,10 +146,6 @@ function toggleCalendar() {
         e.stopPropagation();
         calendar.classList.remove("hide");
     })
-
-    // body.addEventListener("click", () => {
-    //     calendar.classList.add("hide");
-    // })
 }
 
 
