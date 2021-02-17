@@ -176,6 +176,7 @@ a {
   box-sizing: border-box;
   cursor: pointer;
   position: relative;
+  outline: none;
 }
 
 #user__button .user__button--box {
