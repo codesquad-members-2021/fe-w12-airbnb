@@ -1,0 +1,88 @@
+/* header - 검색바 */
+
+.header__search-bar {
+  position: absolute;
+  width: 50%;
+  max-width: 900px;
+  top: 17.3%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  height: 4.3em;
+  border-radius: 2em;
+  display: flex;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.none {
+  display: none;
+}
+
+.header__search-bar .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 1 1 20px;
+  padding: 0.3em 0.7em;
+  width: 100%;
+  cursor: pointer;
+}
+
+.header__search-bar .item:hover {
+  border-radius: 2em;
+  background-color: #f1f1f1;
+}
+
+.checked {
+  /* search-bar의 item 클릭 시 그림자 효과 주기 */
+  border-radius: 2em;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header__search-bar .search-bar__location {
+  flex-grow: 2;
+}
+
+.header__search-bar .search-bar__date {
+  flex-grow: 1;
+}
+
+.header__search-bar .search-bar__people {
+  flex-grow: 1.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header__search-bar .search-bar__date-experience {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-bar__divideLine {
+  all: unset;
+  border-right: 1px solid #ddd;
+  flex: 0 0 0px;
+  height: 32px;
+  align-self: center;
+}
+
+.fa-search {
+  font-size: 20px;
+  padding: 0.7em;
+  border-radius: 50%;
+  background-color: #ff385c;
+  color: white;
+}
+
+.search-bar__element {
+  transform: translateX(14%);
+  font-size: 14px;
+}
+
+.search-bar__element .title {
+  font-size: 12px;
+  font-weight: bold;
+}

@@ -1,0 +1,66 @@
+/* 계정버튼 누르면 나오는 레이어 */
+
+.account__layer {
+  position: absolute;
+  background-color: white;
+  width: 13%;
+  top: 18%;
+  border-radius: 0.7em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.account__layer ul li {
+  margin: 3px;
+  padding: 10px 15px 10px;
+  font-size: 14px;
+}
+
+.account__layer ul li:hover {
+  background-color: #f1f1f1;
+}
+
+.account__layer ul .line {
+  all: unset;
+  margin: 0.5em 0;
+  border-top: 1px solid #ddd;
+}
+
+.account__layer ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.account__layer-first {
+  font-weight: bold;
+}
+
+.header__main-statement {
+  position: absolute;
+  top: 45%;
+  left: 7%;
+}
+
+.header__main-statement h1 {
+  max-width: 330px;
+  font-size: 50px;
+}
+
+.header__main-statement button {
+  background-color: white;
+  color: #606060;
+  padding: 0.5em 1em;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.header__main-statement button:hover {
+  background-color: #f1f1f1;
+}

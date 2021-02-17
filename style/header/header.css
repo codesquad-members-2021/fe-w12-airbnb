@@ -1,0 +1,158 @@
+.header {
+  position: relative;
+  width: auto;
+}
+
+.header,
+.header a {
+  color: white;
+}
+
+/* header - 코로나 알림 메시지 */
+
+.header__alertMessage {
+  height: 60px;
+  background-color: black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header__alertMessage a {
+  color: #ddd;
+  width: 100%;
+  text-align: center;
+}
+
+.header__alertMessage a:hover {
+  color: #cfcdcc;
+}
+
+/* header 로고, 탭, 계정 라인 */
+
+.header__content {
+  display: flex;
+  color: black;
+  padding: 2% 7% 0 7%;
+  background-image: url("https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1440");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 47em;
+}
+
+.header__content .item {
+  width: 100%;
+}
+
+#airbnb-logo {
+  fill: white;
+}
+
+.header__search-radio {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.tab__item {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1em;
+}
+
+.search-tab__title {
+  cursor: pointer;
+}
+
+.search-tab__title:hover {
+  color: #cfcdcc;
+}
+
+.default__underBar {
+  /* js로 동작해야 할 듯 */
+  margin-top: 0.5em;
+  width: 6px;
+  transform: translateX(200%);
+  border-bottom: 2px solid white;
+}
+
+.set__underBar {
+  margin-top: 0.5em;
+  width: 18px;
+  transform: translateX(50%);
+  border-bottom: 2px solid white;
+  border-radius: 1em;
+}
+
+/* header - 계정 부분 */
+
+.header__account-items {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.account-items__element {
+  all: unset;
+  display: flex;
+  padding: 0 1em;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 2em;
+}
+
+.account-items__globe {
+  padding-right: 1.5em;
+}
+
+.account-items__element:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.header__account-btn {
+  border-radius: 2em;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.account-items__element button {
+  color: white;
+}
+
+#globe {
+  padding-top: 0.1em;
+}
+
+.account-items__btn {
+  width: 80px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#account {
+  all: unset;
+  cursor: pointer;
+  background-color: white;
+  display: flex;
+  height: 45px;
+  /* 계정 버튼 배경 높이 */
+  align-items: center;
+  text-align: center;
+  border-radius: 1.5em;
+  color: #717171;
+}
+
+#account span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 1px solid red; */
+  width: 80%;
+  height: 100%;
+  padding: 0.25em;
+}
