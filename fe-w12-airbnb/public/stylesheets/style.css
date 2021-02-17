@@ -1,0 +1,40 @@
+/*-------------------------------*/
+/*SET-UP*/
+/*-------------------------------*/
+
+@import url("/stylesheets/header.css");
+@import url("/stylesheets/cities.css");
+@import url("/stylesheets/houses.css");
+@import url("/stylesheets/activities.css");
+@import url("/stylesheets/communities.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  color: black;
+  scroll-behavior: smooth;
+  font-weight: 400;
+  font-size: 30px;
+  font-family: "Lato", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  text-align: center;
+  justify-content: center;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.invisible {
+  visibility: hidden;
+  /* opacity: 0 */
+}

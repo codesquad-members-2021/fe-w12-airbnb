@@ -1,0 +1,35 @@
+/*-------------------------------*/
+/*COMMUNITY*/
+/*-------------------------------*/
+
+#community_options {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  margin-top: 3rem;
+}
+
+#sec4_title {
+  font-weight: 500;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.sec4_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+div.sec4_container > div > p {
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.community_pic {
+  margin-top: 1rem;
+  height: 400px;
+  width: 560px;
+  border-radius: 3%;
+}

@@ -1,0 +1,47 @@
+/*-------------------------------*/
+/*CITIES*/
+/*-------------------------------*/
+
+#cities {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  padding-top: 1rem;
+}
+
+.cities {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.cities_container {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 50px;
+  row-gap: 16px;
+}
+
+ul.cities_container > li {
+  display: flex;
+  align-items: center;
+}
+
+.txt_box {
+  display: inline-block;
+  align-items: center;
+  font-size: 0.7rem;
+  text-align: left;
+  margin-left: 0.5rem;
+}
+
+.txt_box :first-child {
+  font-weight: 700;
+}
+
+.city_pic {
+  border-radius: 10%;
+  height: 80px;
+  width: auto;
+}

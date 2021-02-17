@@ -1,0 +1,34 @@
+/*-------------------------------*/
+/*HOUSES*/
+/*-------------------------------*/
+
+#house_options {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+}
+
+#sec2_title {
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.sec2_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+div.sec2_container > div > p {
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.house_pic {
+  height: auto;
+  width: 400px;
+  border-radius: 3%;
+}

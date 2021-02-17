@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
 </head>
 <body>
+    <!--헤더-->
     <header>
         <div id="announcement">
             <div class="corona_info"><u class="corona_info">에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</u></div>
@@ -24,44 +25,58 @@
                         <li><a href="#">체험</a></li>
                         <li><a href="#">온라인 체험</a></li>
                     </ul>
+                    <fieldset class="search_box">
+                        <div>
+                            <label>위치</label><input type="text" placeholder="어디로 여행가세요?">
+                        </div>
+                        <div class="sec_op">
+                            <label>체크인</label><input type="text" placeholder="날짜 추가">
+                        </div>
+                        <div class="third_op">
+                            <label>체크아웃</label><input type="text" placeholder="날짜 추가">
+                        </div>
+                        <div class="fourth_op">
+                            <label>인원</label><input type="text" placeholder="게스트 추가">
+                        </div>
+                        <div id="search_btn">
+                            <img src="images/search.svg" alt="search logo" class="search_logo">
+                        </div>
+                    </fieldset>
                 </div>
                 <div class="nav_right">
-                    <ul class="login_menu">
-                        <li>호스트 되기</li>
-                        <li><img src="images/earth.svg" alt="earth logo" class="earth_logo"></li>
-                        <li>
-                            <div class="login_set">
-                                <img src="images/list.svg" alt="list logo" class="list_logo">
-                                <img src="images/people.svg" alt="peoplg logo" class="people_logo">
-                            </div>
-                        </li>
-                    </ul>
+                    <div>
+                        <ul class="login_menu">
+                            <li>호스트 되기</li>
+                            <li class="globe"><img src="images/earth.svg" alt="earth logo" class="earth_logo"></li>
+                            <li>
+                                <div class="login_set">
+                                    <img src="images/list.svg" alt="list logo" class="list_logo">
+                                    <img src="images/people.svg" alt="peoplg logo" class="people_logo">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <div class="upper_half">
+                            <li>회원 가입</li>
+                            <li>로그인</li>
+                        </div>
+                        <div class="lower_half">
+                            <li>숙소 호스트 되기</li>
+                            <li>체험 호스팅하기</li>
+                            <li>도움말</li>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
-        <fieldset class="search_box">
-            <div>
-                <label>위치</label><input type="text" placeholder="어디로 여행가세요?">
-            </div>
-            <div class="sec_op">
-                <label>체크인</label><input type="text" placeholder="날짜 추가">
-            </div>
-            <div class="third_op">
-                <label>체크아웃</label><input type="text" placeholder="날짜 추가">
-            </div>
-            <div class="fourth_op">
-                <label>인원</label><input type="text" placeholder="게스트 추가">
-            </div>
-            <div id="search_btn">
-                <img src="images/search.svg" alt="search logo" class="search_logo">
-            </div>
-        </fieldset>
         <div class="main_textbox">
             <h1>이제&#44; 여행은<h1>
             <h1>가까운 곳에서</h1>
             <button class="main_textbox_button">근처의 숙소 둘러보기</button>
         </div>
     </header>
+    <!--도시 섹션-->
     <section id="cities">
         <div class="cities">
             <ul class="cities_container">
@@ -124,6 +139,7 @@
             </ul>
         </div>
     </section>
+    <!--하우스옵션 섹션-->
     <section id="house_options">
         <h2 id="sec2_title">어디에서나, 여행은 살아보는 거야!</h2>
         <div class="sec2_container">
@@ -145,6 +161,7 @@
             </div>
         </div>
     </section>
+    <!--체험 섹션-->
     <section id="activities_options">
         <h2 id="sec3_title">세상을 만나는 특별한 방법</h2>
         <p>현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나 온라인으로 만나보세요.</p>
@@ -166,6 +183,7 @@
             </div>
         </div>
     </section>
+    <!--커뮤니티 섹션-->
     <section id="community_options">
         <h2 id="sec4_title">수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.</h2>
         <div class="sec4_container">
@@ -186,3 +204,4 @@
     <script src="./index.js"></script>
 </body>
 </html>
+
