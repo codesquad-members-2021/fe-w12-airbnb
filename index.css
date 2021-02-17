@@ -188,11 +188,27 @@ a {
   font-weight: 500;
   color: #fff;
   font-size: 14px;
-  padding: 0 15px;
+  padding: 15px 15px;
   box-sizing: border-box;
+  height: 50%;
+  cursor: pointer;
 }
+
+.host:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+}
+
 .globe {
-  padding: 0 10px;
+  padding: 14px 15px;
+  height: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.globe:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
 }
 
 /* NAV: RESERVATION */
