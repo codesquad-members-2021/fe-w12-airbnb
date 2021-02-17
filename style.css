@@ -412,7 +412,7 @@ header > nav {
   color: rgb(112, 111, 111);
 }
 
-.search-bar-calender td {
+.search-bar-calender td > div {
   height: 48px;
   color: rgb(0, 0, 0);
 }

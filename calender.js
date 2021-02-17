@@ -1,56 +1,71 @@
 export class CalenderController {
-  constructor(parentEl, ...triggerEls) {
+  constructor(calenderCount, parentEl) {
     this.parentEl = parentEl;
-    this.view = new CalenderView(this, parentEl, triggerEls);
-    this.model = new CalenderModel(this.view);
+    this.calenderCount = calenderCount;
+    this.views = [];
+    this.model = new CalenderModel(this.calenderCount, this.views);
   }
 
-  init() {
-    this.view.init();
+  init(date) {
+    this._initView();
+    this._initModel(date);
   }
 
-  insertViewBefore(el) { this.parentEl.insertBefore(this.view.targetEl, el); }
+  _initView() {
+    for (let i = 0; i < this.calenderCount; i++)
+      this.views.push(new CalenderView(this));
+
+    this.views.forEach(view => view.init());
+  }
+
+  _initModel(date) {
+    this.model.init(date);
+    const tmpDate = new Date(date.getFullYear(), date.getMonth() - 1);
+
+    for (let i = 0; i < this.calenderCount + 2; i++) {
+      this.model.pushBackWeeks(this.createWeeksFrom(tmpDate));
+      tmpDate.setMonth(tmpDate.getMonth() + 1)
+    }
+  }
+
+  insertViewBefore(el) { 
+    this.views.forEach(view => this.parentEl.insertBefore(view.targetEl, el));
+  }
 
   changeToPrevMonth() {
-    this.model.date = new Date(this.model.date.getFullYear(), this.model.date.getMonth() - 1);
-    this.changeWeeksTo(this.model.date);
+    const weeks = this.createWeeksFrom(new Date(this.model.date.getFullYear(), this.model.date.getMonth() - this.calenderCount));
+    this.model.pushFrontWeeks(weeks);
+    this.model.popBackWeeks();
   }
 
   changeToNextMonth() {
-    this.model.date = new Date(this.model.date.getFullYear(), this.model.date.getMonth() + 1);
-    this.changeWeeksTo(this.model.date);
-  }
-  
-  changeYearMonthTo(date) {
-    this.model.date = new Date(date);
-    this.changeWeeksTo(date);
+    const weeks = this.createWeeksFrom(new Date(this.model.date.getFullYear(), this.model.date.getMonth() + this.calenderCount + 1));
+    this.model.popFrontWeeks();
+    this.model.pushBackWeeks(weeks);
   }
 
-  changeWeeksTo(date) {
+  createWeeksFrom(date) {
     const weeks = [];
     const firstDate = new Date(date.getFullYear(), date.getMonth(), 1);
     const lastDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
   
-    for (let currDate = firstDate, currWeek = -1;
+    for (let currDate = firstDate;
         currDate <= lastDate;
         currDate.setDate(currDate.getDate() + 1)) {
           
-      if (weeks.length === 0 || currDate.getDay() === 0) {
+      if (weeks.length === 0 || currDate.getDay() === 0)
         weeks.push(Array(7).fill(null));
-        currWeek++;
-      }
 
-      weeks[currWeek][currDate.getDay()] = currDate.getDate();
+      weeks[weeks.length - 1][currDate.getDay()] = currDate.getDate();
     }
 
-    this.model.weeks = weeks;
+    return weeks;
   }
 }
 
 class CalenderView {
-  constructor(controller, ...triggerEls) {
+  constructor(controller) {
     this.controller = controller;
-    this.triggerEls = triggerEls;
     this.targetEl;
   }
 
@@ -59,7 +74,6 @@ class CalenderView {
   }
 
   onEvents() {
-    this.triggerEls.forEach(el => el.addEventListener('click', this._onClick));
   }
 
   updateYearMonth(year, month) {
@@ -67,17 +81,13 @@ class CalenderView {
   }
   
   updateWeeks(weeks) {
-    this.targetEl.lastElementChild.lastElementChild.innerHTML = '';
+    const tbody = this.targetEl.querySelector('tbody');
+    tbody.innerHTML = '';
 
     weeks.forEach(week => {
       const rowEl = document.createElement('TR');
-      let rowHTML = '';
-
-      week.forEach(date => date ? rowHTML += `<td>${date}</td>` : rowHTML += `<td></td>`);
-
-      rowEl.innerHTML = rowHTML;
-
-      this.targetEl.lastElementChild.lastElementChild.appendChild(rowEl);
+      week.forEach(date => rowEl.appendChild(this._createCellElement(date)) );
+      tbody.appendChild(rowEl);
     });
   }
 
@@ -98,27 +108,76 @@ class CalenderView {
       </table>`
   }
 
-  _onClick(evt) {
-    
+  _createCellElement(data) {
+    const cellEl = document.createElement('TD');
+    const dataContainerEl = document.createElement('DIV');
+
+    if (data)
+      dataContainerEl.innerText = `${data}`;
+
+    cellEl.appendChild(dataContainerEl);
+    cellEl.addEventListener('click', this._onCellClick);
+    return cellEl;
+  }
+
+  _onCellClick(evt) {
+    console.log('cellClick!');
   }
 }
 
 class CalenderModel {
-  constructor(view) {
-    this.view = view;
+  constructor(calenderCount, views) {
+    this.calenderCount = calenderCount;
+    this.views = views;
+    this.date;
+    this.weeksList = [];
+    this.beginDate;
+    this.endDate;
   }
 
-  get weeks() { return this._weeks;}
-
-  set weeks(newWeeks) {
-    this.view.updateWeeks(newWeeks);
-    this._weeks = newWeeks;
+  init(date) {
+    this.date = new Date(date);
   }
 
-  get date() { return this._date; }
+  pushFrontWeeks(weeks) {
+    this.date.setMonth(this.date.getMonth() - 1);
+    this.weeksList.unshift(weeks);
+    this._updateViews()
+  }
 
-  set date(newDate) {
-    this.view.updateYearMonth(newDate.getFullYear(), newDate.getMonth() + 1);
-    this._date = newDate;
+  popFrontWeeks() {
+    this.date.setMonth(this.date.getMonth() + 1);
+    this.weeksList.shift();
+    this._updateViews()
+  }
+
+  pushBackWeeks(weeks) { 
+    this.weeksList.push(weeks);
+
+    if (this.weeksList.length >= 2 && this.weeksList.length <= this.calenderCount + 1)
+      this._updateView(this.weeksList.length - 2);
+  }
+
+  popBackWeeks() {
+    this.weeksList.pop();
+  }
+  
+  setBeginDate(date) {
+    
+  }
+
+  setEndDate(data) {
+    
+  }
+
+  _updateViews() {
+    for (let i = 0; i < this.calenderCount; i++)
+      this._updateView(i);
+  }
+
+  _updateView(viewIdx) {
+    const tmpDate = new Date(this.date.getFullYear(), this.date.getMonth() + viewIdx);
+    this.views[viewIdx].updateWeeks(this.weeksList[viewIdx + 1]);
+    this.views[viewIdx].updateYearMonth(tmpDate.getFullYear(), tmpDate.getMonth() + 1);
   }
 }

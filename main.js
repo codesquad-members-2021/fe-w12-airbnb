@@ -166,22 +166,12 @@ class PopupMenuUI extends ChildUI {
 class CalenderContainerUI extends ContainerUI {
   constructor(calenderCount, targetEl, triggerEls) {
     super(targetEl, triggerEls);
-    this.calenderCount = calenderCount;
-    this.calenders = [];
+    this.calender = new CalenderController(calenderCount, this.targetEl);
   }
 
   init() {
-    for (let i = 0; i < this.calenderCount; i++)
-      this.calenders.push(new CalenderController(this.targetEl, this.triggerEls));
-
-    this.calenders.reduce((date, calender) => {
-      calender.init();
-      calender.changeYearMonthTo(date);
-      calender.insertViewBefore(this.targetEl.lastElementChild);
-      date.setMonth(date.getMonth() + 1);
-      return date;
-    }, new Date());
-
+    this.calender.init(new Date());
+    this.calender.insertViewBefore(this.targetEl.lastElementChild);
     this._onEvents();
   }
 
@@ -191,11 +181,11 @@ class CalenderContainerUI extends ContainerUI {
   }
 
   _onLeftArrowClick(evt) {
-    this.calenders.forEach(calender => calender.changeToPrevMonth());
+    this.calender.changeToPrevMonth();
   }
 
   _onRightArrowClick(evt) {
-    this.calenders.forEach(calender => calender.changeToNextMonth());
+    this.calender.changeToNextMonth();
   }
 }
 
@@ -214,9 +204,6 @@ function main() {
 
   const rightMenuChildWithPopup = new RightMenuChildWithPopupUI(document.querySelector('#right-menu > .solid-rounded:first-child'), popupMenu);
   rightMenuChildWithPopup.onEvents();
-
-  // const c1 = new CalenderController(null);
-  // const c2 = new CalenderController(null);
 
   const searchBarCalenderContainer = new CalenderContainerUI(
     2,
