@@ -1,10 +1,24 @@
+const _ = {
+  ADD: (target, className) => target.classList.add(className),
 
-const seachbarRooms = document.querySelector("#main_seachbar_rooms");
-const seachbaractivity = document.querySelector("#main_seachbar_activity");
+  REMOVE: (target, className) => target.classList.remove(className),
+
+  TOGGLE: (target, className) => target.classList.toggle(className),
+
+  $: (selector, base = document) => base.querySelector(selector),
+
+  $A: (selector, base = document) => base.querySelectorAll(selector),
+
+  EVENT: (target, type, listener, useCapture = false) =>
+    target.addEventListener(type, listener, useCapture),
+};
+
+const main = _.$(".main");
+const seachbarRooms = _.$("#main_seachbar_rooms", main);
+const seachbaractivity = _.$("#main_seachbar_activity", main);
 //<==== 질문 =--->//
 //seachbar를 불러올 때, SelectorAll 을 해서 Node[0], Node[1] 을 각자 불러오는 것이 좋을까요?
 //아니면 이렇게 서로 id 를 부여해서 불러오는 것이 좋을까요?
-const main = document.querySelector(".main");
 const mainPeople = main.querySelector(".main_people");
 const mainLocation = main.querySelector(".main_location");
 const mainNavbar = main.querySelector(".navbar_ul");
@@ -31,10 +45,10 @@ const searchbar = (searchbarDocument) => {
     peoplebtnClickHandler();
   });
 
-  searchbtn.addEventListener("click",(e)=>{
+  searchbtn.addEventListener("click", (e) => {
     e.stopPropagation();
     locationClickHandler();
-  })
+  });
   location.addEventListener("click", (e) => {
     e.stopPropagation();
     locationClickHandler();
@@ -45,6 +59,11 @@ const searchbar = (searchbarDocument) => {
   });
 };
 searchbar(seachbarRooms);
+
+
+const makeCalender = () => {
+  
+} 
 
 const roomsBar = lists[0].querySelector(".navbar_selectedline");
 const activityBar = lists[1].querySelector(".navbar_line");
@@ -66,11 +85,10 @@ lists[1].addEventListener("click", (e) => {
   searchbar(seachbaractivity);
 });
 
-lists[0].addEventListener("click", () => {
+lists[0].addEventListener("click", (e) => {
   roomClickHandler();
   searchbar(seachbarRooms);
 });
-
 
 const profileBtn = document.querySelector(".navbar_login_icons");
 const profileHeader = document.querySelector(".profileHeader");
@@ -91,5 +109,7 @@ profileBtn.addEventListener("click", (e) => {
 });
 
 body.addEventListener("click", (e) => {
+  console.log(e.currentTarget);
+  console.log(e.target);
   bodyClickHandler();
 });
