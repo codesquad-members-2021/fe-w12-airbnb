@@ -253,31 +253,31 @@ a {
     border: 0;
 }
 
-.calenders-wrapper {
+.calendars-wrapper {
     margin: 20px var(--page-side-margin);
     width: 60%;
     background-color: var(--info-color);
     border-radius: var(--nav-btn-border-radius);
 }
 
-.calender-container {
+.calendar-container {
     padding: 40px;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
 }
 
-.calender-content {
+.calendar-content {
     width: 100%;
 }
 
-.calender{
+.calendar{
     display: flex;
     flex-wrap: wrap;
 }
 
-.calender li,
-.calender span {
+.calendar li,
+.calendar span {
     width: 40px;
     flex: 0 1 14%;
 }
