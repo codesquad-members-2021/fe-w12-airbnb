@@ -4,33 +4,22 @@
   font-size: 16px;
 }
 
-.locations__row1 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.locations__upRow,
+.locations__downRow {
   margin-bottom: 16px;
 }
 
-.locations__row1 ul,
-.locations__row2 ul {
-  display: flex;
-  flex-direction: row;
+.locations__upRow--item,
+.locations__downRow--item {
   align-items: center;
   width: 100%;
 }
 
-.locations__row2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.locations ul div:nth-child(1) {
+.city--name {
   font-weight: bold;
 }
 
-.locations img {
+.city--image {
   width: 64px;
   height: 64px;
   border-radius: 8px;
