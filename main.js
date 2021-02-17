@@ -24,20 +24,20 @@
 
   // HEADER__MENU--BUTTON-GROUP
 
-  $airbnbBtn.addEventListener('mouseenter', () => shortBar($airbnbBtn));
-  $airbnbBtn.addEventListener('mouseleave', () => transparentBar($airbnbBtn));
-  $airbnbBtn.addEventListener('click', () => longBar($airbnbBtn));
+  $airbnbBtn.addEventListener('mouseenter', () => changeShortBar($airbnbBtn));
+  $airbnbBtn.addEventListener('mouseleave', () => changeHiddenBar($airbnbBtn));
+  $airbnbBtn.addEventListener('click', () => changeLongBar($airbnbBtn));
 
-  $activityBtn.addEventListener('mouseenter', () => shortBar($activityBtn));
-  $activityBtn.addEventListener('mouseleave', () => transparentBar($activityBtn));
-  $activityBtn.addEventListener('click', () => longBar($activityBtn));
+  $activityBtn.addEventListener('mouseenter', () => changeShortBar($activityBtn));
+  $activityBtn.addEventListener('mouseleave', () => changeHiddenBar($activityBtn));
+  $activityBtn.addEventListener('click', () => changeLongBar($activityBtn));
 
-  $onlineActBtn.addEventListener('mouseenter', () => shortBar($onlineActBtn));
-  $onlineActBtn.addEventListener('mouseleave', () => transparentBar($onlineActBtn));
+  $onlineActBtn.addEventListener('mouseenter', () => changeShortBar($onlineActBtn));
+  $onlineActBtn.addEventListener('mouseleave', () => changeHiddenBar($onlineActBtn));
 
-  cursorInit();
+  initCursor();
 
-  function cursorInit() {
+  function initCursor() {
     if ($headerButtonGrounp.querySelector(LongBar)) {
       document.querySelector(Button).classList.replace(BUTTON, DEFAULT_BUTTON);
     }
@@ -53,8 +53,8 @@
     return btn.querySelector(LongBar);
   }
 
-  function longBar(btn) {
-    cursorInit();
+  function changeLongBar(btn) {
+    initCursor();
     if (isLongBar($headerButtonGrounp)) {
       $headerButtonGrounp.querySelector(LongBar).classList.replace(LONG_BAR, TP_BAR);
     }
@@ -62,13 +62,13 @@
     cursorChange();
   }
 
-  function shortBar(btn) {
+  function changeShortBar(btn) {
     if (isLongBar(btn)) return;
     btn.querySelector(LowerBox).classList.replace(TP_BAR, SHORT_BAR);
     btn.querySelector(Menu).className = MENU_HOVER;
   }
 
-  function transparentBar(btn) {
+  function changeHiddenBar(btn) {
     if (btn.querySelector(MenuHover)) {
       btn.querySelector(MenuHover).className = MENU;
     }
