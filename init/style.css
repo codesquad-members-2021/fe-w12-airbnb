@@ -528,3 +528,11 @@ body {
   height: 347.094px;
   border-radius: 16px 16px 16px 16px;
 }
+
+.display-none{
+  display:none;
+}
+
+.display-block{
+  display: block;
+}

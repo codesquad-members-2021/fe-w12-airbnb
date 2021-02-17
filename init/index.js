@@ -1,36 +1,25 @@
 const iconListEl = document.querySelector(".popup__icon-list");
-const iconPersonEl = document.querySelector(".icon-person");
 const iconNavigator = document.querySelector(".nav--icons");
-const bodyEl = document.querySelector("body");
-const inputRoomEl = document.querySelector("#input-room");
-const inputActivityEl = document.querySelector("#input-activity");
-const inputOnlineEl = document.querySelector("#input-online");
-const searchDestinationEl = document.querySelector(".search-destination");
-
 const searchSectionEl = document.querySelector(".search-section");
 const searchActivitySectionEl = document.querySelector(
   ".search-section__activity"
 );
 
-// const radioEl = document.querySelector(".nav-radio");
 const navMenu = document.querySelector(".nav__menu");
 const radioListEl = document.getElementsByName("nav");
 
 let popUp = false;
 
 const changeSearchBar = event => {
-  
   radioListEl.forEach(node => {
-    if (node.checked && node.value === "activity") {
-      searchActivitySectionEl.style.display = "block";
-      searchSectionEl.style.display = "none";
-      console.log(node.value);
-    }else if(node.checked && node.value === "room"){
-      searchActivitySectionEl.style.display = "none";
-      searchSectionEl.style.display = "block";
+   if(node.checked && node.value === "room"){
+     searchSectionEl.classList.replace('display-none','display-block');
+     searchActivitySectionEl.classList.replace('display-block','display-none');
+    } else if (node.checked && node.value === "activity") {
+      searchSectionEl.classList.replace('display-block','display-none');
+      searchActivitySectionEl.classList.replace('display-none','display-block');
     }
   });
-
 };
 
 const drawPopupTable = () => {
@@ -69,8 +58,10 @@ const hidePopupTable = event => {
 
 const init = () => {
   iconListEl.addEventListener("click", drawPopupTable);
-  bodyEl.addEventListener("click", hidePopupTable);
+  document.addEventListener("click", hidePopupTable);
   navMenu.addEventListener("click", changeSearchBar);
+  searchSectionEl.classList.add('display-block');
+  searchActivitySectionEl.classList.add('display-none');
 };
 
 init();
