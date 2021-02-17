@@ -271,6 +271,16 @@ a {
     width: 100%;
 }
 
+.calender-content li {
+    width: 40px;
+    display: inline-block;
+}
+
+.calender-days span {
+    width: 40px;
+    display: inline-block;
+}
+
 .search-btn-container{
     display: flex;
     position: relative;
