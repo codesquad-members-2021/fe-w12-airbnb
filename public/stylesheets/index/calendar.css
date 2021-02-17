@@ -77,8 +77,7 @@
 
 /* 요일 표시 (ul, li) */
 .calendar ul {
-    display: flex;
-    justify-content: space-around;
+    display: flex; 
     text-align: center;
 }
 .calendar ul > li {
@@ -99,7 +98,7 @@
     justify-content: center;
 }
 
-.calendar .date__dynamic ul > li.disable {
+.calendar .date__dynamic ul > .disableTxt {
     color: var(--disable)
 }
 
