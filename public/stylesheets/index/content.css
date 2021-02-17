@@ -78,7 +78,7 @@ p.content-secDesc {
     border: 1px solid var(--default-font-color);
     color: var(--default-font-color);
     font-weight: bold;
-    background-color: #000;
+    background-color: var(--black);
 
     cursor: pointer;
 }
