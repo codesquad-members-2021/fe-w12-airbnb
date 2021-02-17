@@ -53,3 +53,17 @@ function createDate(y, m, d){
 }
 
 printCalender();
+
+const subCalendarBtn = document.querySelector('.search-sub__calendarBtn');
+
+const subCalendar = document.querySelector('.calendar');
+
+subCalendarBtn.addEventListener('click', () => {
+    subCalendar.classList.toggle('active');
+});
+
+if(subCalendarBtn.className === 'calendar active') {
+    document.addEventListener('click', () => {
+        subCalendar.classList.toggle('active');
+    })
+}
