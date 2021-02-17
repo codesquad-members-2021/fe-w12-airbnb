@@ -21,7 +21,6 @@ export default class CalendarManager {
 
   todayCalendar(calendar) {
     this.tab.addEventListener("click", () => {
-      console.log(this.tab);
       calendar.init();
       this.createTwoCalendars();
     });
