@@ -80,13 +80,13 @@ nav{
 .right__menu-btn {
     height: 40px;
     width: 80px;
-    border: 1px solid #DDDDDD ;
+    border: 1px solid #DDD ;
     display: inline-flex;
     /* line-height: inherit; */
     padding: 5px 5px 5px 12px;
     align-items: center;
-    color: #222222;
-    background-color: #FFFFFF;
+    color: #222;
+    background-color: #FFF;
     border-radius: 21px;
     /* vertical-align: middle; */
     transition: box-shadow 0.2s ease;
@@ -101,7 +101,7 @@ nav{
 }
 
 .divideLine-row {
-    border-top: 1px solid #c9c8c8;
+    border-top: 2px solid #dfdfdf;
     flex: 0 0 0px;
     align-self: center;
     margin : 8px 0;
@@ -112,24 +112,32 @@ nav{
     line-height: 6.43;
     box-sizing: border-box;
     background: rgb(255, 255, 255);
+    opacity: 0;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
-    color: rgb(34, 34, 34);
     margin-top: 34px;
     padding: 8px 0px;
     position: absolute;
+    overflow:hidden;
     top: 10%;
     right: 80px;
-    max-height: calc(100vh - 100px);
+    /* max-height: calc(100vh - 100px); */
     z-index: 2;
     min-width: 240px;
+    max-height: 0;
     display: block;
-    height: 240px;
 }
+
 .dropdown-menu { 
     text-decoration: none;
 }
-
+.dropdown.show {
+    opacity: 1;
+    max-height: 240px;
+}
+#jinblack-text {
+    color:black;
+}
 .dropdown-option {
     width: 100%;
     height: 40px;
@@ -138,10 +146,8 @@ nav{
     flex-direction: column;
     justify-content:center;
     align-content:flex-start;
-    color:black;
+    color:#3e3d3d;
     cursor: pointer;
-    
-    /* height: 40px; */
 }
 .dropdown-option:hover {
     background-color: #f1f1f1;
@@ -174,7 +180,7 @@ nav{
 
 .search__box {
     position: absolute;
-    width: 50%;
+    width: 100%;
     max-width: 850px;
     top: 17.3%;
     left: 50%;
@@ -194,10 +200,40 @@ nav{
     width: 100%;
     cursor: pointer;
   }
-  .item:hover{
+.item:hover{
     border-radius: 2em;
     background-color: #f1f1f1;
-  }
+}
+.item-act{
+    display: flex;
+    flex-direction: raw;
+    justify-content: space-between;
+    /* flex: 1 1 px; */
+    padding: 0.3em 0.7em;
+    width: 100%;
+    cursor: pointer;
+}
+
+.btn-act{
+    transform: translateX(14%);
+    font-size: 14px;
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+}
+
+.search__button__glass-act button  {
+    background-color: #FF385C;
+    color:white;
+    width:50px;
+    height: 50px;
+    padding: 0.7em;
+    border-radius: 50%;
+    border: 0px;
+    margin: 0 0 0 200px;
+}
+
+
 
 .search__location {
     flex-grow:2;
@@ -242,7 +278,8 @@ nav{
     border:none;
     color: rgb(100,98,98);
     outline: none;
-    width: 120px;
+    text-align: left;
+
 }
 
 .search__button__glass button {
