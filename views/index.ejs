@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/tabui.css" />
   </head>
   <body>
     <div class="firstPage">
@@ -25,24 +26,123 @@
         </div>
         <nav>
           <div>
-            <input class="nav_item" type="radio" id="nav_radio_1" />
-            <label for="nav_radio_1">숙소</label>
+            <input
+              class="nav_item"
+              name="choice"
+              type="radio"
+              id="nav_radio_1"
+              checked
+            />
+            <label class="nav_radio_1" for="nav_radio_1">숙소</label>
           </div>
           <div>
-            <input class="nav_item" type="radio" id="nav_radio_2" />
-            <label for="nav_radio_2">체험</label>
+            <input
+              class="nav_item"
+              name="choice"
+              type="radio"
+              id="nav_radio_2"
+            />
+            <label class="nav_radio_2" for="nav_radio_2">체험</label>
           </div>
-          <a href="">온라인체험</a>
+          <div class="atag"><a href="">온라인체험</a></div>
         </nav>
         <div class="member_setting">
           <span class="host">호스트되기</span>
           <i class="fas fa-globe"></i>
-          <div class="menuAndAcountIcon">
+          <button class="menuAndAcountIcon">
             <i class="fas fa-bars"></i>
             <i class="fas fa-user-circle"></i>
-          </div>
+          </button>
         </div>
       </header>
+      <ul class="main_reserve_container flex">
+        <li>
+          <span>위치</span>
+          <span>어디로 여행가세요?</span>
+        </li>
+        <div class="main_reserve_container_line"></div>
+        <li>
+          <span>체크인</span>
+          <span>날짜 추가</span>
+        </li>
+        <div class="main_reserve_container_line"></div>
+        <li>
+          <span>체크아웃</span>
+          <span>날짜 추가</span>
+        </li>
+        <div class="main_reserve_container_line"></div>
+        <li>
+          <span>인원</span>
+          <span>게스트 추가</span>
+        </li>
+        <button class="main_reserve_container_searchBtn">
+          <svg
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            role="presentation"
+            focusable="false"
+            style="
+              display: block;
+              fill: none;
+              height: 16px;
+              width: 16px;
+              stroke: currentcolor;
+              stroke-width: 4;
+              overflow: visible;
+            "
+          >
+            <g fill="none">
+              <path
+                d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+              ></path>
+            </g>
+          </svg>
+        </button>
+      </ul>
+      <ul class="main_reserve_container_2">
+        <li>
+          <span>위치</span>
+          <span>어디로 여행가세요?</span>
+        </li>
+        <div class="main_reserve_container_2_line"></div>
+        <li>
+          <span>인원</span>
+          <span>게스트 추가</span>
+        </li>
+        <button class="main_reserve_container_2_searchBtn">
+          <svg
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            role="presentation"
+            focusable="false"
+            style="
+              display: block;
+              fill: none;
+              height: 16px;
+              width: 16px;
+              stroke: currentcolor;
+              stroke-width: 4;
+              overflow: visible;
+            "
+          >
+            <g fill="none">
+              <path
+                d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+              ></path>
+            </g>
+          </svg>
+        </button>
+      </ul>
+      <ul class="header_dropdown">
+        <li>회원가입</li>
+        <li class="header_dropdown_li2">로그인</li>
+        <li>숙소 호스트 되기</li>
+        <li>체험 호스팅 하기</li>
+        <li>도움말</li>
+      </ul>
+
       <div class="main">
         <div class="phraseAndbutton">
           <div class="phrase">이제, 여행은 가까운 곳에서</div>
@@ -80,8 +180,6 @@
             <span> 차로 2.5시간 거리 </span>
           </div>
         </li>
-      </ul>
-      <ul>
         <li>
           <img alt="대구" src="/img/sec1-05.jpg" />
           <div class="city_items">
@@ -178,5 +276,8 @@
         </li>
       </ul>
     </section>
+    <script type="text/javascript" src="/js/scroll.js"></script>
+    <script type="text/javascript" src="/js/dropdown.js"></script>
+    <script type="text/javascript" src="/js/tabNav.js"></script>
   </body>
 </html>
