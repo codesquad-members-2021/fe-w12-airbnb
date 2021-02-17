@@ -29,8 +29,8 @@
   font-size: 16px;
   line-height: 20px;
 }
-.main_people_li {
-  cursor: none;
+.main_people_list {
+  cursor: initial;
   padding-top: 16px;
   padding-bottom: 16px;
   padding-right: 4px;

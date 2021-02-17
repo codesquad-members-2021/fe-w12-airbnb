@@ -60,10 +60,17 @@ const searchbar = (searchbarDocument) => {
 };
 searchbar(seachbarRooms);
 
+const calculationCalenderline = (datelast,datestart) => {
+  const left = datelast%7;
+  let linenumber = datelast /7
+}
 
-const makeCalender = () => {
-  
-} 
+const makeCalender = (Calender, year, month) => {
+  const tbody = _.$("tbody", Calender);
+  const datelast = new Date(year, month, 0).getDate();
+  const datestart = new Date(year, month, 1).getDay();
+  for(let i=0 )
+};
 
 const roomsBar = lists[0].querySelector(".navbar_selectedline");
 const activityBar = lists[1].querySelector(".navbar_line");
