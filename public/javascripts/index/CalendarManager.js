@@ -1,6 +1,11 @@
 import _ from "../util.js";
+import Calendar from "./Calendar.js";
 
 class CalendarManager {
+    
+    /**
+     * @param {Calendar} calendar
+     */
     constructor(calendar, prevBtn = null, nextBtn = null) {
         this.calendar = calendar;
         this.prevBtn = prevBtn;
@@ -53,7 +58,8 @@ class CalendarManager {
         if(!this._calendarIsNull())  {
             this.calendar.optionMonthMinus();
             this.calendar.removeAllChildNodes(); 
-            this.calendar.createCalendar();  
+            this.calendar.initStartEndDate();
+            this.calendar.createCalendar();              
         }                     
     }
 
@@ -70,9 +76,16 @@ class CalendarManager {
 
     _nextBtnClickEventHandler() { 
         if(!this._calendarIsNull())  {
+            // 테스트 코드 (추후 삭제 예정)
+            console.log(
+                this.calendar._createDateBtnList(this.calendar.dynamicWrapper).length,
+                this.calendar._createDateBtnList(this.calendar.anotherCalendar.dynamicWrapper).length
+            );
+            // -------------
             this.calendar.optionMonthPlus();
             this.calendar.removeAllChildNodes(); 
-            this.calendar.createCalendar();   
+            this.calendar.initStartEndDate();
+            this.calendar.createCalendar();               
         }
     }
     

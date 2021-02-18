@@ -20,6 +20,14 @@ class Calendar {
         this.anotherCalendar = calendar;
     }
 
+    /**
+     * @param {Calendar} calendar
+     */
+    initStartEndDate(calendar = this) {
+        calendar.startDate = null;  
+        calendar.endDate = null;  
+    }
+
     removeAllChildNodes() {
         while (this.dynamicWrapper.firstChild) {
             this.dynamicWrapper.removeChild(this.dynamicWrapper.firstChild);
@@ -93,185 +101,97 @@ class Calendar {
         _.appendChild(li, button);         
     }
 
+// START ---- 만들어진 날짜 선택 버튼들 한땀 한땀 이벤트 설정 ---------------------  
     _setDateBtnClickEvent(button) {
         _.addEvent(button, 'click', (e) => this._dateBtnClickEventHandler(e, button));        
     }
-    _dateBtnClickEventHandler(e, thisBtn) {        
-        // console.log(e, thisBtn, this)
+    _dateBtnClickEventHandler(e, thisBtn) {                
         const arrYearMonth =  _.$('.year-month', this.target).innerText.replace(/[^0-9\s]/g, '').split(' ');
         const currClickDate = new Date(arrYearMonth[0], (arrYearMonth[1]-1), Number(thisBtn.innerText));
-        const dateBtnList = Array.from(_.$All('ul > li > button', this.dynamicWrapper));
-
-        // 공사중 -------------------------------------------------
+        
         if (this.calendarType === 'left') {
             if (this.anotherCalendar.startDate || this.anotherCalendar.endDate) return;
 
             if (this.startDate && this.endDate) {
-                const filterBtnList = dateBtnList.filter(
-                    (btn) =>
-                        _.classContains(btn, 'startDate') ||
-                        _.classContains(btn, 'endDate'),
-                );
-
-                filterBtnList.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
-                this.startDate = null;  
-                this.endDate = null;  
+                this._removeDataBtnStyle(this.dynamicWrapper);
+                this.initStartEndDate(this);
                 return;
             }
 
             if (!this.startDate) {
-                _.classAdd(thisBtn, 'clickStatus', 'startDate');
-                this.startDate = currClickDate;  
+                this._setStartDateDataBtn(thisBtn, currClickDate);
             } else {
-                if (!this.anotherCalendar.endDate) {
-                    if (this.startDate.valueOf() < currClickDate.valueOf()) {
-                        _.classAdd(thisBtn, 'clickStatus', 'endDate');
-                        this.endDate = currClickDate;  
-                    } else {                    
-                        const startDateBtn = dateBtnList.filter((btn) => _.classContains(btn, 'startDate'))[0];                    
-                        _.classRemove(startDateBtn, 'clickStatus', 'startDate');
-                        _.classAdd(thisBtn, 'clickStatus', 'startDate');
-                        this.startDate = currClickDate;  
-                    }
-                }               
+                if (!this.anotherCalendar.endDate)
+                    this._setEndDateBtnOrResetStartDateBtn(thisBtn, currClickDate);                  
             }  
-            console.log(111111111111);
-            console.log(this.startDate, this.endDate)
-            console.log(this.anotherCalendar.startDate, this.anotherCalendar.endDate)
-            console.log();
         } else {
             if (this.anotherCalendar.startDate && this.anotherCalendar.endDate) return;
 
             if (this.anotherCalendar.startDate && !this.anotherCalendar.endDate && !this.endDate) {
-                _.classAdd(thisBtn, 'clickStatus', 'endDate');
-                this.endDate = currClickDate;                  
-            } else if (this.anotherCalendar.startDate && !this.anotherCalendar.endDate && this.endDate) {
-                const filterBtnList = dateBtnList.filter(
-                    (btn) =>
-                        _.classContains(btn, 'startDate') ||
-                        _.classContains(btn, 'endDate'),
-                );
-
-                const filterBtnListAnother = 
-                    Array.from(_.$All('ul > li > button', this.anotherCalendar.dynamicWrapper)).filter(
-                        (btn) =>
-                            _.classContains(btn, 'startDate') ||
-                            _.classContains(btn, 'endDate'),
-                    );
-
-                filterBtnList.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
-                filterBtnListAnother.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
-
-                this.startDate = null;  
-                this.endDate = null; 
-                this.anotherCalendar.startDate = null;
-                this.anotherCalendar.endDate = null;
+                this._setEndDateDataBtn(thisBtn, currClickDate);
+            } else if (this.anotherCalendar.startDate && !this.anotherCalendar.endDate && this.endDate) {                
+                this._removeDataBtnStyle(this.dynamicWrapper);
+                this.initStartEndDate(this);
+                this._removeDataBtnStyle(this.anotherCalendar.dynamicWrapper); 
+                this.initStartEndDate(this.anotherCalendar);                
             } else {
                 if (this.startDate && this.endDate) {
-                    const filterBtnList = dateBtnList.filter(
-                        (btn) =>
-                            _.classContains(btn, 'startDate') ||
-                            _.classContains(btn, 'endDate'),
-                    );
-    
-                    filterBtnList.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
-                    this.startDate = null;  
-                    this.endDate = null;  
+                    this._removeDataBtnStyle(this.dynamicWrapper);
+                    this.initStartEndDate(this);
                     return;
                 }
 
-                if (!this.startDate) {                                        
-                    _.classAdd(thisBtn, 'clickStatus', 'startDate');
-                    this.startDate = currClickDate;                      
-                } else {
-                    if (this.startDate.valueOf() < currClickDate.valueOf()) {
-                        _.classAdd(thisBtn, 'clickStatus', 'endDate');
-                        this.endDate = currClickDate;  
-                    } else {                    
-                        const startDateBtn = dateBtnList.filter((btn) => _.classContains(btn, 'startDate'))[0];                    
-                        _.classRemove(startDateBtn, 'clickStatus', 'startDate');
-                        _.classAdd(thisBtn, 'clickStatus', 'startDate');
-                        this.startDate = currClickDate;  
-                    }               
-                }
-            }
-
-            
-            console.log(2222222222);
-            console.log(this.startDate, this.endDate)
-            console.log(this.anotherCalendar.startDate, this.anotherCalendar.endDate)
-            console.log(); 
-        }
-        // 공사중 ---------------------------------------------------------------------...
-
-        /*
-        if(!this.startDate) {
-            if (this.calendarType === 'left') {
-                _.classAdd(thisBtn, 'clickStatus', 'startDate');
-                this.startDate = currClickDate;                
-            } else {
-                const leftAllOK = this.anotherCalendar.startDate && this.anotherCalendar.endDate; 
-
-                if (!leftAllOK) {
-                    _.classAdd(thisBtn, 'clickStatus', 'startDate');
-                    this.startDate = currClickDate; 
-                } else {
-                    const leftStartOKEndNull = this.anotherCalendar.startDate && !this.anotherCalendar.endDate;
-
-                    if (leftStartOKEndNull) {
-                        _.classAdd(thisBtn, 'clickStatus', 'startDate');
-                        this.endDate = currClickDate;
-                    }
-                }                
-            }            
-        } else {
-
-            return;
-            if (currClickDate.valueOf() === this.startDate.valueOf()) {
-                // 
-
-
-
-                _.classRemove(thisBtn, 'clickStatus', 'startDate', 'endDate');
-                                
-                this.startDate = null;
-                this.endDate = null;
-                return;
-            }
-
-            if (!this.endDate) {
-                if (this.calendarType === 'left') {
-                    if (currClickDate.valueOf() > this.startDate.valueOf()) {
-                        _.classAdd(thisBtn, 'clickStatus', 'endDate');
-                        this.endDate = currClickDate;  
-                    }                    
-                } 
-            } else {
-                if (currClickDate.valueOf() === this.endDate.valueOf()) {
-                    _.classRemove(thisBtn, 'clickStatus', 'endDate');
-                    this.endDate = null;
-                }
-            }             
-        }
-
-        /*
-        if (!this._getCurrentClickDate) {
-            _.classAdd(thisBtn, 'clickStatus');
-            this._setCurrentClickDate = currClickDate;
-        } else {                                    
-            if (currClickDate.valueOf() === this._getCurrentClickDate.valueOf()) {
-                _.classRemove(thisBtn, 'clickStatus');
-                this._setCurrentClickDate = null;
-            } else {                
-                // - [] (공통) 
-                // - [] right 캘린더라면, left캘린더에 클릭된 값있는지 확인.    // + (무조건 1개의 캘린더에서 2개가 입력되면 안됨. 추가적 조건도 생각하기)                    
-
-                // 많은 조건이 필요할 듯함. 이 함수.. 정리해서 작업하기. 일단 커밋
+                if (!this.startDate)
+                    this._setStartDateDataBtn(thisBtn, currClickDate);
+                else
+                    this._setEndDateBtnOrResetStartDateBtn(thisBtn, currClickDate);                
             }
         }
-        */
     }
-    
+
+    // 시작 or 종료 버튼 지정되어 있는 항목 Array 형식으로 GET
+    _createDateBtnList(parentNode) {
+        return Array.from(_.$All('ul > li > button', parentNode)).filter(
+            (btn) =>
+                _.classContains(btn, 'startDate') ||
+                _.classContains(btn, 'endDate'),
+        );
+    }
+
+    // 시작 or 종료 버튼 지정되어 있는 항목, 매개변수(className) 기준으로 1개만 찾음
+    _findOneDataBtn(parentNode, className) {
+        // -- 굳이 querySelectAll 안써도되지만.. 일단은..
+        return Array.from(_.$All('ul > li > button', parentNode)).filter((btn) => _.classContains(btn, className))[0];
+    }
+
+    // 시작 or 종료 버튼 지정되어 있는 항목, Style 제거 (css class)
+    _removeDataBtnStyle(parentNode) {        
+        this._createDateBtnList(parentNode).forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
+    }
+
+    // 각 날짜 클릭 시, classList Add & Calendar의 startDate, endDate 설정
+    _setStartDateDataBtn(thisBtn, currClickDate) {
+        _.classAdd(thisBtn, 'clickStatus', 'startDate');
+        this.startDate = currClickDate;  
+    }
+
+    _setEndDateDataBtn(thisBtn, currClickDate) {
+        _.classAdd(thisBtn, 'clickStatus', 'endDate');
+        this.endDate = currClickDate; 
+    }
+
+    // 다른 캘린더가 아닌 this 자체의 startDate 관련은 재설정하거나, endDate 관련 버튼을 설정함.
+    _setEndDateBtnOrResetStartDateBtn(thisBtn, currClickDate) {
+        if (this.startDate.valueOf() < currClickDate.valueOf()) {                        
+            this._setEndDateDataBtn(thisBtn, currClickDate)
+        } else {                    
+            const startDateBtn = this._findOneDataBtn(this.dynamicWrapper, 'startDate');                                        
+            _.classRemove(startDateBtn, 'clickStatus', 'startDate');
+            this._setStartDateDataBtn(thisBtn, currClickDate);
+        }
+    }
+// END ---- 만들어진 날짜 선택 버튼들 한땀 한땀 이벤트 설정 ---------------------  
+
 }
 
 export default Calendar;
