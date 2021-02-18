@@ -29,15 +29,13 @@ class Calendar {
         const startDay = monthInfo.getDay(); // 매달 시작 요일
         const lastDate = new Date(monthInfo.getFullYear(), monthInfo.getMonth()+1, 0).getDate();    // 마지막 날짜
 
-        let ulTmp = null, inputDate = 1, emptyCnt = startDay;
+        let inputDate = 1, emptyCnt = startDay;
         const nLoop = (lastDate + startDay);
 
-        for (let i = 0; i < nLoop; i++) {                        
-            if (i % 7 === 0) {                
-                ulTmp = _.createElement("ul");
-                _.appendChild(this.dynamicWrapper, ulTmp);
-            } 
-
+        const ul = _.createElement("ul");
+        _.appendChild(this.dynamicWrapper, ul);
+        
+        for (let i = 0; i < nLoop; i++) {                                
             const li = _.createElement('li');
             if (emptyCnt > 0) {                               
                 emptyCnt--;                
@@ -45,7 +43,7 @@ class Calendar {
                 this._liTagModify(li, inputDate, today, monthInfo);                          
                 inputDate++;
             }                
-            _.appendChild(ulTmp, li);                                   
+            _.appendChild(ul, li);                                   
         }        
     }
 
