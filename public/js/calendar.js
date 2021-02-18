@@ -34,21 +34,20 @@ export class Calendar {
   showCalendarWeeks() {
     const daysofWeekList = '일월화수목금토'.split('');
     const calendarWeek = document.querySelector('.calendar-weeks');
-    const dayName = daysofWeekList.reduce((prev, day) => {
-      return prev + `<li>${day}</li>\n`;
+    const daysOfWeeks = daysofWeekList.reduce((prev, dayOfWeek) => {
+      return prev + `<li>${dayOfWeek}</li>`;
     }, '');
-    calendarWeek.insertAdjacentHTML('beforeend', dayName);
+    calendarWeek.insertAdjacentHTML('beforeend', daysOfWeeks);
   }
 
   showCalendarDays() {
     const calendarDays = document.querySelector('.calendar-days');
-    const daysNum = new Date(this.year, this.month, 0).getDate();
-    for (let i = 1; i <= daysNum; i += 1) {
-      const span = document.createElement('span');
-      const day = document.createTextNode(i);
-      span.appendChild(day);
-      calendarDays.appendChild(span);
-    }
+    const daysLen = new Date(this.year, this.month, 0).getDate();
+    const daysByOrder = Array.from({ length: daysLen }, (_, i) => i + 1);
+    const days = daysByOrder.reduce((prev, day) => {
+      return prev + `<span>${day}</span>`;
+    }, '');
+    calendarDays.insertAdjacentHTML('beforeend', days);
   }
 
   render() {
