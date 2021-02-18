@@ -169,12 +169,25 @@ export class CalendarMaker {
    }
 
    blurBeforeToday() {
-      console.log('paint_before_today')
+      document.querySelectorAll(".calendar_date div").forEach(el => {
+         const today = new Date();
 
-      document.querySelectorAll(".calendar_current .calendar_date div").forEach(el => {
-         const today = new Date()
-         let beforeToday = new Date(`${this.current_year}-${this.current_month}-${el.innerText}`);
-         if (today - beforeToday > 0 && el.innerText !== String(today.getDate())) {
+         let year_month = el.closest('.calendar_d_d').previousElementSibling.querySelectorAll('span');
+         year_month = Array.prototype.slice.call(year_month);
+
+         year_month = year_month.map(e => {
+            let arr = e.innerText.split('');
+            arr.pop();
+            return e = arr.join('');
+         });
+
+         let year = year_month[0];
+         let month = year_month[1];
+
+         let beforeToday = new Date(`${year}-${month}-${el.innerText}`);
+
+         if (today - beforeToday >= 0) {
+            console.log(today, beforeToday)
             el.classList.add("before_today");
          } else {
             el.classList.add("clickable");
@@ -182,20 +195,13 @@ export class CalendarMaker {
                this.GiveInnerText(el)
             })
          };
-      })
 
-      document.querySelectorAll(".calendar_next_month .calendar_date div").forEach(el => {
-         const today = new Date()
-         let beforeToday = new Date(`${this.next_year}-${this.next_month}-${el.innerText}`);
-
-         if (today - beforeToday > 0 && el.innerText !== String(today.getDate())) {
-            el.classList.add("before_today");
-         } else {
+         if (el.innerText === String(today.getDate())) {
             el.classList.add("clickable");
             el.addEventListener("click", () => {
                this.GiveInnerText(el)
             })
-         }
+         };
       })
    }
 
