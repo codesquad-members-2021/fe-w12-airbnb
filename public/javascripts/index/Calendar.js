@@ -101,9 +101,11 @@ class Calendar {
         const arrYearMonth =  _.$('.year-month', this.target).innerText.replace(/[^0-9\s]/g, '').split(' ');
         const currClickDate = new Date(arrYearMonth[0], (arrYearMonth[1]-1), Number(thisBtn.innerText));
         const dateBtnList = Array.from(_.$All('ul > li > button', this.dynamicWrapper));
-        // confilctTest2
+
         // 공사중 -------------------------------------------------
         if (this.calendarType === 'left') {
+            if (this.anotherCalendar.startDate || this.anotherCalendar.endDate) return;
+
             if (this.startDate && this.endDate) {
                 const filterBtnList = dateBtnList.filter(
                     (btn) =>
@@ -114,27 +116,91 @@ class Calendar {
                 filterBtnList.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
                 this.startDate = null;  
                 this.endDate = null;  
+                return;
             }
 
             if (!this.startDate) {
                 _.classAdd(thisBtn, 'clickStatus', 'startDate');
                 this.startDate = currClickDate;  
             } else {
-                if (this.startDate.valueOf() < currClickDate.valueOf()) {
-                    _.classAdd(thisBtn, 'clickStatus', 'endDate');
-                    this.endDate = currClickDate;  
-                } else {                    
-                    const startDateBtn = dateBtnList.filter((btn) => _.classContains(btn, 'startDate'))[0];                    
-                    _.classRemove(startDateBtn, 'clickStatus', 'startDate');
-                    _.classAdd(thisBtn, 'clickStatus', 'startDate');
-                    this.startDate = currClickDate;  
+                if (!this.anotherCalendar.endDate) {
+                    if (this.startDate.valueOf() < currClickDate.valueOf()) {
+                        _.classAdd(thisBtn, 'clickStatus', 'endDate');
+                        this.endDate = currClickDate;  
+                    } else {                    
+                        const startDateBtn = dateBtnList.filter((btn) => _.classContains(btn, 'startDate'))[0];                    
+                        _.classRemove(startDateBtn, 'clickStatus', 'startDate');
+                        _.classAdd(thisBtn, 'clickStatus', 'startDate');
+                        this.startDate = currClickDate;  
+                    }
+                }               
+            }  
+            console.log(111111111111);
+            console.log(this.startDate, this.endDate)
+            console.log(this.anotherCalendar.startDate, this.anotherCalendar.endDate)
+            console.log();
+        } else {
+            if (this.anotherCalendar.startDate && this.anotherCalendar.endDate) return;
+
+            if (this.anotherCalendar.startDate && !this.anotherCalendar.endDate && !this.endDate) {
+                _.classAdd(thisBtn, 'clickStatus', 'endDate');
+                this.endDate = currClickDate;                  
+            } else if (this.anotherCalendar.startDate && !this.anotherCalendar.endDate && this.endDate) {
+                const filterBtnList = dateBtnList.filter(
+                    (btn) =>
+                        _.classContains(btn, 'startDate') ||
+                        _.classContains(btn, 'endDate'),
+                );
+
+                const filterBtnListAnother = 
+                    Array.from(_.$All('ul > li > button', this.anotherCalendar.dynamicWrapper)).filter(
+                        (btn) =>
+                            _.classContains(btn, 'startDate') ||
+                            _.classContains(btn, 'endDate'),
+                    );
+
+                filterBtnList.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
+                filterBtnListAnother.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
+
+                this.startDate = null;  
+                this.endDate = null; 
+                this.anotherCalendar.startDate = null;
+                this.anotherCalendar.endDate = null;
+            } else {
+                if (this.startDate && this.endDate) {
+                    const filterBtnList = dateBtnList.filter(
+                        (btn) =>
+                            _.classContains(btn, 'startDate') ||
+                            _.classContains(btn, 'endDate'),
+                    );
+    
+                    filterBtnList.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
+                    this.startDate = null;  
+                    this.endDate = null;  
+                    return;
                 }
-                
+
+                if (!this.startDate) {                                        
+                    _.classAdd(thisBtn, 'clickStatus', 'startDate');
+                    this.startDate = currClickDate;                      
+                } else {
+                    if (this.startDate.valueOf() < currClickDate.valueOf()) {
+                        _.classAdd(thisBtn, 'clickStatus', 'endDate');
+                        this.endDate = currClickDate;  
+                    } else {                    
+                        const startDateBtn = dateBtnList.filter((btn) => _.classContains(btn, 'startDate'))[0];                    
+                        _.classRemove(startDateBtn, 'clickStatus', 'startDate');
+                        _.classAdd(thisBtn, 'clickStatus', 'startDate');
+                        this.startDate = currClickDate;  
+                    }               
+                }
             }
 
-            // console.log(this.startDate.getDate(), this.endDate && this.endDate.getDate() );
-        } else {
-
+            
+            console.log(2222222222);
+            console.log(this.startDate, this.endDate)
+            console.log(this.anotherCalendar.startDate, this.anotherCalendar.endDate)
+            console.log(); 
         }
         // 공사중 ---------------------------------------------------------------------...
 
