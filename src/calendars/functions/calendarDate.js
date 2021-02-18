@@ -31,14 +31,13 @@ const writeDateOnTab = (target, clickedDate) => {
 const eraseDateOnTab = (target) => (target.innerText = ``);
 
 const connectTwoDates = (calendarDates) => {
+  // 2021-02-18 이것도 조건별로 어떻게 연결시켜야하는지 나눠서 넣기.. 지금은 처음부터 시작날짜, 끝날짜를 잘 클릭했을때만 잘먹음
   calendarDates.forEach((date) => {
-    if (!date.classList.contains("yesterday")) {
-      // const classes = date.classList;
-      // const [year, month, day] = parseDate(date.classList[2]);
-      const [year, month, day] = parseDate(date.id);
-      const [s_year, s_month, s_day] = selectedDateState.startDate.data;
-      const [e_year, e_month, e_day] = selectedDateState.endDate.data;
-      if (year >= s_year && year <= e_year && month >= s_month && month <= e_month && day >= s_day && day <= e_day) {
+    if (date.classList.contains("today") || date.classList.contains("tomorrow")) {
+      const currDate = parseDate(date.id);
+      const startDate = selectedDateState.startDate.data;
+      const endDate = selectedDateState.endDate.data;
+      if ((isLaterThanDate(currDate, startDate) && !isLaterThanDate(currDate, endDate)) || isSameWithDate(currDate, endDate)) {
         console.log(`date.id: ${date.id}`);
         date.classList.add("connected");
       }
@@ -48,7 +47,7 @@ const connectTwoDates = (calendarDates) => {
 
 const deleteConnection = (calendarDates) => {
   calendarDates.forEach((date) => {
-    if (!date.classList.contains("yesterday") && date.classList.contains("connected")) {
+    if (date.classList.contains("today") || date.classList.contains("tomorrow")) {
       date.classList.remove("connected");
     }
   });
