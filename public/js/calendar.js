@@ -26,6 +26,7 @@ export class Calendar {
   onEvents() {
     this.target.addEventListener('click', this.dateClickHandler);
     document.body.addEventListener('click', this.onFocusOut);
+
     this.render();
     this.onClickArrowBtn();
   }
@@ -39,10 +40,6 @@ export class Calendar {
   rightBtnClickHandler({ target }) {
     if (!target.closest('.right-arrow')) return;
     this.month += 1;
-    if (this.month === 13) {
-      this.year += 1;
-      this.month = 1;
-    }
 
     this.init();
     this.render();
@@ -51,10 +48,6 @@ export class Calendar {
   leftBtnClickHandler({ target }) {
     if (!target.closest('.left-arrow')) return;
     this.month -= 1;
-    if (this.month === 0) {
-      this.year -= 1;
-      this.month = 12;
-    }
 
     this.init();
     this.render();
@@ -66,8 +59,10 @@ export class Calendar {
 
   showCalendarTitle() {
     const calendarTitles = document.querySelectorAll('.calendar-title');
-    calendarTitles.forEach((title, i) => {
-      title.textContent = `${this.year}년 ${this.month + i}월`;
+
+    calendarTitles.forEach((title, idx) => {
+      const [count, i] = this.calculateSecondCalendar(idx);
+      title.textContent = `${this.year + count}년 ${this.month + i}월`;
     });
   }
 
@@ -77,6 +72,7 @@ export class Calendar {
     const daysOfWeeks = daysofWeekList.reduce((prev, dayOfWeek) => {
       return prev + `<li>${dayOfWeek}</li>`;
     }, '');
+
     calendarWeek.forEach((week) =>
       week.insertAdjacentHTML('beforeend', daysOfWeeks)
     );
@@ -84,13 +80,18 @@ export class Calendar {
 
   showCalendarDays() {
     const calendarDays = document.querySelectorAll('.calendar-days');
-    calendarDays.forEach((day, i) => {
-      const daysLen = new Date(this.year, this.month + i, 0).getDate();
-      let daysEmpty = new Date(`'${this.year}, ${this.month + i}, 1'`).getDay();
+    calendarDays.forEach((day, secondCalMonth) => {
+      const [count, i] = this.calculateSecondCalendar(secondCalMonth);
+      const daysLen = new Date(this.year + count, this.month + i, 0).getDate();
+      let daysEmpty = new Date(
+        `'${this.year + count}, ${this.month + i}, 1'`
+      ).getDay();
+
       const daysByOrder = Array.from(
         { length: daysLen + daysEmpty },
-        (_, i) => i + 1 - daysEmpty
+        (_, idx) => idx + 1 - daysEmpty
       );
+
       const days = daysByOrder.reduce((prev, day) => {
         if (daysEmpty) {
           daysEmpty -= 1;
@@ -102,7 +103,29 @@ export class Calendar {
     });
   }
 
+  verifyFullDates() {
+    if (this.month === 13) {
+      this.year += 1;
+      this.month = 1;
+    }
+    if (this.month === 0) {
+      this.year -= 1;
+      this.month = 12;
+    }
+  }
+
+  calculateSecondCalendar(secondCalMonth) {
+    let count = 0;
+    if (this.month === 12 && secondCalMonth === 1) {
+      count = 1;
+      secondCalMonth = -11;
+      return [count, secondCalMonth];
+    }
+    return [count, secondCalMonth];
+  }
+
   render() {
+    this.verifyFullDates();
     this.showCalendarTitle();
     this.showCalendarWeeks();
     this.showCalendarDays();
