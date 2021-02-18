@@ -69,3 +69,11 @@
     display:none;
 }
 
+#calendar {
+    padding:20px;
+    width:50%;
+}
+
+#calendar > tbody > tr > td {
+    text-align: center;
+}
