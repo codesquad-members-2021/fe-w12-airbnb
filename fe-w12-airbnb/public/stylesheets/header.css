@@ -23,6 +23,7 @@ header {
   height: 2rem;
 }
 
+/********* 코로나 안내문 *********/
 .corona_info {
   color: #fff;
   margin-top: 0;
@@ -31,6 +32,7 @@ header {
   padding-top: 0.6rem;
 }
 
+/********* 네비게이터 전체 ********/
 .logo_and_nav {
   display: flex;
   width: 100%;
@@ -38,6 +40,7 @@ header {
   margin-top: 1rem;
 }
 
+/******* 좌측 에어비앤비 로고 ******/
 .nav_left {
   width: calc(100% / 3);
 }
@@ -51,24 +54,31 @@ header {
   filter: brightness(0) invert(1);
 }
 
+/********* 중앙 탭 UI **********/
 .nav_center {
   text-align: center;
 }
 
 .main-nav li {
   display: inline-block;
+  font-size: 0.6rem;
+  color: #fff;
   margin: 0 30px 0 30px;
+  cursor: pointer;
 }
 
 .main-nav input[type="radio"] {
   display: none;
 }
 
-.main-nav span {
-  text-decoration: none;
-  color: #fff;
-  font-size: 0.6rem;
-  cursor: pointer;
+.main-nav input[type="radio"] + span {
+  padding-bottom: 0.3rem;
+  border: none;
+}
+
+.main-nav input[type="radio"]:checked + span {
+  border-bottom: 2px solid #fff;
+  width: 1rem;
 }
 
 .search_box {
@@ -126,6 +136,7 @@ fieldset.search_box > div > input {
   filter: brightness(0) invert(1);
 }
 
+/********* 우측 로그인메뉴 *********/
 .nav_right {
   width: calc(100% / 3);
   display: flex;
@@ -200,6 +211,7 @@ div.login_set > img {
   width: auto;
 }
 
+/********* 우측 드롭다운 메뉴 *********/
 .dropdown {
   border-radius: 10px;
   background-color: #fff;
@@ -236,6 +248,7 @@ div.login_set > img {
   cursor: pointer;
 }
 
+/************ 메인 메세지 ***********/
 .main_textbox {
   position: absolute;
   width: 1140px;

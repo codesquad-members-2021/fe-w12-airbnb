@@ -3,7 +3,7 @@
 /* --------------------------------------------------------------------- */
 
 class PopUpLayer {
-    constructor(ref, _){
+    constructor(ref, _) {
         this._ = _;
         this.hamburger = ref.hamburger;
         this.dropBox = ref.dropBox;
@@ -11,12 +11,12 @@ class PopUpLayer {
         this.addEvent();
     }
 
-    addEvent(){
+    addEvent() {
         this.hamburger.addEventListener("click", (e) => this.showDropBox(e));
         this.body.addEventListener("click", (e) => this.removeDropBox(e));
     }
 
-    showDropBox({target}){ //destructuring 해서 이벤트에서 target객체만 가져오기
+    showDropBox({target}) { //destructuring 해서 이벤트에서 target객체만 가져오기
         if (this.isHamburgerBtn(target)) {
             this._.setToggle(this.dropBox, "invisible");
         }
@@ -28,7 +28,7 @@ class PopUpLayer {
         }
     }
 
-    isHamburgerBtn(node){
+    isHamburgerBtn(node) {
         return this._.contains(node, "login") ? true : false;
     }
 }
