@@ -1,7 +1,6 @@
 /* NAV: RESERVATION */
 
 .reservation__container {
-  min-width: 850px;
   height: 64px;
   display: flex;
   justify-content: center;
@@ -17,16 +16,19 @@
 
 .reservation__box--airbnb,
 .reservation__box--activity {
+  display: flex;
+  justify-content: center;
+  width: 850px;
   height: 100%;
-  box-sizing: border-box;
 }
 
 .reservation__label--box {
   background: #fff;
   display: flex;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 32px;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 16px 32px, rgba(0, 0, 0, 0.1) 0px 3px 8px;
 }
 
 .reservation__menu__box {
@@ -65,7 +67,7 @@
 }
 
 .leftside__radius__box--activity {
-  width: 400px;
+  width: 410px;
   background: #fff;
   padding: 14px 32px;
   border-top-left-radius: 50px;
@@ -128,21 +130,22 @@ input {
 }
 
 .rightside__radius__box {
-  width: 100%;
+  width: 220px;
   background: #fff;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
   padding: 14px 24px;
-  padding-right: 10px;
+  position: relative;
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
   height: 100%;
   align-items: center;
+  justify-content: space-between;
 }
 .rightside__radius__box:hover {
   background: #ebebeb;
-  border-radius: 50px;
+  border-radius: 32px;
 }
 
 .rightside__radius__box:hover + div {
@@ -150,13 +153,13 @@ input {
 }
 
 .rightside__radius__box--activity {
-  width: 440px;
+  width: 438px;
   height: 100%;
   background: #fff;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
   padding: 14px 24px;
-  padding-right: 10px;
+  position: relative;
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
@@ -179,6 +182,9 @@ input {
   border-radius: 50px;
   box-sizing: border-box;
   cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 9px;
 }
 
 .search__circle > svg {
@@ -254,7 +260,7 @@ input {
   height: 340px;
   padding: 16px 32px;
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 64px;
   z-index: 1;
   background: rgb(255, 255, 255);
@@ -264,4 +270,10 @@ input {
   max-height: calc(100vh - 220px);
   overflow: hidden auto;
   padding: 16px 32px;
+}
+
+.calendar__box {
+  outline: 1px solid red;
+  width: 100%;
+  height: 340px;
 }
