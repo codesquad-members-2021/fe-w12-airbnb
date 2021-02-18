@@ -62,6 +62,10 @@ class Calendar {
     this.target.append(leftArrow);
     this.target.append(rightArrow);
     leftArrow.addEventListener('click', () => { 
+      const tmpDate = new Date().setDate(this.getLastDay(this.date));
+      if(tmpDate >= this.date) {
+        return;
+      }
       if(this.date.getMonth() === 0) {
         this.date.setMonth(11);
         this.date.setFullYear(this.date.getFullYear() - 1);
