@@ -1,25 +1,27 @@
 table {
   width: 100%;
   color: black;
-  border: 1px solid #fd0000;
+  empty-cells: hide;
 }
 
 td,
 th {
   font-size: 14px;
-  border: 1px solid green;
   border-radius: 70%;
   width: 47px;
   height: 47px;
   text-align: center;
+  padding: 1px;
 }
+
 .mondayToFriday td {
   height: 16px;
   color: #717171;
   font-size: 12px;
   border: none;
 }
-.yearAndMonth {
+
+.calendar_mainBar {
   width: 100%;
   height: 6%;
 }
