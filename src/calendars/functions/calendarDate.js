@@ -30,16 +30,6 @@ const registerClickEvent = (element, placeholder, textStartDate, textEndDate) =>
   element.addEventListener("click", () => {
     placeholder.classList.add("none");
     const clickedDate = parseDate(element.id);
-    // if (!startDate.innerText) {
-    //   writeDateOnTab(startDate, clickedDate);
-    //   element.classList.add("selected");
-    // } else if (startDate.innerText && !endDate.innerText) {
-    //   const checkInDate = parseDate(startDate.innerText);
-    //   if (isLaterThanDate(clickedDate, checkInDate)) {
-    //     writeDateOnTab(endDate, clickedDate);
-    //     element.classList.add("selected");
-    //   } else alert("잘못된 날짜를 선택하셨습니다.");
-    // }
     if (!selectedDateState.startDate.element && !selectedDateState.endDate.element) {
       // 둘 다 선택 안되어 있으면
       writeDateOnTab(textStartDate, clickedDate);

@@ -18,48 +18,53 @@ export default class Calendar {
     }
   }
 
-  insertDayName(calHtml) {
-    const dayName = ["일", "월", "화", "수", "목", "금", "토", "일"];
-    for (let j = 0; j < 7; j++) {
-      calHtml += `<div class="calendar__date day-name"><span>${dayName[j]}</span></div>`;
-    }
-    return calHtml;
+  insertTitle(date) {
+    const [year, month] = date;
+    return `<div class="calendar_title"><span>${year}년 ${month}월</span></div>`;
+  }
+
+  insertDayName() {
+    const dayName = ["일", "월", "화", "수", "목", "금", "토"];
+    return dayName.reduce((acc, val) => acc + `<div class="calendar__date day-name"><span>${val}</span></div>`, ``);
+  }
+
+  createHtmlTagOfDate(date, startDayCount) {
+    const [year, month] = date;
+    const today = new Date();
+    return `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)} ${year}-${month}-${startDayCount}"><span>${startDayCount++}</span></div>`;
   }
 
   setCalendarData(year, month, index) {
+    const date = [year, month];
     let calHtml = `<div class="month month__${index}">`;
-    if (index === 0) calHtml += `<div class="calendar_title"><span>${year}년 ${month}월</span></div>`;
-    else if (index === 1) calHtml += `<div class="calendar_title"><span>${year}년 ${month}월</span></div>`;
+    calHtml += this.insertTitle(date);
     calHtml += `<div class="calendar__content">`;
-    calHtml = this.insertDayName(calHtml);
-    const today = new Date();
+    calHtml += this.insertDayName();
+    // calHtml = this.insertDayName(calHtml);
     const setDate = new Date(year, month - 1, 1);
-    const firstDay = setDate.getDate();
+    // const firstDay = setDate.getDate();
     const firstDayName = setDate.getDay();
     const lastDay = new Date(this.day.getFullYear(), this.day.getMonth() + 1, 0).getDate();
-    const preLastDay = new Date(this.day.getFullYear(), this.day.getMonth(), 0).getDate();
+    // const preLastDay = new Date(this.day.getFullYear(), this.day.getMonth(), 0).getDate();
 
     let startDayCount = 1;
-    let lastDayCount = 1;
-    const date = [year, month];
+    // let lastDayCount = 1;
+    const oneMonth = Array.from(Array(5), () => Array(7).fill(0)); // 5주, 각 7일이 있는 배열 생성
 
-    for (let i = 0; i < 5; i++) {
-      for (let j = 0; j < 7; j++) {
-        // 일~토: 7번 반복
+    oneMonth.forEach((week, i) => {
+      week.forEach((day, j) => {
         if (i === 0) {
-          if (j < firstDayName) {
-            calHtml += `<div class="calendar__date}"><span></span></div>`;
-          } else {
-            calHtml += `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)} ${year}-${month}-${startDayCount}"><span>${startDayCount++}</span></div>`;
-            // className으로 해당 날짜를 넣어보려고했다... 근데 어차피 id로 주어지니까 필요 없는 것 같기도 하다.. day부분이 -1 되어서 표기된다는 것만 유의하면서 진행하면 될거같은 느낌이다..
+          if (j < firstDayName) calHtml += `<div class="calendar__date}"><span></span></div>`;
+          else {
+            calHtml += this.createHtmlTagOfDate(date, startDayCount);
+            startDayCount++;
           }
         } else if (i > 0 && startDayCount <= lastDay) {
-          calHtml += `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)} ${year}-${month}-${startDayCount}"><span>${startDayCount++}</span></div>`;
-        } else if (startDayCount > lastDay) {
-          calHtml += `<div class="calendar__date"><span></span></div>`;
-        }
-      }
-    }
+          calHtml += this.createHtmlTagOfDate(date, startDayCount);
+          startDayCount++;
+        } else if (startDayCount > lastDay) calHtml += `<div class="calendar__date"><span></span></div>`;
+      });
+    });
 
     calHtml += `</div>`;
     this.calendarHtml.insertAdjacentHTML("beforeend", (calHtml += `</div>`));
