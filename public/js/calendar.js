@@ -31,6 +31,15 @@ export class Calendar {
     calendarTitle.textContent = `${this.year}년 ${this.month}월`;
   }
 
+  showCalendarWeeks() {
+    const daysofWeekList = '일월화수목금토'.split('');
+    const calendarWeek = document.querySelector('.calendar-weeks');
+    const dayName = daysofWeekList.reduce((prev, day) => {
+      return prev + `<li>${day}</li>\n`;
+    }, '');
+    calendarWeek.insertAdjacentHTML('beforeend', dayName);
+  }
+
   showCalendarDays() {
     const calendarDays = document.querySelector('.calendar-days');
     const daysNum = new Date(this.year, this.month, 0).getDate();
@@ -44,6 +53,7 @@ export class Calendar {
 
   render() {
     this.showCalendarTitle();
+    this.showCalendarWeeks();
     this.showCalendarDays();
   }
 }
