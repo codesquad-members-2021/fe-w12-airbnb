@@ -242,15 +242,33 @@ hr {
 
 /* calendar  */
 .calendar {
-  background-color: whitesmoke;
-  /* width: 200px; */
+  /* background-color: whitesmoke;
   padding: 50px;
   position: absolute;
   display: none;
   top: 220px;
   right: 215px;
   border-radius: 30px;
+  font-size: 15px; */
+  display: flex;
+  top: 220px;
+  right: 215px;
+  border-radius: 30px;
+}
+.calendar__container1,
+.calendar__container2 {
+  background-color: whitesmoke;
+  padding: 50px;
+  /* position: absolute; */
+  /* display: none; */
+  /* top: 220px;
+  right: 215px; */
+  /* border-radius: 30px; */
   font-size: 15px;
+}
+.calendar__container2 {
+  background-color: yellow;
+  margin-left: 30px;
 }
 
 .calendar.active {
