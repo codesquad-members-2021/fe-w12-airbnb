@@ -23,6 +23,7 @@ header {
   height: 2rem;
 }
 
+/********* 코로나 안내문 *********/
 .corona_info {
   color: #fff;
   margin-top: 0;
@@ -31,6 +32,7 @@ header {
   padding-top: 0.6rem;
 }
 
+/********* 네비게이터 전체 ********/
 .logo_and_nav {
   display: flex;
   width: 100%;
@@ -38,31 +40,45 @@ header {
   margin-top: 1rem;
 }
 
+/******* 좌측 에어비앤비 로고 ******/
 .nav_left {
   width: calc(100% / 3);
 }
 
 .airbnb_logo {
+  padding-top: 0.5rem;
   float: left;
   margin-left: 2rem;
-  height: 40px;
+  height: 50px;
   width: auto;
   filter: brightness(0) invert(1);
 }
 
+/********* 중앙 탭 UI **********/
 .nav_center {
   text-align: center;
 }
 
 .main-nav li {
   display: inline-block;
+  font-size: 0.6rem;
+  color: #fff;
   margin: 0 30px 0 30px;
+  cursor: pointer;
 }
 
-.main-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 0.6rem;
+.main-nav input[type="radio"] {
+  display: none;
+}
+
+.main-nav input[type="radio"] + span {
+  padding-bottom: 0.3rem;
+  border: none;
+}
+
+.main-nav input[type="radio"]:checked + span {
+  animation: bigger 0.5s forwards;
+  border-bottom: 2px solid #fff;
 }
 
 .search_box {
@@ -85,14 +101,15 @@ fieldset.search_box > div {
 
 fieldset.search_box > div > label {
   float: left;
-  font-size: 0.5rem;
+  font-size: 0.4rem;
   font-weight: 500;
 }
 
 fieldset.search_box > div > input {
+  padding-top: 0.2rem;
   border: none;
   float: left;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   color: rgb(224, 221, 221);
 }
 
@@ -100,7 +117,7 @@ fieldset.search_box > div > input {
 .third_op,
 .fourth_op {
   padding-left: 1rem;
-  border-left: 0.07rem solid rgb(224, 221, 221);
+  border-left: 0.05rem solid rgb(224, 221, 221);
 }
 
 #search_btn {
@@ -112,6 +129,11 @@ fieldset.search_box > div > input {
   margin-top: 0.4rem;
 }
 
+#search_btn:hover {
+  transition: background-color 0.4s;
+  background-color: #17b4af;
+}
+
 .search_logo {
   padding-top: 0.5rem;
   height: 35px;
@@ -119,6 +141,7 @@ fieldset.search_box > div > input {
   filter: brightness(0) invert(1);
 }
 
+/********* 우측 로그인메뉴 *********/
 .nav_right {
   width: calc(100% / 3);
   display: flex;
@@ -167,6 +190,7 @@ fieldset.search_box > div > input {
   width: 100px;
   background-color: #fff;
   border-radius: 50px;
+  position: relative;
 }
 
 div.login_set > img {
@@ -175,17 +199,24 @@ div.login_set > img {
 }
 
 .list_logo {
-  margin-bottom: 0.4rem;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
   height: 20px;
   width: auto;
 }
 
 .people_logo {
-  margin: 0.2rem 0 0 0.3rem;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
   height: 40px;
   width: auto;
 }
 
+/********* 우측 드롭다운 메뉴 *********/
 .dropdown {
   border-radius: 10px;
   background-color: #fff;
@@ -195,6 +226,7 @@ div.login_set > img {
   align-self: flex-end;
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
 }
 
 .dropdown > div {
@@ -221,6 +253,7 @@ div.login_set > img {
   cursor: pointer;
 }
 
+/************ 메인 메세지 ***********/
 .main_textbox {
   position: absolute;
   width: 1140px;
@@ -232,12 +265,12 @@ div.login_set > img {
 
 h1 {
   color: #fff;
-  font-size: 230%;
+  font-size: 200%;
 }
 
 .main_textbox_button {
   width: 180px;
-  height: 45px;
+  height: 40px;
   font-size: 0.6rem;
   margin-top: 1rem;
   border-radius: 10px;

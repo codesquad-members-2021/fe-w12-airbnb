@@ -21,9 +21,9 @@
                 </div>
                 <div class="nav_center">
                     <ul class="main-nav">
-                        <li><a href="#">숙소</a></li>
-                        <li><a href="#">체험</a></li>
-                        <li><a href="#">온라인 체험</a></li>
+                        <li><input class="popup_layer" name="tab" type="radio" checked="true"><span class="accommodation tab">숙소</span></li>
+                        <li><input class="popup_layer" name="tab" type="radio"><span class="experience tab">체험</span></li>
+                        <li><input class="popup_layer" name="tab" type="radio"><span class="online_experience tab">온라인 체험</span></li>
                     </ul>
                     <fieldset class="search_box">
                         <div>
@@ -49,14 +49,14 @@
                             <li>호스트 되기</li>
                             <li class="globe"><img src="images/earth.svg" alt="earth logo" class="earth_logo"></li>
                             <li>
-                                <div class="login_set">
-                                    <img src="images/list.svg" alt="list logo" class="list_logo">
-                                    <img src="images/people.svg" alt="peoplg logo" class="people_logo">
+                                <div class="login_set login">
+                                    <img src="images/list.svg" alt="list logo" class="list_logo login">
+                                    <img src="images/people.svg" alt="peoplg logo" class="people_logo login">
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div class="dropdown">
+                    <div class="dropdown invisible">
                         <div class="upper_half">
                             <li>회원 가입</li>
                             <li>로그인</li>
@@ -201,7 +201,7 @@
             </div>
         </div>
     </section>
-    <script src="./index.js"></script>
+    <script type="module" src="/javascripts/index.js"></script>
 </body>
 </html>
 
