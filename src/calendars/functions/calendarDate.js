@@ -26,6 +26,10 @@ const writeDateOnTab = (target, clickedDate) => {
 
 const eraseDateOnTab = (target) => (target.innerText = ``);
 
+const canConnectDates = () => {
+  return selectedDateState.startDate.element && selectedDateState.endDate.element;
+};
+
 const connectTwoDates = (calendarDates) => {
   // 2021-02-18 이것도 조건별로 어떻게 연결시켜야하는지 나눠서 넣기.. 지금은 처음부터 시작날짜, 끝날짜를 잘 클릭했을때만 잘먹음
   calendarDates.forEach((date) => {
@@ -33,7 +37,7 @@ const connectTwoDates = (calendarDates) => {
       const currDate = parseDate(date.id);
       const startDate = selectedDateState.startDate.data;
       const endDate = selectedDateState.endDate.data;
-      if ((isLaterThanDate(currDate, startDate) && !isLaterThanDate(currDate, endDate)) || isSameWithDate(currDate, endDate)) {
+      if ((isLaterThanDate(currDate, startDate) && !isLaterThanDate(currDate, endDate)) || isSameWithDate(currDate, endDate) || isSameWithDate(currDate, startDate)) {
         console.log(`date.id: ${date.id}`);
         date.classList.add("connected");
       }
@@ -69,7 +73,7 @@ const registerClickEvent = (element, placeholder, textStartDate, textEndDate, ca
         writeDateOnTab(textEndDate, clickedDate);
         createState(target, clickedDate, kindOfDate.end);
         // 날짜 연결시키기
-        connectTwoDates(calendarDates);
+        // connectTwoDates(calendarDates);
       }
     } else {
       // 시작, 끝 날짜 모두 선택되어 있으면
@@ -111,6 +115,7 @@ const registerClickEvent = (element, placeholder, textStartDate, textEndDate, ca
         deleteConnection(calendarDates);
       }
     }
+    if (canConnectDates()) connectTwoDates(calendarDates);
   });
 };
 
