@@ -39,6 +39,11 @@ export class Calendar {
   rightBtnClickHandler({ target }) {
     if (!target.closest('.right-arrow')) return;
     this.month += 1;
+    if (this.month === 13) {
+      this.year += 1;
+      this.month = 1;
+    }
+
     this.init();
     this.render();
   }
@@ -46,6 +51,11 @@ export class Calendar {
   leftBtnClickHandler({ target }) {
     if (!target.closest('.left-arrow')) return;
     this.month -= 1;
+    if (this.month === 0) {
+      this.year -= 1;
+      this.month = 12;
+    }
+
     this.init();
     this.render();
   }
@@ -57,8 +67,6 @@ export class Calendar {
   showCalendarTitle() {
     const calendarTitles = document.querySelectorAll('.calendar-title');
     calendarTitles.forEach((title, i) => {
-      if (this.month === 12) this.month = 1;
-      else if (this.month === 1) this.month = 12;
       title.textContent = `${this.year}년 ${this.month + i}월`;
     });
   }
@@ -83,7 +91,6 @@ export class Calendar {
         { length: daysLen + daysEmpty },
         (_, i) => i + 1 - daysEmpty
       );
-      console.log(daysEmpty);
       const days = daysByOrder.reduce((prev, day) => {
         if (daysEmpty) {
           daysEmpty -= 1;
