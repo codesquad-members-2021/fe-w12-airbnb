@@ -150,17 +150,34 @@ function toggleCalendar() {
 
 }
 
-function updateSearch() {
+function updateDayStyle() {
     const dayButtons = document.querySelectorAll(".day_button");
+
     dayButtons.forEach((element) => {
         element.addEventListener("click", (event) => {
 
-            event.target.classList.toggle("day_clicked");
+            event.target.classList.toggle("day_selected");
+        });
+    });
+
+    dayButtons.forEach((element) => {
+        element.addEventListener("mouseenter",(event) => {
+            event.target.classList.add("day_hover")            
+        });
+    });
+
+    dayButtons.forEach((element) => {
+        element.addEventListener("mouseleave",(event) => {
+            event.target.classList.remove("day_hover")            
         });
     });
 }
 
-drawCalendar();
-toggleCalendar();
-updateSearch();
+function handleEvents() {
+    drawCalendar();
+    toggleCalendar();
+    updateDayStyle();
+}
 
+
+handleEvents();

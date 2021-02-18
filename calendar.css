@@ -71,7 +71,12 @@ table {
     color:rgb(88, 88, 88);
 }
 
-.day_clicked {
+
+.day_hover {
+    border: 1px solid black !important;
+}
+
+.day_selected {
     background-color: black !important;
     color: #ffff;
 }
