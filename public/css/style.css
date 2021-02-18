@@ -281,6 +281,15 @@ a {
     width: 100%;
 }
 
+.calendar-header {
+    position:relative;
+}
+
+.calendar-header button {
+    left: 0;
+    position: absolute;
+}
+
 .calendar-content h3 {
     margin: 0;
     padding-bottom: 30px;
