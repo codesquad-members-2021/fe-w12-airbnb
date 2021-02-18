@@ -95,7 +95,7 @@
     line-height: 0.8em;
     cursor: pointer;
     top: calc(2vw - 0.5em);
-    &:hover {
+    &:not(.not-used):hover {
       background: rgb(247, 247, 247);
       border-radius: 50%;
     }
@@ -104,6 +104,10 @@
     }
     &.arrow-right {
       right: 2vw;
+    }
+    &.not-used {
+      cursor: default;
+      opacity: 0.2;
     }
   }
 }

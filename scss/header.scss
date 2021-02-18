@@ -22,7 +22,7 @@ header {
       display: inline-block;
     }
   }
-  .category {
+  .anchor-tab {
     text-align: center;
     &__anchor {
       color: #fff;
@@ -121,66 +121,68 @@ header {
       }
     }
   }
-  .input-wrap {
+  .search-wrap {
     position: relative;
     top: 20px;
     transition: all 0.1s linear;
   }
-  .input-items {
+  .search-item {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     background: #fff;
     border-radius: 50px;
     // overflow: hidden;
   }
-  .input-item {
-    background: #fff;
-    cursor: pointer;
-    padding: 15px 0 15px 25px;
-    border-radius: 50px;
-    position: relative;
-    &::after {
-      content: "";
-      display: block;
-      width: 0px;
-      height: 30px;
-      top: 0;
-      margin-top: 20px;
-      left: 0;
-      border-right: 1px solid rgba(0, 0, 0, 0.12);
-      position: absolute;
-    }
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.12);
-      &::after, & + *::after {
-        border: none;
-      }
-    }
-    &__label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    &__text {
-      border: 0;
-      cursor: inherit;
-      background: transparent;
-      width: 100%;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    &__button {
-      background: #FF385C;
-      padding: 12px;
-      font-size: 16px;
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      border: 0;
-      border-radius: 50%;
+  .search-item {
+    &-tag {
+      background: #fff;
       cursor: pointer;
+      padding: 15px 0 15px 25px;
+      border-radius: 50px;
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        width: 0px;
+        height: 30px;
+        top: 0;
+        margin-top: 20px;
+        left: 0;
+        border-right: 1px solid rgba(0, 0, 0, 0.12);
+        position: absolute;
+      }
       &:hover {
-        filter: grayscale(0.2);
+        background-color: rgba(0, 0, 0, 0.12);
+        &::after, & + *::after {
+          border: none;
+        }
+      }
+      &__label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      &__text {
+        border: 0;
+        cursor: inherit;
+        background: transparent;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      &__button {
+        background: #FF385C;
+        padding: 12px;
+        font-size: 16px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        &:hover {
+          filter: grayscale(0.2);
+        }
       }
     }
     &__modal {
@@ -238,12 +240,12 @@ header {
     background: #fff;
     height: auto;
     min-height: 80px;
-    .category {
+    .anchor-tab {
       &__anchor {
         display: none;
       }
     }
-    .input-wrap {
+    .search-wrap {
       top: -40px;
       opacity: 0;
       transform: scale(0.5);
