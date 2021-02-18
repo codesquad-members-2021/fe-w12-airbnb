@@ -159,7 +159,7 @@ export class CalendarView {
     day = parseInt(day);
     const { startReserve, endReserve } = this.calendarModel;
     if (!startReserve) this.setStartReserve(day);
-    else if (!endReserve) this.setEndReserve(day);
+    else if (!endReserve && startReserve < day) this.setEndReserve(day);
     else {
       this.setStartReserve(day);
       if (day <= startReserve || day >= endReserve) {
