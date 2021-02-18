@@ -13,6 +13,14 @@ class Calendar {
     this.endDateTarget = endTarget;
   }
   render() {
+    let tmpStart = null;
+    let tmpEnd = null;
+    if(this.startDate) {
+      tmpStart = this.startDate.dataset.date;
+    }
+    if(this.endDate) {
+      tmpEnd = this.endDate.dataset.date;
+    }
     const nowDate = new Date();
     this.target.innerHTML = '';
     for(let i = 0; i < 2; i++) {
@@ -38,7 +46,9 @@ class Calendar {
         } else if(i % 7 === 6 || i + 1 === dateBlocks.length) {
           suffix = '</div>';
         }
-        return acc += `${prefix} <div class="${(nowDate.getMonth() + 1 === month && nowDate.getDate() > v) || v === '' ? 'previous-days' : 'able'}" data-date="${new Date(year + '-' + month + '-' + v)}">${v}</div> ${suffix}`
+        const blockDate = new Date(year + '-' + month + '-' + v);
+        const blockClass = (nowDate.getMonth() + 1 === month && nowDate.getDate() > v) || v === '' ? 'previous-days' : 'able';
+        return acc += `${prefix} <div class="${blockClass} ${blockDate == tmpStart ? 'start-date' : blockDate == tmpEnd ? 'end-date' : ''}" data-date="${blockDate}">${v}</div> ${suffix}`
       }, '<div class="js-calendar__body">') + '</div>';
       const calendarWrap = '<div class="js-calendar__wrap">' + calendarLabel + calendarHead + calendarBody + '</div>';
       this.target.innerHTML += calendarWrap;
@@ -69,6 +79,13 @@ class Calendar {
       }
       this.render();
     });
+    if(tmpStart) {
+      this.startDate.classList.add('start-date');
+      if(this.endDate) {
+        this.endDate.classList.add('end-date');
+        this.createPeriod();
+      }
+    }
   }
   getStartWeek(date) {
     const tmp = new Date(date);
