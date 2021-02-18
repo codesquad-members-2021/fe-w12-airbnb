@@ -5,7 +5,7 @@ import Guest from "./searchItem/Guest.js";
 export default class SearchBox extends Component {
   setup() {
     this.state = {
-      searchItem: "",
+      searchItem: "stayCheckIn",
     };
   }
   getTemplate() {
@@ -83,7 +83,6 @@ export default class SearchBox extends Component {
     `;
   }
   mounted() {
-    
     const searchItems = {
       "": () => {},
       searchLocation: ($target, props) => new Location($target, props),
@@ -93,8 +92,8 @@ export default class SearchBox extends Component {
       experienceDate: ($target, props) => new Calendar($target, props),
     };
     const $searchItemFloatBox = this.$target.querySelector(
-        ".searchItem-floatBox"
-      );
+      ".searchItem-floatBox"
+    );
     const { searchItem } = this.state;
     const createFloatBox = searchItems[searchItem];
     createFloatBox($searchItemFloatBox);

@@ -180,6 +180,7 @@ header .searchItem-floatBox {
   display: flex;
   top: 5rem;
   width: 100%;
+  box-sizing: border-box;
 }
 header .searchItem-floatBox.item-location {
   justify-content: flex-start;
@@ -206,7 +207,41 @@ header .location-list > li > img {
   margin-right: 1rem;
 }
 header .searchItem-floatBox.item-calendar {
-  justify-content: center;
+  background: white;
+  flex-direction: column;
+  border-radius: 2rem;
+  color: black;
+  padding: 3rem;
+  height: 25rem;
+}
+header .calendar-box {
+  position: relative;
+}
+header .calendar-box > .calendar-fixed-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+header .calendar-fixed-box > .calendar-day-control {
+  display: flex;
+  justify-content: space-between;
+}
+header .calendar-fixed-box .calendar-day-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+header .calendar-fixed-box .calendar-day {
+  display: flex;
+  width: 47%;
+}
+header .calendar-day li {
+  width: 14.28%;
+  text-align: center;
+}
+
+header .calendar-option > ul {
+  display: flex;
 }
 header .searchItem-floatBox.item-guest {
   justify-content: flex-end;
@@ -430,4 +465,8 @@ footer .contents_wrapper > div:first-child {
 
 .footer-down ul {
   display: flex;
+}
+
+* {
+  outline: 1px solid red;
 }
