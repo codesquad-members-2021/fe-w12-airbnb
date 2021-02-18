@@ -101,7 +101,7 @@ class Calendar {
         const arrYearMonth =  _.$('.year-month', this.target).innerText.replace(/[^0-9\s]/g, '').split(' ');
         const currClickDate = new Date(arrYearMonth[0], (arrYearMonth[1]-1), Number(thisBtn.innerText));
         const dateBtnList = Array.from(_.$All('ul > li > button', this.dynamicWrapper));
-
+        // confilctTest
         // 공사중 -------------------------------------------------
         if (this.calendarType === 'left') {
             if (this.startDate && this.endDate) {
