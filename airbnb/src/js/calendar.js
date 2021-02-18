@@ -101,9 +101,13 @@ export class CalendarView {
     this.calendarModel = new Calendar();
     this.startReserveDay;
     this.endReserveDay;
+    this.queryDateContent;
   }
   init() {
     this.onEvent();
+    this.queryDateContent = this.queryDate.querySelectorAll(
+      '.query-date__content'
+    );
   }
   onEvent() {
     document.addEventListener('click', this.handleClick.bind(this));
@@ -124,7 +128,6 @@ export class CalendarView {
     else if (this.isRightArrow(target)) this.setNextDate();
     else if (this.isDay(target)) {
       this.setReserveDate(target);
-      console.log(target.classList);
     }
   }
   renderCalendar() {
@@ -152,7 +155,7 @@ export class CalendarView {
   isDay({ classList } = target) {
     return classList.contains('day') && classList.contains('able');
   }
-  setReserveDate({ innerText: day, classList } = target) {
+  setReserveDate({ innerText: day } = target) {
     day = parseInt(day);
     const { startReserve, endReserve } = this.calendarModel;
     if (!startReserve) this.setStartReserve(day);
@@ -163,6 +166,7 @@ export class CalendarView {
         this.clearEndReserve();
       }
     }
+    this.setFormDate();
   }
   setStartReserve(day) {
     this.calendarModel.startReserve = day;
@@ -174,6 +178,17 @@ export class CalendarView {
   }
   clearEndReserve() {
     this.calendarModel.endReserve = 0;
-    this.endReserve = '';
+    this.endReserve = undefined;
+  }
+  setFormDate() {
+    const reserveDate = [this.startReserve, this.endReserve];
+    //stay일 경우 checkin,checkout으로 content 노드가 2개이다.
+    if (this.queryDateContent.length === 2) {
+      this.queryDateContent.forEach((v, idx) => {
+        v.innerHTML = reserveDate[idx] ? reserveDate[idx] : '날짜 추가'; //선택 안될 시에는 기본 default 값으로 진행
+      });
+    } else {
+      this.queryDateContent[0].innerHTML = reserveDate.join(' - ');
+    }
   }
 }
