@@ -41,20 +41,50 @@
 .week {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 3px;
 }
 .calendar__index,
 .day {
   text-align: center;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 100%;
+  flex: 1;
+  line-height: 45px;
   font-size: 0.8rem;
-  border: 1px solid rgba(0, 0, 0, 0);
+  font-weight: 600;
 }
 .calendar__index {
   color: rgba(0, 0, 0, 0.8);
 }
-.day:hover {
+.day__span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.day__span:hover {
   border: 1px solid black;
+}
+
+.past {
+  border-radius: 0;
+  color: black;
+  opacity: 0.3;
+}
+
+.checked {
+  background-color: black;
+  color: white;
+}
+
+.contain {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.start-reserve {
+  border-bottom-left-radius: 100%;
+  border-top-left-radius: 100%;
+}
+.end-reserve {
+  border-bottom-right-radius: 100%;
+  border-top-right-radius: 100%;
 }
