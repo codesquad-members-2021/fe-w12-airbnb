@@ -41,20 +41,29 @@
 .week {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 3px;
 }
 .calendar__index,
 .day {
   text-align: center;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  flex: 1;
+  line-height: 45px;
   border-radius: 100%;
   font-size: 0.8rem;
+  font-weight: 600;
   border: 1px solid rgba(0, 0, 0, 0);
 }
 .calendar__index {
   color: rgba(0, 0, 0, 0.8);
 }
-.day:hover {
+
+.able:hover {
   border: 1px solid black;
+}
+
+.past {
+  border-radius: 0;
+  color: black;
+  opacity: 0.3;
+  background-color: rgba(0, 0, 0, 0.1);
 }

@@ -1,3 +1,4 @@
+import { makeDiv } from './controlHTML.js';
 import MONTH_DAYS from './daysByMonth.js';
 const HIDDEN = 'hidden';
 class Calendar {
@@ -6,14 +7,14 @@ class Calendar {
     this.year = date.getFullYear();
     this.month = date.getMonth() + 1;
     this.day = date.getDate();
+    this.nowDate = { year: this.year, month: this.month, day: this.day };
   }
   getCalendar() {
     const firstDay = this.getFirstDay(this.year, this.month); //요일
     const monthData = this.setMonthArr(this.year, this.month, firstDay); //월의 날짜가 담긴 2차원 배열
-    const monthHTML = this.makeMonthDiv(monthData); //month html
-    console.log(monthData);
-    const calendarHTML = this.getCalendarFormat() + monthHTML; //format + month html
-    return calendarHTML;
+    const monthHtml = this.makeMonthHtml(monthData);
+    const calendarHtml = this.getCalendarFormat() + monthHtml;
+    return calendarHtml;
   }
   getFirstDay(year, month) {
     return new Date(year, month - 1, 1).getDay();
@@ -37,19 +38,29 @@ class Calendar {
     monthArr.push(weekArr); //마지막 weekArr도 추가
     return monthArr;
   }
-  makeDayDiv(day) {
-    if (day) return `<div class='day'>${day}</div>`;
-    else return `<div class='day'></div>`;
+  isReservable(day) {
+    const { year: nowYear, month: nowMonth, day: nowDay } = this.nowDate;
+    if (this.year === nowYear && this.month === nowMonth) {
+      return day >= nowDay;
+    } else {
+      return this.year >= nowYear && this.month >= nowMonth;
+    }
   }
-  makeWeekDiv(week) {
-    let days = '';
-    week.forEach((day) => (days += this.makeDayDiv(day)));
-    return `<div class='week'>${days}</div>`;
+  makeDayHtml(day) {
+    if (day && this.isReservable(day)) return makeDiv(day, 'day', 'able');
+    else if (day) return makeDiv(day, 'day', 'past', 'disable');
+    else return makeDiv('', 'day', 'disable');
   }
-  makeMonthDiv(month) {
-    let weeks = '';
-    month.forEach((week) => (weeks += this.makeWeekDiv(week)));
-    return `<div class='month'>${weeks}</div>`;
+  makeWeekHtml(week) {
+    let daysHtml = week.reduce((acc, day) => acc + this.makeDayHtml(day), '');
+    return makeDiv(daysHtml, 'week');
+  }
+  makeMonthHtml(month) {
+    let weeksHtml = month.reduce(
+      (acc, week) => acc + this.makeWeekHtml(week),
+      ''
+    );
+    return makeDiv(weeksHtml, 'month');
   }
   getCalendarFormat() {
     return `
