@@ -1,77 +1,60 @@
-const _ = {
-  ADD: (target, className) => target.classList.add(className),
-
-  REMOVE: (target, className) => target.classList.remove(className),
-
-  TOGGLE: (target, className) => target.classList.toggle(className),
-
-  REPLACE: (target, oldClassName, newClassName) =>
-    target.classList.replace(oldClassName, newClassName),
-
-  $: (selector, base = document) => base.querySelector(selector),
-
-  $A: (selector, base = document) => base.querySelectorAll(selector),
-
-  EVENT: (target, type, listener, useCapture = false) =>
-    target.addEventListener(type, listener, useCapture),
-};
-
-const EventHandler = {
-  locationClick: (target) => target.focus(target),
-
-  locationFoucus: (target) => _.REMOVE(target, "hide"),
-
-  peoplebtnClick: (target) => _.REMOVE(target, "hide"),
-
-  profileBtnClick: (target) => _.TOGGLE(target, "hide"),
-
-  activityClick: (rooms, activtiy, RB, AB) => {
-    _.ADD(rooms, "hide");
-    _.REMOVE(activtiy, "hide");
-    _.REPLACE(RB, "navbar_selectedline", "navbar_line");
-    _.REPLACE(AB, "navbar_line", "navbar_selectedline");
-  },
-
-  roomClickHandler: (rooms, activtiy, RB, AB) => {
-    _.ADD(activtiy, "hide");
-    _.REMOVE(rooms, "hide");
-    _.REPLACE(AB, "navbar_selectedline", "navbar_line");
-    _.REPLACE(RB, "navbar_line", "navbar_selectedline");
-  },
-
-  removeClick: (...targets) => {
-    targets.forEach((e) => {
-      _.ADD(e, "hide");
-    });
-  },
-};
+const utils = require("./utils.js");
+const _ = new utils();
 //=====================================================//
-
 const main = _.$(".main");
 
-
-const searchberEventController = (main, mainPeople, mainLocation) => {
+const searchberEventController = (
+  main,
+  mainPeople,
+  mainLocation,
+  mainCalender
+) => {
   _.EVENT(main, "click", ({ target }) => {
-    if (target.closest(".seachbar_btn")) {
-      const input = _.$("input", target.closest(".main_seachbar"));
-      _.EVENT(input, "focus", (e) => {
-          EventHandler.locationFoucus(mainLocation);
-      });
-      EventHandler.locationClick(input);
-    }
+    let searchbar = target.closest(".main_seachbar");
+    let input = searchbar.querySelector("input");
+    let searchbar_lastchild = searchbar.lastElementChild;
+    _.EVENT(input, "focus", EventHandler.locationFoucus(mainLocation));
     if (target.closest(".location")) {
-      const input = _.$("input", target.closest(".main_seachbar"));
-      _.EVENT(input, "focus", (e) => {
-        EventHandler.locationFoucus(mainLocation);
-    });
       EventHandler.locationClick(input);
-    }
-    target.closest(".date");
-    if (target.closest(".people")) {
-      EventHandler.peoplebtnClick(mainPeople);
+    } else {
+      EventHandler.removeClick(mainLocation);
     }
 
- 
+    if (target === searchbar_lastchild) {
+      console.log(target.closest(".main_seachbar").id);
+      switch (target.closest(".main_seachbar").id) {
+        case "main_seachbar_activity":
+          if (target.closest(".date")) {
+            if (target.closest(".seachbar_btn")) {
+              EventHandler.locationClick(input);
+            } else {
+              EventHandler.removeClick(mainLocation);
+              EventHandler.peoplebtnClick(mainCalender);
+            }
+          } else {
+            EventHandler.removeClick(mainCalender);
+          }
+          break;
+        case "main_seachbar_rooms":
+          if (target.closest(".date")) {
+            EventHandler.peoplebtnClick(mainCalender);
+          } else {
+            EventHandler.removeClick(mainCalender);
+          }
+          if (target.closest(".people")) {
+            if (target.closest(".seachbar_btn")) {
+              EventHandler.locationClick(input);
+            } else {
+              EventHandler.removeClick(mainLocation);
+              EventHandler.peoplebtnClick(mainPeople);
+            }
+          } else {
+            EventHandler.removeClick(mainPeople);
+          }
+
+          break;
+      }
+    }
   });
 };
 const HeaderEventConroler = (header, profileHeader, rooms, activity) => {
@@ -105,14 +88,14 @@ const mainEventControler = (main) => {
   const profileHeader = _.$(".profileHeader", main);
   const mainPeople = _.$(".main_people", main);
   const mainLocation = _.$(".main_location", main);
+  const mainCalender = _.$("main__calender", main);
   HeaderEventConroler(HEADER, profileHeader, Rooms, Activity);
-  searchberEventController(main, mainPeople, mainLocation);
+  searchberEventController(main, mainPeople, mainLocation, mainCalender);
 
   _.EVENT(document, "click", ({ target }) => {
     if (target.closest(".navbar_login_icons") != profilebtn) {
       EventHandler.removeClick(profileHeader);
     }
-    else (target.closest(.seachbar_btn) )
   });
 };
 
