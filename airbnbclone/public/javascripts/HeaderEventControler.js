@@ -1,9 +1,6 @@
-const MainEventControler = require("./MainEventControler.js");
-this.profileHeader;
-this.Rooms;
-this.Activity;
+import MainEventControler from"./MainEventControler.js";
 
-class HeaderEventControler extends MainEventControler {
+export default class HeaderEventControler extends MainEventControler {
   constructor(main) {
     super(main);
     this.lists = this.HEADER.getElementsByTagName("li");
@@ -42,4 +39,4 @@ class HeaderEventControler extends MainEventControler {
   }
 }
 
-module.exports = HeaderEventControler;
+

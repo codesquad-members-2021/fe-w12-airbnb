@@ -1,9 +1,9 @@
-const utils = require("./utils.js");
+import utils  from "./utils.js";
 
 
-class EventHandler {
+export default class EventHandler {
   constructor() {
-    this._ = new utils();
+    this._ = utils._;
   }
 
   focusTarget(target) {
@@ -39,4 +39,4 @@ class EventHandler {
   }
 }
 
-module.exports = EventHandler 
+

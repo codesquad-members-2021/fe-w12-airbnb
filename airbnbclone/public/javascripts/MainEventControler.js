@@ -1,11 +1,12 @@
-const EventHandler = require("./EventHandler.js");
+import EventHandler from"./EventHandler.js";
 
-class MainEventControler extends EventHandler {
+
+export default class MainEventControler extends EventHandler {
   constructor(main) {
     super();
     this.main = main;
     this.HEADER = this._.$("header", main);
-    this.profilebtn = this._.$(".navbar_login_icons", HEADER);
+    this.profilebtn = this._.$(".navbar_login_icons", this.HEADER);
     this.Rooms = this._.$("#main_seachbar_rooms", main);
     this.Activity = this._.$("#main_seachbar_activity", main);
 
@@ -16,9 +17,7 @@ class MainEventControler extends EventHandler {
   }
 
   init() {
-    HeaderEventConroler(HEADER, profileHeader, Rooms, Activity);
-    SearchberEventController(main, mainPeople, mainLocation, mainCalender);
-
+  
     this._.EVENT(document, "click", ({ target }) => {
       if (target.closest(".navbar_login_icons") != this.profilebtn) {
         super.removeClick(this.profileHeader);
@@ -27,4 +26,3 @@ class MainEventControler extends EventHandler {
   }
 }
 
-module.exports = EventHandler 

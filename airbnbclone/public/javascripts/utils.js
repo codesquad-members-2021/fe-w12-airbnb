@@ -1,29 +1,18 @@
-class utils {
-  ADD(target, className) {
-    target.classList.add(className);
-  }
+const _ = {
+  ADD: (target, className) => target.classList.add(className),
 
-  REMOVE(target, className) {
-    target.classList.remove(className);
-  }
+  REMOVE: (target, className) => target.classList.remove(className),
 
-  TOGGLE(target, className) {
-    target.classList.toggle(className);
-  }
+  TOGGLE: (target, className) => target.classList.toggle(className),
+  
+  REPLACE: (target, oldClassName, newClassName) =>
+    target.classList.replace(oldClassName, newClassName),
+  $: (selector, base = document) => base.querySelector(selector),
 
-  REPLACE(target, oldClassName, newClassName) {
-    target.classList.replace(oldClassName, newClassName);
-  }
-  $(selector, base = document) {
-    base.querySelector(selector);
-  }
-  $A(selector, base = document) {
-    base.querySelectorAll(selector);
-  }
-  EVENT(target, type, listener, useCapture = false) {
-    target.addEventListener(type, listener, useCapture);
-  }
-}
+  $A: (selector, base = document) => base.querySelectorAll(selector),
 
-module.exports = utils 
+  EVENT: (target, type, listener, useCapture = false) =>
+    target.addEventListener(type, listener, useCapture),
+};
 
+export default { _ };
