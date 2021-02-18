@@ -286,15 +286,36 @@ a {
 }
 
 .calendar-header button {
+    background: 0;
+    outline: 0;
+    border: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
     position: absolute;
 }
 
+.calendar-header button::before {
+    content: "";
+    display: block;
+    top: -3px;
+    right: -3px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.calendar-header button:hover::before {
+    background-color: var(--grey);
+    opacity: 0.15;
+}
+
 .calendar-header .left-arrow {
-left:0;
+    left:0;
 }
 
 .calendar-header .right-arrow {
-right:0;
+    right:0;
 }
 
 .calendar-content h3 {
