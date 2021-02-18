@@ -23,8 +23,13 @@ const calendarList = Array.from(
         new Calendar(calendar, calendar.querySelector('.date__dynamic')),
 );
 
-const leftCalendarManager = new CalendarManager(calendarList.find((cal) => _.classContains(cal.target, 'left')));
-const rightCalendarManager = new CalendarManager(calendarList.find((cal) => _.classContains(cal.target, 'right')));
+const leftCalendar = calendarList.find((cal) => _.classContains(cal.target, 'left'));
+const rightCalendar = calendarList.find((cal) => _.classContains(cal.target, 'right'));
+leftCalendar.setAnotherCalendar = rightCalendar;
+rightCalendar.setAnotherCalendar = leftCalendar;
+
+const leftCalendarManager = new CalendarManager(leftCalendar);
+const rightCalendarManager = new CalendarManager(rightCalendar);
 
 // 2) 달력 (이전 / 다음) 버튼 이벤트
 const btnList = Array.from(_.$All('.move-month__btn'));

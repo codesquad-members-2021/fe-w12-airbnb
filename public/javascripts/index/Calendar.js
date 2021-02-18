@@ -5,15 +5,20 @@ class Calendar {
         this.target = target;
         this.dynamicWrapper = dynamicWrapper;
         this.optionMonth = 0;
-        this.currentClickDate = null;
-        this.arrStartEndDate = [];
-    }
+        
+        this.calendarType = _.classContains(this.target, 'left') ? 'left' : 'right';
+        this.startDate = null;
+        this.endDate = null;
+
+        this.anotherCalendar = null;
+    }    
 
     /**
-     * @param {Date} value
+     * @param {Calendar} calendar
      */
-    set _setCurrentClickDate(value) { this.currentClickDate = value }
-    get _getCurrentClickDate() { return this.currentClickDate }
+    set setAnotherCalendar(calendar) {
+        this.anotherCalendar = calendar;
+    }
 
     removeAllChildNodes() {
         while (this.dynamicWrapper.firstChild) {
@@ -27,7 +32,7 @@ class Calendar {
 
     createCalendar() {        
         const today = new Date();
-        const monthType = _.classContains(this.target, 'left') ? 0 : 1;
+        const monthType = this.calendarType === 'left' ? 0 : 1;
         const monthInfo = new Date(today.getFullYear(), today.getMonth() + (monthType + this.optionMonth));
 
         const yearMonthTxtNode = _.createTextNode(`${monthInfo.getFullYear()}년 ${monthInfo.getMonth()+1}월`);
@@ -93,9 +98,97 @@ class Calendar {
     }
     _dateBtnClickEventHandler(e, thisBtn) {        
         // console.log(e, thisBtn, this)
-        const arrYearMonth = this.target.querySelector('.year-month').innerText.replace(/[^0-9\s]/g, '').split(' ');
+        const arrYearMonth =  _.$('.year-month', this.target).innerText.replace(/[^0-9\s]/g, '').split(' ');
         const currClickDate = new Date(arrYearMonth[0], (arrYearMonth[1]-1), Number(thisBtn.innerText));
+        const dateBtnList = Array.from(_.$All('ul > li > button', this.dynamicWrapper));
 
+        // 공사중 -------------------------------------------------
+        if (this.calendarType === 'left') {
+            if (this.startDate && this.endDate) {
+                const filterBtnList = dateBtnList.filter(
+                    (btn) =>
+                        _.classContains(btn, 'startDate') ||
+                        _.classContains(btn, 'endDate'),
+                );
+
+                filterBtnList.forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
+                this.startDate = null;  
+                this.endDate = null;  
+            }
+
+            if (!this.startDate) {
+                _.classAdd(thisBtn, 'clickStatus', 'startDate');
+                this.startDate = currClickDate;  
+            } else {
+                if (this.startDate.valueOf() < currClickDate.valueOf()) {
+                    _.classAdd(thisBtn, 'clickStatus', 'endDate');
+                    this.endDate = currClickDate;  
+                } else {                    
+                    const startDateBtn = dateBtnList.filter((btn) => _.classContains(btn, 'startDate'))[0];                    
+                    _.classRemove(startDateBtn, 'clickStatus', 'startDate');
+                    _.classAdd(thisBtn, 'clickStatus', 'startDate');
+                    this.startDate = currClickDate;  
+                }
+                
+            }
+
+            // console.log(this.startDate.getDate(), this.endDate && this.endDate.getDate() );
+        } else {
+
+        }
+        // 공사중 ---------------------------------------------------------------------...
+
+        /*
+        if(!this.startDate) {
+            if (this.calendarType === 'left') {
+                _.classAdd(thisBtn, 'clickStatus', 'startDate');
+                this.startDate = currClickDate;                
+            } else {
+                const leftAllOK = this.anotherCalendar.startDate && this.anotherCalendar.endDate; 
+
+                if (!leftAllOK) {
+                    _.classAdd(thisBtn, 'clickStatus', 'startDate');
+                    this.startDate = currClickDate; 
+                } else {
+                    const leftStartOKEndNull = this.anotherCalendar.startDate && !this.anotherCalendar.endDate;
+
+                    if (leftStartOKEndNull) {
+                        _.classAdd(thisBtn, 'clickStatus', 'startDate');
+                        this.endDate = currClickDate;
+                    }
+                }                
+            }            
+        } else {
+
+            return;
+            if (currClickDate.valueOf() === this.startDate.valueOf()) {
+                // 
+
+
+
+                _.classRemove(thisBtn, 'clickStatus', 'startDate', 'endDate');
+                                
+                this.startDate = null;
+                this.endDate = null;
+                return;
+            }
+
+            if (!this.endDate) {
+                if (this.calendarType === 'left') {
+                    if (currClickDate.valueOf() > this.startDate.valueOf()) {
+                        _.classAdd(thisBtn, 'clickStatus', 'endDate');
+                        this.endDate = currClickDate;  
+                    }                    
+                } 
+            } else {
+                if (currClickDate.valueOf() === this.endDate.valueOf()) {
+                    _.classRemove(thisBtn, 'clickStatus', 'endDate');
+                    this.endDate = null;
+                }
+            }             
+        }
+
+        /*
         if (!this._getCurrentClickDate) {
             _.classAdd(thisBtn, 'clickStatus');
             this._setCurrentClickDate = currClickDate;
@@ -110,6 +203,7 @@ class Calendar {
                 // 많은 조건이 필요할 듯함. 이 함수.. 정리해서 작업하기. 일단 커밋
             }
         }
+        */
     }
     
 }

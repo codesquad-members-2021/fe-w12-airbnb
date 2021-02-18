@@ -118,6 +118,6 @@
 
 .calendar .date__dynamic ul > li > button.clickStatus {
     background-color: var(--black);
-    color: var(--default-font-color);
+    color: var(--default-font-color);    
 }
 

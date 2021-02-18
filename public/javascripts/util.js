@@ -1,6 +1,6 @@
 const _ = {
-    $: (strSelector) => document.querySelector(strSelector),
-    $All: (strSelector) => document.querySelectorAll(strSelector),
+    $: (strSelector, target = document) => target.querySelector(strSelector),
+    $All: (strSelector, target = document) => target.querySelectorAll(strSelector),
     classAdd: (target, ...classNames) => target.classList.add(...classNames),
     classRemove: (target, ...classNames) => target.classList.remove(...classNames),  
     classToggle: (target, className) => target.classList.toggle(className),
