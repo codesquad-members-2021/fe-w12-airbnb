@@ -164,8 +164,15 @@
           </div>
         </div>
 
-        <div id="calendar" class="hidden" tabindex="0" onblur="setTimeout(calendarClose,200)">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet possimus dolorem, fugiat sed architecto sint nemo, eius illum praesentium maxime maiores consectetur unde labore! Minus laborum alias velit sint dolores.
+        <div id="calendarUI" class="hidden" tabindex="0" onblur="setTimeout(calendarClose,200)">
+            <div id="calendar">
+              <div id="calendar__prevMonth">
+                <div id="today">2021 년 02월 </div>
+              </div>
+              <div id="calendar__nextMonth">
+                <div id="today">2021 년 03월 </div>
+              </div>
+            </div>
         </div>
 
         <div class="header__phrase">
@@ -487,6 +494,7 @@
 
     <script src="/fe-w12-airbnb/js/tabUI.js"></script>
     <script src="/fe-w12-airbnb/js/tabMenu.js"></script>
-    <script src="/fe-w12-airbnb/js/calender.js"></script>
+    <script src="/fe-w12-airbnb/js/calenderUI.js"></script>
+    <script src="/fe-w12-airbnb/js/calendar.js"></script>
   </body>
 </html>
