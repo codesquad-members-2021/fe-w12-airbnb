@@ -208,11 +208,16 @@ export class CalendarView {
     } else if (this.isEndReservable(day)) {
       this.setEndReserve(day);
     } else {
-      if (!this.isBetweenReservation(day)) {
+      if (this.isExtendReservation(day)) {
+        this.setEndReserve(day);
+        console.log('extend');
+      } else if (this.isBetweenReservation(day)) {
+        this.setStartReserve(day);
+      } else {
         this.calendarModel.clearReserve();
         this.clearReserve();
+        this.setStartReserve(day);
       }
-      this.setStartReserve(day);
     }
     this.setFormDate();
   }
@@ -223,15 +228,23 @@ export class CalendarView {
   //end-reserve day로 선택 가능한지 확인
   isEndReservable(day) {
     const { startReserve, month: calendarMonth } = this.calendarModel;
-    if (startReserve.day < day) {
-      return !this.endReserveDay;
+    if (!this.endReserveDay && startReserve.day < day) {
+      return startReserve.month === calendarMonth;
     } else {
-      return !this.endReserveDay && startReserve.month < calendarMonth;
+      return startReserve.month < calendarMonth;
     }
   }
   isBetweenReservation(day) {
     const { startReserve, endReserve } = this.calendarModel;
     return startReserve.day <= day && day <= endReserve.day;
+  }
+  isExtendReservation(day) {
+    const {
+      endReserve: { month: endReserveMonth, day: endReserveDay },
+      month: calendarMonth
+    } = this.calendarModel;
+
+    return endReserveMonth <= calendarMonth && endReserveDay < day;
   }
   setStartReserve(day) {
     this.calendarModel.startReserve = { month: this.calendarModel.month, day };
