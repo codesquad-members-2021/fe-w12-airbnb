@@ -9,12 +9,7 @@ export class Calendar {
 
   init() {
     const days = document.querySelectorAll('.calendar-days');
-    days.forEach((day) => {
-      while (day.lastChild) {
-        day.removeChild(day.lastChild);
-      }
-      return;
-    });
+    days.forEach((day) => (day.innerHTML = ''));
   }
 
   onFocusOut({ target }) {
