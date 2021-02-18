@@ -7,7 +7,15 @@ export class Calendar {
     this.month = new Date().getMonth() + 1;
   }
 
-  init() {}
+  init() {
+    const days = document.querySelectorAll('.calendar-days');
+    days.forEach((day) => {
+      while (day.lastChild) {
+        day.removeChild(day.lastChild);
+      }
+      return;
+    });
+  }
 
   onFocusOut({ target }) {
     if (
@@ -33,14 +41,18 @@ export class Calendar {
 
   rightBtnClickHandler({ target }) {
     if (!target.closest('.right-arrow')) return;
+    this.init();
     this.month += 1;
-    this.render();
+    this.showCalendarTitle();
+    this.showCalendarDays();
   }
 
   leftBtnClickHandler({ target }) {
     if (!target.closest('.left-arrow')) return;
+    this.init();
     this.month -= 1;
-    this.render();
+    this.showCalendarTitle();
+    this.showCalendarDays();
   }
 
   dateClickHandler() {
