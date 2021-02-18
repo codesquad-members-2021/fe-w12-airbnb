@@ -223,6 +223,7 @@ header .calendar-container > .calendar-fixed-box {
   left: 0;
   right: 0;
   background: none;
+  z-index: 2;
 }
 header .calendar-fixed-box > .calendar-day-control {
   display: flex;
@@ -249,6 +250,7 @@ header .calendar-list > .translate-box {
   padding: 0 1rem;
   display: flex;
   transform: translate(-25.1rem);
+  transition: all 1s ease;
 }
 header .translate-box > div + div {
   margin-left: 3rem;

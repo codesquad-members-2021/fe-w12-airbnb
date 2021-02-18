@@ -17,11 +17,11 @@ export default class Calendar extends Component {
       },
       calendars: [],
     };
-    this.initdefaultState();
-  }
-  initdefaultState() {
     const [year, month] = this.state.currentDate;
-    this.state.calendars = [
+    this.state.calendars = this.getNewCalendar(year, month);
+  }
+  getNewCalendar(year, month) {
+    return [
       this.getDateState(year, month - 1),
       this.getDateState(year, month),
       this.getDateState(year, month + 1),
@@ -29,11 +29,8 @@ export default class Calendar extends Component {
     ];
   }
   getDateState(year, month) {
-    console.log(year, month);
-    const date = new Date(year, month, 0);
+    const date = new Date(year, month + 1, 0);
     const firstDay = new Date(year, month, 1);
-    console.log(firstDay.getDay());
-    console.log(" ");
     return {
       year: date.getFullYear(),
       month: date.getMonth() + 1,
@@ -51,8 +48,8 @@ export default class Calendar extends Component {
 <div class="calendar-container">
   <div class="calendar-fixed-box">
     <div class="calendar-day-control">
-      <div>&lt;</div>
-      <div>&gt;</div>
+      <div class ="slideBtn" data-direction="prev">&lt;</div>
+      <div class ="slideBtn" data-direction="next">&gt;</div>
     </div>
     <div class="calendar-day-box">
       <ul class="calendar-day">
@@ -81,7 +78,7 @@ export default class Calendar extends Component {
       .map((calendar) => {
         return `
         <div>
-        <div class="calendar-date">${calendar.year}년 ${calendar.month+1}월</div>
+        <div class="calendar-date">${calendar.year}년 ${calendar.month}월</div>
         <div class="calendar-box">
         <ul>
         ${`<li></li>`.repeat(calendar.firstDay)}
@@ -109,5 +106,31 @@ export default class Calendar extends Component {
 </div>
 `;
   }
-  setEvent() {}
+  setEvent() {
+    this.addEvent("click", ".slideBtn", ({ target }) => {
+      const $translateBox = this.$target.querySelector(".translate-box");
+      const direction = target.dataset.direction === "prev" ? -1 : +1;
+      if (direction === 1) {
+        $translateBox.style.transform = "translate(-50.2rem)";
+      } else {
+        $translateBox.style.transform = "translate(0rem)";
+      }
+      this.state.direction = direction;
+    });
+
+    this.addEvent("transitionend", ".translate-box", () => {
+      const [year, month] = this.state.currentDate;
+      const direction = this.state.direction;
+      const newDate = new Date(year, month + direction);
+
+      const newYear = newDate.getFullYear();
+      const newMonth = newDate.getMonth();
+
+      const calendars = this.getNewCalendar(newYear, newMonth);
+
+      this.setState({ calendars, currentDate: [newYear, newMonth] });
+    });
+  }
+  pre() {}
+  next() {}
 }
