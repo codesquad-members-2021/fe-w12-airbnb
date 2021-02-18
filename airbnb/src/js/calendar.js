@@ -23,7 +23,7 @@ class CalendarModel {
   }
   getCalendar() {
     const firstDay = this.getFirstDay(this.year, this.month); //요일
-    const monthData = this.setMonthArr(this.year, this.month, firstDay); //월의 날짜가 담긴 2차원 배열
+    const monthData = this.getMonthData(this.year, this.month, firstDay); //월의 날짜가 담긴 2차원 배열
     const monthHtml = this.makeMonthHtml(monthData);
     const calendarHtml = this.getCalendarFormat() + monthHtml;
     return calendarHtml;
@@ -37,10 +37,11 @@ class CalendarModel {
   isLeaf(year, month) {
     return year % 4 === 0 && month === 2;
   }
-  setMonthArr(year, month, day) {
+  //get. month 2차원 배열
+  getMonthData(year, month, day) {
     const monthArr = [];
     let weekArr = new Array(7).fill(undefined);
-    const lastDay = this.isLeaf(year, month) ? 29 : MONTH_DAYS[month];
+    const lastDay = this.isLeaf(year, month) ? 29 : MONTH_DAYS[month]; //윤년 2월 체크
     for (let i = 1; i <= lastDay; i++) {
       const dayIndex = (day + i - 1) % 7;
       //인덱스가 0 && weekArr에 값이 하나라도 들어가있는 경우
@@ -53,6 +54,7 @@ class CalendarModel {
     monthArr.push(weekArr); //마지막 weekArr도 추가
     return monthArr;
   }
+  //예약가능한 날인지 (오늘 이후인 날짜만 가능)
   isReservable(day) {
     const { year: nowYear, month: nowMonth, day: nowDay } = this.nowDate;
     if (this.year === nowYear && this.month === nowMonth) {
@@ -87,6 +89,7 @@ class CalendarModel {
     }
     return false;
   }
+  //예약 시작,끝,사이에 있는 day, 오늘 이전의 day,를 구분해서 그에 맞는 day DIV 생성
   makeDayHtml(day) {
     let dayHtml;
     if (day && this.isReservable(day)) {
@@ -171,10 +174,9 @@ export class CalendarView {
   handleCalendarClick(target) {
     if (this.isLeftArrow(target)) this.setPrevDate();
     else if (this.isRightArrow(target)) this.setNextDate();
-    else if (this.isDay(target)) {
-      this.setReserveDate(target);
-    }
+    else if (this.isDay(target)) this.setReserveDate(target);
   }
+
   renderCalendar() {
     const calendarHTML = this.calendarModel.getCalendar();
     this.calendar.innerHTML = calendarHTML;
@@ -198,11 +200,10 @@ export class CalendarView {
     }
   }
   isDay({ classList } = target) {
-    return classList.contains('day__span') || (classList.contains(DAY) && classList.contains(ABLE));
+    return classList.contains(DAY_SPAN) || (classList.contains(DAY) && classList.contains(ABLE));
   }
   setReserveDate({ innerText: day } = target) {
     day = parseInt(day);
-
     if (this.isStartReservable()) {
       this.setStartReserve(day);
     } else if (this.isEndReservable(day)) {
@@ -210,7 +211,6 @@ export class CalendarView {
     } else {
       if (this.isExtendReservation(day)) {
         this.setEndReserve(day);
-        console.log('extend');
       } else if (this.isBetweenReservation(day)) {
         this.setStartReserve(day);
       } else {
@@ -222,8 +222,7 @@ export class CalendarView {
     this.setFormDate();
   }
   isStartReservable() {
-    const { startReserve } = this.calendarModel;
-    return !startReserve.day;
+    return !this.calendarModel.startReserve.day;
   }
   //end-reserve day로 선택 가능한지 확인
   isEndReservable(day) {
