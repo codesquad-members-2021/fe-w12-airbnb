@@ -1,0 +1,38 @@
+table {
+  width: 86%;
+  color: black;
+  border: 1px solid #fd0000;
+}
+
+td,
+th {
+  border: 2px solid green;
+  border-radius: 60%;
+  width: 48px;
+  height: 47px;
+  text-align: center;
+}
+table tr:first-child {
+  color: #717171;
+  font-size: 12px;
+}
+
+.calendar_container {
+  width: 45%;
+  background-color: white;
+  border-radius: 30px;
+  position: absolute;
+  left: 27.5%;
+  top: 190px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 372px;
+}
+
+.calendar_div_1 {
+  width: 45%;
+}
+.calendar_div_2 {
+  width: 45%;
+}
