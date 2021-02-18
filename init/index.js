@@ -82,119 +82,137 @@ class SearchBarUI {
   }
 }
 
-class CalendarUI {
+class CalendarController {
+  constructor() {}
+}
+
+class CalendarMaker {
   constructor() {
     this.today = new Date();
     this.year = this.today.getFullYear();
-    this.month = this.today.getMonth() + 1; //2월은 1이 찍힘.
+    this.activeMonth = this.today.getMonth(); //2월은 1이 찍힘.
     this.date = this.today.getDate();
     this.dayList = ["일", "월", "화", "수", "목", "금", "토"];
-    this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //월별 마지막 일
+    this.btnClicks = 1; //2월의 인덱스
   }
 
   changeNullToBlank(array) {
-    //  빈 칸을 공백으로 바꿔줌
-    for (let i = 0; i < 36; i++) {
+    //  빈 칸을 공백 문자열로 바꿔줌
+    for (let i = 0; i < 35; i++) {
       if (!array[i]) array[i] = ``;
     }
     return array;
   }
 
-  drawCalendar() {
-    //이전 버튼 누를 때 마다 month-1 됨 -> 1월 1일의 요일을 찾음 -> 1월 1일 1부터 31일까지 뿌림
-    //2월 = current month -> 2월 1일의 요일은? -> 월 -> 월요일의 인덱스는 1 -> 1 번 td 부터 숫자 1을 채우기 시작한다.
-    // -> 어디까지? -> 인덱스 31번까지. -> 인덱스 6는 6까지 있음 . 숫자가 6 이상이면 다시 0부터 시작 ....
+  //이전 버튼 누를 때 마다 month-1 됨 -> 1월 1일의 요일을 찾음 -> 1월 1일 1부터 31일까지 뿌림
+  //2월 = current month -> 2월 1일의 요일은? -> 월 -> 월요일의 인덱스는 1 -> 1 번 td 부터 숫자 1을 채우기 시작한다.
+  // -> 어디까지? -> 인덱스 31번까지. -> 인덱스 6는 6까지 있음 . 숫자가 6 이상이면 다시 0부터 시작 ....
+  movePrevMonth() {
+    //1.화면에 있는 div를 remove 한다.
+    //2.active month를 -1 한다.
   }
-  drawLastMonth() {}
-  drawNextMonth() {}
-  drawThisMonth() {
-    const currentDateObj = new Date(`${this.year}-${this.month}-1`);
-    let currentDay = currentDateObj.getDay(); //이 인덱스부터...td를 만들으렴..
-    let tdDateList = []; //얘는 그냥 바둑판임
-    let previousBtnClicks = 0;
-    let nextBtnClicks = 1;
 
-    for (let date = 1; date <= this.lastDateOfMonth[this.month - 1]; date++) {
-      tdDateList[currentDay] = date;
-      currentDay++;
+  moveNextMonth() {}
+
+  showThisMonth() {
+    //디폴트 파라미터
+    //오른쪽 클릭할때마다 + 되게
+    const leftDate = new Date();
+    leftDate.setDate(1); //1일로
+    leftDate.setMonth(this.activeMonth); //2
+
+    const rightDate = new Date();
+    rightDate.setDate(1);
+    rightDate.setMonth(this.activeMonth + 1); //3
+
+    let leftDay = leftDate.getDay(); //각 달의 시작 요일의 idx
+    const leftMonthIdx = leftDate.getMonth();
+
+    let rightDay = rightDate.getDay(); //
+    const rightMonthIdx = rightDate.getMonth();
+
+    let leftDateRawList = []; //왼쪽 바둑판
+    let rightDateRawList = []; //오른쪽 바둑판
+
+    for (let date = 1; date <= this.lastDateOfMonth[this.activeMonth]; date++) {
+      leftDateRawList[leftDay] = date;
+      leftDay++;
     }
-    tdDateList = this.changeNullToBlank(tdDateList);
 
-    console.log(tdDateList);
+    for (
+      let date = 1;
+      date <= this.lastDateOfMonth[this.activeMonth + 1];
+      date++
+    ) {
+      rightDateRawList[rightDay] = date;
+      rightDay++;
+    }
 
-    //하단 반복문으로 바꾸기
-    const leftTbody = `<tr> 
-    <td>${tdDateList[0]}</td>
-    <td>${tdDateList[1]}</td>
-    <td>${tdDateList[2]}</td>
-    <td>${tdDateList[3]}</td>
-    <td>${tdDateList[4]}</td>
-    <td>${tdDateList[5]}</td>
-    <td>${tdDateList[6]}</td>
-  </tr>
-  <tr>
-    <td>${tdDateList[7]}</td>
-    <td>${tdDateList[8]}</td>
-    <td>${tdDateList[9]}</td>
-    <td>${tdDateList[10]}</td>
-    <td>${tdDateList[11]}</td>
-    <td>${tdDateList[12]}</td>
-    <td>${tdDateList[13]}</td>
-  </tr>
-  <tr>
-  <td>${tdDateList[14]}</td>
-  <td>${tdDateList[15]}</td>
-  <td>${tdDateList[16]}</td>
-  <td>${tdDateList[17]}</td>
-  <td>${tdDateList[18]}</td>
-  <td>${tdDateList[19]}</td>
-  <td>${tdDateList[20]}</td>
-  </tr>
-  <tr>
-  <td>${tdDateList[21]}</td>
-  <td>${tdDateList[22]}</td>
-  <td>${tdDateList[23]}</td>
-  <td>${tdDateList[24]}</td>
-  <td>${tdDateList[25]}</td>
-  <td>${tdDateList[26]}</td>
-  <td>${tdDateList[27]}</td>
-  </tr>
-  <tr>
-  <td>${tdDateList[28]}</td>
-  <td>${tdDateList[29]}</td>
-  <td>${tdDateList[30]}</td>
-  <td>${tdDateList[31]}</td>
-  <td>${tdDateList[32]}</td>
-  <td>${tdDateList[33]}</td>
-  <td>${tdDateList[34]}</td>
-  <td>${tdDateList[35]}</td>
-  </tr>`;
+    const leftDateList = this.changeNullToBlank(leftDateRawList);
+    const rightDateList = this.changeNullToBlank(rightDateRawList);
+    // console.log(leftDateList);
+    // console.log(rightDateList);
 
-    const outerDivTemplate = `<div class="search-calendar">
-    <div id="calendar-left">
+    this.drawTbody(leftDateList, rightDateList);
+  }
+
+  drawTbody(leftTdList, rightTdList) {
+    this.drawLeftTbody(leftTdList);
+    this.drawRightTbody(rightTdList);
+  }
+
+  drawLeftTbody(tdList) {
+    let leftTbody = ``;
+    let tdListIdx = 0;
+    for (let i = 0; i < 5; i++) {
+      leftTbody += `<tr>`;
+      for (let j = 0; j < 7; j++) {
+        leftTbody += `<td>${tdList[tdListIdx]}</td>`;
+        tdListIdx++;
+      }
+    }
+
+    const leftDiv = `<div id="calendar-left">
+  <div class="calendar-title">
+    <button id="btn-left"><</button>
+    <span>2021년 2월</span>
+  </div>
+  <table class="calendar-table">
+    <thead>
+      <tr>
+        <th>일</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th>토</th>
+      </tr>
+    </thead>
+    <tbody class="calendar-left-tbody">${leftTbody}</tbody>
+  </table>
+</div>`;
+
+    document
+      .querySelector(".search-calendar")
+      .insertAdjacentHTML("beforeend", leftDiv);
+  }
+
+  drawRightTbody(tdList) {
+    let rightTbody = ``;
+    let tdListIdx = 0;
+    for (let i = 0; i < 5; i++) {
+      rightTbody += `<tr>`;
+      for (let j = 0; j < 7; j++) {
+        rightTbody += `<td>${tdList[tdListIdx]}</td>`;
+        tdListIdx++;
+      }
+    }
+
+    const rightDiv = `<div id="calendar-right">
       <div class="calendar-title">
-        <button id="btn-left"><</button>
-        <span>${this.year}년 ${this.month}월</span>
-      </div>
-      <table class="calendar-table">
-        <thead>
-          <tr>
-            <th>일</th>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-            <th>토</th>
-          </tr>
-        </thead>
-        <tbody class="calendar-left-tbody">${leftTbody}</tbody>
-      </table>
-    </div>
-
-    <div id="calendar-right">
-      <div class="calendar-title">
-        <span>${this.year}년 ${this.month + nextBtnClicks}월</span>
+        <span>2021년 3월</span>
         <button id="btn-right">></button>
       </div>
       <table class="calendar-table">
@@ -209,18 +227,34 @@ class CalendarUI {
             <th>토</th>
           </tr>
         </thead>
-        <tbody class="calendar-right-tbody"></tbody>
+        <tbody class="calendar-right-tbody">${rightTbody}</tbody>
       </table>
-    </div>
-  </div>`;
-    //여기에 동적으로 어떻게 넣을거니..
+    </div>`;
+
+    document
+      .querySelector(".search-calendar")
+      .insertAdjacentHTML("beforeend", rightDiv);
+  }
+
+  drawOutline() {
+    const outerDivTemplate = `<div class="search-calendar"></div>`;
     searchActivitySectionEl.insertAdjacentHTML("afterend", outerDivTemplate);
-    this.hideCalendar();
   }
 
   hideCalendar() {}
-  moveNextMonth() {}
-  moveLastMonth() {}
+
+  onEvents() {
+    // document
+    //   .querySelector("#btn-left")
+    //   .addEventListener("click", this.movePrevMonth.bind(this));
+    // document
+    //   .querySelector("#btn-right")
+    //   .addEventListener("click", this.moveNextMonth.bind(this));
+  }
+  init() {
+    this.drawOutline();
+    this.showThisMonth();
+  }
 }
 
 const init = () => {
@@ -231,8 +265,9 @@ const init = () => {
   searchBarUI.init();
   searchBarUI.onEvents();
 
-  const calendarUI = new CalendarUI();
-  calendarUI.drawThisMonth();
+  const calendarUI = new CalendarMaker();
+  calendarUI.init();
+  calendarUI.onEvents();
 };
 
 init();

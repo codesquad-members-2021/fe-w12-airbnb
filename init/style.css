@@ -237,7 +237,7 @@ body {
   position: absolute;
   top: 1%;
   left: 43%;
-  outline: black solid;
+  /* outline: black solid; */
   font-size: 15px;
   line-height: 23px;
   font-weight: 600;
@@ -253,7 +253,7 @@ body {
   text-align: center;
 }
 .calendar-table > thead {
-  outline: orange solid;
+  /* outline: orange solid; */
   font-size: 12px;
   font-weight: 600;
   color: var(--calendar-th-color);
