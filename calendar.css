@@ -12,11 +12,13 @@
   background-color: rgba(255, 255, 255);
   border-radius: 30px;
   padding: 20px 30px;
+  box-sizing: border-box;
 }
 
 .calendar_current,
 .calendar_next_month {
   padding: 25px 20px;
+  box-sizing: border-box;
 }
 
 .calendar_y_m {
@@ -30,10 +32,41 @@
 .calendar_date {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 34px;
 }
 
 .calendar_day {
   margin-bottom: 34px;
   color: rgba(0, 0, 0, 0.6);
+}
+
+.calendar_date {
+  font-weight: 800;
+}
+
+.calendar_date div,
+.calendar_day div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.before_today {
+  cursor: default;
+  color: rgba(0, 0, 0, 0.25);
+  font-weight: 400;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+.clicked {
+  background-color: rgb(34, 34, 34);
+  color: rgba(255, 255, 255, 1);
 }

@@ -131,13 +131,12 @@ btnCtrl_1.makeMenu();
 btnCtrl_2.makeMenu();
 
 function readCalendarJS() {
-   console.log('printCalendar')
+   console.log('printCalendar');
+
    const calendarArea = document.querySelector(".calendar_area");
    const now = new Date();
    const calendar_ctrl = new CalendarMaker(now, calendarArea);
-   const checkInOut = new CheckInOut();
    calendar_ctrl.getDateInfo();
-   checkInOut.init();
 }
 
 const dateBtn = document.querySelector('.call_calendar');

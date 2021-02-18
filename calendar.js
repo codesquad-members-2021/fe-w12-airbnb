@@ -145,6 +145,7 @@ export class CalendarMaker {
 
       section1.insertAdjacentHTML("afterBegin", this.week1);
       section2.insertAdjacentHTML("afterBegin", this.week2);
+      this.blurBeforeToday();
    }
 
    prevBtnEvent() {
@@ -165,5 +166,37 @@ export class CalendarMaker {
       this.date = new Date(`${this.current_year}-${this.current_month}-01`);
       this.calendar_area.removeChild(this.calendar_area.firstChild);
       this.getDateInfo()
+   }
+
+   blurBeforeToday() {
+      console.log('paint_before_today')
+
+      document.querySelectorAll(".calendar_current .calendar_date div").forEach(el => {
+         const today = new Date()
+         let beforeToday = new Date(`${this.current_year}-${this.current_month}-${el.innerText}`);
+         if (today - beforeToday > 0 && el.innerText !== String(today.getDate())) {
+            el.classList.add("before_today");
+         } else {
+            el.classList.add("clickable");
+            el.addEventListener("click", (e) => {
+               console.log(e)
+               el.classList.add("clicked")
+            });
+         }
+      })
+
+      document.querySelectorAll(".calendar_next_month .calendar_date div").forEach(el => {
+         const today = new Date()
+         let beforeToday = new Date(`${this.next_year}-${this.next_month}-${el.innerText}`);
+
+         if (today - beforeToday > 0 && el.innerText !== String(today.getDate())) {
+            el.classList.add("before_today");
+         } else {
+            el.classList.add("clickable");
+            el.addEventListener("click", (e) => {
+               el.classList.add("clicked")
+            });
+         }
+      })
    }
 }
