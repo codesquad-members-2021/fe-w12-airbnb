@@ -94,7 +94,6 @@ class CalendarMaker {
     this.date = this.today.getDate();
     this.dayList = ["일", "월", "화", "수", "목", "금", "토"];
     this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //월별 마지막 일
-    this.btnClicks = 1; //2월의 인덱스
   }
 
   changeNullToBlank(array) {
@@ -109,11 +108,24 @@ class CalendarMaker {
   //2월 = current month -> 2월 1일의 요일은? -> 월 -> 월요일의 인덱스는 1 -> 1 번 td 부터 숫자 1을 채우기 시작한다.
   // -> 어디까지? -> 인덱스 31번까지. -> 인덱스 6는 6까지 있음 . 숫자가 6 이상이면 다시 0부터 시작 ....
   movePrevMonth() {
+    console.log("prev");
     //1.화면에 있는 div를 remove 한다.
     //2.active month를 -1 한다.
+    this.activeMonth--;
+    const calendarEl = document.querySelector(".search-calendar");
+    if (calendarEl) calendarEl.remove();
+
+    this.init(); // 상단 월 안바뀜 , 연도 2021이하로 안바뀜 !! 그래도 함 ㅋ
   }
 
-  moveNextMonth() {}
+  moveNextMonth() {
+    console.log("next");
+    this.activeMonth++;
+    const calendarEl = document.querySelector(".search-calendar");
+    if (calendarEl) calendarEl.remove();
+
+    this.init();
+  }
 
   showThisMonth() {
     //디폴트 파라미터
@@ -126,18 +138,18 @@ class CalendarMaker {
     rightDate.setDate(1);
     rightDate.setMonth(this.activeMonth + 1); //3
 
-    let leftDay = leftDate.getDay(); //각 달의 시작 요일의 idx
+    let leftDayIdx = leftDate.getDay(); //각 달의 시작 요일의 idx
     const leftMonthIdx = leftDate.getMonth();
 
-    let rightDay = rightDate.getDay(); //
+    let rightDayIdx = rightDate.getDay(); //
     const rightMonthIdx = rightDate.getMonth();
 
     let leftDateRawList = []; //왼쪽 바둑판
     let rightDateRawList = []; //오른쪽 바둑판
 
     for (let date = 1; date <= this.lastDateOfMonth[this.activeMonth]; date++) {
-      leftDateRawList[leftDay] = date;
-      leftDay++;
+      leftDateRawList[leftDayIdx] = date;
+      leftDayIdx++;
     }
 
     for (
@@ -145,14 +157,14 @@ class CalendarMaker {
       date <= this.lastDateOfMonth[this.activeMonth + 1];
       date++
     ) {
-      rightDateRawList[rightDay] = date;
-      rightDay++;
+      rightDateRawList[rightDayIdx] = date;
+      rightDayIdx++;
     }
 
     const leftDateList = this.changeNullToBlank(leftDateRawList);
     const rightDateList = this.changeNullToBlank(rightDateRawList);
-    // console.log(leftDateList);
-    // console.log(rightDateList);
+    console.log(leftDateList);
+    console.log(rightDateList);
 
     this.drawTbody(leftDateList, rightDateList);
   }
@@ -176,7 +188,7 @@ class CalendarMaker {
     const leftDiv = `<div id="calendar-left">
   <div class="calendar-title">
     <button id="btn-left"><</button>
-    <span>2021년 2월</span>
+    <span>2021년 ${this.activeMonth + 1}월</span>
   </div>
   <table class="calendar-table">
     <thead>
@@ -212,7 +224,7 @@ class CalendarMaker {
 
     const rightDiv = `<div id="calendar-right">
       <div class="calendar-title">
-        <span>2021년 3월</span>
+        <span>2021년 ${this.activeMonth + 2}월</span>
         <button id="btn-right">></button>
       </div>
       <table class="calendar-table">
@@ -244,16 +256,17 @@ class CalendarMaker {
   hideCalendar() {}
 
   onEvents() {
-    // document
-    //   .querySelector("#btn-left")
-    //   .addEventListener("click", this.movePrevMonth.bind(this));
-    // document
-    //   .querySelector("#btn-right")
-    //   .addEventListener("click", this.moveNextMonth.bind(this));
+    document
+      .querySelector("#btn-left")
+      .addEventListener("click", this.movePrevMonth.bind(this));
+    document
+      .querySelector("#btn-right")
+      .addEventListener("click", this.moveNextMonth.bind(this));
   }
   init() {
     this.drawOutline();
     this.showThisMonth();
+    this.onEvents();
   }
 }
 
@@ -267,7 +280,6 @@ const init = () => {
 
   const calendarUI = new CalendarMaker();
   calendarUI.init();
-  calendarUI.onEvents();
 };
 
 init();
