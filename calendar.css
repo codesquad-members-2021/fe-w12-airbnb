@@ -80,3 +80,7 @@ table {
     background-color: black !important;
     color: #ffff;
 }
+
+.gray {
+    background-color: rgb(235, 235, 235) !important;
+}

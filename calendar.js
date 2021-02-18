@@ -158,11 +158,47 @@ function toggleCalendar() {
 
 function updateCalendarStyle() {
     const dayButtons = document.querySelectorAll(".day_button");
+    let firstSelectedDay = 0;
+    let lastSelectedDay = 0;
+    let clickCount = 0;
 
     dayButtons.forEach((element) => {
         element.addEventListener("click", (event) => {
-
             event.target.classList.toggle("day_selected");
+            // const monthTitle = event.target.parentNode.parentNode.previousSibling.parentNode.previousSibling
+            // alert(monthTitle.innerText);
+            clickCount++;
+
+            if(clickCount > 2) {
+                dayButtons.forEach((e) => {
+                    e.parentNode.classList.remove("gray");
+                    e.classList.remove("day_selected");
+                    clickCount = 0;
+                });
+            }
+
+            if(firstSelectedDay === 0) {
+                firstSelectedDay = Number(event.target.innerText);
+            } else {
+                lastSelectedDay = Number(event.target.innerText);
+            }
+
+            if(firstSelectedDay !== 0 && lastSelectedDay !== 0) {
+                dayButtons.forEach((e) => {
+                    const day = Number(e.innerText);
+                    if(day > firstSelectedDay && day < lastSelectedDay) {
+                        e.parentNode.classList.toggle("gray");
+                    }
+                });
+    
+            }
+            if(firstSelectedDay >= lastSelectedDay) {
+                dayButtons.forEach((e) => {
+                    e.parentNode.classList.remove("gray");
+                });
+            }
+
+
         });
     });
 
@@ -178,6 +214,8 @@ function updateCalendarStyle() {
         });
     });
 }
+
+
 
 function handleEvents() {
     drawCalendar();
