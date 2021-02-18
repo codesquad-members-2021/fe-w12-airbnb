@@ -2,15 +2,15 @@ class Calendar {
   constructor(target = null, date = new Date(), startTarget, endTarget) {
     this.initDate = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     this.date = date;
-    if(target) {
-      this.target = target;
-      this.render();
-    }
-    this.target.addEventListener('click', ({ target }) => this.selectDate(target));
     this.startDate = null;
     this.startDateTarget = startTarget;
     this.endDate = null;
     this.endDateTarget = endTarget;
+    if(target) {
+      this.target = target;
+      this.render();
+    }
+    this.target.addEventListener('click', ({ target }) => this.handleSelect(target));
   }
   render() {
     let tmpStart = null;
@@ -104,39 +104,48 @@ class Calendar {
     }
     return lastDay;
   }
-  selectDate(target) {
+  handleSelect(target) {
     if(target.classList.contains('able') && target.textContent !== '') {
+      this.removeSelectDateClass();
       const tmpDate = new Date(target.dataset.date);
-      if(!this.startDate) {
+      if(!this.startDate || this.endDate) {
         this.startDate = target;
-        target.classList.add('start-date');
-        this.startDateTarget.value = `${tmpDate.getMonth() + 1}월 ${tmpDate.getDate()}일`;
-        return;
+        this.endDate = null;
+      } else {
+        this.endDate = target;
       }
-      if(new Date(this.startDate.dataset.date) >= tmpDate) {
-        this.removeSelect('start');
-        this.startDate = target;
-        target.classList.add('start-date');
-        this.startDateTarget.value = `${tmpDate.getMonth() + 1}월 ${tmpDate.getDate()}일`;
-        return;
-      }
-      if(this.endDate) {
-        this.removeSelect('end');
-      }
-      this.endDate = target;
-      target.classList.add('end-date');
-      this.endDateTarget.value = `${tmpDate.getMonth() + 1}월 ${tmpDate.getDate()}일`;
-      this.createPeriod();
+      this.createSelectDateClass();
+      this.handlePeriod();
     }
   }
-  removeSelect(type) {
-    if(type === 'start') {
+  createSelectDateClass() {
+    if(this.startDate){
+      const targetDate = new Date(this.startDate.dataset.date);
+      this.startDate.classList.add('start-date');
+      this.startDateTarget.value = `${targetDate.getMonth() + 1}월 ${targetDate.getDate()}일`;
+    }
+    if(this.endDate) {
+      const targetDate = new Date(this.endDate.dataset.date);
+      this.endDate.classList.add('end-date');
+      this.endDateTarget.value = `${targetDate.getMonth() + 1}월 ${targetDate.getDate()}일`;
+    }
+  }
+  removeSelectDateClass() {
+    if(this.startDate) {
       this.startDate.classList.remove('start-date');
-    } else {
+    }
+    if(this.endDate) {
       this.endDate.classList.remove('end-date');
     }
   }
-  createPeriod() {
+  handlePeriod() {
+    if(this.endDate) {
+      this.createPeriodClass();
+    } else {
+      this.removePeriodClass();
+    }
+  }
+  createPeriodClass() {
     const startDate = new Date(this.startDate.dataset.date);
     const endDate   = new Date(this.endDate.dataset.date);
     const target    = document.querySelectorAll('.js-calendar__line div:not(.previous-days)');
@@ -147,6 +156,12 @@ class Calendar {
       } else {
         v.classList.add('period');
       }
+    });
+  }
+  removePeriodClass() {
+    const target = document.querySelectorAll('.js-calendar__line div:not(.previous-days)');
+    target.forEach(v => {
+      v.classList.remove('period');
     });
   }
 }
