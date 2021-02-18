@@ -1,4 +1,11 @@
 console.log("linked")
+import {
+   CalendarMaker
+} from './calendar.js';
+
+import {
+   CheckInOut
+} from './checkInOut.js';
 
 class ClassCtrl {
    constructor(el) {
@@ -122,3 +129,16 @@ const btnCtrl_1 = new BtnUI(document.querySelector(".toggleBtn1"));
 const btnCtrl_2 = new BtnUI(document.querySelector(".toggleBtn2"));
 btnCtrl_1.makeMenu();
 btnCtrl_2.makeMenu();
+
+function readCalendarJS() {
+   console.log('printCalendar')
+   const calendarArea = document.querySelector(".calendar_area");
+   const now = new Date();
+   const calendar_ctrl = new CalendarMaker(now, calendarArea);
+   const checkInOut = new CheckInOut();
+   calendar_ctrl.getDateInfo();
+   checkInOut.init();
+}
+
+const dateBtn = document.querySelector('.call_calendar');
+dateBtn.addEventListener('click', readCalendarJS);
