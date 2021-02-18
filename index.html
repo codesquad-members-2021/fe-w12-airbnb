@@ -20,10 +20,10 @@
       </div>
       <div class="col-6">
         <div class="col-3"></div>
-        <div class="col-6 category">
-          <a class="category__anchor">숙소</a>
-          <a class="category__anchor">체험</a>
-          <a class="category__anchor">온라인 체험</a>
+        <div class="col-6 anchor-tab">
+          <a class="anchor-tab__anchor" data-index="0">숙소</a>
+          <a class="anchor-tab__anchor" data-index="1">체험</a>
+          <a class="anchor-tab__anchor">온라인 체험</a>
           <button class="input-button-sticky__toggle">
             <span>검색 시작하기</span>
             <span>🔍</span>
@@ -36,11 +36,11 @@
         <button class="nav__button">
           <img src="./images/earth.svg" width="16">
         </button>
-        <button class="nav__button-toggle">
+        <button class="nav__button-toggle js-toggle" data-target="nav">
           <img src="./images/list.svg" width="16">
           <img src="./images/people.svg" width="30">
         </button>
-        <ul class="nav__list hidden">
+        <ul class="nav__list modal hidden" data-target_name="nav">
           <li><a><b>회원 가입</b></a></li>
           <li class="bottom-line"><a>로그인</a></li>
           <li><a>숙소 호스트 되기</a></li>
@@ -49,36 +49,60 @@
         </ul>
       </nav>
     </div>
-    <div class="col-12 input-wrap">
+
+    <div id ="abc"></div>
+    <div id ="abc"></div>
+    <div class="col-12 search-wrap">
       <div class="col-2"></div>
-      <div class="col-8 input-items">
-        <div class="input-item js-toggle-place">
-          <span class="input-item__label">위치</span>
-          <input class="input-item__text" type="text" placeholder="어디로 여행가세요?">
-        </div>
-        <div class="input-item js-toggle-calendar">
-          <span class="input-item__label">체크인</span>
-          <input class="input-item__text" type="text" placeholder="날짜 추가" id="startDate" disabled>
-        </div>
-        <div class="input-item js-toggle-calendar">
-          <span class="input-item__label">체크아웃</span>
-          <input class="input-item__text" type="text" placeholder="날짜 추가" id="endDate" disabled>
-        </div>
-        <div class="input-item">
-          <span class="input-item__label">인원</span>
-          <input class="input-item__text" type="text" placeholder="게스트 추가">
-          <button class="input-item__button">
-            🔍
-          </button>
-        </div>
-        <div class="input-item__modal hidden search-place">
-          <div class="search-place__item">
-            <img src="images/search-01.jpg" alt="가까운 여행지 둘러보기 이미지" title="Nearby place">
-            <p>가까운 여행지 둘러보기</p>
+      <div class="col-8 search-items">
+        <div class="col-12 search-item">
+          <div class="search-item-tag js-toggle" data-target="place-0">
+            <span class="search-item-tag__label">위치</span>
+            <input class="search-item-tag__text" type="text" placeholder="어디로 여행가세요?">
+          </div>
+          <div class="search-item-tag js-toggle" data-target="calendar-0">
+            <span class="search-item-tag__label">체크인</span>
+            <input class="search-item-tag__text js-start-date" type="text" placeholder="날짜 추가" disabled>
+          </div>
+          <div class="search-item-tag js-toggle" data-target="calendar-0">
+            <span class="search-item-tag__label">체크아웃</span>
+            <input class="search-item-tag__text js-end-date" type="text" placeholder="날짜 추가" disabled>
+          </div>
+          <div class="search-item-tag">
+            <span class="search-item-tag__label">인원</span>
+            <input class="search-item-tag__text" type="text" placeholder="게스트 추가">
+            <button class="search-item-tag__button">
+              🔍
+            </button>
+          </div>
+          <div class="search-item__modal search-place modal hidden" data-target_name="place-0">
+            <div class="search-place__item">
+              <img src="images/search-01.jpg" alt="가까운 여행지 둘러보기 이미지" title="Nearby place">
+              <p>가까운 여행지 둘러보기</p>
+            </div>
+          </div>
+          <div class="search-item__modal js-calendar modal hidden" data-target_name="calendar-0">
           </div>
         </div>
-        <div class="input-item__modal js-calendar hidden" id="calendarTarget">
-        </div>
+
+        <!-- <div class="col-12 search-item hidden">
+          <div class="input-item js-toggle-place">
+            <span class="input-item__label">위치</span>
+            <input class="input-item__text" type="text" placeholder="어디로 여행가세요?">
+          </div>
+          <div class="input-item js-toggle-calendar">
+            <span class="input-item__label">날짜</span>
+            <input class="input-item__text" type="text" placeholder="원하는 날짜를 입력하세요." class="startDate endDate" disabled>
+          </div>
+          <div class="input-item__modal hidden search-place">
+            <div class="search-place__item">
+              <img src="images/search-01.jpg" alt="가까운 여행지 둘러보기 이미지" title="Nearby place">
+              <p>가까운 여행지 둘러보기</p>
+            </div>
+          </div>
+          <div class="input-item__modal js-calendar hidden">
+          </div>
+        </div> -->
       </div>
       <div class="col-2"></div>
     </div>
