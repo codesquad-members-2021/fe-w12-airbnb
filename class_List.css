@@ -52,12 +52,15 @@
 }
 
 /* calendar css*/
+#calendar_out {
+    position: relative;
+}
 
 .calendar_css {
     background-color:white;
     position: absolute;
     width: 50%;
-    top: 230px;
+    top: 240px;
     border-radius: 30px;
 }
 
@@ -69,11 +72,15 @@
     display:none;
 }
 
-#calendar {
+.cal_flex {
+    display:flex;
+}
+
+.calendar {
     padding:20px;
     width:50%;
 }
 
-#calendar > tbody > tr > td {
+.calendar > tbody > tr > td {
     text-align: center;
 }
