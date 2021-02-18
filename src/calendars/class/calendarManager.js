@@ -20,18 +20,11 @@ export default class CalendarManager {
     }
   }
 
-  createCalendarDateEvent(startDate, endDate, placeholder) {
-    const calendarDate = document.querySelectorAll(".calendar__date");
-    calendarDate.forEach((date) => {
-      if (!date.classList.contains("yesterday")) registerClickEvent(date, placeholder, startDate, endDate);
-    });
-  }
-
   showPresentCalendar(calendar, startDate, endDate, placeholder) {
     this.tab.addEventListener("click", () => {
       calendar.init();
       this.createTwoCalendars();
-      this.createCalendarDateEvent(startDate, endDate, placeholder);
+      createCalendarDateEvent(startDate, endDate, placeholder);
     });
   }
 
@@ -39,7 +32,7 @@ export default class CalendarManager {
     this.prevButton.addEventListener("click", () => {
       --this.currentMonth;
       this.createTwoCalendars();
-      this.createCalendarDateEvent(startDate, endDate, placeholder);
+      createCalendarDateEvent(startDate, endDate, placeholder);
     });
   }
 
@@ -47,7 +40,14 @@ export default class CalendarManager {
     this.nextButton.addEventListener("click", () => {
       ++this.currentMonth;
       this.createTwoCalendars();
-      this.createCalendarDateEvent(startDate, endDate, placeholder);
+      createCalendarDateEvent(startDate, endDate, placeholder);
     });
   }
+}
+
+function createCalendarDateEvent(startDate, endDate, placeholder) {
+  const calendarDates = document.querySelectorAll(".calendar__date");
+  calendarDates.forEach((date) => {
+    if (!date.classList.contains("yesterday") && !date.classList.contains("day-name")) registerClickEvent(date, placeholder, startDate, endDate, calendarDates);
+  });
 }

@@ -27,11 +27,11 @@ export default class Calendar {
     const dayName = ["일", "월", "화", "수", "목", "금", "토"];
     return dayName.reduce((acc, val) => acc + `<div class="calendar__date day-name"><span>${val}</span></div>`, ``);
   }
-
+  // id="${year}-${month}-${this.setFixDayCount(startDayCount)}"
   createHtmlTagOfDate(date, startDayCount) {
     const [year, month] = date;
     const today = new Date();
-    return `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)} ${year}-${month}-${startDayCount}"><span>${startDayCount++}</span></div>`;
+    return `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)}"><span id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="data">${startDayCount++}</span></div>`;
   }
 
   setCalendarData(year, month, index) {
