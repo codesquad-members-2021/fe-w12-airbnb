@@ -344,6 +344,11 @@ header .basic_menu div {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.placeholder {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.625);
+}
+
 .search_ver2 div button {
   width: 100px;
   border-radius: 30px;
@@ -375,7 +380,7 @@ header .basic_menu div {
   display: block;
 }
 
-.search .innerdiv input {
+.search .innerdiv div {
   padding-top: 5px;
 }
 

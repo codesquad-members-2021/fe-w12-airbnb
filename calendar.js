@@ -178,11 +178,10 @@ export class CalendarMaker {
             el.classList.add("before_today");
          } else {
             el.classList.add("clickable");
-            el.addEventListener("click", (e) => {
-               console.log(e)
-               el.classList.add("clicked")
-            });
-         }
+            el.addEventListener("click", () => {
+               this.GiveInnerText(el)
+            })
+         };
       })
 
       document.querySelectorAll(".calendar_next_month .calendar_date div").forEach(el => {
@@ -193,10 +192,16 @@ export class CalendarMaker {
             el.classList.add("before_today");
          } else {
             el.classList.add("clickable");
-            el.addEventListener("click", (e) => {
-               el.classList.add("clicked")
-            });
+            el.addEventListener("click", () => {
+               this.GiveInnerText(el)
+            })
          }
       })
+   }
+
+   GiveInnerText(el) {
+      el.classList.add("clicked");
+      let paste1 = document.querySelectorAll(".placeholder")[1];
+      paste1.innerText = `${this.current_month}월 ${el.innerText}일`;
    }
 }
