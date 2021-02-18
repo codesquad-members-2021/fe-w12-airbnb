@@ -293,6 +293,7 @@ a {
 
 .calendar li,
 .calendar span {
+    padding: 8px;
     width: 40px;
     flex: 0 1 14%;
 }
