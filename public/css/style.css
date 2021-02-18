@@ -286,8 +286,15 @@ a {
 }
 
 .calendar-header button {
-    left: 0;
     position: absolute;
+}
+
+.calendar-header .left-arrow {
+left:0;
+}
+
+.calendar-header .right-arrow {
+right:0;
 }
 
 .calendar-content h3 {
