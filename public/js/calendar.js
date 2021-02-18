@@ -5,9 +5,12 @@ export class Calendar {
     this.target = target;
     this.year = new Date().getFullYear();
     this.month = new Date().getMonth() + 1;
+    this.cloneNode = calendarWrapper.cloneNode(true);
   }
 
-  init(e) {
+  init() {}
+
+  onFocusOut(e) {
     if (
       !e.target.closest('.input-date') &&
       !e.target.closest('.calendars-wrapper')
@@ -18,7 +21,26 @@ export class Calendar {
 
   onEvents() {
     this.target.addEventListener('click', this.dateClickHandler);
-    document.body.addEventListener('click', (e) => this.init(e));
+    document.body.addEventListener('click', (e) => this.onFocusOut(e));
+    this.render();
+    this.onClickArrowBtn();
+  }
+
+  onClickArrowBtn() {
+    const [leftBtn, rightBtn] = document.querySelectorAll('.calendar-btn');
+    leftBtn.addEventListener('click', this.leftBtnClickHandler.bind(this));
+    rightBtn.addEventListener('click', this.rightBtnClickHandler.bind(this));
+  }
+
+  rightBtnClickHandler() {
+    this.init();
+    this.month += 1;
+    this.render();
+  }
+
+  leftBtnClickHandler() {
+    this.init();
+    this.month -= 1;
     this.render();
   }
 
