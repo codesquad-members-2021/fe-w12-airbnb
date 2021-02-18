@@ -70,3 +70,8 @@ table {
     font-weight: bold;
     color:rgb(88, 88, 88);
 }
+
+.day_clicked {
+    background-color: black !important;
+    color: #ffff;
+}

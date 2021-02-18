@@ -5,8 +5,8 @@ const leftCalendarDays = document.querySelectorAll(".left_calendar_days"),
     leftButton = document.querySelector(".left_button"),
     rightButton = document.querySelector(".right_button"),
     dateButton = document.querySelector(".date_button"),
-    calendar = document.querySelector(".calendar"),
-    dayButtons = document.querySelectorAll(".day_button");
+    calendar = document.querySelector(".calendar");
+ 
 
 
 
@@ -145,10 +145,22 @@ function toggleCalendar() {
     calendar.addEventListener("click", (e) => {
         e.stopPropagation();
         calendar.classList.remove("hide");
-    })
+    });
+
+
 }
 
+function updateSearch() {
+    const dayButtons = document.querySelectorAll(".day_button");
+    dayButtons.forEach((element) => {
+        element.addEventListener("click", (event) => {
 
+            event.target.classList.toggle("day_clicked");
+        });
+    });
+}
 
 drawCalendar();
 toggleCalendar();
+updateSearch();
+
