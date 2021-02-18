@@ -27,27 +27,34 @@ export class Calendar {
   }
 
   showCalendarTitle() {
-    const calendarTitle = document.querySelector('.calendar-title');
-    calendarTitle.textContent = `${this.year}년 ${this.month}월`;
+    const calendarTitles = document.querySelectorAll('.calendar-title');
+    calendarTitles.forEach((title, i) => {
+      title.textContent = `${this.year}년 ${this.month + i}월`;
+    });
   }
 
   showCalendarWeeks() {
     const daysofWeekList = '일월화수목금토'.split('');
-    const calendarWeek = document.querySelector('.calendar-weeks');
+    const calendarWeek = document.querySelectorAll('.calendar-weeks');
     const daysOfWeeks = daysofWeekList.reduce((prev, dayOfWeek) => {
       return prev + `<li>${dayOfWeek}</li>`;
     }, '');
-    calendarWeek.insertAdjacentHTML('beforeend', daysOfWeeks);
+    calendarWeek.forEach((week) =>
+      week.insertAdjacentHTML('beforeend', daysOfWeeks)
+    );
   }
 
   showCalendarDays() {
-    const calendarDays = document.querySelector('.calendar-days');
-    const daysLen = new Date(this.year, this.month, 0).getDate();
-    const daysByOrder = Array.from({ length: daysLen }, (_, i) => i + 1);
-    const days = daysByOrder.reduce((prev, day) => {
-      return prev + `<span>${day}</span>`;
-    }, '');
-    calendarDays.insertAdjacentHTML('beforeend', days);
+    const calendarDays = document.querySelectorAll('.calendar-days');
+    calendarDays.forEach((day, i) => {
+      const daysLen = new Date(this.year, this.month + i, 0).getDate();
+      const daysByOrder = Array.from({ length: daysLen }, (_, i) => i + 1);
+      const days = daysByOrder.reduce((prev, day) => {
+        return prev + `<span>${day}</span>`;
+      }, '');
+
+      day.insertAdjacentHTML('beforeend', days);
+    });
   }
 
   render() {
