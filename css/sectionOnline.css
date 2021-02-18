@@ -7,13 +7,12 @@
   padding-bottom: 80px;
   box-sizing: border-box;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .online__container {
   height: fit-content;
-}
-
-.online__upper--box {
 }
 
 .online__upper {

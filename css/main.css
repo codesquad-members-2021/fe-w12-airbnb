@@ -7,6 +7,7 @@
   font-size: 16px;
   font-weight: 400;
   color: #333;
+  position: relative;
 }
 
 a {
@@ -17,6 +18,11 @@ a {
   padding: 0 80px;
   box-sizing: border-box;
   position: relative;
+}
+
+.section--align--center {
+  display: flex;
+  justify-content: center;
 }
 
 .section__container {
@@ -39,9 +45,8 @@ a {
 /* Background Image */
 
 .background--image {
-  width: 100%;
   background-image: url('https://a0.muscache.com/im/pictures/3c23cdc9-b2bc-45e2-8bbd-930bf3076449.jpg?im_w=720');
-  background-position: left bottom;
+  background-position: right bottom;
   background-size: cover;
   background-repeat: no-repeat;
 }
