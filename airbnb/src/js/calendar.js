@@ -2,6 +2,12 @@ import { makeDiv } from './controlHTML.js';
 import MONTH_DAYS from './daysByMonth.js';
 const HIDDEN = 'hidden';
 const CHEKCED = 'checked';
+const MONTH = 'month';
+const WEEK = 'week';
+const DAY = 'day';
+const ABLE = 'able';
+const DISABLE = 'disable';
+
 class Calendar {
   constructor(date = new Date()) {
     this.date = date;
@@ -55,21 +61,21 @@ class Calendar {
   makeDayHtml(day) {
     if (day && this.isReservable(day)) {
       if (day === this.startReserve || day === this.endReserve)
-        return makeDiv(day, 'day', 'able', 'checked');
-      else return makeDiv(day, 'day', 'able');
-    } else if (day) return makeDiv(day, 'day', 'past', 'disable');
-    else return makeDiv('', 'day', 'disable');
+        return makeDiv(day, DAY, ABLE, CHEKCED);
+      else return makeDiv(day, DAY, ABLE);
+    } else if (day) return makeDiv(day, DAY, DISABLE, 'past');
+    else return makeDiv('', DAY, DISABLE);
   }
   makeWeekHtml(week) {
     let daysHtml = week.reduce((acc, day) => acc + this.makeDayHtml(day), '');
-    return makeDiv(daysHtml, 'week');
+    return makeDiv(daysHtml, WEEK);
   }
   makeMonthHtml(month) {
     let weeksHtml = month.reduce(
       (acc, week) => acc + this.makeWeekHtml(week),
       ''
     );
-    return makeDiv(weeksHtml, 'month');
+    return makeDiv(weeksHtml, MONTH);
   }
   getCalendarFormat() {
     return `
@@ -153,7 +159,7 @@ export class CalendarView {
     }
   }
   isDay({ classList } = target) {
-    return classList.contains('day') && classList.contains('able');
+    return classList.contains(DAY) && classList.contains(ABLE);
   }
   setReserveDate({ innerText: day } = target) {
     day = parseInt(day);
