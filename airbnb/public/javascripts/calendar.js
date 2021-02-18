@@ -1,3 +1,4 @@
+const $date = document.querySelector('.date');
 const date = new Date();
 
 const renderCalendar = () => {
@@ -58,4 +59,5 @@ document.querySelector('.next').addEventListener('click', () => {
   renderCalendar();
 });
 
+renderCalendar();
 renderCalendar();

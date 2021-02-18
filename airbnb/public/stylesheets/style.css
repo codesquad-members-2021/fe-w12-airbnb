@@ -117,7 +117,7 @@ nav ul li {
 
 .search {
   position: relative;
-  background-color: rgb(221, 221, 221);
+  background-color: white;
   border-radius: 35px;
   color: #222222;
   font-size: 14px;
@@ -131,30 +131,37 @@ nav ul li {
 }
 
 .search div {
-  padding: 1rem 0.5rem 0rem 1.5rem;
-  height: 4rem;
-  width: calc(100% / 4);
-  border-radius: 35px;
+  margin: 0.9rem 0.3rem 0.8rem 1.5rem;
+  height: 2.5rem;
+}
+
+.search div:not(:last-child) {
   border-right: 1px solid #a09e9e79;
 }
 
 .search > div:hover {
+  border-radius: 35px;
   background-color: white;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
 
-/* .search-align-4 {
+.search:hover div:not(:hover) {
+  border-radius: 35px;
+  background-color: #f7f7f7;
+}
+
+.stay-align {
   width: calc(100% / 4);
 }
 
-.search-align-2 {
+.experience-align {
   width: calc(100% / 2);
-} */
+}
 
 .search-button {
   position: absolute;
-  top: 38.7%;
-  right: 23%;
+  top: 40%;
+  right: 22.5%;
   border-radius: 50%;
   padding: 11px;
   width: 45px;
@@ -256,10 +263,10 @@ a {
 
 /* --------- */
 
-.container {
+.sigle-calendar-container {
   /* visibility: hidden; */
   position: absolute;
-  top: 27%;
+  top: 29%;
   right: 25%;
   width: 27rem;
   height: 24rem;
@@ -325,8 +332,8 @@ a {
   align-items: center;
 }
 
-.days div:hover:not(.today) {
-  background-color: #262626;
+.days div:hover {
+  border-radius: 50%;
   border: 0.2rem solid #777;
   cursor: pointer;
 }
