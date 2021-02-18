@@ -9,7 +9,6 @@ class Calendar {
   }
   showNextCal() {
     this.buildCalendar(".calendar2", 1);
-    //
   }
 
   buildCalendar(calendar, num_checkNextCal) {
