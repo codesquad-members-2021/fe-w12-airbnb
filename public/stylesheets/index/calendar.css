@@ -77,7 +77,8 @@
 
 /* 요일 표시 (ul, li) */
 .calendar ul {
-    display: flex; 
+    display: grid; 
+    grid-template-columns: repeat(7, 1fr);
     text-align: center;
 }
 .calendar ul > li {
@@ -113,5 +114,10 @@
 
 .calendar .date__dynamic ul > li > button:hover {
     border: 1px solid var(--black);
+}
+
+.calendar .date__dynamic ul > li > button.clickStatus {
+    background-color: var(--black);
+    color: var(--default-font-color);    
 }
 
