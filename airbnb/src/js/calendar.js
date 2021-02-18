@@ -70,14 +70,22 @@ class CalendarModel {
     return day === reserveDay && this.month === reserveMonth;
   }
   //예약 start,end 사이에 있는 날짜들
-  isContain(day) {
+  isBetweenReservation(day) {
     const { month: startMonth, day: startDay } = this.startReserve;
     const { month: endMonth, day: endDay } = this.endReserve;
-    if (this.month === startMonth) {
+    if (!this.startReserve.day || !this.endReserve.day) return false;
+    if (startMonth === endMonth) {
       return startDay < day && day < endDay;
-    } else if (startMonth < this.month && this.month <= endMonth) {
-      return day < endDay;
+    } else {
+      if (startMonth < this.month && this.month < endMonth) {
+        return true;
+      } else if (this.month === startMonth) {
+        return startDay < day;
+      } else if (this.month === endMonth) {
+        return day < endDay;
+      }
     }
+    return false;
   }
   makeDayHtml(day) {
     let dayHtml;
@@ -86,7 +94,7 @@ class CalendarModel {
         dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, 'start-reserve');
       } else if (this.isEndReservation(day)) {
         dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, 'end-reserve');
-      } else if (this.isContain(day)) {
+      } else if (this.isBetweenReservation(day)) {
         dayHtml = div(span(day, DAY_SPAN), DAY, ABLE, CONTAIN);
       } else {
         dayHtml = div(span(day, DAY_SPAN), DAY, ABLE);
