@@ -17,6 +17,7 @@ const init = () => {
   );
   observer.observe(header);
   const calendar = new Calendar(calendarTarget, new Date(), startDate, endDate);
+  calendar.init();
   window.addEventListener('click', ({ target }) => {
     if(!(navList.contains(target) || navToggleButton.contains(target))) {
       navList.classList.add('hidden');

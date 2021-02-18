@@ -1,18 +1,69 @@
 class Calendar {
-  constructor(target = null, date = new Date(), startTarget, endTarget) {
+  constructor(target = null, date = new Date(), startTarget = null, endTarget = null) {
     this.initDate = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    this.date = date;
     this.startDate = null;
-    this.startDateTarget = startTarget;
     this.endDate = null;
+    this.target = target;
+    this.date = date;
+    this.startDateTarget = startTarget;
     this.endDateTarget = endTarget;
-    if(target) {
-      this.target = target;
-      this.render();
-    }
+  }
+  setTarget(target) {
+    this.target = target;
+  }
+  setStartDateTarget(target) {
+    this.startDateTarget = target;
+  }
+  setEndDateTarget(target) {
+    this.endDateTarget = target;
+  }
+  setDate(date) {
+    this.date = date;
+    if(!this.target) return;
+    this.render();
+  }
+  init() {
+    if(!this.target) return;
+    this.render();
     this.target.addEventListener('click', ({ target }) => this.handleSelect(target));
   }
   render() {
+    if(!this.target) return;
+    this.renderCalendar();
+  }
+  renderCalendar() {
+    if(!this.target) return;
+    this.target.innerHTML = '';
+    for(let i = 0; i < 2; i++) {
+      const tmpDate = new Date(this.date);
+      const date = new Date(tmpDate.setMonth(tmpDate.getMonth() + i));
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const startWeek = this.getStartWeek(date);
+      const lastDay = this.getLastDay(date);
+      const calendarLabel = this.createCalendarLabel(year, month);
+      const calendarHead = this.createCalendarHead();
+      const dateBlocks = this.createDateBlocks(lastDay, startWeek);
+      const calendarBody = this.createCalendarBody(dateBlocks, year, month);
+      const calendarWrap = this.createCalendarWrap(calendarLabel, calendarHead, calendarBody);
+      this.target.innerHTML += calendarWrap;
+    }
+    this.startDate = document.querySelector('.start-date');
+    this.endDate = document.querySelector('.end-date');
+    this.handlePeriod();
+  }
+  createCalendarLabel(year = 0, month = 0) {
+    return `<div class="js-calendar__label"><p>${year}년 ${month}월<p></div>`;
+  }
+  createCalendarHead() {
+    return ['일', '월', '화', '수', '목', '금', '토'].reduce((acc, v) => acc += `<div class="js-calendar__head__block">${v}</div>`, '<div class="js-calendar__head">') + '</div>';
+  }
+  createDateBlocks(lastDay = 30, startWeek = 0) {
+    return new Array(startWeek).fill('').concat(new Array(lastDay).fill(1).map((v, i) => v + i));
+  }
+  createCalendarBody(dateBlocks = [], year, month) {
+    if(dateBlocks.length === 0 || !year || !month) return;
+    const nowDate = new Date();
     let tmpStart = null;
     let tmpEnd = null;
     if(this.startDate) {
@@ -21,75 +72,23 @@ class Calendar {
     if(this.endDate) {
       tmpEnd = this.endDate.dataset.date;
     }
-    const nowDate = new Date();
-    this.target.innerHTML = '';
-    for(let i = 0; i < 2; i++) {
-      const tmpDate = new Date(this.date);
-      const date = new Date(tmpDate.setMonth(tmpDate.getMonth() + i));
-      const year = date.getFullYear();
-      const month = date.getMonth() + 1;
-      const day = date.getDate();
-      const startWeek = this.getStartWeek(date);
-      const lastDay = this.getLastDay(date);
-      let dateBlocks = [];
-      if(startWeek) {
-        dateBlocks = new Array(startWeek).fill('');
+    return dateBlocks.reduce((acc, v, i) => {
+      let prefix = '';
+      let suffix = '';
+      if(i % 7 === 0) {
+        prefix = '<div class="js-calendar__line">';
+      } else if(i % 7 === 6 || i + 1 === dateBlocks.length) {
+        suffix = '</div>';
       }
-      const calendarLabel = `<div class="js-calendar__label"><p>${year}년 ${month}월<p></div>`;
-      const calendarHead = ['일', '월', '화', '수', '목', '금', '토'].reduce((acc, v) => acc += `<div class="js-calendar__head__block">${v}</div>`, '<div class="js-calendar__head">') + '</div>';
-      dateBlocks = dateBlocks.concat(new Array(lastDay).fill(1).map((v, i) => v + i));
-      const calendarBody = dateBlocks.reduce((acc, v, i) => {
-        let prefix = '';
-        let suffix = '';
-        if(i % 7 === 0) {
-          prefix = '<div class="js-calendar__line">';
-        } else if(i % 7 === 6 || i + 1 === dateBlocks.length) {
-          suffix = '</div>';
-        }
-        const blockDate = new Date(year + '-' + month + '-' + v);
-        const blockClass = (nowDate.getMonth() + 1 === month && nowDate.getDate() > v) || v === '' ? 'previous-days' : 'able';
-        return acc += `${prefix} <div class="${blockClass} ${blockDate == tmpStart ? 'start-date' : blockDate == tmpEnd ? 'end-date' : ''}" data-date="${blockDate}">${v}</div> ${suffix}`
-      }, '<div class="js-calendar__body">') + '</div>';
-      const calendarWrap = '<div class="js-calendar__wrap">' + calendarLabel + calendarHead + calendarBody + '</div>';
-      this.target.innerHTML += calendarWrap;
-    }
-    const leftArrow = document.createElement('div');
-    leftArrow.classList = 'js-calendar__arrow arrow-left';
-    leftArrow.textContent = '\<';
-    const rightArrow = document.createElement('div');
-    rightArrow.textContent = '\>';
-    rightArrow.classList = 'js-calendar__arrow arrow-right';
-    this.target.append(leftArrow);
-    this.target.append(rightArrow);
-    leftArrow.addEventListener('click', () => { 
-      const tmpDate = new Date().setDate(this.getLastDay(this.date));
-      if(tmpDate >= this.date) {
-        return;
-      }
-      if(this.date.getMonth() === 0) {
-        this.date.setMonth(11);
-        this.date.setFullYear(this.date.getFullYear() - 1);
-      } else {
-        this.date.setMonth(this.date.getMonth() - 1);
-      }
-      this.render();
-    });
-    rightArrow.addEventListener('click', () => {
-      if(this.date.getMonth() === 11) {
-        this.date.setMonth(0);
-        this.date.setFullYear(this.date.getFullYear() + 1);
-      } else {
-        this.date.setMonth(this.date.getMonth() + 1);
-      }
-      this.render();
-    });
-    if(tmpStart) {
-      this.startDate.classList.add('start-date');
-      if(this.endDate) {
-        this.endDate.classList.add('end-date');
-        this.createPeriod();
-      }
-    }
+      const blockDate = new Date(year + '-' + month + '-' + v);
+      const blockClass = [];
+      blockClass.push(nowDate.getDate() > v || v === '' ? 'previous-days' : 'able');
+      blockClass.push(blockDate == tmpStart ? 'start-date' : blockDate == tmpEnd ? 'end-date' : '');
+      return acc += `${prefix} <div class="${blockClass.join(' ')}" data-date="${blockDate}">${v}</div> ${suffix}`
+    }, '<div class="js-calendar__body">') + '</div>';
+  }
+  createCalendarWrap(calendarLabel, calendarHead, calendarBody) {
+    return '<div class="js-calendar__wrap">' + calendarLabel + calendarHead + calendarBody + '</div>';
   }
   getStartWeek(date) {
     const tmp = new Date(date);
