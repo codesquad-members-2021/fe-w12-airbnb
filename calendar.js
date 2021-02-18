@@ -42,6 +42,7 @@ class LeftCalendar {
         const firstDay = this.getFirstDay();
         const lastDay = this.getLastDay();
         let day = 1;
+   
 
         for (let i = firstDay; i < leftCalendarDays.length; i++) {
             if (day <= lastDay) {
@@ -90,6 +91,7 @@ class RightCalendar {
         const firstDay = this.getFirstDay();
         const lastDay = this.getLastDay();
         let day = 1;
+        
 
         for (let i = firstDay; i < rightCalendarDays.length; i++) {
             if (day <= lastDay) {
@@ -112,7 +114,10 @@ function drawCalendar() {
     const today = new Date();
     let leftCalendar = new LeftCalendar(today.getFullYear(), today.getMonth() + change);
     let rightCalendar = new RightCalendar(today.getFullYear(), today.getMonth() + 1 + change);
-
+   
+   
+    leftCalendar.fillCalendar();
+    rightCalendar.fillCalendar();
     leftButton.addEventListener("click", (e) => {
         e.stopPropagation();
         change--;
@@ -120,6 +125,7 @@ function drawCalendar() {
         rightCalendar = new RightCalendar(today.getFullYear(), today.getMonth() + 1 + change);
         leftCalendar.fillCalendar();
         rightCalendar.fillCalendar();
+        updateCalendarStyle();
     });
     rightButton.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -128,9 +134,9 @@ function drawCalendar() {
         rightCalendar = new RightCalendar(today.getFullYear(), today.getMonth() + 1 + change);
         leftCalendar.fillCalendar();
         rightCalendar.fillCalendar();
+        updateCalendarStyle();
     });
-    leftCalendar.fillCalendar();
-    rightCalendar.fillCalendar();
+
 
 
 }
@@ -150,7 +156,7 @@ function toggleCalendar() {
 
 }
 
-function updateDayStyle() {
+function updateCalendarStyle() {
     const dayButtons = document.querySelectorAll(".day_button");
 
     dayButtons.forEach((element) => {
@@ -176,7 +182,7 @@ function updateDayStyle() {
 function handleEvents() {
     drawCalendar();
     toggleCalendar();
-    updateDayStyle();
+    updateCalendarStyle();
 }
 
 
