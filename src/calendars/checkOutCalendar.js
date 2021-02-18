@@ -8,8 +8,8 @@ const calendarHtmlCheckOut = document.querySelector("#calendar__check-out");
 const calendarCheckOut = new Toggle("calendar__background_check-out");
 
 const CM_checkOut = new CalendarManager(checkOutButton, checkOutPrevButton, checkOutNextButton, calendarHtmlCheckOut);
-CM_checkOut.todayCalendar(calendarCheckOut);
-CM_checkOut.prevCalendar();
-CM_checkOut.nextCalendar();
+CM_checkOut.showPresentCalendar(calendarCheckOut);
+CM_checkOut.showPrevCalendar();
+CM_checkOut.showNextCalendar();
 
 export { calendarCheckOut, checkOutButton };

@@ -18,9 +18,7 @@ accountButton.addEventListener("click", () => {
   accountLayer.init();
 });
 
-const isContain = (node, target) => {
-  return node.contains(target);
-};
+const isContain = (node, target) => node.contains(target);
 
 // calendar 날짜 선택
 
