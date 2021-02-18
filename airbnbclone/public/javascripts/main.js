@@ -1,12 +1,14 @@
 import utils from "./utils.js";
 import MainEventControler from "./MainEventControler.js";
 import HeaderEventControler from "./HeaderEventControler.js";
+import SearchberEventController from "./SearchbarEventControler.js";
 
 const _ = utils._;
 
 //=====================================================//
 const main = _.$(".main");
 const mainEventControler = new MainEventControler(main);
+const searchberEventController = new SearchberEventController(main);
 
 const addCalenderHTML = (Calender, year, month) => {
   const tbody = _.$("tbody", Calender);
@@ -43,6 +45,7 @@ const makeCurrentDateCalender = () => {
 makeCurrentDateCalender();
 const headerEventConroler = new HeaderEventControler(main);
 headerEventConroler.init();
+searchberEventController.init();
 
 // SearchberEventController(main, mainPeople, mainLocation, mainCalender);
 
