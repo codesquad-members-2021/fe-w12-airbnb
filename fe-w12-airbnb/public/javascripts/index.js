@@ -10,7 +10,7 @@ const REFERENCE = {
     dropBox: _.$(".dropdown"),
     hamburger: _.$(".login_set"),
     tab: _.$all(".tab"),
-    tabInput: _.$all(".popup_layer")
+    tabInput: _.$all(".popup_layer"),
 }
 
 const PUL = new PopUpLayer(REFERENCE, _);

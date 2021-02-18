@@ -77,8 +77,8 @@ header {
 }
 
 .main-nav input[type="radio"]:checked + span {
+  animation: bigger 0.5s forwards;
   border-bottom: 2px solid #fff;
-  width: 1rem;
 }
 
 .search_box {
@@ -127,6 +127,11 @@ fieldset.search_box > div > input {
   width: 2rem;
   cursor: pointer;
   margin-top: 0.4rem;
+}
+
+#search_btn:hover {
+  transition: background-color 0.4s;
+  background-color: #17b4af;
 }
 
 .search_logo {
