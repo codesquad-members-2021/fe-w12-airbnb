@@ -3,10 +3,7 @@
     margin: 0;
 }
 
-body {
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
-    /* font-size: 14px; */
-}
+
 .main {
  position: flex;
  width: 100%;
@@ -26,7 +23,7 @@ body {
     font-size: 14px;
     padding: 20px 40px;
     background: black;
-    /* box-shadow: 1px 1px 25px rgb(0, 0, 0 / 17%); */
+
 }
 
 
@@ -377,7 +374,7 @@ label {
     padding-right: 80px;
     padding-top: 40px;
     padding-bottom: 40px;
-    box-shadow: 1px 1px 25px rgb(0, 0, 0 / 17%);
+
 }
 
 .host > span {
@@ -480,5 +477,5 @@ label {
 }
 
 .date_update {
-    color:gray;
+    color:rgb(194, 189, 189);
 }

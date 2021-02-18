@@ -6,8 +6,9 @@ const leftCalendarDays = document.querySelectorAll(".left_calendar_days"),
     rightButton = document.querySelector(".right_button"),
     dateButton = document.querySelector(".date_button"),
     calendar = document.querySelector(".calendar"),
-    dayButtons = document.querySelectorAll(".day_button");
-
+    dateUpdate = document.querySelector(".date_update");
+ 
+const today = new Date();
 
 
 class LeftCalendar {
@@ -42,12 +43,14 @@ class LeftCalendar {
         const firstDay = this.getFirstDay();
         const lastDay = this.getLastDay();
         let day = 1;
+   
 
         for (let i = firstDay; i < leftCalendarDays.length; i++) {
             if (day <= lastDay) {
                 leftCalendarDays[i].innerHTML = `<button class = "day_button">${day}</button>`;
                 day++;
             }
+
         }
     }
 
@@ -90,6 +93,7 @@ class RightCalendar {
         const firstDay = this.getFirstDay();
         const lastDay = this.getLastDay();
         let day = 1;
+        
 
         for (let i = firstDay; i < rightCalendarDays.length; i++) {
             if (day <= lastDay) {
@@ -112,7 +116,10 @@ function drawCalendar() {
     const today = new Date();
     let leftCalendar = new LeftCalendar(today.getFullYear(), today.getMonth() + change);
     let rightCalendar = new RightCalendar(today.getFullYear(), today.getMonth() + 1 + change);
-
+   
+   
+    leftCalendar.fillCalendar();
+    rightCalendar.fillCalendar();
     leftButton.addEventListener("click", (e) => {
         e.stopPropagation();
         change--;
@@ -120,6 +127,7 @@ function drawCalendar() {
         rightCalendar = new RightCalendar(today.getFullYear(), today.getMonth() + 1 + change);
         leftCalendar.fillCalendar();
         rightCalendar.fillCalendar();
+        updateCalendarStyle();
     });
     rightButton.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -128,9 +136,9 @@ function drawCalendar() {
         rightCalendar = new RightCalendar(today.getFullYear(), today.getMonth() + 1 + change);
         leftCalendar.fillCalendar();
         rightCalendar.fillCalendar();
+        updateCalendarStyle();
     });
-    leftCalendar.fillCalendar();
-    rightCalendar.fillCalendar();
+
 
 
 }
@@ -145,14 +153,89 @@ function toggleCalendar() {
     calendar.addEventListener("click", (e) => {
         e.stopPropagation();
         calendar.classList.remove("hide");
+    });
+
+
+}
+
+function updateCalendarStyle() {
+    const dayButtons = document.querySelectorAll(".day_button");
+    let firstSelectedDay = 0;
+    let lastSelectedDay = 0;
+    let clickCount = 0;
+
+    // 달력 스타일 초기화
+    dayButtons.forEach((element) => {
+        element.classList.remove("day_selected");
+        element.parentNode.classList.remove("gray");
     })
 
-    // body.addEventListener("click", () => {
-    //     calendar.classList.add("hide");
-    // })
+
+    // 달력 날짜들에 클릭 이벤트 추가
+    dayButtons.forEach((element) => {
+        element.addEventListener("click", (event) => {
+            event.target.classList.toggle("day_selected");
+
+            clickCount++;
+
+            // 선택 일자 타입 변환
+            if(firstSelectedDay === 0) {    
+                firstSelectedDay = Number(event.target.innerText);
+            } else {
+                lastSelectedDay = Number(event.target.innerText);
+            }
+
+            // 클릭 횟수 2회 넘어가면 달력 스타일 초기화
+            if(clickCount > 2) {
+                dayButtons.forEach((e) => {
+                    e.parentNode.classList.remove("gray");
+                    e.classList.remove("day_selected");
+                    clickCount = 0;
+                    firstSelectedDay = 0;
+                    lastSelectedDay = 0;
+                });
+            }
+
+            // 선택 일자 사이에 회색 배경 적용
+            if(firstSelectedDay !== 0 && lastSelectedDay !== 0) {
+                dayButtons.forEach((e) => {
+                    const day = Number(e.innerText);
+                    if(day >= firstSelectedDay && day <= lastSelectedDay) {
+                        e.parentNode.classList.toggle("gray");
+                    }
+                });
+            }
+
+            // 선택 일자 중 왼쪽값이 오른쪽 값보다 크면 회색 배경 삭제 
+            if(firstSelectedDay > lastSelectedDay) {
+                dayButtons.forEach((e) => {
+                    e.parentNode.classList.remove("gray");
+                });
+            }
+        });
+    });
+
+    // 달력 날짜들에 호버링 이벤트 추가
+    dayButtons.forEach((element) => {
+        element.addEventListener("mouseenter",(event) => {
+            event.target.classList.add("day_hover")            
+        });
+    });
+
+    dayButtons.forEach((element) => {
+        element.addEventListener("mouseleave",(event) => {
+            event.target.classList.remove("day_hover")            
+        });
+    });
 }
 
 
 
-drawCalendar();
-toggleCalendar();
+function handleEvents() {
+    drawCalendar();
+    toggleCalendar();
+    updateCalendarStyle();
+}
+
+
+handleEvents();
