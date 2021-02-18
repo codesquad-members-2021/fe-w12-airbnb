@@ -1,4 +1,4 @@
-export default class ChangeSearch {
+export default class SearchChanger {
     constructor({accommoAnchor, activityAnchor, searchAccommo, searchActivity}) {
         this.accommoAnchor = accommoAnchor;
         this.activityAnchor = activityAnchor;
