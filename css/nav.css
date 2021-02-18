@@ -57,8 +57,8 @@
 .leftside__radius__box--click {
   min-width: 270px;
   background: #fff;
-  padding: 14px 32px;
   border-radius: 50px;
+  padding: 14px 32px;
   box-sizing: border-box;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -100,6 +100,15 @@ input {
   background: #fff;
   padding: 14px 24px;
   box-sizing: border-box;
+  cursor: pointer;
+}
+
+.middle__box--click {
+  background: #fff;
+  padding: 14px 24px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
@@ -221,6 +230,7 @@ input {
 
 .location--li:hover {
   background: rgba(0, 0, 0, 0.03);
+  outline: none;
 }
 
 .visible--hidden {
