@@ -8,6 +8,7 @@ const _ = {
     createElement: (tagType) => document.createElement(tagType),
     createTextNode: (strTxt) => document.createTextNode(strTxt),
     appendChild: (target, child) => target.appendChild(child),
+    addEvent: (target, eventType, callback, options = false) => target.addEventListener(eventType, callback, options),
 };
 
 export default _;
