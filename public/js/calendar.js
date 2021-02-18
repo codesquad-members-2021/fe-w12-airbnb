@@ -48,8 +48,16 @@ export class Calendar {
     const calendarDays = document.querySelectorAll('.calendar-days');
     calendarDays.forEach((day, i) => {
       const daysLen = new Date(this.year, this.month + i, 0).getDate();
-      const daysByOrder = Array.from({ length: daysLen }, (_, i) => i + 1);
+      let daysEmpty = new Date(this.year, this.month + i, 1).getDay();
+      const daysByOrder = Array.from(
+        { length: daysLen + daysEmpty },
+        (_, i) => i + 1 - daysEmpty
+      );
       const days = daysByOrder.reduce((prev, day) => {
+        if (daysEmpty) {
+          daysEmpty -= 1;
+          return prev + `<span></span>`;
+        }
         return prev + `<span>${day}</span>`;
       }, '');
 
