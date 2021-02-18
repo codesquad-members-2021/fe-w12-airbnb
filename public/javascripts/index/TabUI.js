@@ -21,20 +21,12 @@ class TabUI {
 
     _tabUIClickHandler(event, tabUI) {
         event.stopPropagation();
-        if (_.classContains(tabUI, 'visibility--visible')) {
-            _.classAdd(tabUI, 'visibility--hidden');
-            _.classRemove(tabUI, 'visibility--visible');
-        } else {
-            _.classAdd(tabUI, 'visibility--visible');
-            _.classRemove(tabUI, 'visibility--hidden');
-        }     
+        _.classToggle(tabUI, 'visibility--hidden');
     }
 
-    _tabUINotClickHandler(event, tabUI) {        
-        if (_.classContains(tabUI, 'visibility--visible')) {
+    _tabUINotClickHandler(event, tabUI) {    
+        if (!_.classContains(tabUI, 'visibility--hidden'))
             _.classAdd(tabUI, 'visibility--hidden');
-            _.classRemove(tabUI, 'visibility--visible');
-        }
     }
 }
 

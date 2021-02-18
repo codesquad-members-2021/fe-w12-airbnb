@@ -1,0 +1,117 @@
+/* 캘린더 Wrapper */
+
+:root {    
+    --day-color: #717171;
+    --disable: #d3d3d3;
+}
+
+/* 캘린더 전체 Wrapper */
+.calendarWrapper {
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    padding: 16px 18px;    
+    margin-top: 12px;
+    max-height: calc(100vh - 220px);
+    overflow: hidden auto;
+    border-radius: 32px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;    
+    background-color: var(--default-font-color);
+
+    width: 800px;
+    height: auto;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;    
+}
+
+/* 캘린더 (이전, 다음) 조작 버튼 */
+.move-month__btn {
+    flex-basis: auto;
+    padding: 10px;
+    position: relative;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+
+    color: var(--footer-font-color);
+    margin: 7px 0;
+}
+
+.move-month__btn:hover {
+    background-color: var(--covid-searchBar-hover-color);
+}
+
+.move-month__btn--left {
+    position: relative;
+    left: 16px;
+}
+
+.move-month__btn--right {
+    position: relative;
+    right: 16px;
+}
+
+/* .calendar만 들어가는 Sub Wrapper */
+.calendarSubWrapper {    
+    flex-grow: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.calendar {    
+    padding: 0 27px;
+}
+
+.calendar > .year-month  {
+    position: relative;    
+    padding: 16px 0 22px;        
+    color: var(--footer-font-color);
+    text-align: center;
+    margin: 0 auto;
+    font-size: 14px;    
+    font-weight: 600;
+}
+
+/* 요일 표시 (ul, li) */
+.calendar ul {
+    display: flex; 
+    text-align: center;
+}
+.calendar ul > li {
+    width: 48px;
+    font-weight: 800;
+    display: inline-block;
+    color: var(--day-color);
+}
+
+.calendar .date__dynamic {
+    margin: 10px 0;
+}
+
+.calendar .date__dynamic ul > li {    
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar .date__dynamic ul > .disableTxt {
+    color: var(--disable)
+}
+
+.calendar .date__dynamic ul > li > button {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;    
+    cursor: pointer;
+}
+
+.calendar .date__dynamic ul > li > button:hover {
+    border: 1px solid var(--black);
+}
+

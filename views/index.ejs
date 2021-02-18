@@ -50,11 +50,11 @@
                                     위치
                                     <input type="text" name="locationInput" id="locationInput" placeholder="어디로 여행가세요?"/>                                    
                                 </label>
-                                <label class="checkin-out roomsType">
+                                <label class="roomsType checkin-out">
                                     체크인
                                     <input type="date" name="checkin" id="checkin" placeholder="날짜추가"/>                                    
                                 </label>
-                                <label class="checkin-out roomsType">
+                                <label class="roomsType checkin-out">
                                     체크아웃
                                     <input type="date" name="checkout" id="checkout" placeholder="날짜추가"/>
                                 </label>
@@ -71,7 +71,80 @@
                                         <img src="./images/search-solid_ver2.svg" />
                                     </button>
                                 </label>
+                                <div class="calendarWrapper">
+                                    <button type="button" class="move-month__btn move-month__btn--left">
+                                        <svg
+                                            viewBox="0 0 18 18"
+                                            role="presentation"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            style="
+                                                height: 10px;
+                                                width: 10px;
+                                                display: block;
+                                                fill: currentcolor;
+                                            "
+                                        >
+                                            <path
+                                                d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z"
+                                                fill-rule="evenodd"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    
+                                    <div class="calendarSubWrapper">
+                                        <div class="calendar left">
+                                            <p class="year-month"></p>
+                                            <ul class="day">                                                
+                                                <li>일</li>
+                                                <li>월</li>
+                                                <li>화</li>
+                                                <li>수</li>
+                                                <li>목</li>
+                                                <li>금</li>
+                                                <li>토</li>
+                                            </ul> 
+                                            <div class="date__dynamic">
+                                            </div>
+                                        </div>
+                                        <div class="calendar right">
+                                            <p class="year-month"></p>
+                                            <ul class="day">                                                
+                                                <li>일</li>
+                                                <li>월</li>
+                                                <li>화</li>
+                                                <li>수</li>
+                                                <li>목</li>
+                                                <li>금</li>
+                                                <li>토</li>
+                                            </ul>             
+                                            <div class="date__dynamic">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="move-month__btn move-month__btn--right">                                        
+                                        <svg
+                                                viewBox="0 0 18 18"
+                                                role="presentation"
+                                                aria-hidden="true"
+                                                focusable="false"
+                                                style="
+                                                    height: 10px;
+                                                    width: 10px;
+                                                    display: block;
+                                                    fill: currentcolor;
+                                                "
+                                            >
+                                            <path
+                                                d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z"
+                                                fill-rule="evenodd"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="header__main__login">

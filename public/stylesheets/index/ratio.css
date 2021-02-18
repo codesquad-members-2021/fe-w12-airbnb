@@ -7,8 +7,12 @@
     width: calc(25% - 10px);
 }
 
-.w50 {
-    width: 50%;
+.w45 {
+    width: 45%;
+}
+
+.w55 {
+    width: 55%;
 }
 
 .w50--inline {

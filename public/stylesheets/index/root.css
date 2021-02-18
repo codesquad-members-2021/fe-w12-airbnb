@@ -1,7 +1,8 @@
 :root {
     --default-font-color: #FFF;
     --covid-searchBar-hover-color: #ddddddcc;
-    --footer-font-color: #222222;    
+    --footer-font-color: #222;    
+    --black: #000;
 }
 
 a {
