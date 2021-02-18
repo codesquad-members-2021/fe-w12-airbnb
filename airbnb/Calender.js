@@ -28,21 +28,35 @@ class CalenderModel {
 }
 
 class CalenderView {
+  dateToShowArray = [];
+  dateClickCheck = true;
   constructor(model, $fullDate, $startDate, $endDate, $searchInputBox) {
     this.model = model;
     this.$fullDate = $fullDate;
     this.$startDate = $startDate;
     this.$endDate = $endDate;
     this.$searchInputBox = $searchInputBox;
-    this.makeTemplate();
+    this.$fullDateInput = $fullDate.querySelector('input');
+    this.$startDateInput = $fullDate.querySelector('input');
+    this.$endDateInput = $fullDate.querySelector('input');
+    this.makeTemplate(model, model.getToday());
     document.querySelector('.calender_box').classList.add('display_none');
   }
 
   initEvent() {
     this.$fullDate.addEventListener('click', this.toggleButtonHandler.bind(this));
-    document.addEventListener('click', this.trClickColorHandler.bind(this));
-    document.addEventListener('click', this.leftButtonHandler.bind(this));
-    document.addEventListener('click', this.rightButtonHandler.bind(this));
+    document.addEventListener('click', (event) => {
+      this.trClickPutDataHandler(event); //순차적으로 실행하기 위해..
+      this.trClickColorHandler();
+    });
+    document.addEventListener('click', (event) => {
+      this.leftButtonHandler(event);
+      this.trClickColorHandler();
+    });
+    document.addEventListener('click', (event) => {
+      this.rightButtonHandler(event);
+      this.trClickColorHandler();
+    });
   }
 
   dateTemplate(model, date) {
@@ -77,37 +91,98 @@ class CalenderView {
                   </tr>
                   ${firstLine}
                   ${nextLine}
-                </table>
+                  </table>
               </div>  
             </div>`;
   }
 
-  makeTemplate() {
-    this.$searchInputBox.insertAdjacentHTML('beforeend', this.dateTemplate(this.model, this.model.getToday()));
+  makeTemplate(model, date) {
+    this.$searchInputBox.insertAdjacentHTML('beforeend', this.dateTemplate(model, date));
   }
 
   toggleButtonHandler() {
     document.querySelector('.calender_box').classList.toggle('display_none');
   }
 
-  trClickColorHandler({ target }) {
-    if (target.parentElement.className === 'calender_box__table__tr' && target.innerText) {
-      target.classList.toggle('calender_box__table__td-clicked');
-    }
+  trClickColorHandler() {
+    const calenderTables = document.querySelectorAll('.calender_box__inside_box');
+    calenderTables.forEach((table, i) => {
+      if (i === 0) return;
+      const year = table.querySelector('tr:nth-child(1)>th').innerText.slice(0, 4);
+      const month = table.querySelector('tr:nth-child(1)>th').innerText.slice(6, -1);
+      table.querySelectorAll('tr:nth-child(n+3) td').forEach(td => {
+        const day = td.innerText;
+        const monthNumber = this.formatNumbersLessThan10(month);
+        const dayNumber = this.formatNumbersLessThan10(day);
+        td.classList.remove('gray-background');
+        const selectedDateCheck = this.dateToShowArray.includes(`${year}.${month}.${day}`);
+        const clickedClassName = 'calender_box__table__td-clicked';
+        selectedDateCheck ? td.classList.add(clickedClassName) : td.classList.remove(clickedClassName);
+
+        if (this.dateToShowArray.length === 2 && td.innerText) {
+          const currentDate = `${year}${monthNumber}${dayNumber}`;
+          const startDate = this.dateToShowArray[0].split('.').map(this.formatNumbersLessThan10).join('');
+          const endDate = this.dateToShowArray[1].split('.').map(this.formatNumbersLessThan10).join('');
+          console.log(startDate)
+          console.warn(endDate)
+          if (currentDate > startDate && currentDate < endDate) td.classList.add('gray-background');
+        };
+      });
+    })
+  }
+
+  trClickPutDataHandler({ target }) {
+    if (!(target.innerText > 0)) return;
+    const year = target.closest('tbody').querySelector('th').innerText.slice(0, 4);
+    const month = target.closest('tbody').querySelector('th').innerText.slice(6, -1);
+    const day = target.innerText;
+    this.dateToShowArray.push(`${year}.${month}.${day}`);
+    this.changeDateArrayFromMoreClick();
+    this.dateToShowArray = this.sortDateArray(this.dateToShowArray);
+    const inputDateValue = this.formatDateArrayToString(this.dateToShowArray);
+    this.$fullDateInput.value = inputDateValue;
   }
 
   leftButtonHandler({ target }) {
     if (target.closest('.calender_box--left_button')) {
-      this.$searchInputBox.insertAdjacentHTML('beforeend', this.dateTemplate(this.model, this.model.getPrevMonthDate(this.model.getToday())));
+      this.makeTemplate(this.model, this.model.getPrevMonthDate(this.model.getToday()));
       target.closest('.calender_box').remove();
     }
   }
 
   rightButtonHandler({ target }) {
     if (target.closest('.calender_box--right_button')) {
-      this.$searchInputBox.insertAdjacentHTML('beforeend', this.dateTemplate(this.model, this.model.getNextMonthDate(this.model.getToday())));
+      this.makeTemplate(this.model, this.model.getNextMonthDate(this.model.getToday()));
       target.closest('.calender_box').remove();
     }
+  }
+
+  changeDateArrayFromMoreClick() { //날짜를 3번이상 클릭했을 때 배열에 2개로 거르기
+    if (this.dateToShowArray.length === 3) {
+      const newDate = this.dateToShowArray.splice(2, 1).join('');
+      this.dateClickCheck ? this.dateToShowArray[0] = newDate : this.dateToShowArray[1] = newDate;
+      this.dateClickCheck = !this.dateClickCheck;
+    }
+  }
+
+  sortDateArray(dateArray) {
+    return [...dateArray].sort((a, b) => {
+      const [aYear, aMonth, aDay] = a.split('.');
+      const [bYear, bMonth, bDay] = b.split('.');
+      return aYear - bYear || aMonth - bMonth || aDay - bDay;
+    });
+  }
+
+  formatDateArrayToString(dateArray) {
+    return dateArray.map(dateWord => {
+      const [year, month, day] = dateWord.split('.');
+      return `${year}년 ${month}월 ${day}일`;
+    }).join(' - ');
+  }
+
+
+  formatNumbersLessThan10(number) {
+    return number < 10 ? '0' + number : number;
   }
 }
 
