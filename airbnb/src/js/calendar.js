@@ -1,5 +1,6 @@
-import { makeDiv } from './controlHTML.js';
+import { div, span } from './controlHTML.js';
 import MONTH_DAYS from './daysByMonth.js';
+
 const HIDDEN = 'hidden';
 const CHEKCED = 'checked';
 const MONTH = 'month';
@@ -7,16 +8,18 @@ const WEEK = 'week';
 const DAY = 'day';
 const ABLE = 'able';
 const DISABLE = 'disable';
+const CONTAIN = 'contain';
+const DAY_SPAN = 'day__span';
 
-class Calendar {
+class CalendarModel {
   constructor(date = new Date()) {
     this.date = date;
     this.year = date.getFullYear();
     this.month = date.getMonth() + 1;
     this.day = date.getDate();
     this.nowDate = { year: this.year, month: this.month, day: this.day };
-    this.startReserveDay;
-    this.endReserveDay;
+    this.startReserve = { month: 0, day: 0 };
+    this.endReserve = { month: 0, day: 0 };
   }
   getCalendar() {
     const firstDay = this.getFirstDay(this.year, this.month); //요일
@@ -58,24 +61,54 @@ class Calendar {
       return this.year >= nowYear && this.month >= nowMonth;
     }
   }
+  isStartReservation(day) {
+    const { month: reserveMonth, day: reserveDay } = this.startReserve;
+    return day === reserveDay && this.month === reserveMonth;
+  }
+  isEndReservation(day) {
+    const { month: reserveMonth, day: reserveDay } = this.endReserve;
+    return day === reserveDay && this.month === reserveMonth;
+  }
+  //예약 start,end 사이에 있는 날짜들
+  isContain(day) {
+    const { month: startMonth, day: startDay } = this.startReserve;
+    const { month: endMonth, day: endDay } = this.endReserve;
+    if (this.month === startMonth) {
+      return startDay < day && day < endDay;
+    } else if (startMonth < this.month && this.month <= endMonth) {
+      return day < endDay;
+    }
+  }
   makeDayHtml(day) {
+    let dayHtml;
     if (day && this.isReservable(day)) {
-      if (day === this.startReserve || day === this.endReserve)
-        return makeDiv(day, DAY, ABLE, CHEKCED);
-      else return makeDiv(day, DAY, ABLE);
-    } else if (day) return makeDiv(day, DAY, DISABLE, 'past');
-    else return makeDiv('', DAY, DISABLE);
+      if (this.isStartReservation(day)) {
+        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, 'start-reserve');
+      } else if (this.isEndReservation(day)) {
+        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, 'end-reserve');
+      } else if (this.isContain(day)) {
+        dayHtml = div(span(day, DAY_SPAN), DAY, ABLE, CONTAIN);
+      } else {
+        dayHtml = div(span(day, DAY_SPAN), DAY, ABLE);
+      }
+    } else if (day) {
+      dayHtml = div(span(day, DAY_SPAN), DAY, DISABLE, 'past');
+    } else {
+      dayHtml = div(span(''), DAY, DISABLE);
+    }
+    return dayHtml;
   }
   makeWeekHtml(week) {
     let daysHtml = week.reduce((acc, day) => acc + this.makeDayHtml(day), '');
-    return makeDiv(daysHtml, WEEK);
+    return div(daysHtml, WEEK);
   }
   makeMonthHtml(month) {
-    let weeksHtml = month.reduce(
-      (acc, week) => acc + this.makeWeekHtml(week),
-      ''
-    );
-    return makeDiv(weeksHtml, MONTH);
+    let weeksHtml = month.reduce((acc, week) => acc + this.makeWeekHtml(week), '');
+    return div(weeksHtml, MONTH);
+  }
+  clearReserve() {
+    this.startReserve = { month: 0, day: 0 };
+    this.endReserve = { month: 0, day: 0 };
   }
   getCalendarFormat() {
     return `
@@ -104,16 +137,14 @@ export class CalendarView {
     this.queryForm = queryForm;
     this.queryDate = queryDate;
     this.calendar = calendar;
-    this.calendarModel = new Calendar();
+    this.calendarModel = new CalendarModel();
     this.startReserveDay;
     this.endReserveDay;
     this.queryDateContent;
   }
   init() {
     this.onEvent();
-    this.queryDateContent = this.queryDate.querySelectorAll(
-      '.query-date__content'
-    );
+    this.queryDateContent = this.queryDate.querySelectorAll('.query-date__content');
   }
   onEvent() {
     document.addEventListener('click', this.handleClick.bind(this));
@@ -159,35 +190,55 @@ export class CalendarView {
     }
   }
   isDay({ classList } = target) {
-    return classList.contains(DAY) && classList.contains(ABLE);
+    return classList.contains('day__span') || (classList.contains(DAY) && classList.contains(ABLE));
   }
   setReserveDate({ innerText: day } = target) {
     day = parseInt(day);
-    const { startReserve, endReserve } = this.calendarModel;
-    if (!startReserve) this.setStartReserve(day);
-    else if (!endReserve && startReserve < day) this.setEndReserve(day);
-    else {
+
+    if (this.isStartReservable()) {
       this.setStartReserve(day);
-      if (day <= startReserve || day >= endReserve) {
-        this.clearEndReserve();
+    } else if (this.isEndReservable(day)) {
+      this.setEndReserve(day);
+    } else {
+      if (!this.isBetweenReservation(day)) {
+        this.calendarModel.clearReserve();
+        this.clearReserve();
       }
+      this.setStartReserve(day);
     }
     this.setFormDate();
   }
+  isStartReservable() {
+    const { startReserve } = this.calendarModel;
+    return !startReserve.day;
+  }
+  //end-reserve day로 선택 가능한지 확인
+  isEndReservable(day) {
+    const { startReserve, month: calendarMonth } = this.calendarModel;
+    if (startReserve.day < day) {
+      return !this.endReserveDay;
+    } else {
+      return !this.endReserveDay && startReserve.month < calendarMonth;
+    }
+  }
+  isBetweenReservation(day) {
+    const { startReserve, endReserve } = this.calendarModel;
+    return startReserve.day <= day && day <= endReserve.day;
+  }
   setStartReserve(day) {
-    this.calendarModel.startReserve = day;
-    this.startReserve = this.calendarModel.getDateStringType(day);
+    this.calendarModel.startReserve = { month: this.calendarModel.month, day };
+    this.startReserveDay = this.calendarModel.getDateStringType(day);
   }
   setEndReserve(day) {
-    this.calendarModel.endReserve = day;
-    this.endReserve = this.calendarModel.getDateStringType(day);
+    this.calendarModel.endReserve = { month: this.calendarModel.month, day };
+    this.endReserveDay = this.calendarModel.getDateStringType(day);
   }
-  clearEndReserve() {
-    this.calendarModel.endReserve = 0;
-    this.endReserve = undefined;
+  clearReserve() {
+    this.startReserveDay = undefined;
+    this.endReserveDay = undefined;
   }
   setFormDate() {
-    const reserveDate = [this.startReserve, this.endReserve];
+    const reserveDate = [this.startReserveDay, this.endReserveDay];
     //stay일 경우 checkin,checkout으로 content 노드가 2개이다.
     if (this.queryDateContent.length === 2) {
       this.queryDateContent.forEach((v, idx) => {
