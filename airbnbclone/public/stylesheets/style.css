@@ -12,6 +12,7 @@
 @import "css/profile.css";
 @import "css/mainLocation.css";
 @import "css/mainPeople.css";
+@import "css/calender.css";
 body{
     font-family: 'Noto Sans KR', sans-serif;
 }

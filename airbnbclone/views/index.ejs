@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <title>
+        <%= title %>
+    </title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <script src="https://kit.fontawesome.com/431926bf5d.js" crossorigin="anonymous"></script>
@@ -79,13 +82,13 @@
 
 
         <div id="main_seachbar_rooms" class="main_seachbar">
-            <div class="flex_1">
+            <div class="flex_1 location">
                 <div class="seachbar_column seachbar_menu">
                     <h6 class="seachbar_title">위치</h6>
                     <input type="text" placeholder="어디로 여행가세요?">
                 </div>
             </div>
-            <div class="flex_2">
+            <div class="flex_2 date">
                 <div class="seachbar_bar"></div>
                 <div class="seachbar_column flex_1 seachbar_menu">
                     <h6 class="seachbar_title">체크인</h6>
@@ -99,7 +102,7 @@
                 <div class="seachbar_bar"></div>
             </div>
 
-            <div class="seachbar_menu seachbar_lastmenu display_flex flex_1">
+            <div class="seachbar_menu seachbar_lastmenu display_flex flex_1 people">
                 <div class="seachbar_column">
                     <h6 class="seachbar_title">인원</h6>
                     <span class="guest">게스트 추가</span>
@@ -117,14 +120,14 @@
 
         </div>
         <div id="main_seachbar_activity" class="main_seachbar hide">
-            <div class="flex_1">
+            <div class="flex_1 location">
                 <div class="seachbar_column seachbar_menu">
                     <h6 class="seachbar_title">위치</h6>
                     <input type="text" placeholder="어디로 여행가세요?">
                 </div>
             </div>
             <div class="seachbar_bar"></div>
-            <div class="seachbar_menu seachbar_lastmenu display_flex flex_1">
+            <div class="seachbar_menu seachbar_lastmenu display_flex flex_1 date">
                 <div class="seachbar_column">
                     <h6 class="seachbar_title">날짜</h6>
                     <span class="date">원하는 날짜를 입력하세요</span>
@@ -157,64 +160,64 @@
 
         <div class="main_people hide">
             <ul>
-                <li class="main_people_li">
+                <li class="main_people_list">
                     <div class="main_people__column1">
                         <h6>성인</h6>
                         <span>만 13세 이상</span>
                     </div>
                     <div class="main_people__column2">
-                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                role="presentation" focusable="false"
+                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
                                 style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
                                 <path d="m2 16h28"></path>
                             </svg></button>
                         <div>
                             <span class="peopleNumber">0</span>
                         </div>
-                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                role="presentation" focusable="false"
+                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
                                 style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
                                 <path d="m2 16h28m-14-14v28"></path>
                             </svg></button>
                     </div>
                 </li>
-                <li class="main_people_li">
+                <li class="main_people_list">
                     <div class="main_people__column1">
                         <h6>어린이</h6>
                         <span>2~12세</span>
                     </div>
                     <div class="main_people__column2">
-                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                role="presentation" focusable="false"
+                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
                                 style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
                                 <path d="m2 16h28"></path>
                             </svg></button>
                         <div>
                             <span class="peopleNumber">0</span>
                         </div>
-                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                role="presentation" focusable="false"
+                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
                                 style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
                                 <path d="m2 16h28m-14-14v28"></path>
                             </svg></button>
                     </div>
                 </li>
-                <li class="main_people_li">
+                <li class="main_people_list">
                     <div class="main_people__column1">
                         <h6>유아</h6>
                         <span>2세 미만</span>
                     </div>
                     <div class="main_people__column2">
-                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                role="presentation" focusable="false"
+                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
                                 style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
                                 <path d="m2 16h28"></path>
                             </svg></button>
                         <div>
                             <span class="peopleNumber">0</span>
                         </div>
-                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                role="presentation" focusable="false"
+                        <button class="people_column_btn"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
                                 style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
                                 <path d="m2 16h28m-14-14v28"></path>
                             </svg></button>
@@ -225,6 +228,18 @@
             </ul>
 
         </div>
+
+        <div class="main__calender hide">
+     
+                <button class="main__calender--move-left"><</button>
+                
+                <% include calender %>
+                <% include calender %>
+                <button class="main__calender--move-right">></button>
+        </div>
+
+
+
         <div class="main_slogan">
             <div>
                 <span class="slogan">이제, 여행은 가까운&nbsp;곳에서</span>
@@ -450,9 +465,7 @@
             </div>
         </section>
     </footer>
-    <script src="./javascripts/change_searchbar.js"></script>
-    <script src="./javascripts/profile.js"></script>
-    <script src="./javascripts/searchbar.js"></script>
+    <script src="./javascripts/main.js"></script>
 </body>
 
 </html>
