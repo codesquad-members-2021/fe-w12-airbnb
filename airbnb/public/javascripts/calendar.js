@@ -1,10 +1,9 @@
 const $date = document.querySelector('.date');
+const $calendarContainer = document.querySelector('.calendar-container');
 const date = new Date();
 
 const renderCalendar = () => {
   date.setDate(1);
-
-  const monthDays = document.querySelector('.days');
 
   const lastDay = new Date(
     date.getFullYear(),
@@ -22,11 +21,15 @@ const renderCalendar = () => {
 
   const nextDays = 7 - lastDayIndex - 1;
 
-  document.querySelector('.date p').innerHTML = `${date.getFullYear()}년 ${
-    date.getMonth() + 1
-  }월`;
-
+  const weekdays = ['월', '화', '수', '목', '금', '토', '일'];
+  let weekday = '';
   let days = '';
+  const calendarTitle = `${date.getFullYear()}년 ${date.getMonth() + 1}월`;
+  let calendarContents = '';
+
+  weekdays.forEach((e) => {
+    weekday += `<div>${e}</div>`;
+  });
 
   for (let x = firstDayIndex; x > 0; x--) {
     days += `<div class="prev-date"> </div>`;
@@ -45,19 +48,33 @@ const renderCalendar = () => {
 
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="next-date"> </div>`;
-    monthDays.innerHTML = days;
   }
+
+  return `<div class="calendar">
+                          <div>
+                            <div class="calendar-title">${calendarTitle}</div>
+                            <div class="weekdays">${weekday}</div>
+                            <div class="days">${days}</div>
+                          </div>
+                      </div>`;
 };
 
-document.querySelector('.prev').addEventListener('click', () => {
-  date.setMonth(date.getMonth() - 1);
-  renderCalendar();
-});
+const init = (n) => {
+  date.setMonth(date.getMonth() + n);
+  const thisMonth = renderCalendar();
+  date.setMonth(date.getMonth() + 1 + n);
+  const nextMonth = renderCalendar();
+  $calendarContainer.innerHTML = thisMonth + nextMonth;
+};
 
-document.querySelector('.next').addEventListener('click', () => {
-  date.setMonth(date.getMonth() + 1);
-  renderCalendar();
-});
+// document.querySelector('.prev').addEventListener('click', () => {
+//   date.setMonth(date.getMonth() - 1);
+//   renderCalendar();
+// });
 
-renderCalendar();
-renderCalendar();
+// document.querySelector('.next').addEventListener('click', () => {
+//   date.setMonth(date.getMonth() + 1);
+//   renderCalendar();
+// });
+
+init(0);

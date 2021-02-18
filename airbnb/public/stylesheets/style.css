@@ -92,8 +92,8 @@ nav ul li {
 .account-menu {
   display: none;
   position: absolute;
-  left: 77%;
-  top: 35%;
+  right: 5%;
+  top: 25%;
   border-radius: 10px;
   background-color: white;
   color: #222222;
@@ -131,11 +131,12 @@ nav ul li {
 }
 
 .search div {
-  margin: 0.9rem 0.3rem 0.8rem 1.5rem;
-  height: 2.5rem;
+  padding: 0.9rem 0.3rem 0.8rem 1.5rem;
+  height: 4rem;
 }
 
 .search div:not(:last-child) {
+  height: 4rem;
   border-right: 1px solid #a09e9e79;
 }
 
@@ -263,40 +264,40 @@ a {
 
 /* --------- */
 
-.sigle-calendar-container {
+.calendar-container {
   /* visibility: hidden; */
   position: absolute;
-  top: 29%;
-  right: 25%;
-  width: 27rem;
+  top: 24%;
+  right: 22.5%;
+  width: 48rem;
   height: 24rem;
-  padding: 1rem;
-  background-color: white;
-  color: black;
-  border-radius: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 1.3rem;
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.month {
+.calendar {
+  width: 24rem;
+  height: 24rem;
+  padding: 1rem;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-title {
   width: 100%;
   height: 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
+  line-height: 3rem;
+  font-size: 0.9rem;
   text-align: center;
 }
 
 .month i {
   font-size: 0.8rem;
   cursor: pointer;
-}
-
-.month p {
-  font-size: 0.9rem;
 }
 
 .weekdays {
@@ -308,7 +309,7 @@ a {
 }
 
 .weekdays div {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   width: calc(24rem / 7);
   height: 3rem;
   display: flex;
@@ -324,7 +325,7 @@ a {
 }
 
 .days div {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   width: calc(24rem / 7);
   height: 3rem;
   display: flex;
