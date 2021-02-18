@@ -204,22 +204,25 @@ export class CalendarView {
   }
   setReserveDate({ innerText: day } = target) {
     day = parseInt(day);
-    if (this.isStartReservable()) {
-      this.setStartReserve(day);
-    } else if (this.isEndReservable(day)) {
-      this.setEndReserve(day);
-    } else {
+    if (this.isFullReservation()) {
       if (this.isExtendReservation(day)) {
         this.setEndReserve(day);
-      } else if (this.isBetweenReservation(day)) {
+      } else if (this.calendarModel.isBetweenReservation(day)) {
         this.setStartReserve(day);
       } else {
         this.calendarModel.clearReserve();
         this.clearReserve();
         this.setStartReserve(day);
       }
+    } else if (this.isStartReservable()) {
+      this.setStartReserve(day);
+    } else if (this.isEndReservable(day)) {
+      this.setEndReserve(day);
     }
     this.setFormDate();
+  }
+  isFullReservation() {
+    return this.startReserveDay && this.endReserveDay;
   }
   isStartReservable() {
     return !this.calendarModel.startReserve.day;
@@ -228,14 +231,10 @@ export class CalendarView {
   isEndReservable(day) {
     const { startReserve, month: calendarMonth } = this.calendarModel;
     if (!this.endReserveDay && startReserve.day < day) {
-      return startReserve.month === calendarMonth;
+      return startReserve.month <= calendarMonth;
     } else {
       return startReserve.month < calendarMonth;
     }
-  }
-  isBetweenReservation(day) {
-    const { startReserve, endReserve } = this.calendarModel;
-    return startReserve.day <= day && day <= endReserve.day;
   }
   isExtendReservation(day) {
     const {
@@ -257,6 +256,7 @@ export class CalendarView {
     this.startReserveDay = undefined;
     this.endReserveDay = undefined;
   }
+  //form에 날짜형태로 선택한 날짜 입력
   setFormDate() {
     const reserveDate = [this.startReserveDay, this.endReserveDay];
     //stay일 경우 checkin,checkout으로 content 노드가 2개이다.
