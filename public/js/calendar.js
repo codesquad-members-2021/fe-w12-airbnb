@@ -8,7 +8,9 @@ export class Calendar {
   }
 
   init() {
+    const weeks = document.querySelectorAll('.calendar-weeks');
     const days = document.querySelectorAll('.calendar-days');
+    weeks.forEach((week) => (week.innerHTML = ''));
     days.forEach((day) => (day.innerHTML = ''));
   }
 
@@ -36,18 +38,16 @@ export class Calendar {
 
   rightBtnClickHandler({ target }) {
     if (!target.closest('.right-arrow')) return;
-    this.init();
     this.month += 1;
-    this.showCalendarTitle();
-    this.showCalendarDays();
+    this.init();
+    this.render();
   }
 
   leftBtnClickHandler({ target }) {
     if (!target.closest('.left-arrow')) return;
-    this.init();
     this.month -= 1;
-    this.showCalendarTitle();
-    this.showCalendarDays();
+    this.init();
+    this.render();
   }
 
   dateClickHandler() {
@@ -57,6 +57,8 @@ export class Calendar {
   showCalendarTitle() {
     const calendarTitles = document.querySelectorAll('.calendar-title');
     calendarTitles.forEach((title, i) => {
+      if (this.month === 12) this.month = 1;
+      else if (this.month === 1) this.month = 12;
       title.textContent = `${this.year}년 ${this.month + i}월`;
     });
   }
@@ -76,11 +78,12 @@ export class Calendar {
     const calendarDays = document.querySelectorAll('.calendar-days');
     calendarDays.forEach((day, i) => {
       const daysLen = new Date(this.year, this.month + i, 0).getDate();
-      let daysEmpty = new Date(this.year, this.month + i, 1).getDay();
+      let daysEmpty = new Date(`'${this.year}, ${this.month + i}, 1'`).getDay();
       const daysByOrder = Array.from(
         { length: daysLen + daysEmpty },
         (_, i) => i + 1 - daysEmpty
       );
+      console.log(daysEmpty);
       const days = daysByOrder.reduce((prev, day) => {
         if (daysEmpty) {
           daysEmpty -= 1;
@@ -88,7 +91,6 @@ export class Calendar {
         }
         return prev + `<span>${day}</span>`;
       }, '');
-
       day.insertAdjacentHTML('beforeend', days);
     });
   }
