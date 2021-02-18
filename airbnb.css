@@ -46,7 +46,7 @@ a {
     width: 100px;
 }
 
-/* ----- 중앙 네비게이션 ----- */
+/* -----● 중앙 네비게이션 ●----- */
 .header__middle_nav {
     position: absolute;
     top: 50%;
@@ -67,6 +67,8 @@ a {
     line-height: 50px;
     font-weight: 300;
 }
+
+/* ----- 중앙 네비게이션__언더바 애니메이션 ----- */
 .header__middle_nav > li {
     position: relative;
 }
@@ -92,7 +94,7 @@ a {
     color: rgb(235, 235, 235);
 }
 
-/* ----- 오른쪽 네비게이션 ----- */
+/* -----● 오른쪽 네비게이션 ●----- */
 .header__right_nav {
     float: right;
     margin-top: 15px;
@@ -173,6 +175,7 @@ a {
     background-color: #fff;
     border-radius: 45px;
     position: relative;
+    cursor: pointer;
 }
 .search > li:first-child {
     padding-left: 35px;
@@ -226,30 +229,45 @@ a {
     cursor: pointer;
 }
 
-/* ---------● 검색창__숙소 ●--------- */
+/* ---------● 검색창__숙소탭 ●--------- */
 .accommo__place {
     width: 270px;
 }
 .accommo__checkin,
 .accommo__checkout {
     width: 180px;
-    cursor: pointer;
 }
 .accommo__guest {
     width: 223px;
-    position: relative;
-    cursor: pointer;
 }
 
-/* ---------● 검색창__체험 ●--------- */
+/* ---------● 검색창__체험탭 ●--------- */
 .activity__place {
     width: 410px;
 }
 .activity__date {
     width: 443px;
+    position: relative;
 }
 
-/* ---------● 배너 ●--------- */
+/* ---------● 체험탭__달력 드롭다운 ●--------- */
+.calendar {
+    position: absolute;
+    top: 72px;
+    background: seashell;
+    width: 460px;
+    height: 370px;
+    padding: 35px 60px;
+    border-radius: 30px;
+}
+.calendar__title {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* ---------● 큰 이미지 배너 ●--------- */
 .banner {
     height: 652px;
     width: 100%;
