@@ -158,36 +158,168 @@ nav{
     background-color: #f1f1f1;
 }
 
-.calender2{
-    font-size: 14px;
-    line-height: 6.43;
-    box-sizing: border-box;
-    background: pink;
-    border-radius: 30px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
-    margin-top: 34px;
-    padding: 8px 0px;
-    position: absolute;
-    overflow:hidden;
-    top: 22%;
-    right: 220px;
-    /* max-height: calc(100vh - 100px); */
-    z-index: 2;
-    min-width: 850px;
-    display: block;
-    min-height: 372px;
-    display: flex;
-    flex-direction: row;
-    /* align-items:center; */
-    align-content: space-between;
+.calender__back {
+  position: absolute;
+  left: 50%;
+  top: 27%;
+  width: 70%;
+  height: 45%;
+  max-width: 850px;
+  max-height: 372px;
+  /* max-height: calc(100vh - 220px); */
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 32px;
+  display: flex;
+  /* z-index: 0; */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  padding: 16px 32px;
+
+  /* font-weight: bold; */
 }
-/* ---------------------------------------------------캘린더 */
-.calender {
-    height: 99%;
+.calender__day-lb_1{
+    padding: 0px 27px;
+    color: rgb(117, 117, 117);
+    position: absolute;
+    top: 62px;
+    z-index: 2;
+    text-align: left;
+}
+.calender__day-lb_2{
+    left: 400px;
+    padding: 0px 27px;
+    color: rgb(117, 117, 117);
+    position: absolute;
+    top: 62px;
+    z-index: 2;
+    text-align: left;
+}
+.day-lb {
+    list-style: none;
+    margin: 6px 22px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 14px;
+    display: flex;
+    column-gap: 37px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    align-content: center;
+}
+.day-lb li {
+    float: left;
+}
+.day-lb-li{
+  
+}
+.calender__back2 {
+    position: absolute;
+    left: 50%;
+    top: 27%;
+    z-index: 1;
+    background: rgb(255, 255, 255);
+    border-radius: 32px;
+    margin-top: 12px;
+    max-height: calc(100vh - 220px);
+    padding: 16px 32px;
+    /* min-height: 900px; */
+}
+.calender__nav{
+    position: relative;
+    z-index: 2;
+    height: 0px;
+}
+.calender__prev-btn{
+    position: absolute;
+    top: 7.5px;
+    padding: 15px;
+    right: 40x;
+
+}
+.calender__next-btn{
+    position: absolute;
+    top: 7.5px;
+    padding: 15px;
+    left: 680px;
+
+}
+
+.calender__next-btn button ,.calender__prev-btn button{
+    appearance: none;
+    display: inline-block;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    color: rgb(34, 34, 34);
+    cursor: pointer;
+    touch-action: manipulation;
+    position: relative;
+    background: transparent;
+    transition: -ms-transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s, transform 0.25s ease 0s !important;
+}
+
+.calender__out-box{
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    transition: height 0.2s ease-in-out 0s;
+}
+.calender__box{
+    transform: translateX(0px);
+    width: 1564px;
+    height: 378px;
+    background-color:cornsilk;
+    /* background: rgb(255, 255, 255); */
+    text-align: left;
+    /* z-index: 1; */
+    /* position: absolute; */
+    left: 9px;
+}
+
+.calender__box2{
+    display: inline-block;
+    vertical-align: top;
+    min-height: 100%;
+    position: absolute;
+    /* z-index: -1; */
+    /* opacity: 0; */
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.calender-1__box{
+    display: inline-block;
+    vertical-align: top;
+    min-height: 100%;
+    /* background-color: red; */
+    padding: 70px 27px;
+    background-color: rgb(194, 191, 191);
+    text-align: center;
+    vertical-align: top;
+    user-select: none;
+    
+}
+
+.calender{
+    display: inline-block;
+    vertical-align: top;
+    min-height: 100%;
+    /* background:rgb(141, 141, 141); */
+    /* text-align: center; */
+    vertical-align: top;
+    user-select: none;
     box-sizing: border-box;
     padding: 0.5%;
-    width: 400px;
+    width: 340px;
     height: 200px;
+}
+
+/* ---------------------------------------------------캘린더 */
+.calender {
+    /* height: 99%; */
 }
 
 .calender__day {
@@ -198,6 +330,10 @@ height: calc(98% / 5);
 box-sizing: border-box;
 border-radius: 5px;
 padding: 20px;
+font-size: 14px;
+line-height: 18px;
+font-weight: 600;
+/* background-color: pink; */
 }
 
 .horizontalGutter {
@@ -237,7 +373,7 @@ margin-top: 0.5%;
 
 .search__box {
     position: absolute;
-    width: 100%;
+    width: 150%;
     max-width: 850px;
     top: 17.3%;
     left: 50%;
