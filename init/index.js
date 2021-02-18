@@ -79,6 +79,7 @@ class SearchBarUI {
   init() {
     this.menuRoom.classList.add("display-block");
     this.menuActivity.classList.add("display-none");
+    this.onEvents();
   }
 }
 
@@ -90,62 +91,60 @@ class CalendarMaker {
   constructor() {
     this.today = new Date();
     this.year = this.today.getFullYear();
-    this.activeMonth = this.today.getMonth(); //2월은 1이 찍힘.
-    this.date = this.today.getDate();
+    this.activeMonth = this.today.getMonth(); //실제 Month -1
     this.dayList = ["일", "월", "화", "수", "목", "금", "토"];
     this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //월별 마지막 일
   }
 
   changeNullToBlank(array) {
-    //  빈 칸을 공백 문자열로 바꿔줌
     for (let i = 0; i < 35; i++) {
       if (!array[i]) array[i] = ``;
     }
     return array;
   }
 
-  //이전 버튼 누를 때 마다 month-1 됨 -> 1월 1일의 요일을 찾음 -> 1월 1일 1부터 31일까지 뿌림
-  //2월 = current month -> 2월 1일의 요일은? -> 월 -> 월요일의 인덱스는 1 -> 1 번 td 부터 숫자 1을 채우기 시작한다.
-  // -> 어디까지? -> 인덱스 31번까지. -> 인덱스 6는 6까지 있음 . 숫자가 6 이상이면 다시 0부터 시작 ....
   movePrevMonth() {
-    console.log("prev");
-    //1.화면에 있는 div를 remove 한다.
-    //2.active month를 -1 한다.
-    this.activeMonth--;
     const calendarEl = document.querySelector(".search-calendar");
     if (calendarEl) calendarEl.remove();
+    this.init();
 
-    this.init(); // 상단 월 안바뀜 , 연도 2021이하로 안바뀜 !! 그래도 함 ㅋ
+    if (this.activeMonth <= 0) {
+      this.activeMonth = 10;
+      this.year--;
+    } else {
+      this.activeMonth--;
+    }
   }
 
   moveNextMonth() {
-    console.log("next");
-    this.activeMonth++;
     const calendarEl = document.querySelector(".search-calendar");
     if (calendarEl) calendarEl.remove();
-
     this.init();
+
+    if (this.activeMonth >= 10) {
+      this.activeMonth = 0;
+      this.year++;
+    } else {
+      this.activeMonth++;
+    }
   }
 
-  showThisMonth() {
-    //디폴트 파라미터
-    //오른쪽 클릭할때마다 + 되게
+  showCalendar() {
     const leftDate = new Date();
-    leftDate.setDate(1); //1일로
-    leftDate.setMonth(this.activeMonth); //2
-
-    const rightDate = new Date();
-    rightDate.setDate(1);
-    rightDate.setMonth(this.activeMonth + 1); //3
+    leftDate.setDate(1); //date를 1로 지정(매월 시작 요일을 구하기 위함)
+    leftDate.setMonth(this.activeMonth); //activeMonth로 left 달력의 월 세팅
 
     let leftDayIdx = leftDate.getDay(); //각 달의 시작 요일의 idx
     const leftMonthIdx = leftDate.getMonth();
+    let leftDateRawList = [];
+
+    const rightDate = new Date();
+    rightDate.setDate(1);
+    rightDate.setMonth(this.activeMonth + 1);
 
     let rightDayIdx = rightDate.getDay(); //
     const rightMonthIdx = rightDate.getMonth();
-
-    let leftDateRawList = []; //왼쪽 바둑판
-    let rightDateRawList = []; //오른쪽 바둑판
+    let rightDateRawList = [];
 
     for (let date = 1; date <= this.lastDateOfMonth[this.activeMonth]; date++) {
       leftDateRawList[leftDayIdx] = date;
@@ -161,12 +160,10 @@ class CalendarMaker {
       rightDayIdx++;
     }
 
-    const leftDateList = this.changeNullToBlank(leftDateRawList);
-    const rightDateList = this.changeNullToBlank(rightDateRawList);
-    console.log(leftDateList);
-    console.log(rightDateList);
-
-    this.drawTbody(leftDateList, rightDateList);
+    this.drawTbody(
+      this.changeNullToBlank(leftDateRawList),
+      this.changeNullToBlank(rightDateRawList)
+    );
   }
 
   drawTbody(leftTdList, rightTdList) {
@@ -188,7 +185,7 @@ class CalendarMaker {
     const leftDiv = `<div id="calendar-left">
   <div class="calendar-title">
     <button id="btn-left"><</button>
-    <span>2021년 ${this.activeMonth + 1}월</span>
+    <span>${this.year}년 ${this.activeMonth + 1}월</span>
   </div>
   <table class="calendar-table">
     <thead>
@@ -224,7 +221,7 @@ class CalendarMaker {
 
     const rightDiv = `<div id="calendar-right">
       <div class="calendar-title">
-        <span>2021년 ${this.activeMonth + 2}월</span>
+        <span>${this.year}년 ${this.activeMonth + 2}월</span>
         <button id="btn-right">></button>
       </div>
       <table class="calendar-table">
@@ -265,7 +262,7 @@ class CalendarMaker {
   }
   init() {
     this.drawOutline();
-    this.showThisMonth();
+    this.showCalendar();
     this.onEvents();
   }
 }
@@ -276,7 +273,6 @@ const init = () => {
 
   const searchBarUI = new SearchBarUI();
   searchBarUI.init();
-  searchBarUI.onEvents();
 
   const calendarUI = new CalendarMaker();
   calendarUI.init();
