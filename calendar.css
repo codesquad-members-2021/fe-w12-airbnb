@@ -68,7 +68,7 @@ table {
     text-align: center;
     font-size:12px;
     font-weight: bold;
-    color:rgb(88, 88, 88);
+    color:rgb(189, 189, 189);
 }
 
 
@@ -82,5 +82,6 @@ table {
 }
 
 .gray {
-    background-color: rgb(235, 235, 235) !important;
+    background-color: rgb(241, 241, 241) !important;
 }
+
