@@ -1,8 +1,4 @@
 import { selectedDateState, createState, updateState, removeState } from "./dateStates.js";
-// import { connectTwoDates, deleteConnection } from "./dateConnection.js";
-// import { calendarDates } from "../experienceDateCalendar.js";
-// const calendarDates = document.querySelectorAll(".calendar__date");
-// 한번만 선언해서 여기저기 가져오거나 그럴수 있는 방법은 없나..
 
 const kindOfDate = {
   start: "startDate",
@@ -55,10 +51,6 @@ const deleteConnection = (calendarDates) => {
 
 const registerClickEvent = (element, placeholder, textStartDate, textEndDate, calendarDates) => {
   element.addEventListener("click", ({ target }) => {
-    console.log(target.id);
-    const temp = element.classList;
-    // console.log(element.classList);
-    // console.log(typeof temp[2]);
     placeholder.classList.add("none");
     const clickedDate = parseDate(target.id);
     if (!selectedDateState.startDate.element && !selectedDateState.endDate.element) {
