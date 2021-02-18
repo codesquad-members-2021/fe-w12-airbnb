@@ -5,15 +5,14 @@ export class Calendar {
     this.target = target;
     this.year = new Date().getFullYear();
     this.month = new Date().getMonth() + 1;
-    this.cloneNode = calendarWrapper.cloneNode(true);
   }
 
   init() {}
 
-  onFocusOut(e) {
+  onFocusOut({ target }) {
     if (
-      !e.target.closest('.input-date') &&
-      !e.target.closest('.calendars-wrapper')
+      !target.closest('.input-date') &&
+      !target.closest('.calendars-wrapper')
     ) {
       calendarWrapper.classList.add('calendars-wrapper-hidden');
     } else return;
@@ -21,7 +20,7 @@ export class Calendar {
 
   onEvents() {
     this.target.addEventListener('click', this.dateClickHandler);
-    document.body.addEventListener('click', (e) => this.onFocusOut(e));
+    document.body.addEventListener('click', this.onFocusOut);
     this.render();
     this.onClickArrowBtn();
   }
@@ -32,14 +31,14 @@ export class Calendar {
     rightBtn.addEventListener('click', this.rightBtnClickHandler.bind(this));
   }
 
-  rightBtnClickHandler() {
-    this.init();
+  rightBtnClickHandler({ target }) {
+    if (!target.closest('.right-arrow')) return;
     this.month += 1;
     this.render();
   }
 
-  leftBtnClickHandler() {
-    this.init();
+  leftBtnClickHandler({ target }) {
+    if (!target.closest('.left-arrow')) return;
     this.month -= 1;
     this.render();
   }
