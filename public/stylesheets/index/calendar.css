@@ -116,3 +116,8 @@
     border: 1px solid var(--black);
 }
 
+.calendar .date__dynamic ul > li > button.clickStatus {
+    background-color: var(--black);
+    color: var(--default-font-color);
+}
+
