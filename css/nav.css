@@ -56,6 +56,16 @@
   cursor: pointer;
 }
 
+.leftside__radius__box--hover {
+  min-width: 270px;
+  padding: 14px 32px;
+  background: #ebebeb;
+  border-radius: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+  /* z-index: 1; */
+}
+
 .leftside__radius__box--click {
   min-width: 270px;
   background: #fff;
@@ -74,15 +84,6 @@
   border-bottom-left-radius: 50px;
   box-sizing: border-box;
   cursor: pointer;
-}
-
-.leftside__radius__box:hover {
-  background: #ebebeb;
-  border-radius: 50px;
-}
-
-.leftside__radius__box:hover + div {
-  border-right: 1px solid #fff;
 }
 
 .leftside__radius__box--activity:hover {
@@ -105,6 +106,17 @@ input {
   cursor: pointer;
 }
 
+/* 양쪽 다 middle bar를 없애는 방법이 없을까... */
+/* 새로운 사실: 와.. 얘네 막대기가 두개인것 같고, before after로 생성되고 있는 것 같다. */
+/* 나중에 다시 파헤쳐야지 */
+.middle__box--hover {
+  background: #ebebeb;
+  border-radius: 50px;
+  padding: 14px 24px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
 .middle__box--click {
   background: #fff;
   padding: 14px 24px;
@@ -114,20 +126,13 @@ input {
   cursor: pointer;
 }
 
-/* 양쪽 다 middle bar를 없애는 방법이 없을까... */
-/* 새로운 사실: 와.. 얘네 막대기가 두개인것 같고, before after로 생성되고 있는 것 같다. */
-/* 나중에 다시 파헤쳐야지 */
-.middle__box:hover {
-  background: #ebebeb;
-  border-radius: 50px;
-}
-
-.middle__box:hover + div {
-  border-right: 1px solid #fff;
-}
-
 .middle__bar {
   border-right: 1px solid #ddd;
+  height: 32px;
+}
+
+.middle__bar--hover {
+  border-right: 1px solid #fff;
   height: 32px;
 }
 
@@ -145,13 +150,18 @@ input {
   align-items: center;
   justify-content: space-between;
 }
-.rightside__radius__box:hover {
+.rightside__radius__box--hover {
   background: #ebebeb;
   border-radius: 32px;
-}
-
-.rightside__radius__box:hover + div {
-  border-right: 1px solid #fff;
+  width: 220px;
+  padding: 14px 24px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .rightside__radius__box--activity {
@@ -234,6 +244,7 @@ input {
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  outline: none;
 }
 
 .location--li:hover {
