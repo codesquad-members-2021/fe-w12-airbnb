@@ -8,18 +8,20 @@ export default class SearchberEventController extends MainEventControler {
     this._.EVENT(this.main, "click", ({ target }) => {
       let searchbar = target.closest(".main_seachbar");
       if (searchbar) {
-        let searchbar_lastchild = searchbar.lastElementChild;
         let input = this._.$("input");
 
         this.clickLocation(input, target);
-
-        if (target === searchbar_lastchild) {
+        switch (searchbar.id) {
+          case "main_seachbar_rooms":
+            this.clickdate(target);
+            this.clickLastNode(target, input, ".people", this.mainPeople);
+            break;
+          case "main_seachbar_activity":
+            this.clickLastNode(target, input, ".date", this.mainCalender);
+            break;
         }
       } else {
-        super.removeClick(
-          this.mainLocation,
-          this.mainPeople
-        );
+        super.removeClick(this.mainLocation, this.mainPeople,this.mainCalender);
       }
     });
   }
@@ -36,48 +38,23 @@ export default class SearchberEventController extends MainEventControler {
     super.focusTarget(input);
     this._.EVENT(input, "focus", super.ADDTarget(this.mainLocation));
   }
-}
-/*
-if (target === searchbar_lastchild) {
-  console.log(target.closest(".main_seachbar").id);
-  switch (target.closest(".main_seachbar").id) {
-    case "main_seachbar_activity":
-      if (target.closest(".date")) {
-        if (target.closest(".seachbar_btn")) {
-          EventHandler.locationClick(input);
-        } else {
-          EventHandler.removeClick(mainLocation);
-          EventHandler.peoplebtnClick(mainCalender);
-        }
+  clickdate(target) {
+    if (target.closest(".date")) {
+      super.ADDTarget(this.mainCalender);
+    } else {
+      super.removeClick(this.mainCalender);
+    }
+  }
+  clickLastNode(target, input, lastNode, lastPopup) {
+    if (target.closest(lastNode)) {
+      if (target.closest(".seachbar_btn")) {
+        super.focusTarget(input);
       } else {
-        EventHandler.removeClick(mainCalender);
+        super.removeClick(this.mainLocation);
+        super.ADDTarget(lastPopup);
       }
-      break;
-    case "main_seachbar_rooms":
-      if (target.closest(".date")) {
-        EventHandler.peoplebtnClick(mainCalender);
-      } else {
-        EventHandler.removeClick(mainCalender);
-      }
-      if (target.closest(".people")) {
-        if (target.closest(".seachbar_btn")) {
-          EventHandler.locationClick(input);
-        } else {
-          EventHandler.removeClick(mainLocation);
-          EventHandler.peoplebtnClick(mainPeople);
-        }
-      } else {
-        EventHandler.removeClick(mainPeople);
-      }
-
-      break;
+    } else {
+      super.removeClick(lastPopup);
+    }
   }
 }
-
-const searchberEventController = (
-  main,
-  mainPeople,
-  mainLocation,
-  mainCalender
-) => {};
-*/

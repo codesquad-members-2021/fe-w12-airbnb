@@ -13,7 +13,7 @@ export default class MainEventControler extends EventHandler {
     this.profileHeader = this._.$(".profileHeader", main);
     this.mainPeople = this._.$(".main_people", main);
     this.mainLocation = this._.$(".main_location", main);
-    this.mainCalender = this._.$("main__calender", main);
+    this.mainCalender = this._.$(".main__calender", main);
   }
 
   init() {
