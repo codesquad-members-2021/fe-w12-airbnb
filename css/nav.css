@@ -4,6 +4,7 @@
   height: 64px;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .visible--hidden {
@@ -250,6 +251,7 @@ input {
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
+  position: relative;
 }
 
 .location__container {
@@ -258,7 +260,7 @@ input {
   height: 104px;
   margin: 12px 0 0;
   position: absolute;
-  left: 230px;
+  left: 135px;
   top: 100%;
   z-index: 20;
   border-radius: 32px;
@@ -314,7 +316,7 @@ input {
   height: 340px;
   padding: 16px 32px;
   position: absolute;
-  left: 230px;
+  left: 130px;
   top: 64px;
   z-index: 1;
   background: rgb(255, 255, 255);
@@ -336,6 +338,13 @@ input {
   height: 328px;
   padding: 0 27px;
   position: relative;
+}
+
+.calendar__button__box {
+  position: absolute;
+  top: 15px;
+  left: 60px;
+  z-index: 3;
 }
 
 .calendar--upper {

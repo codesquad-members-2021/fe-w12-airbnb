@@ -168,7 +168,6 @@
       target.classList.replace('middle__box--hover', 'middle__box--active');
     }
     if (target === $dateBtn) {
-      console.log('here');
       target.classList.replace('rightside__radius__box--activity--hover', 'rightside__radius__box--activity--active');
     }
 
@@ -206,7 +205,6 @@
     // }
 
     if (!$calendarBox.classList.contains('visible--hidden')) return;
-    console.log('there');
     $calendarBox.classList.toggle('visible--hidden');
   }
 
