@@ -72,20 +72,50 @@
     display:flex;
 }
 
-.calendar {
+.calendar_left {
     padding:20px 60px;
     width:50%;
 }
 
-.calendar > tbody > tr > td {
+.calendar_left > tbody > tr > td {
     text-align: center;
+    padding:0;
 }
 
-.calendar2 {
+.calendar_left > tbody > tr > .cal_padding {
+    padding-top: 10px;
+}
+
+.calendar_right {
     padding:20px 60px;
     width:50%;
 }
 
-.calendar2 > tbody > tr > td {
+.calendar_right > tbody > tr > td {
     text-align: center;
+    padding:0;
+}
+
+.calendar_right > tbody > tr > .cal_padding {
+    padding-top: 5px;
+}
+
+.CALENDAR_TABLE_BUTTON {
+    text-align: center;
+    width:31px;
+    height:31px;
+    padding:5px;
+    border:none;
+    outline:none;
+    background-color: transparent;
+}
+
+.CALENDAR_TABLE_BUTTON_CLICK {
+    background-color:black;
+    color:white;
+    border-radius: 50%;
+}
+
+.CALENDAR_TABLE_BUTTON:active {
+    transform: translateY(2px);
 }

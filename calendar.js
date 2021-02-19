@@ -6,12 +6,13 @@ const CALENDAR_OUT = document.querySelector("#calendar_out");
 const BOX = document.createElement("div");
 BOX.classList.add(CALENDAR_CSS);
 BOX.classList.add(CALENDAR_DISPLAY);
+BOX.id = "box_id";
 
 const cal = document.createElement("div");
 cal.classList.add(CALENDAR_FLEX);
 
 cal.innerHTML = `
-                    <table class="calendar">
+                    <table class="calendar_left">
                         <tr>
                             <td>
                                 <font size=1%; color="#B3B6B3">
@@ -21,22 +22,22 @@ cal.innerHTML = `
                             <td colspan="5" class="yearmonth"></td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="cal_padding">
                                 <font color="#FF9090">일</font>
                             </td>
-                            <td> 월 </td>
-                            <td> 화 </td>
-                            <td> 수 </td>
-                            <td> 목 </td>
-                            <td> 금 </td>
-                            <td>
+                            <td class="cal_padding"> 월 </td>
+                            <td class="cal_padding"> 화 </td>
+                            <td class="cal_padding"> 수 </td>
+                            <td class="cal_padding"> 목 </td>
+                            <td class="cal_padding"> 금 </td>
+                            <td class="cal_padding">
                                 <font color=#7ED5E4>토</font>
                             </td>
                         </tr>
                     </table>
                 
                 
-                    <table class="calendar2">
+                    <table class="calendar_right">
                         <tr>
                             <td></td>
                             <td colspan="5" class="yearmonth_second"></td>
@@ -47,15 +48,15 @@ cal.innerHTML = `
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="cal_padding">
                                 <font color="#FF9090">일</font>
                             </td>
-                            <td> 월 </td>
-                            <td> 화 </td>
-                            <td> 수 </td>
-                            <td> 목 </td>
-                            <td> 금 </td>
-                            <td>
+                            <td class="cal_padding"> 월 </td>
+                            <td class="cal_padding"> 화 </td>
+                            <td class="cal_padding"> 수 </td>
+                            <td class="cal_padding"> 목 </td>
+                            <td class="cal_padding"> 금 </td>
+                            <td class="cal_padding">
                                 <font color=#7ED5E4>토</font>
                             </td>
                         </tr>
@@ -68,21 +69,20 @@ BOX.insertAdjacentElement('beforeend', cal);
 
 
 document.addEventListener("click", (e) => {
-    const close = e.target.closest("#calendar_out");
+    const BOX_CLICK = e.target.closest("#box_id");
+    const close = e.target.closest("#calendar_out"); //  체크아웃 div
     const contain = BOX.classList.contains(CALENDAR_DISPLAY);
 
     if (close && contain) {
         BOX.classList.remove(CALENDAR_DISPLAY);
+    } else if (close) {
+        BOX.classList.add(CALENDAR_DISPLAY);
+    } else if (!BOX_CLICK) {
+        BOX.classList.add(CALENDAR_DISPLAY);
     }
-    // else if (close && !contain) {
-    //     cal.classList.add(CALENDAR_DISPLAY);
-    // } else {
-    //     cal.classList.add(CALENDAR_DISPLAY);
-    // }
 });
 
-
-// 달력구현
+// ======================================================================================= 달력구현
 let today = new Date();
 let data = new Date();
 let nextyear_today = new Date();
@@ -98,12 +98,12 @@ const nextMon = () => {
 }
 
 const build = () => {
-    const CALENDAR_LEFT = document.querySelector(".calendar");
-    const CALENDAR_RIGHT = document.querySelector(".calendar2");
+    const CALENDAR_LEFT = document.querySelector(".calendar_left");
+    const CALENDAR_RIGHT = document.querySelector(".calendar_right");
     let nMonth = new Date(today.getFullYear(), today.getMonth(), 1); //현재달의 첫째 날
     let lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); //현재 달의 마지막 날
-    const tbcal_left = document.querySelector(".calendar");
-    const tbcal_right = document.querySelector(".calendar2"); // 테이블 달력을 만들 테이블
+    const tbcal_left = document.querySelector(".calendar_left");
+    const tbcal_right = document.querySelector(".calendar_right"); // 테이블 달력을 만들 테이블
     const FIRST_YEARMONTH = document.querySelector(".yearmonth"); //  년도와 월 출력할곳
     const SECOND_YEARMONTH = document.querySelector(".yearmonth_second");
     const BEFORE = document.querySelector(".before");
@@ -121,7 +121,7 @@ const build = () => {
         tbcal_right.deleteRow(tbcal_right.rows.length - 1);
     }
 
-    // ============================================================================ left calendar
+    // =============================================================================== left calendar
     let row_left = null;
     row_left = tbcal_left.insertRow();
     let cnt = 0;
@@ -136,19 +136,19 @@ const build = () => {
     for (let i = 1; i <= lastDate.getDate(); i++) // 1일부터 마지막 일까지
     {
         let cell = row_left.insertCell();
-        cell.innerHTML = i;
+        cell.innerHTML = `<input type="button" class="CALENDAR_TABLE_BUTTON" value="${i}"></input>`;
         cnt = cnt + 1;
-        // console.log(cnt)
-        // if (cnt % 7 == 1) { //일요일 계산
-        //     cell.innerHTML = "<font color=#FF9090>" + i//일요일에 색
-        // }
+
+        if (cnt % 7 == 1) { //일요일 계산
+            cell.innerHTML = `<input type="button" class="CALENDAR_TABLE_BUTTON" value="${i}"></input>`;
+        }
         if (cnt % 7 == 0) { // 1주일이 7일 이므로 토요일 계산
-            cell.innerHTML = "<font color=#7ED5E4>" + i//토요일에 색
+            cell.innerHTML = `<input type="button" class="CALENDAR_TABLE_BUTTON" value="${i}"></input>`;
             row_left = CALENDAR_LEFT.insertRow(); // 줄 추가
         }
     }
 
-    // ============================================================================ right calendar
+    // ============================================================================= right calendar
     today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
     nMonth = new Date(today.getFullYear(), today.getMonth(), 1); //현재달의 첫째 날
     lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); //현재 달의 마지막 날
@@ -168,14 +168,14 @@ const build = () => {
     for (let i = 1; i <= lastDate.getDate(); i++) // 1일부터 마지막 일까지
     {
         let cell = row_right.insertCell();
-        cell.innerHTML = i;
+        cell.innerHTML = `<input type="button" class="CALENDAR_TABLE_BUTTON" value="${i}"></input>`;
         cnt2 = cnt2 + 1;
-        // console.log(cnt2)
-        // if (cnt2 % 7 == 1) { //일요일 계산
-        //     cell.innerHTML = "<font color=#FF9090>" + i//일요일에 색
-        // }
+
+        if (cnt2 % 7 == 1) { //일요일 계산
+            cell.innerHTML = `<input type="button" class="CALENDAR_TABLE_BUTTON" value="${i}"></input>`;
+        }
         if (cnt2 % 7 == 0) { // 1주일이 7일 이므로 토요일 계산
-            cell.innerHTML = "<font color=#7ED5E4>" + i//토요일에 색
+            cell.innerHTML = `<input type="button" class="CALENDAR_TABLE_BUTTON" value="${i}"></input>`;
             row_right = CALENDAR_RIGHT.insertRow(); // 줄 추가
         }
     }
@@ -196,7 +196,39 @@ const build = () => {
             BEFORE.innerHTML = (today.getMonth() - 1) + "월";
             NEXT.innerHTML = (today.getMonth() + 2) + "월";
         }
-        
-        
     }
 }
+
+
+// ========================================================================== 달력 클릭시 값
+const CAL_BUTTON = document.querySelector(".CALENDAR_TABLE_BUTTON");
+const CHECK_IN = document.querySelector(".check_in");
+const CHECK_OUT = document.querySelector(".check_out");
+
+let begin = null; // 첫번째 클릭값
+let after = null; // 두번째 클릭값
+let count = 0;
+
+BOX.addEventListener("click", (e) => {
+    const left = e.target.closest(".calendar_left");
+    const right = e.target.closest(".calendar_right");
+    const day = e.target.value;
+
+    if (begin === null) {
+        // 첫 클릭은 begin에 저장
+        begin = day;
+        // 첫 클릭 버튼 표시
+        e.target.classList.add("CALENDAR_TABLE_BUTTON_CLICK");
+        CHECK_IN.innerHTML = `${today.getMonth()}월 ${day}일`;
+    } else if (begin !== null) {
+        //두번째 클릭부터 after에 저장
+        after = day;
+        if (begin < after) {
+            e.target.classList.add("CALENDAR_TABLE_BUTTON_CLICK");
+            CHECK_OUT.innerHTML = `${today.getMonth() + 1}월 ${day}일`;
+        } else if(begin > after) {
+            return;
+        }
+
+    }
+});
