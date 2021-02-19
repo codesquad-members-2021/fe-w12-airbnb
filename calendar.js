@@ -7,7 +7,6 @@ function dayHandler() {
     calendar.style.display = "block";
 }
 
-
 //////////////////
 //전역변수
 let preCalendarTable = document.querySelector(".pre-calendar-table")
@@ -16,39 +15,18 @@ let currentCalendarTable = document.querySelector(".current-calendar-table")
 //오른쪽 달력
 let date = new Date();
 date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-// let y = date.getFullYear(); // 2021년
-// let m = date.getMonth(); //2월
-// let firstDate = new Date(y, m, 1) //2월 1일
-// let dayOfFirstDate = firstDate.getDay(); //월요일
+
 
 //왼쪽 달력
 let date2 = new Date()
 date2 = new Date(date2.getFullYear(), date2.getMonth() - 1, date2.getDate());
-// let y2 = date2.getFullYear(); // 2021년
-// let m2 = date2.getMonth() - 1; //1월
-// let firstDate2 = new Date(y2, m2, 1)
-// let dayOfFirstDate2 = firstDate2.getDay();
-
-// //각 달의 마지막 날
-// let last = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-// let lastDate = last[m]
-// //////////////////
-
-// //윤년체크
-// function checkLeapYear(y) {
-//     if (y % 4 && y % 100 != 0 || y % 400 == 0) {
-//         lastDate = last[1] = 29;
-//     }
-// }
-
 
 
 //달력에 숫자넣어주기
-let templateCalendar = ``
-
 function makeCalendar(dateObj) {
 
     let date = dateObj;
+
     let y = date.getFullYear(); // 2021년
     let m = date.getMonth(); //2월
     let firstDate = new Date(y, m, 1) //2월 1일
@@ -66,7 +44,7 @@ function makeCalendar(dateObj) {
     let dateNumber = 1; // 달력에 표기되는 일의 초깃값
     let row = Math.ceil((dayOfFirstDate + last[m]) / 7);
 
-    templateCalendar = `
+    let templateCalendar = `
             <tr>
                 <th class="month-tab" colspan="7"></th>
             </tr>
@@ -115,42 +93,11 @@ function main() {
 main();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 저번달 // 다음달 
+// 저번달 // 다음달버튼
 let prev = document.querySelector(".prev")
 let next = document.querySelector(".next")
 
 prev.addEventListener("click", prevHandler)
-
 next.addEventListener("click", nextHandler)
 
 
