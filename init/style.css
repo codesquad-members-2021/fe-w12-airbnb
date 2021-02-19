@@ -273,6 +273,7 @@ body {
 }
 
 .td-circle {
+  cursor: pointer;
   background-color: rgb(34, 34, 34);
   color: white;
   border-radius: 50%;
@@ -289,6 +290,7 @@ body {
   color: var(--calendar-tb-color);
 }
 .calendar-right-tbody > tr :hover {
+  cursor: pointer;
   box-shadow: 0 0 0 1px #000;
   border-radius: 50%;
 }

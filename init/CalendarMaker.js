@@ -7,7 +7,6 @@ export default class CalendarMaker {
     this.activeMonth = this.today.getMonth();
     this.dayList = ["일", "월", "화", "수", "목", "금", "토"];
     this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    this.init();
   }
 
   changeNullToBlank(array) {
@@ -15,41 +14,6 @@ export default class CalendarMaker {
       if (!array[i]) array[i] = ``;
     }
     return array;
-  }
-  movePrevMonth() {
-    const calendarEl = document.querySelector(".search-calendar");
-    if (calendarEl) calendarEl.remove();
-
-    if (this.activeMonth <= 0) {
-      this.activeMonth = 11;
-      --this.year;
-    } else {
-      --this.activeMonth;
-    }
-    this.init();
-  }
-
-  moveNextMonth() {
-    const calendarEl = document.querySelector(".search-calendar");
-    if (calendarEl) calendarEl.remove();
-
-    if (this.activeMonth >= 10) {
-      this.activeMonth = 0;
-      ++this.year;
-    } else {
-      ++this.activeMonth;
-    }
-    this.init();
-  }
-
-  makeActiveDate() {
-    if (this.activeMonth < 0) {
-      this.activeMonth = 10;
-      this.year--;
-    } else if (this.activeMonth > 11) {
-      this.activeMonth = 0;
-      this.year++;
-    }
   }
 
   showCalendar() {
@@ -64,7 +28,7 @@ export default class CalendarMaker {
     rightDate.setDate(1);
     rightDate.setMonth(this.activeMonth + 1);
 
-    let rightDayIdx = rightDate.getDay(); //
+    let rightDayIdx = rightDate.getDay();
 
     let rightDateRawList = [];
 
@@ -105,25 +69,25 @@ export default class CalendarMaker {
     }
 
     const leftDiv = `<div id="calendar-left">
-    <div class="calendar-title">
-      <button id="btn-left"><</button>
-      <span>${this.year}년 ${this.activeMonth + 1}월</span>
-    </div>
-    <table class="calendar-table">
-      <thead>
-        <tr>
-          <th>일</th>
-          <th>월</th>
-          <th>화</th>
-          <th>수</th>
-          <th>목</th>
-          <th>금</th>
-          <th>토</th>
-        </tr>
-      </thead>
-      <tbody class="calendar-left-tbody">${leftTbody}</tbody>
-    </table>
-  </div>`;
+      <div class="calendar-title">
+        <button id="btn-left"><</button>
+        <span>${this.year}년 ${this.activeMonth + 1}월</span>
+      </div>
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+        </thead>
+        <tbody class="calendar-left-tbody">${leftTbody}</tbody>
+      </table>
+    </div>`;
 
     document
       .querySelector(".search-calendar")
@@ -143,25 +107,25 @@ export default class CalendarMaker {
     }
 
     const rightDiv = `<div id="calendar-right">
-        <div class="calendar-title">
-          <span>${this.year}년 ${this.activeMonth + 2}월</span>
-          <button id="btn-right">></button>
-        </div>
-        <table class="calendar-table">
-          <thead>
-            <tr>
-              <th>일</th>
-              <th>월</th>
-              <th>화</th>
-              <th>수</th>
-              <th>목</th>
-              <th>금</th>
-              <th>토</th>
-            </tr>
-          </thead>
-          <tbody class="calendar-right-tbody">${rightTbody}</tbody>
-        </table>
-      </div>`;
+          <div class="calendar-title">
+            <span>${this.year}년 ${this.activeMonth + 2}월</span>
+            <button id="btn-right">></button>
+          </div>
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+              </tr>
+            </thead>
+            <tbody class="calendar-right-tbody">${rightTbody}</tbody>
+          </table>
+        </div>`;
 
     document
       .querySelector(".search-calendar")
@@ -173,18 +137,8 @@ export default class CalendarMaker {
     this.$navMenuActivity.insertAdjacentHTML("afterend", outerDivTemplate);
   }
 
-  onEvents() {
-    document
-      .querySelector("#btn-left")
-      .addEventListener("click", this.movePrevMonth.bind(this));
-
-    document
-      .querySelector("#btn-right")
-      .addEventListener("click", this.moveNextMonth.bind(this));
-  }
   init() {
     this.drawParentCalendar();
     this.showCalendar();
-    this.onEvents();
   }
 }

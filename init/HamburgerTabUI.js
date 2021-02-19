@@ -24,7 +24,7 @@ export default class HamburgerTabUI {
     <tr><td class=${this.tdClass}>${this.trList[4]}</td></tr>
     </tbody>
     </table>`;
-    $iconPerson.insertAdjacentHTML("afterend", this.tableTemplate);
+    this.$iconPerson.insertAdjacentHTML("afterend", this.tableTemplate);
     this.bPopUp = true;
   }
 

@@ -4,7 +4,6 @@ import CalendarMaker from "./CalendarMaker.js";
 import CalendarManager from "./CalendarManager.js";
 
 const $hamburgerTab = document.querySelector(".popup__icon-list");
-const $iconNavigator = document.querySelector(".nav--icons");
 const $navMenuRoom = document.querySelector(".search-section");
 const $navMenuActivity = document.querySelector(".search-section__activity");
 const $iconPerson = document.querySelector(".icon-person");
@@ -23,8 +22,13 @@ const init = () => {
   );
 
   const calendarUI = new CalendarMaker($navMenuRoom, $navMenuActivity);
+  calendarUI.init();
 
-  const calendarManager = new CalendarManager($activityDate);
+  const calendarManager = new CalendarManager(
+    $activityDate,
+    $navMenuRoom,
+    $navMenuActivity
+  );
 };
 
 init();
