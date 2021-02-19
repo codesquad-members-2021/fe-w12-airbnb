@@ -25,7 +25,6 @@ const renderCalendar = () => {
   let weekday = '';
   let days = '';
   const calendarTitle = `${date.getFullYear()}년 ${date.getMonth() + 1}월`;
-  let calendarContents = '';
 
   weekdays.forEach((e) => {
     weekday += `<div>${e}</div>`;
@@ -52,25 +51,17 @@ const renderCalendar = () => {
 
   return `<div class="calendar">
             <div>
-              <div class="calendar-title ">${calendarTitle}</div>
+              <div class="calendar-title">${calendarTitle}</div>
               <div class="weekdays">${weekday}</div>
               <div class="days">${days}</div>
             </div>
           </div>`;
 };
 
-const init = () => {
-  let thisMonth = date.getMonth();
-  // if (direction === 'plus') {
-  //   thisMonth++;
-  // }
-  // if (direction === 'minus') {
-  //   thisMonth--;
-  // }
-
-  date.setMonth(thisMonth);
+const init = (direction) => {
+  date.setMonth(date.getMonth());
   const thisMonthCal = renderCalendar();
-  date.setMonth(thisMonth + 1);
+  date.setMonth(date.getMonth() + 1);
   const nextMonthCal = renderCalendar();
   $calendarContainer.innerHTML = `
                                   <i class="prev">▷</i>
@@ -87,6 +78,8 @@ $days.forEach((elem) => {
   elem.addEventListener('click', (event) => {
     const $checkIn = document.querySelector('.sub-check-in');
     const $checkOut = document.querySelector('.sub-check-out');
+    const $checkInDate = document.querySelector('.check-in-date');
+    const $checkOutDate = document.querySelector('.check-out-date');
 
     function selectDate(inOrOut, dateDOM) {
       event.target.classList.add(inOrOut, 'clicked');
@@ -97,12 +90,9 @@ $days.forEach((elem) => {
     }
 
     function switchCheckOutDate() {
-      const $checkInDate = document.querySelector('.check-in-date');
-      const $checkOutDate = document.querySelector('.check-out-date');
-
       $checkOutDate.classList.remove('check-out-date', 'clicked');
       if (
-        parseInt(event.target.innerText) > parseInt($checkOutDate.textContent)
+        parseInt(event.target.textContent) > parseInt($checkOutDate.textContent)
       ) {
         event.target.classList.add('check-out-date', 'clicked');
       } else {
@@ -117,6 +107,14 @@ $days.forEach((elem) => {
     }
 
     if (clickCount === 1) {
+      if (
+        parseInt(event.target.textContent) < parseInt($checkInDate.textContent)
+      ) {
+        $checkInDate.classList.remove('check-in-date', 'clicked');
+        clickCount--;
+        selectDate('check-in-date', $checkIn);
+        return;
+      }
       selectDate('check-out-date', $checkOut);
       return;
     }
@@ -126,7 +124,3 @@ $days.forEach((elem) => {
     }
   });
 });
-
-// document.querySelector('.prev').addEventListener('click', init);
-
-document.querySelector('.next').addEventListener('click', init);
