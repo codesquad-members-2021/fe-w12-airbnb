@@ -155,9 +155,6 @@ class Calendar {
             element.addEventListener("mouseenter", (event) => {
                 event.target.classList.add("day_hover")
             });
-        });
-
-        dayButtons.forEach((element) => {
             element.addEventListener("mouseleave", (event) => {
                 event.target.classList.remove("day_hover")
             });
@@ -172,6 +169,7 @@ class Calendar {
 
        this.calendarStyleInit(dayButtons);
        this.handleCalendarHoverEvents(dayButtons);
+       
 
 
         // 달력 날짜들에 클릭 이벤트 추가
@@ -181,7 +179,7 @@ class Calendar {
 
                 clickCount++;
 
-                // 선택 일자 타입 변환
+                // 선택 일자를 변수에 저장
                 if (firstSelectedDay === 0) {
                     firstSelectedDay = Number(event.target.innerText);
                 } else {
