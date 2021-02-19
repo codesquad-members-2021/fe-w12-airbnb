@@ -28,6 +28,9 @@
       </div>
     </div>`;
 
+  // week -->
+  // .weekdays > ul > li * 7
+
   const calendarWeekdays = `
     <div class="weekdays">
       <ul class="weekdays--ul">
@@ -36,6 +39,7 @@
     </div>
   `;
 
+  // 그리는 것과 데이터를 분리?
   function drawWeekdays() {
     let weekdays = ``;
     for (day in WEEKDAY) {
@@ -44,23 +48,54 @@
     return weekdays;
   }
 
-  $calendarWrapper.innerHTML = `
-    <div class="calendar__box">
-    ${calendarUpper + calendarWeekdays}
-    </div>
-  `;
-
-  // week -->
-  // .weekdays > ul > li * 7
-
   // day -->
   // table > tbody > tr > td * 7 > div * 7
+
+  const calendarBody = `
+    <table class="calendar--table" role="presentation">
+      <tbody>
+      ${drawWeeks()}
+      </tbody>
+    </table>
+  `;
+
+  function drawWeek() {
+    let week = `<tr>\n`;
+    for (let i = 0; i < 7; i++) {
+      week += `<td><div></div><td>\n`;
+    }
+    week += `</tr>`;
+    return week;
+  }
+
+  function drawWeeks() {
+    const WEEKS = {
+      feb: 4,
+      short: 5,
+      long: 6,
+    };
+    let weeks = ``;
+    for (let i = 0; i < WEEKS.short; i++) {
+      weeks += `\n${drawWeek()}`;
+    }
+    return weeks;
+  }
+
+  function drawDays() {
+    return `${calendarUpper + calendarWeekdays + calendarBody}`;
+  }
 
   // 데이터
   // 생성(분리);
   // 데이터 넣기
 
   // css 추가
+
+  $calendarWrapper.innerHTML = `
+  <div class="calendar__box">
+    ${drawDays()}
+  </div>
+`;
 
   console.log(`DATE: ${DATE}`);
   console.log(`day: ${WEEKDAY[day]}`);
