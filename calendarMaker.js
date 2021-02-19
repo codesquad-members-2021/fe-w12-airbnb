@@ -15,21 +15,19 @@
 
 export default class CalendarMaker {
     constructor() {
-        this.today = new Date();
-        this.year = this.today.getFullYear();
-        this.month = this.today.getMonth();
         this.firstDayName; // 1일 요일
         this.lastDay;      // 마지막 일
         this.lastDayName;  // 마지막 일 요일
         this.lastDayOfWeek;// 주의 마지막 일
-        this.calendarHtml = ``;
     }
     // 캘린더뷰 클래스에서 이 함수 호출
     getCalendarData(when) {
         if(when === 'current') { // 날짜지정X → 현재 년,월 달력 표시
-            this.saveMonthInfo(this.year, this.month);
-            this.makeCalendar();
-            return {'year':this.year, 'month':this.month + 1, 'html':this.calendarHtml};
+            const today = new Date();
+            const [year, month] = [today.getFullYear(), today.getMonth()]
+            this.saveMonthInfo(year, month);
+            const data = {year: year, month: month + 1, html: this.getCalendarHtml()};
+            return data;
         } else { // 날짜지정O or 버튼클릭 → 인자로 받아온 년,월 달력 표시
 
         }
@@ -37,14 +35,15 @@ export default class CalendarMaker {
 
     // month는 0 ~ 11 
     saveMonthInfo(year, month) {
-        this.firstDayName = new Date(year, month, 1).getDay(); // 1(월요일)
+        this.firstDayName = new Date(year, month, 1).getDay();
         const last = new Date(year, month + 1, 0);
-        this.lastDay = last.getDate();     // 28
-        this.lastDayName = last.getDay();  // 0(일요일)
+        this.lastDay = last.getDate();
+        this.lastDayName = last.getDay();
     }
-    
-    makeCalendar() {
-        this.calendarHtml = this.getFirstWeek() + this.getMiddleWeek() + this.getLastWeek();
+
+    getCalendarHtml() {
+        const html = this.getFirstWeek() + this.getMiddleWeek() + this.getLastWeek();
+        return html; 
     }
 
     getFirstWeek() {
@@ -54,19 +53,18 @@ export default class CalendarMaker {
             week += `<td></td>`
         }
         for(let j = 0; j < this.lastDayOfWeek; j++) {
-            week += `<td><span>${j+1}</span></td>`
+            week += `<td><span>${j + 1}</span></td>`
         }
-        return week + `</tr>`
+        return week + `</tr>`;
     }
 
-    getMiddleWeek() {
-        let week = `<tr>`;
+    getMiddleWeek(week = `<tr>`) {
         for(let i = 0; i < 7; i++) {
             week += `<td><span>${this.lastDayOfWeek + i + 1}</span></td>`
         }
         this.lastDayOfWeek += 7;
-        if(this.lastDayOfWeek + 7 >= this.lastDay) return week +`</>`
-        else this.getMiddleWeek();
+        if(this.lastDayOfWeek + 7 >= this.lastDay) return week +`</tr>`;
+        else return this.getMiddleWeek(week + `</tr>`);
     }
 
     getLastWeek() {
@@ -78,6 +76,6 @@ export default class CalendarMaker {
         for(let j = 0; j < 7 - lastDayName; j++) {
             week += `<td></td>`
         }
-        return week + `</tr>`
+        return week + `</tr>`;
     }
 }
