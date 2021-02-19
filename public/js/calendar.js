@@ -51,26 +51,29 @@ export class Calendar {
     }
 
     const dayClicked = document.querySelectorAll('.calendar-day-clicked');
-    const isTwoDays = Array.from(dayClicked) //
+    const daysClickedCount = Array.from(dayClicked) //
       .filter((day) => day.classList.contains('calendar-day-clicked')).length;
 
-    if (isTwoDays === 2) {
-      const days = document.querySelectorAll('.calendar-day');
-      const daysNodeArr = Array.from(days);
-      const clickedIndex = daysNodeArr //
-        .map((day, idx) => {
-          if (day.classList.contains('calendar-day-clicked')) return idx;
-        })
-        .filter((isTrue) => isTrue);
-
-      const [firstDay, LastDay] = clickedIndex;
-      daysNodeArr //
-        .slice(firstDay, LastDay + 1)
-        .forEach((day) => day.classList.add('calendar-day-between'));
-    }
+    this.paintClickedDaysGap(daysClickedCount);
   }
 
-  getBetweenDayClicked() {}
+  paintClickedDaysGap(daysClickedCount) {
+    switch (daysClickedCount) {
+      case 2:
+        const days = document.querySelectorAll('.calendar-day');
+        const daysNodeArr = Array.from(days);
+        const clickedIndex = daysNodeArr //
+          .map((day, idx) => {
+            if (day.classList.contains('calendar-day-clicked')) return idx;
+          })
+          .filter((isTrue) => isTrue);
+
+        const [firstDay, LastDay] = clickedIndex;
+        daysNodeArr //
+          .slice(firstDay, LastDay + 1)
+          .forEach((day) => day.classList.add('calendar-day-between'));
+    }
+  }
 
   rightBtnClickHandler({ target }) {
     if (!target.closest('.right-arrow')) return;
