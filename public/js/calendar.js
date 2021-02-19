@@ -40,12 +40,13 @@ export class Calendar {
 
   onClickDays() {
     const calendars = document.querySelector('.calendar-container');
-    calendars.addEventListener('click', this.dayClickHandler);
+    calendars.addEventListener('click', this.dayClickHandler.bind(this));
   }
 
   dayClickHandler({ target }) {
     const hasValue = target.innerText;
-    const day = target.closest('.calendar-days > div');
+    const day = target.closest('.calendar-day');
+    console.log(target);
     if (hasValue && day) {
       day.classList.toggle('calendar-day-clicked');
     }
@@ -57,22 +58,39 @@ export class Calendar {
     this.paintClickedDaysGap(daysClickedCount);
   }
 
-  paintClickedDaysGap(daysClickedCount) {
-    switch (daysClickedCount) {
+  paintClickedDaysGap(dayClicked) {
+    const [dayList, dayClickedIndex] = this.getClickedDayList();
+    switch (dayClicked) {
+      case 1:
+        dayList.forEach((day) => day.classList.remove('calendar-day-between'));
+        break;
       case 2:
-        const days = document.querySelectorAll('.calendar-day');
-        const daysNodeArr = Array.from(days);
-        const clickedIndex = daysNodeArr //
-          .map((day, idx) => {
-            if (day.classList.contains('calendar-day-clicked')) return idx;
-          })
-          .filter((isTrue) => isTrue);
-
-        const [firstDay, LastDay] = clickedIndex;
-        daysNodeArr //
-          .slice(firstDay, LastDay + 1)
+        const [firstDayClicked, lastDayClicked] = dayClickedIndex;
+        dayList //
+          .slice(firstDayClicked, lastDayClicked + 1)
           .forEach((day) => day.classList.add('calendar-day-between'));
+        break;
+      case 3:
+        const [first, middle, last] = dayClickedIndex;
+        dayList[middle].classList.remove('calendar-day-clicked');
+        dayList.forEach((day) => day.classList.remove('calendar-day-between'));
+        dayList
+          .slice(first, last + 1)
+          .forEach((day) => day.classList.add('calendar-day-between'));
+        break;
+      default:
     }
+  }
+
+  getClickedDayList() {
+    const days = document.querySelectorAll('.calendar-day');
+    const daysNodeArr = Array.from(days);
+    const clickedIndex = daysNodeArr //
+      .map((day, idx) => {
+        if (day.classList.contains('calendar-day-clicked')) return idx;
+      })
+      .filter((isTrue) => isTrue);
+    return [daysNodeArr, clickedIndex];
   }
 
   rightBtnClickHandler({ target }) {
