@@ -353,12 +353,11 @@ a {
     background-color: var(--black);
     border-radius: var(--border-radius-circle);
     color:var(--font-color);
-    z-index: 2;
+    z-index: 3;
 }
 
-.calendar-day-between {
+.calendar-day-between{
     background: rgb(218 218 218);
-    z-index: 1;
 }
 
 .search-btn-container{

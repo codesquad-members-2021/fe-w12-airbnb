@@ -45,7 +45,7 @@ export class Calendar {
 
   dayClickHandler({ target }) {
     const hasValue = target.innerText;
-    const day = target.closest('.calendar-day');
+    const day = target.closest('.calendar-days .calendar-day');
 
     if (hasValue && day) {
       day.classList.toggle('calendar-day-clicked');
@@ -55,10 +55,10 @@ export class Calendar {
     const daysClickedCount = Array.from(dayClicked) //
       .filter((day) => day.classList.contains('calendar-day-clicked')).length;
 
-    this.paintClickedDaysGap(daysClickedCount);
+    this.paintClickedDaysGap(daysClickedCount, target);
   }
 
-  paintClickedDaysGap(dayClicked) {
+  paintClickedDaysGap(dayClicked, target) {
     const [dayList, dayClickedIndex] = this.getClickedDayList();
     switch (dayClicked) {
       case 1:
@@ -71,11 +71,17 @@ export class Calendar {
           .forEach((day) => day.classList.add('calendar-day-between'));
         break;
       case 3:
+        // 아직 구현 중
         const [first, middle, last] = dayClickedIndex;
-        dayList[middle].classList.remove('calendar-day-clicked');
+        let clickedNewday = target.innerText;
+        if (clickedNewday > middle) {
+          dayList[last].classList.remove('calendar-day-clicked');
+          clickedNewday = middle;
+        } else clickedNewday = last;
+        debugger;
         dayList.forEach((day) => day.classList.remove('calendar-day-between'));
         dayList
-          .slice(first, last + 1)
+          .slice(first, clickedNewday + 1)
           .forEach((day) => day.classList.add('calendar-day-between'));
         break;
       default:
