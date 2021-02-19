@@ -10,6 +10,9 @@ const ABLE = 'able';
 const DISABLE = 'disable';
 const CONTAIN = 'contain';
 const DAY_SPAN = 'day__span';
+const START_RESERVE = 'start-reserve';
+const END_RESERVE = 'end-reserve';
+const PAST = 'past';
 
 class CalendarModel {
   constructor(date = new Date()) {
@@ -34,9 +37,6 @@ class CalendarModel {
   getFirstDay(year, month) {
     return new Date(year, month - 1, 1).getDay();
   }
-  isLeaf(year, month) {
-    return year % 4 === 0 && month === 2;
-  }
   //get. month 2차원 배열
   getMonthData(year, month, day) {
     const monthArr = [];
@@ -53,6 +53,9 @@ class CalendarModel {
     }
     monthArr.push(weekArr); //마지막 weekArr도 추가
     return monthArr;
+  }
+  isLeaf(year, month) {
+    return year % 4 === 0 && month === 2;
   }
   //예약가능한 날인지 (오늘 이후인 날짜만 가능)
   isReservable(day) {
@@ -94,16 +97,16 @@ class CalendarModel {
     let dayHtml;
     if (day && this.isReservable(day)) {
       if (this.isStartReservation(day)) {
-        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, 'start-reserve');
+        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, START_RESERVE);
       } else if (this.isEndReservation(day)) {
-        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, 'end-reserve');
+        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, END_RESERVE);
       } else if (this.isBetweenReservation(day)) {
         dayHtml = div(span(day, DAY_SPAN), DAY, ABLE, CONTAIN);
       } else {
         dayHtml = div(span(day, DAY_SPAN), DAY, ABLE);
       }
     } else if (day) {
-      dayHtml = div(span(day, DAY_SPAN), DAY, DISABLE, 'past');
+      dayHtml = div(span(day, DAY_SPAN), DAY, DISABLE, PAST);
     } else {
       dayHtml = div(span(''), DAY, DISABLE);
     }
