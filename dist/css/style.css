@@ -180,6 +180,7 @@ header .searchItem-floatBox {
   display: flex;
   top: 5rem;
   width: 100%;
+  box-sizing: border-box;
 }
 header .searchItem-floatBox.item-location {
   justify-content: flex-start;
@@ -206,7 +207,82 @@ header .location-list > li > img {
   margin-right: 1rem;
 }
 header .searchItem-floatBox.item-calendar {
+  background: white;
+  flex-direction: column;
+  border-radius: 2rem;
+  color: black;
+  padding: 3rem;
+  height: 25rem;
+}
+
+header .calendar-container {
+  position: relative;
+}
+header .calendar-container > .calendar-fixed-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: none;
+  z-index: 2;
+}
+header .calendar-fixed-box > .calendar-day-control {
+  display: flex;
+  justify-content: space-between;
+}
+header .calendar-fixed-box .calendar-day-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+header .calendar-fixed-box .calendar-day {
+  display: flex;
+  width: 47%;
+}
+header .calendar-day li {
+  width: 14.28%;
+  text-align: center;
+}
+
+header .calendar-container > .calendar-list {
+  overflow: hidden;
+}
+header .calendar-list > .translate-box {
+  padding: 0 1rem;
+  display: flex;
+  transform: translate(-25.1rem);
+  transition: all 1s ease;
+}
+header .translate-box > div + div {
+  margin-left: 3rem;
+}
+
+header .calendar-date {
+  width: 22.1rem;
+  display: flex;
   justify-content: center;
+  align-items: center;
+}
+header .calendar-box ul {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+header .calendar-box ul > li {
+  width: 14.28%;
+  height: 0;
+  padding: 7.14% 0;
+  border-radius: 4rem;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .calendar-box ul > li:hover {
+  box-shadow: 0 0 0 1px black;
+}
+header .calendar-option > ul {
+  display: flex;
 }
 header .searchItem-floatBox.item-guest {
   justify-content: flex-end;

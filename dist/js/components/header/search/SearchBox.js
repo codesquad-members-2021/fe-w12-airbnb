@@ -5,7 +5,7 @@ import Guest from "./searchItem/Guest.js";
 export default class SearchBox extends Component {
   setup() {
     this.state = {
-      searchItem: "",
+      searchItem: "stayCheckIn",
     };
   }
   getTemplate() {
@@ -83,7 +83,6 @@ export default class SearchBox extends Component {
     `;
   }
   mounted() {
-    
     const searchItems = {
       "": () => {},
       searchLocation: ($target, props) => new Location($target, props),
@@ -92,9 +91,10 @@ export default class SearchBox extends Component {
       stayGuest: ($target, props) => new Guest($target, props),
       experienceDate: ($target, props) => new Calendar($target, props),
     };
+
     const $searchItemFloatBox = this.$target.querySelector(
-        ".searchItem-floatBox"
-      );
+      ".searchItem-floatBox"
+    );
     const { searchItem } = this.state;
     const createFloatBox = searchItems[searchItem];
     createFloatBox($searchItemFloatBox);
@@ -107,3 +107,28 @@ export default class SearchBox extends Component {
     });
   }
 }
+
+// {
+//   year: 2021,
+//   month: 1,
+//   day: 31,
+//   firstDay: 5,
+// },
+// {
+//   year: 2021,
+//   month: 2,
+//   day: 28,
+//   firstDay: 1,
+// },
+// {
+//   year: 2021,
+//   month: 3,
+//   day: 31,
+//   firstDay: 1,
+// },
+// {
+//   year: 2021,
+//   month: 4,
+//   day: 30,
+//   firstDay: 4,
+// },
