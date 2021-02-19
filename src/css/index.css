@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 @import 'reset.css';
 @import 'header.css';
+@import 'calendar.css';
 @import 'banner.css';
 @import 'recommended-cities.css';
 @import 'stay-type.css';
