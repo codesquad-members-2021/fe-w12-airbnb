@@ -38,15 +38,14 @@ class PopupLayer {
 
   moveCalenderDataHandler({ target }) {
     if (!(target.className === 'rooms' || target.className === 'experience')) return;
-    const { formatDateArrayToString } = this.calenderModel;
     switch (target.className) {
       case 'rooms':
-        const [startDate, endDate] = formatDateArrayToString().split(' - ');
+        const [startDate, endDate] = this.calenderModel.formatDateArrayToString().split(' - ');
         this.$startDateInput.value = startDate || '';
         this.$endDateInput.value = endDate || '';
         break;
       case 'experience':
-        const fullDate = formatDateArrayToString();
+        const fullDate = this.calenderModel.formatDateArrayToString();
         this.$fullDateInput.value = fullDate || '';
         break;
     }
