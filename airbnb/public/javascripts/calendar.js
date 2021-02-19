@@ -88,24 +88,15 @@ $days.forEach((elem) => {
     const $checkIn = document.querySelector('.sub-check-in');
     const $checkOut = document.querySelector('.sub-check-out');
 
-    if (clickCount === 0) {
-      event.target.classList.add('check-in-date', 'clicked');
-      $checkIn.innerHTML = `${date.getMonth() + 1}월 ${
+    function selectDate(inOrOut, dateDOM) {
+      event.target.classList.add(inOrOut, 'clicked');
+      dateDOM.innerHTML = `${date.getMonth() + 1}월 ${
         event.target.innerText
       }일`;
       clickCount++;
-      return;
-    }
-    if (clickCount === 1) {
-      event.target.classList.add('check-out-date', 'clicked');
-      $checkOut.innerHTML = `${date.getMonth() + 1}월 ${
-        event.target.innerText
-      }일`;
-      clickCount++;
-      return;
     }
 
-    if (clickCount === 2) {
+    function switchCheckOutDate() {
       const $checkInDate = document.querySelector('.check-in-date');
       const $checkOutDate = document.querySelector('.check-out-date');
 
@@ -118,6 +109,20 @@ $days.forEach((elem) => {
         $checkInDate.classList.remove('check-out-date', 'clicked');
         clickCount = 0;
       }
+    }
+
+    if (clickCount === 0) {
+      selectDate('check-in-date', $checkIn);
+      return;
+    }
+
+    if (clickCount === 1) {
+      selectDate('check-out-date', $checkOut);
+      return;
+    }
+
+    if (clickCount === 2) {
+      switchCheckOutDate();
     }
   });
 });
