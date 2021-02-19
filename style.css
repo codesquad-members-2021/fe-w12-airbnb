@@ -31,7 +31,8 @@ input {
 
 /* header  */
 header {
-  padding: 20px 80px;
+  padding: 0 80px;
+  padding-top: 15px;
   text-align: justify;
   min-width: 740px;
   position: relative;
@@ -92,12 +93,12 @@ nav .menu li,
 .login__menu .login {
   padding-left: 10px;
   font-size: 30px;
-  color: gray;
+  color: #717171;
   display: table-cell;
   vertical-align: middle;
 }
 .login__menu .toogle {
-  color: gray;
+  color: #717171;
   display: table-cell;
   vertical-align: middle;
 }
@@ -184,8 +185,7 @@ nav .menu li,
 .search__title,
 .search-sub__title {
   display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
+  margin: 7px 0px;
 }
 .search__title,
 .search-sub__title {
@@ -195,8 +195,7 @@ nav .menu li,
 .search__desc,
 .search-sub__desc {
   font-size: 13px;
-  color: gray;
-  /* padding-top: 100px; */
+  color: #8e8e8e;
 }
 
 .search span,
@@ -204,6 +203,15 @@ nav .menu li,
 .search-sub span,
 .search-sub__location > input {
   padding-left: 20px;
+}
+.search__line {
+  border-left: 0.1px solid green;
+  height: 20px;
+  float: right;
+}
+.search li:hover + .search__line,
+.search-sub li:hover + .search__line {
+  border-left: 0.1px solid transparent;
 }
 
 /* login pop-up  */
@@ -226,7 +234,77 @@ nav .menu li,
   padding: 10px 10px;
 }
 .login__pop-up li:hover {
-  background-color: gray;
+  background-color: #aeaeae;
+}
+hr {
+  border-top: 0.1px solid #aeaeae;
+}
+
+/* calendar  */
+.calendar {
+  position: absolute;
+  top: 250px;
+  right: 200px;
+  border-radius: 30px;
+  font-size: 15px;
+  background-color: whitesmoke;
+  display: none;
+  justify-content: space-between;
+  width: 850px;
+  padding: 50px;
+  border-radius: 30px;
+}
+.calendar__container1,
+.calendar__container2 {
+  font-size: 15px;
+}
+
+.calendar.active {
+  display: flex;
+}
+
+.calendar__year-month1,
+.calendar__year-month2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 17px;
+  display: inline-block;
+}
+.calendar__year-month2 {
+  margin-left: 130px;
+}
+.calendar__year-month1 {
+  margin-left: 130px;
+}
+.pre-month,
+.next-month {
+  display: inline-block;
+}
+.next-month {
+  float: right;
+}
+.calendar__day1 td,
+.calendar__day1 th,
+.calendar__day2 td,
+.calendar__day2 th {
+  text-align: center;
+  padding: 10px 10px;
+}
+.calendar__day1 th,
+.calendar__day2 th {
+  color: gray;
+  font-weight: 350;
+  font-size: 13px;
+}
+
+.month-bar {
+  justify-content: space-between;
+}
+
+.dataNumBox.active {
+  background-color: black;
+  color: whitesmoke;
+  border-radius: 50%;
 }
 
 /* local */

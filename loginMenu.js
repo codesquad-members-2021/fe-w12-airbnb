@@ -5,8 +5,8 @@ toogleBtn.addEventListener('click', () => {
     loginPOPUP.classList.toggle('active');
 })
 
-if(loginPOPUP.className === 'login__pop-up active'){
-    document.addEventListener('click', ()=> {
-            loginPOPUP.classList.toggle('active');
-    });
-}
+// if(loginPOPUP.className === 'login__pop-up active'){
+//     document.addEventListener('click', ()=> {
+//             loginPOPUP.classList.toggle('active');
+//     });
+// }

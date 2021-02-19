@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script defer src="loginMenu.js"></script>
-    <script defer src="searchBar.js"></script>
+    <script src="loginMenu.js" defer></script>
+    <script src="searchBar.js" defer></script>
+    <script src="calendar.js" defer></script>
     <script src="https://kit.fontawesome.com/c3d44d5c03.js" crossorigin="anonymous"></script>
     <title>airbnbClone</title>
 </head>
@@ -43,22 +44,27 @@
             <li class="search__location">
                 <span class="search__title">위치</span>
                 <input type="text" placeholder="어디로 여행가세요?">
+                <span class="search-bar__divideLine"></span>
             </li>
-            <li class="search__checkin">
-                <span class="search__title">체크인</span>
-                <span class="search__desc">날짜 추가</span>
-            </li>
-            <li class="search__checkout">
-                <span class="search__title">체크아웃</span>
-                <span class="search__desc">날짜 추가</span>
-            </li>
-            <li class="search__total">
-                <div class="total__textbox">
-                    <span class="search__title">인원</span>
-                    <span class="search__desc">게스트 추가</span>
-                </div>
-                <div class="search__icon"><i class="fas fa-search"></i></div>
-            </li>
+            <div class="search__line"></div>
+                <li class="search__checkin">
+                    <span class="search__title">체크인</span>
+                    <span class="search__desc">날짜 추가</span>
+                </li>
+                <div class="search__line"></div>
+                <li class="search__checkout">
+                    <span class="search__title">체크아웃</span>
+                    <span class="search__desc">날짜 추가</span>
+                </li>
+                <div class="search__line"></div>
+                <li class="search__total">
+                    <div class="total__textbox">
+                        <span class="search__title">인원</span>
+                        <span class="search__desc">게스트 추가</span>
+                    </div>
+                    <div class="search__icon"><i class="fas fa-search"></i></div>
+                </li>
+
         </ul>
 
         <ul class="search-sub">
@@ -66,8 +72,9 @@
                 <span class="search-sub__title">위치</span>
                 <input type="text" placeholder="어디로 여행가세요?">
             </li>
+            <div class="search__line"></div>
             <li class="search-sub__experience">
-                <div class="total__textbox">
+                <div class="search-sub__calendarBtn">
                     <span class="search-sub__title">날짜</span>
                     <span class="search-sub__desc">원하는 날짜를 입력하세요.</span>
                 </div>
@@ -81,6 +88,7 @@
                 <li class="login__sign-up">회원가입</li>
                 <li>로그인</li>
             </ul>
+            <hr>
             <ul class="login__etc">
                 <li>숙소 호스트되기</li>
                 <li>체험 호스팅하기</li>
@@ -88,6 +96,29 @@
             </ul>
 
         </div>
+        
+
+        <div class="calendar">
+            <div class="calendar__container1">
+                <div class="month-bar">
+                    <div class="pre-month"><i class="fas fa-chevron-left"></i></div>
+                    <div class="calendar__year-month1">
+                    </div>
+                </div>
+                <table class="calendar__day1">
+                </table>
+            </div>
+            <div class="calendar__container2">
+                <div class="month-bar">
+                    <div class="calendar__year-month2">
+                    </div>
+                    <div class="next-month"><i class="fas fa-chevron-right"></i></div>
+                </div>
+                <table class="calendar__day2">
+                </table>
+            </div>
+        </div>
+
 
 
         <div class="banner-content">
