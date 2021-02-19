@@ -184,27 +184,6 @@ export class CalendarView {
     const calendarHTML = this.calendarModel.getCalendar();
     this.calendar.innerHTML = calendarHTML;
   }
-  isLeftArrow({ classList } = target) {
-    return classList.contains('prev') || classList.contains('fa-angle-left');
-  }
-  isRightArrow({ classList } = target) {
-    return classList.contains('next') || classList.contains('fa-angle-right');
-  }
-  setPrevDate() {
-    if (--this.calendarModel.month <= 0) {
-      this.calendarModel.year--;
-      this.calendarModel.month = 12;
-    }
-  }
-  setNextDate() {
-    if (++this.calendarModel.month > 12) {
-      this.calendarModel.year++;
-      this.calendarModel.month = 1;
-    }
-  }
-  isDay({ classList } = target) {
-    return classList.contains(DAY_SPAN) || (classList.contains(DAY) && classList.contains(ABLE));
-  }
   setReserveDate({ innerText: day } = target) {
     day = parseInt(day);
     if (this.isFullReservation()) {
@@ -223,6 +202,15 @@ export class CalendarView {
       this.setEndReserve(day);
     }
     this.setFormDate();
+  }
+  isLeftArrow({ classList } = target) {
+    return classList.contains('prev') || classList.contains('fa-angle-left');
+  }
+  isRightArrow({ classList } = target) {
+    return classList.contains('next') || classList.contains('fa-angle-right');
+  }
+  isDay({ classList } = target) {
+    return classList.contains(DAY_SPAN) || (classList.contains(DAY) && classList.contains(ABLE));
   }
   isFullReservation() {
     return this.startReserveDay && this.endReserveDay;
@@ -258,6 +246,18 @@ export class CalendarView {
       return day < startReserveDay;
     } else {
       return false;
+    }
+  }
+  setPrevDate() {
+    if (--this.calendarModel.month <= 0) {
+      this.calendarModel.year--;
+      this.calendarModel.month = 12;
+    }
+  }
+  setNextDate() {
+    if (++this.calendarModel.month > 12) {
+      this.calendarModel.year++;
+      this.calendarModel.month = 1;
     }
   }
   setStartReserve(day) {
