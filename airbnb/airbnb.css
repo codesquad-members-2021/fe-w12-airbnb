@@ -89,10 +89,6 @@ header {
   align-items: center;
 }
 
-.nav {
-  font-size: 18px;
-}
-
 .nav * {
   color: #FFF;
 }
@@ -312,7 +308,7 @@ header {
 
 .gray-background {
   background: #F7F7F7;
-  box-shadow: 0px 4px 0 #F7F7F7, 4px 0 4px 0 #F7F7F7
+  box-shadow: 0 0 4px 0 #F7F7F7, 4px 0 4px 0 #F7F7F7
 }
 
 .gray-border-top {
@@ -416,7 +412,7 @@ input[type='radio']:checked+span {
 }
 
 .calender_box__table {
-  padding: 0 27px;
+  padding: 0 6px;
 }
 
 .calender_box__table tr>td {
@@ -431,7 +427,7 @@ input[type='radio']:checked+span {
 }
 
 .calender_box__table__td-clicked {
-  background: #000;
+  background: #222;
   color: #FFF;
   border-radius: 50%;
 }
