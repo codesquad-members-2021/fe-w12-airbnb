@@ -8,8 +8,8 @@ class CalenderView {
     this.$endDate = $endDate;
     this.$searchInputBox = $searchInputBox;
     this.$fullDateInput = _.$('input', $fullDate);
-    this.$startDateInput = _.$('input', $fullDate);
-    this.$endDateInput = _.$('input', $fullDate);
+    this.$startDateInput = _.$('input', $startDate);
+    this.$endDateInput = _.$('input', $endDate);
     this.makeTemplate(calenderModel, calenderModel.getToday());
     _.$('.calender_box').classList.add("display_none");
     this.initEvent();
@@ -17,6 +17,9 @@ class CalenderView {
 
   initEvent() {
     this.$fullDate.addEventListener('click', this.toggleButtonHandler.bind(this));
+    this.$startDate.addEventListener('click', this.toggleButtonHandler.bind(this));
+    this.$endDate.addEventListener('click', this.toggleButtonHandler.bind(this));
+    document.addEventListener('click', this.hideCalenderHandler.bind(this));
     document.addEventListener('click', (event) => {
       this.trClickPutDataHandler(event); //순차적으로 실행하기 위해..
       this.tableClickColorHandler();
@@ -29,6 +32,88 @@ class CalenderView {
       this.rightButtonHandler(event);
       this.tableClickColorHandler();
     });
+  }
+
+
+
+  makeTemplate(model, date) {
+    this.$searchInputBox.insertAdjacentHTML('beforeend', this.dateTemplate(model, date));
+  }
+
+  toggleButtonHandler() {
+    _.$('.calender_box').classList.toggle('display_none');
+  }
+
+  tableClickColorHandler() {
+    const calenderTables = _.$All('.calender_box__inside_box');
+    calenderTables.forEach((table, i) => {
+      if (i === 0) return;
+      const year = _.$('tr:nth-child(1)>th', table).innerText.slice(0, 4);
+      const month = _.$('tr:nth-child(1)>th', table).innerText.slice(6, -1);
+      _.$All('tr:nth-child(n+3) td', table).forEach(td => {
+        td.classList.remove('gray-background');
+        const day = td.innerText;
+        const selectedDateCheck = this.model.getDatesArray().includes(`${year}.${month}.${day}`);
+        const clickedClassName = 'calender_box__table__td-clicked';
+        selectedDateCheck ? td.classList.add(clickedClassName) : td.classList.remove(clickedClassName);
+
+        const monthNumber = this.formatNumbersLessThan10(month);
+        const dayNumber = this.formatNumbersLessThan10(day);
+        if (this.model.getDatesArray().length === 2 && td.innerText) {
+          const currentDate = `${year}${monthNumber}${dayNumber}`;
+          const startDate = this.model.getDatesArray()[0].split('.').map(this.formatNumbersLessThan10).join('');
+          const endDate = this.model.getDatesArray()[1].split('.').map(this.formatNumbersLessThan10).join('');
+          if (currentDate > startDate && currentDate < endDate) td.classList.add('gray-background');
+        }
+      });
+    })
+  }
+
+  trClickPutDataHandler({ target }) {
+    if (!(target.innerText > 0) || target.classList.contains('calender_box__table__past_date')) return;
+    const year = target.closest('tbody').querySelector('th').innerText.slice(0, 4);
+    const month = target.closest('tbody').querySelector('th').innerText.slice(6, -1);
+    const day = target.innerText;
+    this.model.addDatesArray(`${year}.${month}.${day}`);
+    this.model.changeDatesArrayFromMoreData();
+    this.model.sortDateArray();
+    const inputDateValue = this.model.formatDateArrayToString();
+    const [startDate, endDate] = inputDateValue.split(' - ');
+    this.$startDateInput.value = startDate;
+    this.$endDateInput.value = endDate;
+    console.log(startDate)
+    console.warn(this.$startDateInput)
+    console.log(endDate)
+    console.warn(this.$endDateInput)
+    this.$fullDateInput.value = inputDateValue;
+  }
+
+  leftButtonHandler({ target }) {
+    if (target.closest('.calender_box--left_button')) {
+      this.makeTemplate(this.model, this.model.getPrevMonthDate(this.model.getToday()));
+      target.closest('.calender_box').remove();
+    }
+  }
+
+  rightButtonHandler({ target }) {
+    if (target.closest('.calender_box--right_button')) {
+      this.makeTemplate(this.model, this.model.getNextMonthDate(this.model.getToday()));
+      target.closest('.calender_box').remove();
+    }
+  }
+
+  formatNumbersLessThan10(number) {
+    return number < 10 ? '0' + number : number;
+  }
+
+  hideCalenderHandler({ target }) {
+    if (target.closest('.calender_box')) return;
+    const isStartDate = !!target.closest(`.${this.$startDate.className}`);
+    const isEndDate = !!target.closest(`.${this.$endDate.className}`);
+    const isFullDate = !!target.closest(`.${this.$fullDate.className}`);
+    if (!(isStartDate || isEndDate || isFullDate)) {
+      _.$('.calender_box').classList.add('display_none');
+    }
   }
 
   dateTemplate(model, date) {
@@ -72,69 +157,6 @@ class CalenderView {
                   </table>
               </div>  
             </div>`;
-  }
-
-  makeTemplate(model, date) {
-    this.$searchInputBox.insertAdjacentHTML('beforeend', this.dateTemplate(model, date));
-  }
-
-  toggleButtonHandler() {
-    _.$('.calender_box').classList.toggle('display_none');
-  }
-
-  tableClickColorHandler() {
-    const calenderTables = _.$All('.calender_box__inside_box');
-    calenderTables.forEach((table, i) => {
-      if (i === 0) return;
-      const year = _.$('tr:nth-child(1)>th', table).innerText.slice(0, 4);
-      const month = _.$('tr:nth-child(1)>th', table).innerText.slice(6, -1);
-      _.$All('tr:nth-child(n+3) td', table).forEach(td => {
-        td.classList.remove('gray-background');
-        const day = td.innerText;
-        const selectedDateCheck = this.model.getDatesArray().includes(`${year}.${month}.${day}`);
-        const clickedClassName = 'calender_box__table__td-clicked';
-        selectedDateCheck ? td.classList.add(clickedClassName) : td.classList.remove(clickedClassName);
-
-        const monthNumber = this.formatNumbersLessThan10(month);
-        const dayNumber = this.formatNumbersLessThan10(day);
-        if (this.model.getDatesArray().length === 2 && td.innerText) {
-          const currentDate = `${year}${monthNumber}${dayNumber}`;
-          const startDate = this.model.getDatesArray()[0].split('.').map(this.formatNumbersLessThan10).join('');
-          const endDate = this.model.getDatesArray()[1].split('.').map(this.formatNumbersLessThan10).join('');
-          if (currentDate > startDate && currentDate < endDate) td.classList.add('gray-background');
-        }
-      });
-    })
-  }
-
-  trClickPutDataHandler({ target }) {
-    if (!(target.innerText > 0) || target.classList.contains('calender_box__table__past_date')) return;
-    const year = target.closest('tbody').querySelector('th').innerText.slice(0, 4);
-    const month = target.closest('tbody').querySelector('th').innerText.slice(6, -1);
-    const day = target.innerText;
-    this.model.addDatesArray(`${year}.${month}.${day}`);
-    this.model.changeDatesArrayFromMoreData();
-    this.model.sortDateArray();
-    const inputDateValue = this.model.formatDateArrayToString(this.model.getDatesArray());
-    this.$fullDateInput.value = inputDateValue;
-  }
-
-  leftButtonHandler({ target }) {
-    if (target.closest('.calender_box--left_button')) {
-      this.makeTemplate(this.model, this.model.getPrevMonthDate(this.model.getToday()));
-      target.closest('.calender_box').remove();
-    }
-  }
-
-  rightButtonHandler({ target }) {
-    if (target.closest('.calender_box--right_button')) {
-      this.makeTemplate(this.model, this.model.getNextMonthDate(this.model.getToday()));
-      target.closest('.calender_box').remove();
-    }
-  }
-
-  formatNumbersLessThan10(number) {
-    return number < 10 ? '0' + number : number;
   }
 }
 
