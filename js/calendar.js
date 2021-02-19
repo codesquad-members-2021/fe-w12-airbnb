@@ -21,14 +21,33 @@
   // title -->
   // box > .upper > title
 
-  const calendarBox = `
+  const calendarUpper = `
     <div class="calendar--upper">
       <div class="monthly--title">
         ${fullYear}년 ${month}월
       </div>
     </div>`;
 
-  $calendarWrapper.innerHTML = calendarBox;
+  const calendarWeekdays = `
+    <div class="weekdays">
+      <ul class="weekdays--ul">
+        <li class="weekdays--li">일</li>
+        <li class="weekdays--li">월</li>
+        <li class="weekdays--li">화</li>
+        <li class="weekdays--li">수</li>
+        <li class="weekdays--li">목</li>
+        <li class="weekdays--li">금</li>
+        <li class="weekdays--li">토</li>
+      </ul>
+    </div>
+  `;
+
+  function drawWeekdays() {
+    for (const key in object) {
+    }
+  }
+
+  $calendarWrapper.innerHTML = calendarUpper;
 
   // week -->
   // .weekdays > ul > li * 7

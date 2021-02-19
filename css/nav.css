@@ -30,7 +30,6 @@
   display: flex;
   align-items: center;
   border-radius: 32px;
-  position: relative;
 
   box-shadow: rgba(0, 0, 0, 0.15) 0px 16px 32px, rgba(0, 0, 0, 0.1) 0px 3px 8px;
 }
@@ -260,7 +259,7 @@ input {
   height: 104px;
   margin: 12px 0 0;
   position: absolute;
-  left: 135px;
+  left: 50px;
   top: 100%;
   z-index: 20;
   border-radius: 32px;
@@ -276,7 +275,6 @@ input {
   height: 100%;
   display: flex;
   align-items: center;
-  outline: 1px solid blue;
   width: 100%;
 }
 
@@ -316,8 +314,8 @@ input {
   height: 340px;
   padding: 16px 32px;
   position: absolute;
-  left: 120px;
-  top: 64px;
+  /* left: 120px; */
+  top: 100%;
   z-index: 4;
   background: rgb(255, 255, 255);
   border-radius: 32px;
