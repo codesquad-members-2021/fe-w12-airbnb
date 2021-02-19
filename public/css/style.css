@@ -16,7 +16,10 @@
     --page-tb-margin: 40px;
     --page-side-margin: 80px;
     --section-font-size: 2.4rem;
-    --section-font-weight: 600;    
+    --section-font-weight: 600; 
+    --calendar-item-width: 40px;   
+    --calendar-item-height: 40px;   
+    --border-radius-circle: 50%;
 }
 
 * {
@@ -301,7 +304,7 @@ a {
     right: -3px;
     width: 35px;
     height: 35px;
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
     position: absolute;
 }
 
@@ -328,11 +331,31 @@ a {
     flex-wrap: wrap;
 }
 
-.calendar li,
-.calendar span {
-    padding: 8px;
-    width: 40px;
-    flex: 0 1 14%;
+
+.calendar-weeks li,
+.calendar-days div {
+    width: var(--calendar-item-width);
+    height: var(--calendar-item-height);
+    flex: 0 0 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.calendar-days div:hover {
+    border:1px solid var(--black);
+    border-radius: var(--border-radius-circle);
+    cursor: pointer;
+}
+
+.calendar-days-clicked {
+    background-color: var(--black);
+}
+
+.calendar-days-between {
+    background-color: var(--grey);
+    opacity: 0.15%;
 }
 
 .search-btn-container{
