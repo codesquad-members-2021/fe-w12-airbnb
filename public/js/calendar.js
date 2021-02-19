@@ -44,10 +44,33 @@ export class Calendar {
   }
 
   dayClickHandler({ target }) {
-    if (target.closest('.calendar-days > div')) {
-      console.log('hi');
+    const hasValue = target.innerText;
+    const day = target.closest('.calendar-days > div');
+    if (hasValue && day) {
+      day.classList.toggle('calendar-day-clicked');
+    }
+
+    const dayClicked = document.querySelectorAll('.calendar-day-clicked');
+    const isTwoDays = Array.from(dayClicked) //
+      .filter((day) => day.classList.contains('calendar-day-clicked')).length;
+
+    if (isTwoDays === 2) {
+      const days = document.querySelectorAll('.calendar-day');
+      const daysNodeArr = Array.from(days);
+      const clickedIndex = daysNodeArr //
+        .map((day, idx) => {
+          if (day.classList.contains('calendar-day-clicked')) return idx;
+        })
+        .filter((isTrue) => isTrue);
+
+      const [firstDay, LastDay] = clickedIndex;
+      daysNodeArr //
+        .slice(firstDay, LastDay + 1)
+        .forEach((day) => day.classList.add('calendar-day-between'));
     }
   }
+
+  getBetweenDayClicked() {}
 
   rightBtnClickHandler({ target }) {
     if (!target.closest('.right-arrow')) return;
@@ -107,9 +130,15 @@ export class Calendar {
       const days = daysByOrder.reduce((prev, day) => {
         if (daysEmpty) {
           daysEmpty -= 1;
-          return prev + `<div><span></span></div>`;
+          return prev + `<div></div>`;
         }
-        return prev + `<div><span>${day}</span></div>`;
+        return (
+          prev +
+          `
+          <div class="calendar-day">
+            <span>${day}</span>
+          </div>`
+        );
       }, '');
       day.insertAdjacentHTML('beforeend', days);
     });
