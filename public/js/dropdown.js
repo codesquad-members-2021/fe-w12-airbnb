@@ -17,7 +17,9 @@ class Dropdown {
   }
 }
 
-window.addEventListener("DOMContentLoaded", function () {
-  const dropdown = new Dropdown(document.querySelector(".menuAndAcountIcon"));
+window.addEventListener("load", () => {
+  const dropdown = new Dropdown(
+    document.querySelector(".header__member_setting__menuIcon")
+  );
   dropdown.initDropdownEvent();
 });

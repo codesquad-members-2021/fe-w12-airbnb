@@ -1,30 +1,30 @@
-// class tabNav {
-//   constructor(roomTab, experienceTab) {
-//     //
-//     this.roomTab = roomTab;
-//     this.experienceTab = experienceTab;
-//   }
-//   initTabEvent() {
-//     //
-//     this.roomTab.addEventListener("click");
-//     this.experienceTab.addEventListener("click", this.handleChange);
-//   }
-//   handleChange() {
+class TabNav {
+  constructor() {
+    //어떻게 작게 줄일지 고민해보기
+    this.radios = document.querySelectorAll("input[name='choice']");
+    this.roomTab = document.querySelector(".tabUI_reserve_container");
+    this.experienceTab = document.querySelector(".tabUI_reserve_container_2");
+    this.checkIn = document.querySelector(".checkIn");
+    this.checkOut = document.querySelector(".checkOut");
+    this.calendar = document.querySelector(".calendar_container");
+    this.initTabEvent();
+  }
+  initTabEvent() {
+    this.radios.forEach((radio) =>
+      radio.addEventListener("change", (e) => {
+        if (e.target.checked) {
+          this.roomTab.classList.toggle("flex");
+          this.experienceTab.classList.toggle("flex");
+        }
+      })
+    );
 
-//   }
-// }
+    this.checkIn.addEventListener("click", () => {
+      this.calendar.classList.toggle("flex");
+    });
+  }
+}
 
-window.addEventListener("DOMContentLoaded", () => {
-  const radios = document.querySelectorAll("input[name='choice']");
-  const roomTab = document.querySelector(".main_reserve_container");
-  const experienceTab = document.querySelector(".main_reserve_container_2");
-
-  radios.forEach((radio) =>
-    radio.addEventListener("change", (e) => {
-      if (e.target.checked) {
-        roomTab.classList.toggle("flex");
-        experienceTab.classList.toggle("flex");
-      }
-    })
-  );
+window.addEventListener("load", () => {
+  const tabUI = new TabNav();
 });

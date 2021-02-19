@@ -28,7 +28,7 @@ ul {
 
 /*CORONA 관련 맨 윗부분 CSS STYLE*/
 
-.corona {
+.firstPage__corona {
   padding: 17px;
   background: black;
   text-align: center;
@@ -36,12 +36,12 @@ ul {
   font-weight: bold;
 }
 
-.corona a {
+.firstPage__corona a {
   color: #ddd;
 }
 
-.corona a:hover {
-  color: rgb(204, 203, 203);
+.firstPage__corona a:hover {
+  color: #cccbcb;
 }
 
 /* -------------------HEADER-------------------*/
@@ -62,27 +62,27 @@ header {
   position: fixed;
   left: 0;
   right: 0;
-  color: white;
+  color: #fff;
   z-index: 999;
 }
 
 .white {
-  background: white;
-  color: black;
+  background: #fff;
+  color: #000;
   top: 0;
   transition: background 250ms ease-in;
 }
 
-header .logo {
+header .header__logo {
   display: flex;
   font-size: 35px;
 }
 
 .pink {
-  color: rgb(255, 0, 119);
+  color: #ff0077;
 }
 
-header .logo span {
+header .header__logo span {
   font-size: 25px;
   font-weight: bold;
   margin-left: 10px;
@@ -109,11 +109,11 @@ header nav a {
   text-decoration: none;
 }
 header nav a:hover {
-  color: gray;
+  color: #808080;
 }
 
 .black {
-  color: black;
+  color: #000;
 }
 
 .nav_item {
@@ -126,33 +126,33 @@ header nav a:hover {
 
 input[type="radio"]:checked + label {
   cursor: default;
-  color: white;
+  color: #fff;
   padding: 5px 0px;
   border-bottom: 1px solid white;
 }
 
-header .member_setting {
+header .header__member_setting {
   display: flex;
   width: 200px;
   align-items: center;
   justify-content: space-between;
 }
-header .member_setting .host {
+header .header__member_setting .header__member_setting__host {
   font-size: 14px;
   font-weight: bold;
 }
-header .member_setting .menuAndAcountIcon {
+header .header__member_setting .header__member_setting__menuIcon {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 14px;
   border-radius: 25px;
   border: 1px solid #ddd;
-  background: white;
-  color: grey;
+  background: #fff;
+  color: #808080;
 }
 
-header .member_setting .menuAndAcountIcon i:last-child {
+header .header__member_setting .header__member_setting__menuIcon i:last-child {
   margin-left: 13px;
   font-size: 30px;
 }
@@ -163,8 +163,8 @@ header .member_setting .menuAndAcountIcon i:last-child {
   flex-direction: column;
   border-radius: 10px;
   width: 15%;
-  background: white;
-  color: black;
+  background: #fff;
+  color: #000;
   position: absolute;
   right: 5%;
   top: 120px;
@@ -180,7 +180,7 @@ header .member_setting .menuAndAcountIcon i:last-child {
 }
 .header_dropdown li:hover {
   cursor: pointer;
-  background-color: rgb(245, 245, 245);
+  background-color: #f5f5f5;
 }
 
 .header_dropdown_li2 {
@@ -191,22 +191,22 @@ header .member_setting .menuAndAcountIcon i:last-child {
   width: 100%;
 }
 
-.main .phraseAndbutton {
+.main .main__phraseButton {
   position: relative;
 }
 
-.main .phrase {
+.main .main__phraseButton__phrase {
   position: absolute;
   left: 70px;
   top: 270px;
-  color: white;
+  color: #fff;
   font-size: 53px;
   width: 330px;
   font-weight: bold;
   line-height: 1.2em;
 }
-.main .findNearRooms_btn {
-  color: black;
+.main .main__phraseButton__button {
+  color: #000;
   position: absolute;
   left: 70px;
   top: 410px;
@@ -217,14 +217,14 @@ header .member_setting .menuAndAcountIcon i:last-child {
   font-weight: bold;
 }
 
-.main .findNearRooms_btn:hover {
-  background: rgb(248, 248, 248);
+.main .main__phraseButton__button:hover {
+  background: #f8f8f8;
 }
 
-.main_reserve_container {
+.tabUI_reserve_container {
   display: none;
   width: 45%;
-  background-color: white;
+  background-color: #fff;
   position: absolute;
   height: 60px;
   border-radius: 40px;
@@ -237,25 +237,25 @@ header .member_setting .menuAndAcountIcon i:last-child {
   display: flex;
 }
 
-.main_reserve_container li {
+.tabUI_reserve_container li {
   padding: 10px 17px;
   width: 25%;
   border-radius: 40px;
   border: none;
 }
 
-.main_reserve_container li span:first-child {
+.tabUI_reserve_container li span:first-child {
   display: block;
   font-size: 12px;
 }
 
-.main_reserve_container li span:last-child {
+.tabUI_reserve_container li span:last-child {
   display: block;
   font-size: 14px;
-  color: rgb(204, 203, 203);
+  color: #cccbcb;
 }
 
-.main_reserve_container li:hover {
+.tabUI_reserve_container li:hover {
   background-color: #ddd;
 }
 
@@ -264,16 +264,16 @@ header .member_setting .menuAndAcountIcon i:last-child {
   justify-content: space-between;
 }
 
-.main_reserve_container_line {
+.tabUI_reserve_container__line {
   border-right: solid 1px #ddd;
   height: 32px;
   align-self: center;
 }
 
-.main_reserve_container_searchBtn {
+.tabUI_reserve_container__searchBtn {
   display: flex;
   color: white;
-  background-color: rgb(255, 56, 92);
+  background-color: #ff385c;
   justify-content: center;
   align-items: center;
   border-radius: 70%;
@@ -284,8 +284,8 @@ header .member_setting .menuAndAcountIcon i:last-child {
   right: 5px;
 }
 
-.main_reserve_container_searchBtn:hover {
-  background-color: rgb(245, 14, 14);
+.tabUI_reserve_container__searchBtn:hover {
+  background-color: #f50e0e;
 }
 
 /* ------------------SECTION PARTS---------------------- */
@@ -359,8 +359,8 @@ header .member_setting .menuAndAcountIcon i:last-child {
   padding: 60px 70px;
   display: flex;
   flex-direction: column;
-  background: black;
-  color: white;
+  background: #000;
+  color: #fff;
 }
 
 .section_activities_title {
@@ -370,8 +370,8 @@ header .member_setting .menuAndAcountIcon i:last-child {
 }
 
 .section_activities_title button {
-  color: white;
-  border: 2px solid white;
+  color: #fff;
+  border: 2px solid #fff;
   border-radius: 9px;
   margin: 10px 0px;
   padding: 0px 10px;

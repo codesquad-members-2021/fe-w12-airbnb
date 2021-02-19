@@ -1,6 +1,6 @@
 const header = document.querySelector("header");
 const intersectPoint = document.querySelector(".main");
-const headerLogo = document.querySelector(".logo");
+const headerLogo = document.querySelector(".header__logo");
 
 const options = {
   rootMargin: "-40px 0px 0px 0px",
