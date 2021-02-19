@@ -116,11 +116,9 @@
 
           <div id="activity-date">
             <span>날짜</span>
-            <input
-              class="search__input"
-              type="text"
-              placeholder="원하는 날짜를 입력하세요."
-            />
+            <div class="date-view"></div>
+          </div>
+
             <div id="activity-icon"><img src="img/search.svg" /></div>
           </div>
         </section>
@@ -147,16 +145,7 @@
               </thead>
               <tbody class="calendar-left-tbody">
                 <tr>
-                  <td>01</td>
-                  <td>01</td>
-                  <td>01</td>
-                  <td>01</td>
-                  <td>01</td>
-                  <td>01</td>
-                  <td>01</td>
-                </tr>
-                <tr>
-                  <td>01</td>
+                  <td class="td-circle">01</td>
                   <td>01</td>
                   <td>01</td>
                   <td>01</td>
@@ -179,7 +168,16 @@
                   <td>01</td>
                   <td>01</td>
                   <td>01</td>
-                  <td>1</td>
+                  <td>01</td>
+                  <td>01</td>
+                </tr>
+                <tr>
+                  <td>01</td>
+                  <td>01</td>
+                  <td>01</td>
+                  <td>01</td>
+                  <td>01</td>
+                  <td>01</td>
                   <td>01</td>
                 </tr>
                 <tr>
@@ -214,7 +212,7 @@
               </thead>
               <tbody class="calendar-right-tbody">
                 <tr>
-                  <td>01</td>
+                  <td class="td-light-font-color">01</td>
                   <td>01</td>
                   <td>01</td>
                   <td>01</td>
@@ -454,10 +452,10 @@
         </div>
       </section>
     </main>
-    <script
+    <script 
       src="https://kit.fontawesome.com/fb7e7bab0c.js"
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
+    <script type ="module" src="main.js"></script>
   </body>
 </html>

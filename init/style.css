@@ -179,6 +179,8 @@ body {
   height: 70px;
   background-color: white;
   border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .search-calendar {
@@ -264,11 +266,31 @@ body {
   font-weight: 700;
   color: var(--calendar-tb-color);
 }
+
+.calendar-left-tbody > tr :hover {
+  box-shadow: 0 0 0 1px #000;
+  border-radius: 50%;
+}
+
+.td-circle {
+  background-color: rgb(34, 34, 34);
+  color: white;
+  border-radius: 50%;
+}
+
+.td-light-font-color {
+  color: rgb(220, 218, 218);
+}
+
 .calendar-right-tbody {
   /* outline: green solid; */
   font-size: 13px;
   font-weight: 700;
   color: var(--calendar-tb-color);
+}
+.calendar-right-tbody > tr :hover {
+  box-shadow: 0 0 0 1px #000;
+  border-radius: 50%;
 }
 
 .search__input {
@@ -410,6 +432,22 @@ body {
   left: 10%;
   width: 60%;
   padding: 0px;
+}
+.date-view {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 6%;
+  width: 100%;
+  padding: 0px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #717171;
+}
+
+.date-view-selected {
+  font-weight: 700;
+  color: var(--calendar-tb-color);
 }
 
 #activity-date {
