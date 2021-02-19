@@ -20,8 +20,6 @@ class Calendar {
             this.day = this.today.getDay()
     }
 
- 
-
     getFirstDay(calendarPos) {
         const firstDate = (calendarPos === "R") ? new Date(this.year, this.month) : new Date(this.year, this.month - 1);
         return firstDate.getDay();
@@ -139,10 +137,17 @@ class Calendar {
             this.updateCalendarStyle(".left_day_button");
             this.updateCalendarStyle(".right_day_button");
         });
-
-        
     }
 
+    // 달력 스타일 초기화
+    calendarStyleInit(dayButtons) {
+        dayButtons.forEach((element) => {
+            element.classList.remove("day_selected");
+            // element.parentNode.classList.remove("gray");
+            leftCalendarDays.forEach((el) => el.classList.remove("gray"));
+            rightCalendarDays.forEach((el) => el.classList.remove("gray"));
+        });
+    }
 
     updateCalendarStyle(className) {
         const dayButtons = document.querySelectorAll(className);
@@ -150,11 +155,7 @@ class Calendar {
         let lastSelectedDay = 0;
         let clickCount = 0;
 
-        // 달력 스타일 초기화
-        dayButtons.forEach((element) => {
-            element.classList.remove("day_selected");
-            element.parentNode.classList.remove("gray");
-        })
+       this.calendarStyleInit(dayButtons);
 
 
         // 달력 날짜들에 클릭 이벤트 추가
