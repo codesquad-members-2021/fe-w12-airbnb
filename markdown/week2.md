@@ -165,6 +165,32 @@ clickHandler(){}
 
 ---
 
+## 2월19일(금) 라이브 피드백
+
+<br>
+
+### 👉 정리
+
+- 크롬에선 jQuery 문법을 지원한다.
+- $1은 전커서 , $0은 첫커서
+- 나만의 유틸리티를 만들어서 중복을 많이 없애보자.
+- 유틸리티
+
+  1. airbnb에 사용되는 유용한 함수
+  2. 모든 웹페이지에서 사용할 수 있는 유용한 함수
+  3. src/utils/\_.js 이런식으로 유틸리티 파일을 만든다.
+
+- Magic number (개발자가 코드에 입력한 쌩 숫자) 를 자제하자. (안티패턴)
+- 항상 유지보수를 용이하게 할 수 있는 코딩을 염두하자.
+- 함수를 분리해야 테스트 하기도 쉽다.
+- 실행시킬때 두번한다면 배열로 한방에 넣어서 할 수 있다.
+- es모듈화로 import export를 하자
+- document.querySelector는 루트부터 탐색하기 때문에 변수에 저장해서 쓰는게 좋다.
+
+<br>
+
+---
+
 ### 👉 참고한 사이트
 
 <br>
@@ -178,3 +204,5 @@ clickHandler(){}
 [css 배경색만 투명하게 바꾸기](https://www.codingfactory.net/10825)
 
 [insertAdjacentHTML MDN](https://developer.mozilla.org/ko/docs/Web/API/Element/insertAdjacentHTML)
+
+[js 달력 만들기](https://medium.com/duckuism/javascript%EB%A1%9C-%EC%9D%B4%EB%B2%88-%EB%8B%AC-%EB%8B%AC%EB%A0%A5-%EB%A7%8C%EB%93%A4%EA%B8%B0-1dff5f317459)
