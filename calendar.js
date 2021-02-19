@@ -149,6 +149,21 @@ class Calendar {
         });
     }
 
+    // 달력 날짜 마우스 호버링 이벤트
+    handleCalendarHoverEvents(dayButtons) {
+        dayButtons.forEach((element) => {
+            element.addEventListener("mouseenter", (event) => {
+                event.target.classList.add("day_hover")
+            });
+        });
+
+        dayButtons.forEach((element) => {
+            element.addEventListener("mouseleave", (event) => {
+                event.target.classList.remove("day_hover")
+            });
+        });
+    }
+
     updateCalendarStyle(className) {
         const dayButtons = document.querySelectorAll(className);
         let firstSelectedDay = 0;
@@ -156,6 +171,7 @@ class Calendar {
         let clickCount = 0;
 
        this.calendarStyleInit(dayButtons);
+       this.handleCalendarHoverEvents(dayButtons);
 
 
         // 달력 날짜들에 클릭 이벤트 추가
@@ -181,7 +197,6 @@ class Calendar {
                         firstSelectedDay = 0;
                         lastSelectedDay = 0;
                     });
-                    dateUpdate.innerText = "원하는 날짜를 입력하세요!";
                 }
 
                 // 선택 일자 사이에 회색 배경 적용
@@ -200,19 +215,7 @@ class Calendar {
                 }
             });
         });
-
-        // 달력 날짜들에 호버링 이벤트 추가
-        dayButtons.forEach((element) => {
-            element.addEventListener("mouseenter", (event) => {
-                event.target.classList.add("day_hover")
-            });
-        });
-
-        dayButtons.forEach((element) => {
-            element.addEventListener("mouseleave", (event) => {
-                event.target.classList.remove("day_hover")
-            });
-        });
+        
     }
 
     handleEvents() {
@@ -221,7 +224,6 @@ class Calendar {
         this.updateCalendarStyle(".left_day_button");
         this.updateCalendarStyle(".right_day_button");
     }
-
 
 }
 
