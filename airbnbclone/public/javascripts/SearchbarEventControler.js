@@ -48,7 +48,7 @@ export default class SearchberEventController extends MainEventControler {
   clickLastNode(target, input, lastNode, lastPopup) {
     if (target.closest(lastNode)) {
       if (target.closest(".seachbar_btn")) {
-        super.focusTarget(input);
+        this.focusInput(input, target);
       } else {
         super.removeClick(this.mainLocation);
         super.ADDTarget(lastPopup);
