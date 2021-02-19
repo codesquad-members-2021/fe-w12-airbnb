@@ -45,20 +45,20 @@ class CalenderModel {
     }).join(' - ');
   }
 
-  getDatesArray() {
-    return [...this.twoDatesArray];
-  }
-
   addDatesArray(date) {
     this.twoDatesArray.push(date);
   }
 
   changeDatesArrayFromMoreData() {
     if (this.twoDatesArray.length === 3) {
-      const newDate = this.twoDatesArray.splice(2, 1).join('');
+      const newDate = this.twoDatesArray.pop();
       this.dateClickCheck ? this.twoDatesArray[0] = newDate : this.twoDatesArray[1] = newDate;
       this.dateClickCheck = !this.dateClickCheck;
     }
+  }
+
+  getDatesArray() {
+    return [...this.twoDatesArray];
   }
 }
 
