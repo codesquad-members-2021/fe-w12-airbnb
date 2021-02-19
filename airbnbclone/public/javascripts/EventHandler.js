@@ -1,9 +1,9 @@
-import utils  from "./utils.js";
+import utils from "./utils.js";
 
 
 export default class EventHandler {
   constructor() {
-    this._ = utils._;
+    this._ = utils;
   }
 
   focusTarget(target) {

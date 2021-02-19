@@ -15,4 +15,4 @@ const _ = {
     target.addEventListener(type, listener, useCapture),
 };
 
-export default { _ };
+export default _;
