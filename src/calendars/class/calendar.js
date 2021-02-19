@@ -1,3 +1,5 @@
+import { isSameWithStartDate, isBetweenSelectedDates, isSameWithEndDate } from "../functions/calendarDate.js";
+
 export default class Calendar {
   constructor(day, calendarHtml) {
     this.day = !day ? new Date() : new Date(day[0], day[1]);
@@ -27,11 +29,12 @@ export default class Calendar {
     const dayName = ["일", "월", "화", "수", "목", "금", "토"];
     return dayName.reduce((acc, val) => acc + `<div class="calendar__date day-name"><span>${val}</span></div>`, ``);
   }
-  // id="${year}-${month}-${this.setFixDayCount(startDayCount)}"
+
   createHtmlTagOfDate(date, startDayCount) {
     const [year, month] = date;
     const today = new Date();
-    return `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)}"><span id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="data">${startDayCount++}</span></div>`;
+    const currDate = [year, month, startDayCount - 1];
+    return `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)} ${isBetweenSelectedDates(currDate) ? "connected" : ""}"><span id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="data ${isSameWithStartDate(currDate) || isSameWithEndDate(currDate) ? "selected" : ""}">${startDayCount++}</span></div>`;
   }
 
   setCalendarData(year, month, index) {
