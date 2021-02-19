@@ -64,10 +64,6 @@
     border-radius: 30px;
 }
 
-.cal_table {
-    padding:20px;
-}
-
 .calendar_display {
     display:none;
 }
@@ -77,10 +73,19 @@
 }
 
 .calendar {
-    padding:20px;
+    padding:20px 60px;
     width:50%;
 }
 
 .calendar > tbody > tr > td {
+    text-align: center;
+}
+
+.calendar2 {
+    padding:20px 60px;
+    width:50%;
+}
+
+.calendar2 > tbody > tr > td {
     text-align: center;
 }
