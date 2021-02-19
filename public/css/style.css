@@ -16,7 +16,10 @@
     --page-tb-margin: 40px;
     --page-side-margin: 80px;
     --section-font-size: 2.4rem;
-    --section-font-weight: 600;    
+    --section-font-weight: 600; 
+    --calendar-item-width: 40px;   
+    --calendar-item-height: 40px;   
+    --border-radius-circle: 50%;
 }
 
 * {
@@ -260,8 +263,9 @@ a {
     width: 60%;
     background-color: var(--info-color);
     border-radius: var(--nav-btn-border-radius);
-    z-index: 3;
     position: absolute;
+    z-index: 5;
+    will-change: opacity;
 }
 
 .calendars-wrapper-hidden {
@@ -281,6 +285,43 @@ a {
     width: 100%;
 }
 
+.calendar-header {
+    position:relative;
+}
+
+.calendar-header button {
+    background: 0;
+    outline: 0;
+    border: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+}
+
+.calendar-header button::before {
+    content: "";
+    display: block;
+    top: -3px;
+    right: -3px;
+    width: 35px;
+    height: 35px;
+    border-radius: var(--border-radius-circle);
+    position: absolute;
+}
+
+.calendar-header button:hover::before {
+    background-color: var(--grey);
+    opacity: 0.15;
+}
+
+.calendar-header .left-arrow {
+    left:0;
+}
+
+.calendar-header .right-arrow {
+    right:0;
+}
+
 .calendar-content h3 {
     margin: 0;
     padding-bottom: 30px;
@@ -291,10 +332,32 @@ a {
     flex-wrap: wrap;
 }
 
-.calendar li,
-.calendar span {
-    width: 40px;
-    flex: 0 1 14%;
+.calendar-weeks li,
+.calendar-days div {
+    width: var(--calendar-item-width);
+    height: var(--calendar-item-height);
+    flex: 0 0 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.calendar-days div:hover {
+    border:1px solid var(--black);
+    border-radius: var(--border-radius-circle);
+    cursor: pointer;
+}
+
+.calendar-days .calendar-day-clicked {
+    background-color: var(--black);
+    border-radius: var(--border-radius-circle);
+    color:var(--font-color);
+    z-index: 3;
+}
+
+.calendar-day-between{
+    background: rgb(218 218 218);
 }
 
 .search-btn-container{
