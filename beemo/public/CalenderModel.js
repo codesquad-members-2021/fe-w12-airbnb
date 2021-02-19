@@ -3,6 +3,7 @@ class CalenderModel {
     this.currentDate = new Date();
     this.monthIndex = 0;
     this.twoDatesArray = [];
+    this.dateClickCheck = true;
   }
 
   getToday() {
@@ -27,6 +28,37 @@ class CalenderModel {
 
   getYearAndMonth(date) {
     return `${date.getFullYear()}년 ${date.getMonth() + 1}월`;
+  }
+
+  sortDateArray() {
+    this.twoDatesArray.sort((a, b) => {
+      const [aYear, aMonth, aDay] = a.split('.');
+      const [bYear, bMonth, bDay] = b.split('.');
+      return aYear - bYear || aMonth - bMonth || aDay - bDay;
+    });
+  }
+
+  formatDateArrayToString() {
+    return this.twoDatesArray.map(dateWord => {
+      const [year, month, day] = dateWord.split('.');
+      return `${year}년 ${month}월 ${day}일`;
+    }).join(' - ');
+  }
+
+  getDatesArray() {
+    return [...this.twoDatesArray];
+  }
+
+  addDatesArray(date) {
+    this.twoDatesArray.push(date);
+  }
+
+  changeDatesArrayFromMoreData() {
+    if (this.twoDatesArray.length === 3) {
+      const newDate = this.twoDatesArray.splice(2, 1).join('');
+      this.dateClickCheck ? this.twoDatesArray[0] = newDate : this.twoDatesArray[1] = newDate;
+      this.dateClickCheck = !this.dateClickCheck;
+    }
   }
 }
 
