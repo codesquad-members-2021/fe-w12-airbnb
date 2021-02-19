@@ -11,8 +11,5 @@ const experienceDateEnd = document.querySelector("#experience-date__end");
 const placeholder = document.querySelector("#experience-date__placeholder");
 
 const CM_experienceDate = new CalendarManager(experienceDateButton, experienceDatePrevButton, experienceDateNextButton, calendarHtmlExperienceDate);
-CM_experienceDate.showPresentCalendar(calendarExperienceDate, experienceDateStart, experienceDateEnd, placeholder);
-CM_experienceDate.showPrevCalendar(experienceDateStart, experienceDateEnd, placeholder);
-CM_experienceDate.showNextCalendar(experienceDateStart, experienceDateEnd, placeholder);
 
-export { calendarExperienceDate, experienceDateButton, experienceDateStart, experienceDateEnd, placeholder };
+export { calendarExperienceDate, experienceDateButton, experienceDateStart, experienceDateEnd, placeholder, CM_experienceDate };

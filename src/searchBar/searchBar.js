@@ -1,7 +1,6 @@
 export default class SearchBar {
-  constructor(tab, siblingCalendar = undefined) {
+  constructor(tab) {
     this.tab = tab;
-    // this.siblingCalendar = siblingCalendar;
   }
 
   isChecked() {

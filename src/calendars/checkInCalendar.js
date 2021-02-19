@@ -8,8 +8,5 @@ const calendarHtmlCheckIn = document.querySelector("#calendar__check-in");
 const calendarCheckIn = new Toggle("calendar__background_check-in");
 
 const CM_checkIn = new CalendarManager(checkInButton, checkInPrevButton, checkInNextButton, calendarHtmlCheckIn);
-CM_checkIn.showPresentCalendar(calendarCheckIn);
-CM_checkIn.showPrevCalendar();
-CM_checkIn.showNextCalendar();
 
-export { calendarCheckIn, checkInButton };
+export { calendarCheckIn, checkInButton, CM_checkIn };

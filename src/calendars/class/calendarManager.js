@@ -1,5 +1,5 @@
 import Calendar from "./calendar.js";
-import { registerClickEvent } from "../functions/calendarDate.js";
+import { registerClickEvent } from "../functions/calendarDateEvent.js";
 
 export default class CalendarManager {
   constructor(tab, prevButton, nextButton, calendarHtml) {
@@ -48,6 +48,6 @@ export default class CalendarManager {
 function createCalendarDateEvent(startDate, endDate, placeholder) {
   const calendarDates = document.querySelectorAll(".calendar__date");
   calendarDates.forEach((date) => {
-    if (!date.classList.contains("yesterday") && !date.classList.contains("day-name")) registerClickEvent(date, placeholder, startDate, endDate, calendarDates);
+    if (date.classList.contains("today") || date.classList.contains("tomorrow")) registerClickEvent(date, placeholder, startDate, endDate, calendarDates);
   });
 }
