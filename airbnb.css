@@ -168,7 +168,7 @@ a {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15),
         0px 3px 8px rgba(0, 0, 0, 0.1);
 }
-.search > li {
+.search > ul > li {
     float: left;
     height: 66px;
     padding: 15px 25px;
@@ -177,10 +177,10 @@ a {
     position: relative;
     cursor: pointer;
 }
-.search > li:first-child {
+.search > ul > li:first-child {
     padding-left: 35px;
 }
-.search > li:not(:last-child)::after {
+.search > ul > li:not(li:last-child)::after {
     content: "";
     display: block;
     position: absolute;
@@ -190,18 +190,18 @@ a {
     height: 30px;
     border-right: 1px solid #ccc;
 }
-.search > li:hover {
+.search > ul > li:hover {
     background-color: #eee;
 }
-.search:hover > li::after {
+.search > ul:hover > li::after {
     opacity: 0;
 }
-.search > li > span:first-child {
+.search > ul > li > span:first-child {
     font-size: 0.78em;
     font-weight: 600;
     color: #222;
 }
-.search > li > div {
+.search > ul > li > div {
     margin-top: 6px;
     font-size: 0.87em;
     font-weight: 300;
@@ -297,6 +297,7 @@ a {
     text-align: center;
     font-size: 0.9rem;
     font-weight: 600;
+    cursor: pointer;
     position: relative;
 }
 .calendar__table td:hover > span {
