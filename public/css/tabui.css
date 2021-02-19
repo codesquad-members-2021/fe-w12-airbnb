@@ -1,7 +1,7 @@
-.main_reserve_container_2 {
+.tabUI_reserve_container_2 {
   display: none;
   width: 45%;
-  background-color: white;
+  background-color: #fff;
   position: absolute;
   height: 60px;
   border-radius: 40px;
@@ -14,38 +14,38 @@
   display: flex;
 }
 
-.main_reserve_container_2 li {
+.tabUI_reserve_container_2 li {
   padding: 10px 17px;
   width: 25%;
   border-radius: 40px;
   border: none;
 }
 
-.main_reserve_container_2 li span:first-child {
+.tabUI_reserve_container_2 li span:first-child {
   display: block;
   font-size: 12px;
 }
 
-.main_reserve_container_2 li span:last-child {
+.tabUI_reserve_container_2 li span:last-child {
   display: block;
   font-size: 14px;
-  color: rgb(204, 203, 203);
+  color: #cccbcb;
 }
 
-.main_reserve_container_2 li:hover {
+.tabUI_reserve_container_2 li:hover {
   background-color: #ddd;
 }
 
-.main_reserve_container_2_line {
+.tabUI_reserve_container_2__line {
   border-right: solid 1px #ddd;
   height: 32px;
   align-self: center;
 }
 
-.main_reserve_container_2_searchBtn {
+.tabUI_reserve_container_2__searchBtn {
   display: flex;
-  color: white;
-  background-color: rgb(255, 56, 92);
+  color: #fff;
+  background-color: #ff385c;
   justify-content: center;
   align-items: center;
   border-radius: 70%;
@@ -56,6 +56,6 @@
   right: 5px;
 }
 
-.main_reserve_container_2_searchBtn:hover {
-  background-color: rgb(245, 14, 14);
+.tabUI_reserve_container_2__searchBtn:hover {
+  background-color: #f50e0e;
 }

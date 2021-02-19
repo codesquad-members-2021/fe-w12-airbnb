@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="css/calendar.css" />
   </head>
   <body>
-    <div class="firstPage">
-      <div class="corona">
+    <section class="firstPage">
+      <div class="firstPage__corona">
         <a href="">
           에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.
         </a>
       </div>
       <header>
-        <div class="logo">
+        <div class="header__logo">
           <i class="fab fa-airbnb"></i>
           <span>airbnb</span>
         </div>
@@ -45,38 +45,38 @@
             />
             <label class="nav_radio_2" for="nav_radio_2">체험</label>
           </div>
-          <div class="atag"><a href="">온라인체험</a></div>
+          <div><a href="">온라인체험</a></div>
         </nav>
-        <div class="member_setting">
-          <span class="host">호스트되기</span>
+        <div class="header__member_setting">
+          <span class="header__member_setting__host">호스트되기</span>
           <i class="fas fa-globe"></i>
-          <button class="menuAndAcountIcon">
+          <button class="header__member_setting__menuIcon">
             <i class="fas fa-bars"></i>
             <i class="fas fa-user-circle"></i>
           </button>
         </div>
       </header>
-      <ul class="main_reserve_container flex">
+      <ul class="tabUI_reserve_container flex">
         <li>
           <span>위치</span>
           <span>어디로 여행가세요?</span>
         </li>
-        <div class="main_reserve_container_line"></div>
+        <div class="tabUI_reserve_container__line"></div>
         <li class="checkIn">
           <span>체크인</span>
           <span>날짜 추가</span>
         </li>
-        <div class="main_reserve_container_line"></div>
+        <div class="tabUI_reserve_container__line"></div>
         <li class="checkOut">
           <span>체크아웃</span>
           <span>날짜 추가</span>
         </li>
-        <div class="main_reserve_container_line"></div>
+        <div class="tabUI_reserve_container__line"></div>
         <li>
           <span>인원</span>
           <span>게스트 추가</span>
         </li>
-        <button class="main_reserve_container_searchBtn">
+        <button class="tabUI_reserve_container__searchBtn">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -101,17 +101,17 @@
           </svg>
         </button>
       </ul>
-      <ul class="main_reserve_container_2">
+      <ul class="tabUI_reserve_container_2">
         <li>
           <span>위치</span>
           <span>어디로 여행가세요?</span>
         </li>
-        <div class="main_reserve_container_2_line"></div>
+        <div class="tabUI_reserve_container_2__line"></div>
         <li>
           <span>날짜</span>
           <span>날짜 추가</span>
         </li>
-        <button class="main_reserve_container_2_searchBtn">
+        <button class="tabUI_reserve_container_2__searchBtn">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -137,14 +137,14 @@
         </button>
       </ul>
       <div class="calendar_container">
-        <div class="calendar_div_1">
-          <table class="calendar">
-            <tr class="calendar_mainBar">
-              <td><button class="prevButton"><</button></td>
+        <div class="calendar_container__left">
+          <table class="calendar_container__left__calTable">
+            <tr class="calTable__mainBar">
+              <td><button class="calTable__mainBar__prevButton"><</button></td>
               <td colspan="5" class="yearMonth1"></td>
               <td></td>
             </tr>
-            <tr class="mondayToFriday">
+            <tr>
               <td>일</td>
               <td>월</td>
               <td>화</td>
@@ -155,15 +155,15 @@
             </tr>
           </table>
         </div>
-        <div class="calendar_div_2">
-          <table class="calendar2">
-            <tr class="calendar_mainBar">
+        <div class="calendar_container__right">
+          <table class="calendar_container__right__calTable">
+            <tr class="calTable__mainBar">
               <td></td>
               <td colspan="5" class="yearMonth2"></td>
-              <td><button class="nextButton">></button></td>
+              <td><button class="calTable__mainBar__nextButton">></button></td>
             </tr>
 
-            <tr class="mondayToFriday">
+            <tr>
               <td>일</td>
               <td>월</td>
               <td>화</td>
@@ -184,12 +184,16 @@
         <li>도움말</li>
       </ul>
       <div class="main">
-        <div class="phraseAndbutton">
-          <div class="phrase">이제, 여행은 가까운 곳에서</div>
-          <button class="findNearRooms_btn">근처의 숙소 둘러보기</button>
+        <div class="main__phraseButton">
+          <div class="main__phraseButton__phrase">
+            이제, 여행은 가까운 곳에서
+          </div>
+          <button class="main__phraseButton__button">
+            근처의 숙소 둘러보기
+          </button>
         </div>
       </div>
-    </div>
+    </section>
     <section class="section_cities">
       <ul>
         <li>

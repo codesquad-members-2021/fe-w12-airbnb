@@ -3,16 +3,16 @@ class Calendar {
   constructor() {
     this.today = new Date();
     this.countMonth = 0;
-    this.prevButton = document.querySelector(".prevButton");
-    this.nextButton = document.querySelector(".nextButton");
+    this.prevButton = document.querySelector(".calTable__mainBar__prevButton");
+    this.nextButton = document.querySelector(".calTable__mainBar__nextButton");
     this.prevButtonClicked();
     this.nextButtonClicked();
   }
   showCurrentCal() {
-    this.buildCalendar(".calendar", 0);
+    this.buildCalendar(".calendar_container__left__calTable", 0);
   }
   showNextCal() {
-    this.buildCalendar(".calendar2", 1);
+    this.buildCalendar(".calendar_container__right__calTable", 1);
   }
 
   prevButtonClicked() {
