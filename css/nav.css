@@ -200,8 +200,7 @@ input {
   width: 438px;
   height: 100%;
   background: #fff;
-  border-top-right-radius: 32px;
-  border-bottom-right-radius: 32px;
+  border-radius: 50px;
   padding: 14px 24px;
   position: relative;
   box-sizing: border-box;
@@ -209,6 +208,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
 }
 
 .rightside__radius__box--activity--hover {
@@ -314,7 +314,7 @@ input {
   height: 340px;
   padding: 16px 32px;
   position: absolute;
-  left: 0;
+  left: 230px;
   top: 64px;
   z-index: 1;
   background: rgb(255, 255, 255);

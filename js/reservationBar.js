@@ -55,6 +55,7 @@
 
   // date button
   $dateBtn.addEventListener('mouseenter', hoverButton);
+  $dateBtn.addEventListener('mousedown', downButton);
   $dateBtn.addEventListener('mouseleave', leaveButton);
   $dateBtn.addEventListener('mouseup', openCalendar);
   window.addEventListener('click', closeCalendar);
@@ -163,8 +164,13 @@
 
   function openCalendar(e) {
     const target = e.currentTarget;
-
-    target.classList.replace('middle__box--hover', 'middle__box--active');
+    if (target === $checkInBtn || target === $checkOutBtn) {
+      target.classList.replace('middle__box--hover', 'middle__box--active');
+    }
+    if (target === $dateBtn) {
+      console.log('here');
+      target.classList.replace('rightside__radius__box--activity--hover', 'rightside__radius__box--activity--active');
+    }
 
     if (target === $checkInBtn && target.className.includes('--active') && !$calendarBox.classList.contains('visible--hidden')) {
       $checkOutBtn.classList.replace('middle__box--active', 'middle__box');
@@ -176,6 +182,11 @@
       $checkInBtn.classList.replace('middle__box--active', 'middle__box');
       searchMiddleBar($checkOutBtn.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
       searchMiddleBar($checkOutBtn.id)[1].classList.replace('middle__bar', 'middle__bar--hover');
+    }
+
+    if (target === $dateBtn && target.className.includes('--active') && !$calendarBox.classList.contains('visible--hidden')) {
+      $dateBtn.classList.replace('middle__box--active', 'middle__box');
+      searchMiddleBar($dateBtn.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
     }
 
     // if (target === $checkInBtn && !$calendarBox.classList.contains('visible--hidden')) {
@@ -195,7 +206,7 @@
     // }
 
     if (!$calendarBox.classList.contains('visible--hidden')) return;
-
+    console.log('there');
     $calendarBox.classList.toggle('visible--hidden');
   }
 
@@ -203,6 +214,7 @@
     if (e.path.includes($checkInBtn)) return;
     if (e.path.includes($checkOutBtn)) return;
     if (e.path.includes($personBtn)) return;
+    if (e.path.includes($dateBtn)) return;
     if (e.path.includes($calendarBox)) return;
     // if (e.path.includes($locationBtn)) return;
     if (searchMiddleBar($checkInBtn.id)[0].classList.contains('middle__bar--hover')) {
@@ -224,6 +236,9 @@
     }
     if ($checkOutBtn.classList.contains('middle__box--hover')) {
       $checkOutBtn.classList.replace('middle__box--hover', 'middle__box');
+    }
+    if ($dateBtn.classList.contains('rightside__radius__box--activity--active')) {
+      $dateBtn.classList.replace('rightside__radius__box--activity--active', 'rightside__radius__box--activity');
     }
     $calendarBox.classList.add('visible--hidden');
   }
