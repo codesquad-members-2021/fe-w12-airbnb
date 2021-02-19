@@ -46,7 +46,7 @@ export class Calendar {
   dayClickHandler({ target }) {
     const hasValue = target.innerText;
     const day = target.closest('.calendar-day');
-    console.log(target);
+
     if (hasValue && day) {
       day.classList.toggle('calendar-day-clicked');
     }
@@ -89,7 +89,7 @@ export class Calendar {
       .map((day, idx) => {
         if (day.classList.contains('calendar-day-clicked')) return idx;
       })
-      .filter((isTrue) => isTrue);
+      .filter((isNumber) => typeof isNumber === 'number');
     return [daysNodeArr, clickedIndex];
   }
 
