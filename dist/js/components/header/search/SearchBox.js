@@ -6,6 +6,8 @@ export default class SearchBox extends Component {
   setup() {
     this.state = {
       searchItem: "stayCheckIn",
+      startDate: "",
+      endDate: "",
     };
   }
   getTemplate() {
@@ -107,28 +109,3 @@ export default class SearchBox extends Component {
     });
   }
 }
-
-// {
-//   year: 2021,
-//   month: 1,
-//   day: 31,
-//   firstDay: 5,
-// },
-// {
-//   year: 2021,
-//   month: 2,
-//   day: 28,
-//   firstDay: 1,
-// },
-// {
-//   year: 2021,
-//   month: 3,
-//   day: 31,
-//   firstDay: 1,
-// },
-// {
-//   year: 2021,
-//   month: 4,
-//   day: 30,
-//   firstDay: 4,
-// },

@@ -4,10 +4,10 @@ export default class Calendar extends Component {
   setup() {
     this.$target.classList.add("item-calendar");
     this.state = {
-      onClicking: false,
+      mode: "waiting", // wait, selecting, complete
       currentDate: this.getCurrentDate(),
-      startDay: 1,
-      endDay: 1,
+      startDate: null,
+      endDate: null,
       calendars: [],
     };
     const [year, month] = this.state.currentDate;
@@ -71,7 +71,13 @@ export default class Calendar extends Component {
                 const date = `${calendar.year}-${calendar.month}-${el}`;
                 return `
                 <li class="${this.isPassedDay(date) ? "passed" : "notPassed"}">
-                  <div data-date="${calendar.year}-${calendar.month}-${el}">
+                  <div 
+                    class="${
+                      (this.state.startDate === date ||
+                        this.state.endDate === date) &&
+                      "clicked"
+                    }" 
+                    data-date="${calendar.year}-${calendar.month}-${el}">
                     ${el}
                   </div>
                 </li>`;
@@ -95,6 +101,22 @@ export default class Calendar extends Component {
   </ul>
 </div>
 `;
+  }
+  setState(newState) {
+    super.setState(newState);
+    const { startDate, endDate } = this.state;
+    const [startY, startM, startD] = startDate.split("-");
+    const checkIn = document.getElementById("stayCheckIn");
+    const checkOut = document.getElementById("stayCheckOut");
+
+    checkIn.value = `${startM}월 ${startD}일`;
+
+    if (!endDate) {
+      checkOut.value = "";
+      return;
+    }
+    const [endY, endM, endD] = endDate.split("-");
+    checkOut.value = `${endM}월 ${endD}일`;
   }
   setEvent() {
     this.addEvent("click", ".slideBtn", ({ target }) => {
@@ -120,19 +142,101 @@ export default class Calendar extends Component {
       this.setState({ calendars, currentDate: [newYear, newMonth] });
     });
     this.addEvent("click", "[data-date]", ({ target }) => {
-      this.state.onClicking = !this.state.onClicking;
-      this.changeColorOfCircle(target);
-      const $clickedLi = this.getClickedLi(target);
-      if (this.state.onClicking) {
-        this.state.startDay = $clickedLi;
-      } else {
-        this.state.endDay = $clickedLi;
+      const { mode } = this.state;
+      const { startDate, endDate } = this.state;
+      const targetDate = target.dataset.date;
+      switch (mode) {
+        case "waiting":
+          if (!startDate) {
+            this.setState({ startDate: targetDate });
+            this.state.mode = "selecting";
+            return;
+          }
+          break;
+        case "selecting":
+          if (targetDate === startDate) {
+            this.setState({ startDate: null });
+            this.state.mode = "waiting";
+            return;
+          }
+          if (this.isFuturethanPivotDate(startDate, targetDate)) {
+            this.setState({ endDate: targetDate });
+            this.state.mode = "complete";
+            this.fillBetweenStartAndEnd();
+          } else {
+            this.setState({ startDate: targetDate, endDate: null });
+          }
+          break;
+        case "complete":
+          if (targetDate === endDate) {
+            this.setState({ endDate: null });
+            this.state.mode = "selecting";
+            return;
+          }
+          if (targetDate === startDate) {
+            this.setState({ startDate: null, endDate: null });
+            this.state.mode = "waiting";
+            return;
+          }
+          if (this.isFuturethanPivotDate(startDate, targetDate)) {
+            this.setState({ endDate: targetDate });
+            this.fillBetweenStartAndEnd();
+          }
+          break;
+        default:
+          console.log("error");
+      }
+    });
+    this.addEvent("mouseover", "[data-date]", ({ target }) => {
+      if (this.state.mode === "complete") return;
+      const { startDate } = this.state;
+      const targetDate = target.dataset.date;
+      if (startDate && this.isFuturethanPivotDate(startDate, targetDate)) {
+        target.classList.add("clicked");
+        this.state.endDate = targetDate;
+        this.fillBetweenStartAndEnd();
+      }
+    });
+    this.addEvent("mouseout", "[data-date]", ({ target }) => {
+      if (this.state.mode === "complete") return;
+      const { startDate } = this.state;
+      const targetDate = target.dataset.date;
+      if (startDate === targetDate) return;
+      if (target.classList.contains("clicked")) {
+        target.classList.remove("clicked");
+        this.fillBetweenStartAndEnd();
       }
     });
   }
-  changeColorOfCircle(target) {
-    target.style.backgroundColor = "black";
-    target.style.color = "white";
+  setEndDate(targetDate) {
+    this.state.endDate = targetDate;
+  }
+  fillBetweenStartAndEnd() {
+    const { startDate, endDate } = this.state;
+    if (!startDate || !endDate) return;
+    const days = [...this.$target.querySelectorAll("[data-date]")];
+    days.map((day) => (day.closest("li").style.backgroundColor = "white"));
+    days
+      .filter(
+        (day) =>
+          !this.isFuturethanPivotDate(day.dataset.date, startDate) &&
+          this.isFuturethanPivotDate(day.dataset.date, endDate)
+      )
+      .map((filteredDay) => {
+        const $li = filteredDay.closest("li");
+        $li.style.backgroundColor = "rgb(170,170,170)";
+        $li.style.borderRadius = "0 0 0 0";
+      });
+    const [$start, $end] = [...this.$target.querySelectorAll(".clicked")];
+    $start.closest("li").style.borderRadius = "50% 0 0 50%";
+    $start.closest("li").style.backgroundColor = "rgb(170,170,170)";
+    if (!$end) return;
+    $end.closest("li").style.borderRadius = "0 50% 50% 0";
+  }
+  isFuturethanPivotDate(pivotDate, targetDate) {
+    const pivot = new Date(pivotDate);
+    const target = new Date(targetDate);
+    return pivot <= target;
   }
   getClickedLi(target) {
     return target.closest("li");
@@ -140,8 +244,8 @@ export default class Calendar extends Component {
   isPassedDay(date) {
     const today = new Date();
     today.setDate(today.getDate() - 1);
-    const targetDay = new Date(date);
-    return today > targetDay;
+    const targetDate = new Date(date);
+    return today > targetDate;
   }
   calStartOrEndDate(date) {}
 }
