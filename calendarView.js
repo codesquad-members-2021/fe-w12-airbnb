@@ -31,8 +31,8 @@ export default class CalendarView {
     }
     setEvent() {
         this.activityDate.addEventListener("click", this.toggleCalendar.bind(this));
-        this.calPrev.addEventListener("click", this.func.bind(this, 'prev'));
-        this.calNext.addEventListener("click", this.func.bind(this));
+        this.calPrev.addEventListener("click", this.renderByBtn.bind(this, 'prev'));
+        this.calNext.addEventListener("click", this.renderByBtn.bind(this));
     }
     toggleCalendar() {
         if(this.calendarDiv.classList.contains('hidden')) {
@@ -50,7 +50,7 @@ export default class CalendarView {
             this.calendarDiv.classList.add('hidden');
         }
     }
-    func(button) {
+    renderByBtn(button) {
         if(button === 'prev') this.renderCalendar(this.currYear, this.currMonth - 1)
         else this.renderCalendar(this.currYear, this.currMonth + 1)
     }
