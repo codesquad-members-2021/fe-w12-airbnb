@@ -29,12 +29,24 @@ export class Calendar {
 
     this.render();
     this.onClickArrowBtn();
+    this.onClickDays();
   }
 
   onClickArrowBtn() {
     const [leftBtn, rightBtn] = document.querySelectorAll('.calendar-btn');
     leftBtn.addEventListener('click', this.leftBtnClickHandler.bind(this));
     rightBtn.addEventListener('click', this.rightBtnClickHandler.bind(this));
+  }
+
+  onClickDays() {
+    const calendars = document.querySelector('.calendar-container');
+    calendars.addEventListener('click', this.dayClickHandler);
+  }
+
+  dayClickHandler({ target }) {
+    if (target.closest('.calendar-days > div')) {
+      console.log('hi');
+    }
   }
 
   rightBtnClickHandler({ target }) {
@@ -95,9 +107,9 @@ export class Calendar {
       const days = daysByOrder.reduce((prev, day) => {
         if (daysEmpty) {
           daysEmpty -= 1;
-          return prev + `<span></span>`;
+          return prev + `<div><span></span></div>`;
         }
-        return prev + `<span>${day}</span>`;
+        return prev + `<div><span>${day}</span></div>`;
       }, '');
       day.insertAdjacentHTML('beforeend', days);
     });
