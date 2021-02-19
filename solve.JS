@@ -60,3 +60,28 @@ https: //webisfree.com/2015-12-16/[css]-nth-child%EC%99%80-nth-of-type-%EC%84%A0
 https://poiemaweb.com/js-closure
 */
 //todo: focus onblur로 사라지는 트렌스폼 구축.
+/*
+-optional channing
+
+   -
+   디버깅공부: js원본파일들어가기 / domtree에서도 js 들어가기 마우스우측클릭 후 진입.
+원본파일에서의 콘솔닷로그를 줄여가기
+깃공부
+
+   -
+   next /
+   default parameter
+spread operator -
+   destructling 사용하기.(객ㄱ체해체할당 ? ? 분해 ? )
+
+이벤트 전파 / 위임
+https: //ygnoh.github.io/javascript/2017/07/02/Javascript-Prevent-Event-Propagation.html
+
+   객체 this
+function호출(전역변수) / arrow호출시 차이(지역변수), binding
+
+설계하는 습관.
+
+
+import/exporthttps://velog.io/@takeknowledge/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9-%EC%9A%94%EC%95%BD-lwk4drjnni
+*/

@@ -1,4 +1,5 @@
-@import "reset.css";
+@import url("reset.css");
+@import url("calendar.css");
 
 /** global */
 body {
@@ -343,6 +344,11 @@ header .basic_menu div {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.placeholder {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.625);
+}
+
 .search_ver2 div button {
   width: 100px;
   border-radius: 30px;
@@ -373,11 +379,12 @@ header .basic_menu div {
 .search .innerdiv label {
   display: block;
 }
-.search .innerdiv input {
+
+.search .innerdiv div {
   padding-top: 5px;
 }
 
-#inner4 {
+.last_innerdiv {
   display: grid;
   grid-template-columns: 70% 30%;
   position: relative;
