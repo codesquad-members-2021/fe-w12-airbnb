@@ -242,74 +242,63 @@ hr {
 
 /* calendar  */
 .calendar {
-  /* background-color: whitesmoke;
-  padding: 50px;
   position: absolute;
-  display: none;
-  top: 220px;
-  right: 215px;
+  top: 250px;
+  right: 200px;
   border-radius: 30px;
-  font-size: 15px; */
+  font-size: 15px;
+  background-color: whitesmoke;
   display: flex;
-  top: 220px;
-  right: 215px;
+  justify-content: space-between;
+  width: 850px;
+  padding: 50px;
   border-radius: 30px;
 }
 .calendar__container1,
 .calendar__container2 {
-  background-color: whitesmoke;
-  padding: 50px;
-  /* position: absolute; */
-  /* display: none; */
-  /* top: 220px;
-  right: 215px; */
-  /* border-radius: 30px; */
   font-size: 15px;
-}
-.calendar__container2 {
-  background-color: yellow;
-  margin-left: 30px;
 }
 
 .calendar.active {
   display: block;
 }
 
-.calendar__year-month1 {
+.calendar__year-month1,
+.calendar__year-month2 {
   text-align: center;
   margin-bottom: 10px;
   font-size: 17px;
+  display: inline-block;
+}
+.calendar__year-month2 {
+  margin-left: 130px;
+}
+.calendar__year-month1 {
+  margin-left: 130px;
+}
+.pre-month,
+.next-month {
+  display: inline-block;
+}
+.next-month {
+  float: right;
 }
 .calendar__day1 td,
-.calendar__day1 th {
+.calendar__day1 th,
+.calendar__day2 td,
+.calendar__day2 th {
   padding: 10px 15px;
 }
-.calendar__day1 th {
+.calendar__day1 th,
+.calendar__day2 th {
   color: gray;
   font-weight: 350;
   font-size: 13px;
 }
 
 .month-bar {
-  display: flex;
   justify-content: space-between;
 }
-.pre-month {
-  /* background-color: rebeccapurple;
-  padding: 10px 10px; */
-}
-
-/* .leftBtn {
-  padding: 20px 20px;
-  background-color: rebeccapurple;
-  width: 100px;
-}
-
-.rightBtn {
-  padding: 20px 20px;
-  background-color: green;
-  width: 100px;
-} */
 
 /* local */
 .local {
