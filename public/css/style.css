@@ -349,14 +349,16 @@ a {
     cursor: pointer;
 }
 
-.calendar-days .calendar-days-clicked {
+.calendar-days .calendar-day-clicked {
     background-color: var(--black);
+    border-radius: var(--border-radius-circle);
     color:var(--font-color);
+    z-index: 1;
 }
 
-.calendar-days-between {
-    background-color: var(--grey);
-    opacity: 0.15%;
+.calendar-day-between {
+    background: rgb(218 218 218);
+    z-index: -1;
 }
 
 .search-btn-container{
