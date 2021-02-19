@@ -297,6 +297,16 @@ a {
     text-align: center;
     font-size: 0.9rem;
     font-weight: 600;
+    position: relative;
+}
+.calendar__table td:hover > span {
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    border: 1px solid black;
+    border-radius: 50%;
 }
 
 /* ---------● 큰 이미지 배너 ●--------- */
