@@ -22,7 +22,7 @@
   width: 850px;
   height: 100%;
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 
 .reservation__label--box {
@@ -316,9 +316,9 @@ input {
   height: 340px;
   padding: 16px 32px;
   position: absolute;
-  left: 130px;
+  left: 120px;
   top: 64px;
-  z-index: 1;
+  z-index: 4;
   background: rgb(255, 255, 255);
   border-radius: 32px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
@@ -360,9 +360,9 @@ input {
 }
 
 .monthly--title {
-  font-size: 16px;
+  font-size: 14px;
   color: rgb(34, 34, 34);
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
   display: flex;
   justify-content: center;

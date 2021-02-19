@@ -169,7 +169,7 @@
   right: 80px;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
-  z-index: 2;
+  z-index: 4;
   min-width: 240px;
   overflow: hidden;
 }
