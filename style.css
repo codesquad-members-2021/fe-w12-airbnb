@@ -248,7 +248,7 @@ hr {
   border-radius: 30px;
   font-size: 15px;
   background-color: whitesmoke;
-  display: flex;
+  display: none;
   justify-content: space-between;
   width: 850px;
   padding: 50px;
@@ -260,7 +260,7 @@ hr {
 }
 
 .calendar.active {
-  display: block;
+  display: flex;
 }
 
 .calendar__year-month1,
@@ -287,7 +287,8 @@ hr {
 .calendar__day1 th,
 .calendar__day2 td,
 .calendar__day2 th {
-  padding: 10px 15px;
+  text-align: center;
+  padding: 10px 10px;
 }
 .calendar__day1 th,
 .calendar__day2 th {
@@ -298,6 +299,12 @@ hr {
 
 .month-bar {
   justify-content: space-between;
+}
+
+.dataNumBox.active {
+  background-color: black;
+  color: whitesmoke;
+  border-radius: 50%;
 }
 
 /* local */

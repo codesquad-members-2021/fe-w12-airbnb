@@ -71,7 +71,7 @@ class Calendar {
                 this.calendarTableInner+="<td> &nbsp; </td>";
             }
             else{
-                this.calendarTableInner+="<td>"+dateNum+"</td>";
+                this.calendarTableInner+=`<td class="dataNumBox">${dateNum}</td>`;
                 dateNum++;
             }
         }
@@ -117,3 +117,29 @@ nextCalenderBtn.addEventListener('click', () => {
 })
 
 
+
+const calendarBtn = document.querySelector('.search-sub__calendarBtn');
+const calendarBox = document.querySelector('.calendar');
+
+calendarBtn.addEventListener('click', () => {
+    calendarBox.classList.toggle('active');
+})
+
+
+
+
+
+const dataNum = document.querySelectorAll('.dataNumBox');
+const inputDataNum = document.querySelector('.search-sub__desc');
+
+const parents = dataNum.parentNode;
+    for(const singleNum of dataNum) {
+        let tableName = singleNum.parentNode.parentNode.parentNode;
+        let one = tableName.previousSibling.previousSibling.firstChild.nextSibling.innerText;
+    
+        singleNum.addEventListener('click', () => {
+            singleNum.classList.toggle('active');
+            inputDataNum.innerHTML = `${one}${singleNum.innerText}일`;
+        })
+        
+    }
