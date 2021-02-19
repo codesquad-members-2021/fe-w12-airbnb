@@ -16,62 +16,54 @@ export default class CalendarMaker {
     return array;
   }
 
-  showCalendar() {
-    const leftDate = new Date();
-    leftDate.setDate(1); //date를 1로 지정
-    leftDate.setMonth(this.activeMonth); //activeMonth로 left 달력의 월 세팅
+  makeDateList(section) {
+    let isRight = 0;
+    section === "R" ? isRight++ : isRight;
 
-    let leftDayIdx = leftDate.getDay(); //각 달의 시작 요일의 idx
-    let leftDateRawList = [];
-
-    const rightDate = new Date();
-    rightDate.setDate(1);
-    rightDate.setMonth(this.activeMonth + 1);
-
-    let rightDayIdx = rightDate.getDay();
-
-    let rightDateRawList = [];
+    const today = new Date();
+    today.setDate(1); //date를 1로 지정
+    today.setMonth(this.activeMonth); //activeMonth로 left 달력의 월 세팅
+    let dayIdx = today.getDay(); //각 달의 시작 요일의 idx
+    let dateRawList = [];
 
     for (let date = 1; date <= this.lastDateOfMonth[this.activeMonth]; date++) {
-      leftDateRawList[leftDayIdx] = date;
-      leftDayIdx++;
+      dateRawList[dayIdx] = date;
+      dayIdx++;
     }
-
-    for (
-      let date = 1;
-      date <= this.lastDateOfMonth[this.activeMonth + 1];
-      date++
-    ) {
-      rightDateRawList[rightDayIdx] = date;
-      rightDayIdx++;
-    }
-
-    this.drawTbody(
-      this.changeNullToBlank(leftDateRawList),
-      this.changeNullToBlank(rightDateRawList)
-    );
+    return dateRawList;
   }
 
-  drawTbody(leftTdList, rightTdList) {
-    this.drawLeftTbody(leftTdList);
-    this.drawRightTbody(rightTdList);
+  showCalendar() {
+    const leftDateList = this.makeDateList("L");
+    const rightDateList = this.makeDateList("R");
+
+    this.drawTbody(this.changeNullToBlank(leftDateList), "left");
+    this.drawTbody(this.changeNullToBlank(rightDateList), "right");
   }
 
-  drawLeftTbody(tdList) {
-    let leftTbody = ``;
+  drawTbody(tdList, section) {
+    let adderForMonth = 1;
+    let btn = "<";
+
+    if (section == "right") {
+      adderForMonth++;
+      btn = ">";
+    }
+
+    let tBody = ``;
     let tdListIdx = 0;
     for (let i = 0; i < 5; i++) {
-      leftTbody += `<tr>`;
+      tBody += `<tr>`;
       for (let j = 0; j < 7; j++) {
-        leftTbody += `<td class="td-left">${tdList[tdListIdx]}</td>`;
+        tBody += `<td class="td-${section}">${tdList[tdListIdx]}</td>`;
         tdListIdx++;
       }
     }
 
-    const leftDiv = `<div id="calendar-left">
+    const div = `<div id="calendar-${section}">
       <div class="calendar-title">
-        <button id="btn-left"><</button>
-        <span>${this.year}년 ${this.activeMonth + 1}월</span>
+        <button id="btn-${section}">${btn}</button>
+        <span>${this.year}년 ${this.activeMonth + adderForMonth}월</span>
       </div>
       <table class="calendar-table">
         <thead>
@@ -85,51 +77,13 @@ export default class CalendarMaker {
             <th>토</th>
           </tr>
         </thead>
-        <tbody class="calendar-left-tbody">${leftTbody}</tbody>
+        <tbody class="calendar-${section}-tbody">${tBody}</tbody>
       </table>
     </div>`;
 
     document
       .querySelector(".search-calendar")
-      .insertAdjacentHTML("beforeend", leftDiv);
-  }
-
-  drawRightTbody(tdList) {
-    let rightTbody = ``;
-    let tdListIdx = 0;
-
-    for (let i = 0; i < 5; i++) {
-      rightTbody += `<tr>`;
-      for (let j = 0; j < 7; j++) {
-        rightTbody += `<td class ="td-right">${tdList[tdListIdx]}</td>`;
-        tdListIdx++;
-      }
-    }
-
-    const rightDiv = `<div id="calendar-right">
-          <div class="calendar-title">
-            <span>${this.year}년 ${this.activeMonth + 2}월</span>
-            <button id="btn-right">></button>
-          </div>
-          <table class="calendar-table">
-            <thead>
-              <tr>
-                <th>일</th>
-                <th>월</th>
-                <th>화</th>
-                <th>수</th>
-                <th>목</th>
-                <th>금</th>
-                <th>토</th>
-              </tr>
-            </thead>
-            <tbody class="calendar-right-tbody">${rightTbody}</tbody>
-          </table>
-        </div>`;
-
-    document
-      .querySelector(".search-calendar")
-      .insertAdjacentHTML("beforeend", rightDiv);
+      .insertAdjacentHTML("beforeend", div);
   }
 
   drawParentCalendar() {

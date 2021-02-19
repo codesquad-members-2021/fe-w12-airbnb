@@ -1,8 +1,8 @@
 import CalendarMaker from "./CalendarMaker.js";
 export default class CalendarManager extends CalendarMaker {
   constructor($activityDate, $navMenuRoom, $navMenuActivity) {
-    //자식이 받아오는 값
-    super($navMenuRoom, $navMenuActivity); //먼저 실행(부모 메소드 쓸 때 필요한 경우 사용)
+    //자식이 받아오는애
+    super($navMenuRoom, $navMenuActivity); //먼저 실행(부모 메소드 쓸 때 필요한 경우 )
     this.$activityDate = $activityDate;
     this.childInit();
   }
