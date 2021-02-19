@@ -20,18 +20,8 @@ accountButton.addEventListener("click", () => {
 
 const isContain = (node, target) => node.contains(target);
 
-// calendar 날짜 선택
-
-const calendarDate = document.querySelectorAll(".calendar__date");
-calendarDate.forEach((date) => {
-  date.addEventListener("click", () => {
-    console.log("clicked");
-  });
-});
-
-document.addEventListener("click", (e) => {
+document.addEventListener("click", ({ target }) => {
   // 외부 클릭 시 레이어 숨기는 이벤트
-  const { target } = e;
 
   if (!isContain(accountLayer.element, target) && !isContain(accountButton, target)) {
     // 계정 버튼 클릭시 나오는 레이어의 외부를 클릭했을 때

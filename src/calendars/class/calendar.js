@@ -1,4 +1,4 @@
-import { isSameWithStartDate, isBetweenSelectedDates, isSameWithEndDate } from "../functions/calendarDate.js";
+import { isSameWithStartDate, isBetweenSelectedDates, isSameWithEndDate } from "../functions/calendarDateEvent.js";
 
 export default class Calendar {
   constructor(day, calendarHtml) {

@@ -1,5 +1,5 @@
 import Calendar from "./calendar.js";
-import { registerClickEvent } from "../functions/calendarDate.js";
+import { registerClickEvent } from "../functions/calendarDateEvent.js";
 
 export default class CalendarManager {
   constructor(tab, prevButton, nextButton, calendarHtml) {
