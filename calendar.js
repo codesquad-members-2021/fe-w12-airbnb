@@ -161,7 +161,7 @@ class Calendar {
         dayButtons.forEach((element) => {
             element.addEventListener("click", (event) => {
                 event.target.classList.toggle("day_selected");
-                this.updateSearch(clickCount);
+
                 clickCount++;
 
                 // 선택 일자 타입 변환
@@ -212,8 +212,6 @@ class Calendar {
                 event.target.classList.remove("day_hover")
             });
         });
-
-        
     }
 
     handleEvents() {
@@ -223,11 +221,7 @@ class Calendar {
         this.updateCalendarStyle(".right_day_button");
     }
 
-    // updateSearch(clickCount) {
-    //     let days = document.querySelectorAll(".day_selected");
-    //     days.forEach((element) => dateUpdate.innerText += element.innerText);
-      
-    // }
+
 }
 
 
