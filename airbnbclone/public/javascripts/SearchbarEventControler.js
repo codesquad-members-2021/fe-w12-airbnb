@@ -21,7 +21,7 @@ export default class SearchberEventController extends MainEventControler {
             break;
         }
       } else {
-        super.removeClick(this.mainLocation, this.mainPeople,this.mainCalender);
+        super.removeClick(this.mainLocation, this.mainPeople);
       }
     });
   }
@@ -40,10 +40,8 @@ export default class SearchberEventController extends MainEventControler {
   }
   clickdate(target) {
     if (target.closest(".date")) {
-      super.ADDTarget(this.mainCalender);
-    } else {
-      super.removeClick(this.mainCalender);
-    }
+      super.toggleTarget(this.mainCalender);
+    } 
   }
   clickLastNode(target, input, lastNode, lastPopup) {
     if (target.closest(lastNode)) {
@@ -51,10 +49,8 @@ export default class SearchberEventController extends MainEventControler {
         this.focusInput(input, target);
       } else {
         super.removeClick(this.mainLocation);
-        super.ADDTarget(lastPopup);
+        super.toggleTarget(lastPopup);
       }
-    } else {
-      super.removeClick(lastPopup);
-    }
+    } 
   }
 }

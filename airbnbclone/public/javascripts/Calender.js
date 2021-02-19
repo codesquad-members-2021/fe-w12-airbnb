@@ -7,18 +7,16 @@ export default class Calender {
   }
 
   makeCalenderHTML(firstDay, LastDay) {
-    let html = '<tr>'
+    let html = "<tr>";
 
-    for (let i = 0; i < firstDay; i++)
-        html += '<td></td>'
+    for (let i = 0; i < firstDay; i++) html += "<td></td>";
 
     for (let i = 0; i < LastDay; i++) {
-        if ((firstDay + i) % 7 === 0)
-            html += '</tr><tr>'
-        html += `<td class="calender--day">${i + 1}</td>`
+      if ((firstDay + i) % 7 === 0) html += "</tr><tr>";
+      html += `<td class="calender--day">${i + 1}</td>`;
     }
 
-    html += '</tr>'
+    html += "</tr>";
 
     return html;
   }
@@ -29,8 +27,8 @@ export default class Calender {
     const dateLast = new Date(year, month, 0).getDate();
     const dateStart = new Date(year, month - 1, 1).getDay();
     let date = `${year} 년   ${month} 월`;
-    const html = this.makeCalenderHTML(dateStart,dateLast);
- 
+    const html = this.makeCalenderHTML(dateStart, dateLast);
+
     title.innerHTML = date;
     tbody.innerHTML = html;
   }
