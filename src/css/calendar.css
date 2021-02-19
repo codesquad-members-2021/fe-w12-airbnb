@@ -1,0 +1,35 @@
+.header__calendar-container {
+  width: 100%;
+  height: 380px;
+  background: var(--white);
+  border-radius: 40px;
+  box-shadow: 1px 1px 25px rgb(0 0 0 / 17%);
+  margin-top: 15px;
+  color: var(--dark-gray);
+}
+
+.left-calendar-container,
+.right-calendar-container {
+  width: 50%;
+}
+
+.calendar-header {
+  padding: 20px 60px;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--dark-gray);
+}
+
+table {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+tbody {
+  padding: 20px;
+}
+
+td {
+  padding: 5px;
+}
