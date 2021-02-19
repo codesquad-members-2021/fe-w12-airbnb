@@ -1,8 +1,8 @@
 /*======= CalendarIndicator =======
 [✔] 체험 탭의 '날짜' 버튼 누르면 → 밑에 달력 요소 생김
 [✔] '날짜'버튼 재클릭하면 → 사라짐 (toggle)
-[ ] 달력 이전 버튼 클릭하면 이전달 보여주기
-[ ] 달력 다음 버튼 클릭하면 다음달 보여주기
+[✔] 달력 이전 버튼 클릭하면 이전달 보여주기
+[✔] 달력 다음 버튼 클릭하면 다음달 보여주기
 [ ] 달력 날짜 버튼 클릭하면 스타일 적용 + 검색창에 날짜 표시 */
 
 // 년, 월이 어떻게 바뀌는지 로직을 짜야함. 
@@ -22,15 +22,17 @@ export default class CalendarView {
         this.calDate1 = calendarDates[0];
         this.calDate2 = calendarDates[1];
         this.maker = calendarMaker;
+        this.currYear = 0;
+        this.currMonth = 0;
         this.isSelected = false;
-        this.yearSelected;
-        this.monthSelected;
+        // this.yearSelected;
+        // this.monthSelected;
         this.setEvent();
     }
     setEvent() {
         this.activityDate.addEventListener("click", this.toggleCalendar.bind(this));
-        // this.calPrev.addEventListener("click", );
-        // this.calNext.addEventListener("click", );
+        this.calPrev.addEventListener("click", this.func.bind(this, 'prev'));
+        this.calNext.addEventListener("click", this.func.bind(this));
     }
     toggleCalendar() {
         if(this.calendarDiv.classList.contains('hidden')) {
@@ -48,18 +50,29 @@ export default class CalendarView {
             this.calendarDiv.classList.add('hidden');
         }
     }
-    renderCalendar(year, month) {
+    func(button) {
+        if(button === 'prev') this.renderCalendar(this.currYear, this.currMonth - 1)
+        else this.renderCalendar(this.currYear, this.currMonth + 1)
+    }
+    renderCalendar(y, m) {
+        let [year, month] = this.checkMonth(y, m);
+        this.saveCurr(year, month);
         let calHtml = this.maker.getCalendar(year, month);
-        this.calTitle1.innerText = `${year}년 ${month+1}월`;
+        this.calTitle1.innerText = `${year}년 ${month + 1}월`;
         this.calDate1.innerHTML = calHtml;
 
-        calHtml = this.maker.getCalendar(year, month+1);
-        this.calTitle2.innerText = `${year}년 ${month+2}월`;
+        [year, month] = this.checkMonth(year, month + 1);
+        calHtml = this.maker.getCalendar(year, month);
+        this.calTitle2.innerText = `${year}년 ${month + 1}월`;
         this.calDate2.innerHTML = calHtml;
     }
     checkMonth(year, month) {
         if(month === 12) return [year+1, 0];
         else if(month === -1) return [year-1, 11];
         else return [year, month];
+    }
+    saveCurr(year, month) {
+        this.currYear = year
+        this.currMonth = month;
     }
 }
