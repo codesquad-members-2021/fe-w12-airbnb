@@ -47,7 +47,7 @@ class LeftCalendar {
 
         for (let i = firstDay; i < leftCalendarDays.length; i++) {
             if (day <= lastDay) {
-                leftCalendarDays[i].innerHTML = `<button class = "day_button">${day}</button>`;
+                leftCalendarDays[i].innerHTML = `<button class = "left_day_button">${day}</button>`;
                 day++;
             }
 
@@ -97,7 +97,7 @@ class RightCalendar {
 
         for (let i = firstDay; i < rightCalendarDays.length; i++) {
             if (day <= lastDay) {
-                rightCalendarDays[i].innerHTML = `<button class = "day_button">${day}</button>`;
+                rightCalendarDays[i].innerHTML = `<button class = "right_day_button">${day}</button>`;
                 day++;
             }
         }
@@ -127,7 +127,7 @@ function drawCalendar() {
         rightCalendar = new RightCalendar(today.getFullYear(), today.getMonth() + 1 + change);
         leftCalendar.fillCalendar();
         rightCalendar.fillCalendar();
-        updateCalendarStyle();
+        updateCalendarStyle(".left_day_button");
     });
     rightButton.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -136,11 +136,8 @@ function drawCalendar() {
         rightCalendar = new RightCalendar(today.getFullYear(), today.getMonth() + 1 + change);
         leftCalendar.fillCalendar();
         rightCalendar.fillCalendar();
-        updateCalendarStyle();
+        updateCalendarStyle(".right_day_button");
     });
-
-
-
 }
 
 
@@ -158,8 +155,8 @@ function toggleCalendar() {
 
 }
 
-function updateCalendarStyle() {
-    const dayButtons = document.querySelectorAll(".day_button");
+function updateCalendarStyle(className) {
+    const dayButtons = document.querySelectorAll(className);
     let firstSelectedDay = 0;
     let lastSelectedDay = 0;
     let clickCount = 0;
@@ -234,7 +231,9 @@ function updateCalendarStyle() {
 function handleEvents() {
     drawCalendar();
     toggleCalendar();
-    updateCalendarStyle();
+    updateCalendarStyle(".left_day_button");
+    updateCalendarStyle(".right_day_button");
+
 }
 
 
