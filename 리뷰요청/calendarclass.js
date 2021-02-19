@@ -76,6 +76,7 @@ class MakeCalendar {
     }
 }
 
+//달력보여주기
 class View {
     constructor(calendar) {
         this.calendar = calendar;
