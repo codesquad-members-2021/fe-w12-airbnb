@@ -27,19 +27,23 @@ export default class CalenderEventController extends MainEventController {
     this.render();
   }
 
-  CalenderBtnEventHandler(target){
+  CalenderBtnEventHandler(target) {
     switch (target.closest("button")) {
-        case this.previousBtn:
-          this.previousCalender();
-          break;
-        case this.nextBtn:
-          this.nextCalender();
-          break;
-      }
+      case this.previousBtn:
+        this.previousCalender();
+        break;
+      case this.nextBtn:
+        this.nextCalender();
+        break;
+    }
   }
   init() {
-    this._.EVENT(this.Calender, "click", ({ target }) => {
+    this._.EVENT(this.main, "click", ({ target }) => {
+      if (target.closest(".main__calender")) {
         this.CalenderBtnEventHandler(target);
+      } else {
+        super.removeClick(this.mainCalender);
+      }
     });
   }
 }
