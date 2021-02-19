@@ -59,9 +59,9 @@ const deleteConnection = (calendarDates) => {
   });
 };
 
-const repaintAtSelectedEndDate = () => {
+const repaintAtSelectedDate = (key) => {
   // 날짜가 두개 선택된 상태에서 또 선택을 하면 connection을 모두 지우고 시작하기 때문에 endDate을 보존하고 싶은 경우에 재칠해줘야함
-  selectedDateState.endDate.element.classList.add("selected");
+  selectedDateState[key].element.classList.add("selected");
 };
 
 const canConnectDates = () => {
@@ -119,13 +119,17 @@ const registerClickEvent = (element, placeholder, textStartDate, textEndDate, ca
       if (!isLaterThanDate(clickedDate, selectedStartDate)) {
         // 시작 날짜보다 더 이른 날짜를 클릭하면
         editDate(target, clickedDate, textStartDate, "start");
-        repaintAtSelectedEndDate();
+        repaintAtSelectedDate(kindOfDate.end);
       }
       if (isLaterThanDate(clickedDate, selectedStartDate)) {
         // 시작 날짜보다 더 나중 날짜를 클릭하면
-        if (isLaterThanDate(clickedDate, selectedEndDate)) dropDate("end", textEndDate);
-        editDate(target, clickedDate, textStartDate, "start");
-        repaintAtSelectedEndDate();
+        if (isLaterThanDate(clickedDate, selectedEndDate)) {
+          editDate(target, clickedDate, textEndDate, "end");
+          repaintAtSelectedDate(kindOfDate.start);
+        } else {
+          editDate(target, clickedDate, textStartDate, "start");
+          repaintAtSelectedDate(kindOfDate.end);
+        }
       }
     }
     // 날짜가 다 선택된 상황에서 연결선을 그려줘야 하면 그리기
