@@ -1,31 +1,44 @@
 (function (window, document) {
   'use strict';
 
-  const $calendarWrapper = document.querySelector('.calendar__wrapper');
-
   const WEEKDAY = { 0: '일', 1: '월', 2: '화', 3: '수', 4: '목', 5: '금', 6: '토' };
-  const LASTDAY = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const $calendarWrapper = document.querySelector('.calendar__wrapper');
 
   // 돔 생성 (그리기)
 
-  class CalendarDate {
-    constructor(year, monthIdx) {
-      this.DATE = new Date(year, monthIdx);
+  class CalendarData {
+    constructor(fullYear, monthIdx) {
+      this.fullYear = fullYear;
+      this.monthIdx = monthIdx;
+      this.DATE = new Date(this.fullYear, this.monthIdx);
       this.year = this.DATE.getFullYear();
-      this.month = this.DATE.getMonth() + 1;
+      this.month = this.DATE.getMonth();
       this.date = this.DATE.getDate();
       this.day = WEEKDAY[this.DATE.getDay()];
+    }
+
+    getMonth() {
+      const LASTDAY = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      let monthArr = [];
+      for (let i = 1; i < LASTDAY[this.monthIdx] + 1; i++) {
+        monthArr.push(i);
+      }
+      return monthArr;
     }
   }
 
+  let data = new CalendarData(2021, 3);
+  console.log(data.getMonth());
+
   class CalendarBox {
-    constructor(year, monthIdx) {
-      this.DATE = new Date(year, monthIdx);
-      this.year = this.DATE.getFullYear();
-      this.month = this.DATE.getMonth() + 1;
-      this.date = this.DATE.getDate();
-      this.day = WEEKDAY[this.DATE.getDay()];
-    }
+    // constructor(year, monthIdx) {
+    //   this.DATE = new Date(year, monthIdx);
+    //   this.year = this.DATE.getFullYear();
+    //   this.month = this.DATE.getMonth() + 1;
+    //   this.date = this.DATE.getDate();
+    //   this.day = WEEKDAY[this.DATE.getDay()];
+    // }
+
     // Title: 년 월
     drawTitle() {
       const calendarUpper = `
@@ -95,10 +108,10 @@
     }
   }
 
-  const monthBox = new CalendarBox(2021, 1);
-  const monthBox2 = new CalendarBox(2021, 2);
-  monthBox.drawMonth();
-  monthBox2.drawMonth();
+  // const monthBox = new CalendarBox(2021, 1);
+  // const monthBox2 = new CalendarBox(2021, 2);
+  // monthBox.drawMonth();
+  // monthBox2.drawMonth();
 
   // 데이터
   // 생성(분리);
