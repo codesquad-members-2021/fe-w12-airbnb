@@ -47,104 +47,62 @@
         </ul>
     
         <!-- 숙소탭 검색창 -->
-        <ul class="search__accommo search">
-            <li class="accommo__place">
-                <span>위치</span><br>
-                <input type="text" placeholder="어디로 여행가세요?">
-            </li>
-            <li class="accommo__checkin">
-                <span>체크인</span><br>
-                <div>날짜 추가</div>
-            </li>
-            <li class="accommo__checkout">
-                <span>체크아웃</span><br>
-                <div>날짜 추가</div>
-            </li>
-            <li class="accommo__guest">
-                <span>인원</span><br>
-                <div>게스트 추가</div>
-                <button>✈︎</button>
-            </li>
-        </ul>
+        <div class="search__accommo search">
+            <ul>
+                <li class="accommo__place">
+                    <span>위치</span><br>
+                    <input type="text" placeholder="어디로 여행가세요?">
+                </li>
+                <li class="accommo__checkin">
+                    <span>체크인</span><br>
+                    <div>날짜 추가</div>
+                </li>
+                <li class="accommo__checkout">
+                    <span>체크아웃</span><br>
+                    <div>날짜 추가</div>
+                </li>
+                <li class="accommo__guest">
+                    <span>인원</span><br>
+                    <div>게스트 추가</div>
+                    <button>✈︎</button>
+                </li>
+            </ul>
+        </div>
 
         <!-- 체험탭 검색창 -->
-        <ul class="search__activity search hidden">
-            <li class="activity__place">
-                <span>위치</span><br>
-                <input type="text" placeholder="어디로 여행가세요?">
-            </li>
-            <li class="activity__date">
-                <span>날짜</span><br>
-                <div>원하는 날짜를 입력하세요.</div>
-                <button>✈︎</button>
-                <!-- ****달력 템플릿 스타일 주는 연습용**** -->
-                <div class="calendar">
-                    <h3 class="calendar__title">2021 3월</h3>
-                    <table class="calendar__table">
-                        <thead>
-                            <tr>
-                                <th>일</th>
-                                <th>월</th>
-                                <th>화</th>
-                                <th>수</th>
-                                <th>목</th>
-                                <th>금</th>
-                                <th>토</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr> <!-- 1주 -->
-                                <td> </td>
-                                <td> </td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                            </tr>
-                            <tr> <!-- 2주 -->
-                                <td>6</td>
-                                <td>7</td>
-                                <td>8</td>
-                                <td>9</td>
-                                <td>10</td>
-                                <td>11</td>
-                                <td>12</td>
-                            </tr>
-                            <tr> <!-- 3주 -->
-                                <td>13</td>
-                                <td>14</td>
-                                <td>15</td>
-                                <td>16</td>
-                                <td>17</td>
-                                <td>18</td>
-                                <td>19</td>
-                            </tr>
-                            <tr> <!-- 4주 -->
-                                <td>20</td>
-                                <td>21</td>
-                                <td>22</td>
-                                <td>23</td>
-                                <td>24</td>
-                                <td>25</td>
-                                <td>26</td>
-                            </tr>
-                            <tr> <!-- 5주 -->
-                                <td>27</td>
-                                <td>28</td>
-                                <td>29</td>
-                                <td>30</td>
-                                <td>31</td>
-                                <td> </td>
-                                <td> </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-        
-            </li>
-        </ul>
+        <div class="search__activity search hidden">
+            <ul>
+                <li class="activity__place">
+                    <span>위치</span><br>
+                    <input type="text" placeholder="어디로 여행가세요?">
+                </li>
+                <li class="activity__date search--selected">
+                    <span>날짜</span><br>
+                    <div>원하는 날짜를 입력하세요.</div>
+                    <button>✈︎</button>
+                </li>
+            </ul>
+            <!-- ****달력 템플릿 스타일 주는 연습용**** -->
+            <div class="calendar hidden">
+                <h3 class="calendar__title">2021년 x월</h3>
+                <button>≺</button>
+                <button>≻</button>
+                <table class="calendar__table">
+                    <thead>
+                        <tr>
+                            <th>일</th>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                            <th>토</th>
+                        </tr>
+                    </thead>
+                    <tbody class="calendar__date"></tbody>
+                </table>
+            </div>
+        </div>
 
         <!-- 큰 배너 이미지 -->
         <div class="banner">

@@ -168,7 +168,7 @@ a {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15),
         0px 3px 8px rgba(0, 0, 0, 0.1);
 }
-.search > li {
+.search > ul > li {
     float: left;
     height: 66px;
     padding: 15px 25px;
@@ -177,10 +177,10 @@ a {
     position: relative;
     cursor: pointer;
 }
-.search > li:first-child {
+.search > ul > li:first-child {
     padding-left: 35px;
 }
-.search > li:not(:last-child)::after {
+.search > ul > li:not(li:last-child)::after {
     content: "";
     display: block;
     position: absolute;
@@ -190,18 +190,18 @@ a {
     height: 30px;
     border-right: 1px solid #ccc;
 }
-.search > li:hover {
+.search > ul > li:hover {
     background-color: #eee;
 }
-.search:hover > li::after {
+.search > ul:hover > li::after {
     opacity: 0;
 }
-.search > li > span:first-child {
+.search > ul > li > span:first-child {
     font-size: 0.78em;
     font-weight: 600;
     color: #222;
 }
-.search > li > div {
+.search > ul > li > div {
     margin-top: 6px;
     font-size: 0.87em;
     font-weight: 300;
@@ -215,7 +215,7 @@ a {
     outline: none;
     background-color: transparent;
 }
-.search button {
+.search li > button {
     position: absolute;
     top: 8px;
     right: 10px;
@@ -253,18 +253,61 @@ a {
 /* ---------● 체험탭__달력 드롭다운 ●--------- */
 .calendar {
     position: absolute;
-    top: 72px;
-    background: seashell;
+    top: 80px;
+    right: 0;
+    background: #fff;
     width: 460px;
-    height: 370px;
     padding: 35px 60px;
-    border-radius: 30px;
+    border-radius: 33px;
 }
 .calendar__title {
     text-align: center;
-    font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
+    color: #333;
+}
+.calendar > button {
+    position: absolute;
+    top: 30px;
+    background: transparent;
+    border: 0;
+    font-size: 1.1rem;
+    color: #333;
+    cursor: pointer;
+}
+.calendar > button:first-of-type {
+    left: 50px;
+}
+.calendar > button:last-of-type {
+    right: 50px;
+}
+.calendar__table {
+    width: 100%;
+}
+.calendar__table th {
+    width: 10%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 0.8rem;
+    color: #666;
+}
+.calendar__table td {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+.calendar__table td:hover > span {
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    border: 1px solid black;
+    border-radius: 50%;
 }
 
 /* ---------● 큰 이미지 배너 ●--------- */
