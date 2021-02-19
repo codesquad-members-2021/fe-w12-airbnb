@@ -48,6 +48,7 @@
 
   // location activity button
   $locationActBtn.addEventListener('mouseenter', hoverButton);
+  $locationActBtn.addEventListener('mousedown', downButton);
   $locationActBtn.addEventListener('mouseleave', leaveButton);
   $locationActBtn.addEventListener('mouseup', openLocation);
   window.addEventListener('click', closeLocation);
@@ -85,10 +86,10 @@
 
   function hoverButton(e) {
     const targetButton = e.currentTarget.className;
-    const targetHover = `${e.currentTarget.className}--hover`;
+    const targetHover = `${targetButton}--hover`;
     const targetMiddleBar = searchMiddleBar(e.target.id);
-    if (e.currentTarget.className.includes('--hover')) return;
-    if (e.currentTarget.className.includes('--active')) return;
+    if (targetButton.includes('--hover')) return;
+    if (targetButton.includes('--active')) return;
     e.currentTarget.classList.replace(targetButton, targetHover);
     searchMiddleBar(e.target.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
     if (targetMiddleBar.length === 2) {
@@ -96,21 +97,19 @@
     }
   }
   function downButton(e) {
-    const target = e.currentTarget.className;
-    const hoverIndex = target.indexOf('--active');
-    const targetButton = e.currentTarget.className.slice(0, hoverIndex);
-    const targetHover = `${targetButton}--hover`;
-    const targetMiddleBar = searchMiddleBar(e.currentTarget.id);
-    if (e.currentTarget === $locationBtn && e.currentTarget.className.includes('--active')) {
-      e.currentTarget.classList.replace(target, targetHover);
+    let target = e.currentTarget;
+
+    if (target.className.includes('--active') && e.currentTarget === $locationBtn) {
+      target.classList.replace(target.className, `${target.className.split('--active')[0]}--hover`);
       searchMiddleBar(e.currentTarget.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
-      if (targetMiddleBar.length === 2) {
-        searchMiddleBar(e.currentTarget.id)[1].classList.replace('middle__bar', 'middle__bar--hover');
-      }
+      return $popupLocation.classList.toggle('visible--hidden');
     }
-    if (!$popupLocation.classList.contains('visible--hidden')) {
-      $popupLocation.classList.add('visible--hidden');
+    if (target.className.includes('--active') && e.currentTarget === $locationActBtn) {
+      target.classList.replace(target.className, `${target.className.split('--active')[0]}--hover`);
+      searchMiddleBar(e.currentTarget.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
+      return $popupLocation.classList.toggle('visible--hidden');
     }
+
     // if (!$calendarBox.classList.contains('visible--hidden')) {
     //   $calendarBox.classList.add('visible--hidden');
     // }
@@ -119,12 +118,21 @@
     const targetHover = e.currentTarget.className;
     const hoverIndex = targetHover.indexOf('--hover');
     const targetButton = e.currentTarget.className.slice(0, hoverIndex);
-    const targetMiddleBar = searchMiddleBar(e.target.id);
+    const targetMiddleBar = searchMiddleBar(e.currentTarget.id);
 
     if (!e.currentTarget.className.includes('--hover')) return;
     if (e.currentTarget.className.includes('--active')) return;
+
     e.currentTarget.classList.replace(targetHover, targetButton);
-    searchMiddleBar(e.target.id)[0].classList.replace('middle__bar--hover', 'middle__bar');
+    if (e.currentTarget === $locationBtn && $checkInBtn.className.includes('--active')) return;
+    if (e.currentTarget === $personBtn && $checkOutBtn.className.includes('--active')) return;
+    if (e.currentTarget === $checkInBtn && $checkOutBtn.className.includes('--active')) {
+      return searchMiddleBar(e.currentTarget.id)[0].classList.replace('middle__bar--hover', 'middle__bar');
+    }
+    if (e.currentTarget === $checkOutBtn && $checkInBtn.className.includes('--active')) {
+      return searchMiddleBar(e.currentTarget.id)[1].classList.replace('middle__bar--hover', 'middle__bar');
+    }
+    searchMiddleBar(e.currentTarget.id)[0].classList.replace('middle__bar--hover', 'middle__bar');
     if (targetMiddleBar.length === 2) {
       return searchMiddleBar(e.target.id)[1].classList.replace('middle__bar--hover', 'middle__bar');
     }
@@ -137,52 +145,73 @@
     const targetActive = `${targetButton}--active`;
     e.currentTarget.classList.replace(targetHover, targetActive);
     $popupLocation.classList.remove('visible--hidden');
+    searchMiddleBar(e.currentTarget.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
   }
 
   function closeLocation(e) {
-    // console.log(e.path.includes($locationBtn));
     if (e.path.includes($locationBtn)) return;
+    if (e.path.includes($locationActBtn)) return;
     if (e.path.includes($popupLocation)) return;
+    if (e.path.includes($checkInBtn) && !$locationBtn.className.includes('--active')) return;
+    if (e.path.includes($checkOutBtn) && !$locationBtn.className.includes('--active')) return;
     searchMiddleBar($locationBtn.id)[0].classList.replace('middle__bar--hover', 'middle__bar');
     $popupLocation.classList.add('visible--hidden');
+
     $locationBtn.classList.replace('leftside__radius__box--active', 'leftside__radius__box');
+    $locationActBtn.classList.replace('leftside__radius__box--activity--active', 'leftside__radius__box--activity');
   }
 
   function openCalendar(e) {
-    const targetHover = e.currentTarget.className;
-    const hoverIndex = targetHover.indexOf('--hover');
-    const targetButton = e.currentTarget.className.slice(0, hoverIndex);
-    const targetActive = `${targetButton}--active`;
+    const target = e.currentTarget;
 
-    if (e.currentTarget === $checkInBtn && e.currentTarget.className.includes('--active') && !$calendarBox.classList.contains('visible--hidden')) {
-      $checkInBtn.classList.remove('middle__box--hover');
-      $calendarBox.classList.toggle('visible--hidden');
-      searchMiddleBar($checkInBtn.id)[0].classList.replace('middle__bar--hover', 'middle__bar');
-      searchMiddleBar($checkInBtn.id)[1].classList.replace('middle__bar--hover', 'middle__bar');
-      return $checkInBtn.classList.replace('middle__box--active', 'middle__box');
+    target.classList.replace('middle__box--hover', 'middle__box--active');
+
+    if (target === $checkInBtn && target.className.includes('--active') && !$calendarBox.classList.contains('visible--hidden')) {
+      $checkOutBtn.classList.replace('middle__box--active', 'middle__box');
+      searchMiddleBar($checkInBtn.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
+      searchMiddleBar($checkInBtn.id)[1].classList.replace('middle__bar', 'middle__bar--hover');
     }
 
-    if (e.currentTarget === $checkOutBtn && e.currentTarget.className.includes('--active') && !$calendarBox.classList.contains('visible--hidden')) {
-      $checkOutBtn.classList.remove('middle__box--hover');
-      $calendarBox.classList.toggle('visible--hidden');
-      searchMiddleBar($checkOutBtn.id)[0].classList.replace('middle__bar--hover', 'middle__bar');
-      searchMiddleBar($checkOutBtn.id)[1].classList.replace('middle__bar--hover', 'middle__bar');
-      return $checkOutBtn.classList.replace('middle__box--active', 'middle__box');
+    if (target === $checkOutBtn && target.className.includes('--active') && !$calendarBox.classList.contains('visible--hidden')) {
+      $checkInBtn.classList.replace('middle__box--active', 'middle__box');
+      searchMiddleBar($checkOutBtn.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
+      searchMiddleBar($checkOutBtn.id)[1].classList.replace('middle__bar', 'middle__bar--hover');
     }
 
-    e.currentTarget.classList.toggle(targetActive);
+    // if (target === $checkInBtn && !$calendarBox.classList.contains('visible--hidden')) {
+    //   $checkInBtn.classList.toggle('middle__box', true);
+    //   $checkInBtn.classList.toggle('middle__box--active');
+    //   searchMiddleBar($checkInBtn.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
+    //   searchMiddleBar($checkInBtn.id)[1].classList.replace('middle__bar', 'middle__bar--hover');
+    //   console.log('d');
+    // }
+
+    // if (target === $checkOutBtn && !$calendarBox.classList.contains('visible--hidden')) {
+    //   $checkOutBtn.classList.toggle('middle__box', true);
+    //   $checkOutBtn.classList.toggle('middle__box--active');
+    //   searchMiddleBar($checkOutBtn.id)[0].classList.replace('middle__bar', 'middle__bar--hover');
+    //   searchMiddleBar($checkOutBtn.id)[1].classList.replace('middle__bar', 'middle__bar--hover');
+    //   console.log('e');
+    // }
+
     if (!$calendarBox.classList.contains('visible--hidden')) return;
+
     $calendarBox.classList.toggle('visible--hidden');
   }
 
   function closeCalendar(e) {
     if (e.path.includes($checkInBtn)) return;
     if (e.path.includes($checkOutBtn)) return;
-    if (e.path.includes($dateBtn)) return;
+    if (e.path.includes($personBtn)) return;
     if (e.path.includes($calendarBox)) return;
+    // if (e.path.includes($locationBtn)) return;
     if (searchMiddleBar($checkInBtn.id)[0].classList.contains('middle__bar--hover')) {
       searchMiddleBar($checkInBtn.id)[0].classList.replace('middle__bar--hover', 'middle__bar');
       searchMiddleBar($checkInBtn.id)[1].classList.replace('middle__bar--hover', 'middle__bar');
+    }
+    if (searchMiddleBar($checkOutBtn.id)[0].classList.contains('middle__bar--hover')) {
+      searchMiddleBar($checkOutBtn.id)[0].classList.replace('middle__bar--hover', 'middle__bar');
+      searchMiddleBar($checkOutBtn.id)[1].classList.replace('middle__bar--hover', 'middle__bar');
     }
     if ($checkInBtn.classList.contains('middle__box--active')) {
       $checkInBtn.classList.replace('middle__box--active', 'middle__box');
