@@ -3,7 +3,8 @@ class Calendar {
         this.year = year;
         this.month = month;
         this.monthArr = [1,2,3,4,5,6,7,8,9,10,11,12];
-        this.leftContainer = document.querySelector(`.calendar__container1`);
+        this.leftContainer = document.querySelector(`.calendar__day1`);
+        this.yearMonth = document.querySelector('.calendar__year-month1');
         this.weekDay = ['일','월','화','수','목','금','토'];
         this.calendarTableInner = '';
         this.fristDayInfo = new Date(this.year, this.month, 1);
@@ -13,15 +14,13 @@ class Calendar {
     }
     
     displayYearMonth() {
-        this.leftContainer.innerHTML = `
-        <div class="calendar__year-month1">
-        ${this.year}년 ${this.monthArr[this.month]}월
-        </div>`;
+        this.yearMonth.innerHTML = `
+        ${this.year}년 ${this.monthArr[this.month]}월`;
         this.createWeekday();
     }
 
     createWeekday() {
-        this.calendarTableInner += '<tr>';
+        this.calendarTableInner = '<tr>';
         for(let i=0; i<this.weekDay.length; i++) {
             this.calendarTableInner += `<th>${this.weekDay[i]}</th>`;
         }
@@ -30,11 +29,9 @@ class Calendar {
     }
 
     displayClander() {
-        this.leftContainer.innerHTML += `
-        <table class="calendar__day1">
-        ${this.calendarTableInner}
-        </table>
-        `;
+        this.leftContainer.innerHTML = `${this.calendarTableInner}`;
+        // this.leftContainer.innerHTML = '';
+        // this.preCalenderEvent();
     }
 
     isLeapYear() {
@@ -49,12 +46,10 @@ class Calendar {
         this.createDate(rowCnt);
     }
 
-
     createDate(rowCnt) {
         let dateNum=1;
         for(let i=1; i<=rowCnt; i++){
         this.calendarTableInner+="<tr>";
-    
         for(let k=1; k<=7; k++){       
             if(i==1 && k<=this.fristDay || dateNum>this.lastDate){
                 this.calendarTableInner+="<td> &nbsp; </td>";
@@ -63,14 +58,26 @@ class Calendar {
                 this.calendarTableInner+="<td>"+dateNum+"</td>";
                 dateNum++;
             }
-
         }
-        this.calendarTableInner+="<tr>";
+        this.calendarTableInner+="</tr>";
         }  
         this.displayClander();
-
-    } 
-    
+    }
+    // preCalenderEvent() {
+    //     const preCalenderBtn = document.querySelector('leftBtn');
+    //     preCalenderBtn.addEventListener('click', () =>this.preBtnHandler());
+    // }
+    // preBtnHandler() {
+    //     if(this.month === 0) {
+    //         this.year--;
+    //         this.month = 11;
+    //     }
+    //     else {
+    //         this.month--;
+    //     }
+    //     calendar1 = new Calendar(this.year, this.month);
+    //     calendar1.displayYearMonth();
+    // } 
 }
 
 const date = new Date();
@@ -78,3 +85,33 @@ let thisYear = date.getFullYear();
 let thisMonth = date.getMonth();
 let calendar1 = new Calendar(thisYear, thisMonth); 
 calendar1.displayYearMonth();
+
+
+const preCalenderBtn = document.querySelector('.pre-month');
+// .search-sub__calendarBtn
+preCalenderBtn.addEventListener('click', () => {
+    if(thisMonth === 0) {
+        thisYear--;
+        thisMonth = 11;
+    }
+    else{
+        thisMonth--;
+    }
+    calendar1 = new Calendar(thisYear, thisMonth); 
+    calendar1.displayYearMonth();
+})
+
+const nextCalenderBtn = document.querySelector('.next-month');
+nextCalenderBtn.addEventListener('click', () => {
+    if(thisMonth === 11) {
+        thisYear++;
+        thisMonth = 0;
+    }
+    else {
+        thisMonth++;
+    }
+    calendar1 = new Calendar(thisYear, thisMonth);
+    calendar1.displayYearMonth();
+})
+
+

@@ -275,20 +275,41 @@ hr {
   display: block;
 }
 
-.calendar__year-month {
+.calendar__year-month1 {
   text-align: center;
   margin-bottom: 10px;
   font-size: 17px;
 }
-.calendar__day td,
-.calendar__day th {
+.calendar__day1 td,
+.calendar__day1 th {
   padding: 10px 15px;
 }
-.calendar__day th {
+.calendar__day1 th {
   color: gray;
   font-weight: 350;
   font-size: 13px;
 }
+
+.month-bar {
+  display: flex;
+  justify-content: space-between;
+}
+.pre-month {
+  /* background-color: rebeccapurple;
+  padding: 10px 10px; */
+}
+
+/* .leftBtn {
+  padding: 20px 20px;
+  background-color: rebeccapurple;
+  width: 100px;
+}
+
+.rightBtn {
+  padding: 20px 20px;
+  background-color: green;
+  width: 100px;
+} */
 
 /* local */
 .local {
