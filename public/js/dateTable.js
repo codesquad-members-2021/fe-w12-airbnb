@@ -31,6 +31,14 @@ class Calendar {
     });
   }
 
+  getInitialDate() {
+    //
+  }
+
+  addDates() {
+    //
+  }
+
   buildCalendar(calendar, num_checkNextCal) {
     //num_checkNextCal은 다음달 캘린더이면 1 아니면 0을 받는 파라미터. 아래 함수들에서 + 해준다
     const calendarTable = document.querySelector(calendar);
