@@ -5,7 +5,7 @@
 [ ] 달력 다음 버튼 클릭하면 다음달 보여주기
 [ ] 달력 날짜 버튼 클릭하면 스타일 적용 + 검색창에 날짜 표시 */
 
-export default class CalendarViewer {
+export default class CalendarView {
     constructor({activityDate, calendarDiv, calendarTitle, calendarDate, calendarBtn}, calendarMaker) {
         this.activityDate = activityDate;
         this.calendarDiv = calendarDiv;
@@ -14,27 +14,34 @@ export default class CalendarViewer {
         this.calendarTitle = calendarTitle;
         this.calendarDate = calendarDate;
         this.maker = calendarMaker;
+        this.setEvent();
     }
     setEvent() {
-        this.activityDate.addEventListener("click", this.toggleCalendar);
-        this.calendarPrev.addEventListener("click", );
-        this.calendarNext.addEventListener("click", );
+        this.activityDate.addEventListener("click", this.toggleCalendar.bind(this));
+        // this.calendarPrev.addEventListener("click", );
+        // this.calendarNext.addEventListener("click", );
     }
+
+    // 년, 월이 어떻게 바뀌는지 로직을 짜야함. 
+    // 1) 날짜 지정이 안 됐다면 현재 기준으로 달력 표시
+    // 2) 날짜 지정후에 다시 달력을 켠다면 지정한 날짜가 있는 달력을 보여줘야 하고,
+    //    지정한 날짜 스타일 유지해야함.
+    // 3) 버튼을 누르면 현재달에 +, -
     toggleCalendar() {
         if(this.calendarDiv.classList.contains('hidden')) {
-            // 어떤 달의 달력을 보여줘야 하는지 인자로 전달?
-            this.drawCalendar();
+            // if ( 날짜 선택 X )
+            this.renderCalendar('current');
+            // else ( 날짜 선택 O )
+            // this.renderCalendar('chosen')
             this.calendarDiv.classList.remove('hidden');
         } else {
             this.calendarDiv.classList.add('hidden');
         }
     }
-    drawCalendar() {
-        // 년, 월이 어떻게 바뀌는지 로직을 짜야함. 
-        // 1) 버튼을 누르면 현재달에 +, -
-        // 2) 날짜 지정후에 다시 달력을 켠다면 지정한 날짜가 있는 달력을 보여줘야 하고,
-        //    지정한 날짜 스타일 유지해야함.
+    renderCalendar(when) {
+        const {year, month, html} = this.maker.getCalendarData(when);
         this.calendarTitle.innerText = `${year}년 ${month}월`;
-        this.calendarDate.innerHTML = this.maker.getCalendarHtml();
+        this.calendarDate.innerHTML = html;
+
     }
 }
