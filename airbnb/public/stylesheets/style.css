@@ -144,11 +144,13 @@ nav ul li {
   border-radius: 35px;
   background-color: white;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+  border-right: 0;
 }
 
 .search:hover div:not(:hover) {
   border-radius: 35px;
   background-color: #f7f7f7;
+  border-right: 0;
 }
 
 .stay-align {
@@ -269,7 +271,7 @@ a {
   position: absolute;
   top: 24%;
   right: 22.5%;
-  width: 48rem;
+  width: 54rem;
   height: 24rem;
   display: flex;
   border-radius: 1.3rem;
@@ -278,13 +280,19 @@ a {
 }
 
 .calendar {
-  width: 24rem;
+  width: 26rem;
   height: 24rem;
-  padding: 1rem;
+  padding: 1rem 2rem;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.calendar-upper i {
+  padding: 0 2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .calendar-title {
@@ -293,11 +301,6 @@ a {
   line-height: 3rem;
   font-size: 0.9rem;
   text-align: center;
-}
-
-.month i {
-  font-size: 0.8rem;
-  cursor: pointer;
 }
 
 .weekdays {
@@ -339,7 +342,15 @@ a {
   cursor: pointer;
 }
 
-.prev-date,
-.next-date {
+.clicked,
+.check-out-date {
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+}
+
+.prev,
+.next {
   opacity: 0.5;
+  cursor: pointer;
 }

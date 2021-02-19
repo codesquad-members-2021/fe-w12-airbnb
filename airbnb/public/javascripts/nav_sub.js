@@ -24,7 +24,7 @@ function makeHtml(option, style) {
         (i) =>
           `          <div class="${i.className}">
         <p><b>${i.title}</b></p>
-        <p>${i.content}</p>
+        <p class="sub-${i.className}">${i.content}</p>
         </div>`
       )
       .join('');
@@ -59,15 +59,14 @@ $experienceButton.addEventListener(
   makeHtml(experienceOption, 'experience-align')
 );
 
-//-------------make nav bar stick
-window.onscroll = function () {
-  myFunction();
-};
-
-function myFunction() {
+function stickNavBar() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add('sticky');
   } else {
     navbar.classList.remove('sticky');
   }
 }
+
+window.onscroll = function () {
+  stickNavBar();
+};

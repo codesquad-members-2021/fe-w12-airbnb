@@ -51,30 +51,77 @@ const renderCalendar = () => {
   }
 
   return `<div class="calendar">
-                          <div>
-                            <div class="calendar-title">${calendarTitle}</div>
-                            <div class="weekdays">${weekday}</div>
-                            <div class="days">${days}</div>
-                          </div>
-                      </div>`;
+            <div>
+              <div class="calendar-title ">${calendarTitle}</div>
+              <div class="weekdays">${weekday}</div>
+              <div class="days">${days}</div>
+            </div>
+          </div>`;
 };
 
-const init = (n) => {
-  date.setMonth(date.getMonth() + n);
-  const thisMonth = renderCalendar();
-  date.setMonth(date.getMonth() + 1 + n);
-  const nextMonth = renderCalendar();
-  $calendarContainer.innerHTML = thisMonth + nextMonth;
+const init = () => {
+  let thisMonth = date.getMonth();
+  // if (direction === 'plus') {
+  //   thisMonth++;
+  // }
+  // if (direction === 'minus') {
+  //   thisMonth--;
+  // }
+
+  date.setMonth(thisMonth);
+  const thisMonthCal = renderCalendar();
+  date.setMonth(thisMonth + 1);
+  const nextMonthCal = renderCalendar();
+  $calendarContainer.innerHTML = `
+                                  <i class="prev">▷</i>
+                                  ${thisMonthCal} ${nextMonthCal}
+                                  <i class="next">◁</i>`;
 };
 
-// document.querySelector('.prev').addEventListener('click', () => {
-//   date.setMonth(date.getMonth() - 1);
-//   renderCalendar();
-// });
+init();
 
-// document.querySelector('.next').addEventListener('click', () => {
-//   date.setMonth(date.getMonth() + 1);
-//   renderCalendar();
-// });
+const $days = document.querySelectorAll('.days > div');
+let clickCount = 0;
 
-init(0);
+$days.forEach((elem) => {
+  elem.addEventListener('click', (event) => {
+    const $checkIn = document.querySelector('.sub-check-in');
+    const $checkOut = document.querySelector('.sub-check-out');
+
+    if (clickCount === 0) {
+      event.target.classList.add('check-in-date', 'clicked');
+      $checkIn.innerHTML = `${date.getMonth() + 1}월 ${
+        event.target.innerText
+      }일`;
+      clickCount++;
+      return;
+    }
+    if (clickCount === 1) {
+      event.target.classList.add('check-out-date', 'clicked');
+      $checkOut.innerHTML = `${date.getMonth() + 1}월 ${
+        event.target.innerText
+      }일`;
+      clickCount++;
+      return;
+    }
+
+    if (clickCount === 2) {
+      const $checkInDate = document.querySelector('.check-in-date');
+      const $checkOutDate = document.querySelector('.check-out-date');
+
+      $checkOutDate.classList.remove('check-out-date', 'clicked');
+      if (
+        parseInt(event.target.innerText) > parseInt($checkOutDate.textContent)
+      ) {
+        event.target.classList.add('check-out-date', 'clicked');
+      } else {
+        $checkInDate.classList.remove('check-out-date', 'clicked');
+        clickCount = 0;
+      }
+    }
+  });
+});
+
+// document.querySelector('.prev').addEventListener('click', init);
+
+document.querySelector('.next').addEventListener('click', init);
