@@ -394,7 +394,7 @@ input {
   height: 16px;
   display: inline-block;
   text-align: center;
-  outline: 1px solid pink;
+  /* outline: 1px solid pink; */
 }
 
 .calendar--table > tbody > tr > td {
@@ -407,11 +407,13 @@ input {
 .calendar--table > tbody > tr > td > div {
   width: 48px;
   height: 47px;
-  outline: 1px solid pink;
+  /* outline: 1px solid pink; */
   color: rgb(34, 34, 34);
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #222;
+  font-weight: 500;
 }
 
 /* 나중에 바꿔야 될 수도 있지만... */

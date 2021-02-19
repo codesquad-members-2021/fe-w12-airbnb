@@ -1,9 +1,5 @@
 (function (window, document) {
   'use strict';
-  const DATE = new Date();
-  let day = DATE.getDay();
-  let month = DATE.getMonth() + 1;
-  let fullYear = DATE.getFullYear();
 
   const $calendarWrapper = document.querySelector('.calendar__wrapper');
 
@@ -11,14 +7,19 @@
 
   // 돔 생성 (그리기)
   class CalendarBox {
-    constructor() {}
-
+    constructor(year, month) {
+      this.DATE = new Date(`${year}-${month}`);
+      this.year = this.DATE.getFullYear();
+      this.month = this.DATE.getMonth() + 1;
+      this.date = this.DATE.getDate();
+      this.day = WEEKDAY[this.DATE.getDay()];
+    }
     // Title: 년 월
     drawTitle() {
       const calendarUpper = `
       <div class="calendar--upper">
         <div class="monthly--title">
-          ${fullYear}년 ${month}월
+        2021년 2월
         </div>
       </div>`;
       return calendarUpper;
@@ -29,8 +30,8 @@
       let weekdays = `
         <div class="weekdays">
           <ul class="weekdays--ul">`;
-      for (day in WEEKDAY) {
-        weekdays += `<li class="weekdays--li">${WEEKDAY[day]}</li>\n`;
+      for (let key in WEEKDAY) {
+        weekdays += `<li class="weekdays--li">${WEEKDAY[key]}</li>\n`;
       }
       weekdays += `</ul></div>`;
       return weekdays;
@@ -40,7 +41,7 @@
     drawWeek() {
       let week = `<tr>\n`;
       for (let i = 0; i < 7; i++) {
-        week += `<td><div></div><td>\n`;
+        week += `<td><div>${this.date}</div><td>\n`;
       }
       week += `</tr>`;
       return week;
@@ -72,24 +73,21 @@
     }
 
     drawMonth() {
-      return ($calendarWrapper.innerHTML = `
+      return ($calendarWrapper.innerHTML += `
         <div class="calendar__box">
           ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
         </div>`);
     }
   }
 
-  const monthBox = new CalendarBox();
+  const monthBox = new CalendarBox(`2021`, `02`);
+  const monthBox2 = new CalendarBox(`2021`, `03`);
   monthBox.drawMonth();
+  monthBox2.drawMonth();
 
   // 데이터
   // 생성(분리);
   // 데이터 넣기
 
   // css 추가
-
-  console.log(`DATE: ${DATE}`);
-  console.log(`day: ${WEEKDAY[day]}`);
-  console.log(`month: ${month}`);
-  console.log(`fullYear: ${fullYear}`);
 })(window, document);
