@@ -3,6 +3,7 @@
 /*-------------------------------*/
 
 @import url("/stylesheets/header.css");
+@import url("/stylesheets/calendar.css");
 @import url("/stylesheets/cities.css");
 @import url("/stylesheets/houses.css");
 @import url("/stylesheets/activities.css");
