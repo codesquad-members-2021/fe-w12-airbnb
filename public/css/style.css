@@ -263,8 +263,9 @@ a {
     width: 60%;
     background-color: var(--info-color);
     border-radius: var(--nav-btn-border-radius);
-    z-index: 3;
     position: absolute;
+    z-index: 5;
+    will-change: opacity;
 }
 
 .calendars-wrapper-hidden {
@@ -331,7 +332,6 @@ a {
     flex-wrap: wrap;
 }
 
-
 .calendar-weeks li,
 .calendar-days div {
     width: var(--calendar-item-width);
@@ -349,8 +349,9 @@ a {
     cursor: pointer;
 }
 
-.calendar-days-clicked {
+.calendar-days .calendar-days-clicked {
     background-color: var(--black);
+    color:var(--font-color);
 }
 
 .calendar-days-between {
