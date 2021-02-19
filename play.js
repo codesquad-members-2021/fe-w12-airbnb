@@ -130,14 +130,16 @@ const btnCtrl_2 = new BtnUI(document.querySelector(".toggleBtn2"));
 btnCtrl_1.makeMenu();
 btnCtrl_2.makeMenu();
 
-function readCalendarJS() {
-   console.log('printCalendar');
+export function readCalendarJS() {
 
    const calendarArea = document.querySelector(".calendar_area");
    const now = new Date();
    const calendar_ctrl = new CalendarMaker(now, calendarArea);
    calendar_ctrl.getDateInfo();
+
 }
 
-const dateBtn = document.querySelector('.call_calendar');
-dateBtn.addEventListener('click', readCalendarJS);
+export const dateBtn = document.querySelector('.call_calendar');
+dateBtn.addEventListener('click',
+   readCalendarJS
+);

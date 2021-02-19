@@ -1,3 +1,8 @@
+import {
+   readCalendarJS,
+   dateBtn
+} from './play.js';
+
 export class CalendarMaker {
    constructor(date, calendarArea) {
       this.date = date;
@@ -20,6 +25,7 @@ export class CalendarMaker {
       this.week2 = '';
       this.startDay = 0;
       this.spare = 0;
+      this.judgement = 0;
    }
 
    getDateInfo() {
@@ -186,9 +192,8 @@ export class CalendarMaker {
 
          let beforeToday = new Date(`${year}-${month}-${el.innerText}`);
 
-         if (today - beforeToday >= 0) {
-            console.log(today, beforeToday)
-            el.classList.add("before_today");
+         if ((today - beforeToday >= 0) || el.innerHTML === '&nbsp;') {
+            el.classList.add("non_clickable");
          } else {
             el.classList.add("clickable");
             el.addEventListener("click", () => {
@@ -196,18 +201,68 @@ export class CalendarMaker {
             })
          };
 
-         if (el.innerText === String(today.getDate())) {
+         if (beforeToday.getMonth() === today.getMonth() && el.innerText === String(today.getDate())) {
+            el.classList.remove("non_clickable")
             el.classList.add("clickable");
             el.addEventListener("click", () => {
                this.GiveInnerText(el)
             })
          };
       })
+      this.closeCalendar();
    }
 
    GiveInnerText(el) {
+      this.judgement += 1;
       el.classList.add("clicked");
-      let paste1 = document.querySelectorAll(".placeholder")[1];
-      paste1.innerText = `${this.current_month}월 ${el.innerText}일`;
+      let checkI_O_Bar = document.querySelector(".search_ver2 .call_calendar> div");
+      let paste1 = document.querySelectorAll(".search_ver2 .call_calendar> div>div");
+      let checkIn = document.createElement("div");
+      let checkOut = document.createElement("div");
+      let clickedDiv = document.querySelectorAll('.clicked');
+
+      //체크인
+      if (this.judgement >= 2 && (Number(el.innerText) < Number(clickedDiv[1].innerText))) {
+         console.log('2번째부터 클릭')
+         let eraseClicked = Array.from(clickedDiv);
+
+         eraseClicked[1].classList.remove('clicked');
+         console.log(eraseClicked)
+      }
+
+      //체크인 클릭시
+      if (this.judgement % 2 !== 0) {
+         //첫번째 클릭이 아닌 경우(->기존의 클릭 삭제)
+         if (this.judgement > 1) {
+            let eraseClicked = Array.from(clickedDiv);
+            eraseClicked.pop();
+            eraseClicked.forEach(el => {
+               el.classList.remove('clicked')
+            })
+         }
+         checkIn.innerText = `${this.current_month}월 ${el.innerText}일`;
+         for (let i = 0; i < paste1.length; i++) {
+            checkI_O_Bar.replaceChild(checkIn, paste1[i])
+         }
+         //체크아웃 클릭시
+      } else {
+         // if (Number(el.innerText) < Number(clickedDiv[1].innerText)) {
+
+         //    let eraseClicked = Array.from(clickedDiv);
+         //    console.log(eraseClicked)
+         //    eraseClicked[1].classList.remove('clicked');
+         // } else {
+         checkOut.innerText = `${this.current_month}월 ${el.innerText}일`;
+         checkI_O_Bar.appendChild(checkOut);
+      }
+   }
+
+   closeCalendar() {
+      document.body.addEventListener("click", (evt) => {
+         if (!evt.target.closest(".calendar_area")) {
+            dateBtn.removeEventListener("click", readCalendarJS, false)
+            document.querySelector('.calendar_box').classList.toggle('hide_show')
+         }
+      }, true)
    }
 }

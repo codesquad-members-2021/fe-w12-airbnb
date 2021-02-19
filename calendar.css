@@ -1,4 +1,4 @@
-.calender_area {
+.calendar_area {
   position: absolute;
 }
 
@@ -53,7 +53,7 @@
   align-items: center;
 }
 
-.before_today {
+.non_clickable {
   cursor: default;
   color: rgba(0, 0, 0, 0.25);
   font-weight: 400;

@@ -76,7 +76,7 @@ spread operator -
 
 이벤트 전파 / 위임
 https: //ygnoh.github.io/javascript/2017/07/02/Javascript-Prevent-Event-Propagation.html
-
+http://www.tcpschool.com/javascript/js_event_eventListenerCall
    객체 this
 function호출(전역변수) / arrow호출시 차이(지역변수), binding
 
@@ -84,4 +84,20 @@ function호출(전역변수) / arrow호출시 차이(지역변수), binding
 
 
 import/exporthttps://velog.io/@takeknowledge/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9-%EC%9A%94%EC%95%BD-lwk4drjnni
+
+
+mvc
+https://opentutorials.org/course/697/3828
+https://www.bsidesoft.com/5948
+
+비모파일 체크....!
+
+ㅡ클래스생성시.(초기화)
+변수전달을 객체로
+
+
+ㄷeventdelegation
+
+destructuring assignment
+
 */
