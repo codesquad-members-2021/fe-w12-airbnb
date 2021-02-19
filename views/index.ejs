@@ -62,12 +62,12 @@
           <span>어디로 여행가세요?</span>
         </li>
         <div class="main_reserve_container_line"></div>
-        <li>
+        <li class="checkIn">
           <span>체크인</span>
           <span>날짜 추가</span>
         </li>
         <div class="main_reserve_container_line"></div>
-        <li>
+        <li class="checkOut">
           <span>체크아웃</span>
           <span>날짜 추가</span>
         </li>
@@ -139,7 +139,12 @@
       <div class="calendar_container">
         <div class="calendar_div_1">
           <table class="calendar">
-            <tr>
+            <tr class="calendar_mainBar">
+              <td><button class="prevButton"><</button></td>
+              <td colspan="5" class="yearMonth1"></td>
+              <td></td>
+            </tr>
+            <tr class="mondayToFriday">
               <td>일</td>
               <td>월</td>
               <td>화</td>
@@ -152,7 +157,13 @@
         </div>
         <div class="calendar_div_2">
           <table class="calendar2">
-            <tr>
+            <tr class="calendar_mainBar">
+              <td></td>
+              <td colspan="5" class="yearMonth2"></td>
+              <td><button class="nextButton">></button></td>
+            </tr>
+
+            <tr class="mondayToFriday">
               <td>일</td>
               <td>월</td>
               <td>화</td>

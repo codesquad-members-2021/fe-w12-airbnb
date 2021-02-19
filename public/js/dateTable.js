@@ -3,13 +3,32 @@ class Calendar {
   constructor() {
     this.today = new Date();
     this.countMonth = 0;
+    this.prevButton = document.querySelector(".prevButton");
+    this.nextButton = document.querySelector(".nextButton");
+    this.prevButtonClicked();
+    this.nextButtonClicked();
   }
   showCurrentCal() {
     this.buildCalendar(".calendar", 0);
   }
   showNextCal() {
     this.buildCalendar(".calendar2", 1);
-    //
+  }
+
+  prevButtonClicked() {
+    this.prevButton.addEventListener("click", () => {
+      this.countMonth--;
+      this.showCurrentCal();
+      this.showNextCal();
+    });
+  }
+
+  nextButtonClicked() {
+    this.nextButton.addEventListener("click", () => {
+      this.countMonth++;
+      this.showCurrentCal();
+      this.showNextCal();
+    });
   }
 
   buildCalendar(calendar, num_checkNextCal) {
@@ -26,6 +45,16 @@ class Calendar {
       0
     ).getDate(); //현재 날짜의 month에 해당하는 마지막 일 (ex 28, 30, 31)
 
+    const yymm = document.querySelector(`.yearMonth${num_checkNextCal + 1}`);
+    yymm.innerHTML = `${currentDate.getFullYear()}년 ${
+      currentDate.getMonth() + 1
+    }월`;
+
+    while (calendarTable.rows.length > 2) {
+      //prev버튼, next버튼 클릭 될때마다 새로 build 해야 하기에 이전에 build한 내용들 삭제
+      calendarTable.deleteRow(calendarTable.rows.length - 1);
+    }
+
     let cnt = 0;
     let row = calendarTable.insertRow();
     let cell;
@@ -39,6 +68,7 @@ class Calendar {
     for (let i = 1; i <= numOfDaysInMonth; i++) {
       cell = row.insertCell();
       cell.innerHTML = i;
+
       cnt++;
       if (cnt % 7 === 0) {
         cell.innerHTML = i;
