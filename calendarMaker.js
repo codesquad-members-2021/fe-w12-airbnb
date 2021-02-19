@@ -1,8 +1,4 @@
-/*======= CalendarIndicator =======
-[ ] 체험 탭의 '날짜' 버튼 누르면 → 밑에 달력 요소 생김
-[ ] '날짜'버튼 재클릭하면 → 사라짐 (toggle)
-
-========= CalendarMaker =========
+/*========= CalendarMaker =========
 [✔] 이번달 1일 날짜의 Date 객체 만들기
     → new Date(year, month, 1)
     → Mon Feb 01 2021 00:00:00 GMT+0900
@@ -23,19 +19,37 @@ export default class CalendarMaker {
         this.lastDayName;
         this.calendarHtml = ``;
     }
-    saveThisMonthInfo() {
-        this.firstDayName = new Date(this.year, this.month, 1).getDay(); // 1(월요일)
-        const last = new Date(this.year, this.month + 1, 0);
+    // 캘린더뷰 클래스에서 이 함수 호출
+    getCalendarData(when) {
+        // 날짜지정X → 현재 년,월 달력 표시
+        if(when === 'current') {
+            this.saveMonthInfo(this.year, this.month);
+            this.makeCalendar();
+            return {year:this.year, month:this.month + 1, html:this.calendarHtml};
+        } 
+        // 날짜지정O or 버튼클릭 → 인자로 받아온 년,월 달력 표시
+        else {
+
+        }
+    }
+
+    // month는 0 ~ 11 
+    saveMonthInfo(year, month) {
+        this.firstDayName = new Date(year, month, 1).getDay(); // 1(월요일)
+        const last = new Date(year, month + 1, 0);
         this.lastDay = last.getDate();     // 28
         this.lastDayName = last.getDay();  // 0(일요일)
     }
-    makeFirstWeek() {
+    makeCalendar() {
+        this.calendarHtml = this.getFirstWeek() + this.getMiddleWeek() + this.getLastWeek();
+    }
+    getFirstWeek() {
         
     }
-    makeMiddleWeek() {
+    getMiddleWeek() {
 
     }
-    makeLastWeek() {
+    getLastWeek() {
 
     }
 }
