@@ -6,49 +6,41 @@ footer {
 .footer__upper {
   padding: 48px 0px;
   display: flex;
-  flex-direction: row;
   border-bottom: 1px solid gainsboro;
 }
 
-.footer__upper ul {
+.footer__upper__item {
   width: 100%;
   padding: 12px 12px 0px;
 }
 
-.footer__upper ul div:nth-child(1) {
+.footer__upper__item--head-text {
   font-size: 12px;
   font-weight: 600;
 }
 
-.footer__upper ul div {
-  margin-top: 16px;
+.footer__upper__item div:not(.footer__upper__item--head-text) {
+  margin-top: 14px;
   font-weight: lighter;
+}
+
+.footer__upper__item div:not(.footer__upper__item--head-text):hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .footer__downer {
   width: 100%;
   padding: 24px 0px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
 }
 
-.company-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.company-info span {
+.company-info > span {
   width: 19px;
   text-align: center;
 }
 
 .countries {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   text-decoration: underline;
 }
 
@@ -56,18 +48,15 @@ footer {
 .currency {
   margin: 0px 10px;
   display: flex;
-  flex-direction: row;
 }
 
-.language div,
-.currency div {
+.language > div,
+.currency > div {
   margin: 0px 5px;
 }
 
 .sns {
   width: 190px;
-  display: flex;
   flex-direction: row-reverse;
-  align-items: center;
   justify-content: space-between;
 }

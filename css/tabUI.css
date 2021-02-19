@@ -1,0 +1,35 @@
+#tabUI {
+  position: absolute;
+  top: 9.5%;
+  right: 92px;
+  width: 240px;
+  height: 243px;
+  padding: 8px 0px;
+  background-color: #fff;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+#tabUI div {
+  padding: 12px 16px;
+  color: #000;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+#tabUI div:hover {
+  border-radius: 16px;
+  background-color: #f1f1f1;
+}
+
+#tabUI div:nth-child(1) {
+  font-weight: normal;
+}
+
+#tabUI div:nth-child(3) {
+  padding: 0px;
+  margin: 8px 0px;
+  height: 1px;
+  background-color: gainsboro;
+  cursor: none;
+}

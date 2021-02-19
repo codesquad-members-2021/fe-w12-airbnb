@@ -1,0 +1,70 @@
+#header__search--rooms,
+#header__search--experiences {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  height: 64px;
+  background-color: #fff;
+  border-radius: 32px;
+  font-weight: lighter;
+}
+
+.search__items {
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 0.5px solid gainsboro;
+  padding: 0px 30px;
+}
+
+.search__items:hover {
+  border-radius: 32px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.search__items--head-text {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.search__items:nth-child(1) {
+  width: 270px;
+}
+
+.search__items:nth-child(2),
+.search__items:nth-child(3) {
+  padding: 0px 20px;
+  width: 170px;
+}
+
+.search__items:nth-child(4) {
+  padding: 0px 20px;
+  width: 170px;
+  padding-left: 20px;
+  padding-right: 10px;
+  width: 240px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+}
+
+#header__search--experiences > .search__items:nth-child(1) {
+  padding: 0px 30px;
+  width: 425px;
+}
+
+#header__search--experiences > .search__items:nth-child(2) {
+  padding-left: 30px;
+  padding-right: 10px;
+  width: 425px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}

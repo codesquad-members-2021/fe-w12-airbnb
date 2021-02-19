@@ -4,29 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/reset.css" />
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/main.css" />
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/banner.css">
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/head-page.css">
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/locations.css">
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/rooms.css">
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/experiences.css">
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/host.css">
-    <link rel="stylesheet" href="/fe-w12-airbnb/css/footer.css">
+    <link rel="stylesheet" href="/fe-w12-airbnb/css/styles.css">
     <title>스윙비엔비</title>
   </head>
   <body>
     <header class="banner">
       <a href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest" target="blank">
-        <u>에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요</u>
+        에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요
       </a>
     </header>
 
     <div class="container">
-      <div class="background">
+      <div class="background settings">
         <div class="header">
-          <div class="header__contents">
-            <div class="header__logo">
+          <div class="header__contents settings">
+            <div class="header__contents--logo">
               <a href="#">
                 <svg
                   width="102"
@@ -41,15 +33,15 @@
               </a>
             </div>
 
-            <div class="header__menu">
+            <div class="header__contents--menu settings">
               <span class="menu--rooms">숙소</span>
               <span class="menu--experiences">체험</span>
               <span><a href="https://www.airbnb.co.kr/s/experiences/online" target="blank">온라인 체험</a></span>
             </div>
 
-            <div class="header__my-info">
-              <span>호스트 되기</span>
-              <span>
+            <div class="header__contents--my-info settings">
+              <span class="my-info--hosting">호스트 되기</span>
+              <span class="my-info--countries">
                 <svg
                   viewBox="0 0 16 16"
                   xmlns="http://www.w3.org/2000/svg"
@@ -69,8 +61,8 @@
                 </svg>
               </span>
               <span>
-                  <button class="infoBtn">
-                    <ul class="infoBtn__login">
+                  <button class="my-info--button">
+                    <div class="button--svgs settings">
                       <div>
                         <svg
                           viewBox="0 0 32 32"
@@ -114,12 +106,12 @@
                           ></path>
                         </svg>
                       </div>
-                    </ul>
+                    </div>
                   </button>
                 </a>
               </span>
             </div>
-            <div id="tabUI" class="tabUI__hidden" tabindex="-1" onblur="setTimeout(dropdownClose, 100)">
+            <div id="tabUI" class="hidden" tabindex="0" onblur="setTimeout(dropdownClose, 200)">
                 <div>회원 가입</div>
                 <div>로그인</div>
                 <div></div>
@@ -129,256 +121,295 @@
             </div>
           </div>
         </div>
-        <div id="header__search--rooms" class="rooms__show">
-          <ul>
-            <div>위치</div>
-            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" /></div>
-          </ul>
-          <ul>
-            <div>체크인</div>
+        <div id="header__search--rooms" class="show">
+          <div class="search__items">
+            <div class="search__items--head-text">위치</div>
+            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" onblur="this.value='어디로 여행가세요?';"/></div>
+          </div>
+          <div class="search__items">
+            <div class="search__items--head-text">체크인</div>
             <div>날짜 추가</div>
-          </ul>
-          <ul>
-            <div>체크아웃</div>
+          </div>
+          <div class="search__items">
+            <div class="search__items--head-text">체크아웃</div>
             <div>날짜 추가</div>
-          </ul>
-          <ul>
+          </div>
+          <div class="search__items">
             <span>
-              <div>인원</div>
+              <div class="search__items--head-text">인원</div>
               <div>게스트 추가</div>
             </span>
             <span>
-              <button class="search-button">
+              <button class="search--button">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: #FFF; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
               </button>
             </span>
-          </ul>
+          </div>
         </div>
-        <div id="header__search--experiences" class="experiences__hidden">
-          <ul>
-            <div>위치</div>
-            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" /></div>
-          </ul>
-          <ul>
+        <div id="header__search--experiences" class="hidden">
+          <div class="search__items">
+            <div class="search__items--head-text">위치</div>
+            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" onblur="this.value='어디로 여행가세요?';"/></div>
+          </div>
+          <div class="search__items dropdownCalendar">
             <span>
-              <div>날짜</div>
+              <div class="search__items--head-text">날짜</div>
               <div>원하는 날짜를 입력하세요.</div>
             </span>
             <span>
-              <button class="search-button">
+              <button class="search--button">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: #FFF; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
               </button>
             </span>
-          </ul>
+          </div>
         </div>
+
+        <div id="calendarUI" class="hidden" tabindex="0" onblur="setTimeout(calendarClose,200)">
+            <div id="calendar">
+              <div id="calendar__thisMonth">
+                <div class="calendar__head-text">
+                  <div id="prevButton" class="calendar--button calendar--prevButton"><span><</span></div>
+                  <div id="thisMonth--month" class="month-text"></div>
+                    <ul class="day-text">
+                      <li>일</li>
+                      <li>월</li>
+                      <li>화</li>
+                      <li>수</li>
+                      <li>목</li>
+                      <li>금</li>
+                      <li>토</li>
+                    </ul>
+                </div>
+                <div id="thisMonth--date"></div>
+              </div>
+              <div id="calendar__nextMonth">
+                <div class="calendar__head-text">
+                  <div id="nextButton" class="calendar--button calendar--nextButton"><span>></span></div>
+                <div id="nextMonth--month" class="month-text"></div>
+                  <ul class="day-text">
+                    <li>일</li>
+                    <li>월</li>
+                    <li>화</li>
+                    <li>수</li>
+                    <li>목</li>
+                    <li>금</li>
+                    <li>토</li>
+                  </ul>
+                </div>
+                <div id="nextMonth--date"></div>
+              </div>
+            </div>
+        </div>
+
         <div class="header__phrase">
           <span>이제, 여행은<br />가까운 곳에서</span>
-          <span><button>근처의 숙소 둘러보기</button></span>
+          <span><button class="header__phrase--button">근처의 숙소 둘러보기</button></span>
         </div>
       </div>
       <!--여기까지 background-->
       <article>
         <div class="locations">
-          <div class="locations__row1">
-            <ul>
+          <div class="locations__upRow settings">
+            <div class="locations__upRow__item settings">
               <div>
-                <img
+                <img class="locations--image"
                   src="https://a0.muscache.com/im/pictures/71e23854-a3c7-491c-b715-6e86233a293f.jpg?im_q=medq&im_w=720"
                 />
               </div>
               <div>
-                <div>서울</div>
+                <div class="locations--name">서울</div>
                 <div>차로 45분 거리</div>
               </div>
-            </ul>
-            <ul>
+            </div>
+            <div class="locations__upRow__item settings">
               <div>
-                <img
+                <img class="locations--image"
                   src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=720"
                 />
               </div>
               <div>
-                <div>수원시</div>
+                <div class="locations--name">수원시</div>
                 <div>차로 15분 거리</div>
               </div>
-            </ul>
-            <ul>
+            </div>
+            <div class="locations__upRow__item settings">
               <div>
-                <img
+                <img class="locations--image"
                   src="https://a0.muscache.com/im/pictures/8b318783-723f-4584-9b9b-0eb2c8b6078e.jpg?im_q=medq&im_w=720"
                 />
               </div>
               <div>
-                <div>인천</div>
+                <div class="locations--name">인천</div>
                 <div>차로 45분 거리</div>
               </div>
-            </ul>
-            <ul>
+            </div>
+            <div class="locations__upRow__item settings">
               <div>
-                <img
+                <img class="locations--image"
                   src="https://a0.muscache.com/im/pictures/105b8160-1109-4678-b8aa-367ea9faebea.jpg?im_q=medq&im_w=720"
                 />
               </div>
               <div>
-                <div>의정부</div>
+                <div class="locations--name">의정부</div>
                 <div>차로 1시간 거리</div>
               </div>
-            </ul>
+            </div>
           </div>
-          <div class="locations__row2">
-            <ul>
+          <div class="locations__downRow settings">
+            <div class="locations__downRow__item settings">
               <div>
-                <img
+                <img class="locations--image"
                   src="https://a0.muscache.com/im/pictures/8340bd19-ee32-4669-8b10-a8ac7e7735d4.jpg?im_q=medq&im_w=720"
                 />
               </div>
               <div>
-                <div>대전</div>
+                <div class="locations--name">대전</div>
                 <div>차로 2시간 거리</div>
               </div>
-            </ul>
-            <ul>
+            </div>
+            <div class="locations__downRow__item settings">
               <div>
-                <img
+                <img class="locations--image"
                   src="https://a0.muscache.com/im/pictures/20356d40-a45f-4680-a9d0-5bb0a3836e4d.jpg?im_q=medq&im_w=720"
                 />
               </div>
               <div>
-                <div>대구</div>
+                <div class="locations--name">대구</div>
                 <div>차로 3.5시간 거리</div>
               </div>
-            </ul>
-            <ul>
+            </div>
+            <div class="locations__downRow__item settings">
               <div>
-                <img
+                <img class="locations--image"
                   src="https://a0.muscache.com/im/pictures/f7ac6e57-65cb-446b-8631-331072463af4.jpg?im_q=medq&im_w=720"
                 />
               </div>
               <div>
-                <div>안산시</div>
+                <div class="locations--name">안산시</div>
                 <div>차로 30분 거리</div>
               </div>
-            </ul>
-            <ul>
+            </div>
+            <div class="locations__downRow__item settings">
               <div>
-                <img
+                <img class="locations--image"
                   src="https://a0.muscache.com/im/pictures/f3ebcc73-30b2-469f-b6ba-0578fdaaa649.jpg?im_q=medq&im_w=720"
                 />
               </div>
               <div>
-                <div>성남시</div>
+                <div class="locations--name">성남시</div>
                 <div>차로 30분 거리</div>
               </div>
-            </ul>
+            </div>
           </div>
         </div>
 
         <div class="rooms">
-          <div class="rooms__text">어디에서나, 여행은 살아보는 거야!</div>
-          <div class="rooms__type">
-            <ul>
+          <div class="rooms__head-text">어디에서나, 여행은 살아보는 거야!</div>
+          <div class="settings">
+            <div class="rooms__type">
               <div>
-                <img
+                <img class="rooms__type--img"
                   src="https://a0.muscache.com/im/pictures/a0316ecb-e49b-4b3a-b6b6-c2876b820e8c.jpg?im_w=720"
                 />
               </div>
               <div>집 전체</div>
-            </ul>
-            <ul>
+            </div>
+            <div class="rooms__type">
               <div>
-                <img
+                <img class="rooms__type--img"
                   src="https://a0.muscache.com/im/pictures/ff69ac49-64e7-4f4a-ae2b-ee01163d0790.jpg?im_w=720"
                 />
               </div>
               <div>통나무집 및 전원 주택</div>
-            </ul>
-            <ul>
+            </div>
+            <div class="rooms__type">
               <div>
-                <img
+                <img class="rooms__type--img"
                   src="https://a0.muscache.com/im/pictures/ce6814ba-ed53-4d6e-b8f8-c0bbcf821011.jpg?im_w=720"
                 />
               </div>
               <div>독특한 공간</div>
-            </ul>
-            <ul>
+            </div>
+            <div class="rooms__type">
               <div>
-                <img
+                <img class="rooms__type--img"
                   src="https://a0.muscache.com/im/pictures/fbe849a4-841a-41b3-b770-419402a6316f.jpg?im_w=720"
                   alt="반려동물 동반 가능"
                 />
               </div>
               <div>반려동물 동반 가능</div>
-            </ul>
+            </div>
           </div>
         </div>
 
         <div class="experiences">
           <div class="experiences__texts">
-            <div>세상을 만나는 특별한 방법</div>
+            <div class="experiences__texts--head-text">세상을 만나는 특별한 방법</div>
             <div>
               현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나
               온라인으로 만나보세요.
             </div>
           </div>
-          <div class="experience__type">
-            <ul>
+          <div class="experiences__type">
+            <div class="experiences__type__item">
               <div>
-                <img
+                <img class="experiences__type__item--img"
                   src="https://a0.muscache.com/im/pictures/4d353c80-e73a-4b04-9e15-ec3d8381b106.jpg?im_w=720"
                 />
               </div>
-              <div>온라인 체험</div>
+              <div class="experiences__type__item--boldText">온라인 체험</div>
               <div>집에서 즐기는 랜선 세계 여행</div>
-            </ul>
-            <ul>
+            </div>
+            <div class="experiences__type__item">
               <div>
-                <img
+                <img class="experiences__type__item--img"
                   src="https://a0.muscache.com/im/pictures/e81fce5f-2f51-4342-938e-5bc18ae237f4.jpg?im_w=720"
                 />
               </div>
-              <div>체험</div>
+              <div class="experiences__type__item--boldText">체험</div>
               <div>어디에서든 즐길 수 있는 체험</div>
-            </ul>
-            <ul>
+            </div>
+            <div class="experiences__type__item">
               <div>
-                <img
+                <img class="experiences__type__item--img"
                   src="https://a0.muscache.com/im/pictures/b9adfc39-6e2a-4e5f-b6f3-681b306fae5c.jpg?im_w=720"
                 />
               </div>
-              <div>어드벤처</div>
+              <div class="experiences__type__item--boldText">어드벤처</div>
               <div>숙박과 식사가 포함된 며칠 일정의 여행입니다.</div>
-            </ul>
+            </div>
           </div>
         </div>
-        <div class="host">
-          <div class="host__text">
+
+        <div class="hosting">
+          <div class="hosting--head-text">
             수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.
           </div>
           <div class="hosting__type">
-            <ul>
+            <div class="hosting__type__item">
               <div>
-                <img
+                <img class="hosting__type__item--img"
                   src="https://a0.muscache.com/im/pictures/2a16f833-464c-446c-8d74-33eb8c643975.jpg?im_w=720"
                 />
               </div>
               <div>숙소 호스트 되기</div>
-            </ul>
-            <ul>
+            </div>
+            <div class="hosting__type__item">
               <div>
-                <img
+                <img class="hosting__type__item--img"
                   src="https://a0.muscache.com/im/pictures/426a8116-0b94-4407-ae87-924126c81d78.jpg?im_w=720"
                 />
               </div>
               <div>온라인 체험 호스팅하기</div>
-            </ul>
-            <ul>
+            </div>
+            <div class="hosting__type__item">
               <div>
-                <img
+                <img class="hosting__type__item--img"
                   src="https://a0.muscache.com/im/pictures/a84e92bd-68e6-4ce2-9fdf-b2ce1a377f53.jpg?im_w=720"
                 />
               </div>
               <div>체험 호스팅하기</div>
-            </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -386,8 +417,8 @@
 
     <footer>
       <div class="footer__upper">
-        <ul class="introduction">
-          <div>소개</div>
+        <div class="footer__upper__item">
+          <div class="footer__upper__item--head-text">소개</div>
           <div>에어비앤비 이용 방법</div>
           <div>뉴스룸</div>
           <div>투자자 정보</div>
@@ -397,40 +428,40 @@
           <div>에어비앤비 비즈니스 프로그램</div>
           <div>올림픽</div>
           <div>채용정보</div>
-        </ul>
+        </div>
 
-        <ul class="community">
-          <div>커뮤니티</div>
+        <div class="footer__upper__item">
+          <div class="footer__upper__item--head-text">커뮤니티</div>
           <div>다양성 및 소속감</div>
           <div>접근성</div>
           <div>에어비앤비 어소시에이트</div>
           <div>구호 인력을 위한 숙소</div>
           <div>친구 초대하기</div>
           <div>Airbnb.org</div>
-        </ul>
+        </div>
 
-        <ul class="hosting">
-          <div>호스팅하기</div>
+        <div class="footer__upper__item">
+          <div class="footer__upper__item--head-text">호스팅하기</div>
           <div>숙소 호스팅</div>
           <div>온라인 체험 호스팅하기</div>
           <div>체험 호스팅하기</div>
           <div>책임감 있는 호스팅</div>
           <div>자료 센터</div>
           <div>커뮤니티 센터</div>
-        </ul>
+        </div>
 
-        <ul class="airbnb_support">
-          <div>에어비앤비 지원</div>
+        <div class="footer__upper__item">
+          <div class="footer__upper__item--head-text">에어비앤비 지원</div>
           <div>에어비앤비의 코로나19 대응 방안</div>
           <div>도움말 센터</div>
           <div>예약 취소 옵션</div>
           <div>에어비앤비 이웃 민원 지원</div>
           <div>신뢰와 안전</div>
-        </ul>
+        </div>
       </div>
 
-      <div class="footer__downer">
-        <div class="company-info">
+      <div class="footer__downer settings">
+        <div class="company-info settings">
           <div>© 2021 Airbnb, Inc. All rights reserved</div>
           <span>·</span>
           <div>개인정보 처리방침</div>
@@ -443,7 +474,7 @@
           <span>·</span>
           <div>회사 세부정보</div>
         </div>
-        <div class="countries">
+        <div class="countries settings">
           <div class="language">
           <div>
             <a>
@@ -457,7 +488,7 @@
           <div>KRW</div>
         </div>
         </div>
-        <div class="sns">
+        <div class="sns settings">
           <div>
             <a>
               <svg enable-background="new 0 0 1024 1024" viewBox="0 0 1024 1024" role="img" aria-hidden="false" aria-label="네이버 포스트로 이동하기" focusable="false" style="height: 18px; width: 18px; display: block; fill: currentcolor;"><path d="m984 1024h-944c-22.1 0-40-17.9-40-40v-944c0-22.1 17.9-40 40-40h944c22.1 0 40 17.9 40 40v944c0 22.1-17.9 40-40 40z" fill="#fff"></path><g fill="#00c73c"><path d="m0 198h1024v7h-1024z"></path><path d="m0 405h1024v7h-1024z"></path><path d="m0 612h1024v7h-1024z"></path><path d="m0 819h1024v7h-1024z"></path></g><path d="m307 537 188.2 324.1c7.5 12.9 26.1 12.9 33.6 0l188.2-324.1z" fill="#f4e49d"></path><path d="m307 0h410v537h-410z" fill="#00e831"></path><path d="m392 0h240v537h-240z" fill="#00c73c"></path><path d="m392 148.5v240h240v-240zm188 182h-47.8l-41.2-62.8v62.8h-47v-124h45.8l42.2 62.4v-62.4h48z" fill="#fff"></path><path d="m632 0h85v537h-85z" fill="#00a32a"></path><path d="m528.8 861.1 188.2-324.1h-85l-119.5 333.7c6.3-.1 12.6-3.3 16.3-9.6z" fill="#e0c141"></path><path d="m448.8 781.2 46.4 79.9c7.5 12.9 26.1 12.9 33.6 0l46.4-79.9z" fill="#2d2d2d"></path></svg>
@@ -489,5 +520,7 @@
 
     <script src="/fe-w12-airbnb/js/tabUI.js"></script>
     <script src="/fe-w12-airbnb/js/tabMenu.js"></script>
+    <script src="/fe-w12-airbnb/js/calenderUI.js"></script>
+    <script src="/fe-w12-airbnb/js/calendar.js"></script>
   </body>
 </html>

@@ -1,19 +1,19 @@
-const infoBtn = document.querySelector(".infoBtn");
+const button = document.querySelector(".my-info--button");
 const tabUI = document.querySelector("#tabUI");
 
-infoBtn.addEventListener('click', infoBtnClickHandler)
+button.addEventListener('click', infoBtnClickHandler)
 
 function infoBtnClickHandler() {
-    if (tabUI.className === 'tabUI__hidden') {
-        tabUI.classList.remove('tabUI__hidden');
-        tabUI.classList.add('tabUI__show');
+    if (tabUI.className === 'hidden') {
+        tabUI.classList.remove('hidden');
+        tabUI.classList.add('show');
         tabUI.focus();
     }
 }
 
 function dropdownClose() {
-    if (tabUI.className === 'tabUI__show') {
-        tabUI.classList.add('tabUI__hidden');
-        tabUI.classList.remove('tabUI__show');
+    if (tabUI.className === 'show') {
+        tabUI.classList.add('hidden');
+        tabUI.classList.remove('show');
     }
 }

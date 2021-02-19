@@ -2,9 +2,7 @@
   width: 100%;
   height: 771px;
   position: relative;
-  display: flex;
   flex-direction: column;
-  align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -19,35 +17,24 @@
   padding: 0px 80px;
   width: 100%;
   height: 80px;
-  color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  color: #fff;
   justify-content: space-between;
 }
 
-.header__logo a {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.header__menu {
+.header__contents--menu {
   width: 357px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
   font-size: 16px;
   margin-left: 110px;
   cursor: pointer;
 }
 
-.header__menu span {
+.header__contents--menu > span {
   position: relative;
   padding: 10px 16px;
 }
 
-.header__menu span:hover::after {
+.header__contents--menu > span:hover::after {
   content: "";
   display: block;
   position: absolute;
@@ -58,10 +45,7 @@
   margin-left: -3px;
 }
 
-.header__menu span:active::before {
-}
-
-.header__menu span:active::after {
+.header__contents--menu > span:active::after {
   content: "";
   display: block;
   width: 20px;
@@ -71,221 +55,55 @@
   margin-left: -9px;
 }
 
-.header__my-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.header__contents--my-info {
   justify-content: space-between;
   cursor: pointer;
 }
 
-.header__my-info span {
+.header__contents--my-info > span {
   padding: 10px;
 }
 
-.header__my-info span:nth-child(1):hover,
-.header__my-info span:nth-child(2):hover {
+.my-info--hosting:hover,
+.my-info--countries:hover {
   border-radius: 20px;
   background-color: rgba(241, 241, 241, 0.2);
 }
 
-.infoBtn {
+.my-info--button {
   height: 44px;
   width: 77px;
   border-radius: 20px;
   padding: 5px 9px;
 }
 
-.infoBtn__login {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.button--svgs {
   justify-content: space-between;
 }
 
-.infoBtn__login div:nth-child(2) {
+.button--svgs div:nth-child(2) {
   margin-left: 12px;
 }
 
-#tabUI {
-  position: absolute;
-  top: 9.5%;
-  right: 92px;
-  width: 240px;
-  height: 243px;
-  padding: 8px 0px;
-  background-color: #fff;
-  border-radius: 16px;
-  z-index: 1;
-}
-
-#tabUI div {
-  padding: 12px 16px;
-  color: #000;
-  font-weight: lighter;
-  cursor: pointer;
-}
-
-#tabUI div:hover {
-  border-radius: 16px;
-  background-color: #f1f1f1;
-}
-
-#tabUI div:nth-child(1) {
-  font-weight: normal;
-}
-
-#tabUI div:nth-child(3) {
-  padding: 0px;
-  margin: 8px 0px;
-  height: 1px;
-  background-color: gainsboro;
-  cursor: none;
-}
-
-.tabUI__show {
-  display: block;
-}
-
-.tabUI__hidden {
-  display: none;
-}
-
-#header__search--rooms {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: absolute;
-  top: 10%;
-  height: 64px;
-  background-color: #fff;
-  border-radius: 32px;
-}
-
-#header__search--rooms ul {
-  height: 64px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-right: 0.5px solid gainsboro;
-  padding: 0px 30px;
-}
-
-#header__search--rooms ul:hover {
-  border-radius: 32px;
-  background-color: #f1f1f1;
-}
-
-#header__search--rooms div:nth-child(1) {
-  font-size: 12px;
-  font-weight: 600;
-}
-
-#header__search--rooms div:nth-child(2) {
-  font-weight: lighter;
-}
-
-#header__search--rooms ul:nth-child(1) {
-  width: 270px;
-}
-
-#header__search--rooms ul:nth-child(2),
-#header__search--rooms ul:nth-child(3),
-#header__search--rooms ul:nth-child(4) {
-  padding: 0px 20px;
-  width: 170px;
-}
-
-#header__search--rooms ul:nth-child(4) {
-  padding-left: 20px;
-  padding-right: 10px;
-  width: 240px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border: none;
-}
-
-.rooms__show {
-  visibility: visible;
-}
-
-.rooms__hidden {
-  z-index: 0;
-}
-/* ------------------여기까지rooms------------------------- */
-#header__search--experiences {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: absolute;
-  top: 10%;
-  height: 64px;
-  background-color: #fff;
-  border-radius: 32px;
-}
-
-#header__search--experiences ul {
-  height: 64px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-right: 0.5px solid gainsboro;
-}
-
-#header__search--experiences ul:hover {
-  border-radius: 32px;
-  background-color: #f1f1f1;
-}
-
-#header__search--experiences div:nth-child(1) {
-  font-size: 12px;
-  font-weight: 600;
-}
-
-#header__search--experiences div:nth-child(2) {
-  font-weight: lighter;
-}
-
-#header__search--experiences ul:nth-child(1) {
-  padding: 0px 30px;
-  width: 425px;
-}
-
-#header__search--experiences ul:nth-child(2) {
-  padding-left: 30px;
-  padding-right: 10px;
-  width: 425px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border: none;
-}
-
-.experiences__show {
-  visibility: visible;
-}
-
-.experiences__hidden {
-  visibility: hidden;
-}
-
-.search-button {
+.search--button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: #ff385c;
 }
 
-.search-button svg {
+.search--button > svg {
   display: flex;
   margin-left: 10px;
 }
 
+.search--button:hover {
+  transition: all 0.5s;
+  background-color: #e31b5b;
+}
+
 .header__phrase {
-  color: #ffffff;
+  color: #fff;
   position: absolute;
   top: 45%;
   left: 80px;
@@ -296,9 +114,13 @@
   flex-direction: column;
 }
 
-.header__phrase button {
+.header__phrase--button {
   padding: 7px 15px;
   border-radius: 8px;
   margin-top: 22px;
-  border: none;
+  background-color: #fff;
+}
+
+.header__phrase--button:hover {
+  background-color: #f1f1f1;
 }
