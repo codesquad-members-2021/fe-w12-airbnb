@@ -5,43 +5,61 @@
 [ ] 달력 다음 버튼 클릭하면 다음달 보여주기
 [ ] 달력 날짜 버튼 클릭하면 스타일 적용 + 검색창에 날짜 표시 */
 
+// 년, 월이 어떻게 바뀌는지 로직을 짜야함. 
+// 1) 날짜 지정이 안 됐다면 현재 기준으로 달력 표시
+// 2) 날짜 지정후에 다시 달력을 켠다면 지정한 날짜가 있는 달력을 보여줘야 하고,
+//    지정한 날짜 스타일 유지해야함.
+// 3) 버튼을 누르면 현재달에 +, -
+
 export default class CalendarView {
-    constructor({activityDate, calendarDiv, calendarTitle, calendarDate, calendarBtn}, calendarMaker) {
+    constructor({activityDate, calendarDiv, calendarTitles, calendarDates, calendarBtns}, calendarMaker) {
         this.activityDate = activityDate;
         this.calendarDiv = calendarDiv;
-        this.calendarPrev = calendarBtn[0];
-        this.calendarNext = calendarBtn[1];
-        this.calendarTitle = calendarTitle;
-        this.calendarDate = calendarDate;
+        this.calPrev = calendarBtns[0];
+        this.calNext = calendarBtns[1];
+        this.calTitle1 = calendarTitles[0];
+        this.calTitle2 = calendarTitles[1];
+        this.calDate1 = calendarDates[0];
+        this.calDate2 = calendarDates[1];
         this.maker = calendarMaker;
+        this.isSelected = false;
+        this.yearSelected;
+        this.monthSelected;
         this.setEvent();
     }
     setEvent() {
         this.activityDate.addEventListener("click", this.toggleCalendar.bind(this));
-        // this.calendarPrev.addEventListener("click", );
-        // this.calendarNext.addEventListener("click", );
+        // this.calPrev.addEventListener("click", );
+        // this.calNext.addEventListener("click", );
     }
-
-    // 년, 월이 어떻게 바뀌는지 로직을 짜야함. 
-    // 1) 날짜 지정이 안 됐다면 현재 기준으로 달력 표시
-    // 2) 날짜 지정후에 다시 달력을 켠다면 지정한 날짜가 있는 달력을 보여줘야 하고,
-    //    지정한 날짜 스타일 유지해야함.
-    // 3) 버튼을 누르면 현재달에 +, -
     toggleCalendar() {
         if(this.calendarDiv.classList.contains('hidden')) {
-            // if ( 날짜 선택 X )
-            this.renderCalendar('current');
-            // else ( 날짜 선택 O )
-            // this.renderCalendar('chosen')
+            if(!this.isSelected) {
+                const today = new Date();
+                const [year, month] = [today.getFullYear(), today.getMonth()];
+                this.renderCalendar(year, month);
+            } 
+            // else {
+            //     // 날짜를 선택했었다면, 창을 닫았다가 다시 켤 때 선택한 날짜의 달력이 나타나도록!
+            //     this.renderCalendar(yearSelected, monthSelected);
+            // }
             this.calendarDiv.classList.remove('hidden');
         } else {
             this.calendarDiv.classList.add('hidden');
         }
     }
-    renderCalendar(when) {
-        const {year, month, html} = this.maker.getCalendarData(when);
-        this.calendarTitle.innerText = `${year}년 ${month}월`;
-        this.calendarDate.innerHTML = html;
+    renderCalendar(year, month) {
+        let calHtml = this.maker.getCalendar(year, month);
+        this.calTitle1.innerText = `${year}년 ${month+1}월`;
+        this.calDate1.innerHTML = calHtml;
 
+        calHtml = this.maker.getCalendar(year, month+1);
+        this.calTitle2.innerText = `${year}년 ${month+2}월`;
+        this.calDate2.innerHTML = calHtml;
+    }
+    checkMonth(year, month) {
+        if(month === 12) return [year+1, 0];
+        else if(month === -1) return [year-1, 11];
+        else return [year, month];
     }
 }

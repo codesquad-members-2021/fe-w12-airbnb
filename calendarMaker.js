@@ -5,7 +5,7 @@
 [✔] 이번달 1일 요일 구하기 〰 firstDayName
     → (요일 = 1일 앞 빈 요소 개수)
 [✔] 이번달 마지막 날짜 구하기 〰 lastDay
-[ ] 날짜 요소 그리기 (7열 5~6행)
+[✔] 날짜 요소 그리기 (7열 5~6행)
     → (빈 요소 ~ 이번달 1일 ~ 이번달 마지막 날짜 ~ 빈 요소)*/
 
 /*========== To Do List ===========
@@ -20,20 +20,12 @@ export default class CalendarMaker {
         this.lastDayName;  // 마지막 일 요일
         this.lastDayOfWeek;// 주의 마지막 일
     }
-    // 캘린더뷰 클래스에서 이 함수 호출
-    getCalendarData(when) {
-        if(when === 'current') { // 날짜지정X → 현재 년,월 달력 표시
-            const today = new Date();
-            const [year, month] = [today.getFullYear(), today.getMonth()]
-            this.saveMonthInfo(year, month);
-            const data = {year: year, month: month + 1, html: this.getCalendarHtml()};
-            return data;
-        } else { // 날짜지정O or 버튼클릭 → 인자로 받아온 년,월 달력 표시
-
-        }
+    getCalendar(year, month) {
+        this.saveMonthInfo(year, month);
+        const html = this.getCalendarHtml();
+        return html;
     }
 
-    // month는 0 ~ 11 
     saveMonthInfo(year, month) {
         this.firstDayName = new Date(year, month, 1).getDay();
         const last = new Date(year, month + 1, 0);
