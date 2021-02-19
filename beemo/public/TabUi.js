@@ -1,9 +1,10 @@
 const _ = require('./util.js');
 
 class TabUI {
-  constructor($tabButton) {
+  constructor({ $tabButton }) {
     this.$tabButton = $tabButton;
     this.makeTemplate();
+    this.initEvent();
   }
 
   initEvent() {
