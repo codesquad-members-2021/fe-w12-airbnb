@@ -4,11 +4,23 @@
   const $calendarWrapper = document.querySelector('.calendar__wrapper');
 
   const WEEKDAY = { 0: '일', 1: '월', 2: '화', 3: '수', 4: '목', 5: '금', 6: '토' };
+  const LASTDAY = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   // 돔 생성 (그리기)
+
+  class CalendarDate {
+    constructor(year, monthIdx) {
+      this.DATE = new Date(year, monthIdx);
+      this.year = this.DATE.getFullYear();
+      this.month = this.DATE.getMonth() + 1;
+      this.date = this.DATE.getDate();
+      this.day = WEEKDAY[this.DATE.getDay()];
+    }
+  }
+
   class CalendarBox {
-    constructor(year, month) {
-      this.DATE = new Date(`${year}-${month}`);
+    constructor(year, monthIdx) {
+      this.DATE = new Date(year, monthIdx);
       this.year = this.DATE.getFullYear();
       this.month = this.DATE.getMonth() + 1;
       this.date = this.DATE.getDate();
@@ -19,7 +31,7 @@
       const calendarUpper = `
       <div class="calendar--upper">
         <div class="monthly--title">
-        2021년 2월
+        ${this.year}년 ${this.month}월
         </div>
       </div>`;
       return calendarUpper;
@@ -73,15 +85,18 @@
     }
 
     drawMonth() {
-      return ($calendarWrapper.innerHTML += `
+      return $calendarWrapper.insertAdjacentHTML(
+        'beforeend',
+        `
         <div class="calendar__box">
           ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
-        </div>`);
+        </div>`
+      );
     }
   }
 
-  const monthBox = new CalendarBox(`2021`, `02`);
-  const monthBox2 = new CalendarBox(`2021`, `03`);
+  const monthBox = new CalendarBox(2021, 1);
+  const monthBox2 = new CalendarBox(2021, 2);
   monthBox.drawMonth();
   monthBox2.drawMonth();
 
