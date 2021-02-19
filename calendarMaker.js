@@ -10,22 +10,32 @@
     → (요일 = 1일 앞 빈 요소 개수)
 [✔] 이번달 마지막 날짜 구하기 〰 lastDay
 [ ] 날짜 요소 그리기 (7열 5~6행)
-    → (빈 요소 ~ 이번달 1일 ~ 이번달 마지막 날짜)*/
-
-
-// 연습 코드
-const today = new Date();
-const year = today.getFullYear(); // 2021
-const month = today.getMonth();   // 1
-
-const setCalendarData = (year, month) => {
-    const firstDayName = new Date(year, month, 1).getDay(); // 1(월)
-    const lastDay = new Date(year, month + 1, 0).getDate(); // 28
-};
-
+    → (빈 요소 ~ 이번달 1일 ~ 이번달 마지막 날짜 ~ 빈 요소)*/
 
 export default class CalendarMaker {
     constructor() {
+        // 함수 인자로 넘겨줄 수 있는 값은 나중에 제거하기
+        this.today = new Date();
+        this.year = this.today.getFullYear();
+        this.month = this.today.getMonth();
+        this.firstDayName;
+        this.lastDay;
+        this.lastDayName;
+        this.calendarHtml = ``;
+    }
+    saveThisMonthInfo() {
+        this.firstDayName = new Date(this.year, this.month, 1).getDay(); // 1(월요일)
+        const last = new Date(this.year, this.month + 1, 0);
+        this.lastDay = last.getDate();     // 28
+        this.lastDayName = last.getDay();  // 0(일요일)
+    }
+    makeFirstWeek() {
+        
+    }
+    makeMiddleWeek() {
+
+    }
+    makeLastWeek() {
 
     }
 }
