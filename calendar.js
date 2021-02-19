@@ -21,27 +21,47 @@ class Calendar {
     }
 
     getFirstDay(calendarPos) {
-        const firstDate = (calendarPos==="R") ? new Date(this.year, this.month) : new Date(this.year, this.month-1);
+        const firstDate = (calendarPos === "R") ? new Date(this.year, this.month) : new Date(this.year, this.month - 1);
         return firstDate.getDay();
     }
 
     getLastDay(calendarPos) {
         let wholeDays = [];
+        let lcIndex = this.month - 1;
+        let rcIndex = this.month;
+
+        if (lcIndex < 0) lcIndex = 0;
+
         if ((this.year % 4 === 0 && this.year % 100 !== 0) || (this.year % 400 === 0)) {
             wholeDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         } else {
             wholeDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         }
 
-        if(calendarPos === "L") return wholeDays[this.month-1];
-        if(calendarPos === "R") return wholeDays[this.month];
+        if (calendarPos === "L") return wholeDays[lcIndex];
+        if (calendarPos === "R") return wholeDays[rcIndex];
     }
+
+    getLeftTitle() {
+        let year = this.year;
+        let month = this.month;
+
+        if(month === 0) {
+            month = 12;
+            year--;
+        }
+        leftCalendarTitle.innerHTML = `${year}년 ${month}월`
+    }
+
+    getRightTitle() {
+        rightCalendarTitle.innerHTML = `${this.year}년 ${this.month + 1}월`
+    }
+
 
     fillCalendar() {
         this.initCalendars();
-
-        leftCalendarTitle.innerHTML = `${this.year}년 ${this.month}월`
-        rightCalendarTitle.innerHTML = `${this.year}년 ${this.month + 1}월`
+        this.getLeftTitle();
+        this.getRightTitle();
         const lcFirstDay = this.getFirstDay("L");
         const lcLastDay = this.getLastDay("L");
         const rcFirstDay = this.getFirstDay("R");
@@ -133,28 +153,28 @@ class Calendar {
         let firstSelectedDay = 0;
         let lastSelectedDay = 0;
         let clickCount = 0;
-    
+
         // 달력 스타일 초기화
         dayButtons.forEach((element) => {
             element.classList.remove("day_selected");
             element.parentNode.classList.remove("gray");
         })
-    
-    
+
+
         // 달력 날짜들에 클릭 이벤트 추가
         dayButtons.forEach((element) => {
             element.addEventListener("click", (event) => {
                 event.target.classList.toggle("day_selected");
-    
+
                 clickCount++;
-    
+
                 // 선택 일자 타입 변환
                 if (firstSelectedDay === 0) {
                     firstSelectedDay = Number(event.target.innerText);
                 } else {
                     lastSelectedDay = Number(event.target.innerText);
                 }
-    
+
                 // 클릭 횟수 2회 넘어가면 달력 스타일 초기화
                 if (clickCount > 2) {
                     dayButtons.forEach((e) => {
@@ -165,7 +185,7 @@ class Calendar {
                         lastSelectedDay = 0;
                     });
                 }
-    
+
                 // 선택 일자 사이에 회색 배경 적용
                 if (firstSelectedDay !== 0 && lastSelectedDay !== 0) {
                     dayButtons.forEach((e) => {
@@ -175,21 +195,21 @@ class Calendar {
                         }
                     });
                 }
-    
+
                 // 선택 일자 중 왼쪽값이 오른쪽 값보다 크면 회색 배경 삭제 
                 if (firstSelectedDay > lastSelectedDay) {
                     dayButtons.forEach((e) => e.parentNode.classList.remove("gray"));
                 }
             });
         });
-    
+
         // 달력 날짜들에 호버링 이벤트 추가
         dayButtons.forEach((element) => {
             element.addEventListener("mouseenter", (event) => {
                 event.target.classList.add("day_hover")
             });
         });
-    
+
         dayButtons.forEach((element) => {
             element.addEventListener("mouseleave", (event) => {
                 event.target.classList.remove("day_hover")
