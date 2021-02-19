@@ -35,9 +35,9 @@ const isBetweenSelectedDates = (currDate) => {
   const startDate = selectedDateState.startDate.data;
   const endDate = selectedDateState.endDate.data;
   if ((isLaterThanDate(currDate, startDate) && !isLaterThanDate(currDate, endDate)) || isSameWithDate(currDate, endDate) || isSameWithDate(currDate, startDate)) {
-    console.log(`currDate: ${currDate}`);
-    console.log(`startDate: ${startDate}`);
-    console.log(`endDate: ${endDate}`);
+    // console.log(`currDate: ${currDate}`);
+    // console.log(`startDate: ${startDate}`);
+    // console.log(`endDate: ${endDate}`);
     return true;
   }
   return false;
@@ -69,6 +69,7 @@ const deleteConnection = (calendarDates) => {
   calendarDates.forEach((date) => {
     if (date.classList.contains("today") || date.classList.contains("tomorrow")) {
       date.classList.remove("connected");
+      if (date.childNodes[0].classList.contains("selected")) date.childNodes[0].classList.remove("selected");
     }
   });
 };
@@ -118,12 +119,12 @@ const registerClickEvent = (element, placeholder, textStartDate, textEndDate, ca
         writeDateOnTab(textStartDate, clickedDate);
       } else {
         // 시작 날짜보다 더 나중 날짜를 클릭하면
-        updateState(target, clickedDate, kindOfDate.start);
-        writeDateOnTab(textStartDate, clickedDate);
         if (isLaterThanDate(clickedDate, selectedEndDate)) {
           removeState(kindOfDate.end);
           eraseDateOnTab(textEndDate);
         }
+        updateState(target, clickedDate, kindOfDate.start);
+        writeDateOnTab(textStartDate, clickedDate);
       }
     }
     if (canConnectDates()) connectTwoDates(calendarDates);
