@@ -6,6 +6,30 @@ export default class Calender {
     this.table = _.$A(".main__calender--table", this.Calender);
   }
 
+  addCalenderHTML(table, year, month) {
+    const tbody = _.$("tbody", table);
+    const title = _.$(".main__calender--month", table);
+    const nowDate = new Date(year, month - 1, 1);
+    const dateLast = new Date(year, month, 0).getDate();
+    const dateStart = nowDate.getDay();
+
+    const html = this.makeCalenderHTML(dateStart, dateLast);
+    const date = this.makeCalenderTitleHTML(nowDate);
+
+    title.innerHTML = date;
+    tbody.innerHTML = html;
+  }
+
+  makeCalender(year, month) {
+    this.addCalenderHTML(this.table[0], year, month);
+    this.addCalenderHTML(this.table[1], year, month + 1);
+  }
+
+  makeCurrentDateCalender() {
+    const now = new Date();
+    this.makeCalender(now.getFullYear(), now.getMonth() + 1);
+  }
+
   makeCalenderHTML(firstDay, LastDay) {
     let html = "<tr>";
 
@@ -21,25 +45,10 @@ export default class Calender {
     return html;
   }
 
-  addCalenderHTML(table, year, month) {
-    const tbody = _.$("tbody", table);
-    const title = _.$(".main__calender--month", table);
-    const dateLast = new Date(year, month, 0).getDate();
-    const dateStart = new Date(year, month - 1, 1).getDay();
-    let date = `${year} 년   ${month} 월`;
-    const html = this.makeCalenderHTML(dateStart, dateLast);
+  makeCalenderTitleHTML(date) {
+    const nowMonth = date.getMonth();
+    const nowYear = date.getFullYear();
 
-    title.innerHTML = date;
-    tbody.innerHTML = html;
-  }
-
-  makeCalender(year, month) {
-    this.addCalenderHTML(this.table[0], year, month);
-    this.addCalenderHTML(this.table[1], year, month + 1);
-  }
-
-  makeCurrentDateCalender() {
-    const now = new Date();
-    this.makeCalender(now.getFullYear(), now.getMonth() + 1);
+    return `${nowYear} 년   ${nowMonth + 1} 월`;
   }
 }
