@@ -128,6 +128,7 @@ function drawCalendar() {
         leftCalendar.fillCalendar();
         rightCalendar.fillCalendar();
         updateCalendarStyle(".left_day_button");
+        updateCalendarStyle(".right_day_button");
     });
     rightButton.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -137,6 +138,7 @@ function drawCalendar() {
         leftCalendar.fillCalendar();
         rightCalendar.fillCalendar();
         updateCalendarStyle(".right_day_button");
+        updateCalendarStyle(".left_day_button");
     });
 }
 
@@ -205,9 +207,7 @@ function updateCalendarStyle(className) {
 
             // 선택 일자 중 왼쪽값이 오른쪽 값보다 크면 회색 배경 삭제 
             if(firstSelectedDay > lastSelectedDay) {
-                dayButtons.forEach((e) => {
-                    e.parentNode.classList.remove("gray");
-                });
+                dayButtons.forEach((e) => e.parentNode.classList.remove("gray"));
             }
         });
     });
@@ -233,7 +233,6 @@ function handleEvents() {
     toggleCalendar();
     updateCalendarStyle(".left_day_button");
     updateCalendarStyle(".right_day_button");
-
 }
 
 
