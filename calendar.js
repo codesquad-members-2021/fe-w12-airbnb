@@ -11,11 +11,9 @@ class Calendar {
         this.fristDay = this.fristDayInfo.getDay();
         this.lastDateArr = [31,28,31,30,31,30,31,31,30,31,30,31];
         this.lastDate = this.lastDateArr[this.month];
-        // this.calendarCalssNum = 1;
     }
     
     displayYearMonth() {
-        console.log(this.yearMonth);
         this.yearMonth.innerHTML = `
         ${this.year}년 ${this.monthArr[this.month]}월`;
         this.createWeekday();
@@ -32,8 +30,6 @@ class Calendar {
 
     displayClander() {
         this.leftContainer.innerHTML = `${this.calendarTableInner}`;
-        // this.leftContainer.innerHTML = '';
-        // this.preCalenderEvent();
         this.isLeftCalendar()
     }
 
@@ -42,11 +38,12 @@ class Calendar {
             classNameCnt++;
             if(thisMonth === 11) {
                 thisMonth = 0;
-                thisYear++;
+                thisYear = thisYear+1;
             }
             else {
                 thisMonth++;
             }
+            console.log('오른쪽 인자값',thisYear, thisMonth, classNameCnt)
             calendar1 = new Calendar(thisYear, thisMonth, classNameCnt);
             return calendar1.displayYearMonth();
         }
@@ -82,21 +79,6 @@ class Calendar {
         }  
         this.displayClander();
     }
-    // preCalenderEvent() {
-    //     const preCalenderBtn = document.querySelector('leftBtn');
-    //     preCalenderBtn.addEventListener('click', () =>this.preBtnHandler());
-    // }
-    // preBtnHandler() {
-    //     if(this.month === 0) {
-    //         this.year--;
-    //         this.month = 11;
-    //     }
-    //     else {
-    //         this.month--;
-    //     }
-    //     calendar1 = new Calendar(this.year, this.month);
-    //     calendar1.displayYearMonth();
-    // } 
 }
 
 let classNameCnt = 1;
@@ -108,30 +90,28 @@ calendar1.displayYearMonth();
 
 
 const preCalenderBtn = document.querySelector('.pre-month');
-// .search-sub__calendarBtn
 preCalenderBtn.addEventListener('click', () => {
     classNameCnt =1;
-    // if(thisMonth === 0) {
-    //     thisYear--;
-    //     thisMonth = 11;
-    // }
-    // else{
-    //     thisMonth--;
-    // }
-    calendar1 = new Calendar(thisYear, thisMonth); 
+    console.log('1이면',thisMonth, thisYear, classNameCnt);
+    if(thisMonth === 1) {
+        thisYear = thisYear -1;
+        thisMonth = 11;
+    }
+    else if(thisMonth === 0) {
+        thisYear = thisYear -1;
+        thisMonth = 10;
+    }
+    else{
+        thisMonth = thisMonth-2;
+    }
+    console.log('11, 연 마이너스',thisMonth, thisYear, classNameCnt);
+    calendar1 = new Calendar(thisYear, thisMonth, classNameCnt); 
     calendar1.displayYearMonth();
 })
 
 const nextCalenderBtn = document.querySelector('.next-month');
 nextCalenderBtn.addEventListener('click', () => {
     classNameCnt = 1;
-    // if(thisMonth === 11) {
-    //     thisYear++;
-    //     thisMonth = 0;
-    // }
-    // else {
-    //     thisMonth++;
-    // }
     calendar1 = new Calendar(thisYear, thisMonth,classNameCnt);
     calendar1.displayYearMonth();
 })
