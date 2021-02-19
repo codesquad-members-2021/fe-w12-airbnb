@@ -5,46 +5,19 @@
   const $calendarWrapper = document.querySelector('.calendar__wrapper');
 
   // 돔 생성 (그리기)
-
-  class CalendarData {
-    constructor(fullYear, monthIdx) {
-      this.fullYear = fullYear;
-      this.monthIdx = monthIdx;
-      this.DATE = new Date(this.fullYear, this.monthIdx);
-      this.year = this.DATE.getFullYear();
-      this.month = this.DATE.getMonth();
-      this.date = this.DATE.getDate();
-      this.day = WEEKDAY[this.DATE.getDay()];
-    }
-
-    getMonth() {
-      const LASTDAY = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-      let monthArr = [];
-      for (let i = 1; i < LASTDAY[this.monthIdx] + 1; i++) {
-        monthArr.push(i);
-      }
-      return monthArr;
-    }
-  }
-
-  let data = new CalendarData(2021, 3);
-  console.log(data.getMonth());
-
   class CalendarBox {
-    // constructor(year, monthIdx) {
-    //   this.DATE = new Date(year, monthIdx);
-    //   this.year = this.DATE.getFullYear();
-    //   this.month = this.DATE.getMonth() + 1;
-    //   this.date = this.DATE.getDate();
-    //   this.day = WEEKDAY[this.DATE.getDay()];
-    // }
+    constructor(year, month) {
+      this.year = year;
+      this.month = month;
+      // this.id_num = 1;
+    }
 
     // Title: 년 월
     drawTitle() {
       const calendarUpper = `
       <div class="calendar--upper">
         <div class="monthly--title">
-        ${this.year}년 ${this.month}월
+        ${this.year}년 ${this.month + 1}월
         </div>
       </div>`;
       return calendarUpper;
@@ -66,7 +39,10 @@
     drawWeek() {
       let week = `<tr>\n`;
       for (let i = 0; i < 7; i++) {
-        week += `<td><div>${this.date}</div><td>\n`;
+        // let boxID = `box${this.id_num}`;
+        week += `<td><div class="day-box"></div><td>\n`;
+        // week += `<td><div class="day-box" id="${boxID}"></div><td>\n`;
+        // this.id_num++;
       }
       week += `</tr>`;
       return week;
@@ -108,14 +84,57 @@
     }
   }
 
-  // const monthBox = new CalendarBox(2021, 1);
-  // const monthBox2 = new CalendarBox(2021, 2);
-  // monthBox.drawMonth();
-  // monthBox2.drawMonth();
+  // 데이터 생성
 
-  // 데이터
-  // 생성(분리);
+  class CalendarData {
+    constructor(fullYear, monthIdx) {
+      this.fullYear = fullYear;
+      this.monthIdx = monthIdx;
+      this.DATE = new Date(this.fullYear, this.monthIdx);
+      this.year = this.DATE.getFullYear();
+      this.month = this.DATE.getMonth();
+      this.date = this.DATE.getDate();
+      this.day = WEEKDAY[this.DATE.getDay()];
+    }
+
+    getMonthArr() {
+      const LASTDAY = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      let monthArr = [];
+      for (let i = 1; i < LASTDAY[this.monthIdx] + 1; i++) {
+        monthArr.push(i);
+      }
+      return monthArr;
+    }
+  }
+
   // 데이터 넣기
+
+  class CalendarManager {
+    constructor(monthArr) {
+      this.monthArr = monthArr;
+      this.dayDOM = document.querySelectorAll('.day-box');
+      console.log(this.dayDOM);
+    }
+
+    inputMonth() {
+      for (let i = 0; i < this.monthArr.length; i++) {
+        this.dayDOM[i].insertAdjacentHTML('afterbegin', this.monthArr[i]);
+      }
+    }
+  }
+
+  const feb = new CalendarData(2021, 1); // 데이터 생성
+  const mar = new CalendarData(2021, 2);
+
+  const monthBox = new CalendarBox(feb.year, feb.month);
+  monthBox.drawMonth(); // 그리기 (아무래도 그린 후에 돔을 잡아야겠지?..)
+  const monthBox2 = new CalendarBox(mar.year, mar.month);
+  monthBox2.drawMonth();
+
+  const dataPush = new CalendarManager(feb.getMonthArr());
+  dataPush.inputMonth();
+  const dataPush2 = new CalendarManager(mar.getMonthArr());
+  dataPush2.inputMonth();
 
   // css 추가
 })(window, document);
