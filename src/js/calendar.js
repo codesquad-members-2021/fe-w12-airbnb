@@ -41,7 +41,6 @@ for(let i = whatDayOfFirst; i <= 6; i++) {
   monthArr[0][i] = num;
   num ++;
 }
-console.log(monthArr);
 
 // 3-2. 2주차 ~ 마지막주차 채우기
 for(let i = 1; i <= 5; i++) {
@@ -52,3 +51,42 @@ for(let i = 1; i <= 5; i++) {
   }
 }
 console.log(monthArr);
+
+// 4. monthArr 데이터를 이용하여 화면에 표시하기
+// monthArr의 요소를 반복문으로 돌면서 태그 안에 넣을거다.
+const tbody = document.querySelector('tbody');
+const daysTemplete = `
+  <tr>
+    <th scope="col">일</th>
+    <th scope="col">월</th>
+    <th scope="col">화</th>
+    <th scope="col">수</th>
+    <th scope="col">목</th>
+    <th scope="col">금</th>
+    <th scope="col">토</th>
+  </tr>
+`
+tbody.innerHTML = `${daysTemplete}`;
+
+const week1 = monthArr[0];
+
+console.log(week1);
+
+let result = week1.reduce((prev, day) => {
+  if(!day) day = '';
+  return prev + `<td>${day}</td>`;
+}, '<tr>')
+result += '</tr>';
+
+let finalResult = monthArr.reduce((prev, week) => {
+  let result = week.reduce((prev, day) => {
+    if(!day) day = '';
+    return prev + `<td>${day}</td>`;
+  }, '<tr>')
+  result += '</tr>';
+  
+  return prev + result;
+}, '')
+
+console.log(finalResult);
+tbody.innerHTML = finalResult;
