@@ -29,6 +29,7 @@ function makeCalendar(dateObj) {
 
     let y = date.getFullYear(); // 2021년
     let m = date.getMonth(); //2월
+
     let firstDate = new Date(y, m, 1) //2월 1일
     let dayOfFirstDate = firstDate.getDay(); //월요일
 
@@ -36,10 +37,10 @@ function makeCalendar(dateObj) {
     let last = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let lastDate = last[m]
 
-    // 윤년체크 - 오류
-    // if ((y % 4 && y % 100 != 0) || y % 400 == 0) {
-    //     lastDate = last[1] = 29;
-    // }
+    // 윤년체크
+    if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+        lastDate = last[1] = 29;
+    }
 
     let dateNumber = 1; // 달력에 표기되는 일의 초깃값
     let row = Math.ceil((dayOfFirstDate + last[m]) / 7);
@@ -79,8 +80,17 @@ function makeCalendar(dateObj) {
 
 function view(htmlTag, templateCalendar) {
     htmlTag.innerHTML = templateCalendar;
+
+
 }
 
+function viewMonthTab() {
+    let currentMonth = document.querySelector(".current-calendar-table .month-tab")
+    let preMonth = document.querySelector(".pre-calendar-table .month-tab")
+
+    currentMonth.innerHTML = `${date.getFullYear()}년 ${date.getMonth()+1}월`
+    preMonth.innerHTML = `${date2.getFullYear()}년 ${date2.getMonth()+1}월`
+}
 
 //메인함수
 function main() {
@@ -88,6 +98,7 @@ function main() {
     view(currentCalendarTable, february);
     let january = makeCalendar(date2);
     view(preCalendarTable, january);
+    viewMonthTab();
 }
 
 main();
@@ -104,8 +115,6 @@ next.addEventListener("click", nextHandler)
 function prevHandler() {
     date = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
     date2 = new Date(date2.getFullYear(), date2.getMonth() - 1, date2.getDate());
-
-
     main();
 }
 
