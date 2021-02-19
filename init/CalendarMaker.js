@@ -4,9 +4,9 @@ export default class CalendarMaker {
     this.$navMenuActivity = $navMenuActivity;
     this.today = new Date();
     this.year = this.today.getFullYear();
-    this.activeMonth = this.today.getMonth(); //실제 Month -1
+    this.activeMonth = this.today.getMonth();
     this.dayList = ["일", "월", "화", "수", "목", "금", "토"];
-    this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //월별 마지막 일
+    this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     this.init();
   }
 
