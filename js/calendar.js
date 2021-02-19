@@ -13,89 +13,80 @@
   class CalendarBox {
     constructor() {}
 
-    drawTitle() {}
-    drawWeek() {}
-    drawDay() {}
-  }
-
-  // title -->
-  // box > .upper > title
-
-  const calendarUpper = `
-    <div class="calendar--upper">
-      <div class="monthly--title">
-        ${fullYear}년 ${month}월
-      </div>
-    </div>`;
-
-  // week -->
-  // .weekdays > ul > li * 7
-
-  const calendarWeekdays = `
-    <div class="weekdays">
-      <ul class="weekdays--ul">
-      ${drawWeekdays()}
-      </ul>
-    </div>
-  `;
-
-  // 그리는 것과 데이터를 분리?
-  function drawWeekdays() {
-    let weekdays = ``;
-    for (day in WEEKDAY) {
-      weekdays += `<li class="weekdays--li">${WEEKDAY[day]}</li>\n`;
+    // Title: 년 월
+    drawTitle() {
+      const calendarUpper = `
+      <div class="calendar--upper">
+        <div class="monthly--title">
+          ${fullYear}년 ${month}월
+        </div>
+      </div>`;
+      return calendarUpper;
     }
-    return weekdays;
-  }
 
-  // day -->
-  // table > tbody > tr > td * 7 > div * 7
-
-  const calendarBody = `
-    <table class="calendar--table" role="presentation">
-      <tbody>
-      ${drawWeeks()}
-      </tbody>
-    </table>
-  `;
-
-  function drawWeek() {
-    let week = `<tr>\n`;
-    for (let i = 0; i < 7; i++) {
-      week += `<td><div></div><td>\n`;
+    // Weekdays: 월화수목금퇼
+    drawWeekdays() {
+      let weekdays = `
+        <div class="weekdays">
+          <ul class="weekdays--ul">`;
+      for (day in WEEKDAY) {
+        weekdays += `<li class="weekdays--li">${WEEKDAY[day]}</li>\n`;
+      }
+      weekdays += `</ul></div>`;
+      return weekdays;
     }
-    week += `</tr>`;
-    return week;
-  }
 
-  function drawWeeks() {
-    const WEEKS = {
-      feb: 4,
-      short: 5,
-      long: 6,
-    };
-    let weeks = ``;
-    for (let i = 0; i < WEEKS.short; i++) {
-      weeks += `\n${drawWeek()}`;
+    // Week: 한 주
+    drawWeek() {
+      let week = `<tr>\n`;
+      for (let i = 0; i < 7; i++) {
+        week += `<td><div></div><td>\n`;
+      }
+      week += `</tr>`;
+      return week;
     }
-    return weeks;
+
+    // Weeks: 몇 주?
+    drawWeeks() {
+      const WEEKS = {
+        feb: 4,
+        short: 5,
+        long: 6,
+      };
+      let weeks = ``;
+      for (let i = 0; i < WEEKS.short; i++) {
+        weeks += `\n${this.drawWeek()}`;
+      }
+      return weeks;
+    }
+
+    // Days: 하루하루
+    drawDays() {
+      let days = `
+        <table class="calendar--table" role="presentation">
+          <tbody>
+            ${this.drawWeeks()}
+          </tbody>
+        </table>`;
+      return days;
+    }
+
+    drawMonth() {
+      return ($calendarWrapper.innerHTML = `
+        <div class="calendar__box">
+          ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
+        </div>`);
+    }
   }
 
-  function drawDays() {
-    return `${calendarUpper + calendarWeekdays + calendarBody}`;
-  }
+  const monthBox = new CalendarBox();
+  monthBox.drawMonth();
 
   // 데이터
   // 생성(분리);
   // 데이터 넣기
 
   // css 추가
-
-  $calendarWrapper.innerHTML = `
-  <div class="calendar__box">
-    ${drawDays()}
-  </div>
-`;
 
   console.log(`DATE: ${DATE}`);
   console.log(`day: ${WEEKDAY[day]}`);
