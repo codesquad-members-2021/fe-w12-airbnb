@@ -1,6 +1,6 @@
-import MainEventControler from "./MainEventControler.js";
+import MainEventController from "./MainEventController.js";
 
-export default class SearchberEventController extends MainEventControler {
+export default class SearchberEventController extends MainEventController {
   constructor(main) {
     super(main);
   }

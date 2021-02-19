@@ -1,6 +1,6 @@
-import MainEventControler from"./MainEventControler.js";
+import MainEventController from"./MainEventController.js";
 
-export default class HeaderEventControler extends MainEventControler {
+export default class HeaderEventController extends MainEventController {
   constructor(main) {
     super(main);
     this.lists = this.HEADER.getElementsByTagName("li");

@@ -1,17 +1,17 @@
 import _ from "./utils.js";
-import MainEventControler from "./MainEventControler.js";
-import HeaderEventControler from "./HeaderEventControler.js";
-import SearchberEventController from "./SearchbarEventControler.js";
+import MainEventController from "./MainEventController.js";
+import HeaderEventController from "./HeaderEventController.js";
+import SearchberEventController from "./SearchbarEventController.js";
 import Calender from "./Calender.js";
 //=====================================================//
 const main = _.$(".main");
-const mainEventControler = new MainEventControler(main);
+const mainEventController = new MainEventController(main);
 const searchberEventController = new SearchberEventController(main);
 const calender = new Calender(_.$(".main__calender", main));
 //makeCurrentDateCalender();
-const headerEventConroler = new HeaderEventControler(main);
+const headerEventConroller = new HeaderEventController(main);
 calender.makeCurrentDateCalender();
-headerEventConroler.init();
+headerEventConroller.init();
 searchberEventController.init();
 
-mainEventControler.init();
+mainEventController.init();

@@ -1,7 +1,7 @@
 import EventHandler from"./EventHandler.js";
 
 
-export default class MainEventControler extends EventHandler {
+export default class MainEventController extends EventHandler {
   constructor(main) {
     super();
     this.main = main;
