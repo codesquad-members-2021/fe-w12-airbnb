@@ -121,7 +121,7 @@ class Calendar {
         _.appendChild(li, button);         
     }
 
-// START ---- 만들어진 날짜 선택 버튼들 한땀 한땀 이벤트 설정 ---------------------  
+// START ---- 만들어진 날짜 선택 버튼들 한땀 한땀 관련된 부분 설정 (이벤트, 상태에 따른 변화 등) ---------------------  
     _setDateBtnClickEvent(button) {
         _.addEvent(button, 'click', (e) => this._dateBtnClickEventHandler(e, button));        
     }
@@ -176,47 +176,71 @@ class Calendar {
         }
     }
 
+
+    // 일반 버튼 Array 형식으로 모두 GET
+    _createAllDateBtnList(parentNode) {
+        return Array.from(_.$All('ul > li > button', parentNode));
+    }
+
+    // 날짜버튼의 부모인 li태그 전부 GET
+    _createAllDateliList(parentNode) {
+        return Array.from(_.$All('ul > li', parentNode));
+    }
+
+    // 날짜버튼의 부모인 li태그 - disableStatus 전부 GET
+    _createAllDateDisableliList(parentNode) {
+        return this._createAllDateliList(parentNode).filter((li) => _.classContains(li, 'disableStatus'));
+    }
+
     // 시작 or 종료 버튼 스타일 지정되어 있는 항목 Array 형식으로 GET
     _createSelectDateBtnList(parentNode) {
-        return Array.from(_.$All('ul > li > button', parentNode)).filter(
+        return this._createAllDateBtnList(parentNode).filter(
             (btn) =>
                 _.classContains(btn, 'startDate') ||
                 _.classContains(btn, 'endDate'),
         );
     }
 
-    // 시작 or 종료 버튼이 아닌 일반 버튼 Array 형식으로 GET
-    _createNotSelectDateBtnList(parentNode) {
-        return Array.from(_.$All('ul > li > button', parentNode)).filter(
-            (btn) =>
-                (!_.classContains(btn, 'startDate') && !_.classContains(btn, 'endDate')),
-        );
-    }
-
-
-    _createGreaterThanDateBtnList(parentNode, referenceBtn) {
-        return this._createNotSelectDateBtnList(parentNode)
+    // referenceBtn의 숫자와 같거나 큰 숫자, btnList
+    _createGreaterEqualDateBtnList(parentNode, referenceBtn) {
+        return this._createAllDateBtnList(parentNode)
             .filter(
-                (btn) => Number(referenceBtn.innerText) < Number(btn.innerText),
+                (btn) => Number(referenceBtn.innerText) <= Number(btn.innerText),
             );
     }
     
-    _createLowerThanDateBtnList(parentNode, referenceBtn) {
-        return this._createNotSelectDateBtnList(parentNode)
+    // referenceBtn의 숫자와 같거나 작은 숫자, btnList
+    _createLowerEqualDateBtnList(parentNode, referenceBtn) {
+        return this._createAllDateBtnList(parentNode)
             .filter(
-                (btn) => Number(referenceBtn.innerText) > Number(btn.innerText),
+                (btn) => Number(referenceBtn.innerText) >= Number(btn.innerText),
+            );
+    }
+
+    // startBtn의 숫자와 같거나 큰 숫자 ~ endBtn의 숫자와 같거나 작은 숫자, btnLis
+    _createGreaterEqualLowerDateBtnList(parentNode, startBtn, endBtn) {
+        return this._createAllDateBtnList(parentNode)
+            .filter(
+                (btn) => 
+                    (Number(startBtn.innerText) <= Number(btn.innerText)) 
+                    && 
+                    (Number(endBtn.innerText) >= Number(btn.innerText)),
             );
     }
 
     // 시작 or 종료 버튼 지정되어 있는 항목, 매개변수(className) 기준으로 1개만 찾음
-    _findOneDataBtn(parentNode, className) {
-        // -- 굳이 querySelectAll 안써도되지만.. 일단은..
-        return Array.from(_.$All('ul > li > button', parentNode)).filter((btn) => _.classContains(btn, className))[0];
+    _findOneDataBtn(parentNode, className) {        
+        return this._createAllDateBtnList(parentNode).filter((btn) => _.classContains(btn, className))[0];
     }
 
-    // 시작 or 종료 버튼 지정되어 있는 항목, Style 제거 (css class)
+    // 시작 or 종료 and 버튼의 부모에 스타일이 지정되어 있는 항목, Style 제거 (css class)
     _removeDataBtnStyle(parentNode) {
-        this._createSelectDateBtnList(parentNode).forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
+        this._createSelectDateBtnList(parentNode).forEach((btn) =>
+            _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'),
+        );
+        this._createAllDateDisableliList(parentNode).forEach((li) =>
+            _.classRemove(li, 'disableStatus', 'start', 'end'),
+        );
     }
 
     // 각 날짜 클릭 시, classList Add & Calendar의 startDate, endDate 설정
@@ -274,30 +298,49 @@ class Calendar {
         if (!startDate || !endDate) return
         else {
             // startDatechk가 false 되는 경우는 단 하나. (왼쪽 캘린더에 StartDate, 오른쪽에 EndDate. 마지막 클릭이 오른쪽 캘린더라서)
-            const startDateChk = startDate.getMonth().valueOf() === this.monthInfo.getMonth().valueOf();
+            const startDateChk = startDate.getMonth().valueOf() === this.monthInfo.getMonth().valueOf();            
 
-            let startBtn, endBtn = null;
-
-            
-            if (startDateChk) {
-                
-            } else {                
-                startBtn = this._findOneDataBtn(this.anotherCalendar.dynamicWrapper, 'startDate');
-                endBtn = this._findOneDataBtn(this.dynamicWrapper, 'endDate');   
-
-                const leftNormalBtnList = this._createGreaterThanDateBtnList(this.anotherCalendar.dynamicWrapper, startBtn);
-                const rightNormalBtnList = this._createLowerThanDateBtnList(this.dynamicWrapper, endBtn);
-                                
-                console.log(leftNormalBtnList);
-                console.log(rightNormalBtnList);
-            }
-
-            console.log(startDate, endDate);
-            console.log(this.calendarType, this.monthInfo)
+            if (startDateChk) this._fillColorOnlyOneCalendar();
+            else this._fillColorAllCalendar();
         }
     }
 
-// END ---- 만들어진 날짜 선택 버튼들 한땀 한땀 이벤트 설정 ---------------------  
+    // 1개의 Calender만 색칠해야 할 때
+    _fillColorOnlyOneCalendar() {
+        const startBtn = this._findOneDataBtn(this.dynamicWrapper, 'startDate');
+        const endBtn = this._findOneDataBtn(this.dynamicWrapper, 'endDate');  
+
+        const btnList = this._createGreaterEqualLowerDateBtnList(this.dynamicWrapper, startBtn, endBtn);
+        btnList.forEach((btn) => {
+            _.classAdd(btn.parentNode, 'disableStatus');
+            if (_.classContains(btn, 'startDate')) 
+                _.classAdd(btn.parentNode, 'start')
+            else if (_.classContains(btn, 'endDate'))
+                _.classAdd(btn.parentNode, 'end');
+        });
+    }
+
+    // 2개의 Calender 모두 색칠해야 할 때
+    _fillColorAllCalendar() {
+        const startBtn = this._findOneDataBtn(this.anotherCalendar.dynamicWrapper, 'startDate');
+        const endBtn = this._findOneDataBtn(this.dynamicWrapper, 'endDate');   
+
+        const leftBtnList = this._createGreaterEqualDateBtnList(this.anotherCalendar.dynamicWrapper, startBtn);
+        const rightBtnList = this._createLowerEqualDateBtnList(this.dynamicWrapper, endBtn);
+        
+        leftBtnList.forEach((btn) => {
+            _.classAdd(btn.parentNode, 'disableStatus');
+            if (_.classContains(btn, 'startDate')) 
+                _.classAdd(btn.parentNode, 'start');                                             
+        });
+        rightBtnList.forEach((btn) => {
+            _.classAdd(btn.parentNode, 'disableStatus');
+            if (_.classContains(btn, 'endDate')) 
+                _.classAdd(btn.parentNode, 'end');                                             
+        });
+    }
+
+// END ---- 만들어진 날짜 선택 버튼들 한땀 한땀 관련된 부분 설정 ---------------------  
 }
 
 export default Calendar;
