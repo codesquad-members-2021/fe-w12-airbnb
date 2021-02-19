@@ -76,7 +76,7 @@ class CalendarModel {
     const { month: startMonth, day: startDay } = this.startReserve;
     const { month: endMonth, day: endDay } = this.endReserve;
     if (!this.startReserve.day || !this.endReserve.day) return false;
-    if (startMonth === endMonth) {
+    if (startMonth === endMonth && this.month === startMonth) {
       return startDay < day && day < endDay;
     } else {
       if (startMonth < this.month && this.month < endMonth) {
@@ -120,6 +120,9 @@ class CalendarModel {
   clearReserve() {
     this.startReserve = { month: 0, day: 0 };
     this.endReserve = { month: 0, day: 0 };
+  }
+  swapReserve() {
+    [this.startReserve, this.endReserve] = [this.endReserve, this.startReserve];
   }
   getCalendarFormat() {
     return `
@@ -225,24 +228,37 @@ export class CalendarView {
     return this.startReserveDay && this.endReserveDay;
   }
   isStartReservable() {
-    return !this.calendarModel.startReserve.day;
+    return !this.startReserveDay;
   }
-  //end-reserve day로 선택 가능한지 확인
-  isEndReservable(day) {
-    const { startReserve, month: calendarMonth } = this.calendarModel;
-    if (!this.endReserveDay && startReserve.day < day) {
-      return startReserve.month <= calendarMonth;
-    } else {
-      return startReserve.month < calendarMonth;
-    }
+  isEndReservable() {
+    return !this.endReserveDay;
   }
   isExtendReservation(day) {
     const {
       endReserve: { month: endReserveMonth, day: endReserveDay },
-      month: calendarMonth
+      month: calendarMonth,
     } = this.calendarModel;
-
-    return endReserveMonth <= calendarMonth && endReserveDay < day;
+    if (endReserveMonth < calendarMonth) {
+      return true;
+    } else if (endReserveMonth === calendarMonth) {
+      return endReserveDay < day;
+    } else {
+      return false;
+    }
+  }
+  //start보다 end가 앞에 선택될 시 start-end를 바꿔줘야된다.
+  isSwapReservation(day) {
+    const {
+      startReserve: { month: startReserveMonth, day: startReserveDay },
+      month: calendarMonth,
+    } = this.calendarModel;
+    if (calendarMonth < startReserveMonth) {
+      return true;
+    } else if (calendarMonth === startReserveMonth) {
+      return day < startReserveDay;
+    } else {
+      return false;
+    }
   }
   setStartReserve(day) {
     this.calendarModel.startReserve = { month: this.calendarModel.month, day };
@@ -251,10 +267,17 @@ export class CalendarView {
   setEndReserve(day) {
     this.calendarModel.endReserve = { month: this.calendarModel.month, day };
     this.endReserveDay = this.calendarModel.getDateStringType(day);
+    if (this.isSwapReservation(day)) {
+      this.calendarModel.swapReserve();
+      this.swapReserve();
+    }
   }
   clearReserve() {
     this.startReserveDay = undefined;
     this.endReserveDay = undefined;
+  }
+  swapReserve() {
+    [this.startReserveDay, this.endReserveDay] = [this.endReserveDay, this.startReserveDay];
   }
   //form에 날짜형태로 선택한 날짜 입력
   setFormDate() {
