@@ -20,10 +20,6 @@ const writeDateOnTab = (target, clickedDate) => {
 
 const eraseDateOnTab = (target) => (target.innerText = ``);
 
-const canConnectDates = () => {
-  return selectedDateState.startDate.element && selectedDateState.endDate.element;
-};
-
 // calednar날짜 생성 시 이전달, 다음달 등등.. 현재 사용자가 선택한 날짜의 사이에 해당하는지 확인 - calenar.js에서도 사용할 예정
 const isBetweenSelectedDates = (currDate) => {
   const startDate = selectedDateState.startDate.data;
@@ -68,59 +64,67 @@ const repaintAtSelectedEndDate = () => {
   selectedDateState.endDate.element.classList.add("selected");
 };
 
+const canConnectDates = () => {
+  return selectedDateState.startDate.element && selectedDateState.endDate.element;
+};
+
+const selectedDateCount = () => {
+  if (!selectedDateState.startDate.element && !selectedDateState.endDate.element) return 0;
+  if (selectedDateState.startDate.element && !selectedDateState.endDate.element) return 1;
+  return 2;
+};
+
+const setDate = (target, clickedDate, textDate, dateKey) => {
+  createState(target, clickedDate, kindOfDate[dateKey]);
+  writeDateOnTab(textDate, clickedDate);
+};
+
+const editDate = (target, clickedDate, textDate, dateKey) => {
+  updateState(target, clickedDate, kindOfDate[dateKey]);
+  writeDateOnTab(textDate, clickedDate);
+};
+
+const dropDate = (dateKey, textDate) => {
+  removeState(kindOfDate[dateKey]);
+  eraseDateOnTab(textDate);
+};
+
 const registerClickEvent = (element, placeholder, textStartDate, textEndDate, calendarDates) => {
   element.addEventListener("click", ({ target }) => {
     placeholder.classList.add("none");
     const clickedDate = parseDate(target.id);
+    const selectedStartDate = selectedDateState.startDate.data;
     // 사용자가 날짜를 클릭했을 때
-    if (!selectedDateState.startDate.element && !selectedDateState.endDate.element) {
-      // 둘 다 선택 안되어 있으면
-      writeDateOnTab(textStartDate, clickedDate);
-      createState(target, clickedDate, kindOfDate.start);
-    } else if (selectedDateState.startDate.element && !selectedDateState.endDate.element) {
+    if (!selectedDateCount()) setDate(target, clickedDate, textStartDate, "start");
+    else if (selectedDateCount() === 1) {
       // 시작 날짜만 선택되어 있으면
-      const selectedStartDate = selectedDateState.startDate.data;
-      if (!isLaterThanDate(clickedDate, selectedStartDate)) {
-        // 클릭한 날짜가 시작 날짜보다 이르면
-        writeDateOnTab(textStartDate, clickedDate);
-        updateState(target, clickedDate, kindOfDate.start);
-      } else {
-        // 클릭한 날짜가 시작 날짜보다 나중이거나 같으면
-        writeDateOnTab(textEndDate, clickedDate);
-        createState(target, clickedDate, kindOfDate.end);
-      }
+      !isLaterThanDate(clickedDate, selectedStartDate) ? editDate(target, clickedDate, textStartDate, "start") : setDate(target, clickedDate, textEndDate, "end");
     } else {
       // 시작, 끝 날짜 모두 선택되어 있으면
-      const selectedStartDate = selectedDateState.startDate.data;
       const selectedEndDate = selectedDateState.endDate.data;
       // 날짜 연결시켰던 선 지우기
       deleteConnection(calendarDates);
+
       if (isSameWithStartDate(clickedDate)) {
         // 시작 날짜와 같으면
-        removeState(kindOfDate.start);
-        removeState(kindOfDate.end);
-        eraseDateOnTab(textStartDate);
-        eraseDateOnTab(textEndDate);
-      } else if (isSameWithEndDate(clickedDate)) {
+        dropDate("start", textStartDate);
+        dropDate("end", textEndDate);
+      }
+      if (isSameWithEndDate(clickedDate)) {
         // 끝 날짜와 같으면
-        removeState(kindOfDate.start);
-        removeState(kindOfDate.end);
-        createState(target, clickedDate, kindOfDate.start);
-        eraseDateOnTab(textEndDate);
-        writeDateOnTab(textStartDate, clickedDate);
-      } else if (!isLaterThanDate(clickedDate, selectedStartDate)) {
+        dropDate("start", textStartDate);
+        dropDate("end", textEndDate);
+        setDate(target, clickedDate, textStartDate, "start");
+      }
+      if (!isLaterThanDate(clickedDate, selectedStartDate)) {
         // 시작 날짜보다 더 이른 날짜를 클릭하면
-        updateState(target, clickedDate, kindOfDate.start);
-        writeDateOnTab(textStartDate, clickedDate);
+        editDate(target, clickedDate, textStartDate, "start");
         repaintAtSelectedEndDate();
-      } else {
+      }
+      if (isLaterThanDate(clickedDate, selectedStartDate)) {
         // 시작 날짜보다 더 나중 날짜를 클릭하면
-        if (isLaterThanDate(clickedDate, selectedEndDate)) {
-          removeState(kindOfDate.end);
-          eraseDateOnTab(textEndDate);
-        }
-        updateState(target, clickedDate, kindOfDate.start);
-        writeDateOnTab(textStartDate, clickedDate);
+        if (isLaterThanDate(clickedDate, selectedEndDate)) dropDate("end", textEndDate);
+        editDate(target, clickedDate, textStartDate, "start");
         repaintAtSelectedEndDate();
       }
     }
