@@ -20,6 +20,8 @@ class Calendar {
             this.day = this.today.getDay()
     }
 
+ 
+
     getFirstDay(calendarPos) {
         const firstDate = (calendarPos === "R") ? new Date(this.year, this.month) : new Date(this.year, this.month - 1);
         return firstDate.getDay();
@@ -137,14 +139,8 @@ class Calendar {
             this.updateCalendarStyle(".left_day_button");
             this.updateCalendarStyle(".right_day_button");
         });
-    }
 
-
-    handleEvents() {
-        this.drawCalendar();
-        this.toggleCalendar();
-        this.updateCalendarStyle(".left_day_button");
-        this.updateCalendarStyle(".right_day_button");
+        
     }
 
 
@@ -165,7 +161,7 @@ class Calendar {
         dayButtons.forEach((element) => {
             element.addEventListener("click", (event) => {
                 event.target.classList.toggle("day_selected");
-
+                this.updateSearch(clickCount);
                 clickCount++;
 
                 // 선택 일자 타입 변환
@@ -184,6 +180,7 @@ class Calendar {
                         firstSelectedDay = 0;
                         lastSelectedDay = 0;
                     });
+                    dateUpdate.innerText = "원하는 날짜를 입력하세요!";
                 }
 
                 // 선택 일자 사이에 회색 배경 적용
@@ -215,7 +212,22 @@ class Calendar {
                 event.target.classList.remove("day_hover")
             });
         });
+
+        
     }
+
+    handleEvents() {
+        this.drawCalendar();
+        this.toggleCalendar();
+        this.updateCalendarStyle(".left_day_button");
+        this.updateCalendarStyle(".right_day_button");
+    }
+
+    // updateSearch(clickCount) {
+    //     let days = document.querySelectorAll(".day_selected");
+    //     days.forEach((element) => dateUpdate.innerText += element.innerText);
+      
+    // }
 }
 
 
