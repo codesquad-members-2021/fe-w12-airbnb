@@ -11,6 +11,7 @@ const REFERENCE = {
     hamburger: _.$(".login_set"),
     tab: _.$all(".tab"),
     tabInput: _.$all(".popup_layer"),
+    searchBox: _.$(".search_box")
 }
 
 const PUL = new PopUpLayer(REFERENCE, _);
