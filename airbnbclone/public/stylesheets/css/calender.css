@@ -1,6 +1,30 @@
+.main__calender > button {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  font-weight: 500;
+}
+.main__calender > button:hover{
+  background: rgba(59, 59, 59, 0.05);
+  font-weight: 700;
+}
+.main__calender--move-right{
+  right: 18px;
+  top: 33px;
+  
+}
+.main__calender--move-left{
+  left: 18px;
+  top: 33px;
+
+ 
+}
+
 .main__calender {
   position: absolute;
-  left: 80px;
+  left: 240px;
   background: rgb(255, 255, 255);
   border-radius: 32px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
@@ -10,7 +34,7 @@
   padding: 16px 32px;
 }
 .main__calender--table {
-  padding: 0px 28px;
+  padding: 0px 28p
   width: 321px;
   height: fit-content;
 }
