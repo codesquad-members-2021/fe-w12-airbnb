@@ -25,6 +25,6 @@ class TabNav {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const tabUI = new TabNav();
 });
