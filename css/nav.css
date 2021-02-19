@@ -394,6 +394,7 @@ input {
   height: 16px;
   display: inline-block;
   text-align: center;
+  outline: 1px solid pink;
 }
 
 .calendar--table > tbody > tr > td {

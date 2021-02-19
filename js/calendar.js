@@ -31,23 +31,24 @@
   const calendarWeekdays = `
     <div class="weekdays">
       <ul class="weekdays--ul">
-        <li class="weekdays--li">일</li>
-        <li class="weekdays--li">월</li>
-        <li class="weekdays--li">화</li>
-        <li class="weekdays--li">수</li>
-        <li class="weekdays--li">목</li>
-        <li class="weekdays--li">금</li>
-        <li class="weekdays--li">토</li>
+      ${drawWeekdays()}
       </ul>
     </div>
   `;
 
   function drawWeekdays() {
-    for (const key in object) {
+    let weekdays = ``;
+    for (day in WEEKDAY) {
+      weekdays += `<li class="weekdays--li">${WEEKDAY[day]}</li>\n`;
     }
+    return weekdays;
   }
 
-  $calendarWrapper.innerHTML = calendarUpper;
+  $calendarWrapper.innerHTML = `
+    <div class="calendar__box">
+    ${calendarUpper + calendarWeekdays}
+    </div>
+  `;
 
   // week -->
   // .weekdays > ul > li * 7
