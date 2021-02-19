@@ -14,7 +14,7 @@
     <a href="#"><span>에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.</span></a>
   </aside>
 
-  <header class="padding80">
+  <header class="padding80 font_weight600">
     <div id="logo">
       <div>
         <a class="flex_center white_font" href="#"><svg width="30" height="32" fill="#FFFFFF">
@@ -24,13 +24,13 @@
           </svg>&nbsp;airbnb</a>
       </div>
       <div class="nav text_center">
-        <a href="#"><span>숙소</span></a>
-        <a href="#"><span>체험</span></a>
+        <input type="radio" name="popup_layer" checked="checked"><span class="rooms">숙소</span>
+        <input type="radio" name="popup_layer"><span class="experience">체험</span>
         <a href="#"><span>온라인 체험</span></a>
       </div>
       <div class="text_end height54">
-        <a href=""><span>호스트 되기</span></a>
-        <a href=""><span><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        <a href="#"><span>호스트 되기</span></a>
+        <a href="#"><span><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
               role="presentation" focusable="false"
               style=" height: 16px; width: 16px; fill: currentcolor; position: relative; top: 2px;">
               <path
@@ -60,24 +60,24 @@
           </button></span>
       </div>
     </div>
-    <div>
-      <div class="search_input">
+    <div class="search_input_box">
+      <div class="search_input rooms_box">
         <div>
           <a href="#">
             <div>위치</div>
             <input type="text" placeholder="어디로 여행가세요?">
           </a>
         </div>
-        <div>
+        <div class="search_input__start_date">
           <a href="#">
             <div>체크인</div>
-            <input type="datetime" placeholder="날짜 추가">
+            <input type="datetime" placeholder="날짜 추가" readonly>
           </a>
         </div>
-        <div>
+        <div class="search_input__end_date">
           <a href="#">
             <div>체크아웃</div>
-            <input type="datetime" placeholder="날짜 추가">
+            <input type="datetime" placeholder="날짜 추가" readonly>
           </a>
         </div>
         <div>
@@ -87,16 +87,22 @@
           </a>
         </div>
         <div>
-          <button class="search_button">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
-              style="display:block;fill:none;height:16px;width:16px;stroke:#FFFFFF;stroke-width:4;overflow:visible;"
-              aria-hidden="true" role="presentation" focusable="false">
-              <g fill="none">
-                <path
-                  d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
-                </path>
-              </g>
-            </svg>
+          <button class="search_button" style="text-align: center;">
+            <img src="./images/magnifyingGlass.svg" class="magnifying_glass">
+          </button>
+        </div>
+      </div>
+      <div class="search_input experience_box display_none">
+        <div style="width:52%"><a href="#">
+            <div style="margin:0 39px">위치</div> <input type="text" placeholder="어디로 여행가세요?" style="width:80.5%">
+          </a></div>
+        <div class="search_input__full_date" style="width:52%"><a href="#">
+            <div style="margin:0 39px">날짜</div> <input type="datetime" placeholder="원하는 날짜를 입력하세요." style="width:80.5%"
+              readonly>
+          </a></div>
+        <div>
+          <button class="search_button" style="text-align: center;">
+            <img src="./images/magnifyingGlass.svg" class="magnifying_glass">
           </button>
         </div>
       </div>
@@ -105,7 +111,7 @@
       <span>
         이제, 여행은&nbsp; 가까운 곳에서
       </span>
-      <button><b>근처의 숙소 둘러보기</b></button>
+      <button class="font_bold">근처의 숙소 둘러보기</button>
     </div>
   </header>
 
@@ -114,49 +120,49 @@
       <a href="#">
         <li><img src="https://a0.muscache.com/im/pictures/71e23854-a3c7-491c-b715-6e86233a293f.jpg?im_q=medq&im_w=720"
             alt="">
-          <span><b>서울</b><span>차로 30분 거리</span></span>
+          <span><span class="font_bold">서울</span><span>차로 30분 거리</span></span>
         </li>
       </a>
       <a href="#">
         <li><img src="https://a0.muscache.com/im/pictures/8b318783-723f-4584-9b9b-0eb2c8b6078e.jpg?im_q=medq&im_w=240"
             alt="">
-          <span><b>인천</b><span>차로 1시간 거리</span></span>
+          <span><span class="font_bold">인천</span><span>차로 1시간 거리</span></span>
         </li>
       </a>
       <a href="#">
         <li><img src="https://a0.muscache.com/im/pictures/76e5f1c6-a788-418c-a28b-f0ee29cffd41.jpg?im_q=medq&im_w=240"
             alt="">
-          <span><b>대구</b><span>차로 3.5시간 거리</span></span>
+          <span><span class="font_bold">대구</span><span>차로 3.5시간 거리</span></span>
         </li>
       </a>
       <a href="#">
         <li><img src="https://a0.muscache.com/im/pictures/ac2086c9-df0d-4085-94c0-94fe3fb94862.jpg?im_q=medq&im_w=240"
             alt="">
-          <span><b>의정부시</b><span>차로 30분 거리</span></span>
+          <span><span class="font_bold">의정부시</span><span>차로 30분 거리</span></span>
         </li>
       </a>
       <a href="#">
         <li><img src="https://a0.muscache.com/im/pictures/8340bd19-ee32-4669-8b10-a8ac7e7735d4.jpg?im_q=medq&im_w=240"
             alt="">
-          <span><b>대전</b><span>차로 2시간 거리</span></span>
+          <span><span class="font_bold">대전</span><span>차로 2시간 거리</span></span>
         </li>
       </a>
       <a href="#">
         <li><img src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=240"
             alt="">
-          <span><b>수원시</b><span>차로 45분 거리</span></span>
+          <span><span class="font_bold">수원시</span><span>차로 45분 거리</span></span>
         </li>
       </a>
       <a href="#">
         <li><img src="https://a0.muscache.com/im/pictures/560c06e1-a396-4414-9e38-4fbe8e9f04c4.jpg?im_q=medq&im_w=240"
             alt="">
-          <span><b>부천시</b><span>차로 45분 거리</span></span>
+          <span><span class="font_bold">부천시</span><span>차로 45분 거리</span></span>
         </li>
       </a>
       <a href="#">
         <li><img src="https://a0.muscache.com/im/pictures/847cfb7f-788d-42dc-9148-f375348dde76.jpg?im_q=medq&im_w=240"
             alt="">
-          <span><b>안산시</b><span>차로 1시간 거리</span></span>
+          <span><span class="font_bold">안산시</span><span>차로 1시간 거리</span></span>
         </li>
       </a>
     </ul>
@@ -220,19 +226,19 @@
       <a href="#">
         <li>
           <img src="https://a0.muscache.com/im/pictures/2a16f833-464c-446c-8d74-33eb8c643975.jpg?im_w=320" width="100%">
-          <b>숙소 호스트 되기</b>
+          <span class="font_bold">숙소 호스트 되기</span>
         </li>
       </a>
       <a href="#">
         <li>
           <img src="https://a0.muscache.com/im/pictures/426a8116-0b94-4407-ae87-924126c81d78.jpg?im_w=320" width="100%">
-          <b>온라인 체험 호스팅하기</b>
+          <span class="font_bold">온라인 체험 호스팅하기</span>
         </li>
       </a>
       <a href="#">
         <li>
           <img src="https://a0.muscache.com/im/pictures/a84e92bd-68e6-4ce2-9fdf-b2ce1a377f53.jpg?im_w=320" width="100%">
-          <b>체험 호스팅하기</b>
+          <span class="font_bold">체험 호스팅하기</span>
         </li>
       </a>
     </ul>
@@ -242,7 +248,7 @@
     <section>
       <div class="items quarter">
         <ul>
-          <b>소개</b>
+          <span class="font_bold">소개</span>
           <li><a href="#">에어비앤비 이용 방법</a></li>
           <li><a href="#">뉴스룸</a></li>
           <li><a href="#">투자자 정보</a></li>
@@ -254,7 +260,7 @@
           <li><a href="#">채용정보</a></li>
         </ul>
         <ul>
-          <b>커뮤니티</b>
+          <span class="font_bold">커뮤니티</span>
           <li><a href="#">다양성 및 소속감</a></li>
           <li><a href="#">접근성</a></li>
           <li><a href="#">에어비앤비 어소시에이트</a></li>
@@ -263,7 +269,7 @@
           <li><a href="#">Airbnb.org</a></li>
         </ul>
         <ul>
-          <b>호스팅하기</b>
+          <span class="font_bold">호스팅하기</span>
           <li><a href="#">숙소 호스팅</a></li>
           <li><a href="#">온라인 체험 호스팅하기</a></li>
           <li><a href="#">체험 호스팅하기</a></li>
@@ -272,7 +278,7 @@
           <li><a href="#">커뮤니티 센터</a></li>
         </ul>
         <ul>
-          <b>에어비앤비 지원</b>
+          <span class="font_bold">에어비앤비 지원</span>
           <li><a href="#">에어비앤비의 코로나19 대응 방안</a></li>
           <li><a href="#">도움말 센터</a></li>
           <li><a href="#">예약 취소 옵션</a></li>
@@ -304,9 +310,9 @@
               <path
                 d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z">
               </path>
-            </svg><b><u>한국어 (KR)</u></b></a>
+            </svg><span class="font_bold"><u>한국어 (KR)</u></span></a>
           &nbsp;&nbsp;
-          <a href="#"><b>₩ <u>KRW</u></b></a>
+          <a href="#"><span class="font_bold">₩ <u>KRW</u></span></a>
         </span>
       </div>
       <div>
@@ -327,7 +333,7 @@
           &nbsp;
           <a href="#">
             <img
-              src="https://lh3.googleusercontent.com/proxy/1dByx-sZrxo4dfPLf1oMcTliMVZLj-bgf_W1DTtrFs2SOsES4_4uEzqOEtmp74HzBddnjz8N1E9rH8yIQbrFXfBwva7CqS9w7kNhAzLcIQpdyEiogEoyYryLBTLqLqILWB8JbnNB1l8FmZFras8ap4Oc2bidNcyI5FtktiDmdQNTDpvxMiZ86f6jhqnolErTH1z0atX0Oenvek7YoY3AaPY6s1QBXOYP6A"
+              src="https://image.winudf.com/v2/image1/Y29tLm5obi5hbmRyb2lkLmJsb2dfaWNvbl8xNTk1NDAxNzAzXzA2OA/icon.png?w=&fakeurl=1"
               width="16px">
           </a>
           &nbsp;
@@ -338,6 +344,7 @@
       </div>
     </section>
   </footer>
+  <script src="./main_bundle.js"></script>
 </body>
 
 </html>
