@@ -68,16 +68,6 @@ const daysTemplete = `
 `
 tbody.innerHTML = `${daysTemplete}`;
 
-const week1 = monthArr[0];
-
-console.log(week1);
-
-let result = week1.reduce((prev, day) => {
-  if(!day) day = '';
-  return prev + `<td>${day}</td>`;
-}, '<tr>')
-result += '</tr>';
-
 let finalResult = monthArr.reduce((prev, week) => {
   let result = week.reduce((prev, day) => {
     if(!day) day = '';
