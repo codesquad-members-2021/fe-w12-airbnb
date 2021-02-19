@@ -66,7 +66,6 @@ const daysTemplete = `
     <th scope="col">토</th>
   </tr>
 `
-tbody.innerHTML = `${daysTemplete}`;
 
 let finalResult = monthArr.reduce((prev, week) => {
   let result = week.reduce((prev, day) => {
@@ -76,7 +75,7 @@ let finalResult = monthArr.reduce((prev, week) => {
   result += '</tr>';
   
   return prev + result;
-}, '')
+}, daysTemplete);
 
 console.log(finalResult);
 tbody.innerHTML = finalResult;
