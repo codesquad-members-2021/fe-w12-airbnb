@@ -13,7 +13,7 @@ class CalendarManager {
     }
 
     init() {
-        if(!this._calendarIsNull()) 
+        if(!this._calendarIsNull())
             this.calendar.createCalendar();
     }
     
@@ -43,6 +43,12 @@ class CalendarManager {
         return bFlag;
     }
 
+    _reCreateCalendar() {        
+        this.calendar.removeAllChildNodes(); 
+        this.calendar.initStartEndDate();
+        this.calendar.createCalendar();        
+    }
+
     _setPrevBtnClickEvent() {        
         try {
             if (!this.prevBtn) 
@@ -57,9 +63,7 @@ class CalendarManager {
     _prevBtnClickEventHandler() {
         if(!this._calendarIsNull())  {
             this.calendar.optionMonthMinus();
-            this.calendar.removeAllChildNodes(); 
-            this.calendar.initStartEndDate();
-            this.calendar.createCalendar();              
+            this._reCreateCalendar();
         }                     
     }
 
@@ -76,16 +80,8 @@ class CalendarManager {
 
     _nextBtnClickEventHandler() { 
         if(!this._calendarIsNull())  {
-            // 테스트 코드 (추후 삭제 예정)
-            console.log(
-                this.calendar._createDateBtnList(this.calendar.dynamicWrapper).length,
-                this.calendar._createDateBtnList(this.calendar.anotherCalendar.dynamicWrapper).length
-            );
-            // -------------
             this.calendar.optionMonthPlus();
-            this.calendar.removeAllChildNodes(); 
-            this.calendar.initStartEndDate();
-            this.calendar.createCalendar();               
+            this._reCreateCalendar();
         }
     }
     

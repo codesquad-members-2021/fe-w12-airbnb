@@ -9,6 +9,7 @@ class Calendar {
         this.calendarType = _.classContains(this.target, 'left') ? 'left' : 'right';
         this.startDate = null;
         this.endDate = null;
+        this.clickDateCnt = 0;
 
         this.anotherCalendar = null;
     }    
@@ -26,6 +27,13 @@ class Calendar {
     initStartEndDate(calendar = this) {
         calendar.startDate = null;  
         calendar.endDate = null;  
+    }
+
+    updateClickDateCnt() {
+        this.clickDateCnt = this._createDateBtnList(this.dynamicWrapper).length;
+    }
+    updateAnotherClickDateCnt() {
+        this.anotherCalendar.clickDateCnt = this._createDateBtnList(this.anotherCalendar.dynamicWrapper).length;
     }
 
     removeAllChildNodes() {
@@ -49,11 +57,15 @@ class Calendar {
         const startDay = monthInfo.getDay(); // 매달 시작 요일
         const lastDate = new Date(monthInfo.getFullYear(), monthInfo.getMonth()+1, 0).getDate();    // 마지막 날짜
 
-        let inputDate = 1, emptyCnt = startDay;
-        const nLoop = (lastDate + startDay);
+        this._createCalenderItems(today, monthInfo, startDay, lastDate);
+    }
 
+    _createCalenderItems(today, monthInfo, startDay, lastDate) {
         const ul = _.createElement("ul");
         _.appendChild(this.dynamicWrapper, ul);
+
+        let inputDate = 1, emptyCnt = startDay;
+        const nLoop = (lastDate + startDay);
 
         for (let i = 0; i < nLoop; i++) {                                
             const li = _.createElement('li');
@@ -64,7 +76,7 @@ class Calendar {
                 inputDate++;
             }                
             _.appendChild(ul, li);                                   
-        }        
+        }
     }
 
     _liTagModify(li, inputDate, today, monthInfo) {
@@ -115,6 +127,7 @@ class Calendar {
             if (this.startDate && this.endDate) {
                 this._removeDataBtnStyle(this.dynamicWrapper);
                 this.initStartEndDate(this);
+                this.updateClickDateCnt();
                 return;
             }
 
@@ -123,21 +136,25 @@ class Calendar {
             } else {
                 if (!this.anotherCalendar.endDate)
                     this._setEndDateBtnOrResetStartDateBtn(thisBtn, currClickDate);                  
-            }  
+            } 
+            this.updateClickDateCnt();
         } else {
             if (this.anotherCalendar.startDate && this.anotherCalendar.endDate) return;
 
             if (this.anotherCalendar.startDate && !this.anotherCalendar.endDate && !this.endDate) {
                 this._setEndDateDataBtn(thisBtn, currClickDate);
-            } else if (this.anotherCalendar.startDate && !this.anotherCalendar.endDate && this.endDate) {                
+            } else if (this.anotherCalendar.startDate && !this.anotherCalendar.endDate && this.endDate) {
                 this._removeDataBtnStyle(this.dynamicWrapper);
                 this.initStartEndDate(this);
                 this._removeDataBtnStyle(this.anotherCalendar.dynamicWrapper); 
-                this.initStartEndDate(this.anotherCalendar);                
+                this.initStartEndDate(this.anotherCalendar);
+
+                this.updateAnotherClickDateCnt();
             } else {
                 if (this.startDate && this.endDate) {
                     this._removeDataBtnStyle(this.dynamicWrapper);
                     this.initStartEndDate(this);
+                    this.updateClickDateCnt();
                     return;
                 }
 
@@ -146,6 +163,8 @@ class Calendar {
                 else
                     this._setEndDateBtnOrResetStartDateBtn(thisBtn, currClickDate);                
             }
+
+            this.updateClickDateCnt();
         }
     }
 
@@ -165,7 +184,7 @@ class Calendar {
     }
 
     // 시작 or 종료 버튼 지정되어 있는 항목, Style 제거 (css class)
-    _removeDataBtnStyle(parentNode) {        
+    _removeDataBtnStyle(parentNode) {
         this._createDateBtnList(parentNode).forEach((btn) => _.classRemove(btn, 'clickStatus', 'startDate', 'endDate'));
     }
 
