@@ -17,7 +17,7 @@ class Dropdown {
   }
 }
 
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", () => {
   const dropdown = new Dropdown(
     document.querySelector(".header__member_setting__menuIcon")
   );

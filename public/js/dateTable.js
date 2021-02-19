@@ -78,7 +78,7 @@ class Calendar {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   let calendar = new Calendar();
   calendar.showCurrentCal();
   calendar.showNextCal();
