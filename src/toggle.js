@@ -18,7 +18,7 @@ export default class Toggle {
   }
 
   has(className) {
-    return this.element.classList.contains(className) ? true : false;
+    return this.element.classList.contains(className);
   }
 
   rename(oldName, newName) {
