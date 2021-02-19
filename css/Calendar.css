@@ -1,7 +1,4 @@
 #calendarUI {
-  display: flex;
-  /* align-items: center; */
-  /* justify-content: space-between; */
   position: absolute;
   top: 20%;
   width: 850px;
@@ -13,36 +10,85 @@
 }
 /* ------------------------------------------------------- */
 
-#today {
+.calendar__head-text {
+  padding-top: 22px;
+  padding-bottom: 10px;
+}
+
+.month-text {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+.day-text {
+  display: flex;
+  justify-content: space-around;
+  padding: 1px 4px;
+  font-size: 12px;
+}
+
+.calendar--button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.calendar--button:hover {
+  background-color: #f1f1f1;
+}
+
+.calendar--prevButton {
+  position: absolute;
+  top: 5%;
+  left: 1%;
+}
+
+.calendar--nextButton {
+  position: absolute;
+  top: 5%;
+  right: 1%;
 }
 
 #calendar {
   display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
+  position: relative;
 }
 
-#calendar__prevMonth,
+#calendar__thisMonth,
 #calendar__nextMonth {
+  width: 50%;
   padding: 0px 27px;
 }
 
+#thisMonth--date,
+#nextMonth--date {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .calendar__day {
-  display: inline-block;
-  vertical-align: bottom;
-  width: calc(100% / 8);
-  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
-  border-radius: 5px;
-  border: 1px solid #000;
-  margin: 1px;
-  padding: 10px 0px;
+  width: 41px;
+  height: 41px;
+  margin: 1%;
   font-size: 14px;
-  text-align: center;
+}
+
+.calendar__day:hover {
+  border: 1px solid #000;
+  border-radius: 50%;
 }
 
 .borderHidden {

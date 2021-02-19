@@ -111,7 +111,7 @@
                 </a>
               </span>
             </div>
-            <div id="tabUI" class="hidden" tabindex="-1" onblur="setTimeout(dropdownClose, 200)">
+            <div id="tabUI" class="hidden" tabindex="0" onblur="setTimeout(dropdownClose, 200)">
                 <div>회원 가입</div>
                 <div>로그인</div>
                 <div></div>
@@ -124,7 +124,7 @@
         <div id="header__search--rooms" class="show">
           <div class="search__items">
             <div class="search__items--head-text">위치</div>
-            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" /></div>
+            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" onblur="this.value='어디로 여행가세요?';"/></div>
           </div>
           <div class="search__items">
             <div class="search__items--head-text">체크인</div>
@@ -149,7 +149,7 @@
         <div id="header__search--experiences" class="hidden">
           <div class="search__items">
             <div class="search__items--head-text">위치</div>
-            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" /></div>
+            <div><input type="text" placeholder="어디로 여행가세요?" onfocus="this.value=' ';" onblur="this.value='어디로 여행가세요?';"/></div>
           </div>
           <div class="search__items dropdownCalendar">
             <span>
@@ -166,11 +166,37 @@
 
         <div id="calendarUI" class="hidden" tabindex="0" onblur="setTimeout(calendarClose,200)">
             <div id="calendar">
-              <div id="calendar__prevMonth">
-                <div id="today">2021 년 02월 </div>
+              <div id="calendar__thisMonth">
+                <div class="calendar__head-text">
+                  <div id="prevButton" class="calendar--button calendar--prevButton"><span><</span></div>
+                  <div id="thisMonth--month" class="month-text"></div>
+                    <ul class="day-text">
+                      <li>일</li>
+                      <li>월</li>
+                      <li>화</li>
+                      <li>수</li>
+                      <li>목</li>
+                      <li>금</li>
+                      <li>토</li>
+                    </ul>
+                </div>
+                <div id="thisMonth--date"></div>
               </div>
               <div id="calendar__nextMonth">
-                <div id="today">2021 년 03월 </div>
+                <div class="calendar__head-text">
+                  <div id="nextButton" class="calendar--button calendar--nextButton"><span>></span></div>
+                <div id="nextMonth--month" class="month-text"></div>
+                  <ul class="day-text">
+                    <li>일</li>
+                    <li>월</li>
+                    <li>화</li>
+                    <li>수</li>
+                    <li>목</li>
+                    <li>금</li>
+                    <li>토</li>
+                  </ul>
+                </div>
+                <div id="nextMonth--date"></div>
               </div>
             </div>
         </div>
