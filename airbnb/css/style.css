@@ -46,18 +46,24 @@ nav{
     font-size: 35px;
     /* background-color: #FF385C; */
 }
-
-.center__menu ul{
+.center__menu{
     display:grid;
     grid-template-columns: auto auto auto;
     grid-gap:32px;
-    margin:0 0 0 100px;
-    padding: 2rem 0;
-    list-style-type: none;
-    font-weight: 400;
-    color: white;
+    padding:0 24px;
+    margin:0 0 0 120px;
    
 }
+.center__menu button{
+    padding: 2rem 0;
+    color: white;
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+}
+
 
 .right__menu-ul{
     display: grid;
@@ -127,7 +133,6 @@ nav{
     max-height: 0;
     display: block;
 }
-
 .dropdown-menu { 
     text-decoration: none;
 }
@@ -153,6 +158,193 @@ nav{
     background-color: #f1f1f1;
 }
 
+.calender__back {
+  position: absolute;
+  left: 50%;
+  top: 27%;
+  width: 70%;
+  height: 45%;
+  max-width: 850px;
+  max-height: 372px;
+  /* max-height: calc(100vh - 220px); */
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 32px;
+  display: flex;
+  /* z-index: 0; */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  padding: 16px 32px;
+
+  /* font-weight: bold; */
+}
+.calender__day-lb_1{
+    padding: 0px 27px;
+    color: rgb(117, 117, 117);
+    position: absolute;
+    top: 62px;
+    z-index: 2;
+    text-align: left;
+}
+.calender__day-lb_2{
+    left: 400px;
+    padding: 0px 27px;
+    color: rgb(117, 117, 117);
+    position: absolute;
+    top: 62px;
+    z-index: 2;
+    text-align: left;
+}
+.day-lb {
+    list-style: none;
+    margin: 6px 22px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 14px;
+    display: flex;
+    column-gap: 37px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    align-content: center;
+}
+.day-lb li {
+    float: left;
+}
+.day-lb-li{
+  
+}
+.calender__back2 {
+    position: absolute;
+    left: 50%;
+    top: 27%;
+    z-index: 1;
+    background: rgb(255, 255, 255);
+    border-radius: 32px;
+    margin-top: 12px;
+    max-height: calc(100vh - 220px);
+    padding: 16px 32px;
+    /* min-height: 900px; */
+}
+.calender__nav{
+    position: relative;
+    z-index: 2;
+    height: 0px;
+}
+.calender__prev-btn{
+    position: absolute;
+    top: 7.5px;
+    padding: 15px;
+    right: 40x;
+
+}
+.calender__next-btn{
+    position: absolute;
+    top: 7.5px;
+    padding: 15px;
+    left: 680px;
+
+}
+
+.calender__next-btn button ,.calender__prev-btn button{
+    appearance: none;
+    display: inline-block;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    color: rgb(34, 34, 34);
+    cursor: pointer;
+    touch-action: manipulation;
+    position: relative;
+    background: transparent;
+    transition: -ms-transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s, transform 0.25s ease 0s !important;
+}
+
+.calender__out-box{
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    transition: height 0.2s ease-in-out 0s;
+}
+.calender__box{
+    transform: translateX(0px);
+    width: 1564px;
+    height: 378px;
+    background-color:cornsilk;
+    /* background: rgb(255, 255, 255); */
+    text-align: left;
+    /* z-index: 1; */
+    /* position: absolute; */
+    left: 9px;
+}
+
+.calender__box2{
+    display: inline-block;
+    vertical-align: top;
+    min-height: 100%;
+    position: absolute;
+    /* z-index: -1; */
+    /* opacity: 0; */
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.calender-1__box{
+    display: inline-block;
+    vertical-align: top;
+    min-height: 100%;
+    /* background-color: red; */
+    padding: 70px 27px;
+    background-color: rgb(194, 191, 191);
+    text-align: center;
+    vertical-align: top;
+    user-select: none;
+    
+}
+
+.calender{
+    display: inline-block;
+    vertical-align: top;
+    min-height: 100%;
+    /* background:rgb(141, 141, 141); */
+    /* text-align: center; */
+    vertical-align: top;
+    user-select: none;
+    box-sizing: border-box;
+    padding: 0.5%;
+    width: 340px;
+    height: 200px;
+}
+
+/* ---------------------------------------------------캘린더 */
+.calender {
+    /* height: 99%; */
+}
+
+.calender__day {
+display: inline-block;
+vertical-align: bottom;
+width: calc(97% / 7);
+height: calc(98% / 5);
+box-sizing: border-box;
+border-radius: 5px;
+padding: 20px;
+font-size: 14px;
+line-height: 18px;
+font-weight: 600;
+/* background-color: pink; */
+}
+
+.horizontalGutter {
+margin-right: 0.5%;
+}
+
+.verticalGutter {
+margin-top: 0.5%;
+}
+
+
 
 
 /* ----------------------------nav end------------------------- */
@@ -176,11 +368,12 @@ nav{
     height: 32px;
     border-radius: 6px;
     border: 0px;
+    display: inline;
 }
 
 .search__box {
     position: absolute;
-    width: 100%;
+    width: 150%;
     max-width: 850px;
     top: 17.3%;
     left: 50%;
@@ -191,6 +384,14 @@ nav{
     display: flex;
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15), 0px 3px 8px rgba(0, 0, 0, 0.1);
 }
+.search__box.nonact{
+    opacity:0;
+    max-height:0;
+}
+.search__box.act{
+    opacity:1;
+}
+
 .item {
     display: flex;
     flex-direction: raw;
@@ -204,36 +405,6 @@ nav{
     border-radius: 2em;
     background-color: #f1f1f1;
 }
-.item-act{
-    display: flex;
-    flex-direction: raw;
-    justify-content: space-between;
-    /* flex: 1 1 px; */
-    padding: 0.3em 0.7em;
-    width: 100%;
-    cursor: pointer;
-}
-
-.btn-act{
-    transform: translateX(14%);
-    font-size: 14px;
-    background-color: transparent;
-    border: 0px;
-    outline: none;
-}
-
-.search__button__glass-act button  {
-    background-color: #FF385C;
-    color:white;
-    width:50px;
-    height: 50px;
-    padding: 0.7em;
-    border-radius: 50%;
-    border: 0px;
-    margin: 0 0 0 200px;
-}
-
-
 
 .search__location {
     flex-grow:2;
@@ -291,6 +462,17 @@ nav{
     border-radius: 50%;
     border: 0px;
     margin: 0 0 0 40px;
+}
+
+.search__button__glass-act button  {
+    background-color: #FF385C;
+    color:white;
+    width:50px;
+    height: 50px;
+    padding: 0.7em;
+    border-radius: 50%;
+    border: 0px;
+    margin: 0 0 0 200px;
 }
 
 .divideLine {
@@ -529,6 +711,11 @@ box-shadow: 0 3px 3px 0 rgb(170,170,170);
     color:rgb(58, 58, 58);
     list-style-type: none;
 }
+
+
+
+
+
 
 
 
