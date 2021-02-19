@@ -148,6 +148,12 @@ button {
     padding: 25px;
 }
 
+.calendar>div {
+    width: 400px;
+    height: 400px;
+    float: left;
+}
+
 .hosting {
     margin-top: 30px;
     margin-left: 400px;
