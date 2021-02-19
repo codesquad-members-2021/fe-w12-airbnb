@@ -1,16 +1,21 @@
 const _ = require('./util.js');
 
 class PopupLayer {
-  constructor(calenderModel, $roomsBox, $experienceBox, $nav) {
+  constructor({ calenderModel, $roomsBox, $experienceBox, $nav, $fullDate, $startDate, $endDate }) {
     this.calenderModel = calenderModel;
     this.$roomsBox = $roomsBox;
     this.$experienceBox = $experienceBox;
     this.$nav = $nav;
+    this.$fullDateInput = _.$('input', $fullDate);
+    this.$startDateInput = _.$('input', $startDate);
+    this.$endDateInput = _.$('input', $endDate);
+    this.initEvent();
   }
 
   initEvent() {
     this.$nav.addEventListener('click', this.changeRadioButtonHandler.bind(this));
     this.$nav.addEventListener('click', this.changeTemplateHandler.bind(this));
+    this.$nav.addEventListener('click', this.moveCalenderDataHandler.bind(this));
   }
 
   changeRadioButtonHandler({ target }) {
@@ -18,6 +23,7 @@ class PopupLayer {
   }
 
   changeTemplateHandler({ target }) {
+    if (!(target.className === 'rooms' || target.className === 'experience')) return;
     switch (target.className) {
       case 'rooms':
         this.$roomsBox.classList.remove('display_none');
@@ -26,6 +32,22 @@ class PopupLayer {
       case 'experience':
         this.$roomsBox.classList.add('display_none');
         this.$experienceBox.classList.remove('display_none');
+        break;
+    }
+  }
+
+  moveCalenderDataHandler({ target }) {
+    if (!(target.className === 'rooms' || target.className === 'experience')) return;
+    const { formatDateArrayToString } = this.calenderModel;
+    switch (target.className) {
+      case 'rooms':
+        const [startDate, endDate] = formatDateArrayToString().split(' - ');
+        this.$startDateInput.value = startDate || '';
+        this.$endDateInput.value = endDate || '';
+        break;
+      case 'experience':
+        const fullDate = formatDateArrayToString();
+        this.$fullDateInput.value = fullDate || '';
         break;
     }
   }

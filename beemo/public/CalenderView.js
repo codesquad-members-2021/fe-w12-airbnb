@@ -1,18 +1,18 @@
 const _ = require('./util.js');
 
 class CalenderView {
-  constructor(model, $fullDate, $startDate, $endDate, $searchInputBox) {
-    this.dateClickCheck = true;
-    this.model = model;
+  constructor({ calenderModel, $fullDate, $startDate, $endDate, $searchInputBox }) {
+    this.model = calenderModel;
     this.$fullDate = $fullDate;
     this.$startDate = $startDate;
     this.$endDate = $endDate;
     this.$searchInputBox = $searchInputBox;
-    this.$fullDateInput = $fullDate.querySelector('input');
-    this.$startDateInput = $fullDate.querySelector('input');
-    this.$endDateInput = $fullDate.querySelector('input');
-    this.makeTemplate(model, model.getToday());
+    this.$fullDateInput = _.$('input', $fullDate);
+    this.$startDateInput = _.$('input', $fullDate);
+    this.$endDateInput = _.$('input', $fullDate);
+    this.makeTemplate(calenderModel, calenderModel.getToday());
     _.$('.calender_box').classList.add("display_none");
+    this.initEvent();
   }
 
   initEvent() {
@@ -86,21 +86,21 @@ class CalenderView {
     const calenderTables = _.$All('.calender_box__inside_box');
     calenderTables.forEach((table, i) => {
       if (i === 0) return;
-      const year = table.querySelector('tr:nth-child(1)>th').innerText.slice(0, 4);
-      const month = table.querySelector('tr:nth-child(1)>th').innerText.slice(6, -1);
-      table.querySelectorAll('tr:nth-child(n+3) td').forEach(td => {
+      const year = _.$('tr:nth-child(1)>th', table).innerText.slice(0, 4);
+      const month = _.$('tr:nth-child(1)>th', table).innerText.slice(6, -1);
+      _.$All('tr:nth-child(n+3) td', table).forEach(td => {
         td.classList.remove('gray-background');
         const day = td.innerText;
-        const selectedDateCheck = this.model.twoDatesArray.includes(`${year}.${month}.${day}`);
+        const selectedDateCheck = this.model.getDatesArray().includes(`${year}.${month}.${day}`);
         const clickedClassName = 'calender_box__table__td-clicked';
         selectedDateCheck ? td.classList.add(clickedClassName) : td.classList.remove(clickedClassName);
 
         const monthNumber = this.formatNumbersLessThan10(month);
         const dayNumber = this.formatNumbersLessThan10(day);
-        if (this.model.twoDatesArray.length === 2 && td.innerText) {
+        if (this.model.getDatesArray().length === 2 && td.innerText) {
           const currentDate = `${year}${monthNumber}${dayNumber}`;
-          const startDate = this.model.twoDatesArray[0].split('.').map(this.formatNumbersLessThan10).join('');
-          const endDate = this.model.twoDatesArray[1].split('.').map(this.formatNumbersLessThan10).join('');
+          const startDate = this.model.getDatesArray()[0].split('.').map(this.formatNumbersLessThan10).join('');
+          const endDate = this.model.getDatesArray()[1].split('.').map(this.formatNumbersLessThan10).join('');
           if (currentDate > startDate && currentDate < endDate) td.classList.add('gray-background');
         }
       });
@@ -112,10 +112,10 @@ class CalenderView {
     const year = target.closest('tbody').querySelector('th').innerText.slice(0, 4);
     const month = target.closest('tbody').querySelector('th').innerText.slice(6, -1);
     const day = target.innerText;
-    this.model.twoDatesArray.push(`${year}.${month}.${day}`);
-    this.changeDateArrayFromMoreClick();
-    this.model.twoDatesArray = this.sortDateArray(this.model.twoDatesArray);
-    const inputDateValue = this.formatDateArrayToString(this.model.twoDatesArray);
+    this.model.addDatesArray(`${year}.${month}.${day}`);
+    this.model.changeDatesArrayFromMoreData();
+    this.model.sortDateArray();
+    const inputDateValue = this.model.formatDateArrayToString(this.model.getDatesArray());
     this.$fullDateInput.value = inputDateValue;
   }
 
@@ -132,30 +132,6 @@ class CalenderView {
       target.closest('.calender_box').remove();
     }
   }
-
-  changeDateArrayFromMoreClick() { //날짜를 3번이상 클릭했을 때 배열에 2개로 거르기
-    if (this.model.twoDatesArray.length === 3) {
-      const newDate = this.model.twoDatesArray.splice(2, 1).join('');
-      this.dateClickCheck ? this.model.twoDatesArray[0] = newDate : this.model.twoDatesArray[1] = newDate;
-      this.dateClickCheck = !this.dateClickCheck;
-    }
-  }
-
-  sortDateArray(dateArray) {
-    return [...dateArray].sort((a, b) => {
-      const [aYear, aMonth, aDay] = a.split('.');
-      const [bYear, bMonth, bDay] = b.split('.');
-      return aYear - bYear || aMonth - bMonth || aDay - bDay;
-    });
-  }
-
-  formatDateArrayToString(dateArray) {
-    return dateArray.map(dateWord => {
-      const [year, month, day] = dateWord.split('.');
-      return `${year}년 ${month}월 ${day}일`;
-    }).join(' - ');
-  }
-
 
   formatNumbersLessThan10(number) {
     return number < 10 ? '0' + number : number;
