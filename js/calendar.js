@@ -7,9 +7,9 @@
   const $nextBtn = document.querySelector('.calendar__next--button-box');
 
   const TODAY = new Date();
-  const dateManager = {
-    calendarYear: TODAY.getFullYear(),
-    calendarMonth: TODAY.getMonth(),
+  const calendarData = {
+    year: TODAY.getFullYear(),
+    month: TODAY.getMonth(),
   };
 
   const STATUS = { prev: 'prev', current: 'current', next: 'next', nextNext: 'next-next' };
@@ -99,8 +99,12 @@
 
     drawMonth() {
       let status = this.status;
+      let position = 'beforeend';
+      if (status === 'prev') {
+        position = 'afterbegin';
+      }
       return $calendarWrapper.insertAdjacentHTML(
-        'beforeend',
+        position,
         `
         <div class="calendar__box calendar__box--${status}" id="calendar${this.year}-${this.month + 1}">
           ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
@@ -182,23 +186,66 @@
 
   // css 추가
 
-  // eventListner: button
+  // eventListener: button
 
   $prevBtn.addEventListener('click', goPrev);
   $nextBtn.addEventListener('click', goNext);
 
   function goPrev() {
+    // 현재 날짜 수정
+
+    if (calendarData.month === 0) {
+      calendarData.month = 11;
+      calendarData.year--;
+    } else {
+      calendarData.month--;
+    }
+
     let nextNextMonth = document.querySelector('.calendar__box--next-next');
     $calendarWrapper.removeChild(nextNextMonth);
     $calendarWrapper.querySelector('.calendar__box--next').classList.replace('calendar__box--next', 'calendar__box--next-next');
+    $calendarWrapper.querySelector('.calendar__box--current').classList.replace('calendar__box--current', 'calendar__box--next');
     $calendarWrapper.querySelector('.calendar__box--prev').classList.replace('calendar__box--prev', 'calendar__box--current');
+
+    // 함수에 넣어줄 때는 prev로 따로 계산
+
+    getPrevMonth(calendarData.year, calendarData.month);
+
+    function getPrevMonth(currentYear, currentMonth) {
+      if (currentMonth === 0) {
+        currentMonth = 11;
+        currentYear--;
+      } else {
+        currentMonth--;
+      }
+
+      const prevData = new CalendarData(currentYear, currentMonth);
+      const prevBox = new CalendarBox(prevData.year, prevData.month, prevData.day, prevData.lastDay, STATUS.prev);
+      prevBox.drawMonth();
+      const prevDataPush = new CalendarManager(prevData.year, prevData.month, prevData.day, prevData.getMonthArr());
+      prevDataPush.inputMonth();
+    }
   }
 
   function goNext() {
+    if (calendarData.month === 11) {
+      calendarData.month = 0;
+      calendarData.year++;
+    }
+    calendarData.month++;
+    console.log(calendarData.month, calendarData.year);
     let prevMonth = document.querySelector('.calendar__box--prev');
     $calendarWrapper.removeChild(prevMonth);
     $calendarWrapper.querySelector('.calendar__box--current').classList.replace('calendar__box--current', 'calendar__box--prev');
     $calendarWrapper.querySelector('.calendar__box--next-next').classList.replace('calendar__box--next-next', 'calendar__box--next');
+    // getNextNextMonth(calendarData.year, calendarData.month);
+
+    // function getNextNextMonth(currentYear, currentMonth) {
+    //   const nextNextMonth = new CalendarData(currentYear, currentMonth);
+    //   const nextNextMonthBox = new CalendarBox(nextNextMonth.year, nextNextMonth.month, nextNextMonth.day, nextNextMonth.lastDay, STATUS.nextNext);
+    //   nextNextMonthBox.drawMonth();
+    //   const nextNextMonthDataPush = new CalendarManager(nextNextMonth.year, nextNextMonth.month, nextNextMonth.day, nextNextMonth.getMonthArr());
+    //   nextNextMonthDataPush.inputMonth();
   }
 
   calendarInit();
