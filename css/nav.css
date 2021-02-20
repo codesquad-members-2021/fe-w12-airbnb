@@ -316,7 +316,6 @@ input {
 
 .calendar__container {
   width: 785px;
-  height: 340px;
   padding: 16px 32px;
   position: absolute;
   /* left: 120px; */
@@ -331,14 +330,12 @@ input {
 }
 
 .calendar__wrapper {
-  height: 328px;
   display: flex;
   justify-content: center;
 }
 
 .calendar__box {
   width: 336px;
-  height: 328px;
   padding: 0 27px;
   position: relative;
 }

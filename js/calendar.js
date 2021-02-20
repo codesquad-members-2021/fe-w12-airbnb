@@ -13,9 +13,6 @@
       this.day = day;
       this.lastDay = lastDay;
       // this.id_num = 1;
-
-      console.log(this.day);
-      console.log(this.lastDay);
     }
 
     // Title: 년 월
@@ -55,25 +52,24 @@
     }
 
     getWeekLine() {
-      let weekLine = 0;
+      let weekLine = 5;
       if (this.lastDay === 28 && this.day === 0) {
         return (weekLine = 4);
       }
-      if (this.lastDay === 28 && this.day !== 0) {
-        return (weekLine = 5);
+      if (this.lastDay === 30 && this.day > 5) {
+        return (weekLine = 6);
       }
-      if (this.lastDay === 29 && this.day) {
+      if (this.lastDay === 31 && this.day > 4) {
+        return (weekLine = 6);
       }
+      return weekLine;
     }
 
     drawWeeks() {
-      const WEEKS = {
-        feb: 4,
-        short: 5,
-        long: 6,
-      };
+      let weekLine = this.getWeekLine();
+
       let weeks = ``;
-      for (let i = 0; i < WEEKS.short; i++) {
+      for (let i = 0; i < weekLine; i++) {
         weeks += `\n${this.drawWeek()}`;
       }
       return weeks;
