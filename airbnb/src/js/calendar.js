@@ -1,18 +1,5 @@
 import { div, span } from './controlHTML.js';
-import MONTH_DAYS from './daysByMonth.js';
-
-const HIDDEN = 'hidden';
-const CHEKCED = 'checked';
-const MONTH = 'month';
-const WEEK = 'week';
-const DAY = 'day';
-const ABLE = 'able';
-const DISABLE = 'disable';
-const CONTAIN = 'contain';
-const DAY_SPAN = 'day__span';
-const START_RESERVE = 'start-reserve';
-const END_RESERVE = 'end-reserve';
-const PAST = 'past';
+import { MONTH_DAYS, CLASS_NAME } from './data.js';
 
 class CalendarModel {
   constructor(date = new Date()) {
@@ -94,14 +81,15 @@ class CalendarModel {
   }
   //예약 시작,끝,사이에 있는 day, 오늘 이전의 day,를 구분해서 그에 맞는 day DIV 생성
   makeDayHtml(day) {
+    const { DAY, DAY_SPAN, ABLE, DISABLE, BETWEEN, CHEKCED, PAST, START_RESERVE, END_RESERVE } = CLASS_NAME;
     let dayHtml;
     if (day && this.isReservable(day)) {
       if (this.isStartReservation(day)) {
-        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, START_RESERVE);
+        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, BETWEEN, START_RESERVE);
       } else if (this.isEndReservation(day)) {
-        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, END_RESERVE);
+        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, BETWEEN, END_RESERVE);
       } else if (this.isBetweenReservation(day)) {
-        dayHtml = div(span(day, DAY_SPAN), DAY, ABLE, CONTAIN);
+        dayHtml = div(span(day, DAY_SPAN), DAY, ABLE, BETWEEN);
       } else {
         dayHtml = div(span(day, DAY_SPAN), DAY, ABLE);
       }
@@ -167,6 +155,7 @@ export class CalendarView {
     document.addEventListener('click', this.handleClick.bind(this));
   }
   handleClick({ target }) {
+    const { HIDDEN } = CLASS_NAME;
     if (this.calendar.contains(target)) {
       this.handleCalendarClick(target);
     } else if (this.queryDate.contains(target)) {
@@ -213,6 +202,7 @@ export class CalendarView {
     return classList.contains('next') || classList.contains('fa-angle-right');
   }
   isDay({ classList } = target) {
+    const { DAY_SPAN, DAY, ABLE } = CLASS_NAME;
     return classList.contains(DAY_SPAN) || (classList.contains(DAY) && classList.contains(ABLE));
   }
   isFullReservation() {
