@@ -202,7 +202,6 @@ export class CalendarMaker {
    }
 
    targetYearMonth(el) {
-      console.log(el)
       let year_month = el.closest('.calendar_d_d').previousElementSibling.querySelectorAll('span');
       year_month = Array.prototype.slice.call(year_month);
 
@@ -218,55 +217,56 @@ export class CalendarMaker {
 
    clickEventCtrl(el) {
       this.judgement += 1;
+
+      console.log(this.judgement)
       el.classList.add("clicked");
       let clickedDate = el.innerText;
       let clickedDiv = document.querySelectorAll('.clicked');
 
       if (this.judgement === 1) {
          console.log('1')
-         this.stampDate_checkIn(el);
       }
 
       if (this.judgement === 2) {
-
          if (Number(clickedDate) < Number(clickedDiv[1].innerText)) {
             console.log('2-1: In>Out')
             let eraseClicked = Array.from(clickedDiv);
             eraseClicked[1].classList.remove('clicked');
+            this.judgement = 1;
          } else {
             console.log('2-2: In<Out')
          }
          this.stampDate_checkOut(el);
       }
+      if (this.judgement === 3) {
+         console.log(clickedDate, clickedDiv[clickedDiv.length - 1].innerText)
+         if (clickedDate === clickedDiv[clickedDiv.length - 1].innerText) {
+            console.log("3-1: 1-2-3")
+            let eraseClicked = Array.from(clickedDiv);
+            eraseClicked.pop();
+            eraseClicked.forEach(el => {
+               el.classList.remove('clicked')
+            });
+            this.judgement = 1;
+         }
 
+         if ((clickedDate !== clickedDiv[clickedDiv.length - 1].innerText) && (clickedDate !== clickedDiv[0].innerText)) {
+            console.log("3-2: 1-3-2")
+            let eraseClicked = Array.from(clickedDiv);
+            eraseClicked[0].classList.remove('clicked');
+            this.judgement = 2;
+         }
 
-      // if (this.judgement >= 2 && (Number(el.innerText) < Number(clickedDiv[1].innerText))) {
-      //    let eraseClicked = Array.from(clickedDiv);
-      //    eraseClicked[1].classList.remove('clicked');
-      // }
-
-      // //*체크인<체크아웃
-      // //체크인 선택
-      // else if (this.judgement % 2 !== 0) {
-      //    //첫번째 클릭이 아닌 경우(->기존의 클릭 삭제)
-      //    if (this.judgement > 1 && (Number(el.innerText) > Number(clickedDiv[1].innerText))) {
-      //       let eraseClicked = Array.from(clickedDiv);
-      //       eraseClicked.pop();
-      //       eraseClicked.forEach(el => {
-      //          el.classList.remove('clicked')
-      //       })
-      //    }
-      //    checkIn.innerText = `${this.current_month}월 ${el.innerText}일`;
-      //    for (let i = 0; i < paste1.length; i++) {
-      //       checkI_O_Bar.replaceChild(checkIn, paste1[i])
-      //    }
-      // }
-
-      // //체크아웃 클릭시
-      // else if (this.judgement % 2 === 0 && (Number(el.innerText) > Number(clickedDiv[1].innerText))) {
-      //    checkOut.innerText = `${this.current_month}월 ${el.innerText}일`;
-      //    checkI_O_Bar.appendChild(checkOut);
-      // }
+         if (clickedDate === clickedDiv[0].innerText) {
+            console.log("3-3: 2-3-1")
+            let eraseClicked = Array.from(clickedDiv);
+            eraseClicked.shift();
+            eraseClicked.forEach(el => {
+               el.classList.remove('clicked')
+            });
+            this.judgement = 1;
+         }
+      }
    }
 
    stampDate_checkIn(el) {
