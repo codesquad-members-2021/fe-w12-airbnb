@@ -253,6 +253,11 @@ input {
   position: relative;
 }
 
+.temp--div--for--align {
+  position: relative;
+  left: -50px;
+}
+
 .location__container {
   background: #fff;
   width: 500px;
