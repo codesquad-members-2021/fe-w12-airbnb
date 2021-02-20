@@ -4,14 +4,17 @@
   const WEEKDAY = { 0: '일', 1: '월', 2: '화', 3: '수', 4: '목', 5: '금', 6: '토' };
   const $calendarWrapper = document.querySelector('.calendar__wrapper');
   const TODAY = new Date();
+  const STATUS = { perv: 'prev', current: 'current', next: 'next', nextNext: 'next-next' };
 
   // 돔 생성 (그리기)
   class CalendarBox {
-    constructor(year, month, day, lastDay) {
+    constructor(year, month, day, lastDay, status) {
       this.year = year;
       this.month = month;
       this.day = day;
       this.lastDay = lastDay;
+      this.status = status;
+
       // this.id_num = 1;
     }
 
@@ -86,31 +89,12 @@
       return days;
     }
 
-    drawPrevMonth() {
-      return $calendarWrapper.insertAdjacentHTML(
-        'beforeend',
-        `
-        <div class="calendar__box calendar__box--prev" id="calendar${this.year}-${this.month + 1}">
-          ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
-        </div>`
-      );
-    }
-
     drawMonth() {
+      let status = this.status;
       return $calendarWrapper.insertAdjacentHTML(
         'beforeend',
         `
-        <div class="calendar__box" id="calendar${this.year}-${this.month + 1}">
-          ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
-        </div>`
-      );
-    }
-
-    drawNextMonth() {
-      return $calendarWrapper.insertAdjacentHTML(
-        'beforeend',
-        `
-        <div class="calendar__box calendar__box--next" id="calendar${this.year}-${this.month + 1}">
+        <div class="calendar__box calendar__box--${status}" id="calendar${this.year}-${this.month + 1}">
           ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
         </div>`
       );
@@ -161,19 +145,20 @@
   }
 
   // const thisMonth = new CalendarData(2021, 0); // 데이터 생성
+  // 흠... 요기가 반복되고있다....
   const prevMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth() - 1);
   const thisMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth());
   const nextMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth() + 1);
   const nextNextMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth() + 2);
 
-  const prevMonthBox = new CalendarBox(prevMonth.year, prevMonth.month, prevMonth.day, prevMonth.lastDay);
-  prevMonthBox.drawPrevMonth();
-  const thisMonthBox = new CalendarBox(thisMonth.year, thisMonth.month, thisMonth.day, thisMonth.lastDay);
+  const prevMonthBox = new CalendarBox(prevMonth.year, prevMonth.month, prevMonth.day, prevMonth.lastDay, STATUS.prev);
+  prevMonthBox.drawMonth();
+  const thisMonthBox = new CalendarBox(thisMonth.year, thisMonth.month, thisMonth.day, thisMonth.lastDay, STATUS.current);
   thisMonthBox.drawMonth();
-  const nextMonthBox = new CalendarBox(nextMonth.year, nextMonth.month, nextMonth.day, nextMonth.lastDay);
+  const nextMonthBox = new CalendarBox(nextMonth.year, nextMonth.month, nextMonth.day, nextMonth.lastDay, STATUS.next);
   nextMonthBox.drawMonth();
-  const nextNextMonthBox = new CalendarBox(nextNextMonth.year, nextNextMonth.month, nextNextMonth.day, nextNextMonth.lastDay);
-  nextNextMonthBox.drawNextMonth();
+  const nextNextMonthBox = new CalendarBox(nextNextMonth.year, nextNextMonth.month, nextNextMonth.day, nextNextMonth.lastDay, STATUS.nextNext);
+  nextNextMonthBox.drawMonth();
 
   const prevMonthDataPush = new CalendarManager(prevMonth.year, prevMonth.month, prevMonth.day, prevMonth.getMonthArr());
   prevMonthDataPush.inputMonth();

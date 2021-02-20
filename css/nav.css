@@ -345,7 +345,21 @@ input {
   position: relative;
   display: none;
 }
+
+.calendar__box--current {
+  width: 336px;
+  padding: 0 27px;
+  position: relative;
+}
+
 .calendar__box--next {
+  width: 336px;
+  padding: 0 27px;
+  position: relative;
+  display: none;
+}
+
+.calendar__box--next-next {
   width: 336px;
   padding: 0 27px;
   position: relative;
