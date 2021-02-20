@@ -2,10 +2,10 @@ console.log("linked")
 import {
    CalendarMaker
 } from './calendar.js';
-
 import {
-   CheckInOut
-} from './checkInOut.js';
+   _
+} from './util.js';
+
 
 class ClassCtrl {
    constructor(el) {
@@ -25,8 +25,8 @@ class Scroll extends ClassCtrl {
    constructor() {
       super()
       this.targetEl = document;
-      this.header1 = new ClassCtrl(document.querySelector(".header1"));
-      this.header2 = new ClassCtrl(document.querySelector(".header2"));
+      this.header1 = new ClassCtrl(_.$(".header1"));
+      this.header2 = new ClassCtrl(_.$(".header2"));
    }
    onScrollEvents() {
 
@@ -63,9 +63,9 @@ loadedWindow.onScrollEvents();
 //* SearchBar_Ctrl
 //TODO: replaceChild로 바꿔보기.
 function getValue(evt) {
-   const searchWrapper1 = new ClassCtrl(document.querySelectorAll('.search_wrapper')[0]);
-   const searchWrapper2 = new ClassCtrl(document.querySelectorAll('.search_wrapper')[1]);
-   const targetStr = document.querySelectorAll('.menu_center label span');
+   const searchWrapper1 = new ClassCtrl(_.$All('.search_wrapper')[0]);
+   const searchWrapper2 = new ClassCtrl(_.$All('.search_wrapper')[1]);
+   const targetStr = _.$All('.menu_center label span');
 
    let targetMenu = evt.target.innerText;
    if (targetMenu === targetStr[0].textContent) {
@@ -81,7 +81,7 @@ function getValue(evt) {
    }
 }
 
-const centerMenu = document.querySelectorAll(".menu_center>label>span");
+const centerMenu = _.$All(".menu_center>label>span");
 for (let i = 0; i < centerMenu.length; i++) {
    centerMenu[i].addEventListener('click', (evt) => getValue(evt));
 }
@@ -125,21 +125,22 @@ class BtnUI {
    }
 }
 
-const btnCtrl_1 = new BtnUI(document.querySelector(".toggleBtn1"));
-const btnCtrl_2 = new BtnUI(document.querySelector(".toggleBtn2"));
+const btnCtrl_1 = new BtnUI(_.$(".toggleBtn1"));
+const btnCtrl_2 = new BtnUI(_.$(".toggleBtn2"));
 btnCtrl_1.makeMenu();
 btnCtrl_2.makeMenu();
 
 export function readCalendarJS() {
 
-   const calendarArea = document.querySelector(".calendar_area");
+   const calendarArea = _.$(".calendar_area");
    const now = new Date();
    const calendar_ctrl = new CalendarMaker(now, calendarArea);
    calendar_ctrl.getDateInfo();
 
 }
 
-export const dateBtn = document.querySelector('.call_calendar');
+export const dateBtn = _.$('.call_calendar');
+
 dateBtn.addEventListener('click',
    readCalendarJS
 );

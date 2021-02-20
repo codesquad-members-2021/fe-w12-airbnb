@@ -58,6 +58,7 @@ https: //webisfree.com/2015-12-16/[css]-nth-child%EC%99%80-nth-of-type-%EC%84%A0
 
 클로져복습.->모던자바스크립트/ 자바스크립트레시피
 https://poiemaweb.com/js-closure
+
 */
 //todo: focus onblur로 사라지는 트렌스폼 구축.
 /*
@@ -90,7 +91,7 @@ mvc
 https://opentutorials.org/course/697/3828
 https://www.bsidesoft.com/5948
 
-비모파일 체크....!
+// 비모파일 체크....!: 유틸사용
 
 ㅡ클래스생성시.(초기화)
 변수전달을 객체로
@@ -100,4 +101,23 @@ https://www.bsidesoft.com/5948
 
 destructuring assignment
 
+
+//?call, bind, Array.(prototype).slice()
+  targetYearMonth(el) {
+      let year_month = _.$All('span', el.closest('.calendar_d_d').previousElementSibling);
+
+     //! 1: year_month = Array.prototype.slice.call(year_month);
+      //! 2: year_month = Array.from(year_month);
+      //! 3: year_month = [...year_month]
+
+      year_month = year_month.map(e => {
+         let arr = e.innerText.split('');
+         arr.pop();
+         return e = arr.join('');
+      });
+
+
+
+//?여러 개의 "case"문 묶기
+https://ko.javascript.info/switch#ref-2091
 */
