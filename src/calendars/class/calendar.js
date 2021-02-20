@@ -34,7 +34,7 @@ export default class Calendar {
     const [year, month] = date;
     const today = new Date();
     const currDate = [year, month, startDayCount - 1];
-    return `<div id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="calendar__date ${this.checkDate(startDayCount, today, date)} ${isBetweenSelectedDates(currDate) ? "connected" : ""}"><span id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="data ${isSameWithStartDate(currDate) || isSameWithEndDate(currDate) ? "selected" : ""}">${startDayCount++}</span></div>`;
+    return `<div class="calendar__date ${this.checkDate(startDayCount, today, date)} ${isBetweenSelectedDates(currDate) ? "connected" : ""}"><span id="${year}-${month}-${this.setFixDayCount(startDayCount)}" class="data ${isSameWithStartDate(currDate) ? "selected startDate" : isSameWithEndDate(currDate) ? "selected endDate" : ""}">${startDayCount++}</span></div>`;
   }
 
   setCalendarData(year, month, index) {

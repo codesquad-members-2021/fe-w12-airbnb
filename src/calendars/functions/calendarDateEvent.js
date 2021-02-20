@@ -39,22 +39,34 @@ const isSameWithEndDate = (currDate) => {
   const [year, month, day] = currDate;
   return e_year === year && e_month === month && e_day === day;
 };
+
 // 여기까지 calendar.js에서 사용할 예정.. 이럴거면 그냥 위에 있는 isSameDate를 지우는게 나을수도.. => 그래서 지움
 
 const connectTwoDates = (calendarDates) => {
   calendarDates.forEach((date) => {
     if (date.classList.contains("today") || date.classList.contains("tomorrow")) {
-      const currDate = parseDate(date.id);
+      const currDate = parseDate(date.childNodes[0].id);
       if (isBetweenSelectedDates(currDate)) date.classList.add("connected");
     }
   });
 };
 
-const deleteConnection = (calendarDates) => {
+const deleteConnection = (calendarDates, updatedDate = undefined) => {
   calendarDates.forEach((date) => {
     if (date.classList.contains("today") || date.classList.contains("tomorrow")) {
       date.classList.remove("connected");
-      if (date.childNodes[0].classList.contains("selected")) date.childNodes[0].classList.remove("selected");
+      if (!updatedDate && date.childNodes[0].classList.contains("selected")) date.childNodes[0].classList.remove("selected");
+      else if (updatedDate === kindOfDate.end) {
+        if (date.childNodes[0].classList.contains("endDate")) {
+          date.childNodes[0].classList.remove("selected");
+          date.childNodes[0].classList.remove("endDate");
+        }
+      } else if (updatedDate === kindOfDate.start) {
+        if (date.childNodes[0].classList.contains("startDate")) {
+          date.childNodes[0].classList.remove("selected");
+          date.childNodes[0].classList.remove("startDate");
+        }
+      }
     }
   });
 };
@@ -104,30 +116,33 @@ const registerClickEvent = (element, placeholder, textStartDate, textEndDate, ca
       // 시작, 끝 날짜 모두 선택되어 있으면
       const selectedEndDate = selectedDateState.endDate.data;
       // 날짜 연결시켰던 선 지우기
-      deleteConnection(calendarDates);
 
       if (isSameWithStartDate(clickedDate)) {
         // 시작 날짜와 같으면
         dropDate(kindOfDate.start, textStartDate);
         dropDate(kindOfDate.end, textEndDate);
+        deleteConnection(calendarDates);
       } else if (isSameWithEndDate(clickedDate)) {
         // 끝 날짜와 같으면
         dropDate(kindOfDate.start, textStartDate);
         dropDate(kindOfDate.end, textEndDate);
         setDate(target, clickedDate, textStartDate, kindOfDate.start);
+        deleteConnection(calendarDates);
       } else if (!isLaterThanDate(clickedDate, selectedStartDate)) {
         // 시작 날짜보다 더 이른 날짜를 클릭하면
         editDate(target, clickedDate, textStartDate, kindOfDate.start);
         repaintAtSelectedDate(kindOfDate.end);
         // target.classList.add("selected");
+        deleteConnection(calendarDates, kindOfDate.start);
       } else if (isLaterThanDate(clickedDate, selectedStartDate) && !isLaterThanDate(clickedDate, selectedEndDate)) {
         // 시작 날짜보다 더 나중 날짜를 클릭하면
-        // if (isLaterThanDate(clickedDate, selectedEndDate)) dropDate("end", textEndDate);
         editDate(target, clickedDate, textStartDate, kindOfDate.start);
         repaintAtSelectedDate(kindOfDate.end);
+        deleteConnection(calendarDates, kindOfDate.start);
       } else if (isLaterThanDate(clickedDate, selectedEndDate)) {
         editDate(target, clickedDate, textEndDate, kindOfDate.end);
         repaintAtSelectedDate(kindOfDate.start);
+        deleteConnection(calendarDates, kindOfDate.end);
       }
     }
     // 날짜가 다 선택된 상황에서 연결선을 그려줘야 하면 그리기
