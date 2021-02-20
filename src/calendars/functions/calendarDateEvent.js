@@ -8,7 +8,7 @@ const kindOfDate = {
 const isLaterThanDate = (clickedDate, compareDate) => {
   const [year, month, day] = clickedDate;
   const [s_year, s_month, s_day] = compareDate;
-  return year * 365 + month * 30 + day >= s_year * 365 + s_month * 30 + s_day;
+  return year * 365 + month * 31 + day >= s_year * 365 + s_month * 31 + s_day;
 };
 
 const parseDate = (date) => date.split("-").map((e) => +e);
