@@ -13,6 +13,6 @@ function toggleUserLayer(e) {
 
 function hideLayers() {
     console.log("body clicked!")
-    calendar.classList.add("hide");
+    // calendar.classList.add("hide");
     userLayer.classList.add("hide");
 }

@@ -6,7 +6,8 @@ const leftCalendarDays = document.querySelectorAll(".left_calendar_days"),
     rightButton = document.querySelector(".right_button"),
     dateButton = document.querySelector(".date_button"),
     calendar = document.querySelector(".calendar"),
-    dateUpdate = document.querySelector(".date_update");
+    dateUpdate = document.querySelector(".date_update"),
+    body = document.querySelector("body");
 
 
 
@@ -215,11 +216,18 @@ class Calendar {
         
     }
 
+    hideCalendar() {
+        body.addEventListener('click', () => {
+            calendar.classList.add("hide");
+        });
+    }
+
     handleEvents() {
         this.drawCalendar();
         this.toggleCalendar();
         this.updateCalendarStyle(".left_day_button");
         this.updateCalendarStyle(".right_day_button");
+        this.hideCalendar();
     }
 
 }
