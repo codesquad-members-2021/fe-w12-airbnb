@@ -86,11 +86,31 @@
       return days;
     }
 
+    drawPrevMonth() {
+      return $calendarWrapper.insertAdjacentHTML(
+        'beforeend',
+        `
+        <div class="calendar__box calendar__box--prev" id="calendar${this.year}-${this.month + 1}">
+          ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
+        </div>`
+      );
+    }
+
     drawMonth() {
       return $calendarWrapper.insertAdjacentHTML(
         'beforeend',
         `
         <div class="calendar__box" id="calendar${this.year}-${this.month + 1}">
+          ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
+        </div>`
+      );
+    }
+
+    drawNextMonth() {
+      return $calendarWrapper.insertAdjacentHTML(
+        'beforeend',
+        `
+        <div class="calendar__box calendar__box--next" id="calendar${this.year}-${this.month + 1}">
           ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
         </div>`
       );
@@ -140,21 +160,29 @@
     }
   }
 
-  const prevMonth = '';
   // const thisMonth = new CalendarData(2021, 0); // 데이터 생성
-  const thisMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth()); // 데이터 생성
-  const nextMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth() + 1); // 데이터 생성
-  const nextNextMonth = '';
+  const prevMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth() - 1);
+  const thisMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth());
+  const nextMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth() + 1);
+  const nextNextMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth() + 2);
 
+  const prevMonthBox = new CalendarBox(prevMonth.year, prevMonth.month, prevMonth.day, prevMonth.lastDay);
+  prevMonthBox.drawPrevMonth();
   const thisMonthBox = new CalendarBox(thisMonth.year, thisMonth.month, thisMonth.day, thisMonth.lastDay);
-  thisMonthBox.drawMonth(); // 그리기 (아무래도 그린 후에 돔을 잡아야겠지?..)
+  thisMonthBox.drawMonth();
   const nextMonthBox = new CalendarBox(nextMonth.year, nextMonth.month, nextMonth.day, nextMonth.lastDay);
   nextMonthBox.drawMonth();
+  const nextNextMonthBox = new CalendarBox(nextNextMonth.year, nextNextMonth.month, nextNextMonth.day, nextNextMonth.lastDay);
+  nextNextMonthBox.drawNextMonth();
 
+  const prevMonthDataPush = new CalendarManager(prevMonth.year, prevMonth.month, prevMonth.day, prevMonth.getMonthArr());
+  prevMonthDataPush.inputMonth();
   const thisMonthDataPush = new CalendarManager(thisMonth.year, thisMonth.month, thisMonth.day, thisMonth.getMonthArr());
   thisMonthDataPush.inputMonth();
   const nextMonthDataPush = new CalendarManager(nextMonth.year, nextMonth.month, nextMonth.day, nextMonth.getMonthArr());
   nextMonthDataPush.inputMonth();
+  const nextNextMonthDataPush = new CalendarManager(nextNextMonth.year, nextNextMonth.month, nextNextMonth.day, nextNextMonth.getMonthArr());
+  nextNextMonthDataPush.inputMonth();
 
   // css 추가
 })(window, document);

@@ -339,6 +339,18 @@ input {
   padding: 0 27px;
   position: relative;
 }
+.calendar__box--prev {
+  width: 336px;
+  padding: 0 27px;
+  position: relative;
+  display: none;
+}
+.calendar__box--next {
+  width: 336px;
+  padding: 0 27px;
+  position: relative;
+  display: none;
+}
 
 .calendar__button__box {
   position: absolute;
