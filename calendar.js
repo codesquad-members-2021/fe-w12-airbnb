@@ -15,8 +15,6 @@ export class CalendarMaker {
       this.next_year;
       this.last_month;
       this.last_year;
-      this.target_month;
-      this.target_year;
       this.firstday_curr_month;
       this.lastday_curr_month;
       this.firstday_next_month;
@@ -211,83 +209,71 @@ export class CalendarMaker {
          return e = arr.join('');
       });
 
-      let targetYearMonth = [this.target_year = year_month[0], this.target_month = year_month[1]]
+      let target_year = year_month[0];
+      let target_month = year_month[1];
+      let targetYearMonth = [target_year, target_month];
+
       return targetYearMonth;
    }
 
    clickEventCtrl(el) {
       this.judgement += 1;
-
-      console.log(this.judgement)
       el.classList.add("clicked");
       let clickedDate = el.innerText;
-      let clickedDiv = document.querySelectorAll('.clicked');
-
-      if (this.judgement === 1) {
-         console.log('1')
-      }
+      let clickedDivNode = document.querySelectorAll('.clicked');
+      let clickedDivArr = Array.from(clickedDivNode);
 
       if (this.judgement === 2) {
-         if (Number(clickedDate) < Number(clickedDiv[1].innerText)) {
-            console.log('2-1: In>Out')
-            let eraseClicked = Array.from(clickedDiv);
-            eraseClicked[1].classList.remove('clicked');
+         if (clickedDate < clickedDivArr[1].innerText) {
+            clickedDivArr[1].classList.remove('clicked');
             this.judgement = 1;
-         } else {
-            console.log('2-2: In<Out')
          }
-         this.stampDate_checkOut(el);
       }
+
       if (this.judgement === 3) {
-         console.log(clickedDate, clickedDiv[clickedDiv.length - 1].innerText)
-         if (clickedDate === clickedDiv[clickedDiv.length - 1].innerText) {
-            console.log("3-1: 1-2-3")
-            let eraseClicked = Array.from(clickedDiv);
-            eraseClicked.pop();
-            eraseClicked.forEach(el => {
+         if (clickedDate === clickedDivArr[clickedDivArr.length - 1].innerText) {
+            clickedDivArr.pop();
+            clickedDivArr.forEach(el => {
                el.classList.remove('clicked')
             });
             this.judgement = 1;
          }
-
-         if ((clickedDate !== clickedDiv[clickedDiv.length - 1].innerText) && (clickedDate !== clickedDiv[0].innerText)) {
-            console.log("3-2: 1-3-2")
-            let eraseClicked = Array.from(clickedDiv);
-            eraseClicked[0].classList.remove('clicked');
+         console.log(clickedDate, clickedDivArr)
+         if ((clickedDate !== clickedDivArr[clickedDivArr.length - 1].innerText) && (clickedDate !== clickedDivArr[0].innerText)) {
+            clickedDivArr[0].classList.remove('clicked');
             this.judgement = 2;
          }
 
-         if (clickedDate === clickedDiv[0].innerText) {
+         if (clickedDate === clickedDivArr[0].innerText) {
             console.log("3-3: 2-3-1")
-            let eraseClicked = Array.from(clickedDiv);
-            eraseClicked.shift();
-            eraseClicked.forEach(el => {
+            clickedDivArr.shift();
+            clickedDivArr.forEach(el => {
                el.classList.remove('clicked')
             });
             this.judgement = 1;
          }
       }
+      console.log()
+      this.stampDate();
    }
 
-   stampDate_checkIn(el) {
-
+   stampDate(clickedDivArr) {
+      console.log(clickedDivArr);
       let checkI_O_Bar = document.querySelector(".search_ver2 .call_calendar> div");
-      let paste1 = document.querySelectorAll(".search_ver2 .call_calendar> div> div");
+      let stampArea = document.querySelector(".search_ver2 .call_calendar> div> div");
       let checkIn = document.createElement("div");
-
-      checkIn.innerText = `${this.targetYearMonth(el)[1]}월 ${el.innerText}일`;
-      for (let i = 0; i < paste1.length; i++) {
-         checkI_O_Bar.replaceChild(checkIn, paste1[i])
-      }
-   }
-
-   stampDate_checkOut(el) {
-      let checkI_O_Bar = document.querySelector(".search_ver2 .call_calendar> div");
-      let paste1 = document.querySelectorAll(".search_ver2 .call_calendar> div> div");
       let checkOut = document.createElement("div");
 
-      checkOut.innerText = `${this.targetYearMonth(el)[1]}월 ${el.innerText}일`;
-      checkI_O_Bar.appendChild(checkOut);
+      for (let i = 0; i < clickedDivArr.length; i++) {
+         let stampMonth = this.targetYearMonth(clickedDivArr[i])[1];
+         if (i === 0) {
+            checkIn.innerText = `${stampMonth}월 ${clickedDivArr[0].innerText}일`;
+            checkI_O_Bar.replaceChild(checkIn, stampArea)
+         } else {
+            checkOut.innerText = `${stampMonth}월 ${clickedDivArr[1].innerText}일`;
+            checkI_O_Bar.appendChild(checkOut);
+         }
+      }
    }
 
 
