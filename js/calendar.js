@@ -77,7 +77,7 @@
       return $calendarWrapper.insertAdjacentHTML(
         'beforeend',
         `
-        <div class="calendar__box">
+        <div class="calendar__box" id="calendar${this.year}-${this.month + 1}">
           ${this.drawTitle() + this.drawWeekdays() + this.drawDays()}
         </div>`
       );
@@ -110,9 +110,13 @@
   // 데이터 넣기
 
   class CalendarManager {
-    constructor(monthArr) {
+    constructor(year, month, monthArr) {
+      this.year = year;
+      this.month = month;
       this.monthArr = monthArr;
-      this.dayDOM = document.querySelectorAll('.day-box');
+      this.dayDOM = document.querySelectorAll(`#calendar${this.year}-${this.month + 1} .day-box`);
+      console.log(this.year);
+      console.log(this.month);
       console.log(this.dayDOM);
     }
 
@@ -131,9 +135,9 @@
   const monthBox2 = new CalendarBox(mar.year, mar.month);
   monthBox2.drawMonth();
 
-  const dataPush = new CalendarManager(feb.getMonthArr());
+  const dataPush = new CalendarManager(feb.year, feb.month, feb.getMonthArr());
   dataPush.inputMonth();
-  const dataPush2 = new CalendarManager(mar.getMonthArr());
+  const dataPush2 = new CalendarManager(mar.year, mar.month, mar.getMonthArr());
   dataPush2.inputMonth();
 
   // css 추가
