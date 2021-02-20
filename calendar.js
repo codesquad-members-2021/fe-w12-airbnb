@@ -26,10 +26,10 @@ export class CalendarMaker {
       this.startDay = 0;
       this.spare = 0;
       this.judgement = 0;
+      this.savedData;
    }
 
    getDateInfo() {
-      console.log('getDateInfo')
       this.current_year = this.date.getFullYear(); //당해
       if (this.current_year % 4 === 0) this.month_day_count[1] = 29; //윤년이면 2월 29일 마지막날
 
@@ -61,7 +61,6 @@ export class CalendarMaker {
    }
 
    makeCalendarLayout() {
-      console.log('makeCalendarLayout')
       let calendarBar = document.createElement("div");
       calendarBar.className = "calendar_box";
       calendarBar.innerHTML =
@@ -123,7 +122,6 @@ export class CalendarMaker {
    }
 
    getDateHTML() {
-      console.log(' getDateHTML')
       for (let i = 0; i < this.lastday_curr_month + this.firstday_curr_month; i++) {
          if (i >= this.firstday_curr_month) {
             this.week1 += `<div>${this.startDay+=1}</div>`;
@@ -145,7 +143,6 @@ export class CalendarMaker {
    }
 
    insertHTML() {
-      console.log('insertHTML');
       let section1 = document.querySelector(".calendar_current .calendar_date");
       let section2 = document.querySelector(".calendar_next_month .calendar_date");
 
@@ -155,6 +152,7 @@ export class CalendarMaker {
    }
 
    prevBtnEvent() {
+      this.savedData = this.saveClickedData();
       this.week1 = '';
       this.week2 = '';
       this.current_year = this.last_year;
@@ -165,6 +163,7 @@ export class CalendarMaker {
    }
 
    nextBtnEvent() {
+      this.savedData = this.saveClickedData();
       this.week1 = '';
       this.week2 = '';
       this.current_year = this.next_year;
@@ -172,6 +171,10 @@ export class CalendarMaker {
       this.date = new Date(`${this.current_year}-${this.current_month}-01`);
       this.calendar_area.removeChild(this.calendar_area.firstChild);
       this.getDateInfo()
+   }
+
+   saveClickedData() {
+      return Array.from(document.querySelectorAll(".clicked"));
    }
 
    blurBeforeToday() {
@@ -224,6 +227,11 @@ export class CalendarMaker {
       let clickedDivArr = Array.from(clickedDivNode);
 
       if (this.judgement === 2) {
+         if (this.savedData) {
+            clickedDivArr = this.savedData.concat(clickedDivArr)
+         }
+
+         //클릭역행한경우
          if (clickedDate < clickedDivArr[1].innerText) {
             clickedDivArr[1].classList.remove('clicked');
             this.judgement = 1;
@@ -231,21 +239,23 @@ export class CalendarMaker {
       }
 
       if (this.judgement === 3) {
+         if (this.savedData) {
+            clickedDivArr = this.savedData.concat(clickedDivArr)
+         }
          if (clickedDate === clickedDivArr[clickedDivArr.length - 1].innerText) {
             clickedDivArr.pop();
-            clickedDivArr.forEach(el => {
-               el.classList.remove('clicked')
+            clickedDivArr.forEach(e => {
+               e.classList.remove('clicked')
             });
             this.judgement = 1;
          }
-         console.log(clickedDate, clickedDivArr)
+
          if ((clickedDate !== clickedDivArr[clickedDivArr.length - 1].innerText) && (clickedDate !== clickedDivArr[0].innerText)) {
             clickedDivArr[0].classList.remove('clicked');
             this.judgement = 2;
          }
 
          if (clickedDate === clickedDivArr[0].innerText) {
-            console.log("3-3: 2-3-1")
             clickedDivArr.shift();
             clickedDivArr.forEach(el => {
                el.classList.remove('clicked')
@@ -253,29 +263,26 @@ export class CalendarMaker {
             this.judgement = 1;
          }
       }
-      console.log()
-      this.stampDate();
+
+      this.stampDate(clickedDivArr);
    }
 
    stampDate(clickedDivArr) {
       console.log(clickedDivArr);
-      let checkI_O_Bar = document.querySelector(".search_ver2 .call_calendar> div");
-      let stampArea = document.querySelector(".search_ver2 .call_calendar> div> div");
-      let checkIn = document.createElement("div");
-      let checkOut = document.createElement("div");
+      let checkIn = document.querySelector(".check_in");
+      let checkOut = document.querySelector(".check_out");
 
+      if (clickedDivArr.length === 1) checkOut.innerText = '';
       for (let i = 0; i < clickedDivArr.length; i++) {
          let stampMonth = this.targetYearMonth(clickedDivArr[i])[1];
          if (i === 0) {
             checkIn.innerText = `${stampMonth}월 ${clickedDivArr[0].innerText}일`;
-            checkI_O_Bar.replaceChild(checkIn, stampArea)
+            checkIn.classList.remove("placeholder");
          } else {
             checkOut.innerText = `${stampMonth}월 ${clickedDivArr[1].innerText}일`;
-            checkI_O_Bar.appendChild(checkOut);
          }
       }
    }
-
 
    closeCalendar() {
       document.body.addEventListener("click", (evt) => {
