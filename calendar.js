@@ -176,7 +176,6 @@ class Calendar {
         dayButtons.forEach((element) => {
             element.addEventListener("click", (event) => {
                 event.target.classList.toggle("day_selected");
-
                 clickCount++;
 
                 // 선택 일자를 변수에 저장
