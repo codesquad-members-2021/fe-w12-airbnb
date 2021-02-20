@@ -239,8 +239,10 @@ export class CalendarMaker {
    }
 
    closeCalendar() {
-      document.body.addEventListener("click", (evt) => {
-         if (!evt.target.closest(".calendar_area")) {
+      document.body.addEventListener("click", ({
+         target
+      }) => {
+         if (!target.closest(".calendar_area")) {
             dateBtn.removeEventListener("click", readCalendarJS, false)
             _.$('.calendar_box').classList.toggle('hide_show')
          }

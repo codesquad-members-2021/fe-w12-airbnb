@@ -84,7 +84,8 @@ function호출(전역변수) / arrow호출시 차이(지역변수), binding
 설계하는 습관.
 
 
-import/exporthttps://velog.io/@takeknowledge/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9-%EC%9A%94%EC%95%BD-lwk4drjnni
+//? import/export 정확한 사용방법.
+https://velog.io/@takeknowledge/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9-%EC%9A%94%EC%95%BD-lwk4drjnni
 
 
 mvc
@@ -102,7 +103,7 @@ https://www.bsidesoft.com/5948
 destructuring assignment
 
 
-//?call, bind, Array.(prototype).slice()
+//?call, bind, apply Array.(prototype).slice()
   targetYearMonth(el) {
       let year_month = _.$All('span', el.closest('.calendar_d_d').previousElementSibling);
 
