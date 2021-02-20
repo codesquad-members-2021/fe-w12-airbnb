@@ -134,6 +134,7 @@
       for (let i = 1; i < LASTDAY[this.monthIdx] + 1; i++) {
         monthArr.push(i);
       }
+      console.log(monthArr);
       return monthArr;
     }
   }
@@ -231,21 +232,35 @@
     if (calendarData.month === 11) {
       calendarData.month = 0;
       calendarData.year++;
+    } else {
+      calendarData.month++;
     }
-    calendarData.month++;
-    console.log(calendarData.month, calendarData.year);
+
     let prevMonth = document.querySelector('.calendar__box--prev');
     $calendarWrapper.removeChild(prevMonth);
     $calendarWrapper.querySelector('.calendar__box--current').classList.replace('calendar__box--current', 'calendar__box--prev');
+    $calendarWrapper.querySelector('.calendar__box--next').classList.replace('calendar__box--next', 'calendar__box--current');
     $calendarWrapper.querySelector('.calendar__box--next-next').classList.replace('calendar__box--next-next', 'calendar__box--next');
-    // getNextNextMonth(calendarData.year, calendarData.month);
 
-    // function getNextNextMonth(currentYear, currentMonth) {
-    //   const nextNextMonth = new CalendarData(currentYear, currentMonth);
-    //   const nextNextMonthBox = new CalendarBox(nextNextMonth.year, nextNextMonth.month, nextNextMonth.day, nextNextMonth.lastDay, STATUS.nextNext);
-    //   nextNextMonthBox.drawMonth();
-    //   const nextNextMonthDataPush = new CalendarManager(nextNextMonth.year, nextNextMonth.month, nextNextMonth.day, nextNextMonth.getMonthArr());
-    //   nextNextMonthDataPush.inputMonth();
+    getNextNextMonth(calendarData.year, calendarData.month);
+    function getNextNextMonth(currentYear, currentMonth) {
+      console.log(currentYear, currentMonth);
+      if (currentMonth === 10) {
+        currentMonth = 0;
+        currentYear++;
+      } else if (currentMonth === 11) {
+        currentMonth = 1;
+        currentYear++;
+      } else {
+        currentMonth += 2;
+      }
+      console.log(currentYear, currentMonth);
+      const nextNextData = new CalendarData(currentYear, currentMonth);
+      const nextNextBox = new CalendarBox(nextNextData.year, nextNextData.month, nextNextData.day, nextNextData.lastDay, STATUS.nextNext);
+      nextNextBox.drawMonth();
+      const nextNextDataPush = new CalendarManager(nextNextData.year, nextNextData.month, nextNextData.day, nextNextData.getMonthArr());
+      nextNextDataPush.inputMonth();
+    }
   }
 
   calendarInit();
