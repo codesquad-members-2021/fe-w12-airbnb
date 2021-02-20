@@ -2,89 +2,107 @@ import _ from "../util.js";
 import Calendar from "./Calendar.js";
 
 class CalendarManager {
-    
     /**
+     * @param {String} calendarWrapSelector
      * @param {Calendar} calendar
+     * @param {Calendar} anotherCalendar
      */
-    constructor(calendar, prevBtn = null, nextBtn = null) {
+    constructor(calendarWrapSelector, calendar, anotherCalendar = null) {
+        this.calendarWrapper = _.$(calendarWrapSelector);
         this.calendar = calendar;
+        this.anotherCalendar = anotherCalendar;     // anotherCalendar는 필수가 아님
+        
+        this.prevBtn = null;    this.nextBtn = null;
+        this._initCreateComponents();
+    }
+
+    init() {
+        this.calendar.createCalendar();
+
+        if(this.anotherCalendar)   
+            this.anotherCalendar.createCalendar();
+    }
+
+    _initCreateComponents() {
+        try {
+            if (!this.calendarWrapper) 
+                throw new Error('[!] calendarWrapper is null. The component cannot be set...')
+            else {
+                const btnList = Array.from(_.$All('.move-month__btn', this.calendarWrapper));
+                this._setButtons(
+                    btnList.find((btn) => _.classContains(btn, 'move-month__btn--left')),
+                    btnList.find((btn) => _.classContains(btn, 'move-month__btn--right')),
+                );
+                this._setButtonsEvent();   
+            }                
+        } catch(err) {
+            console.error(err.message);
+        }                
+    }
+
+    /**
+     * @param {Node} prevBtn
+     * @param {Node} nextBtn     
+     */
+    _setButtons(prevBtn, nextBtn) {        
         this.prevBtn = prevBtn;
         this.nextBtn = nextBtn;
     }
 
-    init() {
-        if(!this._calendarIsNull())
-            this.calendar.createCalendar();
-    }
-    
-    setButtons(prevBtn, nextBtn) {        
-        this.prevBtn = prevBtn;
-        this.nextBtn = nextBtn;                    
-    }
-
-    setButtonsEvent() {
+    _setButtonsEvent() {
         this._setPrevBtnClickEvent();
         this._setNextBtnClickEvent(); 
     }
 
-    _calendarIsNull() {
-        let bFlag;
-        try {
-            if (!this.calendar) {
-                throw new Error('[!!!] calendar is null. Unable to execute..');
-            } else {
-                bFlag = false;
-            }                
-        } catch (err) {
-            console.error(err.message);
-            bFlag = true;
-        }        
-
-        return bFlag;
-    }
-
-    _reCreateCalendar() {        
-        this.calendar.removeAllChildNodes(); 
-        this.calendar.initStartEndDate();
-        this.calendar.createCalendar();        
-    }
-
     _setPrevBtnClickEvent() {        
-        try {
-            if (!this.prevBtn) 
-                throw new Error('[!] prevBtn is null. Unable to add event..')
-            else 
-                _.addEvent(this.prevBtn, 'click', this._prevBtnClickEventHandler.bind(this));
-        } catch(err) {
-            console.error(err.message);
-        }       
+        _.addEvent(this.prevBtn, 'click', this._prevBtnClickEventHandler.bind(this));
     }
 
     _prevBtnClickEventHandler() {
-        if(!this._calendarIsNull())  {
-            this.calendar.optionMonthMinus();
-            this._reCreateCalendar();
-        }                     
+        this._calendarReCreateAndMonthMinus(this.calendar);
+        if(this.anotherCalendar)
+            this._calendarReCreateAndMonthMinus(this.anotherCalendar);                
     }
 
     _setNextBtnClickEvent() {
-        try {
-            if (!this.nextBtn) 
-                throw new Error('[!] nextBtn is null. Unable to add event..')
-            else 
-                _.addEvent(this.nextBtn, 'click', this._nextBtnClickEventHandler.bind(this));
-        } catch(err) {
-            console.error(err.message);
-        }       
+        _.addEvent(this.nextBtn, 'click', this._nextBtnClickEventHandler.bind(this));
     }
 
     _nextBtnClickEventHandler() { 
-        if(!this._calendarIsNull())  {
-            this.calendar.optionMonthPlus();
-            this._reCreateCalendar();
-        }
+        this._calendarReCreateAndMonthPlus(this.calendar);
+        if(this.anotherCalendar)
+            this._calendarReCreateAndMonthPlus(this.anotherCalendar);
     }
-    
+
+    /**
+     * @param {Calendar} calendar 
+     */
+    _reCreateCalendar(calendar) {        
+        calendar.removeAllChildNodes(); 
+        calendar.initStartEndDate();
+        calendar.createCalendar();        
+    }
+
+    /**
+     * @param {Calendar} calendar 
+     */
+    _calendarReCreateAndMonthMinus(calendar) {
+        calendar.optionMonthMinus();
+        this._reCreateCalendar(calendar);
+    }
+
+    /**
+     * @param {Calendar} calendar 
+     */
+    _calendarReCreateAndMonthPlus(calendar) {
+        calendar.optionMonthPlus();
+        this._reCreateCalendar(calendar);
+    }
+
+    toggleCalendarWrapper() {
+        // 작성해야함
+    }
+
 }
 
 export default CalendarManager;

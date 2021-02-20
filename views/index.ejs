@@ -71,7 +71,7 @@
                                         <img src="./images/search-solid_ver2.svg" />
                                     </button>
                                 </label>
-                                <div class="calendarWrapper">
+                                <div class="calendarWrapper visibility--hidden">
                                     <button type="button" class="move-month__btn move-month__btn--left">
                                         <svg
                                             viewBox="0 0 18 18"
@@ -93,34 +93,7 @@
                                     </button>
                                     
                                     <div class="calendarSubWrapper">
-                                        <div class="calendar left">
-                                            <p class="year-month"></p>
-                                            <ul class="day">                                                
-                                                <li>일</li>
-                                                <li>월</li>
-                                                <li>화</li>
-                                                <li>수</li>
-                                                <li>목</li>
-                                                <li>금</li>
-                                                <li>토</li>
-                                            </ul> 
-                                            <div class="date__dynamic">
-                                            </div>
-                                        </div>
-                                        <div class="calendar right">
-                                            <p class="year-month"></p>
-                                            <ul class="day">                                                
-                                                <li>일</li>
-                                                <li>월</li>
-                                                <li>화</li>
-                                                <li>수</li>
-                                                <li>목</li>
-                                                <li>금</li>
-                                                <li>토</li>
-                                            </ul>             
-                                            <div class="date__dynamic">
-                                            </div>
-                                        </div>
+                                        <% include ./index/TwoCalendar %>                                        
                                     </div>
 
                                     <button type="button" class="move-month__btn move-month__btn--right">                                        
