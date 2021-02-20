@@ -1,3 +1,4 @@
+import { changeNullToBlank } from "./changeNullToBlank.js";
 export default class CalendarMaker {
   constructor($navMenuRoom, $navMenuActivity) {
     this.$navMenuRoom = $navMenuRoom;
@@ -9,16 +10,9 @@ export default class CalendarMaker {
     this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   }
 
-  changeNullToBlank(array) {
-    for (let i = 0; i < 35; i++) {
-      if (!array[i]) array[i] = ``;
-    }
-    return array;
-  }
-
   makeDateList(section) {
-    let isRight = 0;
-    section === "R" ? isRight++ : isRight;
+    let adderForNextMonth = 0;
+    section === "right" ? adderForNextMonth++ : adderForNextMonth;
 
     const today = new Date();
     today.setDate(1); //date를 1로 지정
@@ -26,7 +20,11 @@ export default class CalendarMaker {
     let dayIdx = today.getDay(); //각 달의 시작 요일의 idx
     let dateRawList = [];
 
-    for (let date = 1; date <= this.lastDateOfMonth[this.activeMonth]; date++) {
+    for (
+      let date = 1;
+      date <= this.lastDateOfMonth[this.activeMonth + adderForNextMonth];
+      date++
+    ) {
       dateRawList[dayIdx] = date;
       dayIdx++;
     }
@@ -34,19 +32,19 @@ export default class CalendarMaker {
   }
 
   showCalendar() {
-    const leftDateList = this.makeDateList("L");
-    const rightDateList = this.makeDateList("R");
+    const leftDateList = this.makeDateList("left");
+    const rightDateList = this.makeDateList("right");
 
-    this.drawTbody(this.changeNullToBlank(leftDateList), "left");
-    this.drawTbody(this.changeNullToBlank(rightDateList), "right");
+    this.drawTbody(changeNullToBlank(leftDateList), "left");
+    this.drawTbody(changeNullToBlank(rightDateList), "right");
   }
 
   drawTbody(tdList, section) {
-    let adderForMonth = 1;
+    let adderForNextMonth = 1;
     let btn = "<";
 
     if (section == "right") {
-      adderForMonth++;
+      adderForNextMonth++;
       btn = ">";
     }
 
@@ -60,10 +58,10 @@ export default class CalendarMaker {
       }
     }
 
-    const div = `<div id="calendar-${section}">
+    const calendarSection = `<div id="calendar-${section}">
       <div class="calendar-title">
         <button id="btn-${section}">${btn}</button>
-        <span>${this.year}년 ${this.activeMonth + adderForMonth}월</span>
+        <span>${this.year}년 ${this.activeMonth + adderForNextMonth}월</span>
       </div>
       <table class="calendar-table">
         <thead>
@@ -83,7 +81,7 @@ export default class CalendarMaker {
 
     document
       .querySelector(".search-calendar")
-      .insertAdjacentHTML("beforeend", div);
+      .insertAdjacentHTML("beforeend", calendarSection);
   }
 
   drawParentCalendar() {
