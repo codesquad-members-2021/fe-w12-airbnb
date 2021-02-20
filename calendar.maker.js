@@ -32,6 +32,7 @@ export class CalendarMaker {
       this.spare = 0;
       this.judgement = 0;
       this.savedData;
+      this.getDateInfo();
    }
 
    getDateInfo() {
@@ -242,10 +243,13 @@ export class CalendarMaker {
       document.body.addEventListener("click", ({
          target
       }) => {
-         if (!target.closest(".calendar_area")) {
+         const calendarBox = _.$('.calendar_box');
+         if (target.closest('.call_calendar') === dateBtn) {
             dateBtn.removeEventListener("click", readCalendarJS, false)
-            _.$('.calendar_box').classList.toggle('hide_show')
+            calendarBox.classList.toggle('hide_show')
+         } else if (!calendarBox.classList.contains('.hide_show') && !target.closest(".calendar_area")) {
+            calendarBox.classList.add('hide_show')
          }
-      }, true)
+      }, true);
    }
 }

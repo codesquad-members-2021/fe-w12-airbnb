@@ -121,4 +121,86 @@ destructuring assignment
 
 //?여러 개의 "case"문 묶기
 https://ko.javascript.info/switch#ref-2091
+
+//?class구현하기 실패 ->이유 ?
+// class SearchBarCtrl extends ClassCtrl {
+//    constructor(target, centerMenu, houseSearchBar, expSearchBar) {
+//       super(houseSearchBar, expSearchBar)
+//       this.target = target;
+//       this.houseBtn = centerMenu[0].textContent;
+//       this.expBtn = centerMenu[1].textContent;
+//       this.onlineBtn = centerMenu[2].textContent;
+//       this.ctrl();
+//    }
+
+//    ctrl() {
+//       if (this.target === this.houseBtn) {
+//          houseSearchBar.hide().bind(this.houseSearchBar);
+//          expSearchBar.show();
+//       }
+//       if (this.target === this.expBtn) {
+//          houseSearchBar.hide();
+//          expSearchBar.show();
+//       }
+//       if (this.target === this.onlineBtn)
+//          location.href = "https://www.airbnb.co.kr/s/experiences/online";
+//    }
+// }
+
+
+// //TODO: replaceChild로 바꿔보기.
+// const houseSearchBar = _.$All('.search_wrapper')[0];
+// const expSearchBar = _.$All('.search_wrapper')[1];
+// const centerMenu = _.$All(".menu_center>label>span");
+// centerMenu.forEach(el => el.addEventListener('click', ({
+//       target
+//    }) =>
+//    new SearchBarCtrl(target, centerMenu, houseSearchBar, expSearchBar)
+// ))
+// centerMenu.forEach(el => el.addEventListener('click', (evt) => getValue(evt));)
+
+
+//?class구현 오류, 메서드분리목적
+class BtnUI {
+   constructor(el) {
+      this.el = el;
+      this.makeMenu();
+   }
+
+   makeMenu() {
+      const menuBox = document.createElement('div');
+      menuBox.id = "menuBox";
+      menuBox.classList.add('toggleMenu', 'hide_show');
+      menuBox.innerHTML = `<ul>
+      <li><a id="sign_up" href="#">회원 가입</a></li>
+      <li><a href="#">로그인</a></li>
+      <hr>
+      <li><a href="#">숙소 호스트 되기</a></li>
+      <li><a href="#">체험 호스팅하기</a></li>
+      <li><a href="#">도움말</a></li>
+      </ul>`;
+
+      this.el.insertAdjacentElement("afterend", menuBox);
+      this.clickHandle()
+   }
+   //!clickHandle() {
+
+      document.body.addEventListener("click", ({
+         target
+      }) => {
+         let toggleMenuArea = target.closest('.toggleMenu');
+         let toggleBtnArea = target.closest('.toggleBtn');
+         const menuBoxShowingCtrl = new ClassCtrl(menuBox);
+         const classExistence = menuBox.matches('.hide_show');
+
+         if (toggleBtnArea && classExistence) {
+            menuBoxShowingCtrl.show();
+         } else if (toggleBtnArea && !classExistence) {
+            menuBoxShowingCtrl.hide();
+         } else if (!toggleBtnArea && !toggleMenuArea && !classExistence) {
+            menuBoxShowingCtrl.hide();
+         }
+      })
+   }
+}
 */
