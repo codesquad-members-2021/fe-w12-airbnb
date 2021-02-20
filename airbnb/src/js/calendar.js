@@ -102,11 +102,11 @@ class CalendarModel {
   }
   makeWeekHtml(week) {
     let daysHtml = week.reduce((acc, day) => acc + this.makeDayHtml(day), '');
-    return div(daysHtml, WEEK);
+    return div(daysHtml, CLASS_NAME.WEEK);
   }
   makeMonthHtml(month) {
     let weeksHtml = month.reduce((acc, week) => acc + this.makeWeekHtml(week), '');
-    return div(weeksHtml, MONTH);
+    return div(weeksHtml, CLASS_NAME.MONTH);
   }
   clearReserve() {
     this.startReserve = { month: 0, day: 0 };

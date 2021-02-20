@@ -37,13 +37,54 @@ header {
   margin-right: 15px;
   cursor: pointer;
 }
-
+.search-form__tab > li {
+  position: relative;
+  user-select: none;
+}
 .search-form__tab > a {
   padding: 5px;
   border: 1px black solid;
 }
 .search-form__tab > li:hover {
   opacity: 0.7;
+}
+.search-form__tab > li::after {
+  content: '';
+  width: 0;
+  left: 45%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  margin-top: 6px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.1s ease;
+}
+.search-form__tab > li:hover::after {
+  content: '';
+  width: 5px;
+  left: 45%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  margin-top: 6px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.1s ease;
+}
+.search-form__tab > li:focus {
+  outline: none;
+  opacity: 1;
+}
+.search-form__tab > li:focus::after {
+  opacity: 1;
+  content: '';
+  width: 25px;
+  left: 10%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  margin-top: 6px;
+  border-bottom: 2px solid rgba(255, 255, 255, 1);
+  transition: all 0.1s ease;
 }
 
 /* form-query */
