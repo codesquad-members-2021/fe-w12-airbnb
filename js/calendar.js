@@ -134,7 +134,7 @@
       for (let i = 1; i < LASTDAY[this.monthIdx] + 1; i++) {
         monthArr.push(i);
       }
-      console.log(monthArr);
+
       return monthArr;
     }
   }
@@ -244,7 +244,6 @@
 
     getNextNextMonth(calendarData.year, calendarData.month);
     function getNextNextMonth(currentYear, currentMonth) {
-      console.log(currentYear, currentMonth);
       if (currentMonth === 10) {
         currentMonth = 0;
         currentYear++;
@@ -254,7 +253,7 @@
       } else {
         currentMonth += 2;
       }
-      console.log(currentYear, currentMonth);
+
       const nextNextData = new CalendarData(currentYear, currentMonth);
       const nextNextBox = new CalendarBox(nextNextData.year, nextNextData.month, nextNextData.day, nextNextData.lastDay, STATUS.nextNext);
       nextNextBox.drawMonth();
@@ -264,4 +263,18 @@
   }
 
   calendarInit();
+
+  const $dayBox = document.getElementsByClassName('.day-box');
+  $dayBox.addEventListener('mouseenter', dayBoxHover);
+
+  console.log($dayBox);
+
+  function dayBoxHover(e) {
+    if (e.currentTarget.innerText === '') return;
+    e.currentTarget.classList.add('day-box--hover');
+  }
+
+  function pickCheckIn() {}
+
+  function pickCheckOut() {}
 })(window, document);
