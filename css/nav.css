@@ -407,6 +407,7 @@ input {
   font-size: 14px;
   cursor: default;
   height: 47px;
+  vertical-align: top;
 }
 
 .calendar--table > tbody > tr > td > div {

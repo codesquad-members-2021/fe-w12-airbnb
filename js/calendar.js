@@ -3,13 +3,19 @@
 
   const WEEKDAY = { 0: '일', 1: '월', 2: '화', 3: '수', 4: '목', 5: '금', 6: '토' };
   const $calendarWrapper = document.querySelector('.calendar__wrapper');
+  const TODAY = new Date();
 
   // 돔 생성 (그리기)
   class CalendarBox {
-    constructor(year, month) {
+    constructor(year, month, day, lastDay) {
       this.year = year;
       this.month = month;
+      this.day = day;
+      this.lastDay = lastDay;
       // this.id_num = 1;
+
+      console.log(this.day);
+      console.log(this.lastDay);
     }
 
     // Title: 년 월
@@ -48,7 +54,18 @@
       return week;
     }
 
-    // Weeks: 몇 주?
+    getWeekLine() {
+      let weekLine = 0;
+      if (this.lastDay === 28 && this.day === 0) {
+        return (weekLine = 4);
+      }
+      if (this.lastDay === 28 && this.day !== 0) {
+        return (weekLine = 5);
+      }
+      if (this.lastDay === 29 && this.day) {
+      }
+    }
+
     drawWeeks() {
       const WEEKS = {
         feb: 4,
@@ -94,7 +111,9 @@
       this.year = this.DATE.getFullYear();
       this.month = this.DATE.getMonth();
       this.date = this.DATE.getDate();
-      this.day = WEEKDAY[this.DATE.getDay()];
+      this.day = this.DATE.getDay();
+      this.lastDay = new Date(this.fullYear, this.monthIdx + 1, 0).getDate();
+      this.dayKorean = WEEKDAY[this.DATE.getDay()];
     }
 
     getMonthArr() {
@@ -110,35 +129,36 @@
   // 데이터 넣기
 
   class CalendarManager {
-    constructor(year, month, monthArr) {
+    constructor(year, month, day, monthArr) {
       this.year = year;
       this.month = month;
+      this.day = day;
       this.monthArr = monthArr;
       this.dayDOM = document.querySelectorAll(`#calendar${this.year}-${this.month + 1} .day-box`);
-      console.log(this.year);
-      console.log(this.month);
-      console.log(this.dayDOM);
     }
 
     inputMonth() {
       for (let i = 0; i < this.monthArr.length; i++) {
-        this.dayDOM[i].insertAdjacentHTML('afterbegin', this.monthArr[i]);
+        this.dayDOM[i + this.day].insertAdjacentHTML('afterbegin', this.monthArr[i]);
       }
     }
   }
 
-  const feb = new CalendarData(2021, 1); // 데이터 생성
-  const mar = new CalendarData(2021, 2);
+  const prevMonth = '';
+  // const thisMonth = new CalendarData(2021, 0); // 데이터 생성
+  const thisMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth()); // 데이터 생성
+  const nextMonth = new CalendarData(TODAY.getFullYear(), TODAY.getMonth() + 1); // 데이터 생성
+  const nextNextMonth = '';
 
-  const monthBox = new CalendarBox(feb.year, feb.month);
-  monthBox.drawMonth(); // 그리기 (아무래도 그린 후에 돔을 잡아야겠지?..)
-  const monthBox2 = new CalendarBox(mar.year, mar.month);
-  monthBox2.drawMonth();
+  const thisMonthBox = new CalendarBox(thisMonth.year, thisMonth.month, thisMonth.day, thisMonth.lastDay);
+  thisMonthBox.drawMonth(); // 그리기 (아무래도 그린 후에 돔을 잡아야겠지?..)
+  const nextMonthBox = new CalendarBox(nextMonth.year, nextMonth.month, nextMonth.day, nextMonth.lastDay);
+  nextMonthBox.drawMonth();
 
-  const dataPush = new CalendarManager(feb.year, feb.month, feb.getMonthArr());
-  dataPush.inputMonth();
-  const dataPush2 = new CalendarManager(mar.year, mar.month, mar.getMonthArr());
-  dataPush2.inputMonth();
+  const thisMonthDataPush = new CalendarManager(thisMonth.year, thisMonth.month, thisMonth.day, thisMonth.getMonthArr());
+  thisMonthDataPush.inputMonth();
+  const nextMonthDataPush = new CalendarManager(nextMonth.year, nextMonth.month, nextMonth.day, nextMonth.getMonthArr());
+  nextMonthDataPush.inputMonth();
 
   // css 추가
 })(window, document);
