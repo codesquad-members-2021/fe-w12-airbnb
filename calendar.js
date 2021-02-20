@@ -202,33 +202,47 @@ const build = () => {
 
 // ========================================================================== 달력 클릭시 값
 const CAL_BUTTON = document.querySelector(".CALENDAR_TABLE_BUTTON");
+const CALENDAR_TABLE_BUTTON_CLICK = "CALENDAR_TABLE_BUTTON_CLICK";
 const CHECK_IN = document.querySelector(".check_in");
 const CHECK_OUT = document.querySelector(".check_out");
+
 
 let begin = null; // 첫번째 클릭값
 let after = null; // 두번째 클릭값
 let count = 0;
+let first_day = null;
+let second_day = null;
 
 BOX.addEventListener("click", (e) => {
     const left = e.target.closest(".calendar_left");
     const right = e.target.closest(".calendar_right");
-    const day = e.target.value;
+    const day = Number(e.target.value);
+    count++;
 
-    if (begin === null) {
-        // 첫 클릭은 begin에 저장
+    // e.target.tagName === "INPUT" 드래그 되었을때 오동작을 방지하기 위함.
+
+    // CHECK_IN.innerHTML = `${today.getMonth()}월 ${first_day}일`; 체크인
+    // CHECK_OUT.innerHTML = `${today.getMonth()}월 ${second_day}일`; 체크아웃
+    
+    if (begin === null && e.target.tagName === "INPUT") {
+        // 첫 클릭은 begin에 저장+
         begin = day;
         // 첫 클릭 버튼 표시
-        e.target.classList.add("CALENDAR_TABLE_BUTTON_CLICK");
-        CHECK_IN.innerHTML = `${today.getMonth()}월 ${day}일`;
-    } else if (begin !== null) {
+        first_day = Number(e.target.value);
+        e.target.classList.add(CALENDAR_TABLE_BUTTON_CLICK);
+    } else if (begin !== null && e.target.tagName === "INPUT") {
         //두번째 클릭부터 after에 저장
         after = day;
         if (begin < after) {
+            second_day = Number(e.target.value);
             e.target.classList.add("CALENDAR_TABLE_BUTTON_CLICK");
-            CHECK_OUT.innerHTML = `${today.getMonth() + 1}월 ${day}일`;
-        } else if(begin > after) {
-            return;
+            CHECK_IN.innerHTML = `${today.getMonth()}월 ${first_day}일`;
+            CHECK_OUT.innerHTML = `${today.getMonth()}월 ${second_day}일`;
+        } else if (begin > after) {
+            second_day = Number(e.target.value);
+            e.target.classList.add("CALENDAR_TABLE_BUTTON_CLICK");
+            CHECK_IN.innerHTML = `${today.getMonth()}월 ${second_day}일`;
+            CHECK_OUT.innerHTML = `${today.getMonth()}월 ${first_day}일`; 
         }
-
     }
 });

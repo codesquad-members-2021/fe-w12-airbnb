@@ -5,8 +5,8 @@
     background-color: white;
     color: black;
     position: absolute;
-    width:110%;
-    left:-10%;
+    width:100%;
+    left:0;
     margin-top: 10px;
     border-radius: 10px;
 }
@@ -22,11 +22,12 @@
 
 .box_div {
     padding: 10px 0;
+    height:1.5rem;
     font-size: 13px;
 }
 
-.secondbox_div {
-    border-bottom: 2px solid #ebebeb;
+#secondbox_div {
+    border-bottom: 1px solid #ebebeb;
 }
 
 /* center 숙소 체험 box css*/
