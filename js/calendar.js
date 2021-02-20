@@ -1,96 +1,89 @@
-const today = new Date();
+const thisMonthDate = document.querySelector("#thisMonth--date");
+const nextMonthDate = document.querySelector("#nextMonth--date");
+const prevButton = document.querySelector('#prevButton');
+const nextButton = document.querySelector('#nextButton');
+let yearCount = new Date().getFullYear();
+let monthCount = new Date().getMonth();
 
-const setThisCalendarData = (year, month) => {
-    let calHtml = '';
-    const setFirstDate = new Date(year, month - 1, 1);
-    const firstDayOfWeek = setFirstDate.getDay();
-    const lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-    const firstDate = setFirstDate.getDate();
-    const prevLastDate = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+class Calendar {
+    constructor(year, month) {
+        this.year = year;
+        this.month = month;
+        this.calHtml = "";
+        this.dateCnt = 1;
+    }
 
-    let startDateCount = 1;
-    let lastDateCount = 1;
-
-    for (let i = 0; i < 6; i++) {
-        for (let j = 0; j < 7; j++) {
-            if (i == 0 && j < firstDayOfWeek) {
-                calHtml += `<div class='calendar__day borderHidden'>&nbsp;</div>`;
-            }
-            else if (i == 0 && j == firstDayOfWeek) {
-                calHtml += `<div class='calendar__day'><span>${startDateCount++}</span></div>`;
-            }
-            else if (i == 0 && j >= firstDayOfWeek) {
-                calHtml += `<div class='calendar__day'><span>${startDateCount++}</span></div>`;
-            }
-            else if (i > 0 && startDateCount <= lastDate) {
-                calHtml += `<div class='calendar__day'><span>${startDateCount++}</span></div>`;
-            }
-            else if (startDateCount > lastDate) {
-                calHtml += `<div class='borderHidden'></div>`;
+    makeCalendarData() {
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < 7; j++) {
+                if (i == 0 && j < this.firstDayOfWeek()) {
+                    this.calHtml += `<div class='calendar__day borderHidden'>&nbsp;</div>`;
+                }
+                else if (i == 0 && j == this.firstDayOfWeek()) {
+                    this.calHtml += `<div class='calendar__day'><span>${this.dateCnt++}</span></div>`;
+                }
+                else if (i == 0 && j >= this.firstDayOfWeek()) {
+                    this.calHtml += `<div class='calendar__day'><span>${this.dateCnt++}</span></div>`;
+                }
+                else if (i > 0 && this.dateCnt <= this.lastDate()) {
+                    this.calHtml += `<div class='calendar__day'><span>${this.dateCnt++}</span></div>`;
+                }
+                else if (this.dateCnt > this.lastDate()) {
+                    this.calHtml += `<div class='borderHidden'></div>`;
+                }
             }
         }
+        return this.calHtml
     }
-    return calHtml;
-};
 
-const setNextCalendarData = (year, month) => {
-    let calHtml = '';
-    const setFirstDate = new Date(year, month - 1, 1);
-    const firstDate = setFirstDate.getDate();
-    const firstDayOfWeek = setFirstDate.getDay();
-    const lastDate = new Date(today.getFullYear(), today.getMonth() + 2, 0).getDate();
-    const prevLastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-
-    let startDateCount = 1;
-    let lastDateCount = 1;
-
-    for (let i = 0; i < 6; i++) {
-        for (let j = 0; j < 7; j++) {
-            if (i == 0 && j < firstDayOfWeek) {
-                calHtml += `<div class='calendar__day borderHidden'>&nbsp;</div>`;
-            }
-            else if (i == 0 && j == firstDayOfWeek) {
-                calHtml += `<div class='calendar__day'><span'>${startDateCount++}</span></div>`;
-            }
-            else if (i == 0 && j > firstDayOfWeek) {
-                calHtml += `<div class='calendar__day'><span>${startDateCount++}</span></div>`;
-            }
-            else if (i > 0 && startDateCount <= lastDate) {
-                calHtml += `<div class='calendar__day'><span>${startDateCount++}</span></div>`;
-            }
-            else if (startDateCount > lastDate) {
-                calHtml += `<div class='borderHidden'></div>`;
-            }
-        }
+    firstDayOfWeek() {
+        return new Date(this.year, this.month, 1).getDay()
     }
-    return calHtml
-};
 
-const setFixDayCount = (number) => {
-    let fixNum = "";
-    if (number < 10) {
-        fixNum = "0" + number;
-    } else {
-        fixNum = number;
+    lastDate() {
+        return new Date(this.year, this.month + 1, 0).getDate()
     }
-    return fixNum;
-};
+}
+
+prevButton.addEventListener('click', function () {
+    if (monthCount <= 0) {
+        yearCount--;
+        monthCount = 11;
+    }
+    monthCount--;
+    init();
+});
+
+nextButton.addEventListener('click', function () {
+    if (monthCount >= 11) {
+        yearCount++;
+        monthCount = 0;
+    }
+    monthCount++;
+    init();
+});
+
+
+const cleanData = () => {
+    while (thisMonthDate.hasChildNodes()) {
+        thisMonthDate.removeChild(thisMonthDate.firstChild);
+    }
+    while (nextMonthDate.hasChildNodes()) {
+        nextMonthDate.removeChild(nextMonthDate.firstChild);
+    }
+}
 
 const init = () => {
-    if (today.getMonth() + 1 < 10) {
-        document.querySelector("#thisMonth--date").insertAdjacentHTML("beforeend", setThisCalendarData(today.getFullYear(), "0" + (today.getMonth() + 1)));
-        document.querySelector("#nextMonth--date").insertAdjacentHTML("beforeend", setNextCalendarData(today.getFullYear(), "0" + (today.getMonth() + 2)));
-        document.querySelector("#thisMonth--month").innerHTML = `${today.getFullYear()}년 0${today.getMonth() + 1}월`;
-        document.querySelector("#nextMonth--month").innerHTML = `${today.getFullYear()}년 0${today.getMonth() + 2}월`;
-    } else {
-        document.querySelector("#thisMonth--date").insertAdjacentHTML("beforeend", setThisCalendarData(today.getFullYear(), "" + (today.getMonth() + 1)));
-        document.querySelector("#nextMonth--date").insertAdjacentHTML("beforeend", setNextCalendarData(today.getFullYear(), "" + (today.getMonth() + 2)));
-        document.querySelector("#thisMonth--month").innerHTML = `${today.getFullYear()}년 ${today.getMonth() + 1}월`;
-        document.querySelector("#nextMonth--month").innerHTML = `${today.getFullYear()}년 ${today.getMonth() + 2}월`;
-    }
+    cleanData();
+    const currCalendar = new Calendar(yearCount, monthCount)
+    const nextCalendar = new Calendar(yearCount, monthCount + 1)
+
+    document.querySelector("#thisMonth--month").innerHTML = `${yearCount}년 ${monthCount + 1}월`;
+    document.querySelector("#nextMonth--month").innerHTML = `${yearCount}년 ${monthCount + 2}월`;
+    thisMonthDate.insertAdjacentHTML("beforeend", currCalendar.makeCalendarData());
+    nextMonthDate.insertAdjacentHTML("beforeend", nextCalendar.makeCalendarData());
 }
 init();
 
-const prevButton = document.querySelector('#prevButton')
-const nextButton = document.querySelector('#nextButton')
+
 
