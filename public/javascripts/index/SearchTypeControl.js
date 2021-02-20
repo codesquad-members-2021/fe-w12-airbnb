@@ -1,6 +1,6 @@
 import _ from '../util.js';
 
-class SearchBarControl {
+class SearchTypeControl {
     constructor(target) {
         this.target = target;
 
@@ -65,4 +65,4 @@ class SearchBarControl {
     }
 }
 
-export default SearchBarControl;
+export default SearchTypeControl;

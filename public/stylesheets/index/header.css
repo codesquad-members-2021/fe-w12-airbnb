@@ -58,22 +58,22 @@
     text-align: center;
 }
 
-/* 2-1) 검색 : 검색 옵션 */
-.header__main__search__options > input[type='radio'] {
+/* 2-1) 검색 : 검색 타입 (옵션) */
+.header__main__search__types > input[type='radio'] {
     display: none;
 }
 
-.header__main__search__options > input[type='radio'] + label {
+.header__main__search__types > input[type='radio'] + label {
     display: inline-block;    
     padding: 0 13px;
     cursor: pointer;
 }
 
-.header__main__search__options > input[type='radio'] + label:hover {
+.header__main__search__types > input[type='radio'] + label:hover {
     filter: brightness(0.85);
 }
 
-.header__main__search__options > input[type='radio']:checked + label:after {
+.header__main__search__types > input[type='radio']:checked + label:after {
     /* input[type='radio']:checked 클릭 시 밑줄 */
     content: "";
     display: block;

@@ -1,12 +1,12 @@
 import _ from './util.js';
-import SearchBarControl from './index/SearchBarControl.js';
+import SearchTypeControl from './index/SearchTypeControl.js';
 import TabUI from './index/TabUI.js';
 import Calendar from './index/Calendar.js';
 import CalendarManager from './index/CalendarManager.js';
 
-// 상단 큰 검색바
-const inputList = _.$All('.header__main__search__options input');
-inputList.forEach((input) => new SearchBarControl(input).init());
+// 상단 큰 검색바 위, RadioBtns 클릭 시 SearchBar 디자인 상태 변경
+const SearchTypeList = _.$All('.header__main__search__types input');
+SearchTypeList.forEach((input) => new SearchTypeControl(input).init());
 
 // 햄버거
 const tabUISetting = new TabUI(
