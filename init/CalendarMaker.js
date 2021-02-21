@@ -31,7 +31,7 @@ export default class CalendarMaker {
     return dateRawList;
   }
 
-  showCalendar() {
+  drawCalendar() {
     const leftDateList = this.makeDateList("left");
     const rightDateList = this.makeDateList("right");
 
@@ -91,6 +91,6 @@ export default class CalendarMaker {
 
   init() {
     this.drawParentCalendar();
-    this.showCalendar();
+    this.drawCalendar();
   }
 }

@@ -36,13 +36,17 @@ export default class CalendarManager {
     this.init();
   }
 
+  showSelectedDate(selectedDate) {
+    this.$activityDate.classList.add("date-view-selected");
+    this.$activityDate.textContent = selectedDate;
+  }
+
   selectDate(event) {
     const $tdLeft = document.getElementsByClassName("td-left");
     const $tdRight = document.getElementsByClassName("td-right");
     const $selectedDate = event.target;
     const selectedDate = `?월 ${$selectedDate.textContent}일`;
-    this.$activityDate.classList.add("date-view-selected");
-    this.$activityDate.textContent = selectedDate;
+    this.showSelectedDate(selectedDate);
 
     for (let node of $tdLeft) {
       if (node.classList.contains("td-circle")) {
