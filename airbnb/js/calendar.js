@@ -145,49 +145,52 @@ function getcalendarData(monthNum){
 }
 
 
+// 이벤트 호출 
 
+//달력 삽입
+const datebtn = document.querySelector("#search__box__date");
 const calendar__zone = document.querySelector(".calendar__zone");
 
-
-
-// 이벤트 호출 
-const datebtn = document.querySelector("#search__box__date");
-console.log(datebtn);
-
 const c1h = document.querySelector(".calendar-1");
-console.log(c1h);
 const c2h= document.querySelector(".calendar-2");
-console.log(c2h);
 const c3h= document.querySelector(".calendar-3");
-console.log(c3h);
-
-  datebtn.addEventListener('click',function(e){
-      console.log("wTF");
-      calendar__zone.classList.toggle('act');
-      // c1h.insertAdjacentHTML("beforeend", getcalendarData(0));
-      // c2h.insertAdjacentHTML("beforeend", getcalendarData(1));
-      // c3h.insertAdjacentHTML("beforeend",getcalendarData(2));
-
-  });
+const c4h= document.querySelector(".calendar-3");
 
 
+//날짜 입력시 캘린더 drop 
+datebtn.addEventListener('click',function(e){
+    console.log("wTF");
+    calendar__zone.classList.toggle('act');
+});
+
+//달력 삽입
 c1h.insertAdjacentHTML("beforeend", getcalendarData(0));
 c2h.insertAdjacentHTML("beforeend", getcalendarData(1));
 c3h.insertAdjacentHTML("beforeend",getcalendarData(2));
+c3h.insertAdjacentHTML("beforeend",getcalendarData(3));
 
-
+//달력 외 클릭 시 닫힘 
 datebtn.addEventListener('blur',function(e){
   calendar__zone.classList.remove('act');
 
 });
 
-const calendar__next_btn = document.querySelector(".calendar__next-btn-real");
-console.log(calendar__next_btn);
+
+//달력 이동 이벤트  
 const calendar__box = document.querySelector(".calendar__box");
+const calendar__next_btn = document.querySelector(".calendar__next-btn-real");
+const calendar__prev_btn = document.querySelector(".calendar__prev-btn-real");
 
+//달력 오른쪽 버튼
 calendar__next_btn.addEventListener('click',function(e){
-  console.log("버튼 누름");
-  calendar__box.classList.add('shiftCalendar');
+  console.log("후 버튼 누름");
+  calendar__box.classList.add('shiftCalendarRight');  
+})
 
-  
+//달력 왼쪽 버튼 
+calendar__prev_btn.addEventListener('click',function(e){
+  console.log("전 버튼 누름");
+  calendar__box.classList.remove('shiftCalendarRight');  
+
+  // calendar__box.classList.add('shiftCalendarRight');  
 })
