@@ -25,16 +25,20 @@ document.addEventListener('click', (e) => {
 
 // 1. 이번 달의 1일이 무슨 요일인지 알아내기
 const today = new Date();
+const year = today.getFullYear();
+const currMonth = today.getMonth();
+let changedMonth = today.getMonth();
+let nextMonth = changedMonth + 1;
 
-function getFirstDay() {
-  let firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+function getFirstDay(year, month) {
+  let firstDay = new Date(year, month, 1);
   const whatDayOfFirst = firstDay.getDay(); // 1, 즉 월요일
   return whatDayOfFirst;
 }
 
 // 2. 이번 달의 마지막 날짜가 며칠인지 알아내기
-function getLastDate() {
-  let lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+function getLastDate(year, month) {
+  let lastDay = new Date(year, month + 1, 0);
   const lastDate = lastDay.getDate(); // 28
   return lastDate;
 }
