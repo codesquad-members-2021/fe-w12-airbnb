@@ -9,9 +9,9 @@ const _ = {
     createTextNode: (strTxt) => document.createTextNode(strTxt),
     appendChild: (target, child) => target.appendChild(child),
     addEvent: (target, eventType, callback, options = false) => target.addEventListener(eventType, callback, options),    
-    setAttr: (target, strName, strValue) => target.setAttribute(strName, strValue),    
-    getAttr: (target, strName) => target.getAttribute(strName),
-    removeAttr: (target, strName) => target.removeAttribute(strName),
+    setAttr: (target, strAttrName, strValue) => target.setAttribute(strAttrName, strValue),    
+    getAttr: (target, strAttrName) => target.getAttribute(strAttrName),
+    removeAttr: (target, strAttrName) => target.removeAttribute(strAttrName),
 };
 
 export default _;

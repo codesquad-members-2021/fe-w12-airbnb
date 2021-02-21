@@ -36,41 +36,44 @@
                         <div class="header__main__search">
                             <div class="header__main__search__types">                            
                                 <!-- label의 for는 label안에 요소가 있으면 안써도 됨!  -->
-                                <input type="radio" name="selSearchOpt" id="rooms" checked/>
+                                <input type="radio" name="selSearchType" id="rooms" checked/>
                                 <label for="rooms">숙소</label>                            
                                 
-                                <input type="radio" name="selSearchOpt" id="experience"/>
+                                <input type="radio" name="selSearchType" id="experience"/>
                                 <label for="experience">체험</label>
                                 
-                                <input type="radio" name="selSearchOpt" id="onlineExperience"/> 
+                                <input type="radio" name="selSearchType" id="onlineExperience"/> 
                                 <label for="onlineExperience">온라인 체험</label>
                             </div>
-                            <div class="header__main__search__bar">                                                                
-                                <input type="button" name="locationInput" id="locationInput"/>
+                            <div class="header__main__search__bar">      
+                                <input type="hidden" name="prevSearchBarOption" id="prevSearchBarOption"/>
+
+                                <input type="radio" name="selSearchBarOptions" id="locationInput"/>
                                 <label for="locationInput" class="locationType">
                                     <p>위치</p>
                                     <p class="information">어디로 여행가세요?</p>
                                 </label>
-                                <input type="button" name="checkin" id="checkin"/>
+                                <input type="radio" name="selSearchBarOptions" id="checkin"/>
                                 <label for="checkin" class="roomsType">
                                     <p>체크인</p>
                                     <p class="information">날짜 추가</p>
                                 </label>
-                                <input type="button" name="checkout" id="checkout"/>
+                                <input type="radio" name="selSearchBarOptions" id="checkout"/>
                                 <label for="checkout" class="roomsType">
                                     <p>체크아웃</p>
                                     <p class="information">날짜 추가</p>
                                 </label>
-                                <input type="button" name="guestAdd" id="guestAdd"/>
+                                <input type="radio" name="selSearchBarOptions" id="guestAdd"/>
                                 <label for="guestAdd" class="roomsType">
                                     <p>인원</p>
                                     <p class="information">게스트 추가</p>
                                 </label>
-                                <input type="button" name="selectDate" id="selectDate"/>
+                                <input type="radio" name="selSearchBarOptions" id="selectDate"/>
                                 <label for="selectDate" class="experienceType displayNone" >
                                     <p>날짜</p>
                                     <p class="information">원하는 날짜를 입력하세요.</p>
-                                </label>                                                        
+                                </label>
+                                
                                 <label class="noPadding">
                                     <button type="button" class="searchBarBtn">
                                         <img
