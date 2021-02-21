@@ -8,9 +8,13 @@ import {
 import {
    calendarTpl
 } from './calendar.tpl.js';
+import {
+   CalendarCtrl
+} from './calendar.ctrl.js';
 
-export class CalendarMaker {
+export class CalendarMaker extends CalendarCtrl {
    constructor(date, calendarArea) {
+      super()
       this.date = date;
       this.calendar_area = calendarArea;
       this.month_day_count = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -26,12 +30,12 @@ export class CalendarMaker {
       this.lastday_next_month;
       this.firstday_last_month;
       this.lastday_last_month;
-      this.week1 = '';
-      this.week2 = '';
+
       this.startDay = 0;
       this.spare = 0;
       this.judgement = 0;
-      this.savedData;
+      this.week1 = '';
+      this.week2 = '';
       this.getDateInfo();
    }
 
@@ -76,13 +80,14 @@ export class CalendarMaker {
       let calendarBar = document.createElement("div");
       calendarBar.className = "calendar_box";
       calendarBar.innerHTML = calendarTpl;
-
       this.calendar_area.insertAdjacentElement("afterBegin", calendarBar);
+
       const prevBtn = _.$('.prev_btn');
       const nextBtn = _.$('.next_btn');
 
-      prevBtn.addEventListener("click", this.prevBtnEvent.bind(this));
-      nextBtn.addEventListener("click", this.nextBtnEvent.bind(this));
+      const btn_p_n = new CalendarCtrl();
+      prevBtn.addEventListener("click", btn_p_n.prevBtnEvent.bind(this));
+      nextBtn.addEventListener("click", btn_p_n.nextBtnEvent.bind(this));
       this.getDateHTML();
    }
 
@@ -116,35 +121,9 @@ export class CalendarMaker {
       this.blurBeforeToday();
    }
 
-   prevBtnEvent() {
-      this.savedData = this.saveClickedData();
-      this.week1 = '';
-      this.week2 = '';
-      this.current_year = this.last_year;
-      this.current_month = this.last_month;
-      this.date = new Date(`${this.current_year}-${this.current_month}-01`);
-      this.calendar_area.removeChild(this.calendar_area.firstChild);
-      this.getDateInfo()
-   }
-
-   nextBtnEvent() {
-      this.savedData = this.saveClickedData();
-      this.week1 = '';
-      this.week2 = '';
-      this.current_year = this.next_year;
-      this.current_month = this.next_month;
-      this.date = new Date(`${this.current_year}-${this.current_month}-01`);
-      this.calendar_area.removeChild(this.calendar_area.firstChild);
-      this.getDateInfo()
-   }
-
-   saveClickedData() {
-      return Array.from(_.$All(".clicked"));
-   }
-
    blurBeforeToday() {
       _.$All(".calendar_date div").forEach(el => {
-         const today = new Date();
+         let today = new Date();
          let beforeToday = new Date(`${this.targetYearMonth(el)[0]}-${this.targetYearMonth(el)[1]}-${el.innerText}`);
 
          if ((today - beforeToday >= 0) || el.innerHTML === '&nbsp;') {
@@ -177,68 +156,6 @@ export class CalendarMaker {
       return [year_month[0], year_month[1]];
    }
 
-   clickEventCtrl(el) {
-      this.judgement += 1;
-      el.classList.add("clicked");
-      let clickedDate = el.innerText;
-      let clickedDivNode = _.$All('.clicked');
-      let clickedDivArr = Array.from(clickedDivNode);
-
-      switch (this.judgement) {
-         case 2:
-            if (this.savedData) {
-               clickedDivArr = this.savedData.concat(clickedDivArr)
-            }
-            //클릭역행한경우
-            if (clickedDate < clickedDivArr[1].innerText) {
-               clickedDivArr[1].classList.remove('clicked');
-               this.judgement = 1;
-            }
-            break;
-
-         case 3:
-            if (this.savedData) {
-               clickedDivArr = this.savedData.concat(clickedDivArr)
-            }
-            if (clickedDate === clickedDivArr[clickedDivArr.length - 1].innerText) {
-               clickedDivArr.pop();
-               clickedDivArr.forEach(e => {
-                  e.classList.remove('clicked')
-               });
-               this.judgement = 1;
-            }
-            if ((clickedDate !== clickedDivArr[clickedDivArr.length - 1].innerText) && (clickedDate !== clickedDivArr[0].innerText)) {
-               clickedDivArr[0].classList.remove('clicked');
-               this.judgement = 2;
-            }
-            if (clickedDate === clickedDivArr[0].innerText) {
-               clickedDivArr.shift();
-               clickedDivArr.forEach(el => {
-                  el.classList.remove('clicked')
-               });
-               this.judgement = 1;
-            }
-            break;
-      }
-      this.stampDate(clickedDivArr);
-   }
-
-   stampDate(clickedDivArr) {
-      let checkIn = _.$(".check_in");
-      let checkOut = _.$(".check_out");
-
-      if (clickedDivArr.length === 1) checkOut.innerText = '';
-      for (let i = 0; i < clickedDivArr.length; i++) {
-         let stampMonth = this.targetYearMonth(clickedDivArr[i])[1];
-         if (i === 0) {
-            checkIn.innerText = `${stampMonth}월 ${clickedDivArr[0].innerText}일`;
-            checkIn.classList.remove("placeholder");
-         } else {
-            checkOut.innerText = `- ${stampMonth}월 ${clickedDivArr[1].innerText}일`;
-         }
-      }
-   }
-
    closeCalendar() {
       document.body.addEventListener("click", ({
          target
@@ -253,5 +170,3 @@ export class CalendarMaker {
       }, true);
    }
 }
-
-export class CalendarCtrl {}

@@ -24,7 +24,6 @@ export class ScrollCtrl extends ClassCtrl {
          if (screenStatus === true) {
             this.header1.show();
             this.header2.hide();
-            s
          } else {
             this.header1.hide();
             this.header2.show();

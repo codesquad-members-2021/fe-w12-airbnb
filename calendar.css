@@ -1,10 +1,10 @@
 .calendar_area {
-  position: absolute;
+  position: relative;
 }
 
 .calendar_box {
   position: absolute;
-  left: 350px;
+  left: 530px;
   display: flex;
   justify-content: space-between;
   width: 840px;
