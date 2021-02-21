@@ -1,15 +1,25 @@
 import CalendarMaker from "./CalendarMaker.js";
-
 export default class CalendarManager {
   constructor($activityDate, $navMenuRoom, $navMenuActivity) {
     this.$activityDate = $activityDate;
     this.$navMenuRoom = $navMenuRoom;
     this.$navMenuActivity = $navMenuActivity;
+    this.$activityDateView = document.querySelector(".date-view");
     this.calendarUI = new CalendarMaker($navMenuRoom, $navMenuActivity);
     this.checkInDate;
     this.checkOutDate;
     this.paintCount = 1;
     this.init();
+  }
+
+  showCalendar() {
+    this.calendarUI.init(); //달력을 그린다.
+    this.onEvents(); //그려진 달력 요소를 가져와 이벤트를  등록한다..
+    document.addEventListener("click", this.hideCalendar.bind(this));
+  }
+
+  hideCalendar() {
+    console.log(1);
   }
 
   movePrevMonth() {
@@ -61,7 +71,7 @@ export default class CalendarManager {
       $selectedDate.classList.add("td-circle");
       this.paintCount++;
     } else {
-      // count가 2인데 선택한 곳에 td circle class가 없다  + 들어온 값이 end date다. >
+      // count가 2인데 선택한 곳에 td circle class가 없다  + 들어온 값이 end date다. ???
       this.paintCount--;
     }
   }
@@ -100,19 +110,22 @@ export default class CalendarManager {
   onEvents() {
     const $leftTbody = document.querySelector(".calendar-left-tbody");
     const $rightTbody = document.querySelector(".calendar-right-tbody");
+    const $leftBtn = document.querySelector("#btn-left");
+    const $rightBtn = document.querySelector("#btn-right");
+
     $leftTbody.addEventListener("click", this.selectDate.bind(this));
     //$rightTbody.addEventListener("click", this.selectDate.bind(this));
-    document
-      .querySelector("#btn-left")
-      .addEventListener("click", this.movePrevMonth.bind(this));
-
-    document
-      .querySelector("#btn-right")
-      .addEventListener("click", this.moveNextMonth.bind(this));
+    $leftBtn.addEventListener("click", this.movePrevMonth.bind(this));
+    $rightBtn.addEventListener("click", this.moveNextMonth.bind(this));
   }
 
   init() {
-    this.calendarUI.init();
-    this.onEvents();
+    this.$activityDateView.addEventListener(
+      "click",
+      this.showCalendar.bind(this)
+    );
+
+    //그럼 이전에 뭐가 있어야할까? > 체험을 눌렀을 때 보이는 날짜 div를 클릭했을 때 이벤트를 받아와야한다.
+    // 근데 체험을 눌렀을 때 event가
   }
 }

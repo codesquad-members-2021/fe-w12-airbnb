@@ -7,7 +7,7 @@ export default class SearchBarUI {
     this.init();
   }
   changeSearchBar() {
-    for (let node of this.$radioList) {
+    for (const node of this.$radioList) {
       if (node.checked && node.value === "room") {
         this.menuRoom.classList.replace("display-none", "display-block");
         this.menuActivity.classList.replace("display-block", "display-none");

@@ -6,7 +6,6 @@ export default class CalendarMaker {
     this.today = new Date();
     this.year = this.today.getFullYear();
     this.activeMonth = this.today.getMonth();
-
     this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   }
 

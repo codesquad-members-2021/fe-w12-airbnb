@@ -43,8 +43,6 @@ export default class HamburgerTabUI {
     if (!event.target.className.includes("popup") && this.bPopUp) {
       this.table.remove();
       this.bPopUp = false;
-    } else {
-      return;
     }
   }
 
