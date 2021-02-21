@@ -18,9 +18,12 @@ class CalendarManager {
 
     init() {
         this.calendar.createCalendar();
+        this.calendar.setResultDateCustomEvent();
 
-        if(this.anotherCalendar)   
+        if(this.anotherCalendar) {
             this.anotherCalendar.createCalendar();
+            this.anotherCalendar.setResultDateCustomEvent();
+        }
     }
 
     _initCreateComponents() {
@@ -33,7 +36,7 @@ class CalendarManager {
                     btnList.find((btn) => _.classContains(btn, 'move-month__btn--left')),
                     btnList.find((btn) => _.classContains(btn, 'move-month__btn--right')),
                 );
-                this._setButtonsEvent();   
+                this._setButtonsEvent();
             }                
         } catch(err) {
             console.error(err.message);
@@ -98,11 +101,6 @@ class CalendarManager {
         calendar.optionMonthPlus();
         this._reCreateCalendar(calendar);
     }
-
-    toggleCalendarWrapper() {
-        // 작성해야함
-    }
-
 }
 
 export default CalendarManager;
