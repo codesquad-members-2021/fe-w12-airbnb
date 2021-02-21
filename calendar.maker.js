@@ -234,7 +234,7 @@ export class CalendarMaker {
             checkIn.innerText = `${stampMonth}월 ${clickedDivArr[0].innerText}일`;
             checkIn.classList.remove("placeholder");
          } else {
-            checkOut.innerText = `${stampMonth}월 ${clickedDivArr[1].innerText}일`;
+            checkOut.innerText = `- ${stampMonth}월 ${clickedDivArr[1].innerText}일`;
          }
       }
    }
@@ -253,3 +253,5 @@ export class CalendarMaker {
       }, true);
    }
 }
+
+export class CalendarCtrl {}

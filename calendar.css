@@ -70,3 +70,9 @@
   background-color: rgb(34, 34, 34);
   color: rgba(255, 255, 255, 1);
 }
+
+.check_in,
+.check_out {
+  display: inline-block;
+  margin-top: 3px;
+}

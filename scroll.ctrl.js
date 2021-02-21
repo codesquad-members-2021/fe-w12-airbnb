@@ -12,26 +12,23 @@ export class ScrollCtrl extends ClassCtrl {
       this.header1 = new ClassCtrl(_.$(".header1"));
       this.header2 = new ClassCtrl(_.$(".header2"));
    }
+
    onScrollEvents() {
 
       this.targetEl.addEventListener('scroll', (evt) => {
          let currentScrollValue = this.targetEl.documentElement.scrollTop;
          let screenStatus;
          console.log('currentScrollValue is ' + currentScrollValue);
-
-         if (currentScrollValue >= 60) {
-            evt.preventDefault();
-            screenStatus = false;
-         } else {
-            screenStatus = true;
-         }
+         (currentScrollValue >= 100) ? screenStatus = false: screenStatus = true;
 
          if (screenStatus === true) {
             this.header1.show();
             this.header2.hide();
+            s
          } else {
             this.header1.hide();
             this.header2.show();
+            _.$('.background').classList.add('disappear');
          }
       })
    }

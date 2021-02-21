@@ -53,7 +53,7 @@ section span {
   background: rgba(255, 255, 255);
   z-index: 9999;
   position: sticky;
-  top: 0;
+  top: 0px;
 }
 
 .h2_layout {
@@ -112,20 +112,20 @@ section span {
 }
 
 /** HEADER =====================**/
-header .corona {
+.corona {
   background-color: black;
   text-align: center;
   padding: 20px;
 }
 
-header .corona a {
+.corona a {
   color: rgba(255, 255, 255, 0.925);
   font-size: 14px;
   font-weight: bold;
   text-decoration: underline;
 }
 
-header .corona a:hover {
+.corona a:hover {
   color: rgba(184, 164, 164, 0.633);
 }
 
@@ -137,7 +137,7 @@ header .background {
   box-sizing: border-box;
 }
 
-header .background::before {
+header .basic_menu::before {
   content: "";
   width: 100%;
   height: 120px;
@@ -148,18 +148,26 @@ header .background::before {
   );
 }
 
+header .basic_menu div {
+  z-index: 9999;
+}
+
 header .basic_menu {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   color: rgba(255, 255, 255, 0.925);
-  margin-top: 35px;
+  height: 100px;
+  padding: 0;
   position: relative;
 }
 
 header .basic_menu div {
   width: 15vw;
+}
+.basic_menu .logo {
+  padding: 0 150px;
 }
 
 .logoIMG {
@@ -266,6 +274,7 @@ header .basic_menu div {
 
 .toggleBtn {
   padding: 5px 10px;
+  margin-right: 150px;
   border: none;
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.925);
@@ -424,7 +433,8 @@ header .basic_menu div {
 
 header .title {
   color: rgba(255, 255, 255, 0.925);
-  margin-top: 250px;
+  margin-top: 220px;
+  margin-left: 150px;
 }
 
 header .ment {

@@ -31,6 +31,4 @@ export const dateBtn = _.$('.call_calendar');
 dateBtn.addEventListener('click', readCalendarJS);
 
 //* BtnCtrl
-
-
 _.$All(".toggleBtn").forEach((el => new UserBtnCtrl(el)))
