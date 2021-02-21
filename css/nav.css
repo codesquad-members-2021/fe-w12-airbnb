@@ -422,22 +422,24 @@ input {
   font-weight: 500;
 }
 
-/* 나중에 바꿔야 될 수도 있지만... */
-/* .calendar--table > tbody > tr > td > div:hover {
+.calendar--table > tbody > tr > td > .day-box-data:hover {
   width: 45px;
   height: 44px;
   color: rgb(34, 34, 34);
   border-radius: 50px;
   background: rgb(255, 255, 255);
   border: 1.5px solid rgb(34, 34, 34);
-} */
-.day-box--hover {
-  width: 45px;
-  height: 44px;
-  color: rgb(34, 34, 34);
+}
+
+.calendar--table > tbody > tr > td > .day-box-data:active {
+  background: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+}
+
+.calendar--table > tbody > tr > td .day-box-data--pick {
+  background: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
   border-radius: 50px;
-  background: rgb(255, 255, 255);
-  border: 1.5px solid rgb(34, 34, 34);
 }
 
 .calendar__prev--button-box {

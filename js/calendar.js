@@ -153,6 +153,7 @@
     inputMonth() {
       for (let i = 0; i < this.monthArr.length; i++) {
         this.dayDOM[i + this.day].insertAdjacentHTML('afterbegin', this.monthArr[i]);
+        this.dayDOM[i + this.day].classList.add('day-box-data');
       }
     }
   }
@@ -264,14 +265,11 @@
 
   calendarInit();
 
-  const $dayBox = document.getElementsByClassName('.day-box');
-  $dayBox.addEventListener('mouseenter', dayBoxHover);
+  const $dayBoxData = document.querySelectorAll('.day-box-data');
+  $dayBoxData.forEach((element) => element.addEventListener('click', dayBoxDataPick));
 
-  console.log($dayBox);
-
-  function dayBoxHover(e) {
-    if (e.currentTarget.innerText === '') return;
-    e.currentTarget.classList.add('day-box--hover');
+  function dayBoxDataPick(e) {
+    e.currentTarget.classList.replace('day-box-data', 'day-box-data--pick');
   }
 
   function pickCheckIn() {}
