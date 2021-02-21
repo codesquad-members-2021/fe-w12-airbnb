@@ -1,38 +1,39 @@
 import CalendarMaker from "./CalendarMaker.js";
-export default class CalendarManager extends CalendarMaker {
+
+export default class CalendarManager {
   constructor($activityDate, $navMenuRoom, $navMenuActivity) {
-    //자식이 받아오는애
-    super($navMenuRoom, $navMenuActivity); //먼저 실행(부모 메소드 쓸 때 필요한 경우
     this.$activityDate = $activityDate;
-    this.childInit();
+    this.$navMenuRoom = $navMenuRoom;
+    this.$navMenuActivity = $navMenuActivity;
+    this.calendarUI = new CalendarMaker($navMenuRoom, $navMenuActivity);
+    this.init();
   }
 
   movePrevMonth() {
     const $calendar = document.querySelector(".search-calendar");
     if ($calendar) $calendar.remove();
 
-    if (this.activeMonth <= 0) {
-      this.activeMonth = 11;
-      --this.year;
+    if (this.calendarUI.activeMonth <= 0) {
+      this.calendarUI.activeMonth = 11;
+      --this.calendarUI.year;
     } else {
-      --this.activeMonth;
+      --this.calendarUI.activeMonth;
     }
+
     this.init();
-    this.childInit();
   }
 
   moveNextMonth() {
     const $calendar = document.querySelector(".search-calendar");
     if ($calendar) $calendar.remove();
 
-    if (this.activeMonth >= 10) {
-      this.activeMonth = 0;
-      ++this.year;
+    if (this.calendarUI.activeMonth >= 10) {
+      this.calendarUI.activeMonth = 0;
+      ++this.calendarUI.year;
     } else {
-      ++this.activeMonth;
+      ++this.calendarUI.activeMonth;
     }
     this.init();
-    this.childInit();
   }
 
   selectDate(event) {
@@ -62,10 +63,10 @@ export default class CalendarManager extends CalendarMaker {
   }
 
   onEvents() {
-    const leftTbodyEl = document.querySelector(".calendar-left-tbody");
-    const rightTbodyEl = document.querySelector(".calendar-right-tbody");
-    leftTbodyEl.addEventListener("click", this.selectDate.bind(this));
-    rightTbodyEl.addEventListener("click", this.selectDate.bind(this));
+    const $leftTbody = document.querySelector(".calendar-left-tbody");
+    const $rightTbody = document.querySelector(".calendar-right-tbody");
+    $leftTbody.addEventListener("click", this.selectDate.bind(this));
+    $rightTbody.addEventListener("click", this.selectDate.bind(this));
     document
       .querySelector("#btn-left")
       .addEventListener("click", this.movePrevMonth.bind(this));
@@ -75,7 +76,8 @@ export default class CalendarManager extends CalendarMaker {
       .addEventListener("click", this.moveNextMonth.bind(this));
   }
 
-  childInit() {
+  init() {
+    this.calendarUI.init();
     this.onEvents();
   }
 }

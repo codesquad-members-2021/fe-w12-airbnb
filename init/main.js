@@ -21,8 +21,8 @@ const init = () => {
     $navMenuActivity
   );
 
-  const calendarUI = new CalendarMaker($navMenuRoom, $navMenuActivity);
-  calendarUI.init();
+  // const calendarUI = new CalendarMaker($navMenuRoom, $navMenuActivity);
+  // calendarUI.init();
 
   const calendarManager = new CalendarManager(
     $activityDate,
