@@ -20,54 +20,71 @@ document.addEventListener('click', (e) => {
   }
 })
 
-// 달력 데이터
-// 일단 이번 달부터 출력해보자.
-
-// 1. 이번 달의 1일이 무슨 요일인지 알아내기
-const today = new Date();
-const year = today.getFullYear();
-const currMonth = today.getMonth();
-let changedMonth = today.getMonth();
-let nextMonth = changedMonth + 1;
-
-function getFirstDay(year, month) {
-  let firstDay = new Date(year, month, 1);
-  const whatDayOfFirst = firstDay.getDay(); // 1, 즉 월요일
-  return whatDayOfFirst;
-}
-
-// 2. 이번 달의 마지막 날짜가 며칠인지 알아내기
-function getLastDate(year, month) {
-  let lastDay = new Date(year, month + 1, 0);
-  const lastDate = lastDay.getDate(); // 28
-  return lastDate;
-}
-
-// 3. monthArr에 숫자 채우기
-function makeMonthData(dayOfFirst, lastDate) {
-  const monthArr = Array.from({ length: 6 }, () => new Array(7).fill(null));
-  let num = 1;
-  // 3-1. 1주차 채우기
-  for(let i = dayOfFirst; i <= 6; i++) {
-    monthArr[0][i] = num;
-    num ++;
+// 달력 데이터 관리
+class CalendarModel {
+  constructor() {
+    this.today = new Date();
+    this.year = this.today.getFullYear();
+    this.currMonth = this.today.getMonth();
+    this.changedMonth = this.today.getMonth();
+    this.nextMonth = this.changedMonth + 1;
   }
-  // 3-2. 2주차 ~ 마지막주차 채우기
-  for(let i = 1; i <= 5; i++) {
-    for(let j = 0; j <= 6; j++) {
-      if(num > lastDate) break;
-      monthArr[i][j] = num;
+
+  init() {
+    this.makeCalendarArr(this.year, this.currMonth); // month값이 버튼 클릭할 때마다 바뀌어야 하는데..
+  }
+
+  getFirstDay(year, month) {
+    let firstDay = new Date(year, month, 1);
+    const whatDayOfFirst = firstDay.getDay();
+    return whatDayOfFirst;
+  }
+
+  getLastDate(year, month) {
+    let lastDay = new Date(year, month + 1, 0);
+    const lastDate = lastDay.getDate();
+    return lastDate;
+  }
+
+  makeCalendarArr(year, month) {
+    const dayOfFirst = this.getFirstDay(year, month);
+    const lastDate = this.getLastDate(year, month);
+    const calendarArr = Array.from({ length: 6 }, () => new Array(7).fill(null));
+    let num = 1;
+    // 1. 1주차 채우기
+    for(let i = dayOfFirst; i <= 6; i++) {
+      calendarArr[0][i] = num;
       num++;
     }
+    // 2. 2주차 ~ 마지막주차 채우기
+    for(let i = 1; i <= 5; i++) {
+      for(let j = 0; j <= 6; j++) {
+        if(num > lastDate) break;
+        calendarArr[i][j] = num;
+        num++;
+      }
+    }
+    if(!calendarArr[5][0]) calendarArr.pop(); // 6주차 날짜가 없으면 삭제
+    console.log(calendarArr);
+    return calendarArr;
   }
-  if(!monthArr[5][0]) monthArr.pop(); // 6주차 날짜가 없으면 삭제
-  return monthArr;
 }
 
-// 4. monthArr 데이터를 이용하여 화면에 표시하기
-// monthArr의 요소를 반복문으로 돌면서 태그 안에 넣을거다.
-function renderCalendar(dayOfFirst, lastDate) {
-  const monthArr = makeMonthData(dayOfFirst, lastDate);
+// 사용자의 조작 - 이벤트 핸들러는 여기에
+class CalendarController {
+
+}
+
+// 화면에 달력 데이터 뿌려줌
+class CalendarView {
+
+}
+
+
+
+// calendarArr 데이터를 이용하여 화면에 표시하기
+function renderCalendar(dayOfFirst, lastDate) { // 파라미터 calendarArr을 받아오도록 수정하기
+  const calendarArr = makeMonthData(dayOfFirst, lastDate);
   const tbody = document.querySelector('tbody');
   const daysTemplete = `
     <tr>
@@ -81,7 +98,7 @@ function renderCalendar(dayOfFirst, lastDate) {
     </tr>
   `
   
-  let finalResult = monthArr.reduce((prev, week) => {
+  let finalResult = calendarArr.reduce((prev, week) => {
     let result = week.reduce((prev, day) => {
       if(!day) day = '';
       return prev + `<td>${day}</td>`;
@@ -95,11 +112,7 @@ function renderCalendar(dayOfFirst, lastDate) {
   tbody.innerHTML = finalResult;
 }
 
-function init() {
-  const dayOfFirst = getFirstDay();
-  const lastDate = getLastDate();
 
-  renderCalendar(dayOfFirst, lastDate);
-}
-
-init();
+// ------------------------------------- 테스트 -------------------------------------
+const model = new CalendarModel();
+model.init();
