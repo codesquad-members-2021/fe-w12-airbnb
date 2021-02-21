@@ -37,12 +37,9 @@ class SearchTypeControl {
     // --------------------------------
 
     _roomsTypeControl() {
-        this.roomsTypeList.forEach((label) => {
-            _.classAdd(label, 'displayInit');
-            _.classRemove(label, 'displayNone');
-        });
+        this.roomsTypeList.forEach((label) => _.classRemove(label, 'displayNone'));
 
-        _.classRemove(this.experienceType, 'displayInit', 'w55');
+        _.classRemove(this.experienceType,'w55');
         _.classAdd(this.experienceType, 'displayNone');
 
         if (_.classContains(this.locationType, 'w45'))
@@ -51,13 +48,10 @@ class SearchTypeControl {
     }
 
     _experienceTypeControl() {
-        this.roomsTypeList.forEach((label) => {
-            _.classAdd(label, 'displayNone');
-            _.classRemove(label, 'displayInit');
-        });
+        this.roomsTypeList.forEach((label) => _.classAdd(label, 'displayNone'));
 
         _.classRemove(this.experienceType, 'displayNone');
-        _.classAdd(this.experienceType, 'displayInit', 'w55');
+        _.classAdd(this.experienceType,'w55');
 
         if (_.classContains(this.locationType, 'wAuto'))
             _.classRemove(this.locationType, 'wAuto');
