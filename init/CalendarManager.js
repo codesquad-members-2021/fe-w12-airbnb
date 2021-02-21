@@ -6,6 +6,9 @@ export default class CalendarManager {
     this.$navMenuRoom = $navMenuRoom;
     this.$navMenuActivity = $navMenuActivity;
     this.calendarUI = new CalendarMaker($navMenuRoom, $navMenuActivity);
+    this.checkInDate;
+    this.checkOutDate;
+    this.paintCount = 1;
     this.init();
   }
 
@@ -36,41 +39,69 @@ export default class CalendarManager {
     this.init();
   }
 
-  showSelectedDate(selectedDate) {
+  showSelectedDate() {
     this.$activityDate.classList.add("date-view-selected");
-    this.$activityDate.textContent = selectedDate;
+    const checkIn = `${
+      this.checkInDate.getMonth() + 1
+    }월 ${this.checkInDate.getDate()}일`;
+
+    if (!this.checkOutDate) {
+      this.$activityDate.textContent = `${checkIn}`;
+    } else {
+      const checkOut = `${this.checkOutDate.getMonth() + 1}월 
+      ${this.checkOutDate.getDate()}일`;
+      this.$activityDate.textContent = `${checkIn}-${checkOut}`;
+    }
+  }
+
+  paintDateBlack(selectedDate, isCheckInDate) {
+    const $selectedDate = selectedDate;
+
+    if (this.paintCount <= 2) {
+      $selectedDate.classList.add("td-circle");
+      this.paintCount++;
+    } else {
+      // count가 2인데 선택한 곳에 td circle class가 없다  + 들어온 값이 end date다. >
+      this.paintCount--;
+    }
   }
 
   selectDate(event) {
-    const $tdLeft = document.getElementsByClassName("td-left");
-    const $tdRight = document.getElementsByClassName("td-right");
-    const $selectedDate = event.target;
-    const selectedDate = `?월 ${$selectedDate.textContent}일`;
-    this.showSelectedDate(selectedDate);
+    const $selected = event.target;
+    let isCheckInDate;
 
-    for (let node of $tdLeft) {
-      if (node.classList.contains("td-circle")) {
-        node.classList.remove("td-circle");
-        $selectedDate.classList.add("td-circle");
-      } else {
-        $selectedDate.classList.add("td-circle");
-      }
+    this.$selectedNumber = $selected.textContent;
+    this.$selectedDate = new Date(
+      this.calendarUI.year,
+      this.calendarUI.activeMonth,
+      this.$selectedNumber
+    );
+
+    if (!this.checkInDate) {
+      //첫 클릭
+      this.checkInDate = this.$selectedDate;
+      isCheckInDate = true;
+      this.paintDateBlack($selected, isCheckInDate);
+    } else if (this.checkInDate && this.checkInDate < this.$selectedDate) {
+      //두번 째 클릭이 check in 보다 늦으면 > check out으로
+      this.checkOutDate = this.$selectedDate;
+      isCheckInDate = false;
+      this.paintDateBlack($selected, isCheckInDate);
+    } else if (this.checkInDate && this.checkInDate > this.$selectedDate) {
+      // 두번째 클릭이 check in 보다 이르면 > check in 날짜 변경
+      this.checkInDate = this.$selectedDate;
+      isCheckInDate = true;
+      this.paintDateBlack($selected, isCheckInDate);
     }
-    for (let node of $tdRight) {
-      if (node.classList.contains("td-circle")) {
-        node.classList.remove("td-circle");
-        $selectedDate.classList.add("td-circle");
-      } else {
-        $selectedDate.classList.add("td-circle");
-      }
-    }
+
+    this.showSelectedDate();
   }
 
   onEvents() {
     const $leftTbody = document.querySelector(".calendar-left-tbody");
     const $rightTbody = document.querySelector(".calendar-right-tbody");
     $leftTbody.addEventListener("click", this.selectDate.bind(this));
-    $rightTbody.addEventListener("click", this.selectDate.bind(this));
+    //$rightTbody.addEventListener("click", this.selectDate.bind(this));
     document
       .querySelector("#btn-left")
       .addEventListener("click", this.movePrevMonth.bind(this));
