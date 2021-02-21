@@ -15,6 +15,9 @@
 
 export default class CalendarMaker {
     constructor() {
+        this.year;
+        this.month;
+        this.today;
         this.firstDayName; // 1일 요일
         this.lastDay;      // 마지막 일
         this.lastDayName;  // 마지막 일 요일
@@ -22,8 +25,14 @@ export default class CalendarMaker {
     }
     getCalendar(year, month) {
         this.saveMonthInfo(year, month);
-        const html = this.getCalendarHtml();
+        const isPrev = this.isPrevMonth(year, month);
+        const html = this.getCalendarHtml(isPrev);
         return html;
+    }
+    isPrevMonth(year, month) {
+        const isPrev = (year < this.year || year === this.year && month < this.month) ?  'isPrev'
+        : (year == this.year && month == this.month) ? 'needCheck' : 'isNotPrev';
+        return isPrev;
     }
 
     saveMonthInfo(year, month) {
@@ -33,37 +42,46 @@ export default class CalendarMaker {
         this.lastDayName = last.getDay();
     }
 
-    getCalendarHtml() {
-        const html = this.getFirstWeek() + this.getMiddleWeek() + this.getLastWeek();
+    getCalendarHtml(isPrev) {
+        const html = this.getFirstWeek(isPrev) + this.getMiddleWeek(isPrev) + this.getLastWeek(isPrev);
         return html; 
     }
 
-    getFirstWeek() {
+    getFirstWeek(isPrev) {
         this.lastDayOfWeek = 7 - this.firstDayName;
         let week = `<tr>`;
         for(let i = 0; i < this.firstDayName; i++) {
             week += `<td></td>`
         }
         for(let j = 0; j < this.lastDayOfWeek; j++) {
-            week += `<td><span>${j + 1}</span></td>`
+            const date = j + 1;
+            const isPrevDate = isPrev === 'isPrev' || (isPrev === 'needCheck' && date < this.today);
+            if(isPrevDate) week += `<td><span class="prevDate">${date}</span></td>`
+            else { week += `<td><span>${date}</span></td>` }
         }
         return week + `</tr>`;
     }
 
-    getMiddleWeek(week = `<tr>`) {
+    getMiddleWeek(isPrev, week = `<tr>`) {
         for(let i = 0; i < 7; i++) {
-            week += `<td><span>${this.lastDayOfWeek + i + 1}</span></td>`
+            const date = this.lastDayOfWeek + i + 1;
+            const isPrevDate = isPrev === 'isPrev' || (isPrev === 'needCheck' && date < this.today);
+            if(isPrevDate) week += `<td><span class="prevDate">${date}</span></td>`
+            else { week += `<td><span>${date}</span></td>` }
         }
         this.lastDayOfWeek += 7;
         if(this.lastDayOfWeek + 7 >= this.lastDay) return week +`</tr>`;
-        else return this.getMiddleWeek(week + `</tr>`);
+        else return this.getMiddleWeek(isPrev, week + `</tr>`);
     }
 
-    getLastWeek() {
+    getLastWeek(isPrev) {
         const lastDayName = this.lastDayName + 1
         let week = `<tr>`;
         for(let i = 0; i < lastDayName; i++) {
-            week += `<td><span>${this.lastDayOfWeek + i + 1}</span></td>`
+            const date = this.lastDayOfWeek + i + 1;
+            const isPrevDate = isPrev === 'isPrev' || (isPrev === 'needCheck' && date < this.today);
+            if(isPrevDate) week += `<td><span class="prevDate">${date}</span></td>`
+            else { week += `<td><span>${date}</span></td>` }
         }
         for(let j = 0; j < 7 - lastDayName; j++) {
             week += `<td></td>`

@@ -36,10 +36,10 @@ export default class CalendarView {
     }
     toggleCalendar() {
         if(this.calendarDiv.classList.contains('hidden')) {
+            const today = new Date();
+            [this.maker.year, this.maker.month, this.maker.today] = [today.getFullYear(), today.getMonth(), today.getDate()]
             if(!this.isSelected) {
-                const today = new Date();
-                const [year, month] = [today.getFullYear(), today.getMonth()];
-                this.renderCalendar(year, month);
+                this.renderCalendar(this.maker.year, this.maker.month);
             } 
             // else {
             //     // 날짜를 선택했었다면, 창을 닫았다가 다시 켤 때 선택한 날짜의 달력이 나타나도록!
