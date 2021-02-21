@@ -5,12 +5,6 @@
 [✔] 달력 다음 버튼 클릭하면 다음달 보여주기
 [ ] 달력 날짜 버튼 클릭하면 스타일 적용 + 검색창에 날짜 표시 */
 
-// 년, 월이 어떻게 바뀌는지 로직을 짜야함. 
-// 1) 날짜 지정이 안 됐다면 현재 기준으로 달력 표시
-// 2) 날짜 지정후에 다시 달력을 켠다면 지정한 날짜가 있는 달력을 보여줘야 하고,
-//    지정한 날짜 스타일 유지해야함.
-// 3) 버튼을 누르면 현재달에 +, -
-
 export default class CalendarView {
     constructor({activityDate, calendarDiv, calendarTitles, calendarDates, calendarBtns}, calendarMaker) {
         this.activityDate = activityDate;
@@ -40,10 +34,9 @@ export default class CalendarView {
             [this.maker.year, this.maker.month, this.maker.today] = [today.getFullYear(), today.getMonth(), today.getDate()]
             if(!this.isSelected) {
                 this.renderCalendar(this.maker.year, this.maker.month);
-            } 
-            // else {
+            } // else {
             //     // 날짜를 선택했었다면, 창을 닫았다가 다시 켤 때 선택한 날짜의 달력이 나타나도록!
-            //     this.renderCalendar(yearSelected, monthSelected);
+            //     this.renderCalendar(this.yearSelected, this.monthSelected);
             // }
             this.calendarDiv.classList.remove('hidden');
         } else {
