@@ -469,6 +469,10 @@ header > nav {
   border: 1px solid transparent;
 }
 
+.calendar td > div.none-pointable {
+  color: rgb(177, 182, 187);
+}
+
 .calendar td > div.pointable:hover {
   border-color: rgb(0, 0, 0);
 }
@@ -478,16 +482,18 @@ header > nav {
   color: rgb(255, 255, 255);
 }
 
-.calendar td.picked {
-  background-color: rgb(238, 239, 240);
+.calendar td.picked-range {
+  background-color: rgb(114, 134, 155);
 }
 
-.calendar td.picked.left-rounded {
-  border-radius: 0 50% 50% 0;
-}
-
-.calendar td.picked.right-rounded {
+.calendar td.picked-range-begin {
   border-radius: 50% 0 0 50%;
+  background-color: rgb(114, 134, 155);
+}
+
+.calendar td.picked-range-end {
+  border-radius: 0 50% 50% 0;
+  background-color: rgb(114, 134, 155);
 }
 
 section {

@@ -18,9 +18,9 @@ export class CalendarController {
   }
 
   isShown() { return !this.views[0].targetEl.hidden; }
-  isPickedBeginDate() { return Boolean(this.model.beginDate); }
-  isPickedEndDate() { return Boolean(this.model.endDate); }
-  isPickComplete() { return this.isPickedBeginDate() && this.isPickedEndDate(); }
+  isPickedBeginDate() { return this.model.isPickedBeginDate(); }
+  isPickedEndDate() { return this.model.isPickedEndDate(); }
+  isPickComplete() { return this.model.isPickComplete(); }
 
   registerCustomEventHandler(eventName, eventHandler) {
     if (eventName !== 'pickbegin' && eventName !== 'pickend')
@@ -34,7 +34,6 @@ export class CalendarController {
       throw new Error(`Unsupported pick mode: ${pickMode}`);
 
     this.pickMode = pickMode;
-    // this.model.pickMode = pickMode;
   }
 
   datePick({ target, rawDate }) {
@@ -156,7 +155,7 @@ export class CalendarController {
       if (weeks.length === 0 || currDate.getDay() === 0)
         weeks.push(Array(7).fill(null));
 
-      weeks[weeks.length - 1][currDate.getDay()] = new Date(date.getFullYear(), date.getMonth(), currDate.getDate());
+      weeks[weeks.length - 1][currDate.getDay()] = new Date(date.getFullYear(), date.getMonth(), currDate.getDate(), 0, 0, 0, 0);
     }
 
     return weeks;
@@ -183,14 +182,46 @@ class CalendarView {
     this.targetEl.firstElementChild.innerHTML = `${year}년 ${month}월`;
   }
 
-  updateWeeks(weeks) {
+  updateWeeks(weeks, todayDate) {
     const tbody = this.targetEl.querySelector('tbody');
     tbody.innerHTML = '';
 
     weeks.forEach(week => {
       const rowEl = document.createElement('TR');
-      week.forEach(date => rowEl.appendChild(this._createCellElement(date)) );
+
+      week.forEach(date => {
+        rowEl.appendChild(this._createCellElement(date, { isValid: date && (date.valueOf() >= todayDate.valueOf()) }))
+      });
+
       tbody.appendChild(rowEl);
+    });
+  }
+
+  updatePickedRange(from, to) { // FIXME
+    const cellEls = this.targetEl.querySelectorAll(`td`);
+
+    cellEls.forEach((cellEl, currIdx) => {
+      if (!cellEl.firstElementChild.classList.contains('pointable'));
+      else if (currIdx > from && currIdx < to) cellEl.classList.add('picked-range');
+      else if (currIdx === from && currIdx === to);
+      else if (currIdx === from) cellEl.classList.add('picked-range-begin');
+      else if (currIdx === to) cellEl.classList.add('picked-range-end');
+    });
+  }
+
+  resetPickedRange(from, to) { // FIXME
+    const cellEls = document.querySelectorAll(`td`);
+    
+    cellEls.forEach((cellEl, currIdx) => {
+      // if (!cellEl.firstElementChild.classList.contains('pointable'));
+      // else if (currIdx > from && currIdx < to) cellEl.classList.remove('picked-range');
+      // else if (currIdx === from && currIdx === to);
+      // else if (currIdx === from) cellEl.classList.remove('picked-range-begin');
+      // else if (currIdx === to) cellEl.classList.remove('picked-range-end');
+
+      if (cellEl.classList.contains('picked-range')) cellEl.classList.remove('picked-range');
+      if (cellEl.classList.contains('picked-range-begin')) cellEl.classList.remove('picked-range-begin');
+      if (cellEl.classList.contains('picked-range-end')) cellEl.classList.remove('picked-range-end');
     });
   }
 
@@ -211,15 +242,20 @@ class CalendarView {
       </table>`
   }
 
-  _createCellElement(date) {
+  _createCellElement(date, { isValid }) {
     const cellEl = document.createElement('TD');
     const dateEl = document.createElement('DIV');
 
     if (date) {
       cellEl.setAttribute('data-text', `${date.valueOf()}`);
 
-      dateEl.classList.add('solid-rounded');
-      dateEl.classList.add('pointable');
+      if (isValid) {
+        dateEl.classList.add('solid-rounded');
+        dateEl.classList.add('pointable');
+      } else {
+        dateEl.classList.add('none-pointable');
+      }
+
       dateEl.innerText = `${date.getDate()}`;
     }
 
@@ -229,7 +265,6 @@ class CalendarView {
   }
 
   _onCellClick({ currentTarget: cellEl }) {
-    // cellEl.classList.add('picked');
     this.controller.datePick({
       target: cellEl,
       rawDate: Number(cellEl.dataset.text)
@@ -238,18 +273,31 @@ class CalendarView {
 }
 
 class CalendarModel {
+  /*
+    COMMANT:
+    As I have thought of these..,
+    It seems that the properties for HTML Element should be moved to 'CalendarView'.
+  */
   constructor(calendarCount, views, date) {
     this.calendarCount = calendarCount;
     this.views = views;
     this.currDate = date;
-    this.todayDate = date;
+    this.todayDate = new Date(date);
     this.weeksList = [];
-    // this.pickMode;
-    this.beginCellEl;
     this.beginDate;
-    this.endCellEl;
     this.endDate;
+    this.beginCellEl;
+    this.endCellEl;
+
+    this.beginViewIdx;
+    this.endViewIdx;
+    this.beginCellIdx;
+    this.endCellIdx;
   }
+
+  isPickedBeginDate() { return Boolean(this.beginDate); }
+  isPickedEndDate() { return Boolean(this.endDate); }
+  isPickComplete() { return this.isPickedBeginDate() && this.isPickedEndDate(); }
 
   pushFrontWeeks(weeks) {
     this.currDate.setMonth(this.currDate.getMonth() - 1);
@@ -275,28 +323,42 @@ class CalendarModel {
   }
 
   setBeginDate(cellEl, date) {
+    CalendarView.GivePickEffectTo(cellEl);
+
     this.beginCellEl = cellEl;
     this.beginDate = date;
-    CalendarView.GivePickEffectTo(cellEl);
+
+    if (this.isPickComplete())
+      this._updatePickedRange();
   }
 
   unsetBeginDate() {
     if (this.beginCellEl !== this.endCellEl)
       CalendarView.EliminatePickEffectTo(this.beginCellEl);
 
+    if (this.isPickComplete())
+      this._resetPickedRange();
+    
     this.beginCellEl = null;
     this.beginDate = null;
   }
 
   setEndDate(cellEl, date) {
+    CalendarView.GivePickEffectTo(cellEl);
+
     this.endCellEl = cellEl;
     this.endDate = date;
-    CalendarView.GivePickEffectTo(cellEl);
+
+    if (this.isPickComplete())
+      this._updatePickedRange();
   }
 
   unsetEndDate() {
     if (this.beginCellEl !== this.endCellEl)
       CalendarView.EliminatePickEffectTo(this.endCellEl);
+
+    if (this.isPickComplete())
+      this._resetPickedRange();
 
     this.endCellEl = null;
     this.endDate = null;
@@ -309,7 +371,76 @@ class CalendarModel {
 
   _updateView(viewIdx) {
     const tmpDate = new Date(this.currDate.getFullYear(), this.currDate.getMonth() + viewIdx);
-    this.views[viewIdx].updateWeeks(this.weeksList[viewIdx + 1]);
+    this.views[viewIdx].updateWeeks(this.weeksList[viewIdx + 1], this.todayDate);
     this.views[viewIdx].updateYearMonth(tmpDate.getFullYear(), tmpDate.getMonth() + 1);
+  }
+
+  _updatePickedRange() {
+    this.beginDate.setHours(0, 0, 0, 0);
+    this.endDate.setHours(0, 0, 0, 0);
+
+    const [beginViewIdx, endViewIdx, beginCellIdx, endCellIdx] = this._getIndicesForPickedRange();
+
+    if (beginViewIdx === endViewIdx) {
+      this.views[beginViewIdx].updatePickedRange(beginCellIdx, endCellIdx);
+    } else {
+      this.views[beginViewIdx].updatePickedRange(beginCellIdx, 99999); // FIXME
+      this.views[endViewIdx].updatePickedRange(-1, endCellIdx); // FIXME
+
+      for (let viewIdx = beginViewIdx + 1; viewIdx < endViewIdx; viewIdx++)
+        this.views[viewIdx].updatePickedRange(-1, 99999); // FIXME
+    }
+  }
+
+  _resetPickedRange() {
+    this.beginDate.setHours(0, 0, 0, 0);
+    this.endDate.setHours(0, 0, 0, 0);
+
+    const [beginViewIdx, endViewIdx, beginCellIdx, endCellIdx] = this._getIndicesForPickedRange();
+
+    if (beginViewIdx === endViewIdx) {
+      this.views[beginViewIdx].resetPickedRange(beginCellIdx, endCellIdx);
+    } else {
+      this.views[beginViewIdx].resetPickedRange(beginCellIdx, 99999); // FIXME
+      this.views[endViewIdx].resetPickedRange(-1, endCellIdx); // FIXME
+
+      for (let viewIdx = beginViewIdx + 1; viewIdx < endViewIdx; viewIdx++)
+        this.views[viewIdx].resetPickedRange(-1, 99999); // FIXME
+    }
+  }
+
+  _getIndicesForPickedRange() {
+    let beginViewIdx;
+    let endViewIdx;
+    let beginCellIdx;
+    let endCellIdx;
+
+    this.weeksList.some((weeks, weeksIdx) => {
+      beginCellIdx = -1;
+
+      return (weeksIdx > 0 && weeksIdx < weeks.length - 2 &&
+        weeks.some(week => { 
+          return week.some(date => {
+            beginCellIdx++;
+            return Boolean(date && date.valueOf() === this.beginDate.valueOf());
+          });
+        }) &&
+        ((beginViewIdx = weeksIdx - 1) || true));
+    });
+
+    this.weeksList.some((weeks, weeksIdx) => {
+      endCellIdx = -1;
+
+      return (weeksIdx > 0 && weeksIdx < weeks.length - 1 &&
+        weeks.some(week => { 
+          return week.some(date => {
+            endCellIdx++;
+            return Boolean(date && date.valueOf() === this.endDate.valueOf());
+          });
+        }) &&
+        ((endViewIdx = weeksIdx - 1) || true));
+    });
+
+    return [beginViewIdx, endViewIdx, beginCellIdx, endCellIdx];
   }
 }
