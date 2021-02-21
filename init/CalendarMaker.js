@@ -6,7 +6,7 @@ export default class CalendarMaker {
     this.today = new Date();
     this.year = this.today.getFullYear();
     this.activeMonth = this.today.getMonth();
-    this.dayList = ["일", "월", "화", "수", "목", "금", "토"];
+
     this.lastDateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   }
 
@@ -39,6 +39,13 @@ export default class CalendarMaker {
     this.drawTbody(changeNullToBlank(rightDateList), "right");
   }
 
+  drawDayOfWeek() {
+    const days = ["일", "월", "화", "수", "목", "금", "토"];
+    return days.reduce((totalDay, curDay) => {
+      return totalDay + `<th>${curDay}</th>`;
+    }, "");
+  }
+
   drawTbody(tdList, section) {
     let adderForNextMonth = 1;
     let btn = "<";
@@ -65,15 +72,7 @@ export default class CalendarMaker {
       </div>
       <table class="calendar-table">
         <thead>
-          <tr>
-            <th>일</th>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-            <th>토</th>
-          </tr>
+          <tr>${this.drawDayOfWeek()}</tr>
         </thead>
         <tbody class="calendar-${section}-tbody">${tBody}</tbody>
       </table>
