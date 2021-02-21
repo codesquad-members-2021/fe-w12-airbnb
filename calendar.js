@@ -4,6 +4,12 @@ export class CalendarController {
     this.calendarCount = calendarCount;
     this.views = [];
     this.model = new CalendarModel(this.calendarCount, this.views, date);
+    this.pickMode;
+    this.eventHandlers = new Map([
+      ['pickbegin', []],
+      ['pickend', []],
+      ['pickcomplete', []]
+    ]);
   }
 
   init() {
@@ -11,18 +17,105 @@ export class CalendarController {
     this._initModel();
   }
 
-  isShown() {
-    return !this.views[0].targetEl.hidden;
+  isShown() { return !this.views[0].targetEl.hidden; }
+  isPickedBeginDate() { return Boolean(this.model.beginDate); }
+  isPickedEndDate() { return Boolean(this.model.endDate); }
+  isPickComplete() { return this.isPickedBeginDate() && this.isPickedEndDate(); }
+
+  registerCustomEventHandler(eventName, eventHandler) {
+    if (eventName !== 'pickbegin' && eventName !== 'pickend')
+      throw new Error(`Unsupported event: ${eventName}`);
+
+    this.eventHandlers.get(eventName).push(eventHandler);
   }
 
   setPickMode(pickMode) {
     if (pickMode !== 'beginPick' && pickMode !== 'endPick')
-      throw new Error("Unsupported pick mode!");
+      throw new Error(`Unsupported pick mode: ${pickMode}`);
 
-    this.model.pickMode = pickMode;
+    this.pickMode = pickMode;
+    // this.model.pickMode = pickMode;
   }
 
-  insertViewBefore(el) { 
+  datePick({ target, rawDate }) {
+    const _executeCustomEventHandlersFor = (eventName, date = null) => {
+      this.eventHandlers.get(eventName).forEach(handler => handler(date));
+    };
+
+    switch (this.pickMode) {
+      case 'beginPick': {
+        if (!this.model.beginDate) {
+          if (rawDate > this.model.endDate) {
+            this.model.unsetEndDate();
+            this.model.setBeginDate(target, new Date(rawDate));
+            _executeCustomEventHandlersFor('pickbegin', new Date(rawDate));
+            // TODO: execute 'pickcomplete' handler..
+
+            return;
+          }
+
+          this.model.setBeginDate(target, new Date(rawDate));
+          _executeCustomEventHandlersFor('pickbegin', new Date(rawDate));
+
+          return;
+        }
+      }
+      
+      case 'endPick': {
+        if (!this.model.endDate) {
+          if (this.model.beginDate && rawDate < this.model.beginDate.valueOf()) {
+            this.model.unsetBeginDate();
+            this.model.unsetEndDate();
+            this.model.setBeginDate(target, new Date(rawDate));
+            _executeCustomEventHandlersFor('pickbegin', new Date(rawDate));
+
+            return;
+          }
+
+          this.model.setEndDate(target, new Date(rawDate));
+          _executeCustomEventHandlersFor('pickend', new Date(rawDate));
+
+          return;
+        } else {
+          if (rawDate > this.model.beginDate.valueOf() && rawDate < this.model.endDate.valueOf()) {
+            this.model.unsetEndDate();
+            this.model.setEndDate(target, new Date(rawDate));
+            _executeCustomEventHandlersFor('pickend', new Date(rawDate));
+
+            return;
+          }
+
+          if (rawDate < this.model.beginDate.valueOf()) {
+            this.model.unsetBeginDate();
+            this.model.unsetEndDate();
+            this.model.setBeginDate(target, new Date(rawDate));
+            _executeCustomEventHandlersFor('pickbegin', new Date(rawDate));
+
+            return;
+          }
+
+          if (rawDate < this.model.beginDate.valueOf()) {
+            this.model.unsetEndDate();
+            this.model.setBeginDate(target, new Date(rawDate));
+            _executeCustomEventHandlersFor('pickbegin', new Date(rawDate));
+
+            return;
+          }
+
+          this.model.unsetEndDate();
+          this.model.setEndDate(target, new Date(rawDate));
+          _executeCustomEventHandlersFor('pickend', new Date(rawDate));
+
+          return;
+        }
+      }
+
+      default:
+        throw new Error('Not reached!');
+    }
+  }
+
+  insertViewBefore(el) {
     this.views.forEach(view => this.parentEl.insertBefore(view.targetEl, el));
   }
 
@@ -36,10 +129,6 @@ export class CalendarController {
     const weeks = this._createWeeksFrom(new Date(this.model.currDate.getFullYear(), this.model.currDate.getMonth() + this.calendarCount + 1));
     this.model.popFrontWeeks();
     this.model.pushBackWeeks(weeks);
-  }
-
-  datePick(rawDate) {
-    this.model.beginDate = this.model.beginDate ?? new Date(rawDate);
   }
 
   _initView() {
@@ -62,11 +151,8 @@ export class CalendarController {
     const weeks = [];
     const firstDate = new Date(date.getFullYear(), date.getMonth(), 1);
     const lastDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  
-    for (let currDate = firstDate;
-        currDate <= lastDate;
-        currDate.setDate(currDate.getDate() + 1)) {
-          
+
+    for (let currDate = firstDate; currDate <= lastDate; currDate.setDate(currDate.getDate() + 1)) {
       if (weeks.length === 0 || currDate.getDay() === 0)
         weeks.push(Array(7).fill(null));
 
@@ -75,10 +161,12 @@ export class CalendarController {
 
     return weeks;
   }
-
 }
 
 class CalendarView {
+  static GivePickEffectTo(cellEl) { cellEl.firstElementChild.classList.add('picked'); }
+  static EliminatePickEffectTo(cellEl) { cellEl.firstElementChild.classList.remove('picked'); }
+
   constructor(controller) {
     this.controller = controller;
     this.targetEl;
@@ -94,7 +182,7 @@ class CalendarView {
   updateYearMonth(year, month) {
     this.targetEl.firstElementChild.innerHTML = `${year}년 ${month}월`;
   }
-  
+
   updateWeeks(weeks) {
     const tbody = this.targetEl.querySelector('tbody');
     tbody.innerHTML = '';
@@ -142,8 +230,10 @@ class CalendarView {
 
   _onCellClick({ currentTarget: cellEl }) {
     // cellEl.classList.add('picked');
-    cellEl.firstElementChild.classList.add('picked');
-    this.controller.datePick(cellEl.dataset.text);
+    this.controller.datePick({
+      target: cellEl,
+      rawDate: Number(cellEl.dataset.text)
+    });
   }
 }
 
@@ -154,9 +244,11 @@ class CalendarModel {
     this.currDate = date;
     this.todayDate = date;
     this.weeksList = [];
-    this.pickMode;
-    this.pickedBeginDate;
-    this.pickedEndDate;
+    // this.pickMode;
+    this.beginCellEl;
+    this.beginDate;
+    this.endCellEl;
+    this.endDate;
   }
 
   pushFrontWeeks(weeks) {
@@ -171,7 +263,7 @@ class CalendarModel {
     this._updateViews()
   }
 
-  pushBackWeeks(weeks) { 
+  pushBackWeeks(weeks) {
     this.weeksList.push(weeks);
 
     if (this.weeksList.length >= 2 && this.weeksList.length <= this.calendarCount + 1)
@@ -181,13 +273,33 @@ class CalendarModel {
   popBackWeeks() {
     this.weeksList.pop();
   }
-  
-  setBeginDate(date) {
-    
+
+  setBeginDate(cellEl, date) {
+    this.beginCellEl = cellEl;
+    this.beginDate = date;
+    CalendarView.GivePickEffectTo(cellEl);
   }
 
-  setEndDate(data) {
-    
+  unsetBeginDate() {
+    if (this.beginCellEl !== this.endCellEl)
+      CalendarView.EliminatePickEffectTo(this.beginCellEl);
+
+    this.beginCellEl = null;
+    this.beginDate = null;
+  }
+
+  setEndDate(cellEl, date) {
+    this.endCellEl = cellEl;
+    this.endDate = date;
+    CalendarView.GivePickEffectTo(cellEl);
+  }
+
+  unsetEndDate() {
+    if (this.beginCellEl !== this.endCellEl)
+      CalendarView.EliminatePickEffectTo(this.endCellEl);
+
+    this.endCellEl = null;
+    this.endDate = null;
   }
 
   _updateViews() {

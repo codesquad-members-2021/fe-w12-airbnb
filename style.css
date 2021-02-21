@@ -53,6 +53,10 @@ button {
   border-radius: 8px;
 }
 
+.color-black {
+  color: rgb(0, 0, 0);
+}
+
 .color-white {
   color: rgb(255, 255, 255);
 }
@@ -409,7 +413,7 @@ header > nav {
 
 #search-bar > #accommodation-reservation-check-container > #check-in.selected,
 #search-bar > #accommodation-reservation-check-container > #check-out.selected {
-  background-color: blue;
+  background-color: rgb(197, 197, 223);
 }
 
 #search-bar
