@@ -26,14 +26,16 @@ export default class CalendarMaker {
         return isPrev;
     }
     getCalendarHtml(year, month, isPrev) {
-        const [firstDayName, lastDayName] = this.getMonthInfo(year, month);
-        const html = this.getFirstWeek(isPrev, firstDayName) + this.getMiddleWeek(isPrev) + this.getLastWeek(isPrev, lastDayName);
+        const [firstDayName, lastDay, lastDayName] = this.getMonthInfo(year, month);
+        const html = this.getFirstWeek(isPrev, firstDayName) + this.getMiddleWeek(isPrev, lastDay) + this.getLastWeek(isPrev, lastDayName);
         return html; 
     }
     getMonthInfo(year, month) {
         const firstDayName = new Date(year, month, 1).getDay(); // getFirstWeek 함수에서 사용 
-        const lastDayName = new Date(year, month + 1, 0).getDay() + 1; // getLastWeek 함수에서 사용
-        return [firstDayName, lastDayName];
+        const last = new Date(year, month + 1, 0);
+        const lastDay = last.getDate();        // getMiddleWeek 함수에서 사용 
+        const lastDayName = last.getDay() + 1; // getLastWeek 함수에서 사용
+        return [firstDayName, lastDay, lastDayName];
     }
     
     getFirstWeek(isPrev, firstDayName) {
@@ -49,14 +51,14 @@ export default class CalendarMaker {
         return week + `</tr>`;
     }
 
-    getMiddleWeek(isPrev, week = `<tr>`) {
+    getMiddleWeek(isPrev, lastDay, week = `<tr>`) {
         for(let i = 0; i < 7; i++) {
             const date = this.lastDayOfWeek + i + 1;
             week = this.getWeekTemp(week, isPrev, date);
         }
         this.lastDayOfWeek += 7;
-        if(this.lastDayOfWeek + 7 >= this.lastDay) return week +`</tr>`;
-        else return this.getMiddleWeek(isPrev, week + `</tr>`);
+        if(this.lastDayOfWeek + 7 >= lastDay) return week +`</tr>`;
+        else {return this.getMiddleWeek(isPrev, lastDay, week + `</tr>`)};
     }
 
     getLastWeek(isPrev, lastDayName) {
