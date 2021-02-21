@@ -1,69 +1,74 @@
 import Calendar from "./calendar.js";
 
-const thisMonthDate = document.querySelector("#thisMonth--date");
-const nextMonthDate = document.querySelector("#nextMonth--date");
 const prevButton = document.querySelector('#prevButton');
 const nextButton = document.querySelector('#nextButton');
 
-let currYearCount = new Date().getFullYear();
-let currMonthCount = new Date().getMonth();
-let nextYearCount = new Date().getFullYear();
-let nextMonthCount = new Date().getMonth() + 1;
+class CalendarManager {
+    constructor() {
+        this.thisMonthDate = document.querySelector("#thisMonth--date");
+        this.nextMonthDate = document.querySelector("#nextMonth--date");
+        this.currYearCount = new Date().getFullYear();
+        this.currMonthCount = new Date().getMonth();
+        this.nextYearCount = new Date().getFullYear();
+        this.nextMonthCount = new Date().getMonth() + 1;
+    }
 
-const cleanData = () => {
-    while (thisMonthDate.hasChildNodes() || nextMonthDate.hasChildNodes()) {
-        thisMonthDate.removeChild(thisMonthDate.firstChild);
-        nextMonthDate.removeChild(nextMonthDate.firstChild);
+    cleanData() {
+        while (this.thisMonthDate.hasChildNodes() || this.nextMonthDate.hasChildNodes()) {
+            this.thisMonthDate.removeChild(this.thisMonthDate.firstChild);
+            this.nextMonthDate.removeChild(this.nextMonthDate.firstChild);
+        }
+    }
+
+    init() {
+        this.cleanData();
+        const currCalendar = new Calendar(this.currYearCount, this.currMonthCount)
+        const nextCalendar = new Calendar(this.nextYearCount, this.nextMonthCount)
+
+        document.querySelector("#thisMonth--month").innerHTML = `${this.currYearCount}년 ${this.currMonthCount + 1}월`;
+        document.querySelector("#nextMonth--month").innerHTML = `${this.nextYearCount}년 ${this.nextMonthCount + 1}월`;
+        this.thisMonthDate.insertAdjacentHTML("beforeend", currCalendar.makeCalendarData());
+        this.nextMonthDate.insertAdjacentHTML("beforeend", nextCalendar.makeCalendarData());
+    }
+
+    currCalendarDataHandler() {
+        if (this.currMonthCount == 0) {
+            this.currYearCount--;
+            this.currMonthCount = 11;
+            this.nextMonthCount--;
+        }
+        else if (this.nextMonthCount == 0) {
+            this.nextYearCount--;
+            this.nextMonthCount = 11;
+            this.currMonthCount--;
+        }
+        else {
+            this.currMonthCount--;
+            this.nextMonthCount--;
+        }
+        this.init();
+    }
+
+    nextCalendarDataHandler() {
+        if (this.currMonthCount == 11) {
+            this.currYearCount++;
+            this.currMonthCount = 0;
+            this.nextMonthCount++;
+        }
+        else if (this.nextMonthCount == 11) {
+            this.nextYearCount++;
+            this.nextMonthCount = 0;
+            this.currMonthCount++;
+        }
+        else {
+            this.currMonthCount++;
+            this.nextMonthCount++;
+        }
+        this.init();
     }
 }
 
-const init = () => {
-    cleanData();
-    const currCalendar = new Calendar(currYearCount, currMonthCount)
-    const nextCalendar = new Calendar(nextYearCount, nextMonthCount)
-
-    document.querySelector("#thisMonth--month").innerHTML = `${currYearCount}년 ${currMonthCount + 1}월`;
-    document.querySelector("#nextMonth--month").innerHTML = `${nextYearCount}년 ${nextMonthCount + 1}월`;
-    thisMonthDate.insertAdjacentHTML("beforeend", currCalendar.makeCalendarData());
-    nextMonthDate.insertAdjacentHTML("beforeend", nextCalendar.makeCalendarData());
-}
-init();
-
-const currCalendarDataHandler = () => {
-    if (currMonthCount == 0) {
-        currYearCount--;
-        currMonthCount = 11;
-        nextMonthCount--;
-    }
-    else if (nextMonthCount == 0) {
-        nextYearCount--;
-        nextMonthCount = 11;
-        currMonthCount--;
-    }
-    else {
-        currMonthCount--;
-        nextMonthCount--;
-    }
-    init();
-}
-
-const nextCalendarDataHandler = () => {
-    if (currMonthCount == 11) {
-        currYearCount++;
-        currMonthCount = 0;
-        nextMonthCount++;
-    }
-    else if (nextMonthCount == 11) {
-        nextYearCount++;
-        nextMonthCount = 0;
-        currMonthCount++;
-    }
-    else {
-        currMonthCount++;
-        nextMonthCount++;
-    }
-    init();
-}
-
-prevButton.addEventListener('click', currCalendarDataHandler);
-nextButton.addEventListener('click', nextCalendarDataHandler);
+const calendarManager = new CalendarManager();
+calendarManager.init();
+prevButton.addEventListener('click', calendarManager.currCalendarDataHandler.bind(calendarManager));
+nextButton.addEventListener('click', calendarManager.nextCalendarDataHandler.bind(calendarManager));
