@@ -1,10 +1,10 @@
-.calender_area {
-  position: absolute;
+.calendar_area {
+  position: relative;
 }
 
 .calendar_box {
   position: absolute;
-  left: 350px;
+  left: 530px;
   display: flex;
   justify-content: space-between;
   width: 840px;
@@ -53,7 +53,7 @@
   align-items: center;
 }
 
-.before_today {
+.non_clickable {
   cursor: default;
   color: rgba(0, 0, 0, 0.25);
   font-weight: 400;
@@ -69,4 +69,10 @@
 .clicked {
   background-color: rgb(34, 34, 34);
   color: rgba(255, 255, 255, 1);
+}
+
+.check_in,
+.check_out {
+  display: inline-block;
+  margin-top: 3px;
 }
