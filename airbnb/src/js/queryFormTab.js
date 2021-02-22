@@ -1,4 +1,7 @@
-const HIDDEN = "hidden";
+const HIDDEN = 'hidden';
+
+const STAY = '숙소';
+const EXPERIENCE = '체험';
 
 class QueryFormTab {
   constructor(formTab, formStay, formExperience) {
@@ -10,14 +13,14 @@ class QueryFormTab {
     this.onEvent();
   }
   onEvent() {
-    this.formTab.addEventListener("click", this.renderForm.bind(this));
+    this.formTab.addEventListener('click', this.renderForm.bind(this));
   }
   renderForm(e) {
     const type = e.target.innerText;
-    if (type === "숙소") {
+    if (type === STAY) {
       this.formStay.classList.remove(HIDDEN);
       this.formExperience.classList.add(HIDDEN);
-    } else if (type === "체험") {
+    } else if (type === EXPERIENCE) {
       this.formStay.classList.add(HIDDEN);
       this.formExperience.classList.remove(HIDDEN);
     }

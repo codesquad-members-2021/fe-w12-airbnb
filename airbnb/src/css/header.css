@@ -37,10 +37,54 @@ header {
   margin-right: 15px;
   cursor: pointer;
 }
-
+.search-form__tab > li {
+  position: relative;
+  user-select: none;
+}
 .search-form__tab > a {
   padding: 5px;
   border: 1px black solid;
+}
+.search-form__tab > li:hover {
+  opacity: 0.7;
+}
+.search-form__tab > li::after {
+  content: '';
+  width: 0;
+  left: 45%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  margin-top: 6px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.1s ease;
+}
+.search-form__tab > li:hover::after {
+  content: '';
+  width: 5px;
+  left: 45%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  margin-top: 6px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.1s ease;
+}
+.search-form__tab > li:focus {
+  outline: none;
+  opacity: 1;
+}
+.search-form__tab > li:focus::after {
+  opacity: 1;
+  content: '';
+  width: 25px;
+  left: 12%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  margin-top: 6px;
+  border-bottom: 2px solid rgba(255, 255, 255, 1);
+  transition: all 0.1s ease;
 }
 
 /* form-query */
@@ -67,6 +111,7 @@ header {
 .query__date,
 .query__column-submit {
   flex: 1;
+  cursor: pointer;
 }
 .query__location input {
   background-color: rgba(0, 0, 0, 0);
@@ -74,6 +119,7 @@ header {
   padding: 0;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 .query-date-wrapper {
   flex: 1.5;
@@ -115,6 +161,10 @@ nav > div {
 }
 nav a {
   font-size: 1rem;
+}
+nav a:hover,
+nav a > div:hover {
+  opacity: 0.7;
 }
 .nav-user {
   display: flex;

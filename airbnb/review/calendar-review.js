@@ -1,5 +1,18 @@
 import { div, span } from './controlHTML.js';
-import { MONTH_DAYS, CLASS_NAME } from './data.js';
+import MONTH_DAYS from './daysByMonth.js';
+
+const HIDDEN = 'hidden';
+const CHEKCED = 'checked';
+const MONTH = 'month';
+const WEEK = 'week';
+const DAY = 'day';
+const ABLE = 'able';
+const DISABLE = 'disable';
+const CONTAIN = 'contain';
+const DAY_SPAN = 'day__span';
+const START_RESERVE = 'start-reserve';
+const END_RESERVE = 'end-reserve';
+const PAST = 'past';
 
 class CalendarModel {
   constructor(date = new Date()) {
@@ -81,15 +94,14 @@ class CalendarModel {
   }
   //예약 시작,끝,사이에 있는 day, 오늘 이전의 day,를 구분해서 그에 맞는 day DIV 생성
   makeDayHtml(day) {
-    const { DAY, DAY_SPAN, ABLE, DISABLE, BETWEEN, CHEKCED, PAST, START_RESERVE, END_RESERVE } = CLASS_NAME;
     let dayHtml;
     if (day && this.isReservable(day)) {
       if (this.isStartReservation(day)) {
-        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, BETWEEN, START_RESERVE);
+        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, START_RESERVE);
       } else if (this.isEndReservation(day)) {
-        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, BETWEEN, END_RESERVE);
+        dayHtml = div(span(day, CHEKCED, DAY_SPAN), DAY, ABLE, CONTAIN, END_RESERVE);
       } else if (this.isBetweenReservation(day)) {
-        dayHtml = div(span(day, DAY_SPAN), DAY, ABLE, BETWEEN);
+        dayHtml = div(span(day, DAY_SPAN), DAY, ABLE, CONTAIN);
       } else {
         dayHtml = div(span(day, DAY_SPAN), DAY, ABLE);
       }
@@ -102,11 +114,11 @@ class CalendarModel {
   }
   makeWeekHtml(week) {
     let daysHtml = week.reduce((acc, day) => acc + this.makeDayHtml(day), '');
-    return div(daysHtml, CLASS_NAME.WEEK);
+    return div(daysHtml, WEEK);
   }
   makeMonthHtml(month) {
     let weeksHtml = month.reduce((acc, week) => acc + this.makeWeekHtml(week), '');
-    return div(weeksHtml, CLASS_NAME.MONTH);
+    return div(weeksHtml, MONTH);
   }
   clearReserve() {
     this.startReserve = { month: 0, day: 0 };
@@ -155,7 +167,6 @@ export class CalendarView {
     document.addEventListener('click', this.handleClick.bind(this));
   }
   handleClick({ target }) {
-    const { HIDDEN } = CLASS_NAME;
     if (this.calendar.contains(target)) {
       this.handleCalendarClick(target);
     } else if (this.queryDate.contains(target)) {
@@ -202,7 +213,6 @@ export class CalendarView {
     return classList.contains('next') || classList.contains('fa-angle-right');
   }
   isDay({ classList } = target) {
-    const { DAY_SPAN, DAY, ABLE } = CLASS_NAME;
     return classList.contains(DAY_SPAN) || (classList.contains(DAY) && classList.contains(ABLE));
   }
   isFullReservation() {

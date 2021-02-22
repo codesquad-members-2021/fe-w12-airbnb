@@ -7,6 +7,7 @@ const navUserBtn = document.querySelector('.nav-user');
 const navUserBar = document.querySelector('.nav-user__bar');
 
 const navBar = new NavBar(navUserBtn, navUserBar);
+
 navBar.init();
 
 //query form
@@ -15,29 +16,17 @@ const formStay = document.querySelector('.form__stay');
 const formExperience = document.querySelector('.form__experience');
 
 const queryFormTab = new QueryFormTab(formTab, formStay, formExperience);
+
 queryFormTab.init();
 
 //calendar
-
 const queryDateStay = document.querySelector('.form__stay .query-date-wrapper');
-const queryDateExperience = document.querySelector(
-  '.form__experience .query__date'
-);
+const queryDateExperience = document.querySelector('.form__experience .query__date');
 
 const calendarStay = document.querySelector('.form__stay .calendar');
-const calendarExperience = document.querySelector(
-  '.form__experience .calendar'
-);
-const stayCalendarView = new CalendarView(
-  formStay,
-  queryDateStay,
-  calendarStay
-);
-const experienceCalendarView = new CalendarView(
-  formExperience,
-  queryDateExperience,
-  calendarExperience
-);
+const calendarExperience = document.querySelector('.form__experience .calendar');
+const stayCalendarView = new CalendarView(formStay, queryDateStay, calendarStay);
+const experienceCalendarView = new CalendarView(formExperience, queryDateExperience, calendarExperience);
 
 stayCalendarView.init();
 experienceCalendarView.init();
