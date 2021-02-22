@@ -1,10 +1,3 @@
-/*======= CalendarIndicator =======
-[✔] 체험 탭의 '날짜' 버튼 누르면 → 밑에 달력 요소 생김
-[✔] '날짜'버튼 재클릭하면 → 사라짐 (toggle)
-[✔] 달력 이전 버튼 클릭하면 이전달 보여주기
-[✔] 달력 다음 버튼 클릭하면 다음달 보여주기
-[ ] 달력 날짜 버튼 클릭하면 스타일 적용 + 검색창에 날짜 표시 */
-
 export default class CalendarView {
     constructor({activityDate, calendarDiv, calendarTitles, calendarDates, calendarBtns}, calendarMaker) {
         this.activityDate = activityDate;

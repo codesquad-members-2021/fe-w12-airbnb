@@ -71,6 +71,7 @@
 
         <!-- 체험탭 검색창 -->
         <div class="search__activity search hidden">
+
             <ul>
                 <li class="activity__place">
                     <span>위치</span><br>
@@ -82,27 +83,48 @@
                     <button>✈︎</button>
                 </li>
             </ul>
-            <!-- ****달력 템플릿 스타일 주는 연습용**** -->
+
             <div class="calendar hidden">
-                <h3 class="calendar__title">2021년 x월</h3>
                 <button>≺</button>
+                <div>
+                    <h3 class="calendar__title">2021년 x월</h3>
+                    <table class="calendar__table">
+                        <thead>
+                            <tr>
+                                <th>일</th>
+                                <th>월</th>
+                                <th>화</th>
+                                <th>수</th>
+                                <th>목</th>
+                                <th>금</th>
+                                <th>토</th>
+                            </tr>
+                        </thead>
+                        <tbody class="calendar__date"></tbody>
+                    </table>
+                </div>
+
                 <button>≻</button>
-                <table class="calendar__table">
-                    <thead>
-                        <tr>
-                            <th>일</th>
-                            <th>월</th>
-                            <th>화</th>
-                            <th>수</th>
-                            <th>목</th>
-                            <th>금</th>
-                            <th>토</th>
-                        </tr>
-                    </thead>
-                    <tbody class="calendar__date"></tbody>
-                </table>
-            </div>
-        </div>
+                <div>
+                    <h3 class="calendar__title">2021년 x월</h3>
+                    <table class="calendar__table">
+                        <thead>
+                            <tr>
+                                <th>일</th>
+                                <th>월</th>
+                                <th>화</th>
+                                <th>수</th>
+                                <th>목</th>
+                                <th>금</th>
+                                <th>토</th>
+                            </tr>
+                        </thead>
+                        <tbody class="calendar__date"></tbody>
+                    </table>
+                </div>
+
+            </div>  <!-- .calendar -->
+        </div> <!-- .search__activity -->
 
         <!-- 큰 배너 이미지 -->
         <div class="banner">

@@ -13,9 +13,9 @@ const ref = {
     searchActivity: document.querySelector('.search__activity'),
     activityDate: document.querySelector('.activity__date'),
     calendarDiv: document.querySelector('.calendar'),
-    calendarTitle: document.querySelector('.calendar__title'),
-    calendarDate: document.querySelector('.calendar__date'),
-    calendarBtn: document.querySelectorAll('.calendar > button')
+    calendarTitles: document.querySelectorAll('.calendar__title'),
+    calendarDates: document.querySelectorAll('.calendar__date'),
+    calendarBtns: document.querySelectorAll('.calendar > button')
 }
 const userBtnLayer = new UserBtnLayer(ref);
 const searchChanger = new SearchChanger(ref);
