@@ -1,0 +1,480 @@
+/* NAV: RESERVATION */
+
+.reservation__container {
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.visible--hidden {
+  display: none;
+}
+
+.visible--flex {
+  display: flex;
+}
+
+.reservation__box--airbnb,
+.reservation__box--activity {
+  display: flex;
+  justify-content: center;
+  width: 850px;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.reservation__label--box {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 32px;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 16px 32px, rgba(0, 0, 0, 0.1) 0px 3px 8px;
+}
+
+.reservation__menu__box {
+  width: 130px;
+}
+
+.reservation__menu__box div {
+  width: 100%;
+}
+
+.reservation__menu__box input {
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.leftside__radius__box {
+  min-width: 270px;
+  background: #fff;
+  padding: 14px 32px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.leftside__radius__box--hover {
+  min-width: 270px;
+  padding: 14px 32px;
+  background: #ebebeb;
+  border-radius: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+  /* z-index: 1; */
+}
+
+.leftside__radius__box--active {
+  min-width: 270px;
+  background: #fff;
+  border-radius: 50px;
+  padding: 14px 32px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  cursor: pointer;
+  /* z-index: 1; */
+}
+
+.leftside__radius__box--activity {
+  width: 410px;
+  background: #fff;
+  padding: 14px 32px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.leftside__radius__box--activity--active {
+  width: 410px;
+  background: #fff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+
+.leftside__radius__box--activity--hover {
+  background: #ebebeb;
+  border-radius: 50px;
+  width: 410px;
+  padding: 14px 32px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+input {
+  all: unset;
+}
+
+.middle__box {
+  background: #fff;
+  padding: 14px 24px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* 양쪽 다 middle bar를 없애는 방법이 없을까... */
+/* 새로운 사실: 와.. 얘네 막대기가 두개인것 같고, before after로 생성되고 있는 것 같다. */
+/* 나중에 다시 파헤쳐야지 */
+.middle__box--hover {
+  background: #ebebeb;
+  border-radius: 50px;
+  padding: 14px 24px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.middle__box--active {
+  background: #fff;
+  padding: 14px 24px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  cursor: pointer;
+  /* z-index: 2; */
+}
+
+.middle__bar {
+  border-right: 1px solid #ddd;
+  height: 32px;
+}
+
+.middle__bar--hover {
+  border-right: 1px solid #fff;
+  height: 32px;
+  z-index: -1;
+}
+
+.rightside__radius__box {
+  width: 220px;
+  background: #fff;
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+  padding: 14px 24px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.rightside__radius__box--hover {
+  background: #ebebeb;
+  border-radius: 32px;
+  width: 220px;
+  padding: 14px 24px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightside__radius__box--activity {
+  width: 438px;
+  height: 100%;
+  background: #fff;
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+  padding: 14px 24px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightside__radius__box--activity--active {
+  width: 438px;
+  height: 100%;
+  background: #fff;
+  border-radius: 50px;
+  padding: 14px 24px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+}
+
+.rightside__radius__box--activity--hover {
+  width: 438px;
+  height: 100%;
+  padding: 14px 24px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ebebeb;
+  border-radius: 50px;
+}
+
+.search__circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ff385c;
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 9px;
+}
+
+.search__circle > svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reservation__container label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  position: relative;
+}
+
+.temp--div--for--align {
+  position: relative;
+  left: -50px;
+}
+
+.location__container {
+  background: #fff;
+  width: 500px;
+  height: 104px;
+  margin: 12px 0 0;
+  position: absolute;
+  left: 50px;
+  top: 100%;
+  z-index: 20;
+  border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  max-height: calc(100vh - 220px);
+  overflow: hidden auto;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.6);
+  display: flex;
+}
+
+.location__box {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.location--li {
+  width: 500px;
+  height: 64px;
+  padding: 16px 32px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.location--li:hover {
+  background: rgba(0, 0, 0, 0.03);
+  outline: none;
+}
+
+.visible--hidden {
+  display: none;
+}
+
+.location--img-box {
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+}
+
+.location--img {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.calendar__container {
+  width: 785px;
+  padding: 16px 32px;
+  position: absolute;
+  top: 100%;
+  z-index: 4;
+  background: rgb(255, 255, 255);
+  border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  margin-top: 12px;
+  max-height: calc(100vh - 220px);
+  padding: 16px 32px;
+  transition: height 0.2s ease-in-out 0s;
+}
+
+.calendar__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.calendar__box {
+  width: 336px;
+  padding: 0 27px;
+  position: relative;
+}
+.calendar__box--prev,
+.calendar__box--next-next {
+  display: none;
+}
+
+.calendar__button__box {
+  position: absolute;
+  top: 15px;
+  left: 60px;
+  z-index: 3;
+}
+
+.calendar--upper {
+  height: 22px;
+  padding: 22px 0 37px 0;
+  position: relative;
+}
+
+.calendar--table {
+  width: 100%;
+
+  border-spacing: 0px 2px;
+}
+
+.monthly--title {
+  font-size: 14px;
+  color: rgb(34, 34, 34);
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weekdays {
+  position: absolute;
+  left: 0;
+  padding: 0 27px;
+  color: rgb(117, 117, 117);
+  top: 62px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.weekdays--ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 336px;
+  height: 20px;
+  margin: 1px 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.weekdays--li {
+  /* 왜 3px이 모자랐는가... */
+  width: 45px;
+  height: 16px;
+  display: inline-block;
+  text-align: center;
+  /* outline: 1px solid pink; */
+}
+
+.calendar--table > tbody > tr > td {
+  box-sizing: border-box;
+  font-size: 14px;
+  cursor: default;
+  vertical-align: top;
+}
+
+.calendar--table > tbody > tr > td > div {
+  width: 48px;
+  height: 47px;
+  /* outline: 1px solid pink; */
+  color: rgb(34, 34, 34);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+  font-weight: 500;
+}
+
+.calendar--table > tbody > tr > td > .day-box-data:hover {
+  width: 45px;
+  height: 44px;
+  color: rgb(34, 34, 34);
+  border-radius: 50px;
+  background: rgb(255, 255, 255);
+  border: 1.5px solid rgb(34, 34, 34);
+}
+
+.calendar--table > tbody > tr > td > .day-box-data:active {
+  background: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+}
+
+.calendar--table > tbody > tr > td .day-box-data--pick {
+  background: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  border-radius: 50px;
+}
+
+.calendar__prev--button-box {
+  display: inline-block;
+  position: absolute;
+  top: 13px;
+  left: -10px;
+  cursor: pointer;
+}
+
+.calendar__next--button-box {
+  display: inline-block;
+  position: absolute;
+  top: 13px;
+  left: 710px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.calendar--button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.calendar--button:hover {
+  background: rgb(247, 247, 247);
+}
+
+.calendar--button > span > svg {
+  width: 10px;
+  height: 10px;
+  fill: rgb(34, 34, 34);
+}

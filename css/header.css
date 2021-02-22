@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+/* HEADER */
+.header {
+  width: 100%;
+  height: 80px;
+}
+
+.header__container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__container--leftbox {
+  width: 100%;
+}
+
+.header__container--leftbox .logo-box {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.header__container--centerbox {
+  min-width: 300px;
+  height: 48px;
+  padding: 0 24px;
+}
+
+.header__container--centerbox > ul {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__container--centerbox > ul .button {
+  cursor: pointer;
+}
+.header__container--centerbox > ul .button--default {
+  cursor: default;
+}
+
+.header__container--centerbox > ul > li .menu {
+  color: #fff;
+  height: 20px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__container--centerbox > ul > li .menu__hover {
+  color: rgba(255, 255, 255, 0.8);
+  height: 20px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__container--centerbox > ul > li .low-bar {
+  height: 2px;
+  display: block;
+  margin: 0 auto;
+}
+
+.header__container--centerbox > ul > li .low-bar-transparent {
+  background: transparent;
+  width: 0px;
+  transition: 0.2s;
+}
+
+.header__container--centerbox > ul > li .low-bar-long {
+  background: #fff;
+  width: 18px;
+  transition: 0.2s;
+}
+.header__container--centerbox > ul > li .low-bar-short {
+  background: #fff;
+  width: 4px;
+  transition: 0.2s;
+}
+
+.header__container--rightbox {
+  width: 100%;
+  height: 100%;
+}
+
+.header__container--rightbox .right__button--box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+#user__button {
+  margin-left: 10px;
+  width: 77px;
+  height: 42px;
+  border-radius: 25px;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+#user__button .user__button--box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.host {
+  min-width: 100px;
+  font-weight: 500;
+  color: #fff;
+  font-size: 14px;
+  padding: 15px 15px;
+  box-sizing: border-box;
+  height: 50%;
+  cursor: pointer;
+}
+
+.host:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+}
+
+.globe {
+  padding: 14px 15px;
+  height: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.globe:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+}
+
+.red-circle {
+  width: 10px;
+  height: 10px;
+  background: #ff385c;
+  border-radius: 50px;
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 1.5px;
+  position: absolute;
+  top: 2px;
+  left: 61px;
+  right: 4px;
+  bottom: 28px;
+}
+
+.burger__container {
+  width: 240px;
+  height: 227px;
+  padding: 8px 0;
+  margin: 34px 0 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.12);
+  position: absolute;
+  color: #222;
+  top: 50%;
+  right: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  z-index: 4;
+  min-width: 240px;
+  overflow: hidden;
+}
+
+.burger--box > a > div:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.burger--box > a > div {
+  color: #222;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  box-sizing: border-box;
+  padding: 12px 16px;
+}
+.burger--box > a:first-child > div {
+  font-weight: 600;
+}
+
+.burger--box .burger--line {
+  width: 240px;
+  height: 1px;
+  margin: 8px 0;
+  background: #e5e5e5;
+}
