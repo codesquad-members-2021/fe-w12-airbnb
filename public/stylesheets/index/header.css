@@ -58,22 +58,23 @@
     text-align: center;
 }
 
-/* 2-1) 검색 : 검색 옵션 */
-.header__main__search__options > input[type='radio'] {
+/* 2-1) 검색 : 공통 (input=radio) 관련 */
+.header__main__search input[type='radio'] {
     display: none;
 }
 
-.header__main__search__options > input[type='radio'] + label {
+/* 2-2) 검색 : 검색 타입 (옵션) */
+.header__main__search__types > input[type='radio'] + label {
     display: inline-block;    
     padding: 0 13px;
     cursor: pointer;
 }
 
-.header__main__search__options > input[type='radio'] + label:hover {
+.header__main__search__types > input[type='radio'] + label:hover {
     filter: brightness(0.85);
 }
 
-.header__main__search__options > input[type='radio']:checked + label:after {
+.header__main__search__types > input[type='radio']:checked + label:after {
     /* input[type='radio']:checked 클릭 시 밑줄 */
     content: "";
     display: block;
@@ -83,7 +84,7 @@
     border-bottom: 2px solid var(--default-font-color);
 }
 
-/* 2-2) 검색 : 검색바 */
+/* 2-3) 검색 : 검색바 */
 .header__main__search__bar {
     position: relative;
     top: 22px;    
@@ -105,36 +106,34 @@
     padding: 14px 26px;
     border-radius: 32px;
     cursor: pointer;
+    flex-grow: 1;
+
+    line-height: initial;
+}
+
+.header__main__search__bar > label:hover { 
+    background-color: var(--covid-searchBar-hover-color);
+}
+
+.header__main__search__bar > input[type='radio']:checked + label {
+    border: 1px solid var(--default-font-color);
+    background-color: var(--default-font-color);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+}
+
+.header__main__search__bar > label > p {
+    font-size: 13px;
     font-weight: 600;
+}
+
+.header__main__search__bar > label > .information {
+    color: #9B9B9B;
+    font-weight: normal;
 }
 
 .header__main__search__bar > .noPadding {
     padding: 0;
-}
-
-.header__main__search__bar > label:hover {
-    background-color: var(--covid-searchBar-hover-color);
-}
-
-
-.header__main__search__bar > .checkin-out {
-    width: 25%;
-}
-
-.header__main__search__bar > label > input {
-    margin-top: 7px;
-    border: none;
-    width: 100%;    
-    background-color: transparent;
-}
-
-.header__main__search__bar > label > input[type="date"] {
-    margin-top: 5px;
-    border: none;
-    width: 100%;
-    font-size: 12px;
-    color: #8d8d8d;
-    background-color: transparent;
+    flex-grow: 0;
 }
 
 .header__main__search__bar > label > .searchBarBtn {

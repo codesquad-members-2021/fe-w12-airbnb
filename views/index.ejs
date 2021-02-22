@@ -34,44 +34,54 @@
 
                         <!-- fieldset, form 활용하여 searchOption이랑 searchBar 합쳐보기 -->
                         <div class="header__main__search">
-                            <div class="header__main__search__options">                            
-                                <input type="radio" name="selSearchOpt" id="rooms" checked/>
+                            <div class="header__main__search__types">                            
+                                <!-- label의 for는 label안에 요소가 있으면 안써도 됨!  -->
+                                <input type="radio" name="selSearchType" id="rooms" checked/>
                                 <label for="rooms">숙소</label>                            
                                 
-                                <input type="radio" name="selSearchOpt" id="experience"/>
+                                <input type="radio" name="selSearchType" id="experience"/>
                                 <label for="experience">체험</label>
                                 
-                                <input type="radio" name="selSearchOpt" id="onlineExperience"/> 
+                                <input type="radio" name="selSearchType" id="onlineExperience"/> 
                                 <label for="onlineExperience">온라인 체험</label>
                             </div>
-                            <div class="header__main__search__bar">
-                                <!-- label의 for는 label안에 요소가 있으면 안써도 됨!  -->                                
-                                <label class="locationType">
-                                    위치
-                                    <input type="text" name="locationInput" id="locationInput" placeholder="어디로 여행가세요?"/>                                    
+                            <div class="header__main__search__bar">      
+                                <input type="hidden" name="prevSearchBarOption" id="prevSearchBarOption"/>
+
+                                <input type="radio" name="selSearchBarOptions" id="locationInput"/>
+                                <label for="locationInput" class="locationType">
+                                    <p>위치</p>
+                                    <p class="information">어디로 여행가세요?</p>
                                 </label>
-                                <label class="roomsType checkin-out">
-                                    체크인
-                                    <input type="date" name="checkin" id="checkin" placeholder="날짜추가"/>                                    
+                                <input type="radio" name="selSearchBarOptions" id="checkin"/>
+                                <label for="checkin" class="roomsType">
+                                    <p>체크인</p>
+                                    <p class="information" id="checkin">날짜 추가</p>
                                 </label>
-                                <label class="roomsType checkin-out">
-                                    체크아웃
-                                    <input type="date" name="checkout" id="checkout" placeholder="날짜추가"/>
+                                <input type="radio" name="selSearchBarOptions" id="checkout"/>
+                                <label for="checkout" class="roomsType">
+                                    <p>체크아웃</p>
+                                    <p class="information" id="checkout">날짜 추가</p>
                                 </label>
-                                <label class="roomsType">
-                                    인원    
-                                    <input type="text" name="guestAdd" id="guestAdd" placeholder="게스트 추가"/>
+                                <input type="radio" name="selSearchBarOptions" id="guestAdd"/>
+                                <label for="guestAdd" class="roomsType">
+                                    <p>인원</p>
+                                    <p class="information">게스트 추가</p>
                                 </label>
-                                <label class="experienceType displayNone">
-                                    날짜                                        
-                                    <input type="text" name="selectDate" id="selectDate" placeholder="원하는 날짜를 입력하세요."/>
-                                </label>  
+                                <input type="radio" name="selSearchBarOptions" id="selectDate"/>
+                                <label for="selectDate" class="experienceType displayNone" >
+                                    <p>날짜</p>
+                                    <p class="information">원하는 날짜를 입력하세요.</p>
+                                </label>
+                                
                                 <label class="noPadding">
                                     <button type="button" class="searchBarBtn">
-                                        <img src="./images/search-solid_ver2.svg" />
+                                        <img
+                                            src="./images/search-solid_ver2.svg"
+                                        />
                                     </button>
-                                </label>
-                                <div class="calendarWrapper">
+                                </label>                                  
+                                <div class="calendarWrapper visibility--hidden">
                                     <button type="button" class="move-month__btn move-month__btn--left">
                                         <svg
                                             viewBox="0 0 18 18"
@@ -93,34 +103,7 @@
                                     </button>
                                     
                                     <div class="calendarSubWrapper">
-                                        <div class="calendar left">
-                                            <p class="year-month"></p>
-                                            <ul class="day">                                                
-                                                <li>일</li>
-                                                <li>월</li>
-                                                <li>화</li>
-                                                <li>수</li>
-                                                <li>목</li>
-                                                <li>금</li>
-                                                <li>토</li>
-                                            </ul> 
-                                            <div class="date__dynamic">
-                                            </div>
-                                        </div>
-                                        <div class="calendar right">
-                                            <p class="year-month"></p>
-                                            <ul class="day">                                                
-                                                <li>일</li>
-                                                <li>월</li>
-                                                <li>화</li>
-                                                <li>수</li>
-                                                <li>목</li>
-                                                <li>금</li>
-                                                <li>토</li>
-                                            </ul>             
-                                            <div class="date__dynamic">
-                                            </div>
-                                        </div>
+                                        <% include ./index/TwoCalendar %>                                        
                                     </div>
 
                                     <button type="button" class="move-month__btn move-month__btn--right">                                        
@@ -144,7 +127,6 @@
                                     </button>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="header__main__login">

@@ -135,6 +135,8 @@ class Calendar {
             if (this.startDate && this.endDate) {
                 this._removeDataBtnStyle(this.dynamicWrapper);
                 this.initStartEndDate(this);
+                this._initResultDateTag();
+
                 this._updateClickDateCnt();
                 return;
             }
@@ -156,12 +158,15 @@ class Calendar {
                 this.initStartEndDate(this);
                 this._removeDataBtnStyle(this.anotherCalendar.dynamicWrapper); 
                 this.initStartEndDate(this.anotherCalendar);
+                this._initResultDateTag();
 
                 this._updateAnotherClickDateCnt();
             } else {
                 if (this.startDate && this.endDate) {
                     this._removeDataBtnStyle(this.dynamicWrapper);
                     this.initStartEndDate(this);
+                    this._initResultDateTag();
+
                     this._updateClickDateCnt();
                     return;
                 }
@@ -246,13 +251,49 @@ class Calendar {
     // 각 날짜 클릭 시, classList Add & Calendar의 startDate, endDate 설정
     _setStartDateDataBtn(thisBtn, currClickDate) {
         _.classAdd(thisBtn, 'clickStatus', 'startDate');
-        this.startDate = currClickDate;  
+        this.startDate = currClickDate;
     }
 
     _setEndDateDataBtn(thisBtn, currClickDate) {
         _.classAdd(thisBtn, 'clickStatus', 'endDate');
         this.endDate = currClickDate;
         this._fillColorStartToEndDate();
+
+        const event = new CustomEvent('resultDate', {
+            detail: {
+                startDate: this.startDate || this.anotherCalendar.startDate,
+                endDate: this.endDate || this.anotherCalendar.endDate,
+            },
+        });
+
+        this.target.dispatchEvent(event);
+    }
+    
+    // 최종 날짜 확정. (CustomEvent, dispatch는 _setEndDateDataBtn )
+    setResultDateCustomEvent() {
+        _.addEvent(this.target, 'resultDate', this._resultDateCustomEventHandler.bind(this));
+    }
+
+    _resultDateCustomEventHandler(e) {     
+        const { startDate, endDate } = e.detail;        
+        _.$All('.header__main__search__bar > label.roomsType').forEach((v) => {            
+            if (_.$('p#checkin', v))
+                _.$('p#checkin', v).innerText = `${startDate.getMonth() + 1}월 ${startDate.getDate()}일`
+            else if (_.$('p#checkout', v))   
+                _.$('p#checkout', v).innerText = `${endDate.getMonth() + 1}월 ${endDate.getDate()}일`
+            else return;            
+        });        
+    }
+
+    // 최종 날짜가 적혀진 p(id: checkin & checkout) 태그 초기화
+    _initResultDateTag() {
+        _.$All('.header__main__search__bar > label.roomsType').forEach((v) => {            
+            if (_.$('p#checkin', v))
+                _.$('p#checkin', v).innerText = '날짜 추가'
+            else if (_.$('p#checkout', v))   
+                _.$('p#checkout', v).innerText = '날짜 추가'
+            else return;            
+        });
     }
 
     // 다른 캘린더가 아닌 this 자체의 startDate 관련은 재설정하거나, endDate 관련 버튼을 설정함.

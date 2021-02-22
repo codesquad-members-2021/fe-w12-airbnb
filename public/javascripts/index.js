@@ -1,12 +1,11 @@
 import _ from './util.js';
-import SearchBarControl from './index/SearchBarControl.js';
+import SearchControl from './index/SearchControl.js';
 import TabUI from './index/TabUI.js';
 import Calendar from './index/Calendar.js';
 import CalendarManager from './index/CalendarManager.js';
 
-// 상단 큰 검색바
-const inputList = _.$All('.header__main__search__options input');
-inputList.forEach((input) => new SearchBarControl(input).init());
+// 상단 큰 검색바 조작
+new SearchControl('.header__main__search__types', '.header__main__search__bar').init();
 
 // 햄버거
 const tabUISetting = new TabUI(
@@ -16,11 +15,11 @@ const tabUISetting = new TabUI(
 tabUISetting.init();
 
 // 달력 
-// 1) 달력 초기 생성 및 매니저 등록
+// 1) 달력 초기 생성
 const calendarList = Array.from(
     _.$All('.calendarWrapper > .calendarSubWrapper .calendar'),
     (calendar) =>
-        new Calendar(calendar, calendar.querySelector('.date__dynamic')),
+        new Calendar(calendar, _.$('.date__dynamic', calendar)),
 );
 
 const leftCalendar = calendarList.find((cal) => _.classContains(cal.target, 'left'));
@@ -28,18 +27,6 @@ const rightCalendar = calendarList.find((cal) => _.classContains(cal.target, 'ri
 leftCalendar.setAnotherCalendar = rightCalendar;
 rightCalendar.setAnotherCalendar = leftCalendar;
 
-const leftCalendarManager = new CalendarManager(leftCalendar);
-const rightCalendarManager = new CalendarManager(rightCalendar);
-
-// 2) 달력 (이전 / 다음) 버튼 이벤트
-const btnList = Array.from(_.$All('.move-month__btn'));
-const prevBtn = btnList.find((btn) => _.classContains(btn, 'move-month__btn--left'));
-const nextBtn = btnList.find((btn) => _.classContains(btn, 'move-month__btn--right'));
-leftCalendarManager.setButtons(prevBtn, nextBtn);
-leftCalendarManager.setButtonsEvent(prevBtn, nextBtn);
-rightCalendarManager.setButtons(prevBtn, nextBtn);
-rightCalendarManager.setButtonsEvent(prevBtn, nextBtn);
-
-// 3?) 달력 최초 생성
-leftCalendarManager.init();
-rightCalendarManager.init();
+// 2) calendarManager로 달력 첫 Render 및 나머지 구성요소 생성
+const calendarManager = new CalendarManager('.calendarWrapper', leftCalendar, rightCalendar);
+calendarManager.init();
