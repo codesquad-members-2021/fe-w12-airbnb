@@ -1,31 +1,3 @@
-// 오른쪽 상단 버튼 눌렀을 때
-const dropMenu = document.querySelector(".drop-menu");
-
-dropMenu.addEventListener("click", clickHandler);
-
-function clickHandler() {
-    const template = `<div>
-                    <a>회원가입</a>
-                    <a>로그인</a>
-                </div>
-                <div>
-                    <a>숙소 호스트 되기</a>
-                    <a>체험 호스팅하기</a>
-                    <a>도움말</a>
-                </div>`
-
-    let div = document.createElement("div");
-    div.innerHTML = template;
-    dropMenu.appendChild(div);
-
-    div.classList.add("drop-content");
-
-    const dropContent = document.querySelector(".drop-content");
-
-    dropContent.classList.toggle('drop-show')
-}
-
-
 const search = document.querySelector(".search");
 const exprienceBtnSearch = document.querySelector(".exprienceBtn-search");
 const menuList = document.querySelectorAll(".menu-list");
@@ -62,13 +34,4 @@ function exprienceBtnHandler() {
     search.classList.remove("display-block")
     search.classList.add("display-none")
     exprienceBtnSearch.classList.add("display-block")
-}
-
-//달력
-let day = document.querySelector(".day")
-let calendar = document.querySelector(".calendar")
-day.addEventListener("click", dayHandler)
-
-function dayHandler() {
-    calendar.style.display = "block";
 }
