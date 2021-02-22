@@ -278,6 +278,11 @@ header .calendar-box > ul > li > div {
   justify-content: center;
   border-radius: 50%;
 }
+header .calendar-box > ul > li > div.clicked {
+  background: black;
+  color: white;
+}
+
 header .calendar-box ul > li.notPassed > div:hover {
   cursor: pointer;
   box-shadow: 0 0 0 1px black;
