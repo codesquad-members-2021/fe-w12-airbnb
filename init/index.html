@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>숙소, 체험, 장소를 모두 한 곳에서 - 에어비앤비</title>
     <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!--Header-->
@@ -111,15 +116,15 @@
 
           <div id="activity-date">
             <span>날짜</span>
-            <input
-              class="search__input"
-              type="text"
-              placeholder="원하는 날짜를 입력하세요."
-            />
+            <div class="date-view">원하는 날짜를 입력하세요.</div>
             <div id="activity-icon"><img src="img/search.svg" /></div>
+          </div>
+
+            
           </div>
         </section>
 
+        <!-- Calendar-->
         <div class="top-section__text-div">
           이제, 여행은<br />가까운 곳에서<br />
           <button class="top-section__text-div--btn">
@@ -310,10 +315,10 @@
         </div>
       </section>
     </main>
-    <script
+    <script 
       src="https://kit.fontawesome.com/fb7e7bab0c.js"
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
+    <script type ="module" src="main.js"></script>
   </body>
 </html>

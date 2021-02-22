@@ -1,6 +1,10 @@
 :root {
   /*Color*/
   --main-color: #fe375c;
+  --calendar-th-color: rgb(113, 113, 113);
+  --calendar-tb-color: rgb(34, 34, 34);
+
+  --calendar-none-color: rgb(189, 189, 189);
 }
 
 a {
@@ -27,7 +31,7 @@ body {
   box-sizing: border-box;
   height: 58px;
   background-color: black;
-  padding: 20px 80px 20px 80px;
+  padding: 20px 80px;
   font-size: 14px;
   text-align: center;
 }
@@ -175,11 +179,126 @@ body {
   height: 70px;
   background-color: white;
   border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.search-calendar {
+  position: relative;
+  list-style: none;
+  padding: 0px;
+  top: 16%;
+  left: 32%;
+  width: 35%;
+  height: 34%;
+  background-color: white;
+  border-radius: 30px;
+  /* font-family: "Nanum Gothic", sans-serif; */
+}
+
+#calendar-left {
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  /* outline: #fe375c solid; */
+}
+#calendar-right {
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  right: 0;
+  /* outline: #60353d solid; */
+}
+.calendar-title {
+  position: relative;
+  /* background-color: violet; */
+  margin-top: 5%;
+  height: 7%;
+  text-align: center;
+}
+
+.calendar-title > button {
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+}
+.calendar-title > #btn-left {
+  left: 11%;
+}
+
+.calendar-title > #btn-right {
+  right: 11%;
+}
+.calendar-title > span {
+  position: absolute;
+  top: 1%;
+  left: 43%;
+  /* outline: black solid; */
+  font-size: 15px;
+  line-height: 23px;
+  font-weight: 600;
+}
+.calendar-table {
+  /* outline: blue solid; */
+  width: 80%;
+  height: 80%;
+  padding: 1%;
+  margin-top: 3%;
+  position: absolute;
+  left: 10%;
+  text-align: center;
+}
+.calendar-table > thead {
+  /* outline: orange solid; */
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--calendar-th-color);
+}
+.calendar-left-tbody {
+  /* outline: green solid; */
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--calendar-tb-color);
+}
+
+.calendar-left-tbody > tr :hover {
+  box-shadow: 0 0 0 1px #000;
+  border-radius: 50%;
+}
+
+.td-circle {
+  cursor: pointer;
+  background-color: rgb(34, 34, 34);
+  color: white;
+  border-radius: 50%;
+}
+
+.td-light-font-color {
+  color: rgb(220, 218, 218);
+}
+
+.calendar-right-tbody {
+  /* outline: green solid; */
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--calendar-tb-color);
+}
+.calendar-right-tbody > tr :hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #000;
+  border-radius: 50%;
 }
 
 .search__input {
   border: none;
   font-size: 14px;
+  font-weight: 600;
 }
 
 #search-destination {
@@ -316,6 +435,23 @@ body {
   width: 60%;
   padding: 0px;
 }
+.date-view {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 6%;
+  width: 100%;
+  height: 50%;
+  padding: 0px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #717171;
+}
+
+.date-view-selected {
+  font-weight: 700;
+  color: var(--calendar-tb-color);
+}
 
 #activity-date {
   position: absolute;
@@ -392,7 +528,7 @@ body {
 
 .city-section__div {
   height: 144px;
-  padding: 0px 0px 0px 0px;
+  padding: 0px;
 }
 
 .city-section__list {
@@ -434,8 +570,8 @@ body {
 
 .section__div > ul {
   position: absolute;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .section__main-text {
@@ -475,7 +611,7 @@ body {
   position: absolute;
   height: 44px;
   width: 752px;
-  padding: 16px 16px 16px 16px;
+  padding: 16px;
   font-size: 16px;
   bottom: 0;
 }
@@ -526,5 +662,13 @@ body {
 .host-section__img {
   width: 520.656px;
   height: 347.094px;
-  border-radius: 16px 16px 16px 16px;
+  border-radius: 16px;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
 }
