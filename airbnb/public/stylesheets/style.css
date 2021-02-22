@@ -60,7 +60,7 @@ nav ul li {
   float: none;
   position: absolute;
   left: 42%;
-  top: 55%;
+  top: 12%;
 }
 
 .nav-right {
@@ -71,6 +71,12 @@ nav ul li {
 .nav-right img {
   width: 20px;
   filter: invert(100%) brightness(100%);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .account-group {
@@ -84,10 +90,10 @@ nav ul li {
 }
 
 .account-menu {
-  visibility: hidden;
+  display: none;
   position: absolute;
-  left: 76%;
-  top: 150%;
+  right: 5%;
+  top: 25%;
   border-radius: 10px;
   background-color: white;
   color: #222222;
@@ -102,7 +108,7 @@ nav ul li {
 }
 
 .visible {
-  visibility: visible;
+  display: block;
 }
 
 .account-menu div:not(:last-child) {
@@ -110,37 +116,58 @@ nav ul li {
 }
 
 .search {
+  position: relative;
   background-color: white;
   border-radius: 35px;
-  padding: 10px 10px 10px 30px;
   color: #222222;
   font-size: 14px;
   height: 4rem;
-  margin: 3% 15%;
+  width: 60%;
+  margin: 5% 20%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+}
+
+.search div {
+  padding: 0.9rem 0.3rem 0.8rem 1.5rem;
+  height: 4rem;
 }
 
 .search div:not(:last-child) {
-  width: calc(100% / 4);
-  padding: 0 20px;
+  height: 4rem;
   border-right: 1px solid #a09e9e79;
 }
 
-/* .search-align-4 {
+.search > div:hover {
+  border-radius: 35px;
+  background-color: white;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+  border-right: 0;
+}
+
+.search:hover div:not(:hover) {
+  border-radius: 35px;
+  background-color: #f7f7f7;
+  border-right: 0;
+}
+
+.stay-align {
   width: calc(100% / 4);
 }
 
-.search-align-2 {
+.experience-align {
   width: calc(100% / 2);
-} */
+}
 
 .search-button {
+  position: absolute;
+  top: 40%;
+  right: 22.5%;
   border-radius: 50%;
   padding: 11px;
-  width: 40px;
-  float: right;
+  width: 45px;
   background-color: #ff385c;
 }
 
@@ -235,4 +262,94 @@ nav ul li {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+/* --------- */
+
+.calendar-container {
+  /* visibility: hidden; */
+  position: absolute;
+  top: 24%;
+  right: 22.5%;
+  width: 54rem;
+  height: 24rem;
+  display: flex;
+  border-radius: 1.3rem;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.calendar {
+  width: 26rem;
+  height: 24rem;
+  padding: 1rem 2rem;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-upper i {
+  padding: 0 2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.calendar-title {
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.weekdays {
+  width: 100%;
+  height: 3rem;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.weekdays div {
+  font-size: 0.8rem;
+  width: calc(24rem / 7);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.days {
+  width: 100%;
+  height: 18rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.days div {
+  font-size: 0.8rem;
+  width: calc(24rem / 7);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.days div:hover {
+  border-radius: 50%;
+  border: 0.2rem solid #777;
+  cursor: pointer;
+}
+
+.clicked {
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+}
+
+.prev,
+.next {
+  opacity: 0.5;
+  cursor: pointer;
 }
