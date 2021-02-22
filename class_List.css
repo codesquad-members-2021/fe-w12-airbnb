@@ -1,15 +1,17 @@
+/* js파일에 모든 classList 가 있습니다. */
+
+/* 우측 login_box css */
 .List_box {
-    display: block;
     background-color: white;
     color: black;
     position: absolute;
-    width:110%;
-    left:-10%;
+    width:100%;
+    left:0;
     margin-top: 10px;
     border-radius: 10px;
 }
 
-#tempdiv {
+.tempclass {
     display: none;
 }
 
@@ -20,9 +22,101 @@
 
 .box_div {
     padding: 10px 0;
+    height:1.5rem;
     font-size: 13px;
 }
 
 #secondbox_div {
-    border-bottom: 2px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+}
+
+/* center 숙소 체험 box css*/
+.centerdisplay_off {
+    display: none !important;
+}
+
+.Infofont2 {
+    font-weight: bold;
+}
+.Infofontunder2 {
+    font-size: 15px;
+    color:gray;
+}
+
+.boxwidth {
+    display:block;
+    width:50% !important;
+}
+
+.boxpadding {
+    padding-right: 180px;
+}
+
+/* calendar css*/
+#calendar_out {
+    position: relative;
+}
+
+.calendar_css {
+    background-color:white;
+    position: absolute;
+    width: 50%;
+    top: 240px;
+    border-radius: 30px;
+}
+
+.calendar_display {
+    display:none;
+}
+
+.cal_flex {
+    display:flex;
+}
+
+.calendar_left {
+    padding:20px 60px;
+    width:50%;
+}
+
+.calendar_left > tbody > tr > td {
+    text-align: center;
+    padding:0;
+}
+
+.calendar_left > tbody > tr > .cal_padding {
+    padding-top: 10px;
+}
+
+.calendar_right {
+    padding:20px 60px;
+    width:50%;
+}
+
+.calendar_right > tbody > tr > td {
+    text-align: center;
+    padding:0;
+}
+
+.calendar_right > tbody > tr > .cal_padding {
+    padding-top: 5px;
+}
+
+.CALENDAR_TABLE_BUTTON {
+    text-align: center;
+    width:31px;
+    height:31px;
+    padding:5px;
+    border:none;
+    outline:none;
+    background-color: transparent;
+}
+
+.CALENDAR_TABLE_BUTTON_CLICK {
+    background-color:black;
+    color:white;
+    border-radius: 50%;
+}
+
+.CALENDAR_TABLE_BUTTON:active {
+    transform: translateY(2px);
 }
